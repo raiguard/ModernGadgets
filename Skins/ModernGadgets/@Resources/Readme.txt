@@ -5,9 +5,11 @@ By iamanai
 ----------------------------------------
 ABOUT
 
-ModernGadgets is a skin suite with the classic All CPU Meter, Network Meter, GPU Meter, and Drives Meter, updated and enhanced to
-feel more "modern". The included Config skin also lets you change gadget settings, and check for skin suite updates. ModernGadgets
-is built upon the CoreMeter API, which also must be installed.
+ModernGadgets is a skin suite with the classic AddGadgets.com system monitoring gadgets, updated and
+enhanced to feel more "modern". The included Config skin also lets you change gadget settings, and check
+for skin suite updates.
+
+This skin suite is based upon iamanai's previous work, illustro Gadgets, which in turn was based on "Gadgets" by SilverAzide.
 
 ----------------------------------------
 LICENSE AND CREDITS
@@ -30,5 +32,4 @@ DeviantArt: iamanai
 CHANGELOG
 
 v1.0.0 - 2016-??-??
-Additions
- - Added CPU, Network, GPU, and Disks Meters, Config skin
+ - Initial release
