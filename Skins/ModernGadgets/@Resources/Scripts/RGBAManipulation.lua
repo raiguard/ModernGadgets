@@ -10,7 +10,7 @@
 -- v1.0.0 - Initial release
 --
 
-isDbg = true
+isDbg = false
 
 function Initialize()
 

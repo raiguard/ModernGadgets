@@ -1,8 +1,6 @@
 ; COREMETER API
 ; cpu0 Measures
 
-@includeHWiNFOConfig=#hwinfoConfigFilePath#
-
 [MeasureFixedPrecisionFormatScript]
 Measure=Script
 ScriptFile=#SKINSPATH#CoreMeter\@Resources\Scripts\FixedPrecisionFormat.lua
@@ -12,7 +10,7 @@ ScriptFile=#SKINSPATH#CoreMeter\@Resources\Scripts\FixedPrecisionFormat.lua
 Measure=Plugin
 Plugin=PowerPlugin
 PowerState=MHz
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore0]
 Measure=Plugin
@@ -21,7 +19,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core0Clock#
 HWiNFOType=CurrentValue
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore1]
 Measure=Plugin
@@ -30,7 +28,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core1Clock#
 HWiNFOType=CurrentValue
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore2]
 Measure=Plugin
@@ -39,7 +37,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core2Clock#
 HWiNFOType=CurrentValue
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore3]
 Measure=Plugin
@@ -48,7 +46,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core3Clock#
 HWiNFOType=CurrentValue
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore4]
 Measure=Plugin
@@ -57,7 +55,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core4Clock#
 HWiNFOType=CurrentValue
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore5]
 Measure=Plugin
@@ -66,7 +64,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core5Clock#
 HWiNFOType=CurrentValue
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore6]
 Measure=Plugin
@@ -75,7 +73,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core6Clock#
 HWiNFOType=CurrentValue
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore7]
 Measure=Plugin
@@ -84,15 +82,15 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core7Clock#
 HWiNFOType=CurrentValue
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCalc]
 Measure=Calc
-Formula=(#useHWiNFOClockSpeed# = 0) ? MeasureCpuClockSpeed : Max(Max(Max(Max(Max(Max(Max(MeasureCpuClockSpeedHWiNFOCore0, MeasureCpuClockSpeedHWiNFOCore1), MeasureCpuClockSpeedHWiNFOCore2), MeasureCpuClockSpeedHWiNFOCore3), MeasureCpuClockSpeedHWiNFOCore4), MeasureCpuClockSpeedHWiNFOCore5), MeasureCpuClockSpeedHWiNFOCore6), MeasureCpuClockSpeedHWiNFOCore7)
-IfCondition=(MeasureCpuClockSpeedHWiNFOCalc = 0) && (#useHWiNFOClockSpeed# = 1)
+Formula=(#useHwinfoClockSpeed# = 0) ? MeasureCpuClockSpeed : Max(Max(Max(Max(Max(Max(Max(MeasureCpuClockSpeedHWiNFOCore0, MeasureCpuClockSpeedHWiNFOCore1), MeasureCpuClockSpeedHWiNFOCore2), MeasureCpuClockSpeedHWiNFOCore3), MeasureCpuClockSpeedHWiNFOCore4), MeasureCpuClockSpeedHWiNFOCore5), MeasureCpuClockSpeedHWiNFOCore6), MeasureCpuClockSpeedHWiNFOCore7)
+IfCondition=(MeasureCpuClockSpeedHWiNFOCalc = 0) && (#useHwinfoClockSpeed# = 1)
 IfTrueAction=[!SetOption CpuClockSpeedValueString MeasureName "MeasureCpuClockSpeed"][!UpdateMeter "CpuClockSpeedValueString"]
 IfFalseAction=[!SetOption CpuClockSpeedValueString MeasureName "MeasureCpuClockSpeedHWiNFOCalc"][!UpdateMeter "CpuClockSpeedValueString"]
-Disabled=(#showCpuClockSpeed# = 0 ? 1 : 0)
+Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
 ; ## RAM ##
 [MeasureRamUsage]
@@ -141,6 +139,7 @@ Disabled=(#showPage# = 1 ? 0 : 1)
 [MeasurePageUsed]
 Measure=Calc
 Formula=M4KPagesInUse * 4096
+; Formula=10000000000
 IfCondition=1
 IfTrueAction=[!CommandMeasure MeasureFixedPrecisionFormatScript "FormatNumber([MeasurePageUsed], #fpfPageDepth#, '1k', 'textPageUsed')"]
 OnChangeAction=[!CommandMeasure MeasureFixedPrecisionFormatScript "FormatNumber([MeasurePageUsed], #fpfPageDepth#, '1k', 'textPageUsed')"]
@@ -148,7 +147,9 @@ Disabled=(#showPage# = 1 ? 0 : 1)
 
 [MeasurePageUsage]
 Measure=Calc
-Formula=MeasurePageUsed / MeasurePageTotalCalc
+Formula=(MeasurePageUsed / MeasurePageTotalCalc) * 100
+MinValue=0
+MaxValue=100
 Disabled=(#showPage# = 1 ? 0 : 1)
 
 ; ## CPU FAN SPEED ##
@@ -175,14 +176,14 @@ MinValue=0
 MaxValue=100
 
 ; ## CPU INFORMATION ##
-[MeasureCPUName]
+[MeasureCpuName]
 Measure=Registry
 RegHKey=HKEY_LOCAL_MACHINE
 RegKey=HARDWARE\DESCRIPTION\System\CentralProcessor\0
 RegValue=ProcessorNameString
 UpdateDivider=-1
 
-[MeasureCPUDisplayName]
+[MeasureCpuDisplayName]
 Measure=Registry
 RegHKey=HKEY_LOCAL_MACHINE
 RegKey=HARDWARE\DESCRIPTION\System\CentralProcessor\0
@@ -191,76 +192,76 @@ RegExpSubstitute=1
 SubStitute="\(R\)":"","\(TM\)":"","\(tm\)":"","(.*) CPU.*":"\1"
 UpdateDivider=-1
 
-[MeasureCPULogicalCores]
+[MeasureCpuLogicalCores]
 Measure=Calc
-Formula=%NUMBER_OF_PROCESSORS%
-IfCondition=(MeasureCPULogicalCores = 1) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction=[!WriteKeyValue Variables hideCore2 1 "#varPath#"][!WriteKeyValue Variables hideCore3 1 "#varPath#"][!WriteKeyValue Variables hideCore4 1 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+Formula=8
+IfCondition=(MeasureCpuLogicalCores = 1) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction=[!WriteKeyValue Variables hideCore2 1 "#varPath#"][!WriteKeyValue Variables hideCore3 1 "#varPath#"][!WriteKeyValue Variables hideCore4 1 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition2=(MeasureCPULogicalCores = 2) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction2=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 1 "#varPath#"][!WriteKeyValue Variables hideCore4 1 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition2=(MeasureCpuLogicalCores = 2) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction2=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 1 "#varPath#"][!WriteKeyValue Variables hideCore4 1 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition3=(MeasureCPULogicalCores = 3) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction3=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 1 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition3=(MeasureCpuLogicalCores = 3) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction3=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 1 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition4=(MeasureCPULogicalCores = 4) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction4=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition4=(MeasureCpuLogicalCores = 4) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction4=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition5=(MeasureCPULogicalCores = 5) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction5=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition5=(MeasureCpuLogicalCores = 5) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction5=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition6=(MeasureCPULogicalCores = 6) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction6=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition6=(MeasureCpuLogicalCores = 6) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction6=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition7=(MeasureCPULogicalCores = 7) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction7=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition7=(MeasureCpuLogicalCores = 7) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction7=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition8=(MeasureCPULogicalCores = 8) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction8=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition8=(MeasureCpuLogicalCores = 8) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction8=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition9=(MeasureCPULogicalCores = 9) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction9=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition9=(MeasureCpuLogicalCores = 9) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction9=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition10=(MeasureCPULogicalCores = 10) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction10=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition10=(MeasureCpuLogicalCores = 10) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction10=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition11=(MeasureCPULogicalCores = 11) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction11=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition11=(MeasureCpuLogicalCores = 11) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction11=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition12=(MeasureCPULogicalCores = 12) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction12=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition12=(MeasureCpuLogicalCores = 12) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction12=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition13=(MeasureCPULogicalCores = 13) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction13=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 0 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition13=(MeasureCpuLogicalCores = 13) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction13=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 0 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition14=(MeasureCPULogicalCores = 14) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction14=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 0 "#varPath#"][!WriteKeyValue Variables hideCore14 0 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition14=(MeasureCpuLogicalCores = 14) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction14=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 0 "#varPath#"][!WriteKeyValue Variables hideCore14 0 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition15=(MeasureCPULogicalCores = 15) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction15=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 0 "#varPath#"][!WriteKeyValue Variables hideCore14 0 "#varPath#"][!WriteKeyValue Variables hideCore15 0 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition15=(MeasureCpuLogicalCores = 15) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction15=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 0 "#varPath#"][!WriteKeyValue Variables hideCore14 0 "#varPath#"][!WriteKeyValue Variables hideCore15 0 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
-IfCondition16=(MeasureCPULogicalCores > 15) && (MeasureCPULogicalCores <> #cpuCores#)
-IfTrueAction16=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 0 "#varPath#"][!WriteKeyValue Variables hideCore14 0 "#varPath#"][!WriteKeyValue Variables hideCore15 0 "#varPath#"][!WriteKeyValue Variables hideCore16 0 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCPULogicalCores] "#varPath#"][!Refresh]
+IfCondition16=(MeasureCpuLogicalCores > 15) && (MeasureCpuLogicalCores <> #cpuCores#)
+IfTrueAction16=[!WriteKeyValue Variables hideCore2 0 "#varPath#"][!WriteKeyValue Variables hideCore3 0 "#varPath#"][!WriteKeyValue Variables hideCore4 0 "#varPath#"][!WriteKeyValue Variables hideCore5 0 "#varPath#"][!WriteKeyValue Variables hideCore6 0 "#varPath#"][!WriteKeyValue Variables hideCore7 0 "#varPath#"][!WriteKeyValue Variables hideCore8 0 "#varPath#"][!WriteKeyValue Variables hideCore9 0 "#varPath#"][!WriteKeyValue Variables hideCore10 0 "#varPath#"][!WriteKeyValue Variables hideCore11 0 "#varPath#"][!WriteKeyValue Variables hideCore12 0 "#varPath#"][!WriteKeyValue Variables hideCore13 0 "#varPath#"][!WriteKeyValue Variables hideCore14 0 "#varPath#"][!WriteKeyValue Variables hideCore15 0 "#varPath#"][!WriteKeyValue Variables hideCore16 0 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 UpdateDivider=-1
 
-[MeasureCPUPhysicalCores]
+[MeasureCpuPhysicalCores]
 Measure=Plugin
 Plugin=ActiveNet
 Type=PhysicalCores
 UpdateDivider=-1
 
-[MeasureCPUPhysicalCPUs]
+[MeasureCpuPhysicalCPUs]
 Measure=Plugin
 Plugin=ActiveNet
 Type=Processors
 UpdateDivider=-1
 
-[MeasureCPUThreadsPerCore]
+[MeasureCpuThreadsPerCore]
 Measure=Plugin
 Plugin=ActiveNet
 Type=ThreadsPerCore
-IfCondition=[MeasureCPUThreadsPerCore] <> #threadsPerCore#
-IfTrueAction=[!WriteKeyValue Variables threadsPerCore [MeasureCPUThreadsPerCore] "#varPath#"][!Refresh]
+IfCondition=[MeasureCpuThreadsPerCore] <> #threadsPerCore#
+IfTrueAction=[!WriteKeyValue Variables threadsPerCore [MeasureCpuThreadsPerCore] "#varPath#"][!Refresh]
 DynamicVariables=1
 UpdateDivider=-1
 
@@ -359,162 +360,162 @@ IfTrueAction=[!SetVariable isHWiNFOInUse 1]
 IfFalseAction=[!SetVariable isHWiNFOInUse 0]
 DynamicVariables=1
 
-[MeasureCPUTempCore1]
+[MeasureCpuTempCore1]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core0Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore2]
+[MeasureCpuTempCore2]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core0Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) ||  (#hideCore2#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore2# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore3]
+[MeasureCpuTempCore3]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core1Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore3#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore3# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore4]
+[MeasureCpuTempCore4]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core1Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore4#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore4# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore5]
+[MeasureCpuTempCore5]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core2Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore5#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore5# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore6]
+[MeasureCpuTempCore6]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core2Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore6#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore6# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore7]
+[MeasureCpuTempCore7]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core3Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore7#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore7# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore8]
+[MeasureCpuTempCore8]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core3Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore8#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore8# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore9]
+[MeasureCpuTempCore9]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core4Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore9#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore9# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore10]
+[MeasureCpuTempCore10]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core4Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore10#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore10# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore11]
+[MeasureCpuTempCore11]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core5Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore11#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore11# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore12]
+[MeasureCpuTempCore12]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core5Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore12#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore12# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore13]
+[MeasureCpuTempCore13]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core6Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore13#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore13# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore14]
+[MeasureCpuTempCore14]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core6Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore14#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore14# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore15]
+[MeasureCpuTempCore15]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core7Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore15#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore15# || #isHWiNFOInUse# = 0
 DynamicVariables=1
 
-[MeasureCPUTempCore16]
+[MeasureCpuTempCore16]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core7Temp#
 HWiNFOType=CurrentValue
-Disabled=(#disableTemps#) || (#hideCore16#) || (#isHWiNFOInUse# = 0)
+Disabled=#disableTemps# || #hideCore16# || #isHWiNFOInUse# = 0
 DynamicVariables=1
