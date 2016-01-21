@@ -17,7 +17,7 @@ LICENSE AND CREDITS
 This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
 
 Programming, UI: iamanai
-CoreMeter API: iamanai
+Wrench icon: Freepik, from Flaticon
 Special thanks to: SilverAzide, James Musix
 
 ----------------------------------------

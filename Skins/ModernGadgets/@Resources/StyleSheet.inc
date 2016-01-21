@@ -5,15 +5,6 @@
 [Variables]
 hwinfoConfigFilePath="D:\Files\Settings\Caleb\Rainmeter\HWiNFOConfig.inc"
 
-gadgetsContentMargin=10
-gadgetsRowSpacing=2
-rowYOffset=(#fontSize# + #gadgetsRowSpacing#)
-
-bgWidth=160
-bgAlpha=253
-bgCenterX=((#bgWidth# + 10) / 2)
-contentMarginRightX=(#bgWidth# - (#gadgetsContentMargin# / 2) + 5)
-
 fontFace=Arial
 fontSize=8
 fontColor=255,255,255,220
@@ -24,6 +15,15 @@ colorBarBg=100,100,100,150
 colorGraphBorder=60,60,60
 
 graphHeight=41
+
+gadgetsContentMargin=10
+gadgetsRowSpacing=2
+rowYOffset=(14 + #gadgetsRowSpacing#)
+
+bgWidth=160
+bgAlpha=253
+bgCenterX=((#bgWidth# + 10) / 2)
+contentMarginRightX=(#bgWidth# - (#gadgetsContentMargin# / 2) + 5)
 
 ; ========= Global Styles =========
 

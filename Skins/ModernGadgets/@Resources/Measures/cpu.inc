@@ -1,5 +1,4 @@
-; COREMETER API
-; cpu0 Measures
+; CPU Measures
 
 [MeasureFixedPrecisionFormatScript]
 Measure=Script
@@ -10,7 +9,7 @@ ScriptFile=#SKINSPATH#CoreMeter\@Resources\Scripts\FixedPrecisionFormat.lua
 Measure=Plugin
 Plugin=PowerPlugin
 PowerState=MHz
-Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
+Disabled=(#showCpuClockSpeed# = 0) ? 1 : 0
 
 [MeasureCpuClockSpeedHWiNFOCore0]
 Measure=Plugin
@@ -194,7 +193,8 @@ UpdateDivider=-1
 
 [MeasureCpuLogicalCores]
 Measure=Calc
-Formula=8
+Formula=%NUMBER_OF_PROCESSORS%
+; Formula=16
 IfCondition=(MeasureCpuLogicalCores = 1) && (MeasureCpuLogicalCores <> #cpuCores#)
 IfTrueAction=[!WriteKeyValue Variables hideCore2 1 "#varPath#"][!WriteKeyValue Variables hideCore3 1 "#varPath#"][!WriteKeyValue Variables hideCore4 1 "#varPath#"][!WriteKeyValue Variables hideCore5 1 "#varPath#"][!WriteKeyValue Variables hideCore6 1 "#varPath#"][!WriteKeyValue Variables hideCore7 1 "#varPath#"][!WriteKeyValue Variables hideCore8 1 "#varPath#"][!WriteKeyValue Variables hideCore9 1 "#varPath#"][!WriteKeyValue Variables hideCore10 1 "#varPath#"][!WriteKeyValue Variables hideCore11 1 "#varPath#"][!WriteKeyValue Variables hideCore12 1 "#varPath#"][!WriteKeyValue Variables hideCore13 1 "#varPath#"][!WriteKeyValue Variables hideCore14 1 "#varPath#"][!WriteKeyValue Variables hideCore15 1 "#varPath#"][!WriteKeyValue Variables hideCore16 1 "#varPath#"][!WriteKeyValue Variables cpuCores [MeasureCpuLogicalCores] "#varPath#"][!Refresh]
 
