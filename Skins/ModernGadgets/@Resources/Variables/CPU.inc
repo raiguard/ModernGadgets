@@ -2,9 +2,6 @@
 ; Local stylesheet for use with the CPU skin
 
 [Variables]
-; bgHeight=275
-bgHeight=(25 + (#rowYOffset# * (1 + #showCpuName# + #showPage# + #showFan# + #cpuCores# + #showCpuClockSpeed#)) + ((#showCpuClockSpeed# = 1) ? 0 : 5) + ((#showGraph# = 1) ? #graphHeight# : -3) + 1)
-
 cpuCores=8
 threadsPerCore=2
 
@@ -16,7 +13,7 @@ fpfRamDepth=4
 fpfPageDepth=4
 
 showCpuName=1
-showPage=1
+showPage=0
 showFan=1
 showAvgCpuOnly=0
 showCpuClockSpeed=1
