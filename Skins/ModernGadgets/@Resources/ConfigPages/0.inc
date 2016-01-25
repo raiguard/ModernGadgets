@@ -2,6 +2,10 @@
 
 ; ========= Local Measures =========
 
+[ScriptUpdateChecker]
+Measure=Script
+ScriptFile=#@#Scripts\UpdateChecker.lua
+
 [MeasureReleaseVersion]
 Measure=Plugin
 Plugin=WebParser
@@ -9,25 +13,16 @@ UpdateRate=1000
 Url="https://github.com/iamanai/ModernGadgets/blob/master/ReleaseVersion.txt"
 RegExp="(?siU)<td id="LC1" class="blob-code blob-code-inner js-file-line">(.*)</td>.*"
 StringIndex=1
+IfCondition=1
+IfTrueAction=[!SetOption UpdateCheckerString MeterStyle "StyleString | StyleStringPanelContent | StyleUpdateCheckerConnecting"][!Redraw]
 FinishAction=[!EnableMeasure MeasureVersionCheck]
-
-[MeasureCurrentReleaseVerAbsolute]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureIPAddress]
-StringIndex=1
-Substitute=".":"","-d":""
+Disabled=1
 
 [MeasureVersionCheck]
 Measure=Calc
-Formula=[MeasureCurrentReleaseVerAbsolute] - [MeasureVersionAbsolute]
-IfAboveValue=0
-IfAboveAction=[!SetOption UpdateCheckerString MeterStyle "StyleText | StyleUpdateCheckerYes"][!Redraw]
-IfEqualValue=0
-IfEqualAction=[!SetOption UpdateCheckerString MeterStyle "StyleText | StyleUpdateCheckerNo"][!Redraw]
-IfBelowValue=0
-IfBelowAction=[!SetOption UpdateCheckerString MeterStyle "StyleText | StyleUpdateCheckerDev"][!Redraw]
-DynamicVariables=1
+Formula=1
+IfCondition=1
+IfTrueAction=[!CommandMeasure ScriptUpdateChecker "CheckForUpdate('#version#', '[MeasureReleaseVersion]', 'UpdateCheckerString')"]
 Disabled=1
 
 ; ========= Local Styles =========
@@ -35,14 +30,14 @@ Disabled=1
 [StyleUpdateCheckerButton]
 FontColor=#fontColorAccent#
 Text="Check for updates"
-LeftMouseUpAction=[!EnableMeasure MeasureVersionCheck][!SetOption UpdateCheckerString MeterStyle "StyleString | StyleStringPanelContent | StyleUpdateCheckerConnecting"]
+LeftMouseUpAction=[!EnableMeasure MeasureReleaseVersion]
 
 [StyleUpdateCheckerConnecting]
 FontColor=#fontColorDim#
 Text="Connecting to GitHub..."
 
 [StyleUpdateCheckerYes]
-Text="v[MeasureCurrentReleaseVer] is avaliable for download!"
+Text="v[MeasureReleaseVersion] is avaliable! Get it on DeviantArt."
 DynamicVariables=1
 
 [StyleUpdateCheckerNo]
@@ -59,11 +54,13 @@ Text="Using development version"
 Meter=Image
 MeterStyle=StyleSubpageIndicatorTop
 Y=([NavBarButtonAboutString:Y] + 3)
+DynamicVariables=1
 
 [SubpageIndicatorBottom]
 Meter=Image
 MeterStyle=StyleSubpageIndicatorBottom
 Y=[SubpageIndicatorTop:H]r
+DynamicVariables=1
 
 [SkinPackNameString]
 Meter=String
@@ -159,7 +156,7 @@ Text="Twitter"
 LeftMouseUpAction=["https://twitter.com/iamanai_"]
 ToolTipText="iamanai's Twitter gives you insight into the developer's everyday life, and sneak peeks at upcoming projects!"
 
-; ----- Attributions, Update -----
+; ----- Attributions, Update, Versions notice -----
 
 [AttributionsString]
 Meter=String
@@ -175,4 +172,13 @@ Text="ATTRIBUTIONS#CRLF# - SilverAzide, for the ActiveNet plugin and HWiNFO How-
 Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleUpdateCheckerButton
 FontSize=10
-Y=20R
+Y=10R
+
+[VersionsInfoString]
+Meter=String
+MeterStyle=StyleString | StyleStringPanelContent
+FontColor=#fontColorDim#
+ClipString=2
+Y=10R
+W=((#bgWidth# + 5) - #contentMargin# - (#navBarSeparatorX# + 10) + 4)
+Text="NOTICE: It is impossible for one developer to thoroughly test everything in a skin suite this complex. If you would like to become a beta tester, please visit the GitHub repository (link above) and clone the development branch to your skins folder. Happy testing!#CRLF##CRLF#Additionally, if you find any bugs, inconsistencies, or mistakes please leave a comment on the DeviantArt page or the Rainmeter Forums post so it can be patched!"

@@ -5,6 +5,7 @@
 
 [Variables]
 hwinfoConfigFilePath="D:\Files\Settings\Caleb\Rainmeter\HWiNFOConfig.inc"
+styleSheetPath="#@#StyleSheet.inc"
 
 fontFace=Arial
 fontSize=8
@@ -17,6 +18,7 @@ colorGraphBorder=35,35,35
 ; 60,60,60
 
 graphHeight=41
+lineGraphAa=0
 
 contentMargin=10
 gadgetsRowSpacing=2
@@ -28,6 +30,7 @@ bgCenterX=((#bgWidth# + 10) / 2)
 contentMarginRightX=(#bgWidth# - (#contentMargin# / 2) + 5)
 
 version=1.0.0
+largeRowSpacing=0
 
 ; ========= Global Styles =========
 
@@ -39,7 +42,7 @@ StringAlign=Left
 X=#contentMargin#
 Y=#gadgetsRowSpacing#R
 Antialias=1
-DynamicVariables=1
+; DynamicVariables=1
 
 [StyleStringRightAlign]
 StringAlign=Right
@@ -51,6 +54,7 @@ StringAlign=Center
 FontColor=#fontColorDim#
 X=#bgCenterX#
 Y=r
+DynamicVariables=1
 
 [StyleBar]
 X=(#contentMargin# + 2)

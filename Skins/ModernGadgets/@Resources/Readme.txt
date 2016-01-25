@@ -17,9 +17,10 @@ LICENSE AND CREDITS
 This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
 
 Programming, UI: iamanai
-ActiveNet Plugin: SilverAzide
+ActiveNet Plugin, HWiNFO How-to: SilverAzide
 HWiNFO Plugin: Stangowner
-HWiNFO Configuration How-to: SilverAzide
+RainFile: Kaelri
+RainRGB and Rainmeter: Jeffrey Morley
 
 ----------------------------------------
 CONTACT

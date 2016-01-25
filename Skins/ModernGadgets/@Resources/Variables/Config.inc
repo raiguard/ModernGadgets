@@ -5,5 +5,5 @@ bgHeight=500
 
 navBarSeparatorX=105
 
-page=0
+page=1
 varFilePath=#@#Variables\Config.inc
