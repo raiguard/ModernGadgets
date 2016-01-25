@@ -2,6 +2,7 @@
 ; Global stylesheet for use with all skins
 
 ; ========= Global Variables =========
+
 [Variables]
 hwinfoConfigFilePath="D:\Files\Settings\Caleb\Rainmeter\HWiNFOConfig.inc"
 
@@ -12,18 +13,21 @@ fontColorDim=255,255,255,150
 fontColorAccent=138,210,250,200
 
 colorBarBg=100,100,100,150
-colorGraphBorder=60,60,60
+colorGraphBorder=35,35,35
+; 60,60,60
 
 graphHeight=41
 
-gadgetsContentMargin=10
+contentMargin=10
 gadgetsRowSpacing=2
 rowYOffset=(14 + #gadgetsRowSpacing#)
 
 bgWidth=160
 bgAlpha=253
 bgCenterX=((#bgWidth# + 10) / 2)
-contentMarginRightX=(#bgWidth# - (#gadgetsContentMargin# / 2) + 5)
+contentMarginRightX=(#bgWidth# - (#contentMargin# / 2) + 5)
+
+version=1.0.0
 
 ; ========= Global Styles =========
 
@@ -32,7 +36,7 @@ FontFace=#fontFace#
 FontSize=#fontSize#
 FontColor=#fontColor#
 StringAlign=Left
-X=#gadgetsContentMargin#
+X=#contentMargin#
 Y=#gadgetsRowSpacing#R
 Antialias=1
 DynamicVariables=1
@@ -49,10 +53,10 @@ X=#bgCenterX#
 Y=r
 
 [StyleBar]
-X=(#gadgetsContentMargin# + 2)
+X=(#contentMargin# + 2)
 Y=R
-W=(#bgWidth# - #gadgetsContentMargin# - 4)
-w=(#bgWidth# - #gadgetsContentMargin# - 4)
+W=(#bgWidth# - #contentMargin# - 4)
+w=(#bgWidth# - #contentMargin# - 4)
 h=1
 SolidColor=#colorBarBg#
 BarOrientation=Horizontal

@@ -5,11 +5,11 @@ By iamanai
 ----------------------------------------
 ABOUT
 
-ModernGadgets is a skin suite with the classic AddGadgets.com system monitoring gadgets, updated and
-enhanced to feel more "modern". The included Config skin also lets you change gadget settings, and check
-for skin suite updates.
+ModernGadgets are Rainmeter versions of the classic AddGadgets.com system monitoring gadgets, updated and enhanced
+to feel more "modern". The included Config skin also lets you change gadget settings, and check for skin suite updates.
 
-This skin suite is based upon iamanai's previous work, illustro Gadgets, which in turn was based on "Gadgets" by SilverAzide.
+This skin suite comes with the HWiNFO and ActiveNet plugins. These plugins are third-party, and therefore any issues
+caused by them are not the responsibility of the skin pack author.
 
 ----------------------------------------
 LICENSE AND CREDITS
@@ -17,8 +17,9 @@ LICENSE AND CREDITS
 This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
 
 Programming, UI: iamanai
-Wrench icon: Freepik, from Flaticon
-Special thanks to: SilverAzide, James Musix
+ActiveNet Plugin: SilverAzide
+HWiNFO Plugin: Stangowner
+HWiNFO Configuration How-to: SilverAzide
 
 ----------------------------------------
 CONTACT

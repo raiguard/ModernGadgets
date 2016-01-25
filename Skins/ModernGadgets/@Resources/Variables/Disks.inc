@@ -12,8 +12,6 @@ showGraph=1
 showCapacityWarnings=1
 showDiskTemps=1
 
-bgHeight=(30 + ((((#rowYOffset# - 1) * 3) + 1) * [CalcNumOfDisks]) + ((#showGraph# = 1) ? #graphHeight# : -2) + 6)
-
 hideDiskD=0
 hideDiskE=0
 hideDiskF=0
@@ -51,6 +49,10 @@ d07="I:"
 d08="J:"
 d09="K:"
 d10="L:"
+
+; -- Background --
+
+bgHeight=(30 + ((((#rowYOffset# - 1) * 3) + 1) * ([CalcNumOfDisks] - 1) + ((#rowYOffset# - 1) * 2) + (#rowYOffset# + (2 - #gadgetsRowSpacing#))) + ((#showGraph# = 1) ? #graphHeight# : -2) + 6)
 
 ; -- Dynamic (do not change) --
 
