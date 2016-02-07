@@ -5,22 +5,20 @@ By iamanai
 ----------------------------------------
 ABOUT
 
-ModernGadgets are Rainmeter versions of the classic AddGadgets.com system monitoring gadgets, updated and enhanced
-to feel more "modern". The included Config skin also lets you change gadget settings, and check for skin suite updates.
+ModernGadgets includes Rainmeter versions of the classic AddGadgets.com system monitoring gadgets, updated and enhanced to give them a "modern" feel. Several features and functionalities are based on "Gadgets" by SilverAzide, and "illustro Gadgets" by iamanai.
 
-This skin suite comes with the HWiNFO and ActiveNet plugins. These plugins are third-party, and therefore any issues
-caused by them are not the responsibility of the skin pack author.
+ModernGadgets includes several third-party plugins and addons. Any issues with these plugins/addons are not the responsibility of the skin pack author.
 
 ----------------------------------------
 LICENSE AND CREDITS
 
 This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
 
-Programming, UI: iamanai
-ActiveNet Plugin, HWiNFO How-to: SilverAzide
-HWiNFO Plugin: Stangowner
-RainFile: Kaelri
-RainRGB and Rainmeter: Jeffrey Morley
+Programming, Design - iamanai
+ActiveNet Plugin - SilverAzide
+HWiNFO Plugin - Stangowner
+RainFile - Kaelri
+RainRGB - Jeffrey Morley
 
 ----------------------------------------
 CONTACT
