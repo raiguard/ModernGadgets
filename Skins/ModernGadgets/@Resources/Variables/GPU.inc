@@ -5,7 +5,7 @@ bgHeight=225
 ; -- User settings --
 
 showGpuName=1
-showMemController=1
+showMemController=0
 showShaderClock=1
 showCoreVoltage=0
 showGraph=1

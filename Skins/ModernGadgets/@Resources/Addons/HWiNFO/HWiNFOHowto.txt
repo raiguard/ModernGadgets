@@ -3,10 +3,11 @@ Written by SilverAzide, edited by iamanai
 
  1. Ensure the HWiNFO application is open and ensure the Sensors window is enabled.
 
- 2. Open the HWiNFO Shared Memory Viewer application via the "HWiNFO SMV" button.
+ 2. Open the HWiNFO Shared Memory Viewer application
 
  3. For each sensor (CPU, motherboard, GPU, etc.) enter the hexadecimal ID and Instance values as
-    shown in the viewer application's "Sensor Details".
+    shown in the viewer application's "Sensor Details" (click the "Show Reference Image" button to
+    open a screenshot of the Shared Memory Viewer with the different areas labeled).
 
     NOTE: If you don't have a particular sensor (i.e., you don't have "GPU #1"), then you can
           use ID and Instance values of "0x0" or you can leave the values as shown as long as they

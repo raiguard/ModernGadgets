@@ -61,7 +61,7 @@ MeterStyle=StyleString | StyleCheckbox
 FontSize=12
 Text="þ"
 Hidden=(#largeRowSpacing# = 1 ? 0 : 1)
-LeftMouseUpAction=[!WriteKeyValue Variables largeRowSpacing 0][!WriteKeyValue Variables gadgetsRowSpacing 2 "#styleSheetPath#"][!RefreshGroup ModernGadgets]
+LeftMouseUpAction=[!WriteKeyValue Variables largeRowSpacing 0 "#styleSheetPath#"][!WriteKeyValue Variables gadgetsRowSpacing 1 "#styleSheetPath#"][!RefreshGroup ModernGadgets]
 
 [ToggleLargeRowSpacingBoxDisabled]
 Meter=String
@@ -70,7 +70,7 @@ X=r
 Y=-2r
 Text="o"
 Hidden=#largeRowSpacing#
-LeftMouseUpAction=[!WriteKeyValue Variables largeRowSpacing 1][!WriteKeyValue Variables gadgetsRowSpacing 4 "#styleSheetPath#"][!RefreshGroup ModernGadgets]
+LeftMouseUpAction=[!WriteKeyValue Variables largeRowSpacing 1 "#styleSheetPath#"][!WriteKeyValue Variables gadgetsRowSpacing 2 "#styleSheetPath#"][!RefreshGroup ModernGadgets]
 
 [ToggleLargeRowSpacingString]
 Meter=String

@@ -13,8 +13,8 @@ fpfRamDepth=4
 fpfPageDepth=4
 
 showCpuName=1
-showPage=0
-showFan=1
+showPage=1
+showFan=0
 showAvgCpuOnly=0
 showCpuClockSpeed=1
 useHwinfoClockSpeed=1

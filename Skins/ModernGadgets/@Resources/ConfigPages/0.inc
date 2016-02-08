@@ -42,7 +42,7 @@ DynamicVariables=1
 
 [StyleUpdateCheckerNo]
 FontColor=#fontColorDim#
-Text="illustro Gadgets is up to date"
+Text="ModernGadgets is up to date"
 
 [StyleUpdateCheckerDev]
 FontColor=#fontColorDim#

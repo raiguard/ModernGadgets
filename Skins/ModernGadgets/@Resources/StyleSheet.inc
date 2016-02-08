@@ -4,8 +4,10 @@
 ; ========= Global Variables =========
 
 [Variables]
-hwinfoConfigFilePath="D:\Files\Settings\Caleb\Rainmeter\HWiNFOConfig.inc"
-styleSheetPath="#@#StyleSheet.inc"
+hwinfoConfigFilePath=D:\Files\Settings\Caleb\Rainmeter\Skins\HWiNFOConfig.inc
+styleSheetPath=#@#StyleSheet.inc
+cpuVariablesPath=#@#Variables\CPU.inc
+rainFile=#@#Addons\RainFile\RainFile.exe
 
 fontFace=Arial
 fontSize=8
@@ -22,6 +24,7 @@ lineGraphAa=0
 
 contentMargin=10
 gadgetsRowSpacing=2
+; specifically for Disks, used in background height calculations
 rowYOffset=(14 + #gadgetsRowSpacing#)
 
 bgWidth=160
@@ -30,7 +33,7 @@ bgCenterX=((#bgWidth# + 10) / 2)
 contentMarginRightX=(#bgWidth# - (#contentMargin# / 2) + 5)
 
 version=1.0.0
-largeRowSpacing=0
+largeRowSpacing=1
 
 ; ========= Global Styles =========
 
