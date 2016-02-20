@@ -1,28 +1,8 @@
-; MODERNGADGETS "CPU" MEASURES
+; CPU Measures
 
 [MeasureFixedPrecisionFormatScript]
 Measure=Script
-ScriptFile=#@#Scripts\FixedPrecisionFormat.lua
-
-; ----- HWiNFO Detection -----
-
-[MeasureHwinfoDetect]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core0Temp#
-HWiNFOType=CurrentValue
-IfCondition=(MeasureHwinfoDetect > 0)
-IfTrueAction=[!SetVariable hwinfoInUse 0]
-IfFalseAction=[!SetVariable hwinfoInUse 0]
-DynamicVariables=1
-
-
-
-; ============================================================================================
-;   OLD CRAP
-; ============================================================================================
+ScriptFile=#SKINSPATH#CoreMeter\@Resources\Scripts\FixedPrecisionFormat.lua
 
 ; ## CPU CLOCK SPEED ##
 [MeasureCpuClockSpeed]
@@ -368,6 +348,17 @@ Processor=16
 Disabled=#hideCore16#
 
 ; ## CORE TEMPERATURES ##
+[CalcIsHWiNFOInUse]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core0Temp#
+HWiNFOType=CurrentValue
+IfCondition=(CalcIsHWiNFOInUse > 0)
+IfTrueAction=[!SetVariable isHWiNFOInUse 1]
+IfFalseAction=[!SetVariable isHWiNFOInUse 0]
+DynamicVariables=1
 
 [MeasureCpuTempCore1]
 Measure=Plugin

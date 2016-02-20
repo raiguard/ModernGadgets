@@ -12,11 +12,12 @@ rainFile=#@#Addons\RainFile\RainFile.exe
 fontFace=Arial
 fontSize=8
 fontColor=255,255,255,220
-fontColorDim=255,255,255,150
-fontColorAccent=138,210,250,200
+fontColorDim=185,185,185,220
+fontColorAccent=138,210,250,220
 
-colorBarBg=100,100,100,150
-colorGraphBorder=35,35,35
+colorBarBg=60,60,60,220
+colorBarBgA=220
+colorGraphBorder=60,60,60
 ; 60,60,60
 
 graphHeight=41
@@ -29,6 +30,7 @@ rowYOffset=(14 + #gadgetsRowSpacing#)
 
 bgWidth=160
 bgAlpha=253
+bgColor=15,15,15
 bgCenterX=((#bgWidth# + 10) / 2)
 contentMarginRightX=(#bgWidth# - (#contentMargin# / 2) + 5)
 
