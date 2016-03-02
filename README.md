@@ -15,9 +15,13 @@ Normally, updating a skin suite in Rainmeter replaces every file in the skin sui
 This software is made available under a Creative Commons BY-NC-SA 3.0 License. The source code is made available under an MIT License.
 
 Programming, Design - iamanai
+
 RainRGB - Jeffrey Morley (jsmorley)
+
 RainFile - Kaelri
+
 Measuring Model, ActiveNet Plugin - SilverAzide
+
 HWiNFO Plugin - stangowner
 
 ## Changelog
