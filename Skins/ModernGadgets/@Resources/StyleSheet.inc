@@ -4,8 +4,9 @@
 ; ========= Global Variables =========
 
 [Variables]
-hwinfoConfigFilePath=D:\Files\Settings\Caleb\Rainmeter\Skins\HWiNFOConfig.inc
 styleSheetPath=#@#StyleSheet.inc
+settingsFilePath=#SETTINGSPATH#ModernGadgetsSettings.inc
+hwinfoConfigFilePath=#settingsFilePath#
 cpuVariablesPath=#@#Variables\CPU.inc
 rainFile=#@#Addons\RainFile\RainFile.exe
 
@@ -21,12 +22,11 @@ colorGraphBorder=60,60,60
 ; 60,60,60
 
 graphHeight=41
-lineGraphAa=0
 
 contentMargin=10
-gadgetsRowSpacing=2
+rowSpacing=2
 ; specifically for Disks, used in background height calculations
-rowYOffset=(14 + #gadgetsRowSpacing#)
+rowYOffset=(14 + #rowSpacing#)
 
 bgWidth=160
 bgAlpha=253
@@ -36,6 +36,8 @@ contentMarginRightX=(#bgWidth# - (#contentMargin# / 2) + 5)
 
 version=1.0.0
 largeRowSpacing=1
+gadgetsRowSpacing=2
+lineGraphAa=1
 
 ; ========= Global Styles =========
 
@@ -45,7 +47,7 @@ FontSize=#fontSize#
 FontColor=#fontColor#
 StringAlign=Left
 X=#contentMargin#
-Y=#gadgetsRowSpacing#R
+Y=#rowSpacing#R
 Antialias=1
 ; DynamicVariables=1
 

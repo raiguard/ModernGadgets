@@ -23,6 +23,7 @@ end
 ; Checks Rainmeter's settings folder for a file named 'ModernGadgetsSettings.inc'
 function CheckForSettingsFile()
 
+  
 
 end
 
