@@ -10,7 +10,7 @@ Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOType=SensorNameCustom
+HWiNFOType=SensorName
 
 [MeasureGpu0DisplayName]
 Measure=Plugin

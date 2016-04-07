@@ -63,6 +63,19 @@ X=#bgCenterX#
 Y=r
 DynamicVariables=1
 
+[StyleStringParagraph]
+FontColor=#fontColor#
+FontSize=9
+Y=5R
+W=((#bgWidth# - #contentMargin#) - #contentMargin#)
+H=100
+ClipString=2
+
+[StyleStringButton]
+FontSize=12
+FontColor=#fontColorAccent#
+Y=(#bgHeight# - #contentMargin# - 35)
+
 [StyleBar]
 X=(#contentMargin# + 2)
 Y=R
