@@ -11,19 +11,39 @@ UpdateDivider=-1
 FocusDismiss=1
 Antialias=1
 W=100
-Command1=[!WriteKeyValue Variables HWiNFO-GPU1-SensorId "$UserInput$" "#hwinfoConfigFilePath#"][!RefreshGroup ModernGadgetsGpu][!Refresh] DefaultValue="#HWiNFO-GPU1-SensorId#" X=[HwinfoGpu1SensorIdValueString:X] Y=[HwinfoGpu1SensorIdValueString:Y] H=[HwinfoGpu1SensorIdValueString:H]
+Command1=[!WriteKeyValue Variables HWiNFO-SMART-DiskC-SensorId "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskC-SensorId#" X=[HwinfoSmartSensorIdValueString:X] Y=[HwinfoSmartSensorIdValueString:Y] H=[HwinfoSmartSensorIdValueString:H]
+Command2=[!WriteKeyValue Variables HWiNFO-SMART-DiskC-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskC-SensorInstance#" X=[HwinfoSmartDiskCSensorInstanceValueString:X] Y=[HwinfoSmartDiskCSensorInstanceValueString:Y] H=[HwinfoSmartDiskCSensorInstanceValueString:H]
+Command3=[!WriteKeyValue Variables HWiNFO-SMART-DiskC-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskC-Temp#" X=[HwinfoSmartDiskCTempValueString:X] Y=[HwinfoSmartDiskCTempValueString:Y] H=[HwinfoSmartDiskCTempValueString:H]
+Command4=[!WriteKeyValue Variables HWiNFO-SMART-DiskD-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskD-SensorInstance#" X=[HwinfoSmartDiskDSensorInstanceValueString:X] Y=[HwinfoSmartDiskDSensorInstanceValueString:Y] H=[HwinfoSmartDiskDSensorInstanceValueString:H]
+Command5=[!WriteKeyValue Variables HWiNFO-SMART-DiskD-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskD-Temp#" X=[HwinfoSmartDiskDTempValueString:X] Y=[HwinfoSmartDiskDTempValueString:Y] H=[HwinfoSmartDiskDTempValueString:H]
+Command6=[!WriteKeyValue Variables HWiNFO-SMART-DiskE-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskE-SensorInstance#" X=[HwinfoSmartDiskESensorInstanceValueString:X] Y=[HwinfoSmartDiskESensorInstanceValueString:Y] H=[HwinfoSmartDiskESensorInstanceValueString:H]
+Command7=[!WriteKeyValue Variables HWiNFO-SMART-DiskE-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskE-Temp#" X=[HwinfoSmartDiskETempValueString:X] Y=[HwinfoSmartDiskETempValueString:Y] H=[HwinfoSmartDiskETempValueString:H]
+Command8=[!WriteKeyValue Variables HWiNFO-SMART-DiskF-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskF-SensorInstance#" X=[HwinfoSmartDiskFSensorInstanceValueString:X] Y=[HwinfoSmartDiskFSensorInstanceValueString:Y] H=[HwinfoSmartDiskFSensorInstanceValueString:H]
+Command9=[!WriteKeyValue Variables HWiNFO-SMART-DiskF-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskF-Temp#" X=[HwinfoSmartDiskFTempValueString:X] Y=[HwinfoSmartDiskFTempValueString:Y] H=[HwinfoSmartDiskFTempValueString:H]
+Command10=[!WriteKeyValue Variables HWiNFO-SMART-DiskG-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskG-SensorInstance#" X=[HwinfoSmartDiskGSensorInstanceValueString:X] Y=[HwinfoSmartDiskGSensorInstanceValueString:Y] H=[HwinfoSmartDiskGSensorInstanceValueString:H]
+Command11=[!WriteKeyValue Variables HWiNFO-SMART-DiskG-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskG-Temp#" X=[HwinfoSmartDiskGTempValueString:X] Y=[HwinfoSmartDiskGTempValueString:Y] H=[HwinfoSmartDiskGTempValueString:H]
+Command12=[!WriteKeyValue Variables HWiNFO-SMART-DiskH-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskH-SensorInstance#" X=[HwinfoSmartDiskHSensorInstanceValueString:X] Y=[HwinfoSmartDiskHSensorInstanceValueString:Y] H=[HwinfoSmartDiskHSensorInstanceValueString:H]
+Command13=[!WriteKeyValue Variables HWiNFO-SMART-DiskH-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskH-Temp#" X=[HwinfoSmartDiskHTempValueString:X] Y=[HwinfoSmartDiskHTempValueString:Y] H=[HwinfoSmartDiskHTempValueString:H]
+Command14=[!WriteKeyValue Variables HWiNFO-SMART-DiskI-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskI-SensorInstance#" X=[HwinfoSmartDiskISensorInstanceValueString:X] Y=[HwinfoSmartDiskISensorInstanceValueString:Y] H=[HwinfoSmartDiskISensorInstanceValueString:H]
+Command15=[!WriteKeyValue Variables HWiNFO-SMART-DiskI-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskI-Temp#" X=[HwinfoSmartDiskITempValueString:X] Y=[HwinfoSmartDiskITempValueString:Y] H=[HwinfoSmartDiskITempValueString:H]
+Command16=[!WriteKeyValue Variables HWiNFO-SMART-DiskJ-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskJ-SensorInstance#" X=[HwinfoSmartDiskJSensorInstanceValueString:X] Y=[HwinfoSmartDiskJSensorInstanceValueString:Y] H=[HwinfoSmartDiskJSensorInstanceValueString:H]
+Command17=[!WriteKeyValue Variables HWiNFO-SMART-DiskJ-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskJ-Temp#" X=[HwinfoSmartDiskJTempValueString:X] Y=[HwinfoSmartDiskJTempValueString:Y] H=[HwinfoSmartDiskJTempValueString:H]
+Command18=[!WriteKeyValue Variables HWiNFO-SMART-DiskK-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskK-SensorInstance#" X=[HwinfoSmartDiskKSensorInstanceValueString:X] Y=[HwinfoSmartDiskKSensorInstanceValueString:Y] H=[HwinfoSmartDiskKSensorInstanceValueString:H]
+Command19=[!WriteKeyValue Variables HWiNFO-SMART-DiskK-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskK-Temp#" X=[HwinfoSmartDiskKTempValueString:X] Y=[HwinfoSmartDiskKTempValueString:Y] H=[HwinfoSmartDiskKTempValueString:H]
+Command20=[!WriteKeyValue Variables HWiNFO-SMART-DiskL-SensorInstance "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskL-SensorInstance#" X=[HwinfoSmartDiskLSensorInstanceValueString:X] Y=[HwinfoSmartDiskLSensorInstanceValueString:Y] H=[HwinfoSmartDiskLSensorInstanceValueString:H]
+Command21=[!WriteKeyValue Variables HWiNFO-SMART-DiskL-Temp "$UserInput$" "#settingsFilePath#"][!RefreshGroup ModernGadgetsDisks][!Refresh] DefaultValue="#HWiNFO-SMART-DiskL-Temp#" X=[HwinfoSmartDiskLTempValueString:X] Y=[HwinfoSmartDiskLTempValueString:Y] H=[HwinfoSmartDiskLTempValueString:H]
 
 ; ----- HWiNFO Navigation Bar -----
 
-[HwinfoNavBarButtonCpu0String]
+[HwinfoNavBarButtonCPU0String]
 Meter=String
 MeterStyle=StyleString | StyleStringPanelContent
 FontColor=#fontColorAccent#
 Y=10R
 Text="CPU0"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 0 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "cpu0"][!Refresh]
 
-[HwinfoNavBarSeparatorCpu0String]
+[HwinfoNavBarSeparatorCPU0String]
 Meter=String
 MeterStyle=StyleString | StyleStringPanelContent
 FontColor=#fontColorDim#
@@ -38,7 +58,7 @@ FontColor=#fontColorAccent#
 X=2R
 Y=1r
 Text="CPU0-DTS"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 1 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "cpu0dts"][!Refresh]
 
 [HwinfoNavBarSeparatorCpu0DtsString]
 Meter=String
@@ -55,7 +75,7 @@ FontColor=#fontColorAccent#
 X=2R
 Y=1r
 Text="MOBO"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 2 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "mobo"][!Refresh]
 
 [HwinfoNavBarSeparatorMoboString]
 Meter=String
@@ -72,7 +92,7 @@ FontColor=#fontColorAccent#
 X=2R
 Y=1r
 Text="GPU0"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 3 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "gpu0"][!Refresh]
 
 [HwinfoNavBarSeparatorGPU0String]
 Meter=String
@@ -89,7 +109,7 @@ FontColor=#fontColorAccent#
 X=2R
 Y=1r
 Text="GPU1"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 4 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "gpu1"][!Refresh]
 
 [HwinfoNavBarSeparatorGPU1String]
 Meter=String
@@ -163,7 +183,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskD-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 3"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 4"]
 ToolTipText="HWiNFO-SMART-DiskD-SensorInstance"
 
 [HwinfoSmartDiskDTempLabelString]
@@ -176,7 +196,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskD-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 4"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 5"]
 ToolTipText="HWiNFO-SMART-DiskD-Temp"
 
 ; Disk E
@@ -191,7 +211,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskE-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 5"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 6"]
 ToolTipText="HWiNFO-SMART-DiskE-SensorInstance"
 
 [HwinfoSmartDiskETempLabelString]
@@ -204,7 +224,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskE-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 6"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 7"]
 ToolTipText="HWiNFO-SMART-DiskE-Temp"
 
 ; Disk F
@@ -219,7 +239,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskF-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 7"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 8"]
 ToolTipText="HWiNFO-SMART-DiskF-SensorInstance"
 
 [HwinfoSmartDiskFTempLabelString]
@@ -232,7 +252,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskF-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 8"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 9"]
 ToolTipText="HWiNFO-SMART-DiskF-Temp"
 
 ; Disk G
@@ -247,7 +267,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskG-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 9"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 10"]
 ToolTipText="HWiNFO-SMART-DiskG-SensorInstance"
 
 [HwinfoSmartDiskGTempLabelString]
@@ -260,7 +280,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskG-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 10"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 11"]
 ToolTipText="HWiNFO-SMART-DiskG-Temp"
 
 ; Disk H
@@ -275,7 +295,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskH-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 11"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 12"]
 ToolTipText="HWiNFO-SMART-DiskH-SensorInstance"
 
 [HwinfoSmartDiskHTempLabelString]
@@ -288,7 +308,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskH-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 12"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 13"]
 ToolTipText="HWiNFO-SMART-DiskH-Temp"
 
 ; Disk I
@@ -303,7 +323,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskI-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 13"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 14"]
 ToolTipText="HWiNFO-SMART-DiskI-SensorInstance"
 
 [HwinfoSmartDiskITempLabelString]
@@ -316,7 +336,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskI-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 14"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 15"]
 ToolTipText="HWiNFO-SMART-DiskI-Temp"
 
 ; Disk J
@@ -331,7 +351,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskJ-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 15"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 16"]
 ToolTipText="HWiNFO-SMART-DiskJ-SensorInstance"
 
 [HwinfoSmartDiskJTempLabelString]
@@ -344,7 +364,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskJ-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 16"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 17"]
 ToolTipText="HWiNFO-SMART-DiskJ-Temp"
 
 ; Disk K
@@ -359,7 +379,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskK-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 17"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 18"]
 ToolTipText="HWiNFO-SMART-DiskK-SensorInstance"
 
 [HwinfoSmartDiskKTempLabelString]
@@ -372,7 +392,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskK-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 18"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 19"]
 ToolTipText="HWiNFO-SMART-DiskK-Temp"
 
 ; Disk L
@@ -387,7 +407,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskL-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 19"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 20"]
 ToolTipText="HWiNFO-SMART-DiskL-SensorInstance"
 
 [HwinfoSmartDiskLTempLabelString]
@@ -400,5 +420,5 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent | StyleStringHwinfoValue
 FontColor=#fontColorDim#
 Text="#HWiNFO-SMART-DiskL-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 20"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 21"]
 ToolTipText="HWiNFO-SMART-DiskL-Temp"

@@ -33,7 +33,7 @@ MeterStyle=StyleString | StyleCheckbox
 FontSize=12
 Text="þ"
 Hidden=(#lineGraphAa# = 1 ? 0 : 1)
-LeftMouseUpAction=[!WriteKeyValue Variables lineGraphAa 0 "#styleSheetPath#"][!RefreshGroup ModernGadgets]
+LeftMouseUpAction=[!WriteKeyValue Variables lineGraphAa 0 "#settingsFilePath#"][!RefreshGroup ModernGadgets]
 
 [ToggleLineGraphAaBoxDisabled]
 Meter=String
@@ -42,7 +42,7 @@ X=r
 Y=-2r
 Text="o"
 Hidden=#lineGraphAa#
-LeftMouseUpAction=[!WriteKeyValue Variables lineGraphAa 1 "#styleSheetPath#"][!RefreshGroup ModernGadgets]
+LeftMouseUpAction=[!WriteKeyValue Variables lineGraphAa 1 "#settingsFilePath#"][!RefreshGroup ModernGadgets]
 
 [ToggleLineGraphAaString]
 Meter=String
@@ -61,7 +61,7 @@ MeterStyle=StyleString | StyleCheckbox
 FontSize=12
 Text="þ"
 Hidden=(#largeRowSpacing# = 1 ? 0 : 1)
-LeftMouseUpAction=[!WriteKeyValue Variables largeRowSpacing 0 "#styleSheetPath#"][!WriteKeyValue Variables gadgetsRowSpacing 1 "#styleSheetPath#"][!RefreshGroup ModernGadgets]
+LeftMouseUpAction=[!WriteKeyValue Variables largeRowSpacing 0 "#settingsFilePath#"][!WriteKeyValue Variables rowSpacing 2 "#settingsFilePath#"][!RefreshGroup ModernGadgets]
 
 [ToggleLargeRowSpacingBoxDisabled]
 Meter=String
@@ -70,7 +70,7 @@ X=r
 Y=-2r
 Text="o"
 Hidden=#largeRowSpacing#
-LeftMouseUpAction=[!WriteKeyValue Variables largeRowSpacing 1 "#styleSheetPath#"][!WriteKeyValue Variables gadgetsRowSpacing 2 "#styleSheetPath#"][!RefreshGroup ModernGadgets]
+LeftMouseUpAction=[!WriteKeyValue Variables largeRowSpacing 1 "#settingsFilePath#"][!WriteKeyValue Variables rowSpacing 3 "#settingsFilePath#"][!RefreshGroup ModernGadgets]
 
 [ToggleLargeRowSpacingString]
 Meter=String

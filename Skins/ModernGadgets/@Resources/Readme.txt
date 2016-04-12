@@ -1,20 +1,18 @@
 ----------
 DEVELOPMENT TO-DO LIST
- - Create scripts for managing the settings file and changing settings
+! - Create scripts for managing the settings file and changing settings
+ - Decide all future plans for current skins
  - Rewrite all skin measures
  - Redesign skins to handle dynamic settings changes and conform to new system
  - Figure out what the flying frick is wrong with Disks' background positioning
- - Create setup skin
+ - Finish setup skin
  - Create dual GPU skin
  - Finish off config skin
- 
-----------
-New system:
-#SETTINGSPATH#ModernGadgetsSettings.inc - Contains all changable settings
-#@#StyleSheet.inc - Contains all common styles and variables
-Skin .ini files - Skin measures and meters, local variables that are not settings
 
-The #@#Variables and #@#Measures folders will be deleted
+----------
+PLANNED FEATURES (probably post-release):
+CPU:
+ - On-the-fly toggling of graph modes: Regular, temperature,
 
 ----------
 MODERN GADGETS

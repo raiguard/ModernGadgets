@@ -86,7 +86,7 @@ Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 [MeasureCpuClockSpeedHWiNFOCalc]
 Measure=Calc
 Formula=(#useHwinfoClockSpeed# = 0) ? MeasureCpuClockSpeed : Max(Max(Max(Max(Max(Max(Max(MeasureCpuClockSpeedHWiNFOCore0, MeasureCpuClockSpeedHWiNFOCore1), MeasureCpuClockSpeedHWiNFOCore2), MeasureCpuClockSpeedHWiNFOCore3), MeasureCpuClockSpeedHWiNFOCore4), MeasureCpuClockSpeedHWiNFOCore5), MeasureCpuClockSpeedHWiNFOCore6), MeasureCpuClockSpeedHWiNFOCore7)
-IfCondition=(MeasureCpuClockSpeedHWiNFOCalc = 0) && (#useHwinfoClockSpeed# = 1)
+IfCondition=(MeasureCpuClockSpeedHWiNFOCalc = 0) && (#showCpuClockSpeed# = 2)
 IfTrueAction=[!SetOption CpuClockSpeedValueString MeasureName "MeasureCpuClockSpeed"][!UpdateMeter "CpuClockSpeedValueString"]
 IfFalseAction=[!SetOption CpuClockSpeedValueString MeasureName "MeasureCpuClockSpeedHWiNFOCalc"][!UpdateMeter "CpuClockSpeedValueString"]
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0

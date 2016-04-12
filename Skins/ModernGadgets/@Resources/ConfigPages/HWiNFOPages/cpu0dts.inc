@@ -24,15 +24,15 @@ Command10=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core7Temp "$UserInput$" "#hw
 
 ; ----- HWiNFO Navigation Bar -----
 
-[HwinfoNavBarButtonCpu0String]
+[HwinfoNavBarButtonCPU0String]
 Meter=String
 MeterStyle=StyleString | StyleStringPanelContent
 FontColor=#fontColorAccent#
 Y=10R
 Text="CPU0"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 0 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "cpu0"][!Refresh]
 
-[HwinfoNavBarSeparatorCpu0String]
+[HwinfoNavBarSeparatorCPU0String]
 Meter=String
 MeterStyle=StyleString | StyleStringPanelContent
 FontColor=#fontColorDim#
@@ -62,7 +62,7 @@ FontColor=#fontColorAccent#
 X=2R
 Y=1r
 Text="MOBO"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 2 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "mobo"][!Refresh]
 
 [HwinfoNavBarSeparatorMoboString]
 Meter=String
@@ -79,7 +79,7 @@ FontColor=#fontColorAccent#
 X=2R
 Y=1r
 Text="GPU0"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 3 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "gpu0"][!Refresh]
 
 [HwinfoNavBarSeparatorGPU0String]
 Meter=String
@@ -96,7 +96,7 @@ FontColor=#fontColorAccent#
 X=2R
 Y=1r
 Text="GPU1"
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 4 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "gpu1"][!Refresh]
 
 [HwinfoNavBarSeparatorGPU1String]
 Meter=String
@@ -113,7 +113,7 @@ FontColor=#fontColorAccent#
 X=2R
 Y=1r
 Text="S.M.A.R.T."
-LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage 5 "#configVariablesPath#"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables hwinfoPage "smart"][!Refresh]
 
 ; ----- Entry IDs -----
 

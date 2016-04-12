@@ -37,7 +37,6 @@ contentMarginRightX=(#bgWidth# - (#contentMargin# / 2) + 5)
 version=1.0.0
 largeRowSpacing=1
 gadgetsRowSpacing=2
-lineGraphAa=1
 
 ; ========= Global Styles =========
 
@@ -67,14 +66,18 @@ DynamicVariables=1
 FontColor=#fontColor#
 FontSize=9
 Y=5R
-W=((#bgWidth# - #contentMargin#) - #contentMargin#)
-H=100
+W=((#bgWidth# - #contentMargin#) - #contentMargin# + 5)
 ClipString=2
 
 [StyleStringButton]
 FontSize=12
 FontColor=#fontColorAccent#
 Y=(#bgHeight# - #contentMargin# - 35)
+
+[StyleStringSectionHeader]
+FontSize=14
+FontColor=#fontColorDim#
+Y=10R
 
 [StyleBar]
 X=(#contentMargin# + 2)

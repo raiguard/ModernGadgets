@@ -37,7 +37,13 @@ function SettingsProtocol()
 
   -- Create a LineNum/Key/Value matrix of the reference settings file
   rTable = ReadIni(rFilePath)
-  if not rTable then LogHelper('WTF? Reference settings file does not exist!', 'Error') end
+  if not rTable then
+    LogHelper('WTF? Reference settings file does not exist!', 'Error')
+    -- Set setup skin page and show
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'refFileError')
+    SKIN:Bang('!Refresh')
+    SKIN:Bang('!ShowFade')
+  end
 
   -- Create a LineNum/Key/Value matrix of the actual settings file
   fTable = ReadIni(filePath)
@@ -53,6 +59,11 @@ function SettingsProtocol()
     fTable = ReadIni(filePath)
 
     LogHelper('Created settings file', 'Notice')
+
+    -- Set setup skin page and show
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'welcome')
+    SKIN:Bang('!Refresh')
+    SKIN:Bang('!ShowFade')
 
   end
   -- Check if settings file is up-to-date
@@ -72,16 +83,24 @@ function SettingsProtocol()
     local setF = io.open(filePath,'w')
     setF:write('; MODERNGADGETS SETTINGS FILE\n\n', '[Variables]\n', 'fileVersion=', rTable[1][2], '\n')
     for sKey,a in ipairs(rTable) do
+      -- Setting needs to be added
       if not tempTable[rTable[sKey][1]] then setF:write(rTable[sKey][1], '=', rTable[sKey][2], '\n')
+      -- Value has been changed
       elseif not (rTable[sKey][2] == tempTable[rTable[sKey][1]] or sKey == 1) then
         LogHelper('Conflict with value \'' .. rTable[sKey][1] .. '\' Current: \'' .. tempTable[rTable[sKey][1]] .. '\' Reference: \'' .. rTable[sKey][2] .. '\'', 'Debug')
         setF:write(rTable[sKey][1], '=', tempTable[rTable[sKey][1]], '\n')
+      -- Not the first value (fileVersion)
       elseif not (sKey == 1) then setF:write(rTable[sKey][1], '=', rTable[sKey][2], '\n') end
     end
     -- Close settings file and delete temporary file
     LogHelper('Cross referencing complete. Cleaning up', 'Notice')
     setF:close()
     os.remove(tempFilePath)
+
+    -- Set setup skin page and show
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updated')
+    SKIN:Bang('!Refresh')
+    SKIN:Bang('!ShowFade')
   end
 
 end

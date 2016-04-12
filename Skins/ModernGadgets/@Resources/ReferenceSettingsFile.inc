@@ -41,9 +41,11 @@ colorCore15=153,84,166,240
 colorCore16=99,125,217,240
 
 ; Network
-fpfNetworkDepth=5
+fpfNetCurrentDepth=4
+fpfNetTotalDepth=5
 showNetworkRefreshButtons=1
 showNetworkGraph=1
+censorExtIp=1
 interfaceBroadband=0
 interfaceEthernet=0
 interfaceWireless=0

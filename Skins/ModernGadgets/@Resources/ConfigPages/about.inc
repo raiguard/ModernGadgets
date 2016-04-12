@@ -83,7 +83,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringPanelContent
 ClipString=2
 W=((#bgWidth# + 5) - #contentMargin# - (#navBarSeparatorX# + 10) + 4)
-Text="This skin allows you to configure settings for ModernGadgets. All the skins are very modular and customizable, so it is recommended that you go through all the settings and make sure you have exactly what you want. Additionally, you can open the variables files directly for even more customization possibilities.#CRLF##CRLF#If you are using ModernGadgets for the first time, please click the "HWiNFO" button and follow the instructions there."
+Text="This skin allows you to configure settings for ModernGadgets. All the skins are very modular and customizable, so it is recommended that you go through all the settings and make sure you have the setup exactly how you like it. Additionally, you can open the settings file directly for even more customization possibilities."
 
 ; ----- Links Bar -----
 
@@ -161,7 +161,7 @@ ToolTipText="iamanai's Twitter gives you insight into the developer's everyday l
 [AttributionsString]
 Meter=String
 MeterStyle=StyleString | StyleStringPanelContent
-FontColor=#fontColorDim#
+; FontColor=#fontColorDim#
 ClipString=2
 Y=10R
 W=((#bgWidth# + 5) - #contentMargin# - (#navBarSeparatorX# + 10) + 4)
@@ -181,4 +181,4 @@ FontColor=#fontColorDim#
 ClipString=2
 Y=10R
 W=((#bgWidth# + 5) - #contentMargin# - (#navBarSeparatorX# + 10) + 4)
-Text="NOTICE: It is impossible for one developer to thoroughly test everything in a skin suite this complex. If you would like to become a beta tester, please visit the GitHub repository (link above) and clone the development branch to your skins folder. Happy testing!#CRLF##CRLF#Additionally, if you find any bugs, inconsistencies, or mistakes please leave a comment on the DeviantArt page or the Rainmeter Forums post so it can be patched!"
+Text="It is impossible for one developer to thoroughly test everything in a skin suite this complex. If you would like to become a beta tester, please visit the GitHub repository (link above) and clone the development branch to your skins folder. Happy testing!#CRLF##CRLF#Additionally, if you find any bugs, inconsistencies, or mistakes please leave a comment on the DeviantArt page or the Rainmeter Forums post so it can be patched!"
