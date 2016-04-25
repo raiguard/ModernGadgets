@@ -25,11 +25,11 @@ Measuring Model, ActiveNet Plugin - SilverAzide
 HWiNFO Plugin - stangowner
 
 ##Known Issues
-*CPU skin does not automatically adapt to different numbers of threads
-*Network, GPU, Disks, and Config skins do not have proper alignment equations and could crash Rainmeter
-*Setup skin will show itself prematurely if "refresh all" is used
-*CPU's unused HWiNFO measures will throw errors upon loading the skin
-*HWiNFO Config Tool's Network, GPU, and Disks pages are nonfunctional
+ - CPU skin does not automatically adapt to different numbers of threads
+ - Network, GPU, Disks, and Config skins do not have proper alignment equations and could crash Rainmeter
+ - Setup skin will show itself prematurely if "refresh all" is used
+ - CPU's unused HWiNFO measures will throw errors upon loading the skin
+ - HWiNFO Config Tool's Network, GPU, and Disks pages are nonfunctional
 
 
 ## Changelog
