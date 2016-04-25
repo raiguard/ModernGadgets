@@ -1,0 +1,18 @@
+HOW TO CONFIGURE HWINFO SENSORS
+
+Note: This information is also contained in the setup tutorial viewed through the setup skin.
+
+ModernGadgets uses HWiNFO to monitor a very wide range of information, most specifically for monitoring the GPU. However, before it will work, it
+needs to be set up properly. Every sensor in HWiNFO has three values to identify it: The Sensor ID, the Sensor Instance, and the Entry ID. These
+values are in hexadecimal format, and tells the HWiNFO plugin which sensor you want. To begin, open the HWiNFO Shared Memory Viewer (SMV) application
+by clicking the corresponding button in the config skin.
+
+--------------------
+An Explanation of the HWiNFO Config Screen
+
+You will see several sections along the top named "CPU0" and the like. These correspond to different Sensor ID sections in the SMV. For example,
+on my system the CPU0 section is named "CPU [#0]: Intel Core i7-6700". It's not very difficult to figure out which sections in the SMV correspond
+to which sections in the config skin, but if you have issues, just keep trying. If you cannot find a certain section, it means you don't have that
+sensor on your system and you're out of luck!
+
+You may notice that there are several CPU0 sections.

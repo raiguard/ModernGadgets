@@ -1,5 +1,9 @@
 ; MODERNGADGETS CONFIG "HWiNFO" PAGE
 
+[Variables]
+tableWidth=#panelWidth#
+tableColumnWidth=(#tableWidth# / 4)
+
 [StyleStringHwinfoLabel]
 FontSize=10
 Y=R
@@ -51,4 +55,31 @@ FontColor=#fontColorAccent#
 Text="View How-to"
 LeftMouseUpAction=["#@#Addons\HWiNFO\HWiNFOHowTo.txt"]
 
-@includeHWiNFOSubpage=#@#ConfigPages\HWiNFOPages\#hwinfoPage#.inc
+; @includeHWiNFOSubpage=#@#ConfigPages\HWiNFOPages\#hwinfoPage#.inc
+
+; ---------- TESTING
+;
+
+[HwinfoCpu0SensorIdColumnLabelString]
+Meter=String
+MeterStyle=StyleString
+FontSize=10
+X=(#navBarSeparatorX# + #contentMargin# + (#tableColumnWidth# * 1))
+Y=2R
+Text="Sensor ID"
+
+[HwinfoCpu0SensorInstanceColumnLabelString]
+Meter=String
+MeterStyle=StyleString
+FontSize=10
+X=(#navBarSeparatorX# + #contentMargin# + (#tableColumnWidth# * 2))
+Y=r
+Text="Sensor Instance"
+
+[HwinfoCpu0EntryIdColumnLabelString]
+Meter=String
+MeterStyle=StyleString
+FontSize=10
+X=(#navBarSeparatorX# + #contentMargin# + (#tableColumnWidth# * 3))
+Y=r
+Text="Entry ID"

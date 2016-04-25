@@ -21,18 +21,20 @@ colorBarBgA=220
 colorGraphBorder=60,60,60
 ; 60,60,60
 
-graphHeight=41
+colorHwinfoValueInputBg=60,60,60,220
 
-contentMargin=10
+graphHeight=41
+contentMarginAbsolute=5
+contentMargin=(#contentMarginAbsolute# + #bgOffset#)
+marginRightX=(#bgWidth# - #contentMarginAbsolute# + #bgOffset#)
 rowSpacing=2
 ; specifically for Disks, used in background height calculations
 rowYOffset=(14 + #rowSpacing#)
 
 bgWidth=160
-bgAlpha=253
-bgColor=15,15,15
-bgCenterX=((#bgWidth# + 10) / 2)
-contentMarginRightX=(#bgWidth# - (#contentMargin# / 2) + 5)
+bgAlpha=220
+bgColor=0,0,0,220
+bgCenterX=((#bgWidth# + 10) / 2 + #bgOffset#)
 
 version=1.0.0
 largeRowSpacing=1
@@ -52,7 +54,7 @@ Antialias=1
 
 [StyleStringRightAlign]
 StringAlign=Right
-X=#contentMarginRightX#
+X=#marginRightX#
 Y=r
 
 [StyleStringInfo]
@@ -82,8 +84,8 @@ Y=10R
 [StyleBar]
 X=(#contentMargin# + 2)
 Y=R
-W=(#bgWidth# - #contentMargin# - 4)
-w=(#bgWidth# - #contentMargin# - 4)
+W=(#bgWidth# - (#contentMarginAbsolute# * 2) - 3)
+w=(#bgWidth# - (#contentMargin# * 2) - 3)
 h=1
 SolidColor=#colorBarBg#
 BarOrientation=Horizontal

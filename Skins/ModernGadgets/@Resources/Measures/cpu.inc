@@ -28,8 +28,11 @@ RegValue=ProcessorNameString
 UpdateDivider=-1
 
 [MeasureCpuDisplayName]
-Measure=String
-String=[MeasureCpuName]
+Measure=Registry
+RegHKey=HKEY_LOCAL_MACHINE
+RegKey=HARDWARE\DESCRIPTION\System\CentralProcessor\0
+RegValue=ProcessorNameString
+RegExpSubstitute=1
 SubStitute="\(R\)":"","\(TM\)":"","\(tm\)":"","(.*) CPU.*":"\1"
 UpdateDivider=-1
 
@@ -124,93 +127,103 @@ MaxValue=100
 [MeasureCpuLogicalCores]
 Measure=Calc
 Formula=%NUMBER_OF_PROCESSORS%
-IfCondition=[MeasureCpuLogicalCores:] <> #cpuCores#
+IfCondition=MeasureCpuLogicalCores <> #cpuCores#
 IfTrueAction=[!CommandMeasure MeasureCpuConfigScript "ConfigCores([MeasureCpuLogicalCores], [MeasureCpuThreadsPerCore])"]
+DynamicVariables=1
 
 [MeasureCpuThreadsPerCore]
 Measure=Plugin
 Plugin=ActiveNet
 Type=ThreadsPerCore
-IfCondition=[MeasureCpuThreadsPerCore:] <> #threadsPerCore#
+IfCondition=MeasureCpuThreadsPerCore <> #threadsPerCore#
 IfTrueAction=[!WriteKeyValue Variables threadsPerCore [MeasureCpuThreadsPerCore] "#varPath#"][!Refresh]
 DynamicVariables=1
 UpdateDivider=-1
 
 ; Core Usages
-[MeasureCpuCore0Usage]
+[MeasureCpuUsageCore1]
 Measure=CPU
 
-[MeasureCpuCore1Usage]
+[MeasureCpuUsageCore2]
 Measure=CPU
 Processor=1
+Disabled=#hideCore2#
 
-[MeasureCpuCore2Usage]
+[MeasureCpuUsageCore3]
 Measure=CPU
 Processor=2
+Disabled=#hideCore3#
 
-[MeasureCpuCore3Usage]
+[MeasureCpuUsageCore4]
 Measure=CPU
 Processor=3
+Disabled=#hideCore4#
 
-[MeasureCpuCore4Usage]
+[MeasureCpuUsageCore5]
 Measure=CPU
 Processor=4
+Disabled=#hideCore5#
 
-[MeasureCpuCore5Usage]
+[MeasureCpuUsageCore6]
 Measure=CPU
 Processor=5
+Disabled=#hideCore6#
 
-[MeasureCpuCore6Usage]
+[MeasureCpuUsageCore7]
 Measure=CPU
 Processor=6
+Disabled=#hideCore7#
 
-[MeasureCpuCore7Usage]
+[MeasureCpuUsageCore8]
 Measure=CPU
 Processor=7
+Disabled=#hideCore8#
 
-[MeasureCpuCore8Usage]
+[MeasureCpuUsageCore9]
 Measure=CPU
 Processor=8
+Disabled=#hideCore9#
 
-[MeasureCpuCore9Usage]
+[MeasureCpuUsageCore10]
 Measure=CPU
 Processor=9
+Disabled=#hideCore10#
 
-[MeasureCpuCore10Usage]
+[MeasureCpuUsageCore11]
 Measure=CPU
 Processor=10
+Disabled=#hideCore11#
 
-[MeasureCpuCore11Usage]
+[MeasureCpuUsageCore12]
 Measure=CPU
 Processor=11
+Disabled=#hideCore12#
 
-[MeasureCpuCore12Usage]
+[MeasureCpuUsageCore13]
 Measure=CPU
 Processor=12
+Disabled=#hideCore13#
 
-[MeasureCpuCore13Usage]
+[MeasureCpuUsageCore14]
 Measure=CPU
 Processor=13
+Disabled=#hideCore14#
 
-[MeasureCpuCore14Usage]
+[MeasureCpuUsageCore15]
 Measure=CPU
 Processor=14
+Disabled=#hideCore15#
 
-[MeasureCpuCore15Usage]
+[MeasureCpuUsageCore16]
 Measure=CPU
 Processor=15
+Disabled=#hideCore16#
+
+[MeasureCpuUsageTotal]
+Measure=CPU
+Total=1
 
 ; Core Temperatures
-[MeasureCpuTempCore0]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core0Temp#
-HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #isHWiNFOInUse# = 0
-DynamicVariables=1
-
 [MeasureCpuTempCore1]
 Measure=Plugin
 Plugin=HWiNFO
@@ -218,18 +231,18 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core0Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore2# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore2]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core1Temp#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core0Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore3# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore2# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore3]
 Measure=Plugin
@@ -238,18 +251,18 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core1Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore4# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore3# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore4]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core2Temp#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core1Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore5# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore4# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore5]
 Measure=Plugin
@@ -258,18 +271,18 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core2Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore6# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore5# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore6]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core3Temp#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core2Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore7# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore6# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore7]
 Measure=Plugin
@@ -278,18 +291,18 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core3Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore8# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore7# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore8]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core4Temp#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core3Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore9# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore8# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore9]
 Measure=Plugin
@@ -298,18 +311,18 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core4Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore10# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=1
+
 
 [MeasureCpuTempCore10]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core5Temp#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core4Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore11# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore10# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore11]
 Measure=Plugin
@@ -318,18 +331,18 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core5Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore12# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore11# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore12]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core6Temp#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core5Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore13# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore12# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore13]
 Measure=Plugin
@@ -338,18 +351,18 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core6Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore14# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore13# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore14]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core7Temp#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core6Temp#
 HWiNFOType=CurrentValue
-Disabled=#disableTemps# || #hideCore15# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+Disabled=#disableTemps# || #hideCore14# || #isHWiNFOInUse# = 0
+
 
 [MeasureCpuTempCore15]
 Measure=Plugin
@@ -358,8 +371,18 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core7Temp#
 HWiNFOType=CurrentValue
+Disabled=#disableTemps# || #hideCore15# || #isHWiNFOInUse# = 0
+
+
+[MeasureCpuTempCore16]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core7Temp#
+HWiNFOType=CurrentValue
 Disabled=#disableTemps# || #hideCore16# || #isHWiNFOInUse# = 0
-DynamicVariables=1
+
 
 ; Cpu Clock Speed
 [MeasureCpuClockSpeed]
@@ -368,7 +391,7 @@ Plugin=PowerPlugin
 PowerState=MHz
 Disabled=(#showCpuClockSpeed# = 0) ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCore0]
+[MeasureCpuClockSpeedHwinfoCore0]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
@@ -377,7 +400,7 @@ HWiNFOEntryId=#HWiNFO-CPU0-Core0Clock#
 HWiNFOType=CurrentValue
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCore1]
+[MeasureCpuClockSpeedHwinfoCore1]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
@@ -386,7 +409,7 @@ HWiNFOEntryId=#HWiNFO-CPU0-Core1Clock#
 HWiNFOType=CurrentValue
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCore2]
+[MeasureCpuClockSpeedHwinfoCore2]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
@@ -395,7 +418,7 @@ HWiNFOEntryId=#HWiNFO-CPU0-Core2Clock#
 HWiNFOType=CurrentValue
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCore3]
+[MeasureCpuClockSpeedHwinfoCore3]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
@@ -404,7 +427,7 @@ HWiNFOEntryId=#HWiNFO-CPU0-Core3Clock#
 HWiNFOType=CurrentValue
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCore4]
+[MeasureCpuClockSpeedHwinfoCore4]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
@@ -413,7 +436,7 @@ HWiNFOEntryId=#HWiNFO-CPU0-Core4Clock#
 HWiNFOType=CurrentValue
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCore5]
+[MeasureCpuClockSpeedHwinfoCore5]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
@@ -422,7 +445,7 @@ HWiNFOEntryId=#HWiNFO-CPU0-Core5Clock#
 HWiNFOType=CurrentValue
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCore6]
+[MeasureCpuClockSpeedHwinfoCore6]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
@@ -431,7 +454,7 @@ HWiNFOEntryId=#HWiNFO-CPU0-Core6Clock#
 HWiNFOType=CurrentValue
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCore7]
+[MeasureCpuClockSpeedHwinfoCore7]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
@@ -440,10 +463,10 @@ HWiNFOEntryId=#HWiNFO-CPU0-Core7Clock#
 HWiNFOType=CurrentValue
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
 
-[MeasureCpuClockSpeedHWiNFOCalc]
+[MeasureCpuClockSpeedHwinfoCalc]
 Measure=Calc
-Formula=(#useHwinfoClockSpeed# = 0) ? MeasureCpuClockSpeed : Max(Max(Max(Max(Max(Max(Max(MeasureCpuClockSpeedHWiNFOCore0, MeasureCpuClockSpeedHWiNFOCore1), MeasureCpuClockSpeedHWiNFOCore2), MeasureCpuClockSpeedHWiNFOCore3), MeasureCpuClockSpeedHWiNFOCore4), MeasureCpuClockSpeedHWiNFOCore5), MeasureCpuClockSpeedHWiNFOCore6), MeasureCpuClockSpeedHWiNFOCore7)
-IfCondition=(MeasureCpuClockSpeedHWiNFOCalc = 0) && (#useHwinfoClockSpeed# = 1)
+Formula=(#useHwinfoClockSpeed# = 0) ? MeasureCpuClockSpeed : Max(Max(Max(Max(Max(Max(Max(MeasureCpuClockSpeedHwinfoCore0, MeasureCpuClockSpeedHwinfoCore1), MeasureCpuClockSpeedHwinfoCore2), MeasureCpuClockSpeedHwinfoCore3), MeasureCpuClockSpeedHwinfoCore4), MeasureCpuClockSpeedHwinfoCore5), MeasureCpuClockSpeedHwinfoCore6), MeasureCpuClockSpeedHwinfoCore7)
+IfCondition=(MeasureCpuClockSpeedHwinfoCalc = 0) && (#useHwinfoClockSpeed# = 1)
 IfTrueAction=[!SetOption CpuClockSpeedValueString MeasureName "MeasureCpuClockSpeed"][!UpdateMeter "CpuClockSpeedValueString"]
-IfFalseAction=[!SetOption CpuClockSpeedValueString MeasureName "MeasureCpuClockSpeedHWiNFOCalc"][!UpdateMeter "CpuClockSpeedValueString"]
+IfFalseAction=[!SetOption CpuClockSpeedValueString MeasureName "MeasureCpuClockSpeedHwinfoCalc"][!UpdateMeter "CpuClockSpeedValueString"]
 Disabled=#showCpuClockSpeed# = 0 ? 1 : 0
