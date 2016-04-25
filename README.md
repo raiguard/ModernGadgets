@@ -1,5 +1,4 @@
 # ModernGadgets
-(Name pending change)
 ModernGadgets is the latest system monitoring suite by iamanai. It takes the work done on illustro Gadgets and expands, streamlines, and advances its capabilities. Skins are inspired by the AddGadgets.com system monitoring gadgets.
 
 This software runs on Rainmeter, a free and open-source desktop customization tool. Get it here: http://rainmeter.net
@@ -22,7 +21,16 @@ RainFile - Kaelri
 
 Measuring Model, ActiveNet Plugin - SilverAzide
 
+
 HWiNFO Plugin - stangowner
+
+##Known Issues
+*CPU skin does not automatically adapt to different numbers of threads
+*Network, GPU, Disks, and Config skins do not have proper alignment equations and could crash Rainmeter
+*Setup skin will show itself prematurely if "refresh all" is used
+*CPU's unused HWiNFO measures will throw errors upon loading the skin
+*HWiNFO Config Tool's Network, GPU, and Disks pages are nonfunctional
+
 
 ## Changelog
 v1.0.0 - 2016-??-?? (Future release)
