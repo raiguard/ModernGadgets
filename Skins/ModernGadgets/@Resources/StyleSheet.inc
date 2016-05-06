@@ -23,6 +23,8 @@ colorGraphBorder=60,60,60
 
 colorHwinfoValueInputBg=60,60,60,220
 
+bgOffset=0
+
 graphHeight=41
 contentMarginAbsolute=5
 contentMargin=(#contentMarginAbsolute# + #bgOffset#)
@@ -34,7 +36,7 @@ rowYOffset=(14 + #rowSpacing#)
 bgWidth=160
 bgAlpha=220
 bgColor=0,0,0,220
-bgCenterX=((#bgWidth# + 10) / 2 + #bgOffset#)
+bgCenterX=(#bgWidth# / 2 + #bgOffset#)
 
 version=1.0.0
 largeRowSpacing=1
