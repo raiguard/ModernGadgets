@@ -27,6 +27,9 @@ colorBgA=240
 colorBgBorder=#colorDim#
 colorBgBorderA=#colorBgA#
 
+colorGraphBorder=#colorDim#
+colorGraphBorderA=#colorBgA#
+
 colorMain=255,255,255,#colorBgA#
 colorMainA=#colorBgA#
 colorInfo=150,150,150,#colorBgA#
@@ -35,6 +38,13 @@ colorDim=60,60,60,#colorBgA#
 colorDimA=#colorBgA#
 
 colorBarBg=#colorDim#
+
+graphHeight=41
+
+; Paths
+imgPath=#@#Assets\Images
+soundPath=#@#Assets\Sounds
+fontPath=#@#Assets\Fonts
 
 ; Styles
 [StyleString]

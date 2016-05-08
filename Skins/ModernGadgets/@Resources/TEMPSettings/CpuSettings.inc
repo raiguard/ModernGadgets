@@ -12,6 +12,8 @@ colorRam=107,198,250,240
 colorPage=255,204,0,240
 colorCpuFan=150,150,150,240
 colorAvgCpu=236,28,70,240
+ttHistogramAlpha=50
+colorTt=255,120,147,#ttHistogramAlpha#
 colorCore1=107,238,98,240
 colorCore2=255,246,42,240
 colorCore3=250,158,0,240
@@ -28,3 +30,7 @@ colorCore13=201,41,56,240
 colorCore14=179,0,91,240
 colorCore15=153,84,166,240
 colorCore16=99,125,217,240
+
+useHwinfoClockSpeed=1
+showCpuClockSpeed=1
+showTtWarnings=1

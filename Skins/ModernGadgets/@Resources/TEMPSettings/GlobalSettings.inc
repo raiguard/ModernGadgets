@@ -2,6 +2,8 @@
 
 [Variables]
 
+lineGraphAa=0
+
 ; ----- HWiNFO -----
 
 ;

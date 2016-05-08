@@ -4,6 +4,7 @@
 ; ========= Global Variables =========
 
 [Variables]
+imgPath=#@#Assets\Images
 styleSheetPath=#@#StyleSheet.inc
 settingsFilePath=#SETTINGSPATH#ModernGadgetsSettings.inc
 hwinfoConfigFilePath=#settingsFilePath#
