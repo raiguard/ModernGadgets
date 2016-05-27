@@ -2,7 +2,7 @@
 
 [Variables]
 ; General positioning and background
-bgOffset=5
+bgOffset=6
 bgWidth=160
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
 
@@ -42,9 +42,9 @@ colorBarBg=#colorDim#
 graphHeight=41
 
 ; Paths
-imgPath=#@#Assets\Images
-soundPath=#@#Assets\Sounds
-fontPath=#@#Assets\Fonts
+imgPath=#@#Assets\Images\
+soundPath=#@#Assets\Sounds\
+fontPath=#@#Fonts\
 
 ; Styles
 [StyleString]
@@ -72,6 +72,11 @@ StringAlign=Center
 X=#contentMarginCenter#
 Y=r
 FontColor=#colorInfo#
+
+[StyleStringToggleLabel]
+FontSize=9
+X=2R
+Y=-1r
 
 [StyleBar]
 SolidColor=#colorBarBg#
