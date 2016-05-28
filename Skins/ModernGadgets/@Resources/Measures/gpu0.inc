@@ -2,7 +2,7 @@
 
 [MeasureFixedPrecisionFormatScript]
 Measure=Script
-ScriptFile=#SKINSPATH#CoreMeter\@Resources\Scripts\FixedPrecisionFormat.lua
+ScriptFile=#@#Scripts\FixedPrecisionFormat.lua
 
 ; General GPU information
 [MeasureGpu0Name]
