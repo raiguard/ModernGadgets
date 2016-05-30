@@ -1,21 +1,17 @@
 ----------
 DEVELOPMENT TO-DO LIST
-! - Create scripts for managing the settings file and changing settings
- - Decide all future plans for current skins
- - Rewrite all skin measures
- - Redesign skins to handle dynamic settings changes and conform to new system
- - Figure out what the flying frick is wrong with Disks' background positioning
- - Finish setup skin
- - Create dual GPU skin
- - Finish off config skin
+ - Complete all four gadgets, with the entirety of their functionalities excluding config skins
+ - Design and complete gadget config skins, visual config skin, and general config skin
+ - Update to HWiNFO plugin 3.2.0, design and complete HWiNFO config tool
+ - Update settings management script to handle separated files
+ - Finish setup tutorial and the rest of the setup skin
+ - Fix bugs
+ - Release v1.0.0
+ - Add SLI support to GPU Meter
+ - Add more gadgets!
 
 ----------
-PLANNED FEATURES (probably post-release):
-CPU:
- - On-the-fly toggling of graph modes: Regular, temperature,
-
-----------
-MODERN GADGETS
+MODERNGADGETS
 Version 1.0.0
 By iamanai
 
