@@ -47,6 +47,10 @@ imgPath=#@#Assets\Images\
 soundPath=#@#Assets\Sounds\
 fontPath=#@#Fonts\
 
+cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
+cpuMeterConfig=ModernGadgets\CPU
+cpuSettingsPath=#@#ReferenceFiles\CpuSettings.inc
+
 ; Styles
 [StyleString]
 FontColor=#colorMain#
@@ -78,8 +82,23 @@ FontColor=#colorInfo#
 
 [StyleStringToggleLabel]
 FontSize=9
-X=2R
+FontFace=#fontFace# Cn
+X=(#contentMargin# + 2 + 11 + 2)
 Y=-1r
+
+[StyleStringConfigSectionHeader]
+FontFace=#fontFace# Bl
+FontColor=#colorInfo#
+Y=5R
+
+[StyleToggleBox]
+ImageAlpha=#colorBgA#
+X=(#contentMargin# + 2)
+Y=2R
+W=11
+H=11
+Antialias=1
+DynamicVariables=1
 
 [StyleBar]
 SolidColor=#colorBarBg#

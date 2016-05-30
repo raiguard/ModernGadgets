@@ -1,7 +1,11 @@
 -- MODERNGADGETS CPU CONFIG SCRIPT
 -- Written by iamanai
 
-function Initialize() end
+function Initialize()
+
+  cpuSettingsPath = SKIN:GetVariable('cpuSettingsPath')
+
+end
 
 function Update() end
 
@@ -50,7 +54,7 @@ function ConfigCores(threads)
   SKIN:Bang('!Log', 'Finished core configuration', 'Debug')
 
   SKIN:Bang('!SetVariable', 'cpuCores', threads)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads, cpuSettingsPath)
 end
 
 function ToggleTemps(threads, mode)
@@ -60,18 +64,21 @@ function ToggleTemps(threads, mode)
   if mode then
     for i=1,16 do
       if (i <= threads) then
-        SKIN:Bang('!SetOption', 'Core' .. i .. 'TempString', 'Hidden', '0')
+        SKIN:Bang('!ShowMeter', 'Core' .. i .. 'TempString')
         SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '0')
       else
-        SKIN:Bang('!SetOption', 'Core' .. i .. 'TempString', 'Hidden', '1')
+        SKIN:Bang('!HideMeter', 'Core' .. i .. 'TempString')
         SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '1')
       end
     end
-  elseif not mode then
+  else
     for i=1,16 do
-      SKIN:Bang('!SetOption', 'Core' .. i .. 'TempString', 'Hidden', '1')
+      SKIN:Bang('!HideMeter', 'Core' .. i .. 'TempString')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '1')
     end
   end
+
+  SKIN:Bang('!UpdateMeterGroup', 'CoreTemps')
+  SKIN:Bang('!Redraw')
 
 end

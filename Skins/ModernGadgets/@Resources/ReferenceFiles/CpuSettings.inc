@@ -3,6 +3,10 @@
 [Variables]
 tempUom=C
 
+; Set automatically - don't bother changing (they will just change back)
+threadsPerCore=2
+cpuCores=8
+
 ; Fixed precision format
 fpfRamDepth=4
 fpfPageDepth=4
@@ -31,7 +35,11 @@ colorCore14=179,0,91,240
 colorCore15=153,84,166,240
 colorCore16=99,125,217,240
 
-useHwinfoClockSpeed=1
-showCpuClockSpeed=1
-showTtWarnings=1
+isHwinfoAvailable=1
+
+useHwinfoClock=1
+showCpuClock=1
+showCoreTemps=1
+showCpuFan=1
+showPageFile=1
 showCpuName=1

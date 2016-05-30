@@ -1,37 +1,28 @@
 # ModernGadgets
 ModernGadgets is the latest system monitoring suite by iamanai. It takes the work done on illustro Gadgets and expands, streamlines, and advances its capabilities. Skins are inspired by the AddGadgets.com system monitoring gadgets.
 
-This software runs on Rainmeter, a free and open-source desktop customization tool. Get it here: http://rainmeter.net
+Additional readme information provided in 'Skins/ModernGadgets/@Resources/Readme.txt'
 
-Additionally, this software requires HWiNFO, a free system monitoring tool. Get it here: http://hwinfo.com
+----------
+DEVELOPMENT TO-DO LIST
+ - Complete all four gadgets, with the entirety of their functionalities excluding config skins
+ - Design and complete gadget config skins, visual config skin, and general config skin
+ - Update to HWiNFO plugin 3.2.0, design and complete HWiNFO config tool
+ - Update settings management script to handle separated files
+ - Refresh settings skin to conform with new design language, finish tutorial
+ - Fix bugs
+ - Release v1.0.0
+ - Add SLI support to GPU Meter
+ - Add more gadgets!
 
-## Installation and Updates
-ModernGadgets uses the Rainmeter skin installer. To install the software, double-click on the .rmskin file (or choose "Open with Rainmeter") and it will automatically be installed and loaded. When you first load the software it will perform a first-time setup which will create your settings file, configure it, and prepare the skins for loading. You will then be presented with a tutorial with further setup information.
-
-Normally, updating a skin suite in Rainmeter replaces every file in the skin suite's folder. This causes settings to be reset to defaults, and any other customizations to be lost. To avoid part of this, ModernGadgets's settings are kept in Rainmeter's settings folder (e.g. C:\Users\Caleb\AppData\Roaming\Rainmeter) so it will not be overwritten when you update.
-
-## License and Credits
-This software is made available under a Creative Commons BY-NC-SA 3.0 License. The source code is made available under an MIT License.
-
-Programming, Design - iamanai
-
-RainRGB - Jeffrey Morley (jsmorley)
-
-RainFile - Kaelri
-
-Measuring Model, ActiveNet Plugin - SilverAzide
-
-
-HWiNFO Plugin - stangowner
-
-##Known Issues
- - CPU skin does not automatically adapt to different numbers of threads
- - Network, GPU, Disks, and Config skins do not have proper alignment equations and could crash Rainmeter
- - Setup skin will show itself prematurely if "refresh all" is used
- - CPU's unused HWiNFO measures will throw errors upon loading the skin
- - HWiNFO Config Tool's Network, GPU, and Disks pages are nonfunctional
-
-
-## Changelog
-v1.0.0 - 2016-??-?? (Future release)
- - Initial release
+----------
+KNOWN ISSUES:
+ - HWiNFO detection for Core Temperature, Fan, and Clock toggles in CPU Meter's config skin currently doesn't function
+ - Occasionally, Network Meter will not display the external IP address (webparser will time out for reasons unknown)
+ - Icon switching in GPU meter (NVIDIA and AMD) currently doesn't function
+ - Occasionally, Disks Meter will display the disk temperature for a removable drive. This is unintended behavior
+ - Refreshing Network Meter while it is touching the right side of the screen will cause it to move left
+ - CPU Meter's graph does not properly adjust its height when clock speed is hidden and fan speed is visible
+ - GPU Meter's graph does not properly adjust its height when video clock or core voltage are visible
+ - The advanced settings system does not currently function. A temporary workaround has been implemented into all skins
+ - Sometimes, lines will appear to extend outside the graph boundaries
