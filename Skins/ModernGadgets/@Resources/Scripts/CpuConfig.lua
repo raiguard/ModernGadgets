@@ -1,5 +1,4 @@
 -- MODERNGADGETS CPU CONFIG SCRIPT
--- Based on work by SilverAzide
 -- Written by iamanai
 
 function Initialize() end

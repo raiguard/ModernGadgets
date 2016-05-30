@@ -163,43 +163,43 @@ HWiNFO-GPU1-CoreVoltage=0x2000000
 ;
 ; S.M.A.R.T. Drive 1
 ;
-; disk C
-HWiNFO-SMART-DiskC-SensorId=0xf0000100
-HWiNFO-SMART-DiskC-SensorInstance=0x0
-HWiNFO-SMART-DiskC-Temp=0x1000001
-; disk D
-HWiNFO-SMART-DiskD-SensorId=0xf0000100
-HWiNFO-SMART-DiskD-SensorInstance=0x2
-HWiNFO-SMART-DiskD-Temp=0x1000000
-; disk E
-HWiNFO-SMART-DiskE-SensorId=0xf0000100
-HWiNFO-SMART-DiskE-SensorInstance=0x1
-HWiNFO-SMART-DiskE-Temp=0x1000000
-; disk F
-HWiNFO-SMART-DiskF-SensorId=0
-HWiNFO-SMART-DiskF-SensorInstance=0
-HWiNFO-SMART-DiskF-Temp=0
-; disk G
-HWiNFO-SMART-DiskG-SensorId=0
-HWiNFO-SMART-DiskG-SensorInstance=0
-HWiNFO-SMART-DiskG-Temp=0
-; disk H
-HWiNFO-SMART-DiskH-SensorId=0
-HWiNFO-SMART-DiskH-SensorInstance=0
-HWiNFO-SMART-DiskH-Temp=0
-; disk I
-HWiNFO-SMART-DiskI-SensorId=0
-HWiNFO-SMART-DiskI-SensorInstance=0
-HWiNFO-SMART-DiskI-Temp=0
-; disk J
-HWiNFO-SMART-DiskJ-SensorId=0
-HWiNFO-SMART-DiskJ-SensorInstance=0
-HWiNFO-SMART-DiskJ-Temp=0
-; disk K
-HWiNFO-SMART-DiskK-SensorId=0
-HWiNFO-SMART-DiskK-SensorInstance=0
-HWiNFO-SMART-DiskK-Temp=0
-; disk L
-HWiNFO-SMART-DiskL-SensorId=0
-HWiNFO-SMART-DiskL-SensorInstance=0
-HWiNFO-SMART-DiskL-Temp=0
+; disk 1
+HWiNFO-SMART-Disk1-SensorId=0xf0000100
+HWiNFO-SMART-Disk1-SensorInstance=0x0
+HWiNFO-SMART-Disk1-Temp=0x1000001
+; disk 2
+HWiNFO-SMART-Disk2-SensorId=0xf0000100
+HWiNFO-SMART-Disk2-SensorInstance=0x2
+HWiNFO-SMART-Disk2-Temp=0x1000000
+; disk 3
+HWiNFO-SMART-Disk3-SensorId=0xf0000100
+HWiNFO-SMART-Disk3-SensorInstance=0x1
+HWiNFO-SMART-Disk3-Temp=0x1000000
+; disk 4
+HWiNFO-SMART-Disk4-SensorId=0x0
+HWiNFO-SMART-Disk4-SensorInstance=0x0
+HWiNFO-SMART-Disk4-Temp=0x0
+; disk 5
+HWiNFO-SMART-Disk5-SensorId=0x0
+HWiNFO-SMART-Disk5-SensorInstance=0x0
+HWiNFO-SMART-Disk5-Temp=0x0
+; disk 6
+HWiNFO-SMART-Disk6-SensorId=0x0
+HWiNFO-SMART-Disk6-SensorInstance=0x0
+HWiNFO-SMART-Disk6-Temp=0x0
+; disk 7
+HWiNFO-SMART-Disk7-SensorId=0x0
+HWiNFO-SMART-Disk7-SensorInstance=0x0
+HWiNFO-SMART-Disk7-Temp=0x0
+; disk 8
+HWiNFO-SMART-Disk8-SensorId=0x0
+HWiNFO-SMART-Disk8-SensorInstance=0x0
+HWiNFO-SMART-Disk8-Temp=0x0
+; disk 9
+HWiNFO-SMART-Disk9-SensorId=0x0
+HWiNFO-SMART-Disk9-SensorInstance=0x0
+HWiNFO-SMART-Disk9-Temp=0x0
+; disk 10
+HWiNFO-SMART-Disk10-SensorId=0x0
+HWiNFO-SMART-Disk10-SensorInstance=0x0
+HWiNFO-SMART-Disk10-Temp=0x0
