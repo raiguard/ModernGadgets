@@ -1,21 +1,4 @@
-----------
-DEVELOPMENT TO-DO LIST
-! - Create scripts for managing the settings file and changing settings
- - Decide all future plans for current skins
- - Rewrite all skin measures
- - Redesign skins to handle dynamic settings changes and conform to new system
- - Figure out what the flying frick is wrong with Disks' background positioning
- - Finish setup skin
- - Create dual GPU skin
- - Finish off config skin
-
-----------
-PLANNED FEATURES (probably post-release):
-CPU:
- - On-the-fly toggling of graph modes: Regular, temperature,
-
-----------
-MODERN GADGETS
+MODERNGADGETS
 Version 1.0.0
 By iamanai
 
@@ -28,38 +11,30 @@ to ensure the highest quality and stability possible. It is inspired by SilverAz
 remakes for Rainmeter, and some of the UI is based on illustro Gadgets.
 
 This skin suite includes several third-party tools and plugins. Any issues caused by such
-software is not the responsibility of the skin suite's author.
-
-----------
-Installation and Upgrades
-
-ModernGadgets includes an intelligent system for managing user settings. When you install the
-skin suite it will construct a file in the Rainmeter settings folder (e.g.
-C:\Users\Caleb\AppData\Local\Rainmeter\ModernGadgetsSettings.inc) which will contain all changable
-settings. Since this file is outside the skin suite's folder, it will not be lost upon updating
-the skin suite. It is recommended that you store at least one backup of this file, so you will not
-have to reconfigure everything if something goes wrong. Additionally, when you do update the skin
-suite the system will parse and read your settings file, add in any new settings, and reconstruct
-the file. Your customizations will be preserved, but the file will recieve the new content.
+software ought to be taken up with the author of that software.
 
 ----------------------------------------
 LICENSE AND CREDITS
 
 This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
 
-Programming, Design - iamanai
-ActiveNet Plugin - SilverAzide
-HWiNFO Plugin - Stangowner
-RainFile - Kaelri
-RainRGB - Jeffrey Morley
+Source code is available on GitHub under the MIT License.
+
+Various assets taken from WxDataWeather (by jsmorley and SilverAzide), and Google Images.
+
+"Roboto" Font taken from Google Fonts, under the Apache License, version 2.0.
+
+Additional Attributions:
+SilverAzide - ActiveNet plugin, Fixed Precision Format script, various other things
+stangowner - HWiNFO Plugin, HWiNFO Shared Memory Viewer
+Jeffrey Morley - RainRGB, Rainmeter
+balala - Help with fixing Disks Meter's dynamic height adjustment
 
 ----------------------------------------
 CONTACT
 
 Email: iamanaiofficial@gmail.com
 Twitter: @iamanai_
-Rainmeter Forums: iamanai
-DeviantArt: iamanai
 
 ----------------------------------------
 CHANGELOG
