@@ -29,7 +29,7 @@ function ConfigureDisk(disk, diskType, baseColor, mode)
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Command', 'Disabled', '1')
 
     -- set special Y values for proper positioning
-    SKIN:Bang('!SetOption', 'Disk' .. disk .. 'NameString', 'Y', '#contentMargin#')
+    SKIN:Bang('!SetOption', 'Disk' .. disk .. 'NameString', 'Y', '#*contentMargin*#')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'NameString', 'Y', '#*contentMargin*#')
     if disk < 10 then
       SKIN:Bang('!SetOption', 'Disk' .. disk .. 'StorageBar', 'Y', '[Disk' .. (disk - 1) .. 'StorageBar:Y]')
