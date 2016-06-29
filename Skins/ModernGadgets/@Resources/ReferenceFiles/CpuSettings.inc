@@ -45,3 +45,4 @@ showCoreTemps=1
 showCpuFan=1
 showPageFile=0
 showCpuName=1
+showLineGraph=1

@@ -71,7 +71,7 @@ function TogglePage(currentValue)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CpuPage', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'Graph', cpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'ShowPageFile')
@@ -107,7 +107,7 @@ function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
 
 end
 
-function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock)
+function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock, showLineGraph)
 
   if currentValue == 0 then
     SKIN:Bang('!SetVariable', 'showCpuFan', '1')
@@ -119,12 +119,16 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock)
       SKIN:Bang('!WriteKeyValue', 'FanAltValueString', 'Hidden', '0', cpuMeterPath)
       SKIN:Bang('!SetOption', 'FanAltLabelString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'FanAltLabelString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
-      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
+
+      SetLineGraphY(showLineGraph, 1, showCpuClock)
     else
       SKIN:Bang('!Log', 'Cannot display fan speed, for HWiNFO is not running!', 'Error')
       SKIN:Bang('!ShowMeter', 'CpuFanErrorImage')
       SKIN:Bang('!WriteKeyValue', 'CpuFanErrorImage', 'Hidden', '0')
+
+      SetLineGraphY(showLineGraph, 0, showCpuClock)
     end
 
   else
@@ -138,17 +142,12 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock)
     SKIN:Bang('!HideMeter', 'CpuFanErrorImage')
     SKIN:Bang('!WriteKeyValue', 'CpuFanErrorImage', 'Hidden', '1')
 
-    if showCpuClock == 1 then
-      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterPath)
-    else
-      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', '(#rowSpacing# + 2)R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', '(#rowSpacing# + 2)R', cpuMeterPath)
-    end
+    SetLineGraphY(showLineGraph, 0, showCpuClock)
+
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CpuFanAlt', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'Graph', cpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'ShowCpuFan')
@@ -156,7 +155,7 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock)
 
 end
 
-function ToggleCpuClock(currentValue, isHwinfoAvailable, showCpuFan)
+function ToggleCpuClock(currentValue, isHwinfoAvailable, showCpuFan, showLineGraph)
 
   if currentValue == 0 then
     SKIN:Bang('!SetVariable', 'showCpuClock', '1')
@@ -168,12 +167,16 @@ function ToggleCpuClock(currentValue, isHwinfoAvailable, showCpuFan)
       SKIN:Bang('!WriteKeyValue', 'CpuClockValueString', 'Hidden', '0', cpuMeterPath)
       SKIN:Bang('!SetOption', 'CpuClockLabelString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'CpuClockLabelString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
-      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
+
+      SetLineGraphY(showLineGraph, showCpuFan, 1)
     else
       SKIN:Bang('!Log', 'Cannot display CPU clock speed, for HWiNFO is not running!', 'Error')
       SKIN:Bang('!ShowMeter', 'CpuClockErrorImage')
       SKIN:Bang('!WriteKeyValue', 'CpuClockErrorImage', 'Hidden', '0')
+
+      SetLineGraphY(showLineGraph, showCpuFan, 0)
     end
 
   else
@@ -187,20 +190,68 @@ function ToggleCpuClock(currentValue, isHwinfoAvailable, showCpuFan)
     SKIN:Bang('!HideMeter', 'CpuClockErrorImage')
     SKIN:Bang('!WriteKeyValue', 'CpuClockErrorImage', 'Hidden', '1')
 
-    if showCpuFan == 1 then
-      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterPath)
-    else
-      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', '(#rowSpacing# + 2)R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', '(#rowSpacing# + 2)R', cpuMeterPath)
-    end
+    SetLineGraphY(showLineGraph, showCpuFan, 0)
+
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CpuClock', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'Graph', cpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'ShowCpuClock')
   SKIN:Bang('!Redraw')
+
+end
+
+function ToggleLineGraph(currentValue, showCpuFan, showCpuClock)
+
+  if currentValue == 0 then
+    SKIN:Bang('!SetVariable', 'showLineGraph', '1')
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'showLineGraph', '1', cpuSettingsPath)
+
+    SKIN:Bang('!ShowMeterGroup', 'LineGraph', cpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '0', cpuMeterPath)
+    SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '0', cpuMeterPath)
+
+    SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
+
+    SetLineGraphY(1, showCpuFan, showCpuClock)
+  else
+    SKIN:Bang('!SetVariable', 'showLineGraph', '0')
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'showLineGraph', '0', cpuSettingsPath)
+
+    SKIN:Bang('!HideMeterGroup', 'LineGraph', cpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '1', cpuMeterPath)
+    SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '1', cpuMeterPath)
+
+    SetLineGraphY(0, showCpuFan, showCpuClock)
+  end
+
+  SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
+  SKIN:Bang('!Redraw', cpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'ShowLineGraph')
+  SKIN:Bang('!Redraw')
+
+end
+
+function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
+
+  -- SKIN:Bang('!Log', showLineGraph .. ', ' .. showCpuFan .. ', ' .. showCpuClock, 'Debug')
+
+  if showCpuFan == 1 or showCpuClock == 1 then
+    if showLineGraph == 1 then
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
+    else
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-2R', cpuMeterConfig)
+    end
+  else
+    if showLineGraph == 1 then
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '4R', cpuMeterConfig)
+    else
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '3R', cpuMeterConfig)
+    end
+  end
 
 end
