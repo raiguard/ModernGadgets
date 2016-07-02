@@ -19,7 +19,15 @@ function Initialize()
                 'GpuSettings.inc',
                 'DisksSettings.inc' }
 
-  filesPath = SKIN:GetVariable('SETTINGSPATH')
+  tempTable = {
+    { Variables = {
+      { tempUOM = 'C' },
+      { fileRevision = '1.0.0' }
+      }
+    }
+  }
+
+  filesPath = SKIN:GetVariable('SETTINGSPATH') .. 'ModernGadgetsSettings\\'
 
   rFilesPath = SKIN:GetVariable('@') .. 'ReferenceFiles\\'
 
@@ -36,17 +44,64 @@ function SettingsProtocol()
   -- LogHelper('mgVersion: ' .. tostring(ctrlTable[Variables][mgVersion]) .. ' | fileRevision: ' .. tostring(ctrlTable[Variables][fileRevision]), 'Debug')
   -- WriteIni(ctrlTable, rFilesPath .. 'Temp.inc')
 
-  if CheckFiles(rFilesPath .. fileNames[1], filesPath .. fileNames[1]) == 1 then
+  -- check if external control file exists
+  local ctrlFile = io.open(filesPath .. fileNames[1])
+  if ctrlFile == nil then
+    LogHelper('Creating external settings files', 'Notice')
+
+    CreateFiles()
+
 
   else
+    io.close(ctrlFile)
+    LogHelper('Settings files found', 'Debug')
 
+    -- assemble tables for both control files
+    local rCtrlTable = ReadIni(rFilesPath .. fileNames[1])
+    local ctrlTable = ReadIni(filesPath .. fileNames[1])
+
+    -- check if tables are identical
+    if rCtrlTable['Variables']['mgVersion'] == ctrlTable['Variables']['mgVersion'] and rCtrlTable['Variables']['fileRevision'] == ctrlTable['Variables']['fileRevision'] then
+      LogHelper('Settings files up-to-date', 'Notice')
+    else
+      LogHelper('Updating settings files', 'Notice')
+
+      UpdateFiles()
+    end
+
+  end
+
+  print_r(tempTable)
+
+end
+
+function CreateFiles()
+
+  os.execute("mkdir " .. filesPath)
+
+  for i=1,7 do
+    WriteIni(ReadIni(rFilesPath .. fileNames[i]), filesPath .. fileNames[i])
   end
 
 end
 
-function CheckFiles(refFile, sFile)
+function UpdateFiles()
 
+  -- create tables for every file
+  local tableOfRefTables = {}
+  local tableOfTables = {}
 
+  for i=1,7 do
+    tableOfRefTables[i] = ReadIni(rFilesPath .. fileNames[i])
+    tableOfTables[i] = ReadIni(filesPath .. fileNames[i])
+
+    table.sort(tableOfRefTables)
+    table.sort(tableOfTables)
+
+    print_r(tableOfRefTables)
+  end
+
+  -- print_r(tableOfRefTables)
 
 end
 
@@ -92,8 +147,6 @@ function WriteIni(inputtable, filename)
 	file:write(table.concat(lines, '\r'))
 	file:close()
 end
-
-
 
 -- function to make logging messages less cluttered
 function LogHelper(message, type)

@@ -4,6 +4,29 @@
 
 lineGraphAa=0
 
+; Color pallete
+
+colorPallete1=107,198,250,240
+colorPallete2=255,204,0,240
+colorPallete3=150,150,150,240
+colorPallete4=236,28,70,240
+colorPallete5=107,238,98,240
+colorPallete6=255,246,42,240
+colorPallete7=250,158,0,240
+colorPallete8=236,28,70,240
+colorPallete9=199,36,199,240
+colorPallete10=145,70,232,240
+colorPallete11=42,112,250,240
+colorPallete12=43,224,224,240
+colorPallete13=121,182,62,240
+colorPallete14=204,255,0,240
+colorPallete15=250,205,22,240
+colorPallete16=191,100,55,240
+colorPallete17=201,41,56,240
+colorPallete18=179,0,91,240
+colorPallete19=153,84,166,240
+colorPallete20=99,125,217,240
+
 ; ----- HWiNFO -----
 
 ;

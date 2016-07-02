@@ -255,3 +255,27 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
   end
 
 end
+
+function ConfigureConfigErrors(state, showCoreTemps, showCpuFan)
+
+  if state == 1 or showCoreTemps == 0 then
+    SKIN:Bang('!HideMeter', 'CoreTempsErrorImage')
+    SKIN:Bang('!WriteKeyValue', 'CoreTempsErrorImage', 'Hidden', '1')
+    SKIN:Bang('!Redraw')
+  elseif state == 0 and showCoreTemps == 1 then
+    SKIN:Bang('!ShowMeter', 'CoreTempsErrorImage')
+    SKIN:Bang('!WriteKeyValue', 'CoreTempsErrorImage', 'Hidden', '0')
+    SKIN:Bang('!Redraw')
+  end
+
+  if state == 1 or showCpuFan == 0 then
+    SKIN:Bang('!HideMeter', 'CpuFanErrorImage')
+    SKIN:Bang('!WriteKeyValue', 'CpuFanErrorImage', 'Hidden', '1')
+    SKIN:Bang('!Redraw')
+  elseif state == 0 and showCpuFan == 1 then
+    SKIN:Bang('!ShowMeter', 'CpuFanErrorImage')
+    SKIN:Bang('!WriteKeyValue', 'CpuFanErrorImage', 'Hidden', '0')
+    SKIN:Bang('!Redraw')
+  end
+
+end

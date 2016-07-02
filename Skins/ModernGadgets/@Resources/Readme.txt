@@ -5,27 +5,25 @@ By iamanai
 ----------------------------------------
 ABOUT
 
-ModernGadgets is, as the name suggests, modernized versions of the classic AddGadgets.com system
-monitoring gadgets. But it's more than a simple reskin - everything has been rewritten manually
-to ensure the highest quality and stability possible. It is inspired by SilverAzide's gadgets
-remakes for Rainmeter, and some of the UI is based on illustro Gadgets.
+ModernGadgets is a Rainmeter recreation of the most popular AddGadgets.com system monitoring
+gadgets, with updated visuals and enhanced functionality to better align with modern systems.
+The skin suite is developed completely for free on the Rainmeter platform, with the source
+code available on GitHub. Any issues caused by third-party plugins or software are not the
+responsibility of the skin suite author.
 
-This skin suite includes several third-party tools and plugins. Any issues caused by such
-software ought to be taken up with the author of that software.
+This skin suite requires Rainmeter 3.3 or above, as well as the .NET framework v4.5 or above.
 
 ----------------------------------------
 LICENSE AND CREDITS
 
 This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
-
 Source code is available on GitHub under the MIT License.
 
 Various assets taken from WxDataWeather (by jsmorley and SilverAzide), and Google Images.
-
 "Roboto" Font taken from Google Fonts, under the Apache License, version 2.0.
 
 Additional Attributions:
-SilverAzide - ActiveNet plugin, Fixed Precision Format script, various other things
+SilverAzide - ActiveNet plugin, fixed precision format script, various other things
 stangowner - HWiNFO Plugin, HWiNFO Shared Memory Viewer
 Jeffrey Morley - RainRGB, Rainmeter
 balala - Help with fixing Disks Meter's dynamic height adjustment

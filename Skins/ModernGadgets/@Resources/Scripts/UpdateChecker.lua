@@ -1,10 +1,12 @@
 --------------------------------------------------
 -- Update Checker for Rainmeter
--- Version 1.0.0
+-- Version 1.0.1
 -- By iamanai
 --------------------------------------------------
 --
 -- Release Notes:
+-- v2.0.0 - Removed dependancy on an output meter in favor of hard-coded actions
+-- v1.0.1 - Optimized gmatch function, more debug functionality
 -- v1.0.0 - Initial release
 --
 
@@ -14,27 +16,27 @@ function Initialize() end
 
 function Update() end
 
-function CheckForUpdate(cVersion, rVersion, outputMeter)
+function CheckForUpdate(cVersion, rVersion)
 
-  cVerIt = string.gmatch(cVersion,"%d+")
+  LogHelper('rVersion: ' .. rVersion, 'Debug')
+
   cVerTable = {}
-  for match in cVerIt do
+  for match in cVersion:gmatch('%d+') do
     table.insert(cVerTable, match)
     LogHelper('cVerTable: ' .. match, 'Debug')
   end
 
-  rVerIt = string.gmatch(rVersion,"%d+")
   rVerTable = {}
-  for match in rVerIt do
+  for match in rVersion:gmatch('%d+') do
     table.insert(rVerTable, match)
     LogHelper('rVerTable: ' .. match, 'Debug')
   end
 
-  LogHelper(tableLength(cVerTable), 'Debug')
+  LogHelper('cVerTable length: ' .. tableLength(cVerTable) .. ' rVerTable length: ' .. tableLength(rVerTable), 'Debug')
 
   if tableLength(cVerTable) == 4 then
-    SKIN:Bang('!SetOption', outputMeter, 'MeterStyle', 'StyleString | StyleStringPanelContent | StyleUpdateCheckerDev')
-    SKIN:Bang('!Redraw')
+    -- DEVELOPMENT VERSION
+
   else
 
     r1 = cVerTable[1] - rVerTable[1]
@@ -42,15 +44,14 @@ function CheckForUpdate(cVersion, rVersion, outputMeter)
     r3 = cVerTable[3] - rVerTable[3]
 
     if r1 < 0 or r2 < 0 or r3 < 0 then
+      -- UPDATE AVAILABLE
 
-      SKIN:Bang('!SetOption', outputMeter, 'MeterStyle', 'StyleString | StyleStringPanelContent | StyleUpdateCheckerYes')
-      SKIN:Bang('!Redraw')
     elseif r1 == 0 and r2 == 0 and r3 == 0 then
-      SKIN:Bang('!SetOption', outputMeter, 'MeterStyle', 'StyleString | StyleStringPanelContent | StyleUpdateCheckerNo')
-      SKIN:Bang('!Redraw')
+      -- UP-TO-DATE
+
     elseif r1 > 0 or r2 > 0 or r3 > 0 then
-      SKIN:Bang('!SetOption', outputMeter, 'MeterStyle', 'StyleString | StyleStringPanelContent | StyleUpdateCheckerDev')
-      SKIN:Bang('!Redraw')
+      -- DEVELOPMENT VERSION
+
     end
   end
 end

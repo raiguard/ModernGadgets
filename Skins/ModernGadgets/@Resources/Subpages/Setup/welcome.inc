@@ -21,20 +21,22 @@ Text="The ultimate desktop gadgets replacement suite"
 [IntroParagraphString]
 Meter=String
 MeterStyle=StyleString | StyleStringParagraph
-Text="Modern Gadgets is a new set of system monitoring gadgets created by iamanai. They are the gadgets you know and love, but with a new look and several new features not present in the originals. This skin suite is also the first to implement a new system for handling user settings..#CRLF##CRLF#We will now go through a brief tutorial on how to use and configure ModernGadgets. If you wish to skip this, click 'Skip Tutorial'. Otherwise, click 'next' to continue."
+Text="ModernGadgets is a Rainmeter recreation of the most popular AddGadgets.com system monitoring gadgets, with updated visuals and enhanced functionality to better align with modern systems. It is inspired by SilverAzide's Gadgets skins, as well as illustro Gadgets. It is also the first skin suite to implement a new system for handling user settings, explained more in the setup tutorial."
 
 [NextButton]
 Meter=String
 MeterStyle=StyleString | StyleStringButton
-StringAlign=Right
-X=#contentMarginRight#
-Y=(#bgHeight# - 30)
-Text="Next"
+StringAlign=Center
+X=#contentMarginCenter#
+Y=30R
+Text="View Setup Tutorial"
 LeftMouseUpAction=[!WriteKeyValue Variables page "tutorial1"][!Refresh]
 
 [SkipTutorialButton]
 Meter=String
 MeterStyle=StyleString | StyleStringButton
-Y=r
-Text="Skip Tutorial"
+StringAlign=Center
+X=#contentMarginCenter#
+Y=10R
+Text="Skip tutorial"
 LeftMouseUpAction=[!WriteKeyValue Variables page "skinSelect"][!Refresh]

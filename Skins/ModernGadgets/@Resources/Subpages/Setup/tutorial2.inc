@@ -1,5 +1,5 @@
 [Variables]
-bgHeight=520
+bgHeight=530
 
 [SectionHeader1String]
 Meter=String
@@ -19,7 +19,7 @@ Text="Based on jsmorley's HWiNFO tutorial"
 [SectionText1String]
 Meter=String
 MeterStyle=StyleString | StyleStringParagraph
-Text="HWiNFO is a very robust freeware system monitoring application for Windows. It provides a ton of information about your system's hardware, and can monitor and report on current status and potential problems. ModernGadgets utilizes HWiNFO for a good portion of its functionality. You can download HWiNFO from the link below.#CRLF##CRLF#Once you have downloaded, installed, and run HWiNFO, right-click on HWiNFO's tray icon, and click 'Settings'. Ensure your settings are configured as shown in the picture below (especially the highlighted settings).#CRLF##CRLF#Once finished, click OK, then right-click the tray icon again and choose 'Sensors'. Minimize the window that pops up, and all HWiNFO windows will disappear. If you configured the settings correctly, HWiNFO should auto-start with Windows."
+Text="HWiNFO is a very robust freeware system monitoring application for Windows. It provides a ton of information about your system's hardware, and can monitor and report on current status and potential problems. ModernGadgets utilizes HWiNFO for a good portion of its functionality. You can download HWiNFO from the link below.#CRLF##CRLF#Once you have downloaded, installed, and run HWiNFO, right-click on HWiNFO's tray icon, and click 'Settings'. Ensure your settings are configured as shown in the picture below (especially the highlighted settings).#CRLF##CRLF#Once finished, click OK, then right-click the tray icon again and choose 'Sensors'. Minimize the window that pops up, and all HWiNFO windows will disappear. If you configured the settings correctly, HWiNFO should now auto-start when you log in!"
 
 [Section1Image1]
 Meter=Image
