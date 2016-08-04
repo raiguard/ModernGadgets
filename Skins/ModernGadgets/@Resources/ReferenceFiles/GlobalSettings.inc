@@ -3,6 +3,7 @@
 [Variables]
 
 lineGraphAa=0
+notifyUpdates=1
 
 ; Color pallete
 

@@ -22,14 +22,18 @@ function Update() end
 -- up-to-date - hard-coded actions
 function UpToDate()
 
-
+  LogHelper('ModernGadgets is up-to-date', 'Notice')
 
 end
 
 -- update available - hard-coded actions
 function UpdateAvailable()
 
+  LogHelper('An update is available!', 'Notice')
 
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updateavailable')
+  SKIN:Bang('!Refresh')
+  SKIN:Bang('!ShowFade')
 
 end
 
@@ -43,7 +47,7 @@ end
 -- connection error - hard-coded actions
 function ConnectError()
 
-  
+    LogHelper('Could not connect to update server', 'Error')
 
 end
 
