@@ -36,8 +36,6 @@ colorPallete20=99,125,217,240
 HWiNFO-CPU0-SensorId=0xf0000300
 HWiNFO-CPU0-SensorInstance=0x0
 ; entry IDs
-; CPU usage (percent)
-HWiNFO-CPU0-Usage=0x7000009
 ; core 0 clock frequency (MHz)
 HWiNFO-CPU0-Core0Clock=0x6000000
 ; core 1 clock frequency (MHz)
@@ -110,8 +108,6 @@ HWiNFO-CPU0-DTS-Core5Temp=0x1000005
 HWiNFO-CPU0-DTS-Core6Temp=0x1000006
 ; core 7 temperature (degrees)
 HWiNFO-CPU0-DTS-Core7Temp=0x1000007
-; maximum current core temperature (degrees)
-HWiNFO-CPU0-DTS-CoreMax=0x100007f
 
 ;
 ; Motherboard

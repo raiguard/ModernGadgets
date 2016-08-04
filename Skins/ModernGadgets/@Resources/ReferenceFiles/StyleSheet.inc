@@ -44,6 +44,7 @@ colorAccentRgb=138,210,250
 colorButtonPress=255,50,50
 
 colorHwinfoValueInputBg=50,50,50,255
+colorHwinfoError=255,50,50,255
 
 ; Paths
 imgPath=#@#Assets\Images\
