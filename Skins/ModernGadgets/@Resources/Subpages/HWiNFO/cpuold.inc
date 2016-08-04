@@ -4,8 +4,8 @@
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#fontColor#
-FontSize=11
+FontColor=#colorMain#
+FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
 FocusDismiss=1
@@ -26,8 +26,8 @@ Command10=[!WriteKeyValue Variables HWiNFO-CPU0-Core7Clock "$UserInput$" "#setti
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#fontColor#
-FontSize=11
+FontColor=#colorMain#
+FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
 FocusDismiss=1
@@ -46,8 +46,8 @@ Command8=[!WriteKeyValue Variables HWiNFO-CPU0-Core7Vid "$UserInput$" "#settings
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#fontColor#
-FontSize=11
+FontColor=#colorMain#
+FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
 FocusDismiss=1
@@ -66,8 +66,8 @@ Command8=[!WriteKeyValue Variables HWiNFO-CPU0-Core7Tt "$UserInput$" "#settingsF
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#fontColor#
-FontSize=11
+FontColor=#colorMain#
+FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
 FocusDismiss=1
@@ -84,51 +84,17 @@ Command8=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core5Temp "$UserInput$" "#set
 Command9=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core6Temp "$UserInput$" "#settingsFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-Core6Temp# X=[Cpu0DtsCore6TempString:X] Y=[Cpu0DtsCore6TempString:Y] W=[Cpu0DtsCore6TempString:W]
 Command10=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core7Temp "$UserInput$" "#settingsFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-Core7Temp# X=[Cpu0DtsCore7TempString:X] Y=[Cpu0DtsCore7TempString:Y] W=[Cpu0DtsCore7TempString:W]
 
-; ----- Navigation Bar -----
+[StyleStringHwinfoLabel]
+FontSize=10
+Y=3R
 
-[NavBarCpuString]
-Meter=String
-MeterStyle=StyleString | StyleStringNavBar
-X=10R
-Y=1r
-Text="CPU"
-
-[NavBarCpuDividerString]
-Meter=String
-MeterStyle=StyleString | StyleStringNavBarDivider
-
-[NavBarNetworkString]
-Meter=String
-MeterStyle=StyleString | StyleStringNavBar
-FontColor=#fontColorAccent#
-Text="Network"
-LeftMouseUpAction=[!WriteKeyValue Variables page "network"][!Refresh]
-
-[NavBarNetworkDividerString]
-Meter=String
-MeterStyle=StyleString | StyleStringNavBarDivider
-
-[NavBarGpuString]
-Meter=String
-MeterStyle=StyleString | StyleStringNavBar
-FontColor=#fontColorAccent#
-Text="GPU"
-LeftMouseUpAction=[!WriteKeyValue Variables page "network"][!Refresh]
-
-[NavBarGpuDividerString]
-Meter=String
-MeterStyle=StyleString | StyleStringNavBarDivider
-
-[NavBarDisksString]
-Meter=String
-MeterStyle=StyleString | StyleStringNavBar
-FontColor=#fontColorAccent#
-Text="Disks"
-LeftMouseUpAction=[!WriteKeyValue Variables page "network"][!Refresh]
-
-[TitleSeparatorImage]
-Meter=Image
-MeterStyle=StyleSectionSeparatorLine
+[StyleStringHwinfoValue]
+FontSize=10
+X=R
+Y=r
+W=100
+H=16
+SolidColor=#colorHwinfoValueInputBg#
 
 ; ----- Clock Speed, VID, Thermal Throttling -----
 [Cpu0ClockSensorIdLabelString]
@@ -405,16 +371,12 @@ X=3R
 Text="#HWiNFO-CPU0-Core7Tt#"
 LeftMouseUpAction=[!CommandMeasure MeasureInputCpu0Tt "Executebatch 8"]
 
-[ClockVidTtSeparatorImage]
-Meter=Image
-MeterStyle=StyleSectionSeparatorLine
-
 ; ----- Temperatures -----
 
 [Cpu0DtsSensorIdLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-X=150
+X=50
 Y=10R
 Text="CPU DTS Sensor ID"
 

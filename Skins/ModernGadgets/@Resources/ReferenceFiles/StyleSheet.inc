@@ -39,13 +39,17 @@ colorDimA=#colorBgA#
 colorBarBg=#colorDim#
 
 colorAccent=138,210,250,220
+colorAccentRgb=138,210,250
 
 colorButtonPress=255,50,50
+
+colorHwinfoValueInputBg=50,50,50,255
 
 ; Paths
 imgPath=#@#Assets\Images\
 soundPath=#@#Assets\Sounds\
 fontPath=#@#Fonts\
+scriptPath=#@#Scripts\
 
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU

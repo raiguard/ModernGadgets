@@ -2,8 +2,9 @@
 interface=Best
 
 censorExternalIp=0
-showPeakNetworkUsage=0
+showPeakNetworkUsage=1
 showSpeedtestButton=1
+showTrafficInBytes=1
 showLineGraph=1
 
 colorUpload=107,238,98,240

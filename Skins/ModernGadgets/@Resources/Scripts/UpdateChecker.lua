@@ -1,13 +1,16 @@
 --------------------------------------------------
 -- Update Checker for Rainmeter
--- Version 1.0.1
+-- Version 2.0.0
 -- By iamanai
 --------------------------------------------------
 --
 -- Release Notes:
--- v2.0.0 - Removed dependancy on an output meter in favor of hard-coded actions
+-- v2.0.0 - Removed dependancy on an output meter in favor of hard-coded actions,
+--          added more documentation
 -- v1.0.1 - Optimized gmatch function, more debug functionality
 -- v1.0.0 - Initial release
+--
+-- --------------------
 --
 
 isDbg = false
@@ -16,6 +19,35 @@ function Initialize() end
 
 function Update() end
 
+-- up-to-date - hard-coded actions
+function UpToDate()
+
+
+
+end
+
+-- update available - hard-coded actions
+function UpdateAvailable()
+
+
+
+end
+
+-- development version - hard-coded actions
+function DevelopmentVersion()
+
+
+
+end
+
+-- connection error - hard-coded actions
+function ConnectError()
+
+  
+
+end
+
+-- thrown by the webparser measure when the fetch is successful
 function CheckForUpdate(cVersion, rVersion)
 
   LogHelper('rVersion: ' .. rVersion, 'Debug')
@@ -35,8 +67,7 @@ function CheckForUpdate(cVersion, rVersion)
   LogHelper('cVerTable length: ' .. tableLength(cVerTable) .. ' rVerTable length: ' .. tableLength(rVerTable), 'Debug')
 
   if tableLength(cVerTable) == 4 then
-    -- DEVELOPMENT VERSION
-
+    DevelopmentVersion()
   else
 
     r1 = cVerTable[1] - rVerTable[1]
@@ -44,18 +75,16 @@ function CheckForUpdate(cVersion, rVersion)
     r3 = cVerTable[3] - rVerTable[3]
 
     if r1 < 0 or r2 < 0 or r3 < 0 then
-      -- UPDATE AVAILABLE
-
+      UpdateAvailable()
     elseif r1 == 0 and r2 == 0 and r3 == 0 then
-      -- UP-TO-DATE
-
+      UpToDate()
     elseif r1 > 0 or r2 > 0 or r3 > 0 then
-      -- DEVELOPMENT VERSION
-
+      DevelopmentVersion()
     end
   end
 end
 
+-- returns the number of entries in the given table
 function tableLength(T)
 
   local count = 0
@@ -69,7 +98,7 @@ function LogHelper(message, type)
 
 	if isDbg == true then
 		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
-	elseif type ~= 'Debug' then
+	elseif type ~= 'Debug' and type ~= nil then
 		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
 	end
 

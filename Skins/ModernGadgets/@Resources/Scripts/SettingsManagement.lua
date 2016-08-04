@@ -19,7 +19,7 @@
 --  - Add check for extraneous values in settings files, so they can be deleted
 --
 
-isDbg = true
+isDbg = false
 
 function Initialize()
 
@@ -40,6 +40,14 @@ function Initialize()
 end
 
 function Update() end
+
+function TestReadIni()
+  testTable = ReadIni('D:\\Files\\Caleb\\Test.inc')
+end
+
+function TestWriteIni()
+  WriteIni(testTable, 'D:\\Files\\Caleb\\Test.inc')
+end
 
 -- runs once on initial skin load (not a refresh)
 function SettingsProtocol()
@@ -84,7 +92,9 @@ function UpdateFiles()
   -- for all settings files
   for y=1,7 do
     -- create file tables for reference file and actual file, constructor table
+    LogHelper('FILE TABLE:', 'Debug')
     local fileTable = ReadIni(filesPath .. fileNames[y])
+    LogHelper('REFERENCE FILE TABLE:', 'Debug')
     local refFileTable = ReadIni(rFilesPath .. fileNames[y])
     local newFileTable = newT()
 
@@ -117,17 +127,17 @@ function ReadIni(inputfile)
 	local num = 0
 	for line in file:lines() do
 		num = num + 1
-		if not line:match('^%s-;') then
+		if not line:match('^%s;') then
 			local key, command = line:match('^([^=]+)=(.+)')
 			if line:match('^%s-%[.+') then
 				section = line:match('^%s-%[([^%]]+)')
-        -- LogHelper(section, 'Debug')
+        LogHelper(section, 'Debug')
 				if not tbl[section] then tbl[section] = newT() end
 			elseif key and command and section then
-				tbl[section][key:match('^s*(%S*)%s*$')] = command:match('^s*(.-)%s*$')
-        -- LogHelper(key .. '=' .. command, 'Debug')
+        LogHelper(key .. '=' .. command, 'Debug')
+				tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$')
 			elseif #line > 0 and section and not key or command then
-				print(num .. ': Invalid property or value.')
+				-- print(num .. ': Invalid property or value.')
 			end
 		end
 	end
@@ -145,8 +155,10 @@ function WriteIni(inputtable, filename)
 
 	for section, contents in inputtable:opairs() do
 		table.insert(lines, ('\[%s\]'):format(section))
+    LogHelper(section, 'Debug')
 		for key, value in contents:opairs() do
 			table.insert(lines, ('%s=%s'):format(key, value))
+      LogHelper(key .. '=' .. value, 'Debug')
 		end
 		table.insert(lines, '')
 	end
