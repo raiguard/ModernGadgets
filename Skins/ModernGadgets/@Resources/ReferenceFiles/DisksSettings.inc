@@ -7,6 +7,9 @@ fpfSpaceTotalDepth=5
 diskCommand="C:\Windows\explorer.exe" /E,{drive}\
 histogramA=50
 
+showDiskTemps=1
+showLineGraph=1
+
 tempUOM=C
 d01=C:
 d02=D:

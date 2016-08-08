@@ -24,7 +24,6 @@ isDbg = false
 function Initialize()
 
   fileNames = { 'ControlFile.inc',
-                'StyleSheet.inc',
                 'GlobalSettings.inc',
                 'CpuSettings.inc',
                 'NetworkSettings.inc',
@@ -81,7 +80,7 @@ function CreateFiles()
   os.execute("mkdir " .. filesPath)
 
   -- write entire contents of reference files to the corresponding settings files
-  for i=1,7 do
+  for i=1,6 do
     WriteIni(ReadIni(rFilesPath .. fileNames[i]), filesPath .. fileNames[i])
   end
 
@@ -89,8 +88,11 @@ end
 
 function UpdateFiles()
 
-  -- for all settings files
-  for y=1,7 do
+  -- for the control file
+  WriteIni(ReadIni(rFilesPath .. fileNames[1]), filesPath .. fileNames[1])
+
+  -- for the other files
+  for y=2,6 do
     -- create file tables for reference file and actual file, constructor table
     LogHelper('FILE TABLE:', 'Debug')
     local fileTable = ReadIni(filesPath .. fileNames[y])

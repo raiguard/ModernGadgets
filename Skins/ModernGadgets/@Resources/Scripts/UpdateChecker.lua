@@ -51,6 +51,13 @@ function ConnectError()
 
 end
 
+-- parsing error - hard-coded actions
+function ParsingError()
+
+
+
+end
+
 -- thrown by the webparser measure when the fetch is successful
 function CheckForUpdate(cVersion, rVersion)
 
@@ -70,22 +77,25 @@ function CheckForUpdate(cVersion, rVersion)
 
   LogHelper('cVerTable length: ' .. tableLength(cVerTable) .. ' rVerTable length: ' .. tableLength(rVerTable), 'Debug')
 
-  if tableLength(cVerTable) == 4 then
-    DevelopmentVersion()
-  else
+  if tableLength(cVerTable) < 3 then ParsingError() LogHelper('Problem parsing local version string', 'Error') return nil end
+  if tableLength(rVerTable) < 3 then ParsingError() LogHelper('Problem parsing remote version string', 'Error') return nil end
 
-    r1 = cVerTable[1] - rVerTable[1]
-    r2 = cVerTable[2] - rVerTable[2]
-    r3 = cVerTable[3] - rVerTable[3]
+  r1 = cVerTable[1] - rVerTable[1]
+  r2 = cVerTable[2] - rVerTable[2]
+  r3 = cVerTable[3] - rVerTable[3]
 
-    if r1 < 0 or r2 < 0 or r3 < 0 then
-      UpdateAvailable()
-    elseif r1 == 0 and r2 == 0 and r3 == 0 then
-      UpToDate()
-    elseif r1 > 0 or r2 > 0 or r3 > 0 then
+  if r1 < 0 or r2 < 0 or r3 < 0 then
+    UpdateAvailable()
+  elseif r1 == 0 and r2 == 0 and r3 == 0 then
+    if tableLength(cVerTable) == 4 then
       DevelopmentVersion()
+    else
+      UpToDate()
     end
+  elseif r1 > 0 or r2 > 0 or r3 > 0 then
+    DevelopmentVersion()
   end
+
 end
 
 -- returns the number of entries in the given table

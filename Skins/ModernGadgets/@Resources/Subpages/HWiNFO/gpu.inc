@@ -44,7 +44,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
-IfCondition=MeasureHwinfoTestGpu0SensorId = -9102
+IfCondition=(MeasureHwinfoTestGpu0SensorId = -9102) || (MeasureHwinfoTestGpu0SensorInstance = -9102)
 IfTrueAction=[!SetOptionGroup Gpu0Values MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorSensorNotFound"][!UpdateMeterGroup Gpu0Values][!Redraw]
 
 [MeasureHwinfoTestGpu0Clock]
