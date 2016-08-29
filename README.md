@@ -17,7 +17,11 @@ Contributions are welcome! If you would like to add your own code, feel free to 
 CREDITS
 
 iamanai - Code, design
+
 SilverAzide - ActiveNet plugin, Fixed Precision Format script
+
 stangowner - HWiNFO plugin, HWiNFO SMV application
+
 balala - Assisted with Disks Meter's dynamic height adjustment functionality
+
 jsmorley - Rainmeter, RainRGB
