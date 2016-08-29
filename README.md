@@ -6,13 +6,18 @@ ModernGadgets is released on the Rainmeter platform under a Creative Commons BY-
 ----------
 INSTALLATION INSTRUCTIONS
 
-ModernGadgets official releases are packaged using the Rainmeter skin installer, and can be found on DeviantArt or through my Dropbox (insert links later). However, if you wish to be a beta tester or otherwise wish to install ModernGadgets using the GitHub repository, herein are instructions on how to do so. These instructions assume you are already proficient with how Rainmeter works, and how to work with GitHub repositories. You will also need access to the command prompt.
-
-First, find a location to clone the repository to that is not inside Rainmeter's skin folder. Once you have cloned the repository, open command prompt. You will be using the mklink command to create a junction between a subfolder in the repository and the Rainmeter skin folder.
-
-[CONTINUE INSTRUCTIONS HERE]
+ModernGadgets official releases are packaged using the Rainmeter skin installer, and can be found on DeviantArt or through my Dropbox (insert links later). When installing, make sure to check "Load Included Skins". This will load the setup skin first, which is required for the suite to function (opening any other skin without first loading setup has a chance of crashing Rainmeter).
 
 ----------
 CONTRIBUTIONS
 
 Contributions are welcome! If you would like to add your own code, feel free to fork the repository and submit a pull request when ready. However, please keep in mind that I may substantially redesign your code or reject the pull request completely according to my own discretion. If I do accept a pull request from you or you help in any way, your name will be added to the credits under "developers".
+
+----------
+CREDITS
+
+iamanai - Code, design
+SilverAzide - ActiveNet plugin, Fixed Precision Format script
+stangowner - HWiNFO plugin, HWiNFO SMV application
+balala - Assisted with Disks Meter's dynamic height adjustment functionality
+jsmorley - Rainmeter, RainRGB
