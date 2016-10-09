@@ -35,14 +35,12 @@ colorCore14=179,0,91,240
 colorCore15=153,84,166,240
 colorCore16=99,125,217,240
 
-colorIntel=0,125,198
-
 isHwinfoAvailable=1
 
 useHwinfoClock=1
-showCpuClock=1
+showCpuClock=0
 showCoreTemps=1
-showCpuFan=1
+showCpuFan=0
 showPageFile=0
 showCpuName=1
 showLineGraph=1

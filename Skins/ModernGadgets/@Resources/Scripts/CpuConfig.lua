@@ -79,7 +79,27 @@ function ToggleTemps(threads, mode)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CoreTemps')
-  SKIN:Bang('!Redraw')
+  -- SKIN:Bang('!Redraw')
+
+end
+
+function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
+
+  -- SKIN:Bang('!Log', showLineGraph .. ', ' .. showCpuFan .. ', ' .. showCpuClock, 'Debug')
+
+  if showCpuFan == 1 or showCpuClock == 1 then
+    if showLineGraph == 1 then
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R')
+    else
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-2R')
+    end
+  else
+    if showLineGraph == 1 then
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '4R')
+    else
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '3R')
+    end
+  end
 
 end
 
@@ -94,15 +114,15 @@ function ConfigCpuIcon(state)
     SKIN:Bang('!SetOption', 'CpuImage', 'W', '13')
     SKIN:Bang('!SetOption', 'CpuImage', 'H', '13')
     SKIN:Bang('!UpdateMeter', 'CpuImage')
-    SKIN:Bang('!Redraw')
+    -- SKIN:Bang('!Redraw')
   elseif state ~= 'GenuineAMD' and state ~= 'AuthenticAMD' then
-    SKIN:Bang('!SetOption', 'CpuImage', 'ImageName', '#*imgPath*#cpu.png')
-    SKIN:Bang('!SetOption', 'CpuImage', 'X', '(#*contentMargin*# + 1)')
-    SKIN:Bang('!SetOption', 'CpuImage', 'Y', '(#*contentMargin*# + 1)')
-    SKIN:Bang('!SetOption', 'CpuImage', 'W', '13')
-    SKIN:Bang('!SetOption', 'CpuImage', 'H', '13')
+    SKIN:Bang('!SetOption', 'CpuImage', 'ImageName', '#*imgPath*#amd.png')
+    SKIN:Bang('!SetOption', 'CpuImage', 'X', '(#*contentMargin*# + 2)')
+    SKIN:Bang('!SetOption', 'CpuImage', 'Y', '(#*contentMargin*# + 2)')
+    SKIN:Bang('!SetOption', 'CpuImage', 'W', '11')
+    SKIN:Bang('!SetOption', 'CpuImage', 'H', '11')
     SKIN:Bang('!UpdateMeter', 'CpuImage')
-    SKIN:Bang('!Redraw')
+    -- SKIN:Bang('!Redraw')
   end
 
 end

@@ -16,6 +16,8 @@ function Update() end
 
 function ToggleCpuName(currentValue)
 
+  currentValue = tonumber(currentValue)
+
   if currentValue == 0 then
     SKIN:Bang('!SetVariable', 'showCpuName', '1')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showCpuName', '1', cpuSettingsPath)
@@ -23,6 +25,9 @@ function ToggleCpuName(currentValue)
     SKIN:Bang('!WriteKeyValue', 'CpuDisplayNameString', 'Hidden', '0', cpuMeterPath)
     SKIN:Bang('!SetOption', 'CpuDisplayNameString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'CpuDisplayNameString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
+
+    SKIN:Bang('!SetOption', 'CpuNameButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+    SKIN:Bang('!WriteKeyValue', 'CpuNameButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
   else
     SKIN:Bang('!SetVariable', 'showCpuName', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showCpuName', '0', cpuSettingsPath)
@@ -30,18 +35,22 @@ function ToggleCpuName(currentValue)
     SKIN:Bang('!WriteKeyValue', 'CpuDisplayNameString', 'Hidden', '1', cpuMeterPath)
     SKIN:Bang('!SetOption', 'CpuDisplayNameString', 'Y', 'R', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'CpuDisplayNameString', 'Y', 'R', cpuMeterPath)
+
+    SKIN:Bang('!SetOption', 'CpuNameButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+    SKIN:Bang('!WriteKeyValue', 'CpuNameButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeter', 'CpuDisplayNameString', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ShowCpuName')
+  SKIN:Bang('!UpdateMeter', 'CpuNameButton')
   SKIN:Bang('!Redraw')
 
 end
 
 function TogglePage(currentValue)
 
+  currentValue = tonumber(currentValue)
   local colorPage = SKIN:GetVariable('colorPage')
 
   if currentValue == 0 then
@@ -56,6 +65,9 @@ function TogglePage(currentValue)
     SKIN:Bang('!WriteKeyValue', 'PageLabelString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor18', colorPage, cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor18', colorPage, cpuMeterPath)
+
+    SKIN:Bang('!SetOption', 'PageFileButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+    SKIN:Bang('!WriteKeyValue', 'PageFileButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
   else
     SKIN:Bang('!SetVariable', 'showPageFile', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showPageFile', '0', cpuSettingsPath)
@@ -68,19 +80,21 @@ function TogglePage(currentValue)
     SKIN:Bang('!WriteKeyValue', 'PageLabelString', 'Y', 'R', cpuMeterPath)
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor18', '0,0,0,0', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor18', '0,0,0,0', cpuMeterPath)
+
+    SKIN:Bang('!SetOption', 'PageFileButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+    SKIN:Bang('!WriteKeyValue', 'PageFileButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CpuPage', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ShowPageFile')
+  SKIN:Bang('!UpdateMeter', 'PageFileButton')
   SKIN:Bang('!Redraw')
 
 end
 
 function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
-
 
   if currentValue == 0 then
     SKIN:Bang('!SetVariable', 'showCoreTemps', '1')
@@ -89,20 +103,23 @@ function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
     if isHwinfoAvailable == 1 then
       SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ToggleTemps(' .. cpuCores .. ', true)', cpuMeterConfig)
     else
-      SKIN:Bang('!Log', isHwinfoAvailable .. ' | Cannot display core temperatures, for HWiNFO is not running!', 'Error')
-      SKIN:Bang('!ShowMeter', 'CoreTempsErrorImage')
-      SKIN:Bang('!WriteKeyValue', 'CoreTempsErrorImage', 'Hidden', '0')
+      SKIN:Bang('!Log', isHwinfoAvailable .. ' | Cannot display core temperatures, for HWiNFO is not running!', 'Warning')
     end
 
+    SKIN:Bang('!SetOption', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+    SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
   else
     SKIN:Bang('!SetVariable', 'showCoreTemps', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showCoreTemps', '0', cpuSettingsPath)
     SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ToggleTemps(' .. cpuCores .. ', false)', cpuMeterConfig)
-    SKIN:Bang('!HideMeter', 'CoreTempsErrorImage')
-    SKIN:Bang('!WriteKeyValue', 'CoreTempsErrorImage', 'Hidden', '1')
+
+    SKIN:Bang('!SetOption', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+    SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
-  SKIN:Bang('!UpdateMeterGroup', 'ShowCoreTemps')
+  SKIN:Bang('!UpdateMeterGroup', 'CoreTemps', cpuMeterConfig)
+  SKIN:Bang('!Redraw', cpuMeterConfig)
+  SKIN:Bang('!UpdateMeter', 'CoreTempsButton')
   SKIN:Bang('!Redraw')
 
 end
@@ -123,6 +140,9 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock, showLineGra
       SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
 
       SetLineGraphY(showLineGraph, 1, showCpuClock)
+
+      SKIN:Bang('!SetOption', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+      SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
     else
       SKIN:Bang('!Log', 'Cannot display fan speed, for HWiNFO is not running!', 'Error')
       SKIN:Bang('!ShowMeter', 'CpuFanErrorImage')
@@ -139,18 +159,18 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock, showLineGra
     SKIN:Bang('!WriteKeyValue', 'FanAltValueString', 'Hidden', '1', cpuMeterPath)
     SKIN:Bang('!SetOption', 'FanAltLabelString', 'Y', 'R', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'FanAltLabelString', 'Y', 'R', cpuMeterPath)
-    SKIN:Bang('!HideMeter', 'CpuFanErrorImage')
-    SKIN:Bang('!WriteKeyValue', 'CpuFanErrorImage', 'Hidden', '1')
 
     SetLineGraphY(showLineGraph, 0, showCpuClock)
 
+    SKIN:Bang('!SetOption', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+    SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CpuFanAlt', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ShowCpuFan')
+  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
   SKIN:Bang('!Redraw')
 
 end
@@ -171,10 +191,11 @@ function ToggleCpuClock(currentValue, isHwinfoAvailable, showCpuFan, showLineGra
       SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
 
       SetLineGraphY(showLineGraph, showCpuFan, 1)
+
+      SKIN:Bang('!SetOption', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+      SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
     else
       SKIN:Bang('!Log', 'Cannot display CPU clock speed, for HWiNFO is not running!', 'Error')
-      SKIN:Bang('!ShowMeter', 'CpuClockErrorImage')
-      SKIN:Bang('!WriteKeyValue', 'CpuClockErrorImage', 'Hidden', '0')
 
       SetLineGraphY(showLineGraph, showCpuFan, 0)
     end
@@ -187,18 +208,18 @@ function ToggleCpuClock(currentValue, isHwinfoAvailable, showCpuFan, showLineGra
     SKIN:Bang('!WriteKeyValue', 'CpuClockValueString', 'Hidden', '1', cpuMeterPath)
     SKIN:Bang('!SetOption', 'CpuClockLabelString', 'Y', 'R', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'CpuClockLabelString', 'Y', 'R', cpuMeterPath)
-    SKIN:Bang('!HideMeter', 'CpuClockErrorImage')
-    SKIN:Bang('!WriteKeyValue', 'CpuClockErrorImage', 'Hidden', '1')
 
     SetLineGraphY(showLineGraph, showCpuFan, 0)
 
+    SKIN:Bang('!SetOption', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+    SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CpuClock', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ShowCpuClock')
+  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
   SKIN:Bang('!Redraw')
 
 end
@@ -217,6 +238,9 @@ function ToggleLineGraph(currentValue, showCpuFan, showCpuClock)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
 
     SetLineGraphY(1, showCpuFan, showCpuClock)
+
+    SKIN:Bang('!SetOption', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+    SKIN:Bang('!WriteKeyValue', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
   else
     SKIN:Bang('!SetVariable', 'showLineGraph', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showLineGraph', '0', cpuSettingsPath)
@@ -226,12 +250,15 @@ function ToggleLineGraph(currentValue, showCpuFan, showCpuClock)
     SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '1', cpuMeterPath)
 
     SetLineGraphY(0, showCpuFan, showCpuClock)
+
+    SKIN:Bang('!SetOption', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+    SKIN:Bang('!WriteKeyValue', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ShowLineGraph')
+  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
   SKIN:Bang('!Redraw')
 
 end
@@ -256,26 +283,51 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
 
 end
 
-function ConfigureConfigErrors(state, showCoreTemps, showCpuFan)
+function ConfigureConfigErrors(state, showCoreTemps, showCpuFan, showCpuClock)
 
-  if state == 1 or showCoreTemps == 0 then
-    SKIN:Bang('!HideMeter', 'CoreTempsErrorImage')
-    SKIN:Bang('!WriteKeyValue', 'CoreTempsErrorImage', 'Hidden', '1')
+  if state == 0 then
+    SKIN:Bang('!SetOptionGroup', 'ToggleButtonsHwinfo', 'ImageName', '#*imgPath*#Settings\\0lock.png')
+    SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
+    SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
+    SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
+    SKIN:Bang('!UpdateMeterGroup', 'ToggleButtonsHwinfo')
     SKIN:Bang('!Redraw')
-  elseif state == 0 and showCoreTemps == 1 then
-    SKIN:Bang('!ShowMeter', 'CoreTempsErrorImage')
-    SKIN:Bang('!WriteKeyValue', 'CoreTempsErrorImage', 'Hidden', '0')
-    SKIN:Bang('!Redraw')
-  end
+  else
+    if showCoreTemps == 1 then
+      SKIN:Bang('!SetOption', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+      SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+      SKIN:Bang('!UpdateMeter', 'CoreTempsButton')
+      SKIN:Bang('!Redraw')
+    else
+      SKIN:Bang('!SetOption', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+      SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+      SKIN:Bang('!UpdateMeter', 'CoreTempsButton')
+      SKIN:Bang('!Redraw')
+    end
 
-  if state == 1 or showCpuFan == 0 then
-    SKIN:Bang('!HideMeter', 'CpuFanErrorImage')
-    SKIN:Bang('!WriteKeyValue', 'CpuFanErrorImage', 'Hidden', '1')
-    SKIN:Bang('!Redraw')
-  elseif state == 0 and showCpuFan == 1 then
-    SKIN:Bang('!ShowMeter', 'CpuFanErrorImage')
-    SKIN:Bang('!WriteKeyValue', 'CpuFanErrorImage', 'Hidden', '0')
-    SKIN:Bang('!Redraw')
+    if showCpuFan == 1 then
+      SKIN:Bang('!SetOption', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+      SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+      SKIN:Bang('!UpdateMeter', 'CpuFanButton')
+      SKIN:Bang('!Redraw')
+    else
+      SKIN:Bang('!SetOption', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+      SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+      SKIN:Bang('!UpdateMeter', 'CpuFanButton')
+      SKIN:Bang('!Redraw')
+    end
+
+    if showCpuClock == 1 then
+      SKIN:Bang('!SetOption', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+      SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+      SKIN:Bang('!UpdateMeter', 'CpuClockButton')
+      SKIN:Bang('!Redraw')
+    else
+      SKIN:Bang('!SetOption', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+      SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+      SKIN:Bang('!UpdateMeter', 'CpuClockButton')
+      SKIN:Bang('!Redraw')
+    end
   end
 
 end

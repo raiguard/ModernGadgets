@@ -46,6 +46,11 @@ colorButtonPress=255,50,50
 colorHwinfoValueInputBg=50,50,50,255
 colorHwinfoError=255,50,50,255
 
+colorInputBoxBorder=50,50,50,255
+colorInputBoxBg=25,25,25,255
+
+colorIntel=0,125,198
+
 ; Paths
 imgPath=#@#Assets\Images\
 soundPath=#@#Assets\Sounds\
@@ -54,7 +59,7 @@ scriptPath=#@#Scripts\
 
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
-cpuSettingsPath=#@#ReferenceFiles\CpuSettings.inc
+cpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\CpuSettings.inc
 
 ; Styles
 [StyleString]
@@ -86,24 +91,33 @@ Y=r
 FontColor=#colorInfo#
 
 [StyleStringToggleLabel]
-FontSize=9
-FontFace=#fontFace# Cn
-X=(#contentMargin# + 2 + 11 + 2)
+FontSize=10
+X=#contentMargin#
+Y=4R
+
+[StyleToggleImage]
+X=(#contentMarginRight# - 35)
+; X=5R
 Y=-1r
+W=31
+H=20
+Group=ToggleButtons
 
 [StyleStringConfigSectionHeader]
 FontFace=#fontFace# Bl
 FontColor=#colorInfo#
 Y=5R
 
-[StyleToggleBox]
-ImageAlpha=#colorBgA#
-X=(#contentMargin# + 2)
-Y=2R
-W=11
-H=11
-Antialias=1
-DynamicVariables=1
+[StyleStringInputBox]
+SolidColor=#colorInputBoxBg#
+FontColor=#colorInfo#
+FontFace=Roboto Lt
+StringStyle=Italic
+FontSize=11
+X=1r
+Y=1r
+W=(#contentWidth# - 6)
+H=18
 
 [StyleBar]
 SolidColor=#colorBarBg#
