@@ -64,4 +64,4 @@ Meter=Image
 MeterStyle=StyleStringButtonImage
 MouseOverAction=[!SetOption NextButtonImage ImageTint "#*colorButtonPress*#"][!UpdateMeter NextButtonImage][!Redraw]
 MouseLeaveAction=[!SetOption NextButtonImage ImageTint ""][!UpdateMeter NextButtonImage][!Redraw]
-LeftMouseUpAction=[!WriteKeyValue Variables page "setup2"][!Refresh]
+LeftMouseUpAction=[!WriteKeyValue Variables page "hwinfo2"][!Refresh]

@@ -1,44 +1,34 @@
 [SectionHeaderString]
 Meter=String
 MeterStyle=StyleString
-FontSize=15
+FontSize=12
+X=#contentMargin#
 Y=#contentMargin#
 Text="Click the Gadgets you want to load"
 
-[CpuMeterLoadButton]
+[CpuMeterLabel]
 Meter=String
-MeterStyle=StyleString
-FontColor=#colorAccent#
-FontSize=12
+MeterStyle=StyleString | StyleStringToggleLabel
 Text="CPU Meter"
-LeftMouseUpAction=[!ActivateConfig "ModernGadgets\CPU"]
 
-[NetworkMeterLoadButton]
+[CpuMeterButton]
+Meter=Image
+MeterStyle=StyleToggleImage
+X=130
+ImageName=#imgPath#Settings\0.png
+LeftMouseUpAction=[!CommandMeasure MeasureGadgetsScript "ToggleCpu()"]
+
+[NetworkMeterLabel]
 Meter=String
-MeterStyle=StyleString
-FontColor=#colorAccent#
-FontSize=12
+MeterStyle=StyleString | StyleStringToggleLabel
 Text="Network Meter"
-LeftMouseUpAction=[!ActivateConfig "ModernGadgets\Network"]
 
-[GpuMeterLoadButton]
+[GpuMeterLabel]
 Meter=String
-MeterStyle=StyleString
-FontColor=#colorAccent#
-FontSize=12
+MeterStyle=StyleString | StyleStringToggleLabel
 Text="GPU Meter"
-LeftMouseUpAction=[!ActivateConfig "ModernGadgets\GPU"]
 
-[DisksMeterLoadButton]
+[DisksMeterLabel]
 Meter=String
-MeterStyle=StyleString
-FontColor=#colorAccent#
-FontSize=12
+MeterStyle=StyleString | StyleStringToggleLabel
 Text="Disks Meter"
-LeftMouseUpAction=[!ActivateConfig "ModernGadgets\Disks"]
-
-[TempString]
-Meter=String
-MeterStyle=StyleString
-Y=10R
-Text="NOTE: This is a temporary page. It will be much prettier in the future!"
