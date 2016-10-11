@@ -6,7 +6,11 @@ ModernGadgets is released on the Rainmeter platform under a Creative Commons BY-
 ----------
 INSTALLATION INSTRUCTIONS
 
-ModernGadgets official releases are packaged using the Rainmeter skin installer, and can be found on DeviantArt or through my Dropbox (insert links later). When installing, make sure to check "Load Included Skins". This will load the setup skin first, which is required for the suite to function (opening any other skin without first loading setup has a chance of crashing Rainmeter).
+ModernGadgets official releases are packaged using the Rainmeter skin installer, and can be found on DeviantArt or through my Dropbox. When installing, make sure to check "Load Included Skins". This will load the setup skin first, which is required for the suite to function (opening any other skin without first loading setup has a chance of crashing Rainmeter). For full functionality, you must also install HWiNFO and configure it as explained in the setup tutorial.
+
+Rainmeter: https://www.rainmeter.net
+
+HWiNFO: https://www.hwinfo.com
 
 ----------
 CONTRIBUTIONS
