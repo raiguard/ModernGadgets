@@ -32,8 +32,8 @@ function ConfigCores(threads)
   end
 
   if (threads == 20) then
-    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore16'))
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore16'))
+    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore20'))
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore20'))
   else
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0')
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0')

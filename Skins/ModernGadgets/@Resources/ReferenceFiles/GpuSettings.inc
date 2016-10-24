@@ -1,5 +1,6 @@
 [Variables]
 tempUOM=C
+gpuName=""
 
 colorCoreUsage=255,246,42,240
 colorMemoryUsage=107,198,250,240

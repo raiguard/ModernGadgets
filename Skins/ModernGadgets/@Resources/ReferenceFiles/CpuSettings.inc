@@ -35,6 +35,10 @@ colorCore13=201,41,56,240
 colorCore14=179,0,91,240
 colorCore15=153,84,166,240
 colorCore16=99,125,217,240
+colorCore17=107,238,98,240
+colorCore18=255,246,42,240
+colorCore19=250,158,0,240
+colorCore20=236,28,70,240
 
 isHwinfoAvailable=1
 
