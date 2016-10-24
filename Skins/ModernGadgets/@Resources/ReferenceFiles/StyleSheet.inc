@@ -119,6 +119,14 @@ Y=3r
 W=(#contentWidth# - 10)
 H=16
 
+[StyleStringParagraph]
+FontColor=#colorMain#
+FontSize=10
+X=(#contentMargin# + 2)
+Y=5R
+W=(#contentWidth# - 6)
+ClipString=2
+
 [StyleBar]
 SolidColor=#colorBarBg#
 X=(#contentMargin# + 2)
