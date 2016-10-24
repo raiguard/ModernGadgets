@@ -74,6 +74,14 @@ function SettingsProtocol()
   end
 end
 
+-- invoked through global settings skin, delete all settings files and replace with defaults
+function ResetToDefaults()
+
+  os.remove(filesPath)
+  CreateFiles()
+
+end
+
 function CreateFiles()
 
   -- create file directory
