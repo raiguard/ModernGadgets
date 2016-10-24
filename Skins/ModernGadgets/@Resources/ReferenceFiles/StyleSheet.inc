@@ -56,6 +56,9 @@ soundPath=#@#Assets\Sounds\
 fontPath=#@#Fonts\
 scriptPath=#@#Scripts\
 
+globalSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\GlobalSettings.inc
+welcomeSubpagePath=#@#Subpages\\Setup\\gadgetmanager.inc
+
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
 cpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\CpuSettings.inc

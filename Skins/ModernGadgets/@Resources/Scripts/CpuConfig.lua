@@ -11,7 +11,7 @@ function Update() end
 
 function ConfigCores(threads)
 
-  for i=1,16 do
+  for i=1,20 do
     if (i <= threads) then
       SKIN:Bang('!ShowMeterGroup', 'CpuCore' .. i)
       SKIN:Bang('!SetOption', 'Core' .. i .. 'LabelString', 'Y', '#rowSpacing#R')
@@ -31,15 +31,15 @@ function ConfigCores(threads)
     end
   end
 
-  if (threads == 16) then
+  if (threads == 20) then
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore16'))
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore16'))
   else
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0')
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0')
   end
-  c = 15
-  for i=2,16 do
+  c = 19
+  for i=2,20 do
     if (c <= threads) then
       SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, SKIN:GetVariable('colorCore' .. c))
       SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, SKIN:GetVariable('colorCore' .. c))
@@ -62,7 +62,7 @@ function ToggleTemps(threads, mode)
   -- SKIN:Bang('!Log', 'ToggleTemps threads: ' .. threads .. ' | mode: ' .. tostring(mode), 'Debug')
 
   if mode then
-    for i=1,16 do
+    for i=1,20 do
       if (i <= threads) then
         SKIN:Bang('!ShowMeter', 'Core' .. i .. 'TempString')
         SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '0')
@@ -72,7 +72,7 @@ function ToggleTemps(threads, mode)
       end
     end
   else
-    for i=1,16 do
+    for i=1,20 do
       SKIN:Bang('!HideMeter', 'Core' .. i .. 'TempString')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '1')
     end
