@@ -19,7 +19,7 @@
 --  - Add check for extraneous values in settings files, so they can be deleted
 --
 
-isDbg = false
+isDbg = true
 
 function Initialize()
 

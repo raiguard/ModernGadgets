@@ -525,6 +525,7 @@ Group=SmartValues | SmartDisk10Values
 
 [SmartDisksNoteString]
 Meter=String
-MeterStyle=StyleString
+MeterStyle=StyleString | StyleStringParagraph
+FontSize=9
 FontColor=#colorInfo#
-Text="Please note that the order the disks appear in the SMV may not#CRLF#directly correlate with the position of the disk in Disks Meter.#CRLF#Verify which disks are which before you enter these values.#CRLF##CRLF#Additionally, if you change what disks are displayed in Disks#CRLF#Meter, you must also update these values accordingly."
+Text="Enter the disk letter of each disk you want temperatures for, then enter that drive's corresponding hex values in the same row. Please note that only stationary disks (internal hard drives) have temperature readings in HWiNFO."

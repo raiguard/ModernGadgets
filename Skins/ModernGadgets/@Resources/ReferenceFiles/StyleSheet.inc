@@ -136,3 +136,15 @@ w=(#contentWidth# - 4)
 h=#barHeight#
 BarOrientation=Horizontal
 DynamicVariables=1
+
+[StyleCloseButton]
+ImageName=#imgPath#Settings\CloseAlt.png
+ImageAlpha=#colorBgA#
+X=(#contentMarginRight# - 21)
+Y=(#contentMargin# - 3)
+W=24
+H=24
+Antialias=0
+ToolTipText="Close"
+; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
+LeftMouseUpAction=[!DeactivateConfig]

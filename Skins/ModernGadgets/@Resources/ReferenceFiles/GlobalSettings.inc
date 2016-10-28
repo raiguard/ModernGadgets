@@ -187,39 +187,49 @@ HWiNFO-GPU1-CoreVoltage=0x2000000
 HWiNFO-SMART-Disk1-SensorId=0xf0000100
 HWiNFO-SMART-Disk1-SensorInstance=0x0
 HWiNFO-SMART-Disk1-Temp=0x1000001
+HWiNFO-SMART-Disk1-Letter=C
 ; disk 2
 HWiNFO-SMART-Disk2-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk2-SensorInstance=0x2
 HWiNFO-SMART-Disk2-Temp=0x1000000
+HWiNFO-SMART-Disk2-Letter=E
 ; disk 3
 HWiNFO-SMART-Disk3-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk3-SensorInstance=0x1
 HWiNFO-SMART-Disk3-Temp=0x1000000
+HWiNFO-SMART-Disk3-Letter=D
 ; disk 4
 HWiNFO-SMART-Disk4-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk4-SensorInstance=0x0
 HWiNFO-SMART-Disk4-Temp=0x0
+HWiNFO-SMART-Disk4-Letter=""
 ; disk 5
 HWiNFO-SMART-Disk5-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk5-SensorInstance=0x0
 HWiNFO-SMART-Disk5-Temp=0x0
+HWiNFO-SMART-Disk5-Letter=""
 ; disk 6
 HWiNFO-SMART-Disk6-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk6-SensorInstance=0x0
 HWiNFO-SMART-Disk6-Temp=0x0
+HWiNFO-SMART-Disk6-Letter=""
 ; disk 7
 HWiNFO-SMART-Disk7-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk7-SensorInstance=0x0
 HWiNFO-SMART-Disk7-Temp=0x0
+HWiNFO-SMART-Disk7-Letter=""
 ; disk 8
 HWiNFO-SMART-Disk8-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk8-SensorInstance=0x0
 HWiNFO-SMART-Disk8-Temp=0x0
+HWiNFO-SMART-Disk8-Letter=""
 ; disk 9
 HWiNFO-SMART-Disk9-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk9-SensorInstance=0x0
 HWiNFO-SMART-Disk9-Temp=0x0
+HWiNFO-SMART-Disk9-Letter=""
 ; disk 10
 HWiNFO-SMART-Disk10-SensorId=#HWiNFO-SMART-Disk1-SensorId#
 HWiNFO-SMART-Disk10-SensorInstance=0x0
 HWiNFO-SMART-Disk10-Temp=0x0
+HWiNFO-SMART-Disk10-Letter=""

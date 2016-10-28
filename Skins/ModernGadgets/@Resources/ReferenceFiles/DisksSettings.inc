@@ -11,16 +11,6 @@ showDiskTemps=1
 showLineGraph=1
 
 tempUOM=C
-d01=C:
-d02=D:
-d03=E:
-d04=F:
-d05=G:
-d06=H:
-d07=I:
-d08=J:
-d09=K:
-d10=L:
 
 ;
 ; These values do not directly correspond with the drives letters defined above
@@ -35,3 +25,30 @@ colorDisk7=42,112,250,240
 colorDisk8=43,224,224,240
 colorDisk9=121,182,62,240
 colorDisk10=204,255,0,240
+
+colorDiskA=
+colorDiskB=
+colorDiskC=
+colorDiskD=
+colorDiskE=
+colorDiskF=
+colorDiskG=
+colorDiskH=
+colorDiskI=
+colorDiskJ=
+colorDiskK=
+colorDiskL=
+colorDiskM=
+colorDiskN=
+colorDiskO=
+colorDiskP=
+colorDiskQ=
+colorDiskR=
+colorDiskS=
+colorDiskT=
+colorDiskU=
+colorDiskV=
+colorDiskW=
+colorDiskX=
+colorDiskY=
+colorDiskZ=
