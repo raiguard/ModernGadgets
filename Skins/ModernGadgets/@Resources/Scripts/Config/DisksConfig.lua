@@ -1,6 +1,8 @@
 -- MODERNGADGETS DISKS CONFIG SCRIPT
 -- Written by iamanai
 
+isDbg = true
+
 function Initialize() end
 
 function Update() end
@@ -9,8 +11,9 @@ function Update() end
 function ConfigureDisk(disk, diskType, baseColor, mode)
 
   histogramA = SKIN:GetVariable('histogramA')
+  isHwinfoAvailable=tonumber(SKIN:GetVariable('isHwinfoAvailable'))
 
-  SKIN:Bang('!Log', 'Configuring disk ' .. disk .. ' | diskType: ' .. diskType .. ' | baseColor: ' .. baseColor .. ' | mode: ' .. tostring(mode), 'Debug')
+  LogHelper('Configuring disk ' .. disk .. ' | diskType: ' .. diskType .. ' | baseColor: ' .. baseColor .. ' | mode: ' .. tostring(mode), 'Debug')
 
   if mode then
     -- set disk hide variable
@@ -101,10 +104,15 @@ function ConfigureDisk(disk, diskType, baseColor, mode)
 
     -- show temperature meter if appropriate disk type
     if diskType == 4 then
-      SKIN:Bang('!ShowMeter', 'Disk' .. disk .. 'TempString')
-      SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TempString', 'Hidden', '0')
-      SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Group', 'DiskTemps')
-      SKIN:Bang('!UpdateMeter', 'Disk' .. disk .. 'TempString')
+      if isHwinfoAvailable == 1 then
+        SKIN:Bang('!ShowMeter', 'Disk' .. disk .. 'TempString')
+        SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TempString', 'Hidden', '0')
+        SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Group', 'DiskTemps')
+        SKIN:Bang('!UpdateMeter', 'Disk' .. disk .. 'TempString')
+      else
+        SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Group', 'DiskTemps')
+        SKIN:Bang('!UpdateMeter', 'Disk' .. disk .. 'TempString')
+      end
     else
       SKIN:Bang('!HideMeter', 'Disk' .. disk .. 'TempString')
       SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TempString', 'Hidden', '1')
@@ -158,6 +166,17 @@ function GetRgbaValue(source, key)
 		end
 
 		return tostring(rgbTable[key])
+	end
+
+end
+
+-- function to make logging messages less cluttered
+function LogHelper(message, type)
+
+	if isDbg == true then
+		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
+	elseif type ~= 'Debug' and type ~= nil then
+		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
 	end
 
 end
