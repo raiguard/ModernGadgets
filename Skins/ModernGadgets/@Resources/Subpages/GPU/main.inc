@@ -5,11 +5,14 @@
 ; ----- HWiNFO Detection -----
 
 [MeasureHwinfoDetect]
-Measure=String
-String=[MeasureGpu0Name]
-IfMatch=HWI_ERROR_NOT_CONNECTED
-IfMatchAction=[!WriteKeyValue Variables page "nohwinfo"][!Refresh]
-DynamicVariables=1
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
+HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
+HWiNFOEntryId=#HWiNFO-GPU0-Temp#
+HWiNFOType=CurrentValue
+IfCondition=MeasureHwinfoDetect = -9000
+IfTrueAction=[!WriteKeyValue Variables page "nohwinfo"][!Refresh]
 
 ; ----- GPU Name, Core Usage, Temperature, Clock Speed -----
 

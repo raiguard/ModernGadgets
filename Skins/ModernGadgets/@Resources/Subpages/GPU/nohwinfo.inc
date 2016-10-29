@@ -2,11 +2,14 @@
 ; What GPU meter displays if HWiNFO is not detected
 
 [MeasureHwinfoDetect]
-Measure=String
-String=[MeasureGpu0Name]
-IfMatch=HWI_ERROR_NOT_CONNECTED
-IfNotMatchAction=[!WriteKeyValue Variables page "main"][!Refresh]
-DynamicVariables=1
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
+HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
+HWiNFOEntryId=#HWiNFO-GPU0-Temp#
+HWiNFOType=CurrentValue
+IfCondition=MeasureHwinfoDetect = -9000
+IfFalseAction=[!WriteKeyValue Variables page "main"][!Refresh]
 
 [NoHwinfoWarningString]
 Meter=String
