@@ -2,6 +2,14 @@
 tempUOM=C
 gpuName=""
 
+showMemoryClock=1
+showMemoryController=1
+showVideoClock=1
+showCoreVoltage=1
+showLineGraph=1
+
+sliMode=0
+
 colorCoreUsage=255,246,42,240
 colorMemoryUsage=107,198,250,240
 colorFanUsage=107,238,98,240

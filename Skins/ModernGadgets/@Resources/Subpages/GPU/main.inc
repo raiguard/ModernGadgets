@@ -51,16 +51,21 @@ DynamicVariables=1
 
 ; ----- Memory -----
 
-[Gpu0MemoryClockString]
+[Gpu0MemoryClockLabelString]
 Meter=String
 MeterStyle=StyleString
 Text="Memory Clock:"
+Group=MemoryClock
+Hidden=0
+Y=#rowSpacing#R
 
 [Gpu0MemoryClockValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0MemoryClockSpeed
 Text="%1MHz"
+Group=MemoryClock
+Hidden=0
 
 [Gpu0MemoryUsageLabelString]
 Meter=String
@@ -114,23 +119,30 @@ DynamicVariables=1
 
 ; ----- Memory Controller -----
 
-[Gpu0MemoryControllerUsageLabelString]
+[Gpu0MemoryControllerLabelString]
 Meter=String
 MeterStyle=StyleString
 Text="Memory Controller:"
+Group=MemoryController
+Hidden=0
+Y=#rowSpacing#R
 
-[Gpu0MemoryControllerUsageValueString]
+[Gpu0MemoryControllerValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0MemoryControllerLoad
 Text="%1%"
+Group=MemoryController
+Hidden=0
 
-[Gpu0MemoryControllerUsageBar]
+[Gpu0MemoryControllerBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureGpu0MemoryControllerLoad
 BarColor=#colorMemoryController#
 DynamicVariables=1
+Group=MemoryController
+Hidden=0
 
 ; ----- Video Clock -----
 
@@ -138,12 +150,17 @@ DynamicVariables=1
 Meter=String
 MeterStyle=StyleString
 Text="Video Clock:"
+Group=VideoClock
+Hidden=0
+Y=#rowSpacing#R
 
 [Gpu0VideoClockValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0VideoClock
 Text="%1MHz"
+Group=VideoClock
+Hidden=0
 
 ; ----- Core Voltage -----
 
@@ -151,6 +168,9 @@ Text="%1MHz"
 Meter=String
 MeterStyle=StyleString
 Text="Core Voltage:"
+Group=CoreVoltage
+Hidden=0
+Y=#rowSpacing#R
 
 [Gpu0CoreVoltageValueString]
 Meter=String
@@ -158,6 +178,8 @@ MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0CoreVoltage
 NumOfDecimals=3
 Text="%1V"
+Group=CoreVoltage
+Hidden=0
 
 ; ----- Graph -----
 
@@ -178,6 +200,7 @@ LineColor3=#colorMemoryUsage#
 LineColor4=#colorCoreUsage#
 DynamicVariables=1
 Antialias=#lineGraphAa#
+Group=LineGraph
 Hidden=0
 
 [GraphBorder]
@@ -189,4 +212,5 @@ X=r
 Y=r
 W=(#contentWidth# - 2)
 H=#graphHeight#
+Group=LineGraph
 Hidden=0

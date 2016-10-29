@@ -63,6 +63,10 @@ cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
 cpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\CpuSettings.inc
 
+gpuMeterPath=#@#Subpages\GPU\main.inc
+gpuMeterConfig=ModernGadgets\GPU
+gpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\GpuSettings.inc
+
 ; Styles
 [StyleString]
 FontColor=#colorMain#
