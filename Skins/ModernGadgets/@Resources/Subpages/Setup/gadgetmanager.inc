@@ -82,7 +82,7 @@ Text="Disks Meter"
 [DisksMeterButton]
 Meter=Image
 MeterStyle=StyleToggleImage | StyleToggleImageGadgets
-ImageName=#imgPath#Settings\0a.png
+ImageName=#imgPath#Settings\0.png
 Group=GadgetButtons
 LeftMouseUpAction=[!CommandMeasure MeasureGadgetManagerScript "ToggleGadget('[MeasureDisksMeterState]', 'Disks')"]
 

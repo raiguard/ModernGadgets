@@ -4,6 +4,7 @@
 
 lineGraphAa=0
 notifyUpdates=1
+tempUnits=C
 
 ; Color pallete
 
