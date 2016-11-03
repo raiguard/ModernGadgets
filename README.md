@@ -19,12 +19,22 @@ A more in-depth installation and use guide is being worked on, and will be avail
 Contributions are welcome! If you would like to add your own code, feel free to fork the repository and submit a pull request when ready. However, please keep in mind that I may substantially redesign your code or reject the pull request completely according to my own discretion. If I do accept a pull request from you or you help in any way, your name will be added to the credits under "developers".
 
 ## Credits
-iamanai - Code, design
+Designed and programmed by Caleb Heuer (iamanai).
 
-SilverAzide - ActiveNet plugin, Fixed Precision Format script
+Backend code based on "Gadgets" by SilverAzide.
 
-stangowner - HWiNFO plugin, HWiNFO SMV application
+Weather assets taken from WxDataWeather (by jsmorley and SilverAzide).
 
-balala - Assisted with Disks Meter's dynamic height adjustment functionality
+Settings toggle buttons and close buttons taken from Droptop (by virginityrocks).
 
-jsmorley - Rainmeter, RainRGB
+"Roboto" Font taken from Google Fonts, under the Apache License, version 2.0.
+
+### Additional Attributions:
+
+SilverAzide - ActiveNet plugin, fixed precision format script
+
+stangowner - HWiNFO Plugin, HWiNFO Shared Memory Viewer
+
+Jeffrey Morley - RainRGB, Rainmeter
+
+balala - Help with fixing Disks Meter's dynamic height adjustment
