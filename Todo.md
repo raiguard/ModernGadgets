@@ -5,5 +5,9 @@
 - [x] Write GPU Meter settings
 - [ ] Redesign Disks Meter to support all disk slots
 - [ ] Create Disks Meter settings
-- [ ] Create setup tutorial on ModernGadgets website
-- [ ] Remove setup tutorial from setup skin
+- [ ] Redo Disks Meter's HWiNFO config (needs drive letters)
+- [ ] Move subpages into their respective skin's directory (makes more sense)
+- [ ] Add development version syntax (rc, pre, b, a, dev) support to update checker
+- [ ] Redesign update available window
+- [ ] Create setup tutorial on MG's GitHub wiki
+
