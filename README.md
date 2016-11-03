@@ -29,7 +29,7 @@ Settings toggle buttons and close buttons taken from Droptop (by virginityrocks)
 
 "Roboto" Font taken from Google Fonts, under the Apache License, version 2.0.
 
-### Additional Attributions:
+### Additional Attributions
 
 SilverAzide - ActiveNet plugin, fixed precision format script
 
