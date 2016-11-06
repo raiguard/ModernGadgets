@@ -40,8 +40,6 @@ colorCore18=255,246,42,240
 colorCore19=250,158,0,240
 colorCore20=236,28,70,240
 
-isHwinfoAvailable=1
-
 useHwinfoClock=1
 showCpuClock=1
 showCoreTemps=1

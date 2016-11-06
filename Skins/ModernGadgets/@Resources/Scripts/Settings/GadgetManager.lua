@@ -6,7 +6,7 @@
 
 function Initialize()
 
-  welcomeSubpagePath=SKIN:GetVariable('welcomeSubpagePath')
+  gadgetManagerPath=SKIN:GetVariable('gadgetManagerPath')
   globalSettingsPath = SKIN:GetVariable('globalSettingsPath')
 
 end
@@ -19,10 +19,10 @@ function ToggleGadget(currentValue, gadgetPrefix)
 
   if currentValue == 0 then
     SKIN:Bang('!SetOption', gadgetPrefix .. 'MeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', gadgetPrefix .. 'MeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', gadgetPrefix .. 'MeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', gadgetManagerPath)
   else
     SKIN:Bang('!SetOption', gadgetPrefix .. 'MeterButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', gadgetPrefix .. 'MeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', gadgetPrefix .. 'MeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', gadgetManagerPath)
   end
 
   SKIN:Bang('!ToggleConfig', 'ModernGadgets\\' .. gadgetPrefix, gadgetPrefix .. '.ini')
@@ -42,34 +42,34 @@ function UpdateToggleButtons()
 
   if cpuMeterState == 1 then
     SKIN:Bang('!SetOption', 'CpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'CpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'CpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', gadgetManagerPath)
   else
     SKIN:Bang('!SetOption', 'CpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'CpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'CpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', gadgetManagerPath)
   end
 
   if networkMeterState == 1 then
     SKIN:Bang('!SetOption', 'NetworkMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'NetworkMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'NetworkMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', gadgetManagerPath)
   else
     SKIN:Bang('!SetOption', 'NetworkMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'NetworkMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'NetworkMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', gadgetManagerPath)
   end
 
   if gpuMeterState == 1 then
     SKIN:Bang('!SetOption', 'GpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'GpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'GpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', gadgetManagerPath)
   else
     SKIN:Bang('!SetOption', 'GpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'GpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'GpuMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', gadgetManagerPath)
   end
 
   if disksMeterState == 1 then
     SKIN:Bang('!SetOption', 'DisksMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'DisksMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'DisksMeterButton', 'ImageName', '#*imgPath*#Settings\\0a.png', gadgetManagerPath)
   else
     SKIN:Bang('!SetOption', 'DisksMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'DisksMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'DisksMeterButton', 'ImageName', '#*imgPath*#Settings\\0.png', gadgetManagerPath)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'GadgetButtons')
@@ -85,12 +85,12 @@ function ToggleNotifyUpdates(currentValue)
     SKIN:Bang('!SetVariable', 'notifyUpdates', '1')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'notifyUpdates', '1', globalSettingsPath)
     SKIN:Bang('!SetOption', 'AutoNotifyUpdatesButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'AutoNotifyUpdatesButton', 'ImageName', '#*imgPath*#Settings\\0a.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'AutoNotifyUpdatesButton', 'ImageName', '#*imgPath*#Settings\\0a.png', gadgetManagerPath)
   else
     SKIN:Bang('!SetVariable', 'notifyUpdates', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'notifyUpdates', '0', globalSettingsPath)
     SKIN:Bang('!SetOption', 'AutoNotifyUpdatesButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'AutoNotifyUpdatesButton', 'ImageName', '#*imgPath*#Settings\\0.png', welcomeSubpagePath)
+    SKIN:Bang('!WriteKeyValue', 'AutoNotifyUpdatesButton', 'ImageName', '#*imgPath*#Settings\\0.png', gadgetManagerPath)
   end
 
   SKIN:Bang('!UpdateMeter', 'AutoNotifyUpdatesButton')

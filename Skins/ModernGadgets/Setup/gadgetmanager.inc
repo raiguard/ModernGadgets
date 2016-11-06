@@ -7,8 +7,8 @@ Meter=Image
 ImageName=#imgPath#LogoGears.png
 X=(#contentMargin# + 4)
 Y=(#contentMargin# + 4)
-W=31
-H=50
+W=26
+H=45
 
 [LogoNameString]
 Meter=String
@@ -23,9 +23,9 @@ Meter=String
 MeterStyle=StyleString
 FontSize=10
 FontColor=#colorInfo#
-X=r
-Y=-5R
-Text="The ultimate system monitoring gadgets suite"
+X=5r
+Y=-10R
+Text="System monitoring - evolved"
 
 ; ----- Load Gadgets -----
 
@@ -82,7 +82,7 @@ Text="Disks Meter"
 [DisksMeterButton]
 Meter=Image
 MeterStyle=StyleToggleImage | StyleToggleImageGadgets
-ImageName=#imgPath#Settings\0.png
+ImageName=#imgPath#Settings\0a.png
 Group=GadgetButtons
 LeftMouseUpAction=[!CommandMeasure MeasureGadgetManagerScript "ToggleGadget('[MeasureDisksMeterState]', 'Disks')"]
 
