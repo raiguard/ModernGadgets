@@ -208,7 +208,7 @@ Hidden=0
 
 [GraphBorder]
 Meter=Image
-ImageName=#imgPath#GraphBorder.png
+ImageName=#imgPath#border.png
 ScaleMargins=2,2,2,2
 ImageTint=#colorGraphBorder#
 X=-1r
