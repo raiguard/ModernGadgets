@@ -21,7 +21,6 @@ Source code is available on GitHub under the MIT License.
 Designed and programmed by Caleb Heuer (iamanai).
 Backend code based on "Gadgets" by SilverAzide.
 
-Weather assets taken from WxDataWeather (by jsmorley and SilverAzide).
 Settings toggle buttons and close buttons taken from Droptop (by virginityrocks).
 "Roboto" Font taken from Google Fonts, under the Apache License, version 2.0.
 

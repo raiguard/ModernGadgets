@@ -276,50 +276,50 @@ end
 
 function ConfigureConfigErrors(state, showCoreTemps, showCpuFan, showCpuClock)
 
-  if state == 0 then
-    SKIN:Bang('!SetOptionGroup', 'ToggleButtonsHwinfo', 'ImageName', '#*imgPath*#Settings\\0lock.png')
-    SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
-    SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
-    SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
-    SKIN:Bang('!UpdateMeterGroup', 'ToggleButtonsHwinfo')
-    SKIN:Bang('!Redraw')
-  else
-    if showCoreTemps == 1 then
-      SKIN:Bang('!SetOption', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-      SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-      SKIN:Bang('!UpdateMeter', 'CoreTempsButton')
-      SKIN:Bang('!Redraw')
-    else
-      SKIN:Bang('!SetOption', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-      SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-      SKIN:Bang('!UpdateMeter', 'CoreTempsButton')
-      SKIN:Bang('!Redraw')
-    end
-
-    if showCpuFan == 1 then
-      SKIN:Bang('!SetOption', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-      SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-      SKIN:Bang('!UpdateMeter', 'CpuFanButton')
-      SKIN:Bang('!Redraw')
-    else
-      SKIN:Bang('!SetOption', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-      SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-      SKIN:Bang('!UpdateMeter', 'CpuFanButton')
-      SKIN:Bang('!Redraw')
-    end
-
-    if showCpuClock == 1 then
-      SKIN:Bang('!SetOption', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-      SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-      SKIN:Bang('!UpdateMeter', 'CpuClockButton')
-      SKIN:Bang('!Redraw')
-    else
-      SKIN:Bang('!SetOption', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-      SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-      SKIN:Bang('!UpdateMeter', 'CpuClockButton')
-      SKIN:Bang('!Redraw')
-    end
-  end
+  -- if state == 0 then
+  --   SKIN:Bang('!SetOptionGroup', 'ToggleButtonsHwinfo', 'ImageName', '#*imgPath*#Settings\\0lock.png')
+  --   SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
+  --   SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
+  --   SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
+  --   SKIN:Bang('!UpdateMeterGroup', 'ToggleButtonsHwinfo')
+  --   SKIN:Bang('!Redraw')
+  -- else
+  --   if showCoreTemps == 1 then
+  --     SKIN:Bang('!SetOption', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+  --     SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+  --     SKIN:Bang('!UpdateMeter', 'CoreTempsButton')
+  --     SKIN:Bang('!Redraw')
+  --   else
+  --     SKIN:Bang('!SetOption', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+  --     SKIN:Bang('!WriteKeyValue', 'CoreTempsButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+  --     SKIN:Bang('!UpdateMeter', 'CoreTempsButton')
+  --     SKIN:Bang('!Redraw')
+  --   end
+  --
+  --   if showCpuFan == 1 then
+  --     SKIN:Bang('!SetOption', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+  --     SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+  --     SKIN:Bang('!UpdateMeter', 'CpuFanButton')
+  --     SKIN:Bang('!Redraw')
+  --   else
+  --     SKIN:Bang('!SetOption', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+  --     SKIN:Bang('!WriteKeyValue', 'CpuFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+  --     SKIN:Bang('!UpdateMeter', 'CpuFanButton')
+  --     SKIN:Bang('!Redraw')
+  --   end
+  --
+  --   if showCpuClock == 1 then
+  --     SKIN:Bang('!SetOption', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+  --     SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+  --     SKIN:Bang('!UpdateMeter', 'CpuClockButton')
+  --     SKIN:Bang('!Redraw')
+  --   else
+  --     SKIN:Bang('!SetOption', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+  --     SKIN:Bang('!WriteKeyValue', 'CpuClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+  --     SKIN:Bang('!UpdateMeter', 'CpuClockButton')
+  --     SKIN:Bang('!Redraw')
+  --   end
+  -- end
 
 end
 

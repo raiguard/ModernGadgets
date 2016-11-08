@@ -20,5 +20,6 @@ Text="HWINFO NOT DETECTED"
 [NoHwinfoInfoString]
 Meter=String
 MeterStyle=StyleString | StyleStringParagraph
+FontFace=Roboto
 FontSize=8
-Text="GPU Meter relies on HWiNFO to function. Please make sure you have configured HWiNFO as per the setup tutorial. Once HWiNFO is running properly, middle-click here to refresh GPU Meter."
+Text="GPU Meter relies on HWiNFO to function. Please make sure you have configured HWiNFO as per the setup tutorial. Once HWiNFO is running properly, this gadget will automatically refresh."
