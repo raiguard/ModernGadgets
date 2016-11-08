@@ -188,10 +188,10 @@ Hidden=0
 
 [GraphLines]
 Meter=Line
-X=(#contentMargin# + 1)
-Y=R
-W=(#contentWidth# - 3)
-H=(#graphHeight# - 1)
+X=(#contentMargin# + 2)
+Y=1R
+W=(#contentWidth# - 4)
+H=(#graphHeight# - 2)
 LineCount=4
 MeasureName=MeasureGpu0MemoryControllerLoad
 MeasureName2=MeasureGpu0FanUsage
@@ -211,8 +211,8 @@ Meter=Image
 ImageName=#imgPath#GraphBorder.png
 ScaleMargins=2,2,2,2
 ImageTint=#colorGraphBorder#
-X=r
-Y=r
+X=-1r
+Y=-1r
 W=(#contentWidth# - 2)
 H=#graphHeight#
 Group=LineGraph

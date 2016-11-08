@@ -4,7 +4,7 @@
 - [x] Rewrite Network Meter settings
 - [x] Write GPU Meter settings
 - [x] Redesign Disks Meter to support all disk slots
-- [ ] Create Disks Meter settings
+- [x] Create Disks Meter settings
 - [x] Move subpages into their respective skin's directory (makes more sense)
 - [ ] Add development version syntax (rc, pre, b, a, dev) support to update checker
 - [ ] Redesign update available window

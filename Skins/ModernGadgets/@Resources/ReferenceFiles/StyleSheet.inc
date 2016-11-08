@@ -50,6 +50,8 @@ colorInputBoxBorder=#colorDim#
 
 colorIntel=0,125,198
 
+histogramAlpha=50
+
 ; Paths
 imgPath=#@#Assets\Images\
 soundPath=#@#Assets\Sounds\
@@ -66,6 +68,10 @@ cpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\CpuSettings.inc
 gpuMeterPath=#ROOTCONFIGPATH#GPU\main.inc
 gpuMeterConfig=ModernGadgets\GPU
 gpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\GpuSettings.inc
+
+disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
+disksMeterConfig=ModernGadgets\Disks
+disksSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\DisksSettings.inc
 
 ; Styles
 [StyleString]
@@ -98,7 +104,7 @@ FontColor=#colorInfo#
 
 [StyleStringToggleLabel]
 FontSize=10
-X=#contentMargin#
+X=(#contentMargin# + 1)
 Y=4R
 
 [StyleToggleImage]

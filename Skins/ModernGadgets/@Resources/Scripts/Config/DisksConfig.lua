@@ -159,9 +159,9 @@ end
 function LogHelper(message, type)
 
 	if isDbg == true then
-		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
+		SKIN:Bang("!Log", 'DisksConfig.lua: ' .. message, type)
 	elseif type ~= 'Debug' and type ~= nil then
-		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
+		SKIN:Bang("!Log", 'DisksConfig.lua: ' .. message, type)
 	end
 
 end

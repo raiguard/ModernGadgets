@@ -249,19 +249,19 @@ function SetLineGraphY(showVideoClock, showCoreVoltage, showLineGraph)
 
   if showVideoClock == 1 or showCoreVoltage == 1 then
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', gpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', gpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '1R', gpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '1R', gpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-2R', gpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '-2R', gpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-1R', gpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '-1R', gpuMeterPath)
     end
   else
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '4R', gpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '4R', gpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '5R', gpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '5R', gpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '1R', gpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '1R', gpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '2R', gpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '2R', gpuMeterPath)
     end
   end
 
