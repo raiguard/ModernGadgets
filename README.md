@@ -13,8 +13,12 @@ HWiNFO (required for all GPU information, CPU and disk temperatures): https://ww
 ## Installation Instructions
 ModernGadgets official releases are packaged using the Rainmeter skin installer. After downloading the .RMSKIN package, make sure you have Rainmeter installed, then simply open the file to install the suite. Make certain that you keep the "load included skins" box checked. Once installed, you will be presented with the gadget manager, from which you can load the gadgets you want.
 
-## Contributions
-Contributions are welcome! If you would like to add your own code, feel free to fork the repository and submit a pull request when ready. However, please keep in mind that I may substantially redesign your code or reject the pull request completely according to my own discretion. If I do accept a pull request from you or you help in any way, your name will be added to the credits under "developers".
+## Repository Notes
+### Bug Reports
+First and foremost, please read through the setup tutorial. You may find that something you thought was broken just needs to be configured properly (e.g. HWiNFO not communicating with Rainmeter). If the problem is not addressed in the setup tutorial, please SEARCH FOR the issue under the issues section of the repository. If the issue has not already been reported, feel free to make a new one. Be clear and use proper language both in the title and the description of any issues you create.
+
+### Contributions
+Contributions are welcome! If you would like to add your own code, feel free to fork the repository and submit a pull request when ready. A list of what needs to be done will be kept in the projects section of the repository.
 
 ## Credits
 Designed and programmed by Caleb Heuer (iamanai).
@@ -23,7 +27,7 @@ Backend code based on "Gadgets" by SilverAzide.
 
 Settings toggle buttons and close buttons taken from Droptop (by virginityrocks).
 
-"Roboto" Font taken from Google Fonts, under the Apache License, version 2.0.
+"Roboto" font taken from Google Fonts, under the Apache License, version 2.0.
 
 ### Additional Attributions
 
