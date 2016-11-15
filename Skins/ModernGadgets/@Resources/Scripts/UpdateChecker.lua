@@ -5,6 +5,9 @@
 --------------------------------------------------
 --
 -- Release Notes:
+-- v2.1.0 - Fixed oversight where if the user is on a development version for an
+--          outdated release, it would not return UpdateAvailable(), added
+--          'ParsingError' return
 -- v2.0.0 - Removed dependancy on an output meter in favor of hard-coded actions,
 --          added more documentation
 -- v1.0.1 - Optimized gmatch function, more debug functionality

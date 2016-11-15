@@ -100,7 +100,7 @@ Meter=Image
 MeterStyle=StyleStringArrowButton
 MouseOverAction=[!SetOption SetupTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter SetupTutorialButton][!Redraw]
 MouseLeaveAction=[!SetOption SetupTutorialButton ImageTint ""][!UpdateMeter SetupTutorialButton][!Redraw]
-LeftMouseUpAction=["http://moderngadgets.droppages.com/tutorial"]
+LeftMouseUpAction=["https://github.com/iamanai/ModernGadgets/wiki/Setup-Tutorial"]
 
 [DeviantArtButtonLabelString]
 Meter=String

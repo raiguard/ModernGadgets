@@ -1,7 +1,7 @@
 -- MODERNGADGETS DISKS METER CONFIG SCRIPT
 -- Written by iamanai
 
-isDbg = true
+isDbg = false
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 

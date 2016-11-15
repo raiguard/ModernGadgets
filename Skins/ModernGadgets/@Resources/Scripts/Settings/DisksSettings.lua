@@ -4,7 +4,7 @@
 -- Consists of hard-coded functions to change settings in Disks Meter
 --
 
-isDbg = true
+isDbg = false
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
