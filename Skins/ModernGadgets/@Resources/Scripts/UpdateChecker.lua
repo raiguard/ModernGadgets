@@ -1,10 +1,12 @@
 --------------------------------------------------
 -- Update Checker for Rainmeter
--- Version 2.0.0
+-- Version 3.0.0
 -- By iamanai
 --------------------------------------------------
 --
 -- Release Notes:
+-- v3.0.0 - Added support for update checking on development versions, removed
+--          'development version' output
 -- v2.1.0 - Fixed oversight where if the user is on a development version for an
 --          outdated release, it would not return UpdateAvailable(), added
 --          'ParsingError' return
@@ -14,6 +16,19 @@
 -- v1.0.0 - Initial release
 --
 -- --------------------
+--
+-- This script is to be used for implementing into your own skin suite. To
+-- implement this script, you will need to populate the corresponding functions
+-- with hard-coded actions for your skin to perform. There are four possible
+-- outcomes: 'up-to-date', 'update available', 'connection error', and
+-- 'parsing error'.
+--
+-- The corresponding functions are included below. To see an example of what an
+-- implementation could look like, see the 'UpdateCheckerExample.lua' script included
+-- with the example skin.
+--
+-- Please keep in mind that version strings must be formatted using the Semantic
+-- Versioning 2.0.0 format. See http://semver.org/ for additional information.
 --
 
 isDbg = false
@@ -37,13 +52,6 @@ function UpdateAvailable()
   SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updateavailable')
   SKIN:Bang('!Refresh')
   SKIN:Bang('!ShowFade')
-
-end
-
--- development version - hard-coded actions
-function DevelopmentVersion()
-
-
 
 end
 
@@ -83,21 +91,33 @@ function CheckForUpdate(cVersion, rVersion)
   if tableLength(cVerTable) < 3 then ParsingError() LogHelper('Problem parsing local version string', 'Error') return nil end
   if tableLength(rVerTable) < 3 then ParsingError() LogHelper('Problem parsing remote version string', 'Error') return nil end
 
-  r1 = cVerTable[1] - rVerTable[1]
-  r2 = cVerTable[2] - rVerTable[2]
-  r3 = cVerTable[3] - rVerTable[3]
-
-  if r1 < 0 or r2 < 0 or r3 < 0 then
-    UpdateAvailable()
-  elseif r1 == 0 and r2 == 0 and r3 == 0 then
-    if tableLength(cVerTable) == 4 then
-      DevelopmentVersion()
-    else
-      UpToDate()
+  if tableLength(cVerTable) ~= tableLength(rVerTable) then
+    for _ in pairs(cVerTable) do
+      if rVerTable[_] == nil then
+        rVerTable[_] = 0
+      end
     end
-  elseif r1 > 0 or r2 > 0 or r3 > 0 then
-    DevelopmentVersion()
   end
+
+    LogHelper('cVerTable length: ' .. tableLength(cVerTable) .. ' rVerTable length: ' .. tableLength(rVerTable), 'Debug')
+
+  if Compare(cVerTable, rVerTable) == 1 then
+    UpdateAvailable()
+  else
+    UpToDate()
+  end
+
+end
+
+-- separated out so multiple returns can be given
+function Compare(cVerTable, rVerTable)
+
+  for _ in pairs(cVerTable) do
+    local v = cVerTable[_] - rVerTable[_]
+    if v < 0 then return 1 end
+  end
+
+  return 0
 
 end
 
