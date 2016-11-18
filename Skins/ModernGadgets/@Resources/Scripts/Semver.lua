@@ -51,39 +51,39 @@
 
 isDbg = true
 
-function Initialize() end
-
-function Update() end
-
 -- up-to-date - hard-coded actions
 function UpToDate()
 
-  LogHelper('ModernGadgets is up-to-date', 'Notice')
+  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Up-to-date')
+  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
+  SKIN:Bang('!Redraw')
 
 end
 
 -- update available - hard-coded actions
 function UpdateAvailable()
 
-  LogHelper('An update is available!', 'Notice')
-
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updateavailable')
-  SKIN:Bang('!Refresh')
-  SKIN:Bang('!ShowFade')
+  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Update Available')
+  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
+  SKIN:Bang('!Redraw')
 
 end
 
 -- connection error - hard-coded actions
 function ConnectError()
 
-    LogHelper('Could not connect to update server', 'Error')
+  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Connection Error')
+  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
+  SKIN:Bang('!Redraw')
 
 end
 
 -- parsing error - hard-coded actions
 function ParsingError()
 
-
+  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Parsing Error')
+  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
+  SKIN:Bang('!Redraw')
 
 end
 
@@ -94,8 +94,8 @@ function Update() end
 function CheckForUpdate(current, remote)
 
   -- create version objects
-  local cVersion = v(current)
-  local rVersion = v(remote)
+  local cVersion = new(current)
+  local rVersion = new(remote)
 
   if cVersion == rVersion then
     LogHelper('Up-to-date', 'Debug')
@@ -281,7 +281,7 @@ function mt:__tostring()
   return table.concat(buffer)
 end
 
-function v(major, minor, patch, prerelease, build)
+function new(major, minor, patch, prerelease, build)
   assert(major, "At least one parameter is needed")
 
   if type(major) == 'string' then
