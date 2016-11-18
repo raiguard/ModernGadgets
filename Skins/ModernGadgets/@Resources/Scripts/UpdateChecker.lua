@@ -49,7 +49,7 @@
 -- Versioning 2.0.0 format. See http://semver.org/ for additional information.
 --
 
-isDbg = true
+isDbg = false
 
 function Initialize() end
 
@@ -87,10 +87,6 @@ function ParsingError()
 
 end
 
-function Initialize() end
-
-function Update() end
-
 function CheckForUpdate(current, remote)
 
   -- create version objects
@@ -116,9 +112,9 @@ end
 function LogHelper(message, type)
 
 	if isDbg == true then
-		SKIN:Bang("!Log", 'Semver.lua: ' .. message, type)
+		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
 	elseif type ~= 'Debug' and type ~= nil then
-		SKIN:Bang("!Log", 'Semver.lua: ' .. message, type)
+		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
 	end
 
 end
