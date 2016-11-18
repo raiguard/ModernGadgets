@@ -49,44 +49,47 @@
 -- Versioning 2.0.0 format. See http://semver.org/ for additional information.
 --
 
-isDbg = false
-
-function Initialize() end
-
-function Update() end
+isDbg = true
 
 -- up-to-date - hard-coded actions
 function UpToDate()
 
-  LogHelper('ModernGadgets is up-to-date', 'Notice')
+  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Up-to-date')
+  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
+  SKIN:Bang('!Redraw')
 
 end
 
 -- update available - hard-coded actions
-function UpdateAvailable(rVersion)
+function UpdateAvailable()
 
-  LogHelper('An update is available!', 'Notice')
-
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'releaseVer', tostring(rVersion))
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updateavailable')
-  SKIN:Bang('!Refresh')
-  SKIN:Bang('!ShowFade')
+  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Update Available')
+  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
+  SKIN:Bang('!Redraw')
 
 end
 
 -- connection error - hard-coded actions
 function ConnectError()
 
-    LogHelper('Could not connect to update server', 'Error')
+  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Connection Error')
+  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
+  SKIN:Bang('!Redraw')
 
 end
 
 -- parsing error - hard-coded actions
 function ParsingError()
 
-
+  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Parsing Error')
+  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
+  SKIN:Bang('!Redraw')
 
 end
+
+function Initialize() end
+
+function Update() end
 
 function CheckForUpdate(current, remote)
 
@@ -102,10 +105,22 @@ function CheckForUpdate(current, remote)
     UpToDate()
   elseif cVersion < rVersion then
     LogHelper('Update available', 'Debug')
-    UpdateAvailable(rVersion)
+    UpdateAvailable()
   else
     LogHelper('WTF?', 'Debug')
   end
+
+end
+
+function UnitTest()
+
+  print(tostring(v'1.0.0' == v'2.3.4'))
+  print(tostring(v'1.0.0' > v'2.3.4'))
+  print(tostring(v'1.0.0' <  v'2.3.4'))
+
+  print(tostring(v'1.0.0-alpha.1' == v'1.0.0-alpha.2'))
+  print(tostring(v'1.0.0-alpha.1' < v'1.0.0-alpha.2'))
+  print(tostring(v'1.0.0-alpha.1' > v'1.0.0-alpha.2'))
 
 end
 
@@ -113,9 +128,9 @@ end
 function LogHelper(message, type)
 
 	if isDbg == true then
-		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
+		SKIN:Bang("!Log", 'Semver.lua: ' .. message, type)
 	elseif type ~= 'Debug' and type ~= nil then
-		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
+		SKIN:Bang("!Log", 'Semver.lua: ' .. message, type)
 	end
 
 end

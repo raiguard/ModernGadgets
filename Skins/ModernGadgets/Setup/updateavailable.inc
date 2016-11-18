@@ -1,13 +1,3 @@
-[MeasureReleaseVersionAlt]
-Measure=Plugin
-Plugin=WebParser
-UpdateRate=1000
-Url="http://moderngadgets.droppages.com/"
-RegExp="<p>(.*)</p>"
-StringIndex=1
-FinishAction=[!SetVariable releaseVer "[MeasureReleaseVersionAlt]"][!WriteKeyValue Variables releaseVer "[MeasureReleaseVersionAlt]"][!UpdateMeter VersionString][!Redraw]
-Disabled=0
-
 [LogoGears]
 Meter=Image
 ImageName=#imgPath#LogoGears.png
@@ -44,5 +34,5 @@ Text="An update is available!"
 Meter=String
 MeterStyle=StyleString | StyleStringCenterAlign
 FontSize=10
-Text="Version #releaseVer#"
+Text="v#releaseVer#"
 DynamicVariables=1
