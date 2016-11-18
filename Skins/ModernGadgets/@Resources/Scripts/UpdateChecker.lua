@@ -63,10 +63,11 @@ function UpToDate()
 end
 
 -- update available - hard-coded actions
-function UpdateAvailable()
+function UpdateAvailable(rVersion)
 
   LogHelper('An update is available!', 'Notice')
 
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'releaseVer', tostring(rVersion))
   SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updateavailable')
   SKIN:Bang('!Refresh')
   SKIN:Bang('!ShowFade')
@@ -101,7 +102,7 @@ function CheckForUpdate(current, remote)
     UpToDate()
   elseif cVersion < rVersion then
     LogHelper('Update available', 'Debug')
-    UpdateAvailable()
+    UpdateAvailable(rVersion)
   else
     LogHelper('WTF?', 'Debug')
   end
