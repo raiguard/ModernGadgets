@@ -39,5 +39,10 @@ Twitter: @iamanai_
 ----------------------------------------
 CHANGELOG
 
-v1.0.0 - 2016-??-??
+v1.0.0-rc.2 - 2016-11-18
+- Fixed typo in readme changelog
+- Complete overhaul to update checker, implementing semver.lua by kikito to allow for much
+  greater flexibility (and better reliability)
+
+v1.0.0-rc.1 - 2016-11-14
  - Initial release
