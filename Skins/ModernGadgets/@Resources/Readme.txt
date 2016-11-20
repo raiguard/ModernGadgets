@@ -39,6 +39,11 @@ Twitter: @iamanai_
 ----------------------------------------
 CHANGELOG
 
+v1.0.0-rc.3 - 2016-11-20
+- Fixed potential bug in settings management
+- Fixed typo in HWiNFO config tool
+- Updated HWiNFO plugin to 3.2.0
+
 v1.0.0-rc.2 - 2016-11-18
 - Fixed typo in readme changelog
 - Complete overhaul to update checker, implementing semver.lua by kikito to allow for much

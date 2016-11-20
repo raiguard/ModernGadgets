@@ -54,6 +54,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-Clock#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0Clock = -9201
 IfTrueAction=[!SetOption Gpu0ClockValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0ClockValueString][!Redraw]
 
@@ -64,6 +65,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-Temp#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0Temp = -9201
 IfTrueAction=[!SetOption Gpu0TempValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0TempValueString][!Redraw]
 
@@ -74,6 +76,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-CoreLoad#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0CoreLoad = -9201
 IfTrueAction=[!SetOption Gpu0CoreLoadValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0CoreLoadValueString][!Redraw]
 
@@ -84,6 +87,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-MemoryClock#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0MemoryClock = -9201
 IfTrueAction=[!SetOption Gpu0MemoryClockValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0MemoryClockValueString][!Redraw]
 
@@ -94,6 +98,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-MemoryUsage#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0MemoryUsage = -9201
 IfTrueAction=[!SetOption Gpu0MemoryUsageValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0MemoryUsageValueString][!Redraw]
 
@@ -104,6 +109,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-MemoryAlloc#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0MemoryAlloc = -9201
 IfTrueAction=[!SetOption Gpu0MemoryAllocValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0MemoryAllocValueString][!Redraw]
 
@@ -114,6 +120,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-FanSpeed#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0FanSpeed = -9201
 IfTrueAction=[!SetOption Gpu0FanSpeedValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0FanSpeedValueString][!Redraw]
 
@@ -124,6 +131,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-FanUsage#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0FanUsage = -9201
 IfTrueAction=[!SetOption Gpu0FanUsageValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0FanUsageValueString][!Redraw]
 
@@ -134,6 +142,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-VideoClock#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0VideoClock = -9201
 IfTrueAction=[!SetOption Gpu0VideoClockValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0VideoClockValueString][!Redraw]
 
@@ -144,6 +153,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-MemController#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0MemoryController = -9201
 IfTrueAction=[!SetOption Gpu0MemoryControllerValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0MemoryControllerValueString][!Redraw]
 
@@ -154,6 +164,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-CoreVoltage#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0CoreVoltage = -9201
 IfTrueAction=[!SetOption Gpu0CoreVoltageValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0CoreVoltageValueString][!Redraw]
 
