@@ -7,6 +7,7 @@ Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-Temp#
+HWiNFOLogHandler=2
 HWiNFOType=CurrentValue
 IfCondition=MeasureHwinfoDetect = -9000
 IfFalseAction=[!WriteKeyValue Variables page "main"][!Refresh]

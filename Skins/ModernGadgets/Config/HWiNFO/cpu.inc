@@ -58,6 +58,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=0x0
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 
 [MeasureHwinfoTestCpu0SensorInstance]
 Measure=Plugin
@@ -66,6 +67,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestCpu0SensorId = -9102
 IfTrueAction=[!SetOptionGroup Cpu0Values MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorSensorNotFound"][!UpdateMeterGroup Cpu0Values][!Redraw]
 
@@ -76,6 +78,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core0Clock#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestCpu0Core0Clock = -9201
 IfTrueAction=[!SetOption Cpu0Core0ClockValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Cpu0Core0ClockValueString][!Redraw]
 
@@ -88,6 +91,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=0x0
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 
 [MeasureHwinfoTestCpu0DtsSensorInstance]
 Measure=Plugin
@@ -96,6 +100,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestCpu0DtsSensorId = -9102
 IfTrueAction=[!SetOptionGroup Cpu0DtsValues MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorSensorNotFound"][!UpdateMeterGroup Cpu0DtsValues][!Redraw]
 
@@ -106,6 +111,7 @@ HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
 HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-DTS-Core0Temp#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestCpu0DtsCore0Temp = -9201
 IfTrueAction=[!SetOption Cpu0DtsCore0TempValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Cpu0DtsCore0TempValueString][!Redraw]
 
@@ -118,6 +124,7 @@ HWiNFOSensorId=#HWiNFO-MOBO-SensorId#
 HWiNFOSensorInstance=0x0
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 
 [MeasureHwinfoTestMoboSensorInstance]
 Measure=Plugin
@@ -126,6 +133,7 @@ HWiNFOSensorId=#HWiNFO-MOBO-SensorId#
 HWiNFOSensorInstance=#HWiNFO-MOBO-SensorInstance#
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestMoboSensorId = -9102
 IfTrueAction=[!SetOptionGroup MoboValues MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorSensorNotFound"][!UpdateMeterGroup MoboValues][!Redraw]
 
@@ -136,6 +144,7 @@ HWiNFOSensorId=#HWiNFO-MOBO-SensorId#
 HWiNFOSensorInstance=#HWiNFO-MOBO-SensorInstance#
 HWiNFOEntryId=#HWiNFO-MOBO-CpuFan#
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestMoboCpuFan = -9201
 IfTrueAction=[!SetOption MoboCpuFanValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter MoboCpuFanValueString][!Redraw]
 
