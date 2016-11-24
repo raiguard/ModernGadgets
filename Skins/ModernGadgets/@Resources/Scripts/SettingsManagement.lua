@@ -64,6 +64,8 @@ function SettingsProtocol()
     local rCtrlTable = ReadIni(rFilesPath .. fileNames[1])
     local ctrlTable = ReadIni(filesPath .. fileNames[1])
 
+    LogHelper(rCtrlTable['Variables']['mgVersion'] .. ' | ' .. ctrlTable['Variables']['mgVersion'])
+
     -- check if tables are identical
     if rCtrlTable['Variables']['mgVersion'] == ctrlTable['Variables']['mgVersion'] and rCtrlTable['Variables']['fileRevision'] == ctrlTable['Variables']['fileRevision'] then
       LogHelper('Settings files up-to-date', 'Notice')
@@ -127,6 +129,9 @@ function UpdateFiles()
     WriteIni(newFileTable, filesPath .. fileNames[y])
     LogHelper('Finished cross-reference for ' .. fileNames[y], 'Debug')
   end
+
+  SKIN:Bang('!RefreshGroup', 'ModernGadgets')
+  SKIN:Bang('!Refresh')
 
 end
 

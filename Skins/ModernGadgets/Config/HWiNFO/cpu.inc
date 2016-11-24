@@ -16,6 +16,7 @@ H=16
 Command1=[!WriteKeyValue Variables HWiNFO-CPU0-SensorId "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-SensorId# X=[Cpu0SensorIdValueString:X] Y=[Cpu0SensorIdValueString:Y] W=[Cpu0SensorIdValueString:W]
 Command2=[!WriteKeyValue Variables HWiNFO-CPU0-SensorInstance "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-SensorInstance# X=[Cpu0SensorInstanceValueString:X] Y=[Cpu0SensorInstanceValueString:Y] W=[Cpu0SensorInstanceValueString:W]
 Command3=[!WriteKeyValue Variables HWiNFO-CPU0-Core0Clock "$UserInput$" "#hwinfoFilePath#"][!CommandMeasure MeasureHwinfoConfigScript "FillIDs('HWiNFO-CPU0-Core', 'Clock', '[MeasureInputCpu0]', '#*hwinfoFilePath*#')"][!Refresh] DefaultValue=#HWiNFO-CPU0-Core0Clock# X=[Cpu0Core0ClockValueString:X] Y=[Cpu0Core0ClockValueString:Y] W=[Cpu0Core0ClockValueString:W]
+DynamicVariables=1
 
 [MeasureInputCpu0Dts]
 Measure=Plugin
@@ -31,6 +32,7 @@ H=16
 Command1=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-SensorId "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-SensorId# X=[Cpu0DtsSensorIdValueString:X] Y=[Cpu0DtsSensorIdValueString:Y] W=[Cpu0DtsSensorIdValueString:W]
 Command2=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-SensorInstance "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-SensorInstance# X=[Cpu0DtsSensorInstanceValueString:X] Y=[Cpu0DtsSensorInstanceValueString:Y] W=[Cpu0DtsSensorInstanceValueString:W]
 Command3=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core0Temp "$UserInput$" "#hwinfoFilePath#"][!CommandMeasure MeasureHwinfoConfigScript "FillIDs('HWiNFO-CPU0-DTS-Core', 'Temp', '[MeasureInputCpu0Dts]', '#*hwinfoFilePath*#')"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-Core0Temp# X=[Cpu0DtsCore0TempValueString:X] Y=[Cpu0DtsCore0TempValueString:Y] W=[Cpu0DtsCore0TempValueString:W]
+DynamicVariables=1
 
 [MeasureInputMobo]
 Measure=Plugin

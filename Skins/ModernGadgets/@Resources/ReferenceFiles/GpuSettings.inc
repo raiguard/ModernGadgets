@@ -8,6 +8,8 @@ showVideoClock=1
 showCoreVoltage=1
 showLineGraph=1
 
+useMoboFanSensor=0
+
 sliMode=0
 
 colorCoreUsage=255,246,42,240

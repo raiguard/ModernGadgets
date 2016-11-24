@@ -27,6 +27,19 @@ Command11=[!WriteKeyValue Variables HWiNFO-GPU0-VideoClock "$UserInput$" "#hwinf
 Command12=[!WriteKeyValue Variables HWiNFO-GPU0-MemController "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemController# X=[Gpu0MemoryControllerValueString:X] Y=[Gpu0MemoryControllerValueString:Y] W=[Gpu0MemoryControllerValueString:W]
 Command13=[!WriteKeyValue Variables HWiNFO-GPU0-CoreVoltage "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-CoreVoltage# X=[Gpu0CoreVoltageValueString:X] Y=[Gpu0CoreVoltageValueString:Y] W=[Gpu0CoreVoltageValueString:W]
 
+[MeasureInputMobo]
+Measure=Plugin
+Plugin=InputText
+SolidColor=#colorHwinfoValueInputBg#
+FontColor=#colorMain#
+FontSize=10
+FontFace=#fontFace#
+UpdateDivider=-1
+FocusDismiss=1
+Antialias=1
+H=16
+Command1=[!WriteKeyValue Variables HWiNFO-MOBO-GPUFan "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-MOBO-GPUFan# X=[MoboGpuFanValueString:X] Y=[MoboGpuFanValueString:Y] W=[MoboGpuFanValueString:W]
+
 ; ----- Test Measures -----
 
 [MeasureHwinfoTestGpu0SensorId]
@@ -36,6 +49,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=0x0
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 
 [MeasureHwinfoTestGpu0SensorInstance]
 Measure=Plugin
@@ -44,6 +58,7 @@ HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
 HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=0x0
 HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
 IfCondition=(MeasureHwinfoTestGpu0SensorId = -9102) || (MeasureHwinfoTestGpu0SensorInstance = -9102)
 IfTrueAction=[!SetOptionGroup Gpu0Values MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorSensorNotFound"][!UpdateMeterGroup Gpu0Values][!Redraw]
 
@@ -168,6 +183,17 @@ HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestGpu0CoreVoltage = -9201
 IfTrueAction=[!SetOption Gpu0CoreVoltageValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0CoreVoltageValueString][!Redraw]
 
+[MeasureHwinfoTestMoboGpuFan]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
+HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
+HWiNFOEntryId=#HWiNFO-GPU0-CoreVoltage#
+HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
+IfCondition=MeasureHwinfoTestMoboGpuFan = -9201
+IfTrueAction=[!SetOption MoboGpuFanValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter MoboGpuFanValueString][!Redraw]
+
 ; ========= Meters =========
 
 ; ----- GPU 0 -----
@@ -277,7 +303,7 @@ Group=Gpu0Values
 [Gpu0FanSpeedLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Fan Speed"
+Text="Fan Speed (RPM)"
 
 [Gpu0FanSpeedValueString]
 Meter=String
@@ -289,7 +315,7 @@ Group=Gpu0Values
 [Gpu0FanUsageLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Fan Usage"
+Text="Fan Usage (%)"
 
 [Gpu0FanUsageValueString]
 Meter=String
@@ -333,3 +359,34 @@ MeterStyle=StyleString | StyleStringHwinfoValue
 Text="#HWiNFO-GPU0-CoreVoltage#"
 LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 13"]
 Group=Gpu0Values
+
+[Gpu0SeparatorBar]
+Meter=Image
+MeterStyle=StyleSectionSeparator
+Y=5R
+
+[MoboHeaderString]
+Meter=String
+MeterStyle=StyleString | StyleStringSectionHeader
+Text="Motherboard"
+
+[MoboGpuFanLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoLabel
+Text="Fan Speed (RPM)"
+
+[MoboGpuFanValueString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoValue
+Text="#HWiNFO-MOBO-GpuFan#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputMobo "Executebatch 1"]
+Group=Cpu0Values
+
+[MoboGpuFanString]
+Meter=String
+MeterStyle=StyleString
+FontColor=#colorInfo#
+ClipString=2
+Y=3R
+W=(#contentWidth# - 3)
+Text="In the case that your GPU Fan speed is under the Motherboard group, fill in its Entry ID here and enable the toggle in GPU Meter's settings. This value uses the motherboard Sensor ID and Instance set on the CPU Meter page."
