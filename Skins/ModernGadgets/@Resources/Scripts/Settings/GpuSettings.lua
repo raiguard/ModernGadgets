@@ -266,3 +266,32 @@ function SetLineGraphY(showVideoClock, showCoreVoltage, showLineGraph)
   end
 
 end
+
+function ToggleMoboFan(currentValue)
+
+  currentValue = tonumber(currentValue)
+
+  if currentValue == 0 then
+    SKIN:Bang('!SetVariable', 'useMoboFanSensor', '1')
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'useMoboFanSensor', '1')
+    SKIN:Bang('!SetOption', 'MoboFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+    SKIN:Bang('!WriteKeyValue', 'MoboFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+
+    SKIN:Bang('!SetOption', 'Gpu0FanSpeedString', 'MeasureName', 'MeasureMoboGpuFanSpeed', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Gpu0FanSpeedString', 'MeasureName', 'MeasureMoboGpuFanSpeed', gpuMeterPath)
+  else
+    SKIN:Bang('!SetVariable', 'useMoboFanSensor', '0')
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'useMoboFanSensor', '0')
+    SKIN:Bang('!SetOption', 'MoboFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+    SKIN:Bang('!WriteKeyValue', 'MoboFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+
+    SKIN:Bang('!SetOption', 'Gpu0FanSpeedString', 'MeasureName', 'MeasureGpu0FanSpeed', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Gpu0FanSpeedString', 'MeasureName', 'MeasureGpu0FanSpeed', gpuMeterPath)
+  end
+
+  SKIN:Bang('!UpdateMeterGroup', 'MoboFan')
+  SKIN:Bang('!Redraw')
+  SKIN:Bang('!UpdateMeter', 'Gpu0FanSpeedString', gpuMeterConfig)
+  SKIN:Bang('!Redraw', gpuMeterConfig)
+
+end

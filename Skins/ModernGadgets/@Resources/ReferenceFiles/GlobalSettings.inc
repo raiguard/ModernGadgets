@@ -56,6 +56,10 @@ HWiNFO-CPU0-Core5Clock=0x6000005
 HWiNFO-CPU0-Core6Clock=0x6000006
 ; core 7 clock frequency (MHz)
 HWiNFO-CPU0-Core7Clock=0x6000007
+; core 8 clock frequency (MHz)
+HWiNFO-CPU0-Core8Clock=0x6000006
+; core 9 clock frequency (MHz)
+HWiNFO-CPU0-Core9Clock=0x6000007
 ; core 0 voltage (volts)
 HWiNFO-CPU0-Core0VID=0x2000000
 ; core 1 voltage (volts)
@@ -72,6 +76,10 @@ HWiNFO-CPU0-Core5VID=0x2000005
 HWiNFO-CPU0-Core6VID=0x2000006
 ; core 7 voltage (volts)
 HWiNFO-CPU0-Core7VID=0x2000007
+; core 8 voltage (volts)
+HWiNFO-CPU0-Core8VID=0x2000006
+; core 9 voltage (volts)
+HWiNFO-CPU0-Core9VID=0x2000007
 ; core 0 thermal throttling (yes/no)
 HWiNFO-CPU0-Core0Tt=0x2000000
 ; core 1 thermal throttling (yes/no)
@@ -88,6 +96,10 @@ HWiNFO-CPU0-Core5Tt=0x2000005
 HWiNFO-CPU0-Core6Tt=0x2000006
 ; core 7 thermal throttling (yes/no)
 HWiNFO-CPU0-Core7Tt=0x2000007
+; core 8 thermal throttling (yes/no)
+HWiNFO-CPU0-Core8Tt=0x2000006
+; core 9 thermal throttling (yes/no)
+HWiNFO-CPU0-Core9Tt=0x2000007
 
 ;
 ; CPU 0 DTS
@@ -112,6 +124,10 @@ HWiNFO-CPU0-DTS-Core5Temp=0x1000005
 HWiNFO-CPU0-DTS-Core6Temp=0x1000006
 ; core 7 temperature (degrees)
 HWiNFO-CPU0-DTS-Core7Temp=0x1000007
+; core 8 temperature (degrees)
+HWiNFO-CPU0-DTS-Core8Temp=0x1000008
+; core 8 temperature (degrees)
+HWiNFO-CPU0-DTS-Core9Temp=0x1000009
 
 ;
 ; Motherboard
@@ -122,6 +138,8 @@ HWiNFO-MOBO-SensorInstance=0x0
 ; entry IDs
 ; CPU fan speed (RPM)
 HWiNFO-MOBO-CPUFan=0x3000001
+; GPU fan speed (RPM)
+HWiNFO-MOBO-GPUFan=0x0
 
 ;
 ; GPU 0
