@@ -1,3 +1,3 @@
 [Variables]
-mgVersion=1.0.0-rc.4
-fileRevision=6
+mgVersion=1.0.0
+fileRevision=7

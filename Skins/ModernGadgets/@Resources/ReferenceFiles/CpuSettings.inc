@@ -4,8 +4,6 @@
 tempUom=C
 
 ; Set automatically - don't bother changing (they will just change back)
-threadsPerCore=2
-cpuCores=8
 cpuName=""
 
 ; Fixed precision format
