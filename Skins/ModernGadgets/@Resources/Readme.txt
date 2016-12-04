@@ -39,6 +39,10 @@ Twitter: @iamanai_
 ----------------------------------------
 CHANGELOG
 
+v1.0.0 - 2016-12-4
+- Fixed mistakes in CPU meter that could prevent it from adjusting to different CPUs
+- Official release
+
 v1.0.0-rc.4 - 2016-11-23
 - Fixed HWiNFO Tutorial link in Config Tool
 - Fixed GPU Sensor ID and Instance test measures to accurately report errors
