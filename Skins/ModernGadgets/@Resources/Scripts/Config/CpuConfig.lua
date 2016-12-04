@@ -4,6 +4,7 @@
 function Initialize()
 
   cpuSettingsPath = SKIN:GetVariable('cpuSettingsPath')
+  cpuMeterPath = SKIN:GetVariable('cpuMeterPath')
 
 end
 
@@ -54,7 +55,7 @@ function ConfigCores(threads)
   SKIN:Bang('!Log', 'Finished core configuration', 'Debug')
 
   SKIN:Bang('!SetVariable', 'cpuCores', threads)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads, cpuSettingsPath)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads, cpuMeterPath)
 end
 
 function ToggleTemps(threads, mode)
