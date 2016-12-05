@@ -6,7 +6,7 @@ lineGraphAa=0
 notifyUpdates=1
 tempUnits=C
 isHwinfoAvailable=1
-devUpdates=1
+devUpdates=0
 
 ; Color pallete
 
