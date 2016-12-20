@@ -58,8 +58,8 @@ soundPath=#@#Assets\Sounds\
 fontPath=#@#Fonts\
 scriptPath=#@#Scripts\
 
-globalSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\GlobalSettings.inc
-gadgetManagerPath=#ROOTCONFIGPATH#Setup\gadgetmanager.inc
+globalSettingsPath=#@#Settings\GlobalSettings.inc
+gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
@@ -81,6 +81,28 @@ FontFace=#fontFace#
 X=#contentMargin#
 Y=#rowSpacing#R
 Antialias=1
+
+[StyleStringArrowButtonLabel]
+FontSize=10
+StringAlign=Right
+X=(#contentMarginRight# - 20)
+
+[StyleStringArrowButton]
+ImageName=#imgPath#arrow-right.png
+Grayscale=1
+ImageTint=#colorAccent#
+X=r
+Y=r
+W=17
+H=17
+Antialias=0
+
+[StyleToggleImageGadgets]
+X=110
+
+[StyleStringSectionHeader]
+FontSize=12
+Y=10R
 
 [StyleStringGadgetHeader]
 FontSize=10
