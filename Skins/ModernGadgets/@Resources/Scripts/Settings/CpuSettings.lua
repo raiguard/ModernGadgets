@@ -96,6 +96,10 @@ end
 
 function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
 
+  currentValue = tonumber(currentValue)
+  isHwinfoAvailable = tonumber(isHwinfoAvailable)
+  cpuCores = tonumber(cpuCores)
+
   if isHwinfoAvailable == 1 then
     if currentValue == 0 then
       SKIN:Bang('!SetVariable', 'showCoreTemps', '1')

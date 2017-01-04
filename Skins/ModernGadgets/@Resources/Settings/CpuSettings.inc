@@ -2,6 +2,7 @@
 
 [Variables]
 tempUom=C
+threadCount=8
 
 ; Set automatically - don't bother changing (they will just change back)
 cpuName=""
@@ -51,3 +52,4 @@ howcoretemps=1
 howlinegraph=1
 howcpuname=1
 howcpuclock=1
+isHwinfoAvailable=1

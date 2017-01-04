@@ -51,11 +51,7 @@
 
 isDbg = false
 
-function Initialize()
-
-  gadgetManagerPath = SKIN:GetVariable('gadgetManagerPath')
-
-end
+function Initialize() end
 
 function Update() end
 
@@ -71,9 +67,13 @@ function UpdateAvailable(rVersion)
 
   LogHelper('An update is available!', 'Notice')
 
+  SKIN:Bang('!CommandMeasure', 'MeasureCreateBackup', 'Run')
+  SKIN:Bang('!SetVariable', 'releaseVer', tostring(rVersion))
   SKIN:Bang('!WriteKeyValue', 'Variables', 'releaseVer', tostring(rVersion))
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updateavailable', gadgetManagerPath)
-  SKIN:Bang('!Refresh')
+  SKIN:Bang('!Hide')
+  SKIN:Bang('!ShowMeterGroup', 'Essentials')
+  SKIN:Bang('!ShowMeterGroup', 'UpdateAvailable')
+  SKIN:Bang('!Redraw')
   SKIN:Bang('!ShowFade')
 
 end
@@ -88,7 +88,7 @@ end
 -- parsing error - hard-coded actions
 function ParsingError()
 
-
+  LogHelper('Could not parse one or both version strings', 'Error')
 
 end
 
@@ -117,9 +117,9 @@ end
 function LogHelper(message, type)
 
 	if isDbg == true then
-		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
+		SKIN:Bang("!Log", message, type)
 	elseif type ~= 'Debug' and type ~= nil then
-		SKIN:Bang("!Log", 'UpdateChecker.lua: ' .. message, type)
+		SKIN:Bang("!Log", message, type)
 	end
 
 end

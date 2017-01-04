@@ -3,7 +3,7 @@ interface=Best
 
 censorExternalIp=0
 showPeakNetworkUsage=1
-showSpeedtestButton=0
+showSpeedtestButton=1
 showTrafficInBytes=0
 showLineGraph=1
 

@@ -1,10 +1,9 @@
 -- MODERNGADGETS SETTINGS BACKUP SCRIPT
 --
--- This script makes backups of the settings files after settings are changed, which
--- prevents them from being lost when updating the suite. After updating, this script
--- will copy the values from the backups back into the user settings files.
+-- This script makes backups of the settings files every two hours, which
+-- prevents them from being lost when updating the suite.
 
-isDbg = true
+isDbg = false
 
 function Initialize()
 
@@ -51,7 +50,20 @@ function CrossCheck(bTable, sTable, filePath)
 
 end
 
+function CheckForBackup()
 
+  local file = io.open(backupsPath .. fileNames[1])
+  if file == nil then
+    SKIN:Bang('!ActivateConfig', 'ModernGadgets\\Config\\GadgetManager', 'Config.ini')
+  else
+    SKIN:Bang('!Hide')
+    SKIN:Bang('!ShowMeterGroup', 'Essentials')
+    SKIN:Bang('!ShowMeterGroup', 'ImportBackupPrompt')
+    SKIN:Bang('!Redraw')
+    SKIN:Bang('!ShowFade')
+  end
+  io.close(file)
+end
 
 -- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
 function ReadIni(inputfile)

@@ -63,15 +63,19 @@ gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
-cpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\CpuSettings.inc
+cpuSettingsPath=#@#Settings\CpuSettings.inc
+
+networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
+networkMeterConfig=ModernGadgets\Network
+networkSettingsPath=#@#Settings\NetworkSettings.inc
 
 gpuMeterPath=#ROOTCONFIGPATH#GPU\main.inc
 gpuMeterConfig=ModernGadgets\GPU
-gpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\GpuSettings.inc
+gpuSettingsPath=#@#Settings\GpuSettings.inc
 
 disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
 disksMeterConfig=ModernGadgets\Disks
-disksSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\DisksSettings.inc
+disksSettingsPath=#@#Settings\DisksSettings.inc
 
 ; Styles
 [StyleString]
