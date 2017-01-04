@@ -51,7 +51,11 @@
 
 isDbg = false
 
-function Initialize() end
+function Initialize()
+
+  gadgetManagerPath = SKIN:GetVariable('gadgetManagerPath')
+
+end
 
 function Update() end
 
@@ -68,7 +72,7 @@ function UpdateAvailable(rVersion)
   LogHelper('An update is available!', 'Notice')
 
   SKIN:Bang('!WriteKeyValue', 'Variables', 'releaseVer', tostring(rVersion))
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updateavailable')
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'page', 'updateavailable', gadgetManagerPath)
   SKIN:Bang('!Refresh')
   SKIN:Bang('!ShowFade')
 

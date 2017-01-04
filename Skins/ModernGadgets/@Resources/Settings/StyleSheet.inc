@@ -1,4 +1,4 @@
-; MODERNGADGETS STYLESHEET "NEW"
+; MODERNGADGETS STYLESHEET
 
 [Variables]
 ; General positioning and background
