@@ -36,5 +36,3 @@ colorDisk23=42,112,250
 colorDisk24=43,224,224
 colorDisk25=121,182,62
 colorDisk26=204,255,0
-howdisktemps=1
-howlinegraph=1

@@ -18,11 +18,15 @@ function Initialize()
 
   filesPath = SKIN:GetVariable('@') .. 'Settings\\'
 
+  cpuMeterConfig = SKIN:GetVariable('cpuMeterConfig')
+
 end
 
 function Update() end
 
 function ImportBackup()
+
+  -- local bTable = ReadIni(backupsPath .. fileNames[2])
 
   for i=1, 5 do
     local bTable = ReadIni(backupsPath .. fileNames[i])
@@ -30,7 +34,17 @@ function ImportBackup()
     CrossCheck(bTable, sTable, filesPath .. fileNames[i])
   end
 
+  -- update all gadgets
+  SKIN:Bang('!Refresh', 'ModernGadgets\\CPU')
+  SKIN:Bang('!Refresh', 'ModernGadgets\\Network')
+  SKIN:Bang('!Refresh', 'ModernGadgets\\GPU')
+  SKIN:Bang('!Refresh', 'ModernGadgets\\Disks')
+
+  SKIN:Bang('!CommandMeasure', 'MeasureCpuSettingsScript', 'UpdateSettings()', cpuMeterConfig)
+
   LogHelper('Imported settings backup', 'Notice')
+
+  -- SKIN:Bang('!Refresh')
 
 end
 
@@ -69,18 +83,20 @@ end
 function ReadIni(inputfile)
 	local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
 	local tbl, section = {}
-	local num = 0
+  local num = 0
 	for line in file:lines() do
 		num = num + 1
-		if not line:match('^%s-;') then
+		if not line:match('^%s;') then
 			local key, command = line:match('^([^=]+)=(.+)')
 			if line:match('^%s-%[.+') then
-				section = line:match('^%s-%[([^%]]+)'):lower()
+				section = line:match('^%s-%[([^%]]+)')
+        -- LogHelper(section, 'Debug')
 				if not tbl[section] then tbl[section] = {} end
 			elseif key and command and section then
-				tbl[section][key:lower():match('^s*(%S*)%s*$')] = command:match('^s*(.-)%s*$')
+        -- LogHelper(key .. '=' .. command, 'Debug')
+				tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$')
 			elseif #line > 0 and section and not key or command then
-				print(num .. ': Invalid property or value.')
+				-- print(num .. ': Invalid property or value.')
 			end
 		end
 	end
