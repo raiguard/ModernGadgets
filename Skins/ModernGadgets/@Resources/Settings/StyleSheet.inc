@@ -1,4 +1,4 @@
-; MODERNGADGETS STYLESHEET "NEW"
+; MODERNGADGETS STYLESHEET
 
 [Variables]
 ; General positioning and background
@@ -58,20 +58,28 @@ soundPath=#@#Assets\Sounds\
 fontPath=#@#Fonts\
 scriptPath=#@#Scripts\
 
-globalSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\GlobalSettings.inc
-gadgetManagerPath=#ROOTCONFIGPATH#Setup\gadgetmanager.inc
+globalSettingsPath=#@#Settings\GlobalSettings.inc
+gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
-cpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\CpuSettings.inc
+cpuSettingsPath=#@#Settings\CpuSettings.inc
+
+networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
+networkMeterConfig=ModernGadgets\Network
+networkSettingsPath=#@#Settings\NetworkSettings.inc
 
 gpuMeterPath=#ROOTCONFIGPATH#GPU\main.inc
 gpuMeterConfig=ModernGadgets\GPU
-gpuSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\GpuSettings.inc
+gpuSettingsPath=#@#Settings\GpuSettings.inc
 
 disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
 disksMeterConfig=ModernGadgets\Disks
-disksSettingsPath=#SETTINGSPATH#ModernGadgetsSettings\DisksSettings.inc
+disksSettingsPath=#@#Settings\DisksSettings.inc
+
+toggleOffImg=#imgPath#toggle-off.png
+toggleOnImg=#imgPath#toggle-on.png
+toggleLockImg=#imgPath#toggle-off-lock.png
 
 ; Styles
 [StyleString]
@@ -81,6 +89,28 @@ FontFace=#fontFace#
 X=#contentMargin#
 Y=#rowSpacing#R
 Antialias=1
+
+[StyleStringArrowButtonLabel]
+FontSize=10
+StringAlign=Right
+X=(#contentMarginRight# - 20)
+
+[StyleStringArrowButton]
+ImageName=#imgPath#arrow-right.png
+Grayscale=1
+ImageTint=#colorAccent#
+X=r
+Y=r
+W=17
+H=17
+Antialias=0
+
+[StyleToggleImageGadgets]
+X=110
+
+[StyleStringSectionHeader]
+FontSize=12
+Y=10R
 
 [StyleStringGadgetHeader]
 FontSize=10
@@ -148,7 +178,7 @@ BarOrientation=Horizontal
 DynamicVariables=1
 
 [StyleCloseButton]
-ImageName=#imgPath#Settings\CloseAlt.png
+ImageName=#imgPath#close.png
 ImageAlpha=#colorBgA#
 X=(#contentMarginRight# - 21)
 Y=(#contentMargin# - 3)

@@ -74,7 +74,7 @@ Hidden=0
 [Gpu0MemoryUsageLabelString]
 Meter=String
 MeterStyle=StyleString
-Text="Usage:"
+Text="VRAM:"
 
 [Gpu0MemoryUsageFractionString]
 Meter=String

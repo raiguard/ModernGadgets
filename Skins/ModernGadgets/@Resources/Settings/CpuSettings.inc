@@ -4,7 +4,8 @@
 tempUom=C
 
 ; Set automatically - don't bother changing (they will just change back)
-cpuName=""
+cpuName=auto
+threadCount=8
 
 ; Fixed precision format
 fpfRamDepth=4
@@ -39,9 +40,10 @@ colorCore19=250,158,0,240
 colorCore20=236,28,70,240
 
 useHwinfoClock=1
-showCpuClock=1
+showCpuName=1
+showPageFile=0
 showCoreTemps=1
 showCpuFan=1
-showPageFile=0
-showCpuName=1
+showCpuClock=1
 showLineGraph=1
+isHwinfoAvailable=1
