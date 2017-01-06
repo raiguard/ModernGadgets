@@ -77,6 +77,10 @@ disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
 disksMeterConfig=ModernGadgets\Disks
 disksSettingsPath=#@#Settings\DisksSettings.inc
 
+toggleOffImg=#imgPath#toggle-off.png
+toggleOnImg=#imgPath#toggle-on.png
+toggleLockImg=#imgPath#toggle-off-lock.png
+
 ; Styles
 [StyleString]
 FontColor=#colorMain#
@@ -174,7 +178,7 @@ BarOrientation=Horizontal
 DynamicVariables=1
 
 [StyleCloseButton]
-ImageName=#imgPath#Settings\CloseAlt.png
+ImageName=#imgPath#close.png
 ImageAlpha=#colorBgA#
 X=(#contentMarginRight# - 21)
 Y=(#contentMargin# - 3)

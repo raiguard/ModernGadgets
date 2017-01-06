@@ -19,6 +19,9 @@ function Initialize()
   filesPath = SKIN:GetVariable('@') .. 'Settings\\'
 
   cpuMeterConfig = SKIN:GetVariable('cpuMeterConfig')
+  networkMeterConfig = SKIN:GetVariable('networkMeterConfig')
+  gpuMeterConfig = SKIN:GetVariable('gpuMeterConfig')
+  disksMeterConfig = SKIN:GetVariable('disksMeterConfig')
 
 end
 
@@ -41,6 +44,7 @@ function ImportBackup()
   SKIN:Bang('!Refresh', 'ModernGadgets\\Disks')
 
   SKIN:Bang('!CommandMeasure', 'MeasureCpuSettingsScript', 'UpdateSettings()', cpuMeterConfig)
+  SKIN:Bang('!CommandMeasure', 'MeasureNetworkSettingsScript', 'UpdateSettings()', networkMeterConfig)
 
   LogHelper('Imported settings backup', 'Notice')
 

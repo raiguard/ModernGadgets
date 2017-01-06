@@ -31,15 +31,10 @@ function ToggleCensorExternalIp(currentValue)
     SKIN:Bang('!WriteKeyValue', 'Variables', 'censorExternalIp', '0', networkSettingsPath)
     SKIN:Bang('!SetOption', 'ExternalIpValueString', 'Text', '%1', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'ExternalIpValueString', 'Text', '%1', networkMeterPath)
-
-    SKIN:Bang('!SetOption', 'CensorExternalIpButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'CensorExternalIpButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeter', 'ExternalIpValueString', networkMeterConfig)
   SKIN:Bang('!Redraw', networkMeterConfig)
-  SKIN:Bang('!UpdateMeter', 'CensorExternalIpButton')
-  SKIN:Bang('!Redraw')
 
 end
 
@@ -52,23 +47,15 @@ function ToggleSpeedtestButton(currentValue)
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showSpeedtestButton', '1', networkSettingsPath)
     SKIN:Bang('!SetOption', 'SpeedtestButton', 'Group', 'ConfigButton', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'SpeedtestButton', 'Group', 'ConfigButton', networkMeterPath)
-
-    SKIN:Bang('!SetOption', 'SpeedtestButtonButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'SpeedtestButtonButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
   else
     SKIN:Bang('!SetVariable', 'showSpeedtestButton', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showSpeedtestButton', '0', networkSettingsPath)
     SKIN:Bang('!SetOption', 'SpeedtestButton', 'Group', 'Disabled', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'SpeedtestButton', 'Group', 'Disabled', networkMeterPath)
-
-    SKIN:Bang('!SetOption', 'SpeedtestButtonButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'SpeedtestButtonButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeter', 'SpeedtestButton', networkMeterConfig)
   SKIN:Bang('!Redraw', networkMeterConfig)
-  SKIN:Bang('!UpdateMeter', 'SpeedtestButtonButton')
-  SKIN:Bang('!Redraw')
 
 end
 
@@ -89,10 +76,6 @@ function ToggleLineGraph(currentValue, showPeakNetworkUsage)
       SKIN:Bang('!WriteKeyValue', 'GraphPeakString', 'Hidden', '0', networkMeterPath)
     end
 
-    SKIN:Bang('!SetOption', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-
-    SetErrors(1, showPeakNetworkUsage)
   else
     SKIN:Bang('!SetVariable', 'showLineGraph', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showLineGraph', '0', networkSettingsPath)
@@ -102,18 +85,12 @@ function ToggleLineGraph(currentValue, showPeakNetworkUsage)
     SKIN:Bang('!WriteKeyValue', 'GraphPeakString', 'Hidden', '1', networkMeterPath)
     SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '1', networkMeterPath)
 
-    SKIN:Bang('!SetOption', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-
-    SetErrors(0, showPeakNetworkUsage)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', networkMeterConfig)
   SKIN:Bang('!UpdateMeter', 'GraphPeakString', networkMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', networkMeterConfig)
   SKIN:Bang('!Redraw', networkMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'LineGraphToggles')
-  SKIN:Bang('!Redraw')
 
 end
 
@@ -146,27 +123,5 @@ function TogglePeakNetworkUsage(currentValue, showLineGraph)
 
   SKIN:Bang('!UpdateMeter', 'GraphPeakString', networkMeterConfig)
   SKIN:Bang('!Redraw', networkMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'LineGraphToggles')
-  SKIN:Bang('!Redraw')
-
-end
-
-function SetErrors(showLineGraph, showPeakNetworkUsage)
-
-  if showLineGraph == 0 then
-    SKIN:Bang('!SetOption', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
-    SKIN:Bang('!WriteKeyValue', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0lock.png')
-  else
-    if showPeakNetworkUsage == 0 then
-      SKIN:Bang('!SetOption', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-      SKIN:Bang('!WriteKeyValue', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    else
-      SKIN:Bang('!SetOption', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-      SKIN:Bang('!WriteKeyValue', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    end
-  end
-
-  SKIN:Bang('!UpdateMeterGroup', 'LineGraphToggles')
-  SKIN:Bang('!Redraw')
 
 end
