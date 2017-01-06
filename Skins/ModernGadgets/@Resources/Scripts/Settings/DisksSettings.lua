@@ -59,10 +59,12 @@ function ToggleDiskHistograms(currentValue, showLineGraph)
     if currentValue == 0 then
       SKIN:Bang('!SetVariable', 'showHistograms', '1')
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showHistograms', '1', disksSettingsPath)
+      SKIN:Bang('!ShowMeterGroup', 'Histograms', disksMeterConfig)
       ToggleHistograms(0)
     else
       SKIN:Bang('!SetVariable', 'showHistograms', '0')
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showHistograms', '0', disksSettingsPath)
+      SKIN:Bang('!HideMeterGroup', 'Histograms', disksMeterConfig)
       ToggleHistograms(1)
     end
   end
