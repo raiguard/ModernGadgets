@@ -23,9 +23,6 @@ function ToggleCensorExternalIp(currentValue)
     SKIN:Bang('!WriteKeyValue', 'Variables', 'censorExternalIp', '1', networkSettingsPath)
     SKIN:Bang('!SetOption', 'ExternalIpValueString', 'Text', 'CENSORED', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'ExternalIpValueString', 'Text', 'CENSORED', networkMeterPath)
-
-    SKIN:Bang('!SetOption', 'CensorExternalIpButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'CensorExternalIpButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
   else
     SKIN:Bang('!SetVariable', 'censorExternalIp', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'censorExternalIp', '0', networkSettingsPath)
@@ -105,17 +102,11 @@ function TogglePeakNetworkUsage(currentValue, showLineGraph)
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showPeakNetworkUsage', '1', networkSettingsPath)
       SKIN:Bang('!ShowMeter', 'GraphPeakString', networkMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'GraphPeakString', 'Hidden', '0', networkMeterPath)
-
-      SKIN:Bang('!SetOption', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-      SKIN:Bang('!WriteKeyValue', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
     else
       SKIN:Bang('!SetVariable', 'showPeakNetworkUsage', '0')
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showPeakNetworkUsage', '0', networkSettingsPath)
       SKIN:Bang('!HideMeter', 'GraphPeakString', networkMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'GraphPeakString', 'Hidden', '1', networkMeterPath)
-
-      SKIN:Bang('!SetOption', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-      SKIN:Bang('!WriteKeyValue', 'PeakNetUsageButton', 'ImageName', '#*imgPath*#Settings\\0.png')
     end
   else
     SKIN:Bang('!Log', 'Cannot show peak network traffic if line graph is hidden', 'Warning')
@@ -123,5 +114,21 @@ function TogglePeakNetworkUsage(currentValue, showLineGraph)
 
   SKIN:Bang('!UpdateMeter', 'GraphPeakString', networkMeterConfig)
   SKIN:Bang('!Redraw', networkMeterConfig)
+
+end
+
+function UpdateSettings()
+
+  local censorExternalIp = math.abs(tonumber(SKIN:GetVariable('censorExternalIp')) - 1)
+  local showSpeedtestButton = math.abs(tonumber(SKIN:GetVariable('showSpeedtestButton')) - 1)
+  local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
+  local showPeakNetworkUsage = tonumber(SKIN:GetVariable('showPeakNetworkUsage'))
+
+  print(tostring(censorExternalIp) .. ' ' .. tostring(SKIN:GetVariable('censorExternalIp')))
+
+  ToggleCensorExternalIp(censorExternalIp)
+  ToggleSpeedtestButton(showSpeedtestButton)
+  ToggleLineGraph(math.abs(showLineGraph - 1), showPeakNetworkUsage)
+  TogglePeakNetworkUsage(math.abs(showPeakNetworkUsage - 1), showLineGraph)
 
 end

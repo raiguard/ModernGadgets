@@ -38,13 +38,12 @@ function ImportBackup()
   end
 
   -- update all gadgets
-  SKIN:Bang('!Refresh', 'ModernGadgets\\CPU')
-  SKIN:Bang('!Refresh', 'ModernGadgets\\Network')
-  SKIN:Bang('!Refresh', 'ModernGadgets\\GPU')
-  SKIN:Bang('!Refresh', 'ModernGadgets\\Disks')
+  SKIN:Bang('!RefreshGroup', 'MgImportRefresh')
 
   SKIN:Bang('!CommandMeasure', 'MeasureCpuSettingsScript', 'UpdateSettings()', cpuMeterConfig)
   SKIN:Bang('!CommandMeasure', 'MeasureNetworkSettingsScript', 'UpdateSettings()', networkMeterConfig)
+  SKIN:Bang('!CommandMeasure', 'MeasureGpuSettingsScript', 'UpdateSettings()', gpuMeterConfig)
+  SKIN:Bang('!CommandMeasure', 'MeasureDisksSettingsScript', 'UpdateSettings()', disksMeterConfig)
 
   LogHelper('Imported settings backup', 'Notice')
 

@@ -249,3 +249,21 @@ function ToggleMoboFan(currentValue)
   SKIN:Bang('!Redraw', gpuMeterConfig)
 
 end
+
+function UpdateSettings()
+
+  local showMemoryClock = math.abs(tonumber(SKIN:GetVariable('showMemoryClock')) - 1)
+  local showMemoryController = math.abs(tonumber(SKIN:GetVariable('showMemoryController')) - 1)
+  local showVideoClock = tonumber(SKIN:GetVariable('showVideoClock'))
+  local showCoreVoltage = tonumber(SKIN:GetVariable('showCoreVoltage'))
+  local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
+  local useMoboFanSensor = math.abs(tonumber(SKIN:GetVariable('useMoboFanSensor')) - 1)
+
+  ToggleMemoryClock(showMemoryClock)
+  ToggleMemoryController(showMemoryController)
+  ToggleVideoClock(math.abs(showVideoClock - 1), showCoreVoltage, showLineGraph)
+  ToggleCoreVoltage(math.abs(showCoreVoltage - 1), showVideoClock, showLineGraph)
+  ToggleLineGraph(math.abs(showLineGraph - 1), showVideoClock, showCoreVoltage)
+  ToggleMoboFan(useMoboFanSensor)
+
+end

@@ -18,9 +18,10 @@ end
 
 function Update() end
 
-function ToggleLineGraph(currentValue)
+function ToggleLineGraph(currentValue, showHistograms)
 
   currentValue = tonumber(currentValue)
+  showHistograms = tonumber(showHistograms)
 
   if currentValue == 0 then
     SKIN:Bang('!SetVariable', 'showLineGraph', '1')
@@ -29,7 +30,11 @@ function ToggleLineGraph(currentValue)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '0', disksMeterPath)
     SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '0', disksMeterPath)
 
-    ToggleHistograms(0)
+    if showHistograms == 1 then
+      ToggleHistograms(0)
+    else
+      SKIN:Bang('!HideMeterGroup', 'Histograms', disksMeterConfig)
+    end
     SetLineGraphY(1)
   else
     SKIN:Bang('!SetVariable', 'showLineGraph', '0')
@@ -103,4 +108,14 @@ function LogHelper(message, type)
 		SKIN:Bang("!Log", message, type)
 	end
 
+end
+
+function UpdateSettings()
+
+  local showLineGraph = math.abs(tonumber(SKIN:GetVariable('showLineGraph')) - 1)
+  local showHistograms = math.abs(tonumber(SKIN:GetVariable('showHistograms')) - 1)
+
+  ToggleLineGraph(showLineGraph, showHistograms)
+  ToggleHistograms(showHistograms, showLineGraph)
+  
 end
