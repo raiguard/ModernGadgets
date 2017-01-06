@@ -1,12 +1,17 @@
 MODERNGADGETS CHANGELOG
 
-v1.1.0 - 2017-1-4
+v1.1.0 - 2017-1-6
 - Replaced external settings system with a local system that makes periodic backups
-- Added auto backups option to gadget manager
+- Separated update checking and settings backups functionality from the gadget manager
+- Added auto backups option to the gadget manager
 - Added ability to opt into getting development updates (betas, prereleases, release candidates)
 - Redesigned update available screen to provide a download link
+- Added settings backup import prompt
 - Added functionality to automatically re-apply customizations to the gadgets after an update
 - Changed default "development updates" option to off
+- Added "Disk Histograms" toggle in Disks Meter settings
+- Separated changelog from readme
+- Fixed Core Temps toggle in CPU Meter settings (was causing a crash)
 
 v1.0.0 - 2016-12-4
 - Fixed mistakes in CPU meter that could prevent it from adjusting to different CPUs
