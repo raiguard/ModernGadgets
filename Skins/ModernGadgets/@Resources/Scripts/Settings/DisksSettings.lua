@@ -117,5 +117,12 @@ function UpdateSettings()
 
   ToggleLineGraph(showLineGraph, showHistograms)
   ToggleHistograms(showHistograms, showLineGraph)
-  
+
+end
+
+function SetDefaults()
+
+  ToggleLineGraph(0, 1)
+  -- ToggleHistograms(0, 1)
+
 end

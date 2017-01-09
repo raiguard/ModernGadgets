@@ -132,3 +132,12 @@ function UpdateSettings()
   TogglePeakNetworkUsage(math.abs(showPeakNetworkUsage - 1), showLineGraph)
 
 end
+
+function SetDefaults()
+
+  ToggleCensorExternalIp(1)
+  ToggleSpeedtestButton(0)
+  ToggleLineGraph(0, 1)
+  TogglePeakNetworkUsage(0, 1)
+
+end

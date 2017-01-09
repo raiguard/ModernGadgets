@@ -232,9 +232,6 @@ end
 
 function SetCpuName(name)
 
-  SKIN:Bang('!SetVariable', 'cpuName', name)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuName', name, cpuSettingsPath)
-
   if name == "" then
     SKIN:Bang('!SetVariable', 'cpuName', 'auto')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuName', 'auto', cpuSettingsPath)
@@ -275,6 +272,19 @@ function UpdateSettings()
   ToggleLineGraph(showLineGraph, showCpuFan, showCpuClock)
   SetCpuName(cpuName)
 
-  print(cpuName)
+end
+
+function SetDefaults()
+
+  local isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
+  local cpuCores = tonumber(SKIN:GetVariable('cpuCores'))
+
+  ToggleCpuName(0)
+  TogglePage(1)
+  ToggleCoreTemps(0, isHwinfoAvailable, cpuCores)
+  ToggleCpuFan(0, isHwinfoAvailable, 1, 1)
+  ToggleCpuClock(0, isHwinfoAvailable, 1, 1)
+  ToggleLineGraph(0, 1, 1)
+  SetCpuName('')
 
 end

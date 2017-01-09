@@ -218,7 +218,3 @@ W=(#contentWidth# - 2)
 H=#graphHeight#
 Group=LineGraph
 Hidden=0
-[MeasureGpu0FanSpeed]
-HWiNFOSensorId=#HWiNFO-GPU0-SensorID#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-FanSpeed#

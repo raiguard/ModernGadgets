@@ -267,3 +267,14 @@ function UpdateSettings()
   ToggleMoboFan(useMoboFanSensor)
 
 end
+
+function SetDefaults()
+
+  ToggleMemoryClock(0)
+  ToggleMemoryController(0)
+  ToggleVideoClock(0, 1, 1)
+  ToggleCoreVoltage(0, 1, 1)
+  ToggleLineGraph(0, 1, 1)
+  ToggleMoboFan(1)
+
+end
