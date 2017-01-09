@@ -13,12 +13,15 @@ HWiNFO (required for all GPU information, CPU and disk temperatures): https://ww
 ## Installation Instructions
 ModernGadgets official releases are packaged using the Rainmeter skin installer. After downloading the .RMSKIN package, make sure you have Rainmeter installed, then simply open the file to install the suite. Make certain that you keep the "load included skins" box checked. Once installed, you will be presented with the gadget manager, from which you can load the gadgets you want.
 
-## Repository Notes
+## Repository Information
 ### Bug Reports
 First and foremost, please read through the setup tutorial. You may find that something you thought was broken just needs to be configured properly (e.g. HWiNFO not communicating with Rainmeter). If the problem is not addressed in the setup tutorial, please SEARCH FOR the issue under the issues section of the repository. If the issue has not already been reported, feel free to make a new one. Be clear and use proper language both in the title and the description of any issues you create.
 
 ### Contributions
-Contributions are welcome! If you would like to add your own code, feel free to fork the repository and submit a pull request when ready. A list of what needs to be done will be kept in the projects section of the repository.
+Contributions are welcome! If you would like to add your own code, feel free to fork the repository and submit a pull request when ready. A list of things to be done will be kept in the issues section of the repository.
+
+### Suggestions
+Rather than giving ideas or suggestions, please try to implement the functionality yourself. Rainmeter is a very open and community-centric platform, and it's fairly easy to learn, so dig in! The [Rainmeter Forums](https://forum.rainmeter.net) and [Rainmeter Documentation](https://docs.rainmeter.net) are good places to get started and recieve assistance.
 
 ## Credits
 Designed and programmed by Caleb Heuer (iamanai).
