@@ -124,7 +124,7 @@ function UpdateSettings()
   local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
   local showPeakNetworkUsage = tonumber(SKIN:GetVariable('showPeakNetworkUsage'))
 
-  print(tostring(censorExternalIp) .. ' ' .. tostring(SKIN:GetVariable('censorExternalIp')))
+  -- print(tostring(censorExternalIp) .. ' ' .. tostring(SKIN:GetVariable('censorExternalIp')))
 
   ToggleCensorExternalIp(censorExternalIp)
   ToggleSpeedtestButton(showSpeedtestButton)

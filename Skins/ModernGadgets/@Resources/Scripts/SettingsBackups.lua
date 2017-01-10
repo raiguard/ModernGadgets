@@ -3,7 +3,7 @@
 -- This script makes backups of the settings files every two hours, which
 -- prevents them from being lost when updating the suite.
 
-isDbg = false
+isDbg = true
 
 function Initialize()
 
@@ -18,10 +18,10 @@ function Initialize()
 
   filesPath = SKIN:GetVariable('@') .. 'Settings\\'
 
-  cpuMeterConfig = SKIN:GetVariable('cpuMeterConfig')
-  networkMeterConfig = SKIN:GetVariable('networkMeterConfig')
-  gpuMeterConfig = SKIN:GetVariable('gpuMeterConfig')
-  disksMeterConfig = SKIN:GetVariable('disksMeterConfig')
+  cpuMeterPath = SKIN:GetVariable('cpuMeterPath')
+  networkMeterPath = SKIN:GetVariable('networkMeterPath')
+  gpuMeterPath = SKIN:GetVariable('gpuMeterPathBase')
+  disksMeterPath = SKIN:GetVariable('disksMeterPath')
 
 end
 
@@ -38,12 +38,12 @@ function ImportBackup()
   end
 
   -- update all gadgets
-  SKIN:Bang('!RefreshGroup', 'MgImportRefresh')
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', cpuMeterPath)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', networkMeterPath)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', gpuMeterPath)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', disksMeterPath)
 
-  SKIN:Bang('!CommandMeasure', 'MeasureCpuSettingsScript', 'UpdateSettings()', cpuMeterConfig)
-  SKIN:Bang('!CommandMeasure', 'MeasureNetworkSettingsScript', 'UpdateSettings()', networkMeterConfig)
-  SKIN:Bang('!CommandMeasure', 'MeasureGpuSettingsScript', 'UpdateSettings()', gpuMeterConfig)
-  SKIN:Bang('!CommandMeasure', 'MeasureDisksSettingsScript', 'UpdateSettings()', disksMeterConfig)
+  SKIN:Bang('!RefreshGroup', 'MgImportRefresh')
 
   LogHelper('Imported settings backup', 'Notice')
 

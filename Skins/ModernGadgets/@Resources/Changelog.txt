@@ -1,6 +1,7 @@
 MODERNGADGETS CHANGELOG
 
-v1.1.0 - 2017-1-6
+v1.1.0 - 2017-1-9
+- Updated to Rainmeter 4.0
 - Replaced external settings system with a local system that makes periodic backups
 - Separated update checking and settings backups functionality from the gadget manager
 - Added auto backups option to the gadget manager

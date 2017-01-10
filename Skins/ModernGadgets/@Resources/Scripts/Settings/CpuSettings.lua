@@ -4,6 +4,8 @@
 -- Consists of hard-coded functions to change settigns in CPU Meter
 --
 
+isDbg = false
+
 function Initialize()
 
   cpuSettingsPath = SKIN:GetVariable('cpuSettingsPath')
@@ -15,6 +17,8 @@ end
 function Update() end
 
 function ToggleCpuName(currentValue)
+
+  LogHelper(tostring(currentValue), 'Debug')
 
   currentValue = tonumber(currentValue)
 
@@ -41,6 +45,8 @@ function ToggleCpuName(currentValue)
 end
 
 function TogglePage(currentValue)
+
+  LogHelper(tostring(currentValue), 'Debug')
 
   currentValue = tonumber(currentValue)
   local colorPage = SKIN:GetVariable('colorPage')
@@ -80,6 +86,8 @@ end
 
 function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
 
+  LogHelper(tostring(currentValue), 'Debug')
+
   currentValue = tonumber(currentValue)
   isHwinfoAvailable = tonumber(isHwinfoAvailable)
   cpuCores = tonumber(cpuCores)
@@ -106,6 +114,8 @@ function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
 end
 
 function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock, showLineGraph)
+
+  LogHelper(tostring(currentValue), 'Debug')
 
   if isHwinfoAvailable == 1 then
     if currentValue == 0 then
@@ -145,6 +155,8 @@ end
 
 function ToggleCpuClock(currentValue, showCpuFan, showLineGraph)
 
+  LogHelper(tostring(currentValue), 'Debug')
+
   if currentValue == 0 then
     SKIN:Bang('!SetVariable', 'showCpuClock', '1')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showCpuClock', '1', cpuSettingsPath)
@@ -178,6 +190,8 @@ SKIN:Bang('!Redraw', cpuMeterConfig)
 end
 
 function ToggleLineGraph(currentValue, showCpuFan, showCpuClock)
+
+  LogHelper(tostring(currentValue), 'Debug')
 
   if currentValue == 0 then
     SKIN:Bang('!SetVariable', 'showLineGraph', '1')
@@ -217,14 +231,18 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
   if showCpuFan == 1 or showCpuClock == 1 then
     if showLineGraph == 1 then
       SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
     else
       SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-2R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '-2R', cpuMeterPath)
     end
   else
     if showLineGraph == 1 then
       SKIN:Bang('!SetOption', 'GraphLines', 'Y', '4R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '4R', cpuMeterPath)
     else
       SKIN:Bang('!SetOption', 'GraphLines', 'Y', '3R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '3R', cpuMeterPath)
     end
   end
 
@@ -252,12 +270,12 @@ end
 
 function UpdateSettings()
 
-  local showCpuName = math.abs(tonumber(SKIN:GetVariable('showCpuName') - 1))
-  local showPageFile = math.abs(tonumber(SKIN:GetVariable('showPageFile') - 1))
-  local showCoreTemps = math.abs(tonumber(SKIN:GetVariable('showCoreTemps') - 1))
-  local showCpuFan = math.abs(tonumber(SKIN:GetVariable('showCpuFan') - 1))
-  local showCpuClock = math.abs(tonumber(SKIN:GetVariable('showCpuClock') - 1))
-  local showLineGraph = math.abs(tonumber(SKIN:GetVariable('showLineGraph') - 1))
+  local showCpuName = math.abs(tonumber(SKIN:GetVariable('showCpuName')) - 1)
+  local showPageFile = math.abs(tonumber(SKIN:GetVariable('showPageFile')) - 1)
+  local showCoreTemps = math.abs(tonumber(SKIN:GetVariable('showCoreTemps')) - 1)
+  local showCpuFan = tonumber(SKIN:GetVariable('showCpuFan'))
+  local showCpuClock = tonumber(SKIN:GetVariable('showCpuClock'))
+  local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
   local cpuName = tostring(SKIN:GetVariable('cpuName'))
   local isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
   local cpuCores = tonumber(SKIN:GetVariable('threadCount'))
@@ -267,9 +285,9 @@ function UpdateSettings()
   ToggleCpuName(showCpuName)
   TogglePage(showPageFile)
   ToggleCoreTemps(showCoreTemps, isHwinfoAvailable, cpuCores)
-  ToggleCpuFan(showCpuFan, isHwinfoAvailable, showLineGraph, showCpuClock)
-  ToggleCpuClock(showCpuClock, isHwinfoAvailable, showLineGraph, showCpuFan)
-  ToggleLineGraph(showLineGraph, showCpuFan, showCpuClock)
+  ToggleCpuFan(math.abs(showCpuFan - 1), isHwinfoAvailable, showLineGraph, showCpuClock)
+  ToggleCpuClock(math.abs(showCpuClock - 1), isHwinfoAvailable, showLineGraph, showCpuFan)
+  ToggleLineGraph(math.abs(showLineGraph - 1), showCpuFan, showCpuClock)
   SetCpuName(cpuName)
 
 end
@@ -286,5 +304,16 @@ function SetDefaults()
   ToggleCpuClock(0, isHwinfoAvailable, 1, 1)
   ToggleLineGraph(0, 1, 1)
   SetCpuName('')
+
+end
+
+-- function to make logging messages less cluttered
+function LogHelper(message, type)
+
+  if isDbg == true then
+    SKIN:Bang("!Log", message, type)
+  elseif type ~= 'Debug' then
+  	SKIN:Bang("!Log", message, type)
+	end
 
 end

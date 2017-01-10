@@ -70,6 +70,7 @@ networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
 networkMeterConfig=ModernGadgets\Network
 networkSettingsPath=#@#Settings\NetworkSettings.inc
 
+gpuMeterPathBase=#ROOTCONFIGPATH#GPU\GPU.ini
 gpuMeterPath=#ROOTCONFIGPATH#GPU\main.inc
 gpuMeterConfig=ModernGadgets\GPU
 gpuSettingsPath=#@#Settings\GpuSettings.inc
