@@ -56,9 +56,12 @@ function ConfigCores(threads)
 
   SKIN:Bang('!SetVariable', 'cpuCores', threads)
   SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads, cpuMeterPath)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'threadCount', threads, cpuSettingsPath)
 end
 
 function ToggleTemps(threads, mode)
+
+  threads = tonumber(threads)
 
   -- SKIN:Bang('!Log', 'ToggleTemps threads: ' .. threads .. ' | mode: ' .. tostring(mode), 'Debug')
 

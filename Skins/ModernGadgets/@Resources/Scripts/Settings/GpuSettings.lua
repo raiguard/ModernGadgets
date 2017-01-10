@@ -27,9 +27,6 @@ function ToggleMemoryClock(currentValue)
 
     SKIN:Bang('!SetOption', 'Gpu0MemoryClockLabelString', 'Y', '#*rowSpacing*#R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryClockLabelString', 'Y', '#*rowSpacing*#R', gpuMeterPath)
-
-    SKIN:Bang('!SetOption', 'MemoryClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'MemoryClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
   else
     SKIN:Bang('!SetVariable', 'showMemoryClock', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showMemoryClock', '0', gpuSettingsPath)
@@ -39,16 +36,11 @@ function ToggleMemoryClock(currentValue)
 
     SKIN:Bang('!SetOption', 'Gpu0MemoryClockLabelString', 'Y', 'R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryClockLabelString', 'Y', 'R', gpuMeterPath)
-
-    SKIN:Bang('!SetOption', 'MemoryClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'MemoryClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'MemoryClock', gpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'MemoryClock')
-  SKIN:Bang('!Redraw')
 
 end
 
@@ -66,9 +58,6 @@ function ToggleMemoryController(currentValue)
 
     SKIN:Bang('!SetOption', 'Gpu0MemoryControllerLabelString', 'Y', '#*rowSpacing*#R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryControllerLabelString', 'Y', '#*rowSpacing*#R', gpuMeterPath)
-
-    SKIN:Bang('!SetOption', 'MemoryControllerButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'MemoryControllerButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
   else
     SKIN:Bang('!SetVariable', 'showMemoryController', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showMemoryController', '0', gpuSettingsPath)
@@ -79,16 +68,11 @@ function ToggleMemoryController(currentValue)
 
     SKIN:Bang('!SetOption', 'Gpu0MemoryControllerLabelString', 'Y', 'R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryControllerLabelString', 'Y', 'R', gpuMeterPath)
-
-    SKIN:Bang('!SetOption', 'MemoryControllerButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'MemoryControllerButton', 'ImageName', '#*imgPath*#Settings\\0.png')
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'MemoryController', gpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'MemoryController')
-  SKIN:Bang('!Redraw')
 
 end
 
@@ -108,9 +92,6 @@ function ToggleVideoClock(currentValue, showCoreVoltage, showLineGraph)
     SKIN:Bang('!SetOption', 'Gpu0VideoClockLabelString', 'Y', '#*rowSpacing*#R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0VideoClockLabelString', 'Y', '#*rowSpacing*#R', gpuMeterPath)
 
-    SKIN:Bang('!SetOption', 'VideoClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'VideoClockButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-
     SetLineGraphY(1, showCoreVoltage, showLineGraph)
   else
     SKIN:Bang('!SetVariable', 'showVideoClock', '0')
@@ -122,9 +103,6 @@ function ToggleVideoClock(currentValue, showCoreVoltage, showLineGraph)
     SKIN:Bang('!SetOption', 'Gpu0VideoClockLabelString', 'Y', 'R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0VideoClockLabelString', 'Y', 'R', gpuMeterPath)
 
-    SKIN:Bang('!SetOption', 'VideoClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'VideoClockButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-
     SetLineGraphY(0, showCoreVoltage, showLineGraph)
   end
 
@@ -132,8 +110,6 @@ function ToggleVideoClock(currentValue, showCoreVoltage, showLineGraph)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', gpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
-  SKIN:Bang('!Redraw')
 
 end
 
@@ -153,9 +129,6 @@ function ToggleCoreVoltage(currentValue, showVideoClock, showLineGraph)
     SKIN:Bang('!SetOption', 'Gpu0CoreVoltageLabelString', 'Y', '#*rowSpacing*#R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0CoreVoltageLabelString', 'Y', '#*rowSpacing*#R', gpuMeterPath)
 
-    SKIN:Bang('!SetOption', 'CoreVoltageButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'CoreVoltageButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-
     SetLineGraphY(showVideoClock, 1, showLineGraph)
   else
     SKIN:Bang('!SetVariable', 'showCoreVoltage', '0')
@@ -167,9 +140,6 @@ function ToggleCoreVoltage(currentValue, showVideoClock, showLineGraph)
     SKIN:Bang('!SetOption', 'Gpu0CoreVoltageLabelString', 'Y', 'R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0CoreVoltageLabelString', 'Y', 'R', gpuMeterPath)
 
-    SKIN:Bang('!SetOption', 'CoreVoltageButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'CoreVoltageButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-
     SetLineGraphY(showVideoClock, 0, showLineGraph)
   end
 
@@ -177,8 +147,6 @@ function ToggleCoreVoltage(currentValue, showVideoClock, showLineGraph)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', gpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
-  SKIN:Bang('!Redraw')
 
 end
 
@@ -195,9 +163,6 @@ function ToggleLineGraph(currentValue, showVideoClock, showCoreVoltage)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '0', gpuMeterPath)
     SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '0', gpuMeterPath)
 
-    SKIN:Bang('!SetOption', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-
     SetLineGraphY(showVideoClock, showCoreVoltage, 1)
   else
     SKIN:Bang('!SetVariable', 'showLineGraph', '0')
@@ -206,42 +171,37 @@ function ToggleLineGraph(currentValue, showVideoClock, showCoreVoltage)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '1', gpuMeterPath)
     SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '1', gpuMeterPath)
 
-    SKIN:Bang('!SetOption', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'LineGraphButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-
     SetLineGraphY(showVideoClock, showCoreVoltage, 0)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', gpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
-  SKIN:Bang('!Redraw')
 
 end
 
-function ToggleSliMode(currentValue)
-
-  currentValue = tonumber(currentValue)
-
-  if currentValue == 0 then
-    SKIN:Bang('!SetVariable', 'sliMode', '1')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'sliMode', '1', gpuSettingsPath)
-
-    SKIN:Bang('!SetOption', 'SliModeButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'SliModeButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-  else
-    SKIN:Bang('!SetVariable', 'sliMode', '0')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'sliMode', '0', gpuSettingsPath)
-
-    SKIN:Bang('!SetOption', 'SliModeButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'SliModeButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-  end
-
-  SKIN:Bang('!UpdateMeterGroup', 'SliMode')
-  SKIN:Bang('!Redraw')
-
-end
+-- function ToggleSliMode(currentValue)
+--
+--   currentValue = tonumber(currentValue)
+--
+--   if currentValue == 0 then
+--     SKIN:Bang('!SetVariable', 'sliMode', '1')
+--     SKIN:Bang('!WriteKeyValue', 'Variables', 'sliMode', '1', gpuSettingsPath)
+--
+--     SKIN:Bang('!SetOption', 'SliModeButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+--     SKIN:Bang('!WriteKeyValue', 'SliModeButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
+--   else
+--     SKIN:Bang('!SetVariable', 'sliMode', '0')
+--     SKIN:Bang('!WriteKeyValue', 'Variables', 'sliMode', '0', gpuSettingsPath)
+--
+--     SKIN:Bang('!SetOption', 'SliModeButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+--     SKIN:Bang('!WriteKeyValue', 'SliModeButton', 'ImageName', '#*imgPath*#Settings\\0.png')
+--   end
+--
+--   SKIN:Bang('!UpdateMeterGroup', 'SliMode')
+--   SKIN:Bang('!Redraw')
+--
+-- end
 
 function SetLineGraphY(showVideoClock, showCoreVoltage, showLineGraph)
 
@@ -274,24 +234,47 @@ function ToggleMoboFan(currentValue)
   if currentValue == 0 then
     SKIN:Bang('!SetVariable', 'useMoboFanSensor', '1')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'useMoboFanSensor', '1')
-    SKIN:Bang('!SetOption', 'MoboFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
-    SKIN:Bang('!WriteKeyValue', 'MoboFanButton', 'ImageName', '#*imgPath*#Settings\\0a.png')
 
     SKIN:Bang('!SetOption', 'Gpu0FanSpeedString', 'MeasureName', 'MeasureMoboGpuFanSpeed', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0FanSpeedString', 'MeasureName', 'MeasureMoboGpuFanSpeed', gpuMeterPath)
   else
     SKIN:Bang('!SetVariable', 'useMoboFanSensor', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'useMoboFanSensor', '0')
-    SKIN:Bang('!SetOption', 'MoboFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
-    SKIN:Bang('!WriteKeyValue', 'MoboFanButton', 'ImageName', '#*imgPath*#Settings\\0.png')
 
     SKIN:Bang('!SetOption', 'Gpu0FanSpeedString', 'MeasureName', 'MeasureGpu0FanSpeed', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0FanSpeedString', 'MeasureName', 'MeasureGpu0FanSpeed', gpuMeterPath)
   end
 
-  SKIN:Bang('!UpdateMeterGroup', 'MoboFan')
-  SKIN:Bang('!Redraw')
   SKIN:Bang('!UpdateMeter', 'Gpu0FanSpeedString', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
+
+end
+
+function UpdateSettings()
+
+  local showMemoryClock = math.abs(tonumber(SKIN:GetVariable('showMemoryClock')) - 1)
+  local showMemoryController = math.abs(tonumber(SKIN:GetVariable('showMemoryController')) - 1)
+  local showVideoClock = tonumber(SKIN:GetVariable('showVideoClock'))
+  local showCoreVoltage = tonumber(SKIN:GetVariable('showCoreVoltage'))
+  local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
+  local useMoboFanSensor = math.abs(tonumber(SKIN:GetVariable('useMoboFanSensor')) - 1)
+
+  ToggleMemoryClock(showMemoryClock)
+  ToggleMemoryController(showMemoryController)
+  ToggleVideoClock(math.abs(showVideoClock - 1), showCoreVoltage, showLineGraph)
+  ToggleCoreVoltage(math.abs(showCoreVoltage - 1), showVideoClock, showLineGraph)
+  ToggleLineGraph(math.abs(showLineGraph - 1), showVideoClock, showCoreVoltage)
+  ToggleMoboFan(useMoboFanSensor)
+
+end
+
+function SetDefaults()
+
+  ToggleMemoryClock(0)
+  ToggleMemoryController(0)
+  ToggleVideoClock(0, 1, 1)
+  ToggleCoreVoltage(0, 1, 1)
+  ToggleLineGraph(0, 1, 1)
+  ToggleMoboFan(1)
 
 end
