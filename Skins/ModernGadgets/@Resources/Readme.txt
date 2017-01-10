@@ -1,5 +1,5 @@
 MODERNGADGETS
-Version 1.0.0
+Version 1.1.0
 By iamanai
 
 ----------------------------------------
@@ -35,30 +35,3 @@ CONTACT
 
 Email: iamanaiofficial@gmail.com
 Twitter: @iamanai_
-
-----------------------------------------
-CHANGELOG
-
-v1.0.0 - 2016-12-4
-- Fixed mistakes in CPU meter that could prevent it from adjusting to different CPUs
-- Official release
-
-v1.0.0-rc.4 - 2016-11-23
-- Fixed HWiNFO Tutorial link in Config Tool
-- Fixed GPU Sensor ID and Instance test measures to accurately report errors
-- Fixed flaw in settings management where skins would not be refreshed after the settings
-  files were updated
-- Added support for GPU fan speed sensor on motherboard (common in laptops)
-
-v1.0.0-rc.3 - 2016-11-20
-- Fixed potential bug in settings management
-- Fixed typo in HWiNFO config tool
-- Updated HWiNFO plugin to 3.2.0
-
-v1.0.0-rc.2 - 2016-11-18
-- Fixed typo in readme changelog
-- Complete overhaul to update checker, implementing semver.lua by kikito to allow for much
-  greater flexibility (and better reliability)
-
-v1.0.0-rc.1 - 2016-11-14
- - Initial release

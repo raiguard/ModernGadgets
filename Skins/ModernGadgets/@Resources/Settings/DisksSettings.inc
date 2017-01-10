@@ -9,6 +9,7 @@ histogramA=50
 
 showDiskTemps=1
 showLineGraph=1
+showHistograms=1
 
 colorDisk1=107,238,98
 colorDisk2=255,246,42
