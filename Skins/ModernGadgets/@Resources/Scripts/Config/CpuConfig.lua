@@ -10,7 +10,7 @@ end
 
 function Update() end
 
-function ConfigCores(threads)
+function ConfigCores(threads, showAvgCpu)
 
   for i=1,20 do
     if (i <= threads) then
@@ -32,24 +32,29 @@ function ConfigCores(threads)
     end
   end
 
-  if (threads == 20) then
-    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore20'))
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore20'))
-  else
-    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0')
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0')
-  end
-  c = 19
-  for i=2,20 do
-    if (c <= threads) then
-      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, SKIN:GetVariable('colorCore' .. c))
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, SKIN:GetVariable('colorCore' .. c))
-    elseif (c > threads) then
-      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '0,0,0,0')
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '0,0,0,0')
+  if showAvgCpu == 0 then
+    if (threads == 20) then
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '#*colorCore20*#')
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '#*colorCore20*#')
+    else
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0')
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0')
     end
+    c = 19
+    for i=2,20 do
+      if (c <= threads) then
+        SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '#*colorCore' .. c .. '*#')
+        SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '#*colorCore' .. c .. '*#')
+      elseif (c > threads) then
+        SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '0,0,0,0')
+        SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '0,0,0,0')
+      end
 
-    c = (c - 1)
+      c = (c - 1)
+    end
+  else
+    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#')
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#')
   end
 
   SKIN:Bang('!Log', 'Finished core configuration', 'Debug')
@@ -93,15 +98,15 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
 
   if showCpuFan == 1 or showCpuClock == 1 then
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R')
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*contentWidth*#R')
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-2R')
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*contentWidth*#R')
     end
   else
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '4R')
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*contentWidth*#R')
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '3R')
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*contentWidth*#R')
     end
   end
 

@@ -230,19 +230,19 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
 
   if showCpuFan == 1 or showCpuClock == 1 then
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-2R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '-2R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterPath)
     end
   else
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '4R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '4R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '3R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '3R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '2R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '2R', cpuMeterPath)
     end
   end
 

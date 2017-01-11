@@ -7,10 +7,10 @@ bgWidth=160
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
 mgVersion=1.1.0
 
-contentMarginAbs=2
+contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
 contentMarginCenter=((#bgWidth# / 2) + #bgOffset#)
-contentMarginRight=(#bgWidth# + #bgOffset# - 2)
+contentMarginRight=((#bgWidth# + #bgOffset#) - #contentMarginAbs# - 1)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
 
 rowSpacing=1
@@ -171,10 +171,10 @@ ClipString=2
 
 [StyleBar]
 SolidColor=#colorBarBg#
-X=(#contentMargin# + 2)
+X=(#contentMargin#)
 Y=R
-W=(#contentWidth# - 4)
-w=(#contentWidth# - 4)
+W=(#contentWidth#)
+w=(#contentWidth#)
 h=#barHeight#
 BarOrientation=Horizontal
 DynamicVariables=1

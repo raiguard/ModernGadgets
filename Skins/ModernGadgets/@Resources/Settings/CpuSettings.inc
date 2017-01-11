@@ -45,6 +45,7 @@ showCoreTemps=1
 showCpuFan=1
 showCpuClock=1
 showLineGraph=1
+showAvgCpu=0
 
 isHwinfoAvailable=1
 useHwinfoClock=1
