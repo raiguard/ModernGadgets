@@ -109,6 +109,7 @@ Antialias=0
 
 [StyleToggleImageGadgets]
 X=110
+DynamicVariables=1
 
 [StyleStringSectionHeader]
 FontSize=12
