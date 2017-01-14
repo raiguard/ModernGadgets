@@ -58,6 +58,9 @@ function ToggleMemoryController(currentValue)
 
     SKIN:Bang('!SetOption', 'Gpu0MemoryControllerLabelString', 'Y', '#*rowSpacing*#R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryControllerLabelString', 'Y', '#*rowSpacing*#R', gpuMeterPath)
+
+    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '#*colorMemoryController*#', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '#*colorMemoryController*#', gpuMeterPath)
   else
     SKIN:Bang('!SetVariable', 'showMemoryController', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showMemoryController', '0', gpuSettingsPath)
@@ -68,9 +71,13 @@ function ToggleMemoryController(currentValue)
 
     SKIN:Bang('!SetOption', 'Gpu0MemoryControllerLabelString', 'Y', 'R', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryControllerLabelString', 'Y', 'R', gpuMeterPath)
+
+    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0', gpuMeterPath)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'MemoryController', gpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'LineGraph', gpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
 
