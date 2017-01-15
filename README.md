@@ -4,7 +4,7 @@ ModernGadgets is a modernized recreation of the most popular AddGadgets.com syst
 ModernGadgets is released on the Rainmeter platform under a Creative Commons BY-NC-SA 3.0 license. The source code is made available on GitHub under an MIT License.
 
 ## Requirements
-Rainmeter 3.3 or above: https://www.rainmeter.net
+Rainmeter 4.0 or newer: https://www.rainmeter.net
 
 HWiNFO (required for all GPU information, CPU and disk temperatures): https://www.hwinfo.com
 
