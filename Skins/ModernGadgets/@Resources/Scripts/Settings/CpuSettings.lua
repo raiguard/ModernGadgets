@@ -71,8 +71,8 @@ function TogglePage(currentValue)
     SKIN:Bang('!WriteKeyValue', 'PageFractionString', 'Hidden', '1', cpuMeterPath)
     SKIN:Bang('!WriteKeyValue', 'PageValueString', 'Hidden', '1', cpuMeterPath)
     SKIN:Bang('!WriteKeyValue', 'PageBar', 'Hidden', '1', cpuMeterPath)
-    SKIN:Bang('!SetOption', 'PageLabelString', 'Y', 'R', cpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'PageLabelString', 'Y', 'R', cpuMeterPath)
+    SKIN:Bang('!SetOption', 'PageLabelString', 'Y', '-#*barTextOffset*#R', cpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'PageLabelString', 'Y', '-#*barTextOffset*#R', cpuMeterPath)
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor22', '0,0,0,0', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor22', '0,0,0,0', cpuMeterPath)
   end
@@ -230,16 +230,16 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
 
   if showCpuFan == 1 or showCpuClock == 1 then
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterPath)
     end
   else
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '#*rowSpacing*#R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '5R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '5R', cpuMeterPath)
     else
       SKIN:Bang('!SetOption', 'GraphLines', 'Y', '2R', cpuMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '2R', cpuMeterPath)

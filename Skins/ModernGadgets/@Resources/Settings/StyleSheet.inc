@@ -13,7 +13,7 @@ contentMarginCenter=((#bgWidth# / 2) + #bgOffset#)
 contentMarginRight=((#bgWidth# + #bgOffset#) - #contentMarginAbs# - 1)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
 
-rowSpacing=2
+rowSpacing=1
 barHeight=1
 graphHeight=41
 
@@ -52,6 +52,8 @@ colorInputBoxBorder=#colorDim#
 colorIntel=0,125,198
 
 histogramAlpha=50
+
+barTextOffset=#rowSpacing#
 
 ; Paths
 imgPath=#@#Assets\Images\
@@ -173,7 +175,7 @@ ClipString=2
 [StyleBar]
 SolidColor=#colorBarBg#
 X=(#contentMargin#)
-Y=1R
+Y=#barTextOffset#R
 W=(#contentWidth#)
 w=(#contentWidth#)
 h=#barHeight#
