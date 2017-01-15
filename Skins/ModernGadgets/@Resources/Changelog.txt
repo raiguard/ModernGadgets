@@ -1,5 +1,9 @@
 MODERNGADGETS CHANGELOG
 
+v1.1.2 - 2017-1-14
+- Fixed average cpu usage in CPU Meter header (OOPS)
+- Corrected typo in changelog
+
 v1.1.1 - 2017-1-14
 - Fixed display glitches with setup skin
 - Fixed gadget manager buttons becoming desynced if clicked too quickly
