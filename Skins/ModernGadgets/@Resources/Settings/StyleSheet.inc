@@ -53,7 +53,7 @@ colorIntel=0,125,198
 
 histogramAlpha=50
 
-barTextOffset=#rowSpacing#
+barTextOffset=1
 
 ; Paths
 imgPath=#@#Assets\Images\
@@ -97,7 +97,7 @@ Antialias=1
 [StyleStringArrowButtonLabel]
 FontSize=10
 StringAlign=Right
-X=(#contentMarginRight# - 20)
+X=(#contentMarginRight# - 17)
 
 [StyleStringArrowButton]
 ImageName=#imgPath#arrow-right.png
@@ -142,6 +142,9 @@ FontSize=10
 X=(#contentMargin# + 1)
 Y=4R
 
+[StyleStringGadgetToggleLabel]
+X=(#contentMargin# + 3)
+
 [StyleToggleImage]
 X=(#contentMarginRight# - 35)
 ; X=5R
@@ -185,8 +188,8 @@ DynamicVariables=1
 [StyleCloseButton]
 ImageName=#imgPath#close.png
 ImageAlpha=#colorBgA#
-X=(#contentMarginRight# - 21)
-Y=(#contentMargin# - 3)
+X=(#contentMarginRight# - 18)
+Y=(#contentMargin# - 5)
 W=24
 H=24
 Antialias=0
@@ -207,3 +210,11 @@ Group=ConfigButton
 MouseOverAction=[!SetOption ConfigButton ImageTint "#colorButtonPress#"][!UpdateMeter ConfigButton][!Redraw]
 MouseLeaveAction=[!SetOption ConfigButton ImageTint ""][!UpdateMeter ConfigButton][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
+
+[StyleBackgroundHeight]
+SolidColor=255,255,255,0
+X=0
+Y=(#contentMarginAbs# + #bgOffset#)R
+W=(#bgWidthAbs#)
+H=1
+Group=Background
