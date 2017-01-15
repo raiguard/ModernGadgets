@@ -5,7 +5,7 @@
 bgOffset=6
 bgWidth=160
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
-mgVersion=1.1.0
+mgVersion=1.1.1
 
 contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
@@ -109,6 +109,7 @@ Antialias=0
 
 [StyleToggleImageGadgets]
 X=110
+DynamicVariables=1
 
 [StyleStringSectionHeader]
 FontSize=12

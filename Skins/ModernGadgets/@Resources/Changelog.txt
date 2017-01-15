@@ -1,5 +1,14 @@
 MODERNGADGETS CHANGELOG
 
+v1.1.1 - 2017-1-14
+- Fixed display glitches with setup skin
+- Fixed gadget manager buttons becoming desynced if clicked too quickly
+- Fixed CPU Meter config script not toggling measures
+- Fixed CPU usage measures being tied to incorrect threads (oops!)
+- Fixed page file line graph not showing up when enabled
+- Fixed gadget manager path (was incorrect in Network, GPU, and Disks Meters)
+- Fixed memory controller line graph not disappearing when disabled
+
 v1.1.0 - 2017-1-9
 - Updated to Rainmeter 4.0
 - Replaced external settings system with a local system that makes periodic backups
