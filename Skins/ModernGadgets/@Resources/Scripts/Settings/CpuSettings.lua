@@ -233,8 +233,8 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
       SKIN:Bang('!SetOption', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
     end
   else
     if showLineGraph == 1 then

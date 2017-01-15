@@ -69,8 +69,8 @@ function ToggleMemoryController(currentValue)
     SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryControllerValueString', 'Hidden', '1', gpuMeterPath)
     SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryControllerBar', 'Hidden', '1', gpuMeterPath)
 
-    SKIN:Bang('!SetOption', 'Gpu0MemoryControllerLabelString', 'Y', 'R', gpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryControllerLabelString', 'Y', 'R', gpuMeterPath)
+    SKIN:Bang('!SetOption', 'Gpu0MemoryControllerLabelString', 'Y', '-#*barTextOffset*#R', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryControllerLabelString', 'Y', '-#*barTextOffset*#R', gpuMeterPath)
 
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0', gpuMeterPath)
@@ -216,11 +216,11 @@ function SetLineGraphY(showVideoClock, showCoreVoltage, showLineGraph)
 
   if showVideoClock == 1 or showCoreVoltage == 1 then
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '1R', gpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '1R', gpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', gpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '(#*barTextOffset*# + 1)R', gpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-1R', gpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '-1R', gpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', gpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', gpuMeterPath)
     end
   else
     if showLineGraph == 1 then

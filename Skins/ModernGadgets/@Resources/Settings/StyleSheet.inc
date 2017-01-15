@@ -193,3 +193,17 @@ Antialias=0
 ToolTipText="Close"
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
+
+[StyleSettingsButton]
+ImageName=#imgPath#Wrench.png
+ImageAlpha=#colorBgA#
+X=(#contentMarginRight# - 10)
+Y=(#contentMargin# + 2)
+W=9
+H=9
+Antialias=1
+Hidden=1
+Group=ConfigButton
+MouseOverAction=[!SetOption ConfigButton ImageTint "#colorButtonPress#"][!UpdateMeter ConfigButton][!Redraw]
+MouseLeaveAction=[!SetOption ConfigButton ImageTint ""][!UpdateMeter ConfigButton][!Redraw]
+LeftMouseUpAction=[!SkinCustomMenu]
