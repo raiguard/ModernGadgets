@@ -21,6 +21,10 @@ function ConfigCores(threads)
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '0')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'ValueString', 'Hidden', '0')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'Bar', 'Hidden', '0')
+      SKIN:Bang('!EnableMeasure', 'MeasureCpuUsageCore' .. i)
+      SKIN:Bang('!WriteKeyValue', 'MeasureCpuUsageCore' .. i, 'Disabled', '0')
+      SKIN:Bang('!EnableMeasure', 'MeasureCpuTempCore' .. i)
+      SKIN:Bang('!WriteKeyValue', 'MeasureCpuTempCore' .. i, 'Disabled', '0')
     elseif (i > threads) then
       SKIN:Bang('!HideMeterGroup', 'CpuCore' .. i)
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'LabelString', 'Hidden', '1')
@@ -29,6 +33,10 @@ function ConfigCores(threads)
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '1')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'ValueString', 'Hidden', '1')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'Bar', 'Hidden', '1')
+      SKIN:Bang('!DisableMeasure', 'MeasureCpuUsageCore' .. i)
+      SKIN:Bang('!WriteKeyValue', 'MeasureCpuUsageCore' .. i, 'Disabled', '1')
+      SKIN:Bang('!DisableMeasure', 'MeasureCpuTempCore' .. i)
+      SKIN:Bang('!WriteKeyValue', 'MeasureCpuTempCore' .. i, 'Disabled', '1')
     end
   end
 
