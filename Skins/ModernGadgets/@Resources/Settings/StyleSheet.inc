@@ -14,6 +14,7 @@ contentMarginRight=((#bgWidth# + #bgOffset#) - #contentMarginAbs# - 1)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
 
 rowSpacing=1
+barTextOffset=1
 barHeight=1
 graphHeight=41
 
@@ -44,16 +45,15 @@ colorAccentRgb=138,210,250
 
 colorButtonPress=255,50,50
 
-colorHwinfoValueInputBg=50,50,50,255
-colorHwinfoError=255,50,50,255
+colorHwinfoValueInputText=225,220,225,255
+colorHwinfoValueInputBg=30,30,30,255
+colorHwinfoError=255,30,30,255
 
 colorInputBoxBorder=#colorDim#
 
 colorIntel=0,125,198
 
 histogramAlpha=50
-
-barTextOffset=1
 
 ; Paths
 imgPath=#@#Assets\Images\
@@ -220,6 +220,6 @@ LeftMouseUpAction=[!SkinCustomMenu]
 SolidColor=255,255,255,0
 X=0
 Y=(#contentMarginAbs# + #bgOffset#)R
-W=(#bgWidthAbs#)
+W=#bgWidthAbs#
 H=1
 Group=Background

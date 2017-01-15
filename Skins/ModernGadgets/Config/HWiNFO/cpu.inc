@@ -6,7 +6,7 @@
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorMain#
+FontColor=#colorHwinfoValueInputText#
 FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
@@ -22,7 +22,7 @@ DynamicVariables=1
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorMain#
+FontColor=#colorHwinfoValueInputText#
 FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
@@ -38,7 +38,7 @@ DynamicVariables=1
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorMain#
+FontColor=#colorHwinfoValueInputText#
 FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
@@ -198,7 +198,8 @@ Group=Cpu0Values
 Meter=String
 MeterStyle=StyleString
 FontColor=#colorInfo#
-Text="Core clocks 1-7 will be filled in automatically"
+Y=2R
+Text="Core clocks 1-9 will be filled in automatically"
 
 [Cpu0SeparatorBar]
 Meter=Image
@@ -252,7 +253,8 @@ Group=Cpu0DtsValues
 Meter=String
 MeterStyle=StyleString
 FontColor=#colorInfo#
-Text="Core temperatures 1-7 will be filled in automatically"
+Y=2R
+Text="Core temperatures 1-9 will be filled in automatically"
 
 [Cpu0DtsSeparatorBar]
 Meter=Image

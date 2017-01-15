@@ -59,9 +59,9 @@ HWiNFO-CPU0-Core6Clock=0x6000006
 ; core 7 clock frequency (MHz)
 HWiNFO-CPU0-Core7Clock=0x6000007
 ; core 8 clock frequency (MHz)
-HWiNFO-CPU0-Core8Clock=0x6000006
+HWiNFO-CPU0-Core8Clock=0x6000008
 ; core 9 clock frequency (MHz)
-HWiNFO-CPU0-Core9Clock=0x6000007
+HWiNFO-CPU0-Core9Clock=0x6000009
 ; core 0 voltage (volts)
 HWiNFO-CPU0-Core0VID=0x2000000
 ; core 1 voltage (volts)

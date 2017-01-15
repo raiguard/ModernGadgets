@@ -6,7 +6,7 @@
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorMain#
+FontColor=#colorHwinfoValueInputText#
 FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
@@ -31,7 +31,7 @@ Command13=[!WriteKeyValue Variables HWiNFO-GPU0-CoreVoltage "$UserInput$" "#hwin
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorMain#
+FontColor=#colorHwinfoValueInputText#
 FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
