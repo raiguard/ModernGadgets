@@ -44,8 +44,8 @@ function ConfigureDisk(disk, diskType, mode)
     SKIN:Bang('!SetOption', 'Disk' .. disk .. 'NameString', 'Y', '(#*rowSpacing*# + 4)r')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'NameString', 'Y', '(#*rowSpacing*# + 4)r')
 
-    SKIN:Bang('!SetOption', 'Disk' .. disk .. 'StorageBar', 'Y', 'R')
-    SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'StorageBar', 'Y', 'R')
+    SKIN:Bang('!SetOption', 'Disk' .. disk .. 'StorageBar', 'Y', '#*barTextOffset*#R')
+    SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'StorageBar', 'Y', '#*barTextOffset*#R')
 
     -- show all of the disk's meters
     SKIN:Bang('!ShowMeterGroup', 'Disk' .. disk)
