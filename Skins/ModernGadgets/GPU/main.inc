@@ -218,5 +218,3 @@ W=(#contentWidth# - 2)
 H=#graphHeight#
 Group=LineGraph
 Hidden=0
-[Variables]
-updateSettings=1

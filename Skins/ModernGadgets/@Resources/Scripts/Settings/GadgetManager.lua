@@ -18,17 +18,15 @@ function ToggleGadget(currentValue, gadgetPrefix)
   currentValue = tonumber(currentValue)
 
   if currentValue == 0 then
-    SKIN:Bang('!SetOption', gadgetPrefix .. 'MeterButton', 'ImageName', '#*toggleOnImg*#')
-    SKIN:Bang('!WriteKeyValue', gadgetPrefix .. 'MeterButton', 'ImageName', '#*toggleOnImg*#')
+    SKIN:Bang('!SetVariable', gadgetPrefix .. 'MeterLoaded', '1')
+    SKIN:Bang('!WriteKeyValue', 'Variables', gadgetPrefix .. 'MeterLoaded', '1')
   else
-    SKIN:Bang('!SetOption', gadgetPrefix .. 'MeterButton', 'ImageName', '#*toggleOffImg*#')
-    SKIN:Bang('!WriteKeyValue', gadgetPrefix .. 'MeterButton', 'ImageName', '#*toggleOffImg*#')
+    SKIN:Bang('!SetVariable', gadgetPrefix .. 'MeterLoaded', '0')
+    SKIN:Bang('!WriteKeyValue', 'Variables', gadgetPrefix .. 'MeterLoaded', '0')
   end
 
   SKIN:Bang('!ToggleConfig', 'ModernGadgets\\' .. gadgetPrefix, gadgetPrefix .. '.ini')
-  SKIN:Bang('!CommandMeasure', 'Measure' .. gadgetPrefix .. 'MeterState', 'Update')
-
-  SKIN:Bang('!UpdateMeterGroup', 'GadgetButtons')
+  SKIN:Bang('!CommandMeasure', 'MeasureCpuMeterState', 'Update')
   SKIN:Bang('!Redraw')
 
 end
