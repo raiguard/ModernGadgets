@@ -1,6 +1,6 @@
 MODERNGADGETS CHANGELOG
 
-v1.1.1 - 2017-1-11
+v1.1.1 - 2017-1-14
 - Fixed display glitches with setup skin
 - Fixed gadget manager buttons becoming desynced if clicked too quickly
 - Fixed CPU Meter config script not toggling measures
