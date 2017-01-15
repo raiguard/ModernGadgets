@@ -146,7 +146,7 @@ Y=4R
 X=(#contentMargin# + 3)
 
 [StyleToggleImage]
-X=(#contentMarginRight# - 35)
+X=(#contentMarginRight# - 31)
 ; X=5R
 Y=-1r
 W=31
@@ -162,8 +162,8 @@ Y=5R
 FontColor=#colorInfo#
 FontFace=Roboto Lt
 FontSize=10
-X=3r
-Y=3r
+X=5r
+Y=2r
 W=(#contentWidth# - 10)
 H=16
 
@@ -174,6 +174,11 @@ X=(#contentMargin# + 2)
 Y=5R
 W=(#contentWidth# - 6)
 ClipString=2
+
+[StyleStringConfigTitle]
+FontSize=12
+X=#contentMargin#
+Y=(#contentMargin# - 2)
 
 [StyleBar]
 SolidColor=#colorBarBg#
