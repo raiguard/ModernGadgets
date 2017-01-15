@@ -13,7 +13,7 @@ contentMarginCenter=((#bgWidth# / 2) + #bgOffset#)
 contentMarginRight=((#bgWidth# + #bgOffset#) - #contentMarginAbs# - 1)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
 
-rowSpacing=1
+rowSpacing=2
 barHeight=1
 graphHeight=41
 
@@ -117,7 +117,7 @@ Y=10R
 [StyleStringGadgetHeader]
 FontSize=10
 X=#contentMargin#
-Y=(#contentMargin# - 1)
+Y=(#contentMargin# - 2)
 
 [StyleStringCenterAlign]
 StringAlign=Center
@@ -172,7 +172,7 @@ ClipString=2
 [StyleBar]
 SolidColor=#colorBarBg#
 X=(#contentMargin#)
-Y=R
+Y=1R
 W=(#contentWidth#)
 w=(#contentWidth#)
 h=#barHeight#
