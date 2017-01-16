@@ -34,7 +34,7 @@ Text="Clock: %1MHz"
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0Temperature
-Text="%1°#tempUOM#"
+Text="%1°#tempUnits#"
 
 [Gpu0CoreUsageLabelString]
 Meter=String

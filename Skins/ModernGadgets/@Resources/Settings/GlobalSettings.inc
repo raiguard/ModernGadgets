@@ -10,8 +10,10 @@ notifyUpdates=1
 devUpdates=0
 autoBackups=1
 
-; Color pallete
+showBgBorder=1
+largeRowSpacing=0
 
+; Color pallete
 colorPallete1=107,198,250,240
 colorPallete2=255,204,0,240
 colorPallete3=150,150,150,240
@@ -256,3 +258,4 @@ HWiNFO-SMART-Disk10-SensorId=0xf0000100
 HWiNFO-SMART-Disk10-SensorInstance=0x0
 HWiNFO-SMART-Disk10-Temp=0x0
 HWiNFO-SMART-Disk10-Letter=""
+rowSpacing=1

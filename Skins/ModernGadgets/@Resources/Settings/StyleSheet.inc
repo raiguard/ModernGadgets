@@ -64,6 +64,8 @@ scriptPath=#@#Scripts\
 globalSettingsPath=#@#Settings\GlobalSettings.inc
 gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
+styleSheetPath=#@#Settings\StyleSheet.inc
+
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
 cpuSettingsPath=#@#Settings\CpuSettings.inc
@@ -86,6 +88,36 @@ toggleOnImg=#imgPath#toggle-on.png
 toggleLockImg=#imgPath#toggle-off-lock.png
 
 ; Styles
+[StyleBackground]
+SolidColor=#colorBg#
+X=#bgOffset#
+Y=#bgOffset#
+W=#bgWidth#
+H=([BackgroundHeight:Y] - (#bgOffset# * 2))
+DynamicVariables=1
+Group=Background
+
+[StyleBackgroundBorder]
+ImageName=#imgPath#border.png
+ImageTint=#colorBgBorder#
+ImageAlpha=#colorBgBorderA#
+ScaleMargins=2,2,2,2
+X=(#bgOffset# - 1)
+Y=(#bgOffset# - 1)
+W=(#bgWidth# + 2)
+H=([BackgroundHeight:Y] - (#bgOffset# * 2) + 2)
+DynamicVariables=1
+Hidden=(#showBgBorder# = 1) ? 0 : 1
+Group=Background
+
+[StyleBackgroundHeight]
+SolidColor=255,255,255,0
+X=0
+Y=(#contentMarginAbs# + #bgOffset#)R
+W=#bgWidthAbs#
+H=1
+Group=Background
+
 [StyleString]
 FontColor=#colorMain#
 FontSize=#fontSize#
@@ -215,11 +247,3 @@ Group=ConfigButton
 MouseOverAction=[!SetOption ConfigButton ImageTint "#colorButtonPress#"][!UpdateMeter ConfigButton][!Redraw]
 MouseLeaveAction=[!SetOption ConfigButton ImageTint ""][!UpdateMeter ConfigButton][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
-
-[StyleBackgroundHeight]
-SolidColor=255,255,255,0
-X=0
-Y=(#contentMarginAbs# + #bgOffset#)R
-W=#bgWidthAbs#
-H=1
-Group=Background
