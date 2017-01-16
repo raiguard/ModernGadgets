@@ -1,6 +1,8 @@
 -- MODERNGADGETS CPU CONFIG SCRIPT
 -- Written by iamanai
 
+isDbg = false
+
 function Initialize()
 
   cpuSettingsPath = SKIN:GetVariable('cpuSettingsPath')
@@ -60,12 +62,9 @@ function ConfigCores(threads, showAvgCpu)
 
       c = (c - 1)
     end
-  else
-    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#')
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#')
   end
 
-  SKIN:Bang('!Log', 'Finished core configuration', 'Debug')
+  LogHelper('Finished core configuration', 'Debug')
 
   SKIN:Bang('!SetVariable', 'cpuCores', threads)
   SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads, cpuMeterPath)
@@ -141,5 +140,16 @@ function ConfigCpuIcon(state)
     SKIN:Bang('!UpdateMeter', 'CpuImage')
     -- SKIN:Bang('!Redraw')
   end
+
+end
+
+-- function to make logging messages less cluttered
+function LogHelper(message, type)
+
+  if isDbg == true then
+    SKIN:Bang("!Log", message, type)
+  elseif type ~= 'Debug' then
+  	SKIN:Bang("!Log", message, type)
+	end
 
 end

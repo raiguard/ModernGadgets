@@ -224,6 +224,40 @@ function ToggleLineGraph(currentValue, showCpuFan, showCpuClock)
 
 end
 
+function ToggleAvgCpuGraph(currentValue, showLineGraph)
+
+  currentValue = tonumber(currentValue)
+  showLineGraph = tonumber(showLineGraph)
+
+  if showLineGraph == 1 then
+    if currentValue == 0 then
+      SKIN:Bang('!SetVariable', 'showAvgCpu', '1')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'showAvgCpu', '1', cpuSettingsPath)
+
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0', cpuMeterPath)
+      for i=1,20 do
+        SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '0,0,0,0', cpuMeterConfig)
+        SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '0,0,0,0', cpuMeterPath)
+      end
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#', cpuMeterPath)
+    else
+      SKIN:Bang('!SetVariable', 'showAvgCpu', '0')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'showAvgCpu', '0', cpuSettingsPath)
+      SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ConfigCores(#threadCount#, 0)', cpuMeterConfig)
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor21', '0,0,0,0', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor21', '0,0,0,0', cpuMeterPath)
+    end
+
+    SKIN:Bang('!UpdateMeter', 'GraphLines', cpuMeterConfig)
+    SKIN:Bang('!Redraw', cpuMeterConfig)
+  else
+    LogHelper('Line graph is disabled', 'Warning')
+  end
+
+end
+
 function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
 
   -- SKIN:Bang('!Log', showLineGraph .. ', ' .. showCpuFan .. ', ' .. showCpuClock, 'Debug')
@@ -276,6 +310,7 @@ function UpdateSettings()
   local showCpuFan = tonumber(SKIN:GetVariable('showCpuFan'))
   local showCpuClock = tonumber(SKIN:GetVariable('showCpuClock'))
   local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
+  local showAvgCpu = tonumber(SKIN:GetVariable('showAvgCpu'))
   local cpuName = tostring(SKIN:GetVariable('cpuName'))
   local isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
   local cpuCores = tonumber(SKIN:GetVariable('threadCount'))
@@ -288,6 +323,7 @@ function UpdateSettings()
   ToggleCpuFan(math.abs(showCpuFan - 1), isHwinfoAvailable, showLineGraph, showCpuClock)
   ToggleCpuClock(math.abs(showCpuClock - 1), isHwinfoAvailable, showLineGraph, showCpuFan)
   ToggleLineGraph(math.abs(showLineGraph - 1), showCpuFan, showCpuClock)
+  ToggleAvgCpuGraph(math.abs(showAvgCpu - 1), showLineGraph)
   SetCpuName(cpuName)
 
 end
@@ -303,6 +339,7 @@ function SetDefaults()
   ToggleCpuFan(0, isHwinfoAvailable, 1, 1)
   ToggleCpuClock(0, isHwinfoAvailable, 1, 1)
   ToggleLineGraph(0, 1, 1)
+  ToggleAvgCpuGraph(0,1)
   SetCpuName('')
 
 end
