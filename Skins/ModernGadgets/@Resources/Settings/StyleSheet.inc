@@ -221,12 +221,13 @@ Y=5R
 
 [StyleStringInputBox]
 FontColor=#colorInfo#
-FontFace=Roboto Lt
-FontSize=10
+FontFace=Roboto
+; SolidColor=100,100,100,250
 X=5r
 Y=2r
-W=(#contentWidth# - 10)
-H=16
+W=200
+H=13
+Padding=0,2,0,0
 
 [StyleStringParagraph]
 FontColor=#colorMain#
