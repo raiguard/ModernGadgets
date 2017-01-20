@@ -3,6 +3,9 @@ MODERNGADGETS CHANGELOG
 v1.2.0 - 2017-??-??
 - Switched to Direct2D font rendering
 - Redesigned positioning equations for D2D
+- Added average CPU usage graph mode
+- Added global config skin
+- Added color customization
 
 v1.1.2 - 2017-1-14
 - Fixed average cpu usage in CPU Meter header (OOPS)

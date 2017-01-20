@@ -9,3 +9,8 @@ showLineGraph=1
 
 colorUpload=107,238,98,240
 colorDownload=255,246,42,240
+
+; ====== DEFAULTS ======
+
+dColorUpload=#cp1#
+dColorDownload=#cp2#

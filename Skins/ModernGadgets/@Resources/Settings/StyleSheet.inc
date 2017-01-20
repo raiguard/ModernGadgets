@@ -61,6 +61,8 @@ soundPath=#@#Assets\Sounds\
 fontPath=#@#Fonts\
 scriptPath=#@#Scripts\
 
+rainRgbPath=#@#Addons\RainRGB\RainRGB4.exe
+
 globalSettingsPath=#@#Settings\GlobalSettings.inc
 gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
@@ -86,6 +88,32 @@ disksSettingsPath=#@#Settings\DisksSettings.inc
 toggleOffImg=#imgPath#toggle-off.png
 toggleOnImg=#imgPath#toggle-on.png
 toggleLockImg=#imgPath#toggle-off-lock.png
+
+; Default Color Pallete
+cp1=107,238,98
+cp2=255,246,42
+cp3=250,158,0
+cp4=236,28,70
+cp5=199,36,199
+cp6=145,70,232
+cp7=42,112,250
+cp8=43,224,224
+cp9=121,182,62
+cp10=204,255,0
+cp11=250,205,22
+cp12=191,100,55
+cp13=201,41,56
+cp14=179,0,91
+cp15=153,84,166
+cp16=99,125,217
+cp17=107,238,98
+cp18=255,246,42
+cp19=250,158,0
+cp20=236,28,70
+cp21=107,198,250
+cp22=255,204,0
+cp23=150,150,150
+cp24=236,28,70
 
 ; Styles
 [StyleBackground]
@@ -186,8 +214,9 @@ H=20
 Group=ToggleButtons
 
 [StyleStringConfigSectionHeader]
-FontFace=#fontFace# Bl
+FontFace=#fontFace# Cn
 FontColor=#colorInfo#
+FontSize=10
 Y=5R
 
 [StyleStringInputBox]
@@ -247,3 +276,21 @@ Group=ConfigButton
 MouseOverAction=[!SetOption ConfigButton ImageTint "#colorButtonPress#"][!UpdateMeter ConfigButton][!Redraw]
 MouseLeaveAction=[!SetOption ConfigButton ImageTint ""][!UpdateMeter ConfigButton][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
+
+[StyleHelpButton]
+ImageName=#imgPath#help.png
+W=14
+H=14
+Antialias=0
+
+[StyleStringColorPickerLabel]
+StringAlign=Right
+FontSize=10
+X=-5r
+Y=5R
+
+[StyleColorPicker]
+Shape=Rectangle 0,0,25,17,3 | Stroke Color 100,100,100,100 | StrokeWidth 1 | Extend MeterSpecific
+X=5r
+Y=r
+DynamicVariables=1
