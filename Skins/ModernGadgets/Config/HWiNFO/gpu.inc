@@ -200,7 +200,7 @@ IfTrueAction=[!SetOption MoboGpuFanValueString MeterStyle "StyleString | StyleSt
 
 [Gpu0HeaderString]
 Meter=String
-MeterStyle=StyleString | StyleStringSectionHeader
+MeterStyle=StyleString | StyleStringConfigSectionHeader
 Text="GPU 0"
 
 [Gpu0SensorIdLabelString]
@@ -367,7 +367,7 @@ Y=5R
 
 [MoboHeaderString]
 Meter=String
-MeterStyle=StyleString | StyleStringSectionHeader
+MeterStyle=StyleString | StyleStringConfigSectionHeader
 Text="Motherboard"
 
 [MoboGpuFanLabelString]

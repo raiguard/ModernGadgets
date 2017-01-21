@@ -154,7 +154,7 @@ IfTrueAction=[!SetOption MoboCpuFanValueString MeterStyle "StyleString | StyleSt
 
 [Cpu0HeaderString]
 Meter=String
-MeterStyle=StyleString | StyleStringSectionHeader
+MeterStyle=StyleString | StyleStringConfigSectionHeader
 Text="CPU 0"
 
 [Cpu0SensorIdLabelString]
@@ -209,7 +209,7 @@ MeterStyle=StyleSectionSeparator
 
 [Cpu0DtsHeaderString]
 Meter=String
-MeterStyle=StyleString | StyleStringSectionHeader
+MeterStyle=StyleString | StyleStringConfigSectionHeader
 Text="CPU 0: DTS"
 
 [Cpu0DtsSensorIdLabelString]
@@ -264,7 +264,7 @@ MeterStyle=StyleSectionSeparator
 
 [MoboHeaderString]
 Meter=String
-MeterStyle=StyleString | StyleStringSectionHeader
+MeterStyle=StyleString | StyleStringConfigSectionHeader
 Text="Motherboard"
 
 [MoboSensorIdLabelString]
