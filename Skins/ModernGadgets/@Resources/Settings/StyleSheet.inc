@@ -18,6 +18,8 @@ barTextOffset=1
 barHeight=1
 graphHeight=41
 
+labelOffset=53
+
 ; Font options
 fontFace=Roboto
 fontSize=8
