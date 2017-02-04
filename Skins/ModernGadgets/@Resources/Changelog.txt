@@ -1,5 +1,23 @@
 MODERNGADGETS CHANGELOG
 
+Official Releases
+
+v1.2.0 - 2017-4-19
+- Added average CPU usage graph mode
+- Added global config skin
+- Added color customization
+- Added network ping display to Network Meter
+- Added thermal throttling detection to CPU Meter
+- Added option to display network traffic in bytes/sec
+- Added reset to defaults function
+- Added line graph antialiasing toggle
+- Added manual max VRAM toggle to GPU meter
+- Switched to Direct2D font rendering
+- Text alignment touch-ups
+- Changed border color to be slightly dimmer
+- Fixed CPU Meter not adjusting the icon for non-intel CPUs
+- Split official releases from dev releases in the changelog
+
 v1.1.2 - 2017-1-14
 - Fixed average cpu usage in CPU Meter header (OOPS)
 - Corrected typo in changelog
@@ -30,6 +48,30 @@ v1.1.0 - 2017-1-9
 v1.0.0 - 2016-12-4
 - Fixed mistakes in CPU meter that could prevent it from adjusting to different CPUs
 - Official release
+
+Development Releases
+
+v1.2.0-beta.3 - 2017-4-7
+- Corrected typo in changelog
+- Added manual max VRAM toggle to GPU meter
+- Changed how thermal throttling detection works
+- Added thermal throttling entry ID to config tool
+
+v1.2.0-beta.2 - 2017-4-6
+- Added network ping display to Network Meter
+- Added thermal throttling detection to CPU Meter
+- Fixed CPU Meter not adjusting the icon for non-intel CPUs
+- Added option to display network traffic in bytes/sec
+- Added reset to defaults function
+- Added line graph antialiasing toggle
+
+v1.2.0-beta.1 - 2017-2-4
+- Switched to Direct2D font rendering
+- Text alignment touch-ups
+- Added average CPU usage graph mode
+- Added global config skin
+- Added color customization
+- Changed border color to be slightly dimmer
 
 v1.0.0-rc.4 - 2016-11-23
 - Fixed HWiNFO Tutorial link in Config Tool
