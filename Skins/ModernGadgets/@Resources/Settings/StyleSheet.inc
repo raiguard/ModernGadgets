@@ -37,7 +37,7 @@ colorMain=255,255,255,#colorBgA#
 colorMainA=#colorBgA#
 colorInfo=150,150,150,#colorBgA#
 colorInfoA=#colorBgA#
-colorDim=60,60,60,#colorBgA#
+colorDim=50,50,50,#colorBgA#
 colorDimA=#colorBgA#
 
 colorBarBg=#colorDim#
