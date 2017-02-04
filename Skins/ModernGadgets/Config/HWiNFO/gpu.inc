@@ -6,7 +6,7 @@
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorMain#
+FontColor=#colorHwinfoValueInputText#
 FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
@@ -31,7 +31,7 @@ Command13=[!WriteKeyValue Variables HWiNFO-GPU0-CoreVoltage "$UserInput$" "#hwin
 Measure=Plugin
 Plugin=InputText
 SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorMain#
+FontColor=#colorHwinfoValueInputText#
 FontSize=10
 FontFace=#fontFace#
 UpdateDivider=-1
@@ -200,7 +200,7 @@ IfTrueAction=[!SetOption MoboGpuFanValueString MeterStyle "StyleString | StyleSt
 
 [Gpu0HeaderString]
 Meter=String
-MeterStyle=StyleString | StyleStringSectionHeader
+MeterStyle=StyleString | StyleStringConfigSectionHeader
 Text="GPU 0"
 
 [Gpu0SensorIdLabelString]
@@ -367,7 +367,7 @@ Y=5R
 
 [MoboHeaderString]
 Meter=String
-MeterStyle=StyleString | StyleStringSectionHeader
+MeterStyle=StyleString | StyleStringConfigSectionHeader
 Text="Motherboard"
 
 [MoboGpuFanLabelString]

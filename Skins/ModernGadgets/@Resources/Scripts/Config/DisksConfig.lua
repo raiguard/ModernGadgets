@@ -5,16 +5,19 @@ isDbg = false
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-function Initialize() end
+function Initialize()
+
+  histogramA = SKIN:GetVariable('histogramA')
+  dynamicVarsPath = SKIN:GetVariable('dynamicVarsPath')
+
+end
 
 function Update() end
 
 -- configures the specified disk's meters and measures based on given input
 function ConfigureDisk(disk, diskType, mode)
 
-  histogramA = SKIN:GetVariable('histogramA')
   isHwinfoAvailable=tonumber(SKIN:GetVariable('isHwinfoAvailable'))
-  dynamicVarsPath = SKIN:GetVariable('dynamicVarsPath')
 
   index = alphabet:find(disk)
   prevDisk = alphabet:sub((index - 1), (index - 1))
@@ -44,8 +47,8 @@ function ConfigureDisk(disk, diskType, mode)
     SKIN:Bang('!SetOption', 'Disk' .. disk .. 'NameString', 'Y', '(#*rowSpacing*# + 4)r')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'NameString', 'Y', '(#*rowSpacing*# + 4)r')
 
-    SKIN:Bang('!SetOption', 'Disk' .. disk .. 'StorageBar', 'Y', 'R')
-    SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'StorageBar', 'Y', 'R')
+    SKIN:Bang('!SetOption', 'Disk' .. disk .. 'StorageBar', 'Y', '#*barTextOffset*#R')
+    SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'StorageBar', 'Y', '#*barTextOffset*#R')
 
     -- show all of the disk's meters
     SKIN:Bang('!ShowMeterGroup', 'Disk' .. disk)
@@ -146,8 +149,7 @@ function SetDiskColors()
       i = i + 1
       local color = SKIN:GetVariable('colorDisk' .. i)
       SKIN:Bang('!SetVariable', 'colorDisk' .. c, color)
-      SKIN:Bang('!WriteKeyValue', 'Variables', 'colorDisk' .. c, color, dynamicVarsPath)
-      LogHelper('Set disk ' .. c .. ' color to: ' .. color .. ' | ' .. dynamicVarsPath, 'Debug')
+      LogHelper('Set disk ' .. c .. ' color to: ' .. color, 'Debug')
     else
       SKIN:Bang('!SetVariable', 'colorDisk' .. c, '0,0,0,0')
     end

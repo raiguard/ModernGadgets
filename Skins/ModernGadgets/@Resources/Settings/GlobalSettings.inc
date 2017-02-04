@@ -10,28 +10,8 @@ notifyUpdates=1
 devUpdates=0
 autoBackups=1
 
-; Color pallete
-
-colorPallete1=107,198,250,240
-colorPallete2=255,204,0,240
-colorPallete3=150,150,150,240
-colorPallete4=236,28,70,240
-colorPallete5=107,238,98,240
-colorPallete6=255,246,42,240
-colorPallete7=250,158,0,240
-colorPallete8=236,28,70,240
-colorPallete9=199,36,199,240
-colorPallete10=145,70,232,240
-colorPallete11=42,112,250,240
-colorPallete12=43,224,224,240
-colorPallete13=121,182,62,240
-colorPallete14=204,255,0,240
-colorPallete15=250,205,22,240
-colorPallete16=191,100,55,240
-colorPallete17=201,41,56,240
-colorPallete18=179,0,91,240
-colorPallete19=153,84,166,240
-colorPallete20=99,125,217,240
+showBgBorder=1
+largeRowSpacing=0
 
 ; ----- HWiNFO -----
 
@@ -59,9 +39,9 @@ HWiNFO-CPU0-Core6Clock=0x6000006
 ; core 7 clock frequency (MHz)
 HWiNFO-CPU0-Core7Clock=0x6000007
 ; core 8 clock frequency (MHz)
-HWiNFO-CPU0-Core8Clock=0x6000006
+HWiNFO-CPU0-Core8Clock=0x6000008
 ; core 9 clock frequency (MHz)
-HWiNFO-CPU0-Core9Clock=0x6000007
+HWiNFO-CPU0-Core9Clock=0x6000009
 ; core 0 voltage (volts)
 HWiNFO-CPU0-Core0VID=0x2000000
 ; core 1 voltage (volts)
@@ -82,26 +62,6 @@ HWiNFO-CPU0-Core7VID=0x2000007
 HWiNFO-CPU0-Core8VID=0x2000006
 ; core 9 voltage (volts)
 HWiNFO-CPU0-Core9VID=0x2000007
-; core 0 thermal throttling (yes/no)
-HWiNFO-CPU0-Core0Tt=0x2000000
-; core 1 thermal throttling (yes/no)
-HWiNFO-CPU0-Core1Tt=0x2000001
-; core 2 thermal throttling (yes/no)
-HWiNFO-CPU0-Core2Tt=0x2000002
-; core 3 thermal throttling (yes/no)
-HWiNFO-CPU0-Core3Tt=0x2000003
-; core 4 thermal throttling (yes/no)
-HWiNFO-CPU0-Core4Tt=0x2000004
-; core 5 thermal throttling (yes/no)
-HWiNFO-CPU0-Core5Tt=0x2000005
-; core 6 thermal throttling (yes/no)
-HWiNFO-CPU0-Core6Tt=0x2000006
-; core 7 thermal throttling (yes/no)
-HWiNFO-CPU0-Core7Tt=0x2000007
-; core 8 thermal throttling (yes/no)
-HWiNFO-CPU0-Core8Tt=0x2000006
-; core 9 thermal throttling (yes/no)
-HWiNFO-CPU0-Core9Tt=0x2000007
 
 ;
 ; CPU 0 DTS
@@ -130,6 +90,8 @@ HWiNFO-CPU0-DTS-Core7Temp=0x1000007
 HWiNFO-CPU0-DTS-Core8Temp=0x1000008
 ; core 8 temperature (degrees)
 HWiNFO-CPU0-DTS-Core9Temp=0x1000009
+; package/ring thermal throttling (yes/no)
+HWiNFO-CPU0-DTS-PackageTt=0x800000c
 
 ;
 ; Motherboard
@@ -256,3 +218,4 @@ HWiNFO-SMART-Disk10-SensorId=0xf0000100
 HWiNFO-SMART-Disk10-SensorInstance=0x0
 HWiNFO-SMART-Disk10-Temp=0x0
 HWiNFO-SMART-Disk10-Letter=""
+rowSpacing=1
