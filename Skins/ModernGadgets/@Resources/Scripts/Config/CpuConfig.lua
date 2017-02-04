@@ -1,6 +1,8 @@
 -- MODERNGADGETS CPU CONFIG SCRIPT
 -- Written by iamanai
 
+isDbg = false
+
 function Initialize()
 
   cpuSettingsPath = SKIN:GetVariable('cpuSettingsPath')
@@ -10,13 +12,13 @@ end
 
 function Update() end
 
-function ConfigCores(threads)
+function ConfigCores(threads, showAvgCpu)
 
   for i=1,20 do
     if (i <= threads) then
       SKIN:Bang('!ShowMeterGroup', 'CpuCore' .. i)
-      SKIN:Bang('!SetOption', 'Core' .. i .. 'LabelString', 'Y', '#rowSpacing#R')
-      SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'LabelString', 'Y', '#rowSpacing#R')
+      SKIN:Bang('!SetOption', 'Core' .. i .. 'LabelString', 'Y', '#*rowSpacing*#R')
+      SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'LabelString', 'Y', '#*rowSpacing*#R')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'LabelString', 'Hidden', '0')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '0')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'ValueString', 'Hidden', '0')
@@ -28,8 +30,8 @@ function ConfigCores(threads)
     elseif (i > threads) then
       SKIN:Bang('!HideMeterGroup', 'CpuCore' .. i)
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'LabelString', 'Hidden', '1')
-      SKIN:Bang('!SetOption', 'Core' .. i .. 'LabelString', 'Y', 'R')
-      SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'LabelString', 'Y', 'R')
+      SKIN:Bang('!SetOption', 'Core' .. i .. 'LabelString', 'Y', '-#*barTextOffset*#R')
+      SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'LabelString', 'Y', '-#*barTextOffset*#R')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'TempString', 'Hidden', '1')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'ValueString', 'Hidden', '1')
       SKIN:Bang('!WriteKeyValue', 'Core' .. i .. 'Bar', 'Hidden', '1')
@@ -40,27 +42,29 @@ function ConfigCores(threads)
     end
   end
 
-  if (threads == 20) then
-    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore20'))
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', SKIN:GetVariable('colorCore20'))
-  else
-    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0')
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0')
-  end
-  c = 19
-  for i=2,20 do
-    if (c <= threads) then
-      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, SKIN:GetVariable('colorCore' .. c))
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, SKIN:GetVariable('colorCore' .. c))
-    elseif (c > threads) then
-      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '0,0,0,0')
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '0,0,0,0')
+  if showAvgCpu == 0 then
+    if (threads == 20) then
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '#*colorCore20*#')
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '#*colorCore20*#')
+    else
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0')
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0')
     end
+    c = 19
+    for i=2,20 do
+      if (c <= threads) then
+        SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '#*colorCore' .. c .. '*#')
+        SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '#*colorCore' .. c .. '*#')
+      elseif (c > threads) then
+        SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '0,0,0,0')
+        SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '0,0,0,0')
+      end
 
-    c = (c - 1)
+      c = (c - 1)
+    end
   end
 
-  SKIN:Bang('!Log', 'Finished core configuration', 'Debug')
+  LogHelper('Finished core configuration', 'Debug')
 
   SKIN:Bang('!SetVariable', 'cpuCores', threads)
   SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads, cpuMeterPath)
@@ -101,15 +105,15 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
 
   if showCpuFan == 1 or showCpuClock == 1 then
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R')
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*contentWidth*#R')
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-2R')
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*contentWidth*#R')
     end
   else
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '4R')
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*contentWidth*#R')
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '3R')
+      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '#*contentWidth*#R')
     end
   end
 
@@ -121,20 +125,31 @@ function ConfigCpuIcon(state)
   if state == 'GenuineIntel' then
     SKIN:Bang('!SetOption', 'CpuImage', 'ImageName', '#*imgPath*#cpu.png')
     SKIN:Bang('!SetOption', 'CpuImage', 'ImageTint', '#*colorIntel*#')
-    SKIN:Bang('!SetOption', 'CpuImage', 'X', '(#*contentMargin*# + 1)')
-    SKIN:Bang('!SetOption', 'CpuImage', 'Y', '(#*contentMargin*# + 1)')
+    SKIN:Bang('!SetOption', 'CpuImage', 'X', '#*contentMargin*#')
+    SKIN:Bang('!SetOption', 'CpuImage', 'Y', '#*contentMargin*#')
     SKIN:Bang('!SetOption', 'CpuImage', 'W', '13')
     SKIN:Bang('!SetOption', 'CpuImage', 'H', '13')
     SKIN:Bang('!UpdateMeter', 'CpuImage')
     -- SKIN:Bang('!Redraw')
   elseif state ~= 'GenuineAMD' and state ~= 'AuthenticAMD' then
     SKIN:Bang('!SetOption', 'CpuImage', 'ImageName', '#*imgPath*#amd.png')
-    SKIN:Bang('!SetOption', 'CpuImage', 'X', '(#*contentMargin*# + 2)')
-    SKIN:Bang('!SetOption', 'CpuImage', 'Y', '(#*contentMargin*# + 2)')
+    SKIN:Bang('!SetOption', 'CpuImage', 'X', '(#*contentMargin*# + 1)')
+    SKIN:Bang('!SetOption', 'CpuImage', 'Y', '(#*contentMargin*# + 1)')
     SKIN:Bang('!SetOption', 'CpuImage', 'W', '11')
     SKIN:Bang('!SetOption', 'CpuImage', 'H', '11')
     SKIN:Bang('!UpdateMeter', 'CpuImage')
     -- SKIN:Bang('!Redraw')
   end
+
+end
+
+-- function to make logging messages less cluttered
+function LogHelper(message, type)
+
+  if isDbg == true then
+    SKIN:Bang("!Log", message, type)
+  elseif type ~= 'Debug' then
+  	SKIN:Bang("!Log", message, type)
+	end
 
 end
