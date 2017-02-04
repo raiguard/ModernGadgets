@@ -71,8 +71,8 @@ function TogglePage(currentValue)
     SKIN:Bang('!WriteKeyValue', 'PageFractionString', 'Hidden', '1', cpuMeterPath)
     SKIN:Bang('!WriteKeyValue', 'PageValueString', 'Hidden', '1', cpuMeterPath)
     SKIN:Bang('!WriteKeyValue', 'PageBar', 'Hidden', '1', cpuMeterPath)
-    SKIN:Bang('!SetOption', 'PageLabelString', 'Y', 'R', cpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'PageLabelString', 'Y', 'R', cpuMeterPath)
+    SKIN:Bang('!SetOption', 'PageLabelString', 'Y', '-#*barTextOffset*#R', cpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'PageLabelString', 'Y', '-#*barTextOffset*#R', cpuMeterPath)
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor22', '0,0,0,0', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor22', '0,0,0,0', cpuMeterPath)
   end
@@ -127,8 +127,6 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock, showLineGra
       SKIN:Bang('!WriteKeyValue', 'FanAltValueString', 'Hidden', '0', cpuMeterPath)
       SKIN:Bang('!SetOption', 'FanAltLabelString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'FanAltLabelString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
 
       SetLineGraphY(showLineGraph, 1, showCpuClock)
     else
@@ -166,8 +164,6 @@ function ToggleCpuClock(currentValue, showCpuFan, showLineGraph)
     SKIN:Bang('!WriteKeyValue', 'CpuClockValueString', 'Hidden', '0', cpuMeterPath)
     SKIN:Bang('!SetOption', 'CpuClockLabelString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'CpuClockLabelString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
-    SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
 
     SetLineGraphY(showLineGraph, showCpuFan, 1)
   else
@@ -201,9 +197,6 @@ function ToggleLineGraph(currentValue, showCpuFan, showCpuClock)
     SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '0', cpuMeterPath)
     SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '0', cpuMeterPath)
 
-    SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
-
     SetLineGraphY(1, showCpuFan, showCpuClock)
   else
     SKIN:Bang('!SetVariable', 'showLineGraph', '0')
@@ -224,25 +217,59 @@ function ToggleLineGraph(currentValue, showCpuFan, showCpuClock)
 
 end
 
+function ToggleAvgCpuGraph(currentValue, showLineGraph)
+
+  currentValue = tonumber(currentValue)
+  showLineGraph = tonumber(showLineGraph)
+
+  if showLineGraph == 1 then
+    if currentValue == 0 then
+      SKIN:Bang('!SetVariable', 'showAvgCpu', '1')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'showAvgCpu', '1', cpuSettingsPath)
+
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0', cpuMeterPath)
+      for i=2,20 do
+        SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '0,0,0,0', cpuMeterConfig)
+        SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '0,0,0,0', cpuMeterPath)
+      end
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#', cpuMeterPath)
+    else
+      SKIN:Bang('!SetVariable', 'showAvgCpu', '0')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'showAvgCpu', '0', cpuSettingsPath)
+      SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ConfigCores(#threadCount#, 0)', cpuMeterConfig)
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor21', '0,0,0,0', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor21', '0,0,0,0', cpuMeterPath)
+    end
+
+    SKIN:Bang('!UpdateMeter', 'GraphLines', cpuMeterConfig)
+    SKIN:Bang('!Redraw', cpuMeterConfig)
+  else
+    LogHelper('Line graph is disabled', 'Warning')
+  end
+
+end
+
 function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
 
   -- SKIN:Bang('!Log', showLineGraph .. ', ' .. showCpuFan .. ', ' .. showCpuClock, 'Debug')
 
   if showCpuFan == 1 or showCpuClock == 1 then
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', 'R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', 'R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', '(#*barTextOffset*# + 1)R', cpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '-2R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '-2R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', 'R', cpuMeterPath)
     end
   else
     if showLineGraph == 1 then
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '4R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '4R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', '5R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', '5R', cpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'GraphLines', 'Y', '3R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Y', '3R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', '2R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', '2R', cpuMeterPath)
     end
   end
 
@@ -268,6 +295,48 @@ function SetCpuName(name)
 
 end
 
+function ToggleTtDetection(currentValue)
+
+  currentValue = tonumber(currentValue)
+
+  if currentValue == 0 then
+      SKIN:Bang('!SetVariable', 'showTt', '1')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'showTt', '1', cpuSettingsPath)
+      SKIN:Bang('!SetVariable', 'showTt', '1', cpuMeterConfig)
+  else
+      SKIN:Bang('!SetVariable', 'showTt', '0')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'showTt', '0', cpuSettingsPath)
+      SKIN:Bang('!SetVariable', 'showTt', '0', cpuMeterConfig)
+  end
+  
+  SKIN:Bang('!UpdateMeasure', 'MeasureCpuTtCalc', cpuMeterConfig)
+  SKIN:Bang('!Redraw', cpuMeterConfig)
+
+end
+
+function ToggleTtSound(currentValue, showTt)
+
+  currentValue = tonumber(currentValue)
+  showTt = tonumber(showTt)
+  
+  if showTt == 1 then
+    if currentValue == 0 then
+        SKIN:Bang('!SetVariable', 'playTtSound', '1')
+        SKIN:Bang('!WriteKeyValue', 'Variables', 'playTtSound', '1', cpuSettingsPath)
+        SKIN:Bang('!SetVariable', 'playTtSound', '1', cpuMeterConfig)
+    else
+        SKIN:Bang('!SetVariable', 'playTtSound', '0')
+        SKIN:Bang('!WriteKeyValue', 'Variables', 'playTtSound', '0', cpuSettingsPath)
+        SKIN:Bang('!SetVariable', 'playTtSound', '0', cpuMeterConfig)
+    end
+  else
+    LogHelper("Thermal throttling detection is not enabled!", "Warning")
+  end
+
+  SKIN:Bang('!UpdateMeasure', 'MeasureCpuTtCalc', cpuMeterConfig)
+
+end
+
 function UpdateSettings()
 
   local showCpuName = math.abs(tonumber(SKIN:GetVariable('showCpuName')) - 1)
@@ -276,7 +345,10 @@ function UpdateSettings()
   local showCpuFan = tonumber(SKIN:GetVariable('showCpuFan'))
   local showCpuClock = tonumber(SKIN:GetVariable('showCpuClock'))
   local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
+  local showAvgCpu = tonumber(SKIN:GetVariable('showAvgCpu'))
   local cpuName = tostring(SKIN:GetVariable('cpuName'))
+  local showTt = tonumber(SKIN:GetVariable('showTt'))
+  local playTtSound = tonumber(SKIN:GetVariable('playTtSound'))
   local isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
   local cpuCores = tonumber(SKIN:GetVariable('threadCount'))
 
@@ -288,7 +360,10 @@ function UpdateSettings()
   ToggleCpuFan(math.abs(showCpuFan - 1), isHwinfoAvailable, showLineGraph, showCpuClock)
   ToggleCpuClock(math.abs(showCpuClock - 1), isHwinfoAvailable, showLineGraph, showCpuFan)
   ToggleLineGraph(math.abs(showLineGraph - 1), showCpuFan, showCpuClock)
+  ToggleAvgCpuGraph(math.abs(showAvgCpu - 1), showLineGraph)
   SetCpuName(cpuName)
+  ToggleTtDetection(math.abs(showTt - 1))
+  ToggleTtSound(math.abs(playTtSound - 1), showTt)
 
 end
 
@@ -303,7 +378,10 @@ function SetDefaults()
   ToggleCpuFan(0, isHwinfoAvailable, 1, 1)
   ToggleCpuClock(0, isHwinfoAvailable, 1, 1)
   ToggleLineGraph(0, 1, 1)
+  ToggleAvgCpuGraph(1,1)
   SetCpuName('')
+  ToggleTtDetection(0)
+  ToggleTtSound(0, 1)
 
 end
 

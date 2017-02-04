@@ -27,13 +27,14 @@ Text="%1"
 Meter=String
 MeterStyle=StyleString
 MeasureName=MeasureGpu0ClockSpeed
+Y=(#rowSpacing# + 1)R
 Text="Clock: %1MHz"
 
 [Gpu0TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0Temperature
-Text="%1°#tempUOM#"
+Text="%1°#tempUnits#"
 
 [Gpu0CoreUsageLabelString]
 Meter=String
@@ -189,9 +190,9 @@ Hidden=0
 
 [GraphLines]
 Meter=Line
-X=(#contentMargin# + 2)
-Y=1R
-W=(#contentWidth# - 4)
+X=(#contentMargin# + 1)
+Y=(#barTextOffset# + 1)R
+W=(#contentWidth# - 2)
 H=(#graphHeight# - 2)
 LineCount=4
 MeasureName=MeasureGpu0MemoryControllerLoad
@@ -214,7 +215,7 @@ ScaleMargins=2,2,2,2
 ImageTint=#colorGraphBorder#
 X=-1r
 Y=-1r
-W=(#contentWidth# - 2)
+W=#contentWidth#
 H=#graphHeight#
 Group=LineGraph
 Hidden=0
