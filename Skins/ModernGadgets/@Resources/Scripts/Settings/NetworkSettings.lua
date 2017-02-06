@@ -56,6 +56,33 @@ function ToggleSpeedtestButton(currentValue)
 
 end
 
+function TogglePing(currentValue)
+
+  currentValue = tonumber(currentValue)
+
+  if currentValue == 0 then
+    SKIN:Bang('!SetVariable', 'showPing', '1')
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'showPing', '1', networkSettingsPath)
+    SKIN:Bang('!ShowMeter', 'PingString', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'PingString', 'Hidden', '0', networkMeterPath)
+  else
+    SKIN:Bang('!SetVariable', 'showPing', '0')
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'showPing', '0', networkSettingsPath)
+    SKIN:Bang('!HideMeter', 'PingString', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'PingString', 'Hidden', '1', networkMeterPath)
+  end
+
+  SKIN:Bang('!UpdateMeter', 'PingString', networkMeterConfig)
+  SKIN:Bang('!UpdateMeter', 'NetTotalRefreshButton', networkMeterConfig)
+  SKIN:Bang('!Redraw', networkMeterConfig)
+  SKIN:Bang('!UpdateMeter', 'TotalTitleString', networkMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'LineGraph')
+  SKIN:Bang('!UpdateMeter', 'GraphPeakString', networkMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'Background', networkMeterConfig)
+  SKIN:Bang('!Redraw', networkMeterConfig)
+
+end
+
 function ToggleLineGraph(currentValue, showPeakNetworkUsage)
 
   currentValue = tonumber(currentValue)
