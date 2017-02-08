@@ -65,11 +65,15 @@ function TogglePing(currentValue)
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showPing', '1', networkSettingsPath)
     SKIN:Bang('!ShowMeter', 'PingString', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'PingString', 'Hidden', '0', networkMeterPath)
+    SKIN:Bang('!SetOption', 'PingString', 'Y', '#*rowSpacing*#R', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'PingString', 'Y', '#*rowSpacing*#R', networkMeterPath)
   else
     SKIN:Bang('!SetVariable', 'showPing', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showPing', '0', networkSettingsPath)
     SKIN:Bang('!HideMeter', 'PingString', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'PingString', 'Hidden', '1', networkMeterPath)
+    SKIN:Bang('!SetOption', 'PingString', 'Y', 'R', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'PingString', 'Y', 'R', networkMeterPath)
   end
 
   SKIN:Bang('!UpdateMeter', 'PingString', networkMeterConfig)
