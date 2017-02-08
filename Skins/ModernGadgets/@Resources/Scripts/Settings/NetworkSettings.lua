@@ -148,6 +148,20 @@ function TogglePeakNetworkUsage(currentValue, showLineGraph)
 
 end
 
+function SetPingUrl(url)
+  
+  url = tostring(url)
+  
+  SKIN:Bang('!SetVariable', 'pingUrl', url)
+  SKIN:Bang('!SetVariable', 'pingUrl', url, networkMeterConfig)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'pingUrl', url, networkSettingsPath)
+  SKIN:Bang('!UpdateMeter', 'PingString', networkMeterConfig)
+  SKIN:Bang('!Redraw', networkMeterConfig)
+  SKIN:Bang('!UpdateMeter', 'PingUrlInputBox')
+  SKIN:Bang('!Redraw')
+  
+end
+
 function UpdateSettings()
 
   local censorExternalIp = math.abs(tonumber(SKIN:GetVariable('censorExternalIp')) - 1)
