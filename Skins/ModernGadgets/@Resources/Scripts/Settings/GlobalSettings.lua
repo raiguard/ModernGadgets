@@ -125,3 +125,19 @@ function ToggleAutoBackups(currentValue)
   SKIN:Bang('!Refresh', 'ModernGadgets\\Config\\Setup')
 
 end
+
+function SetDefaults()
+  
+  SKIN:Bang('!CommandMeasure', 'MeasureCpuSettingsScript', 'SetDefaults()', cpuMeterConfig)
+  SKIN:Bang('!CommandMeasure', 'MeasureNetworkSettingsScript', 'SetDefaults()', networkMeterConfig)
+  SKIN:Bang('!CommandMeasure', 'MeasureGpuSettingsScript', 'SetDefaults()', gpuMeterConfig)
+  SKIN:Bang('!CommandMeasure', 'MeasureDisksSettingsScript', 'SetDefaults()', disksMeterConfig)
+  
+  ToggleBgBorder(0)
+  ToggleLargeRowSpacing(1)
+  ToggleTempUnits(1)
+  ToggleNotifyUpdates(0)
+  ToggleAutoBackups(0)
+  ToggleDevUpdates(1)
+  
+end

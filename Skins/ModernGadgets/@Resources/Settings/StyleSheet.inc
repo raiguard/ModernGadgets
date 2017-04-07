@@ -164,7 +164,6 @@ X=(#contentMarginRight# - 17)
 
 [StyleStringArrowButton]
 ImageName=#imgPath#arrow-right.png
-Grayscale=1
 ImageTint=#colorAccent#
 X=r
 Y=r
