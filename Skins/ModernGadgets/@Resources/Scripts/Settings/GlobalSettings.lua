@@ -10,6 +10,7 @@ function Initialize()
   networkMeterConfig = SKIN:GetVariable('networkMeterConfig')
   gpuMeterConfig = SKIN:GetVariable('gpuMeterConfig')
   disksMeterConfig = SKIN:GetVariable('disksMeterConfig')
+  setupSkinConfig = SKIN:GetVariable('setupSkinConfig')
   globalSettingsPath = SKIN:GetVariable('globalSettingsPath')
   styleSheetPath = SKIN:GetVariable('globalSettingsPath')
 
@@ -139,5 +140,7 @@ function SetDefaults()
   ToggleNotifyUpdates(0)
   ToggleAutoBackups(0)
   ToggleDevUpdates(1)
+  
+  SKIN:Bang('!CommandMeasure', 'MeasureCreateBackup', 'Run', setupSkinConfig)
   
 end

@@ -92,6 +92,8 @@ toggleOffImg=#imgPath#toggle-off.png
 toggleOnImg=#imgPath#toggle-on.png
 toggleLockImg=#imgPath#toggle-off-lock.png
 
+setupSkinConfig=ModernGadgets\Config\Setup
+
 ; Default Color Pallete
 cp1=107,238,98
 cp2=255,246,42
