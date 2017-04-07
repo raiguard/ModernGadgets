@@ -131,7 +131,7 @@ function ConfigCpuIcon(state)
     SKIN:Bang('!SetOption', 'CpuImage', 'H', '13')
     SKIN:Bang('!UpdateMeter', 'CpuImage')
     -- SKIN:Bang('!Redraw')
-  elseif state ~= 'GenuineAMD' and state ~= 'AuthenticAMD' then
+  elseif state == 'GenuineAMD' or state == 'AuthenticAMD' then
     SKIN:Bang('!SetOption', 'CpuImage', 'ImageName', '#*imgPath*#amd.png')
     SKIN:Bang('!SetOption', 'CpuImage', 'X', '(#*contentMargin*# + 1)')
     SKIN:Bang('!SetOption', 'CpuImage', 'Y', '(#*contentMargin*# + 1)')

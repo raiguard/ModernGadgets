@@ -295,6 +295,43 @@ function SetCpuName(name)
 
 end
 
+function ToggleTtDetection(currentValue)
+
+  currentValue = tonumber(currentValue)
+
+  if currentValue == 0 then
+      SKIN:Bang('!SetVariable', 'showTt', '1')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'showTt', '1', cpuSettingsPath)
+      SKIN:Bang('!SetVariable', 'showTt', '1', cpuMeterConfig)
+  else
+      SKIN:Bang('!SetVariable', 'showTt', '0')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'showTt', '0', cpuSettingsPath)
+      SKIN:Bang('!SetVariable', 'showTt', '0', cpuMeterConfig)
+  end
+  
+  SKIN:Bang('!UpdateMeasure', 'MeasureCpuTtCalc', cpuMeterConfig)
+  SKIN:Bang('!Redraw', cpuMeterConfig)
+
+end
+
+function ToggleTtSound(currentValue)
+
+  currentValue = tonumber(currentValue)
+
+  if currentValue == 0 then
+      SKIN:Bang('!SetVariable', 'playTtSound', '1')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'playTtSound', '1', cpuSettingsPath)
+      SKIN:Bang('!SetVariable', 'playTtSound', '1', cpuMeterConfig)
+  else
+      SKIN:Bang('!SetVariable', 'playTtSound', '0')
+      SKIN:Bang('!WriteKeyValue', 'Variables', 'playTtSound', '0', cpuSettingsPath)
+      SKIN:Bang('!SetVariable', 'playTtSound', '0', cpuMeterConfig)
+  end
+
+  SKIN:Bang('!UpdateMeasure', 'MeasureCpuTtCalc', cpuMeterConfig)
+
+end
+
 function UpdateSettings()
 
   local showCpuName = math.abs(tonumber(SKIN:GetVariable('showCpuName')) - 1)

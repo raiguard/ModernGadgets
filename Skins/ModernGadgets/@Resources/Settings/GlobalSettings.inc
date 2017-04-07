@@ -13,28 +13,6 @@ autoBackups=1
 showBgBorder=1
 largeRowSpacing=0
 
-; Color pallete
-colorPallete1=54,217,0,250
-colorPallete2=153,9,9,250
-colorPallete3=66,21,21,250
-colorPallete4=236,28,70,250
-colorPallete5=107,238,98,250
-colorPallete6=255,246,42,250
-colorPallete7=250,158,0,250
-colorPallete8=236,28,70,250
-colorPallete9=199,36,199,250
-colorPallete10=145,70,232,250
-colorPallete11=42,112,250,250
-colorPallete12=43,224,224,250
-colorPallete13=121,182,62,250
-colorPallete14=204,255,0,250
-colorPallete15=250,205,22,250
-colorPallete16=191,100,55,250
-colorPallete17=201,41,56,250
-colorPallete18=179,0,91,250
-colorPallete19=153,84,166,250
-colorPallete20=99,125,217,250
-
 ; ----- HWiNFO -----
 
 ;

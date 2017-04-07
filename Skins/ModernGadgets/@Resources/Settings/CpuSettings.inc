@@ -2,6 +2,7 @@
 
 [Variables]
 tempUom=C
+ttSoundPath=D:\Files\Settings\Caleb\Rainmeter\Skins\ModernGadgets\@Resources\Assets\Sounds\alarmalerteffect.wav
 
 ; Set automatically - don't bother changing (they will just change back)
 cpuName=auto
@@ -16,8 +17,8 @@ colorRam=107,198,250
 colorPage=255,204,0
 colorCpuFan=150,150,150
 colorAvgCpu=237,28,32
-ttHistogramAlpha=50
-colorTt=255,120,147
+ttHistogramAlpha=70
+colorTt=255,100,100
 colorCore1=107,238,98
 colorCore2=255,246,42
 colorCore3=250,158,0
@@ -47,6 +48,7 @@ showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
 showTt=1
+playTtSound=1
 
 isHwinfoAvailable=1
 useHwinfoClock=1

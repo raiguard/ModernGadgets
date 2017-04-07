@@ -64,6 +64,7 @@ fontPath=#@#Fonts\
 scriptPath=#@#Scripts\
 
 rainRgbPath=#@#Addons\RainRGB\RainRGB4.exe
+rainFilePath=#@#Addons\RainFile\RainFile.exe
 
 globalSettingsPath=#@#Settings\GlobalSettings.inc
 gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
