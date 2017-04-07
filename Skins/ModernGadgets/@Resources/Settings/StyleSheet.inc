@@ -5,7 +5,7 @@
 bgOffset=6
 bgWidth=160
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
-mgVersion=1.2.0-beta.1
+mgVersion=1.2.0-beta.2
 
 contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
