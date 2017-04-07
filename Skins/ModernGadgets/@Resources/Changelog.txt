@@ -1,5 +1,13 @@
 MODERNGADGETS CHANGELOG
 
+v1.2.0-beta.2 - 2017-4-??
+- Added network ping display to Network Meter
+- Added thermal throttling detection to CPU Meter
+- Fixed CPU Meter not adjusting the icon for non-intel CPUs
+- Added option to display network traffic in bytes/sec
+- Added reset to defaults function
+- Added line graph antialiasing toggle
+
 v1.2.0-beta.1 - 2017-2-4
 - Switched to Direct2D font rendering
 - Text alignment touch-ups
