@@ -122,21 +122,21 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock, showLineGra
       SKIN:Bang('!SetVariable', 'showCpuFan', '1')
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showCpuFan', '1', cpuSettingsPath)
 
-      SKIN:Bang('!ShowMeterGroup', 'CpuFanAlt', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'FanAltLabelString', 'Hidden', '0', cpuMeterPath)
-      SKIN:Bang('!WriteKeyValue', 'FanAltValueString', 'Hidden', '0', cpuMeterPath)
-      SKIN:Bang('!SetOption', 'FanAltLabelString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'FanAltLabelString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
+      SKIN:Bang('!ShowMeterGroup', 'CpuFan', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'FanLabelString', 'Hidden', '0', cpuMeterPath)
+      SKIN:Bang('!WriteKeyValue', 'FanValueString', 'Hidden', '0', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'FanLabelString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'FanLabelString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
 
       SetLineGraphY(showLineGraph, 1, showCpuClock)
     else
       SKIN:Bang('!SetVariable', 'showCpuFan', '0')
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showCpuFan', '0', cpuSettingsPath)
-      SKIN:Bang('!HideMeterGroup', 'CpuFanAlt', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'FanAltLabelString', 'Hidden', '1', cpuMeterPath)
-      SKIN:Bang('!WriteKeyValue', 'FanAltValueString', 'Hidden', '1', cpuMeterPath)
-      SKIN:Bang('!SetOption', 'FanAltLabelString', 'Y', 'R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'FanAltLabelString', 'Y', 'R', cpuMeterPath)
+      SKIN:Bang('!HideMeterGroup', 'CpuFan', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'FanLabelString', 'Hidden', '1', cpuMeterPath)
+      SKIN:Bang('!WriteKeyValue', 'FanValueString', 'Hidden', '1', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'FanLabelString', 'Y', 'R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'FanLabelString', 'Y', 'R', cpuMeterPath)
 
       SetLineGraphY(showLineGraph, 0, showCpuClock)
     end
@@ -144,12 +144,44 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock, showLineGra
         SKIN:Bang('!Log', 'Cannot display fan speed, for HWiNFO is not running!', 'Error')
   end
 
-  SKIN:Bang('!UpdateMeterGroup', 'CpuFanAlt', cpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'CpuFan', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
 
 end
+
+-- function ToggleAltFanDisplay(currentValue, showCpuFan, showCpuClock, showLineGraph, isHwinfoAvailable)
+--   
+--   currentValue = tonumber(currentValue)
+--   showCpuFan = tonumber(showCpuFan)
+--   showCpuClock = tonumber(showCpuClock)
+--   showLineGraph = tonumber(showLineGraph)
+--   isHwinfoAvailable = tonumber(isHwinfoAvailable)
+--   
+--   if isHwinfoAvailable == 1 then
+--     if showCpuFan == 1 then
+--       if currentValue == 0 then
+--         SKIN:Bang('!SetVariable', 'useAltFanDisplay', '1')
+--         SKIN:Bang('!SetVariable', 'useAltFanDisplay', '1', cpuMeterConfig)
+--         SKIN:Bang('!WriteKeyValue', 'Variables', 'useAltFanDisplay', '1', cpuSettingsPath)
+--         
+--         SKIN:Bang('!HideMeterGroup', 'CpuFan', cpuMeterConfig)
+--         
+--       else
+--         SKIN:Bang('!SetVariable', 'useAltFanDisplay', '0')
+--         SKIN:Bang('!SetVariable', 'useAltFanDisplay', '0', cpuMeterConfig)
+--         SKIN:Bang('!WriteKeyValue', 'Variables', 'useAltFanDisplay', '0', cpuSettingsPath)
+--         
+--       end
+--     else
+--       LogHelper('Regular fan display must be enabled first!', 'Warning')
+--     end
+--   else
+--     LogHelper('Cannot display CPU fan information without HWiNFO running!', 'Warning')
+--   end
+--   
+-- end
 
 function ToggleCpuClock(currentValue, showCpuFan, showLineGraph)
 

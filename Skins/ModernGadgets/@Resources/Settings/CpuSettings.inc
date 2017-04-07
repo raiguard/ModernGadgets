@@ -44,6 +44,7 @@ showCpuName=1
 showPageFile=0
 showCoreTemps=1
 showCpuFan=1
+; useAltFanDisplay=1
 showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
