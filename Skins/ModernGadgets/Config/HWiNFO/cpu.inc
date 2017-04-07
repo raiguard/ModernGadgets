@@ -32,6 +32,7 @@ H=16
 Command1=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-SensorId "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-SensorId# X=[Cpu0DtsSensorIdValueString:X] Y=[Cpu0DtsSensorIdValueString:Y] W=[Cpu0DtsSensorIdValueString:W]
 Command2=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-SensorInstance "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-SensorInstance# X=[Cpu0DtsSensorInstanceValueString:X] Y=[Cpu0DtsSensorInstanceValueString:Y] W=[Cpu0DtsSensorInstanceValueString:W]
 Command3=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core0Temp "$UserInput$" "#hwinfoFilePath#"][!CommandMeasure MeasureHwinfoConfigScript "FillIDs('HWiNFO-CPU0-DTS-Core', 'Temp', '[MeasureInputCpu0Dts]', '#*hwinfoFilePath*#')"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-Core0Temp# X=[Cpu0DtsCore0TempValueString:X] Y=[Cpu0DtsCore0TempValueString:Y] W=[Cpu0DtsCore0TempValueString:W]
+Command4=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-PackageTt "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-PackageTt# X=[Cpu0DtsPackageTtValueString:X] Y=[Cpu0DtsPackageTtValueString:Y] W=[Cpu0DtsPackageTtValueString:W]
 DynamicVariables=1
 
 [MeasureInputMobo]
@@ -105,6 +106,17 @@ HWiNFOType=CurrentValue
 HWiNFOLogHandler=2
 IfCondition=MeasureHwinfoTestCpu0DtsSensorId = -9102
 IfTrueAction=[!SetOptionGroup Cpu0DtsValues MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorSensorNotFound"][!UpdateMeterGroup Cpu0DtsValues][!Redraw]
+
+[MeasureHwifnoTestCpu0DtsPackageTt]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-DTS-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-DTS-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-DTS-PackageTt#
+HWiNFOType=CurrentValue
+HWiNFOLogHandler=2
+IfCondition=MeasureHwifnoTestCpu0DtsPackageTt = -9201
+IfTrueAction=[!SetOption Cpu0DtsPackageTtValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Cpu0DtsPackageTtValueString][!Redraw]
 
 [MeasureHwinfoTestCpu0DtsCore0Temp]
 Measure=Plugin
@@ -235,6 +247,18 @@ Meter=String
 MeterStyle=StyleString | StyleStringHwinfoValue
 Text="#HWiNFO-CPU0-DTS-SensorInstance#"
 LeftMouseUpAction=[!CommandMeasure MeasureInputCpu0Dts "Executebatch 2"]
+Group=Cpu0DtsValues
+
+[Cpu0DtsPackageTtLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoLabel
+Text="Thermal Throttling"
+
+[Cpu0DtsPackageTtValueString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoValue
+Text="#HWiNFO-CPU0-DTS-PackageTt#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputCpu0Dts "Executebatch 4"]
 Group=Cpu0DtsValues
 
 [Cpu0DtsCore0TempLabelString]

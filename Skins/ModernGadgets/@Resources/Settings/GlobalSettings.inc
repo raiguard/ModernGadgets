@@ -62,26 +62,6 @@ HWiNFO-CPU0-Core7VID=0x2000007
 HWiNFO-CPU0-Core8VID=0x2000006
 ; core 9 voltage (volts)
 HWiNFO-CPU0-Core9VID=0x2000007
-; core 0 thermal throttling (yes/no)
-HWiNFO-CPU0-Core0Tt=0x8000000
-; core 1 thermal throttling (yes/no)
-HWiNFO-CPU0-Core1Tt=0x8000001
-; core 2 thermal throttling (yes/no)
-HWiNFO-CPU0-Core2Tt=0x8000002
-; core 3 thermal throttling (yes/no)
-HWiNFO-CPU0-Core3Tt=0x8000003
-; core 4 thermal throttling (yes/no)
-HWiNFO-CPU0-Core4Tt=0x8000004
-; core 5 thermal throttling (yes/no)
-HWiNFO-CPU0-Core5Tt=0x8000005
-; core 6 thermal throttling (yes/no)
-HWiNFO-CPU0-Core6Tt=0x8000006
-; core 7 thermal throttling (yes/no)
-HWiNFO-CPU0-Core7Tt=0x8000007
-; core 8 thermal throttling (yes/no)
-HWiNFO-CPU0-Core8Tt=0x8000006
-; core 9 thermal throttling (yes/no)
-HWiNFO-CPU0-Core9Tt=0x8000007
 
 ;
 ; CPU 0 DTS
@@ -110,6 +90,8 @@ HWiNFO-CPU0-DTS-Core7Temp=0x1000007
 HWiNFO-CPU0-DTS-Core8Temp=0x1000008
 ; core 8 temperature (degrees)
 HWiNFO-CPU0-DTS-Core9Temp=0x1000009
+; package/ring thermal throttling (yes/no)
+HWiNFO-CPU0-DTS-PackageTt=0x800000c
 
 ;
 ; Motherboard
