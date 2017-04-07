@@ -87,6 +87,42 @@ function TogglePing(currentValue)
 
 end
 
+function ToggleTrafficSuffix(currentValue)
+  
+  currentValue = tonumber(currentValue)
+  
+  if currentValue == 0 then
+    SKIN:Bang('!SetVariable', 'showTrafficInBytes', '1')
+    SKIN:Bang('!SetVariable', 'showTrafficInBytes', '1', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'showTrafficInBytes', '1', networkSettingsPath)
+    
+    SKIN:Bang('!SetVariable', 'trafficSuffix', 'B/s', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'trafficSuffix', 'B/s', networkSettingsPath)
+    SKIN:Bang('!DisableMeasure', 'MeasureNetOutBitsCalc', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'MeasureNetOutBitsCalc', 'Disabled', '1', networkMeterPath)
+    
+    SKIN:Bang('!SetOption', 'GraphPeakString', 'MeasureName', 'MeasureMaxBytesPerSec', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphPeakString', 'MeasureName', 'MeasureMaxBytesPerSec', networkMeterPath)
+  else
+    SKIN:Bang('!SetVariable', 'showTrafficInBytes', '0')
+    SKIN:Bang('!SetVariable', 'showTrafficInBytes', '0', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'showTrafficInBytes', '0', networkSettingsPath)
+    
+    SKIN:Bang('!SetVariable', 'trafficSuffix', 'bit/s', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'trafficSuffix', 'bit/s', networkSettingsPath)
+    SKIN:Bang('!EnableMeasure', 'MeasureNetOutBitsCalc', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'MeasureNetOutBitsCalc', 'Disabled', '0', networkMeterPath)
+    
+    SKIN:Bang('!SetOption', 'GraphPeakString', 'MeasureName', 'MeasureMaxBitsPerSec', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphPeakString', 'MeasureName', 'MeasureMaxBitsPerSec', networkMeterPath)
+  end
+  
+  SKIN:Bang('!UpdateMeterGroup', 'NetInOut', networkMeterConfig)
+  SKIN:Bang('!UpdateMeter', 'GraphPeakString', networkMeterConfig)
+  SKIN:Bang('!Redraw', networkMeterConfig)
+  
+end
+
 function ToggleLineGraph(currentValue, showPeakNetworkUsage)
 
   currentValue = tonumber(currentValue)
@@ -166,6 +202,8 @@ function UpdateSettings()
 
   local censorExternalIp = math.abs(tonumber(SKIN:GetVariable('censorExternalIp')) - 1)
   local showSpeedtestButton = math.abs(tonumber(SKIN:GetVariable('showSpeedtestButton')) - 1)
+  local showPing = math.abs(tonumber(SKIN:GetVariable('showPing')) - 1)
+  local showTrafficInBytes = math.abs(tonumber(SKIN:GetVariable('showTrafficInBytes')) - 1)
   local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
   local showPeakNetworkUsage = tonumber(SKIN:GetVariable('showPeakNetworkUsage'))
 
@@ -173,6 +211,8 @@ function UpdateSettings()
 
   ToggleCensorExternalIp(censorExternalIp)
   ToggleSpeedtestButton(showSpeedtestButton)
+  TogglePing(showPing)
+  ToggleTrafficSuffix(showTrafficInBytes)
   ToggleLineGraph(math.abs(showLineGraph - 1), showPeakNetworkUsage)
   TogglePeakNetworkUsage(math.abs(showPeakNetworkUsage - 1), showLineGraph)
 
@@ -182,6 +222,8 @@ function SetDefaults()
 
   ToggleCensorExternalIp(1)
   ToggleSpeedtestButton(0)
+  TogglePing(0)
+  ToggleTrafficSuffix(1)
   ToggleLineGraph(0, 1)
   TogglePeakNetworkUsage(0, 1)
 
