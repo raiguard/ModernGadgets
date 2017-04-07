@@ -348,6 +348,7 @@ function UpdateSettings()
   local showAvgCpu = tonumber(SKIN:GetVariable('showAvgCpu'))
   local cpuName = tostring(SKIN:GetVariable('cpuName'))
   local showTt = tonumber(SKIN:GetVariable('showTt'))
+  local playTtSound = tonumber(SKIN:GetVariable('playTtSound'))
   local isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
   local cpuCores = tonumber(SKIN:GetVariable('threadCount'))
 
@@ -361,6 +362,8 @@ function UpdateSettings()
   ToggleLineGraph(math.abs(showLineGraph - 1), showCpuFan, showCpuClock)
   ToggleAvgCpuGraph(math.abs(showAvgCpu - 1), showLineGraph)
   SetCpuName(cpuName)
+  ToggleTtDetection(math.abs(showTt - 1))
+  ToggleTtSound(math.abs(playTtSound - 1), showTt)
 
 end
 
@@ -377,6 +380,8 @@ function SetDefaults()
   ToggleLineGraph(0, 1, 1)
   ToggleAvgCpuGraph(0,1)
   SetCpuName('')
+  ToggleTtDetection(0)
+  ToggleTtSound(0, 1)
 
 end
 
