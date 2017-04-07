@@ -1,6 +1,12 @@
 MODERNGADGETS CHANGELOG
 
-v1.2.0-beta.2 - 2017-4-??
+v1.2.0-beta.3 - 2017-4-7
+- Corrected typo in changelog
+- Added manual max VRAM toggle to GPU meter
+- Changed how thermal throttling detection works
+- Added thermal throttling entry ID to config tool
+
+v1.2.0-beta.2 - 2017-4-6
 - Added network ping display to Network Meter
 - Added thermal throttling detection to CPU Meter
 - Fixed CPU Meter not adjusting the icon for non-intel CPUs
