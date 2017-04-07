@@ -314,18 +314,23 @@ function ToggleTtDetection(currentValue)
 
 end
 
-function ToggleTtSound(currentValue)
+function ToggleTtSound(currentValue, showTt)
 
   currentValue = tonumber(currentValue)
-
-  if currentValue == 0 then
-      SKIN:Bang('!SetVariable', 'playTtSound', '1')
-      SKIN:Bang('!WriteKeyValue', 'Variables', 'playTtSound', '1', cpuSettingsPath)
-      SKIN:Bang('!SetVariable', 'playTtSound', '1', cpuMeterConfig)
+  showTt = tonumber(showTt)
+  
+  if showTt == 1 then
+    if currentValue == 0 then
+        SKIN:Bang('!SetVariable', 'playTtSound', '1')
+        SKIN:Bang('!WriteKeyValue', 'Variables', 'playTtSound', '1', cpuSettingsPath)
+        SKIN:Bang('!SetVariable', 'playTtSound', '1', cpuMeterConfig)
+    else
+        SKIN:Bang('!SetVariable', 'playTtSound', '0')
+        SKIN:Bang('!WriteKeyValue', 'Variables', 'playTtSound', '0', cpuSettingsPath)
+        SKIN:Bang('!SetVariable', 'playTtSound', '0', cpuMeterConfig)
+    end
   else
-      SKIN:Bang('!SetVariable', 'playTtSound', '0')
-      SKIN:Bang('!WriteKeyValue', 'Variables', 'playTtSound', '0', cpuSettingsPath)
-      SKIN:Bang('!SetVariable', 'playTtSound', '0', cpuMeterConfig)
+    LogHelper("Thermal throttling detection is not enabled!", "Warning")
   end
 
   SKIN:Bang('!UpdateMeasure', 'MeasureCpuTtCalc', cpuMeterConfig)
@@ -342,6 +347,7 @@ function UpdateSettings()
   local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
   local showAvgCpu = tonumber(SKIN:GetVariable('showAvgCpu'))
   local cpuName = tostring(SKIN:GetVariable('cpuName'))
+  local showTt = tonumber(SKIN:GetVariable('showTt'))
   local isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
   local cpuCores = tonumber(SKIN:GetVariable('threadCount'))
 
