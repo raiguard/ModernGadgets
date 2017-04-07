@@ -61,6 +61,20 @@ function ToggleTempUnits(currentValue)
 
 end
 
+function ToggleLineGraphAa(currentValue)
+  
+  currentValue = tonumber(currentValue)
+  
+  if currentValue == 0 then
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'lineGraphAa', '1', globalSettingsPath)
+  else
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'lineGraphAa', '0', globalSettingsPath)
+  end
+  
+  SKIN:Bang('!RefreshGroup', 'ModernGadgets')
+  
+end
+
 function ToggleNotifyUpdates(currentValue)
 
   currentValue = tonumber(currentValue)
@@ -137,6 +151,7 @@ function SetDefaults()
   ToggleBgBorder(0)
   ToggleLargeRowSpacing(1)
   ToggleTempUnits(1)
+  ToggleLineGraphAa(1)
   ToggleNotifyUpdates(0)
   ToggleAutoBackups(0)
   ToggleDevUpdates(1)
