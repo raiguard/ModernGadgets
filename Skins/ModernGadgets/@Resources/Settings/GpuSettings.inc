@@ -8,6 +8,8 @@ showVideoClock=1
 showCoreVoltage=1
 showLineGraph=1
 
+useManualMaxVram=0
+maxVram=3000
 useMoboFanSensor=0
 
 sliMode=0

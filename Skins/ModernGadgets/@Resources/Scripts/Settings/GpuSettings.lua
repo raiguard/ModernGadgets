@@ -44,6 +44,37 @@ function ToggleMemoryClock(currentValue)
 
 end
 
+function ToggleManualMaxVram(currentValue)
+  
+  currentValue = tonumber(currentValue)
+  
+  if currentValue == 0 then
+    SKIN:Bang('!SetVariable', 'useManualMaxVram', '1')
+    SKIN:Bang('!SetVariable', 'useManualMaxVram', '1', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'useManualMaxVram', '1', gpuSettingsPath)
+  else
+    SKIN:Bang('!SetVariable', 'useManualMaxVram', '0')
+    SKIN:Bang('!SetVariable', 'useManualMaxVram', '0', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Variables', 'useManualMaxVram', '0', gpuSettingsPath)
+  end
+  
+  SKIN:Bang('!UpdateMeasure', 'MeasureGpu0MemTotal', gpuMeterConfig)
+  SKIN:Bang('!Redraw', gpuMeterConfig)
+  
+end
+
+function SetManualMaxVram(value)
+  
+  value = tonumber(value)
+  
+  SKIN:Bang('!SetVariable', 'maxVram', value)
+  SKIN:Bang('!SetVariable', 'maxVram', value, gpuMeterConfig)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'maxVram', value, gpuSettingsPath)
+  
+  SKIN:Bang('!UpdateMeasure', 'MeasureGpu0MemTotal', gpuMeterConfig)
+  SKIN:Bang('!Redraw', gpuMeterConfig)
+end
+
 function ToggleMemoryController(currentValue)
 
   currentValue = tonumber(currentValue)
@@ -265,6 +296,8 @@ function UpdateSettings()
   local showCoreVoltage = tonumber(SKIN:GetVariable('showCoreVoltage'))
   local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
   local useMoboFanSensor = math.abs(tonumber(SKIN:GetVariable('useMoboFanSensor')) - 1)
+  local useManualMaxVram = math.abs(tonumber(SKIN:GetVariable('useManualMaxVram')) - 1)
+  local maxVram = tonumber(SKIN:GetVariable('maxVram'))
 
   ToggleMemoryClock(showMemoryClock)
   ToggleMemoryController(showMemoryController)
@@ -272,6 +305,8 @@ function UpdateSettings()
   ToggleCoreVoltage(math.abs(showCoreVoltage - 1), showVideoClock, showLineGraph)
   ToggleLineGraph(math.abs(showLineGraph - 1), showVideoClock, showCoreVoltage)
   ToggleMoboFan(useMoboFanSensor)
+  ToggleManualMaxVram(useManualMaxVram)
+  SetManualMaxVram(maxVram)
 
 end
 
@@ -283,5 +318,7 @@ function SetDefaults()
   ToggleCoreVoltage(0, 1, 1)
   ToggleLineGraph(0, 1, 1)
   ToggleMoboFan(1)
+  ToggleManualMaxVram(1)
+  SetManualMaxVram(3000)
 
 end
