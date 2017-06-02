@@ -98,6 +98,8 @@ function ToggleTrafficSuffix(currentValue)
     
     SKIN:Bang('!SetVariable', 'trafficSuffix', 'B/s', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Variables', 'trafficSuffix', 'B/s', networkSettingsPath)
+    SKIN:Bang('!DisableMeasure', 'MeasureNetInBitsCalc', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'MeasureNetInBitsCalc', 'Disabled', '1', networkMeterPath)
     SKIN:Bang('!DisableMeasure', 'MeasureNetOutBitsCalc', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'MeasureNetOutBitsCalc', 'Disabled', '1', networkMeterPath)
     
@@ -110,6 +112,8 @@ function ToggleTrafficSuffix(currentValue)
     
     SKIN:Bang('!SetVariable', 'trafficSuffix', 'bit/s', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Variables', 'trafficSuffix', 'bit/s', networkSettingsPath)
+    SKIN:Bang('!EnableMeasure', 'MeasureNetInBitsCalc', networkMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'MeasureNetInBitsCalc', 'Disabled', '0', networkMeterPath)
     SKIN:Bang('!EnableMeasure', 'MeasureNetOutBitsCalc', networkMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'MeasureNetOutBitsCalc', 'Disabled', '0', networkMeterPath)
     
