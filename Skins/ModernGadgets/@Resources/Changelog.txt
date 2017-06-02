@@ -2,6 +2,9 @@ MODERNGADGETS CHANGELOG
 
 Official Releases
 
+v1.2.1 - 2017-6-??
+- Fixed non-hyperthreaded core temperatures
+
 v1.2.0 - 2017-4-19
 - Added average CPU usage graph mode
 - Added global config skin

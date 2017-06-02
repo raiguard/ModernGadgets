@@ -1,7 +1,7 @@
 -- MODERNGADGETS CPU CONFIG SCRIPT
 -- Written by iamanai
 
-isDbg = false
+isDbg = true
 
 function Initialize()
 
@@ -12,7 +12,11 @@ end
 
 function Update() end
 
-function ConfigCores(threads, showAvgCpu)
+function ConfigCores(threads, showAvgCpu, threadsPerCore)
+  
+  LogHelper('Debug', 'Debug')
+  
+  ConfigureTempVariables(threadsPerCore, threads)
 
   for i=1,20 do
     if (i <= threads) then
@@ -69,6 +73,26 @@ function ConfigCores(threads, showAvgCpu)
   SKIN:Bang('!SetVariable', 'cpuCores', threads)
   SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads, cpuMeterPath)
   SKIN:Bang('!WriteKeyValue', 'Variables', 'threadCount', threads, cpuSettingsPath)
+end
+
+function ConfigureTempVariables(threadsPerCore, threads)
+  
+  threadsPerCore = 1
+  
+  if threadsPerCore == 1 then
+    for i=1,20 do
+      SKIN:Bang('!WriteKeyValue', 'MeasureCpuTempCore' .. i, 'HWiNFOEntryId', '#*HWiNFO-CPU0-DTS-Core' .. (i-1) .. 'Temp*#')
+    end
+  elseif threadsPerCore == 2 then
+    j = 0
+    for i=1,20 do
+      SKIN:Bang('!WriteKeyValue', 'MeasureCpuTempCore' .. i, 'HWiNFOEntryId', '#*HWiNFO-CPU0-DTS-Core' .. j .. 'Temp*#')
+      if (i-1) % 2 == 1 then j = j + 1 end
+    end
+  else
+    LogHelper('Invalid hyperthreading value', 'Error')
+  end
+  
 end
 
 function ToggleTemps(threads, mode)
