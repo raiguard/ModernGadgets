@@ -2,16 +2,19 @@
 
 [Variables]
 ; General positioning and background
-bgOffset=6
-bgWidth=160
-bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
+bgOffset=5
+bgWidth=150
+bgWidthAbs=(#bgWidth# + (#bgOffset# * 2) + 2)
 mgVersion=1.2.0
+
+scale=1
 
 contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
 contentMarginCenter=((#bgWidth# / 2) + #bgOffset#)
 contentMarginRight=((#bgWidth# + #bgOffset#) - #contentMarginAbs# - 1)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
+columnX=(#contentMarginCenter# + 2)
 
 rowSpacing=1
 barTextOffset=1
@@ -129,6 +132,7 @@ W=#bgWidth#
 H=([BackgroundHeight:Y] - (#bgOffset# * 2))
 DynamicVariables=1
 Group=Background
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleBackgroundBorder]
 ImageName=#imgPath#border.png
@@ -142,6 +146,7 @@ H=([BackgroundHeight:Y] - (#bgOffset# * 2) + 2)
 DynamicVariables=1
 Hidden=(#showBgBorder# = 1) ? 0 : 1
 Group=Background
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleBackgroundHeight]
 SolidColor=255,255,255,0
@@ -150,6 +155,7 @@ Y=(#contentMarginAbs# + #bgOffset#)R
 W=#bgWidthAbs#
 H=1
 Group=Background
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleString]
 FontColor=#colorMain#
@@ -158,6 +164,7 @@ FontFace=#fontFace#
 X=#contentMargin#
 Y=#rowSpacing#R
 Antialias=1
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleStringArrowButtonLabel]
 FontSize=10
@@ -172,10 +179,12 @@ Y=r
 W=17
 H=17
 Antialias=0
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleToggleImageGadgets]
 X=110
 DynamicVariables=1
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleStringSectionHeader]
 FontSize=12
@@ -216,6 +225,7 @@ Y=-1r
 W=31
 H=20
 Group=ToggleButtons
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleStringConfigSectionHeader]
 FontFace=#fontFace# Cn
@@ -255,6 +265,7 @@ w=(#contentWidth#)
 h=#barHeight#
 BarOrientation=Horizontal
 DynamicVariables=1
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleCloseButton]
 ImageName=#imgPath#close.png
@@ -267,6 +278,7 @@ Antialias=0
 ToolTipText="Close"
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleSettingsButton]
 ImageName=#imgPath#Wrench.png
@@ -281,12 +293,14 @@ Group=ConfigButton
 MouseOverAction=[!SetOption ConfigButton ImageTint "#colorButtonPress#"][!UpdateMeter ConfigButton][!Redraw]
 MouseLeaveAction=[!SetOption ConfigButton ImageTint ""][!UpdateMeter ConfigButton][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleHelpButton]
 ImageName=#imgPath#help.png
 W=14
 H=14
 Antialias=0
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [StyleStringColorPickerLabel]
 StringAlign=Right
@@ -299,3 +313,4 @@ Shape=Rectangle 0,0,25,17,3 | Stroke Color 100,100,100,100 | StrokeWidth 1 | Ext
 X=5r
 Y=r
 DynamicVariables=1
+TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
