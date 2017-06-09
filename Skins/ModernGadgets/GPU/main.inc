@@ -82,12 +82,15 @@ Meter=String
 MeterStyle=StyleString | StyleStringInfo
 Text="#textMemoryUsedGpu0#B / #textMemoryTotalGpu0#B"
 DynamicVariables=1
+Group=Memory
 
 [Gpu0MemoryUsageValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0MemUsedPercent
 Text="%1%"
+Group=Memory
+DynamicVariables=1
 
 [Gpu0MemoryUsageBar]
 Meter=Bar
@@ -95,6 +98,7 @@ MeterStyle=StyleBar
 MeasureName=MeasureGpu0MemUsedPercent
 BarColor=#colorMemoryUsage#
 DynamicVariables=1
+Group=Memory
 
 ; ----- Fan -----
 

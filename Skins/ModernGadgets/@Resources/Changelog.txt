@@ -51,6 +51,11 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.2.1-beta.1 - 2017-6-9
+- Fixed non-hyperthreaded core temperatures
+- Fixed bytes/sec option in Network Meter
+- Fixed manual max VRAM not working properly
+
 v1.2.0-beta.3 - 2017-4-7
 - Corrected typo in changelog
 - Added manual max VRAM toggle to GPU meter
