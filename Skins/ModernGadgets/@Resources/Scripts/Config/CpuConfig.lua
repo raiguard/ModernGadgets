@@ -77,8 +77,6 @@ end
 
 function ConfigureTempVariables(threadsPerCore, threads)
   
-  threadsPerCore = 1
-  
   if threadsPerCore == 1 then
     for i=1,20 do
       SKIN:Bang('!WriteKeyValue', 'MeasureCpuTempCore' .. i, 'HWiNFOEntryId', '#*HWiNFO-CPU0-DTS-Core' .. (i-1) .. 'Temp*#')
