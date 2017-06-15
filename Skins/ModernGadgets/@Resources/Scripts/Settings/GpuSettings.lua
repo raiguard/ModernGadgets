@@ -52,13 +52,26 @@ function ToggleManualMaxVram(currentValue)
     SKIN:Bang('!SetVariable', 'useManualMaxVram', '1')
     SKIN:Bang('!SetVariable', 'useManualMaxVram', '1', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Variables', 'useManualMaxVram', '1', gpuSettingsPath)
+    SKIN:Bang('!SetOption', 'Gpu0MemoryUsageValueString', 'MeasureName', 'MeasureGpu0MemUsedPercentAlt', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryUsageValueString', 'MeasureName', 'MeasureGpu0MemUsedPercentAlt', gpuMeterPath)
+    SKIN:Bang('!SetOption', 'Gpu0MemoryUsageBar', 'MeasureName', 'MeasureGpu0MemUsedPercentAltBar', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryUsageBar', 'MeasureName', 'MeasureGpu0MemUsedPercentAltBar', gpuMeterPath)
+    SKIN:Bang('!SetOption', 'GraphLines', 'MeasureName3', 'MeasureGpu0MemUsedPercentAlt', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'MeasureName3', 'MeasureGpu0MemUsedPercentAlt', gpuMeterPath)
   else
     SKIN:Bang('!SetVariable', 'useManualMaxVram', '0')
     SKIN:Bang('!SetVariable', 'useManualMaxVram', '0', gpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'Variables', 'useManualMaxVram', '0', gpuSettingsPath)
+    SKIN:Bang('!SetOption', 'Gpu0MemoryUsageValueString', 'MeasureName', 'MeasureGpu0MemUsedPercent', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryUsageValueString', 'MeasureName', 'MeasureGpu0MemUsedPercent', gpuMeterPath)
+    SKIN:Bang('!SetOption', 'Gpu0MemoryUsageBar', 'MeasureName', 'MeasureGpu0MemUsedPercent', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'Gpu0MemoryUsageBar', 'MeasureName', 'MeasureGpu0MemUsedPercent', gpuMeterPath)
+    SKIN:Bang('!SetOption', 'GraphLines', 'MeasureName3', 'MeasureGpu0MemUsedPercent', gpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'MeasureName3', 'MeasureGpu0MemUsedPercent', gpuMeterPath)
   end
   
-  SKIN:Bang('!UpdateMeasure', 'MeasureGpu0MemTotal', gpuMeterConfig)
+  SKIN:Bang('!UpdateMeasureGroup', 'Memory', gpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'Memory', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
   
 end
@@ -320,5 +333,18 @@ function SetDefaults()
   ToggleMoboFan(1)
   ToggleManualMaxVram(1)
   SetManualMaxVram(3000)
+
+end
+
+-- function to make logging messages less cluttered
+function LogHelper(message, type)
+
+  if isDbg == true then
+    SKIN:Bang("!Log", message, type)
+  elseif type ~= 'Debug' and type ~= nil then
+  	SKIN:Bang("!Log", message, type)
+	else
+    SKIN:Bang("!Log", message)
+  end
 
 end

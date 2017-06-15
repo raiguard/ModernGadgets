@@ -1,7 +1,7 @@
 -- MODERNGADGETS CPU CONFIG SCRIPT
 -- Written by iamanai
 
-isDbg = false
+isDbg = true
 
 function Initialize()
 
@@ -13,6 +13,8 @@ end
 function Update() end
 
 function ConfigCores(threads, showAvgCpu, threadsPerCore)
+  
+  LogHelper('Debug', 'Debug')
   
   ConfigureTempVariables(threadsPerCore, threads)
 
@@ -75,7 +77,7 @@ end
 
 function ConfigureTempVariables(threadsPerCore, threads)
   
-  threadsPerCore = 2
+  threadsPerCore = 1
   
   if threadsPerCore == 1 then
     for i=1,20 do
