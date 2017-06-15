@@ -211,7 +211,6 @@ DynamicVariables=1
 Antialias=#lineGraphAa#
 Group=LineGraph
 Hidden=0
-TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 [GraphBorder]
 Meter=Image
@@ -224,4 +223,3 @@ W=#contentWidth#
 H=#graphHeight#
 Group=LineGraph
 Hidden=0
-TransformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
