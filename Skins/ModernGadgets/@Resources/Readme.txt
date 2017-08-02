@@ -1,6 +1,6 @@
 MODERNGADGETS
-Version 1.2.0
-By iamanai
+Version 1.2.1
+By raiguard
 
 ----------------------------------------
 ABOUT
@@ -18,7 +18,7 @@ LICENSE AND CREDITS
 This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
 Source code is available on GitHub under the MIT License.
 
-Designed and programmed by Caleb Heuer (iamanai).
+Designed and programmed by Caleb Heuer (raiguard).
 Backend code based on "Gadgets" by SilverAzide.
 
 Settings toggle buttons and close buttons taken from Droptop (by virginityrocks).
@@ -34,4 +34,4 @@ balala - Help with fixing Disks Meter's dynamic height adjustment
 CONTACT
 
 Email: iamanaiofficial@gmail.com
-Twitter: @iamanai_
+Twitter: @raiguard_
