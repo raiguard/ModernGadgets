@@ -23,7 +23,7 @@ function Initialize()
   gpuMeterPath = SKIN:GetVariable('gpuMeterPathBase')
   disksMeterPath = SKIN:GetVariable('disksMeterPath')
 
-end
+end 
 
 function Update() end
 
@@ -72,14 +72,15 @@ function CheckForBackup()
   local file = io.open(backupsPath .. fileNames[1])
   if file == nil then
     SKIN:Bang('!ActivateConfig', 'ModernGadgets\\Config\\GadgetManager', 'Config.ini')
+    SKIN:Bang('!CommandMeasure', 'MeasureCreateBackup', 'Run')
   else
     SKIN:Bang('!Hide')
     SKIN:Bang('!ShowMeterGroup', 'Essentials')
     SKIN:Bang('!ShowMeterGroup', 'ImportBackupPrompt')
     SKIN:Bang('!Redraw')
     SKIN:Bang('!ShowFade')
+    file:close()
   end
-  io.close(file)
 end
 
 -- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
