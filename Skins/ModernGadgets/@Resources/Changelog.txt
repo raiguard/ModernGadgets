@@ -6,6 +6,7 @@ v1.2.1 - 2017-8-2
 - Fixed non-hyperthreaded core temperatures
 - Fixed bytes/sec option in Network Meter
 - Fixed manual max VRAM not working properly
+- Changed update checker URL
 
 v1.2.0 - 2017-4-19
 - Added average CPU usage graph mode
