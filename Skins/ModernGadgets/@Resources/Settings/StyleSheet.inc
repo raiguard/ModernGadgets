@@ -2,12 +2,10 @@
 
 [Variables]
 ; General positioning and background
-bgOffset=5
-bgWidth=150
-bgWidthAbs=(#bgWidth# + (#bgOffset# * 2) + 1)
-mgVersion=1.2.0
-
-scale=1
+bgOffset=6
+bgWidth=160
+bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
+mgVersion=1.2.1
 
 contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
