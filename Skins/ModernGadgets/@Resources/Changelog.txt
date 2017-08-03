@@ -2,12 +2,9 @@ MODERNGADGETS CHANGELOG
 
 Official Releases
 
-v1.3.0 - 2017-??-??
-- Changed from ANSI to UTF-16 LE file encoding
-- New gadget: Digital clock
-- Added new NetMonitor support to Network Meter for more accurate readings
-- Changed skin backgrounds to use the shape meter
-
+v1.2.2 - 2017-8-3
+- ACTUALLY fixed core temperature issues
+- Changed all author references to raiguard
 
 v1.2.1 - 2017-8-2
 - Fixed non-hyperthreaded core temperatures
@@ -110,3 +107,11 @@ v1.0.0-rc.2 - 2016-11-18
 
 v1.0.0-rc.1 - 2016-11-14
  - Initial release
+
+WIP Releases
+
+v1.3.0 - 2017-??-??
+- Changed from ANSI to UTF-16 LE file encoding
+- New gadget: Digital clock
+- Added new NetMonitor support to Network Meter for more accurate readings
+- Changed skin backgrounds to use the shape meter
