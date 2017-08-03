@@ -300,8 +300,8 @@ function SetLineGraphY(showLineGraph, showCpuFan, showCpuClock)
       SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', '5R', cpuMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', '5R', cpuMeterPath)
     else
-      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', '2R', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', '2R', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'ThermalThrottlingHistogram', 'Y', '1R', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'ThermalThrottlingHistogram', 'Y', '1R', cpuMeterPath)
     end
   end
 
