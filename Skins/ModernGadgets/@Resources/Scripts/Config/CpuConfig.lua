@@ -73,11 +73,10 @@ function ConfigCores(threads, showAvgCpu, threadsPerCore)
   SKIN:Bang('!SetVariable', 'cpuCores', threads)
   SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuCores', threads, cpuMeterPath)
   SKIN:Bang('!WriteKeyValue', 'Variables', 'threadCount', threads, cpuSettingsPath)
+  SKIN:Bang('!WriteKeyValue', 'Variables', 'threadsPerCore', threadsPerCore, cpuMeterPath)
 end
 
 function ConfigureTempVariables(threadsPerCore, threads)
-  
-  threadsPerCore = 1
   
   if threadsPerCore == 1 then
     for i=1,20 do
@@ -92,6 +91,8 @@ function ConfigureTempVariables(threadsPerCore, threads)
   else
     LogHelper('Invalid hyperthreading value', 'Error')
   end
+
+  SKIN:Bang('!Refresh')
   
 end
 
