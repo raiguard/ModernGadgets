@@ -2,6 +2,13 @@ MODERNGADGETS CHANGELOG
 
 Official Releases
 
+v1.3.0 - 2017-??-??
+- Changed from ANSI to UTF-16 LE file encoding
+- New gadget: Digital clock
+- Added new NetMonitor support to Network Meter for more accurate readings
+- Changed skin backgrounds to use the shape meter
+
+
 v1.2.1 - 2017-8-2
 - Fixed non-hyperthreaded core temperatures
 - Fixed bytes/sec option in Network Meter
