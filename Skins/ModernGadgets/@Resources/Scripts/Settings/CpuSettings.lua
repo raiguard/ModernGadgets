@@ -61,8 +61,8 @@ function TogglePage(currentValue)
     SKIN:Bang('!WriteKeyValue', 'PageBar', 'Hidden', '0', cpuMeterPath)
     SKIN:Bang('!SetOption', 'PageLabelString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'PageLabelString', 'Y', '#*rowSpacing*#R', cpuMeterPath)
-    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor22', colorPage, cpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor22', colorPage, cpuMeterPath)
+    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor34', colorPage, cpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor34', colorPage, cpuMeterPath)
   else
     SKIN:Bang('!SetVariable', 'showPageFile', '0')
     SKIN:Bang('!WriteKeyValue', 'Variables', 'showPageFile', '0', cpuSettingsPath)
@@ -73,8 +73,8 @@ function TogglePage(currentValue)
     SKIN:Bang('!WriteKeyValue', 'PageBar', 'Hidden', '1', cpuMeterPath)
     SKIN:Bang('!SetOption', 'PageLabelString', 'Y', '-#*barTextOffset*#R', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'PageLabelString', 'Y', '-#*barTextOffset*#R', cpuMeterPath)
-    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor22', '0,0,0,0', cpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor22', '0,0,0,0', cpuMeterPath)
+    SKIN:Bang('!SetOption', 'GraphLines', 'LineColor34', '0,0,0,0', cpuMeterConfig)
+    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor34', '0,0,0,0', cpuMeterPath)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CpuPage', cpuMeterConfig)
@@ -261,18 +261,18 @@ function ToggleAvgCpuGraph(currentValue, showLineGraph)
 
       SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0', cpuMeterConfig)
       SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0', cpuMeterPath)
-      for i=2,20 do
+      for i=2,32 do
         SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '0,0,0,0', cpuMeterConfig)
         SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '0,0,0,0', cpuMeterPath)
       end
-      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor21', '#*colorAvgCpu*#', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor33', '#*colorAvgCpu*#', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor33', '#*colorAvgCpu*#', cpuMeterPath)
     else
       SKIN:Bang('!SetVariable', 'showAvgCpu', '0')
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showAvgCpu', '0', cpuSettingsPath)
       SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ConfigCores(#threadCount#, 0)', cpuMeterConfig)
-      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor21', '0,0,0,0', cpuMeterConfig)
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor21', '0,0,0,0', cpuMeterPath)
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor33', '0,0,0,0', cpuMeterConfig)
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor33', '0,0,0,0', cpuMeterPath)
     end
 
     SKIN:Bang('!UpdateMeter', 'GraphLines', cpuMeterConfig)

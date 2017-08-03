@@ -35,10 +35,23 @@ colorCore13=201,41,56
 colorCore14=179,0,91
 colorCore15=153,84,166
 colorCore16=99,125,217
-colorCore17=107,238,98
-colorCore18=255,246,42
-colorCore19=250,158,0
-colorCore20=236,28,70
+colorCore17=#colorCore1#
+colorCore18=#colorCore2#
+colorCore19=#colorCore3#
+colorCore20=#colorCore4#
+colorCore21=#colorCore5#
+colorCore22=#colorCore6#
+colorCore23=#colorCore7#
+colorCore24=#colorCore8#
+colorCore25=#colorCore9#
+colorCore26=#colorCore10#
+colorCore27=#colorCore11#
+colorCore28=#colorCore12#
+colorCore29=#colorCore13#
+colorCore30=#colorCore14#
+colorCore31=#colorCore15#
+colorCore32=#colorCore16#
+
 
 showCpuName=1
 showPageFile=0

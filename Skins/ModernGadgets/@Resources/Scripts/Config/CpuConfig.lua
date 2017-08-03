@@ -18,7 +18,7 @@ function ConfigCores(threads, showAvgCpu, threadsPerCore)
   
   ConfigureTempVariables(threadsPerCore, threads)
 
-  for i=1,20 do
+  for i=1,32 do
     if (i <= threads) then
       SKIN:Bang('!ShowMeterGroup', 'CpuCore' .. i)
       SKIN:Bang('!SetOption', 'Core' .. i .. 'LabelString', 'Y', '#*rowSpacing*#R')
@@ -47,15 +47,15 @@ function ConfigCores(threads, showAvgCpu, threadsPerCore)
   end
 
   if showAvgCpu == 0 then
-    if (threads == 20) then
-      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '#*colorCore20*#')
-      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '#*colorCore20*#')
+    if (threads == 32) then
+      SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '#*colorCore32*#')
+      SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '#*colorCore32*#')
     else
       SKIN:Bang('!SetOption', 'GraphLines', 'LineColor', '0,0,0,0')
       SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor', '0,0,0,0')
     end
-    c = 19
-    for i=2,20 do
+    c = 31
+    for i=2,32 do
       if (c <= threads) then
         SKIN:Bang('!SetOption', 'GraphLines', 'LineColor' .. i, '#*colorCore' .. c .. '*#')
         SKIN:Bang('!WriteKeyValue', 'GraphLines', 'LineColor' .. i, '#*colorCore' .. c .. '*#')
@@ -78,12 +78,12 @@ end
 function ConfigureTempVariables(threadsPerCore, threads)
   
   if threadsPerCore == 1 then
-    for i=1,20 do
+    for i=1,32 do
       SKIN:Bang('!WriteKeyValue', 'MeasureCpuTempCore' .. i, 'HWiNFOEntryId', '#*HWiNFO-CPU0-DTS-Core' .. (i-1) .. 'Temp*#')
     end
   elseif threadsPerCore == 2 then
     j = 0
-    for i=1,20 do
+    for i=1,32 do
       SKIN:Bang('!WriteKeyValue', 'MeasureCpuTempCore' .. i, 'HWiNFOEntryId', '#*HWiNFO-CPU0-DTS-Core' .. j .. 'Temp*#')
       if (i-1) % 2 == 1 then j = j + 1 end
     end
