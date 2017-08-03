@@ -2,6 +2,10 @@ MODERNGADGETS CHANGELOG
 
 Official Releases
 
+v1.2.2 - 2017-8-3
+- ACTUALLY fixed core temperature issues
+- Changed all author references to raiguard
+
 v1.2.1 - 2017-8-2
 - Fixed non-hyperthreaded core temperatures
 - Fixed bytes/sec option in Network Meter
