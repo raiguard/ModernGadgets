@@ -115,3 +115,5 @@ v1.3.0 - 2017-??-??
 - New gadget: Digital clock
 - Added new NetMonitor support to Network Meter for more accurate readings
 - Changed skin backgrounds to use the shape meter
+- Lightened background color and slightly dimmed text (easier on the eyes)
+- Added eject button for removable drives in Disks Meter

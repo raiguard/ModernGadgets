@@ -19,6 +19,8 @@ function ConfigureDisk(disk, diskType, mode)
 
   isHwinfoAvailable=tonumber(SKIN:GetVariable('isHwinfoAvailable'))
 
+  diskType = tonumber(diskType)
+
   index = alphabet:find(disk)
   prevDisk = alphabet:sub((index - 1), (index - 1))
 
@@ -52,6 +54,7 @@ function ConfigureDisk(disk, diskType, mode)
 
     -- show all of the disk's meters
     SKIN:Bang('!ShowMeterGroup', 'Disk' .. disk)
+    SKIN:Bang('!HideMeter', 'Disk' .. disk .. 'EjectButton')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'NameString', 'Hidden', '0')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TimeString', 'Hidden', '0')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'WriteImage', 'Hidden', '0')
@@ -61,6 +64,11 @@ function ConfigureDisk(disk, diskType, mode)
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'StorageFractionString', 'Hidden', '0')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'StoragePercentString', 'Hidden', '0')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'StorageBar', 'Hidden', '0')
+
+    if diskType == 3 then
+      SKIN:Bang('!ShowMeter', 'Disk' .. disk .. 'EjectButton')
+      SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'EjectButton', 'Hidden', 0)      
+    end
 
     -- show temperature meter if appropriate disk type
     -- if diskType == 4 then
@@ -97,6 +105,7 @@ function ConfigureDisk(disk, diskType, mode)
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Write', 'Disabled', '1')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Activity', 'Disabled', '1')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Command', 'Disabled', '1')
+    SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'RunCommand', 'Disabled', '1')
 
     -- set special Y values for proper positioning
     SKIN:Bang('!SetOption', 'Disk' .. disk .. 'NameString', 'Y', '#*contentMargin*#')
@@ -113,6 +122,7 @@ function ConfigureDisk(disk, diskType, mode)
     SKIN:Bang('!HideMeterGroup', 'Disk' .. disk)
     SKIN:Bang('!HideMeter', 'Disk' .. disk .. 'TempString')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'NameString', 'Hidden', '1')
+    SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'EjectButton', 'Hidden', '1')
     -- SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TempString', 'Hidden', '1')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TimeString', 'Hidden', '1')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'WriteImage', 'Hidden', '1')

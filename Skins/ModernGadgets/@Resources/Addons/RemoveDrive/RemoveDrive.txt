@@ -1,0 +1,129 @@
+
+RemoveDrive V2.8.5.0 - prepares removable drives for safe removal
+Freeware by Uwe Sieber - www.uwe-sieber.de
+
+Win32 version works on Windows XP and higher including x64 version of Windows.
+x64 version works on x64 versions Windows only.
+
+Homepage: http://www.uwe-sieber.de/drivetools_e.html
+
+
+Usage:
+RemoveDrive DriveSpec [-v][-d][-l][-h][-a][-b][-i][-s][-w:nnnn]
+                     
+DriveSpec  is the drive to remove, e.g. U: or an NTFS mountpoint as "C:\CardReader\Multi Reader SD"
+           or . for the current drive
+           or \ for the drive of the RemoveDrive.exe
+           or a volume name like \\?\Volume{433619ed-c6ea-11d9-a3b2-806d6172696f}
+           or a kernel name like \Device\HarddiskVolume2 (Volume)
+           or a kernel name like \Device\Harddisk2\DR0 (Disk)
+           or a partition name like \Device\Harddisk2\Partition1
+           or a device ID
+           or a friendly name like 'Corsair Voyager'
+           Wildcards can be used.
+[-47]      perform safe removal resulting in problem code 47
+[-v]       remove the volume only instead of the drive or whole device
+[-d]       remove the drive only instead of the whole device
+[-L]       loop until success
+[-t]       'eject' TrueCrypt volumes hosted by the drive to remove
+[-e]       try to dismount and eject if the removal fails
+[-h]       show open handles (admin rights required, exprimental, may freeze!)
+[-h:X]     show open handles on a different drive (e.g. a TrueCrypt volume whose container is on the drive to remove)
+[-a]       activates Windows of applications owning the open handles
+[-w:nnnn]  wait nnnn milliseconds before close
+[-s]       self delete removedrive.exe
+[-b]       let Windows show the "Safe To Remove Hardware" balloon tip or a messagebox (depends on Win version)
+[-i]       stop Windows indexing service (CiSvc) for a moment if required (admins)
+[-dbg]     show debug information
+
+
+Only one drive or device is prepared for safe removal.
+
+
+Sample:
+
+removedrive U: -L -H -A -W:1000
+
+
+
+Returns Errorlevels:
+
+0 - successfully removed a device
+1 - device identified but not removed
+2 - device not found or parameters are invalid
+
+4 - RemoveDrive.exe located on the drive to remove -> temporary copy 
+    created and executed
+
+If the removal fails then someone still accesses the drive. This can be
+something banal like an open Word document, a mounted TrueCrypt container
+or some kind of monitoring tool like a virus scanner.
+
+By means of SysInternals ProcessExplorer you may discover which program
+holds an open handle to the drive.
+http://www.microsoft.com/technet/sysinternals/utilities/ProcessExplorer.html
+
+After starting it go to 'Find' -> 'Find Handle or DLL', enter a part of the
+volume's or the drive's DOS device name (as volume12 or disk5) and search.
+Searching for the drive's drive letter may give a hit too.
+
+When a TrueCrypt volume is found which is hosted by the drive to remove and
+the -L parameter is set then RemoveDrive tries to 'eject' the TrueCrypt
+volume in a loop. By pressing the F key this can be forced. Open file handles
+on the TrueCrypt volume become invalid and the TrueCrypt container is released.
+The preparation or 'safe removal' of a device cannot be forced.
+Since V2.7 this works with VeraCrypt too.
+
+
+
+
+If started with admin previleges or the USBDLM command interface available,
+then a removed USB drive ends up with problem code 21 and can be reactivated
+by means of RestartSrDev:
+http://www.uwe-sieber.de/drivetools_e.html#restart
+
+On some USB3 controllers the USB device completely disappears after safe
+removal instead staying present with a problem code.
+Here you can use the parameter -d to remove the drive only which then gets
+problem code 21 and can be reactivated.
+
+
+
+About open handles
+
+Removedrive does no use a driver for gaterhing handle information. Therefore
+when hitting the handle of a waiting object as a mutex then the function for
+getting the handle name does not return, the thread freezes and the RemoveDrive
+process will not end until this waiting object stops waiting or is closed.
+Each handle request is done in its own thread, so the rest will keep going.
+
+If this happens then RemoveDrive will
+- write the name of the process which hold this handle into the RemoveDrive.ini
+  and never touch this process again
+- when supposed to end then it tries to hide its console window because the
+  RemoveDrive process will not end because of the waiting threads
+
+
+
+
+
+Licence
+
+
+RemoveDrive is Freeware.
+
+Allowed:
+- usage in any environment, including commercial
+- include in software products, including commercial
+- include on CD/DVD of computer magazines
+- making available for download by means of package managers
+
+Not allowed:
+- changing any of the files
+- offer for download by means of a 'Downloader' software
+
+
+
+
+Uwe Sieber
+April 2017
