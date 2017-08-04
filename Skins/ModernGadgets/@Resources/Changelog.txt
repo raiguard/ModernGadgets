@@ -117,3 +117,4 @@ v1.3.0 - 2017-??-??
 - Changed skin backgrounds to use the shape meter
 - Lightened background color and slightly dimmed text (easier on the eyes)
 - Added eject button for removable drives in Disks Meter
+- Added support for 32 threads in CPU Meter
