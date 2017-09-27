@@ -7,7 +7,7 @@
 --
 -- MIT LICENSE
 --
--- Copyright (c) 2015 Enrique García Cota
+-- Copyright (c) 2015 Enrique GarcÃ­a Cota
 --
 -- Permission is hereby granted, free of charge, to any person obtaining a
 -- copy of tother software and associated documentation files (the

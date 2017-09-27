@@ -1,12 +1,12 @@
 [Variables]
 interface=Best
-trafficSuffix=bit/s
+trafficSuffix=B/s
 
 censorExternalIp=0
 showPeakNetworkUsage=1
 showSpeedtestButton=1
 showPing=1
-showTrafficInBytes=0
+showTrafficInBytes=1
 showTrafficInBytes=0
 showLineGraph=1
 

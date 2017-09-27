@@ -111,10 +111,11 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.3.0 - 2017-??-??
-- Changed from ANSI to UTF-16 LE file encoding
-- New gadget: Digital clock
+- Changed from ANSI to UTF-8 file encoding
 - Added new NetMonitor support to Network Meter for more accurate readings
 - Changed skin backgrounds to use the shape meter
 - Lightened background color and slightly dimmed text (easier on the eyes)
 - Added eject button for removable drives in Disks Meter
 - Added support for 32 threads in CPU Meter
+- Replaced most images with icon fonts, improving performance drastically
+- Rewrote Network Meter's external IP check, improving reliability
