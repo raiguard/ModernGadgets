@@ -125,7 +125,7 @@ cp24=237,28,32
 
 ; Styles
 [StyleBackgroundNew]
-Shape=Rectangle #bgOffset#,#bgOffset#,#bgWidth#,([BackgroundHeight:Y] - (#bgOffset# * 2)) | Fill Color #colorBg# | StrokeWidth 1 | Stroke Color #colorBg#
+Shape=Rectangle #bgOffset#,#bgOffset#,#bgWidth#,([BackgroundHeight:Y] - (#bgOffset# * 2)) | Fill Color #colorBg# | StrokeWidth 0 | Stroke Color #colorBg#
 DynamicVariables=1
 Group=Background
 
