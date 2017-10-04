@@ -12,6 +12,7 @@ autoBackups=1
 
 showBgBorder=1
 largeRowSpacing=0
+rowSpacing=1
 
 ; ----- HWiNFO -----
 
@@ -42,26 +43,18 @@ HWiNFO-CPU0-Core7Clock=0x6000007
 HWiNFO-CPU0-Core8Clock=0x6000008
 ; core 9 clock frequency (MHz)
 HWiNFO-CPU0-Core9Clock=0x6000009
-; core 0 voltage (volts)
-HWiNFO-CPU0-Core0VID=0x2000000
-; core 1 voltage (volts)
-HWiNFO-CPU0-Core1VID=0x2000001
-; core 2 voltage (volts)
-HWiNFO-CPU0-Core2VID=0x2000002
-; core 3 voltage (volts)
-HWiNFO-CPU0-Core3VID=0x2000003
-; core 4 voltage (volts)
-HWiNFO-CPU0-Core4VID=0x2000004
-; core 5 voltage (volts)
-HWiNFO-CPU0-Core5VID=0x2000005
-; core 6 voltage (volts)
-HWiNFO-CPU0-Core6VID=0x2000006
-; core 7 voltage (volts)
-HWiNFO-CPU0-Core7VID=0x2000007
-; core 8 voltage (volts)
-HWiNFO-CPU0-Core8VID=0x2000006
-; core 9 voltage (volts)
-HWiNFO-CPU0-Core9VID=0x2000007
+; core 10 clock frequency (MHz)
+HWiNFO-CPU0-Core10Clock=0x6000000
+; core 11 clock frequency (MHz)
+HWiNFO-CPU0-Core11Clock=0x600000a
+; core 12 clock frequency (MHz)
+HWiNFO-CPU0-Core12Clock=0x600000b
+; core 13 clock frequency (MHz)
+HWiNFO-CPU0-Core13Clock=0x600000c
+; core 14 clock frequency (MHz)
+HWiNFO-CPU0-Core14Clock=0x600000d
+; core 15 clock frequency (MHz)
+HWiNFO-CPU0-Core15Clock=0x600000e
 
 ;
 ; CPU 0 DTS
@@ -88,8 +81,20 @@ HWiNFO-CPU0-DTS-Core6Temp=0x1000006
 HWiNFO-CPU0-DTS-Core7Temp=0x1000007
 ; core 8 temperature (degrees)
 HWiNFO-CPU0-DTS-Core8Temp=0x1000008
-; core 8 temperature (degrees)
+; core 9 temperature (degrees)
 HWiNFO-CPU0-DTS-Core9Temp=0x1000009
+; core 10 temperature (degrees)
+HWiNFO-CPU0-DTS-Core10Temp=0x100000a
+; core 11 temperature (degrees)
+HWiNFO-CPU0-DTS-Core11Temp=0x100000b
+; core 12 temperature (degrees)
+HWiNFO-CPU0-DTS-Core12Temp=0x100000c
+; core 13 temperature (degrees)
+HWiNFO-CPU0-DTS-Core13Temp=0x100000d
+; core 14 temperature (degrees)
+HWiNFO-CPU0-DTS-Core14Temp=0x100000e
+; core 15 temperature (degrees)
+HWiNFO-CPU0-DTS-Core15Temp=0x100000f
 ; package/ring thermal throttling (yes/no)
 HWiNFO-CPU0-DTS-PackageTt=0x800000c
 
@@ -134,88 +139,3 @@ HWiNFO-GPU0-VideoClock=0x6000005
 HWiNFO-GPU0-MemController=0x7000001
 ; GPU core voltage (volts)
 HWiNFO-GPU0-CoreVoltage=0x2000000
-
-;
-; GPU 1
-;
-; sensor ID and instance
-HWiNFO-GPU1-SensorId=0xe0002000
-HWiNFO-GPU1-SensorInstance=0x14
-; entry IDs
-; GPU core clock frequency (MHz)
-HWiNFO-GPU1-Clock=0x6000000
-; GPU temperature (degrees)
-HWiNFO-GPU1-Temp=0x1000000
-; GPU load (percent)
-HWiNFO-GPU1-CoreLoad=0x7000000
-; GPU memory clock frequency (MHz)
-HWiNFO-GPU1-MemoryClock=0x6000004
-; GPU memory usage (percent)
-HWiNFO-GPU1-MemoryUsage=0x7000008
-; GPU memory allocated (MB)
-HWiNFO-GPU1-MemoryAlloc=0x800003c
-; GPU fan usage (percent, not RPM!)
-HWiNFO-GPU1-FanSpeed=0x3000000
-; GPU fan usage (percent, not RPM!)
-HWiNFO-GPU1-FanUsage=0x8000000
-; GPU shader clock
-HWiNFO-GPU1-VideoClock=0x6000005
-; GPU memory controller usage
-HWiNFO-GPU1-MemController=0x7000001
-; GPU core voltage (volts)
-HWiNFO-GPU1-CoreVoltage=0x2000000
-
-;
-; S.M.A.R.T. Drive 1
-;
-; disk 1
-HWiNFO-SMART-Disk1-SensorId=0xf0000100
-HWiNFO-SMART-Disk1-SensorInstance=0x0
-HWiNFO-SMART-Disk1-Temp=0x1000001
-HWiNFO-SMART-Disk1-Letter=C
-; disk 2
-HWiNFO-SMART-Disk2-SensorId=0xf0000100
-HWiNFO-SMART-Disk2-SensorInstance=0x2
-HWiNFO-SMART-Disk2-Temp=0x1000000
-HWiNFO-SMART-Disk2-Letter=E
-; disk 3
-HWiNFO-SMART-Disk3-SensorId=0xf0000100
-HWiNFO-SMART-Disk3-SensorInstance=0x1
-HWiNFO-SMART-Disk3-Temp=0x1000000
-HWiNFO-SMART-Disk3-Letter=D
-; disk 4
-HWiNFO-SMART-Disk4-SensorId=0xf0000100
-HWiNFO-SMART-Disk4-SensorInstance=0x0
-HWiNFO-SMART-Disk4-Temp=0x0
-HWiNFO-SMART-Disk4-Letter=""
-; disk 5
-HWiNFO-SMART-Disk5-SensorId=0xf0000100
-HWiNFO-SMART-Disk5-SensorInstance=0x0
-HWiNFO-SMART-Disk5-Temp=0x0
-HWiNFO-SMART-Disk5-Letter=""
-; disk 6
-HWiNFO-SMART-Disk6-SensorId=0xf0000100
-HWiNFO-SMART-Disk6-SensorInstance=0x0
-HWiNFO-SMART-Disk6-Temp=0x0
-HWiNFO-SMART-Disk6-Letter=""
-; disk 7
-HWiNFO-SMART-Disk7-SensorId=0xf0000100
-HWiNFO-SMART-Disk7-SensorInstance=0x0
-HWiNFO-SMART-Disk7-Temp=0x0
-HWiNFO-SMART-Disk7-Letter=""
-; disk 8
-HWiNFO-SMART-Disk8-SensorId=0xf0000100
-HWiNFO-SMART-Disk8-SensorInstance=0x0
-HWiNFO-SMART-Disk8-Temp=0x0
-HWiNFO-SMART-Disk8-Letter=""
-; disk 9
-HWiNFO-SMART-Disk9-SensorId=0xf0000100
-HWiNFO-SMART-Disk9-SensorInstance=0x0
-HWiNFO-SMART-Disk9-Temp=0x0
-HWiNFO-SMART-Disk9-Letter=""
-; disk 10
-HWiNFO-SMART-Disk10-SensorId=0xf0000100
-HWiNFO-SMART-Disk10-SensorInstance=0x0
-HWiNFO-SMART-Disk10-Temp=0x0
-HWiNFO-SMART-Disk10-Letter=""
-rowSpacing=1
