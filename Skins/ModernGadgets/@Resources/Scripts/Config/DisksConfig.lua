@@ -34,7 +34,6 @@ function ConfigureDisk(disk, diskType, mode)
     -- enable all of the disk's measures that aren't related to sensing disk existence
     SKIN:Bang('!EnableMeasureGroup', 'Disk' .. disk)
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Name', 'Disabled', '0')
-    -- SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Temp', 'Disabled', '0')
     -- SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceTotal', 'Disabled', '0')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceUsed', 'Disabled', '0')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceUsedPercent', 'Disabled', '0')
@@ -70,23 +69,6 @@ function ConfigureDisk(disk, diskType, mode)
       SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'EjectButton', 'Hidden', 0)      
     end
 
-    -- show temperature meter if appropriate disk type
-    -- if diskType == 4 then
-    --   if isHwinfoAvailable == 1 then
-    --     SKIN:Bang('!ShowMeter', 'Disk' .. disk .. 'TempString')
-    --     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TempString', 'Hidden', '0')
-    --     SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Group', 'DiskTemps')
-    --     SKIN:Bang('!UpdateMeter', 'Disk' .. disk .. 'TempString')
-    --   else
-    --     SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Group', 'DiskTemps')
-    --     SKIN:Bang('!UpdateMeter', 'Disk' .. disk .. 'TempString')
-    --   end
-    -- else
-    --   SKIN:Bang('!HideMeter', 'Disk' .. disk .. 'TempString')
-    --   SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TempString', 'Hidden', '1')
-    --   SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Group', '')
-    --   SKIN:Bang('!UpdateMeter', 'Disk' .. disk .. 'TempString')
-    -- end
   else
     -- set disk hide variable
     SKIN:Bang('!SetVariable', 'hideDisk' .. disk, '1')
@@ -95,7 +77,6 @@ function ConfigureDisk(disk, diskType, mode)
     -- disable all of the disk's measures that aren't related to sensing disk existence
     SKIN:Bang('!DisableMeasureGroup', 'Disk' .. disk)
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Name', 'Disabled', '1')
-    -- SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Temp', 'Disabled', '1')
     -- SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceTotal', 'Disabled', '1')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceUsed', 'Disabled', '1')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceUsedPercent', 'Disabled', '1')
@@ -123,7 +104,6 @@ function ConfigureDisk(disk, diskType, mode)
     SKIN:Bang('!HideMeter', 'Disk' .. disk .. 'TempString')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'NameString', 'Hidden', '1')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'EjectButton', 'Hidden', '1')
-    -- SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TempString', 'Hidden', '1')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TimeString', 'Hidden', '1')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'WriteImage', 'Hidden', '1')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'WriteString', 'Hidden', '1')
