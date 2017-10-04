@@ -117,5 +117,4 @@ v1.3.0 - 2017-??-??
 - Lightened background color and slightly dimmed text (easier on the eyes)
 - Added eject button for removable drives in Disks Meter
 - Added support for 32 threads in CPU Meter
-- Replaced most images with icon fonts, improving performance drastically
-- Rewrote Network Meter's external IP check, improving reliability
+- Rewrote gadget toggle button logic to be more reliable
