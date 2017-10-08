@@ -43,8 +43,7 @@ colorDimA=#colorBgA#
 
 colorBarBg=#colorDim#
 
-colorAccent=138,210,250,220
-colorAccentRgb=138,210,250
+colorAccent=138,210,250
 
 colorButtonPress=255,50,50
 
@@ -59,6 +58,8 @@ colorIntel=0,125,198
 histogramAlpha=50
 
 deg=[\176]
+toggleOn=[\x5a]
+toggleOff=[\x56]
 
 ; Paths
 imgPath=#@#Assets\Images\
