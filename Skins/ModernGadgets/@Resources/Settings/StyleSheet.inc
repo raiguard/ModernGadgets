@@ -212,7 +212,6 @@ FontColor=#colorInfo#
 
 [StyleStringConfigSectionHeader]
 FontFace=#fontFace# Cn
-FontColor=#colorInfo#
 FontSize=10
 Y=5R
 
@@ -284,14 +283,14 @@ Antialias=0
 
 [StyleStringColorPickerLabel]
 StringAlign=Right
-FontSize=10
+FontSize=9
 X=-5r
 Y=5R
 
 [StyleColorPicker]
-Shape=Rectangle 0,0,25,17,3 | Stroke Color 100,100,100,100 | StrokeWidth 1 | Extend MeterSpecific
+Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Extend MeterSpecific
 X=5r
-Y=r
+Y=-1r
 DynamicVariables=1
 
 [StyleEjectButton]
