@@ -1,13 +1,8 @@
--- MODERNGADGETS CPU SETTINGS SCRIPT
--- By iamanai
---
--- Consists of hard-coded functions to change settigns in CPU Meter
---
-
 isDbg = false
 
 function Initialize()
 
+  dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
   cpuSettingsPath = SKIN:GetVariable('cpuSettingsPath')
   cpuMeterPath = SKIN:GetVariable('cpuMeterPath')
   cpuMeterConfig = SKIN:GetVariable('cpuMeterConfig')
@@ -23,8 +18,7 @@ function ToggleCpuName(currentValue)
   currentValue = tonumber(currentValue)
 
   if currentValue == 0 then
-    SKIN:Bang('!SetVariable', 'showCpuName', '1')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'showCpuName', '1', cpuSettingsPath)
+    SetVariable('showCpuName', '1')
     SKIN:Bang('!ShowMeter', 'CpuDisplayNameString', cpuMeterConfig)
     SKIN:Bang('!WriteKeyValue', 'CpuDisplayNameString', 'Hidden', '0', cpuMeterPath)
     SKIN:Bang('!SetOption', 'CpuDisplayNameString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
@@ -41,6 +35,7 @@ function ToggleCpuName(currentValue)
   SKIN:Bang('!UpdateMeter', 'CpuDisplayNameString', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
+  UpdateToggles()
 
 end
 
@@ -81,6 +76,7 @@ function TogglePage(currentValue)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
+  UpdateToggles()
 
 end
 
@@ -106,9 +102,10 @@ function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
 
   SKIN:Bang('!UpdateMeterGroup', 'CoreTemps', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
+  UpdateToggles()
 
   else
-    SKIN:Bang('!Log', isHwinfoAvailable .. ' | Cannot display core temperatures, for HWiNFO is not running!', 'Warning')
+    SKIN:Bang('!Log', 'Cannot display core temperatures, for HWiNFO is not running!', 'Warning')
   end
 
 end
@@ -141,13 +138,14 @@ function ToggleCpuFan(currentValue, isHwinfoAvailable, showCpuClock, showLineGra
       SetLineGraphY(showLineGraph, 0, showCpuClock)
     end
   else
-        SKIN:Bang('!Log', 'Cannot display fan speed, for HWiNFO is not running!', 'Error')
+        SKIN:Bang('!Log', 'Cannot display fan speed, for HWiNFO is not running!', 'Warning')
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'CpuFan', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
+  UpdateToggles()
 
 end
 
@@ -214,6 +212,7 @@ SKIN:Bang('!UpdateMeterGroup', 'CpuClock', cpuMeterConfig)
 SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
 SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
 SKIN:Bang('!Redraw', cpuMeterConfig)
+UpdateToggles()
 
 end
 
@@ -244,8 +243,8 @@ function ToggleLineGraph(currentValue, showCpuFan, showCpuClock)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
-  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
-  SKIN:Bang('!Redraw')
+  SKIN:Bang('!UpdateMeasure', 'MeasureAvgLineGraph')
+  UpdateToggles()
 
 end
 
@@ -277,6 +276,7 @@ function ToggleAvgCpuGraph(currentValue, showLineGraph)
 
     SKIN:Bang('!UpdateMeter', 'GraphLines', cpuMeterConfig)
     SKIN:Bang('!Redraw', cpuMeterConfig)
+    UpdateToggles()
   else
     LogHelper('Line graph is disabled', 'Warning')
   end
@@ -327,22 +327,29 @@ function SetCpuName(name)
 
 end
 
-function ToggleTtDetection(currentValue)
+function ToggleTtDetection(currentValue, isHwinfoAvailable)
 
   currentValue = tonumber(currentValue)
+  isHwinfoAvailable = tonumber(isHwinfoAvailable)
 
-  if currentValue == 0 then
+  if isHwinfoAvailable == 1 then
+    if currentValue == 0 then
       SKIN:Bang('!SetVariable', 'showTt', '1')
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showTt', '1', cpuSettingsPath)
       SKIN:Bang('!SetVariable', 'showTt', '1', cpuMeterConfig)
-  else
+    else
       SKIN:Bang('!SetVariable', 'showTt', '0')
       SKIN:Bang('!WriteKeyValue', 'Variables', 'showTt', '0', cpuSettingsPath)
       SKIN:Bang('!SetVariable', 'showTt', '0', cpuMeterConfig)
-  end
-  
+    end
+  else
+    LogHelper('Cannot enable Thermal Throttling detection, for HWiNFO is not running!', 'Warning')
+  end  
+
   SKIN:Bang('!UpdateMeasure', 'MeasureCpuTtCalc', cpuMeterConfig)
   SKIN:Bang('!Redraw', cpuMeterConfig)
+  UpdateToggles()
+  SKIN:Bang('!UpdateMeasure', 'MeasureTtSound')
 
 end
 
@@ -366,6 +373,7 @@ function ToggleTtSound(currentValue, showTt)
   end
 
   SKIN:Bang('!UpdateMeasure', 'MeasureCpuTtCalc', cpuMeterConfig)
+  UpdateToggles()
 
 end
 
@@ -414,16 +422,5 @@ function SetDefaults()
   SetCpuName('')
   ToggleTtDetection(0)
   ToggleTtSound(0, 1)
-
-end
-
--- function to make logging messages less cluttered
-function LogHelper(message, type)
-
-  if isDbg == true then
-    SKIN:Bang("!Log", message, type)
-  elseif type ~= 'Debug' then
-  	SKIN:Bang("!Log", message, type)
-	end
 
 end

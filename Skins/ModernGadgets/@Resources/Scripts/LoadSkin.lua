@@ -57,7 +57,8 @@ function Update() end
 function ToggleConfig(config)
 
 	config = rootConfig .. config
-	local state = tonumber(iniTable[config]['Active'])
+	local state = 0
+	if iniTable[config] ~= nil then state = tonumber(iniTable[config]['Active']) end
 	LogHelper(state, 'Debug')
 
 	if state > 0 then
@@ -84,7 +85,8 @@ function ToggleSkin(config, skin, variant)
 	if variant == nil then variant = -1 end
 	config = rootConfig .. config
 	skin = skin .. '.ini'
-	local state = tonumber(iniTable[config]['Active'])
+	local state = 0
+	if iniTable[config] ~= nil then state = tonumber(iniTable[config]['Active']) end
 
 	LogHelper(config, 'Debug')
 	LogHelper(skin, 'Debug')

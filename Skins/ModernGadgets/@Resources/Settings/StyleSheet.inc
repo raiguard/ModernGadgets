@@ -210,22 +210,6 @@ X=#contentMarginCenter#
 Y=r
 FontColor=#colorInfo#
 
-[StyleStringToggleLabel]
-FontSize=10
-X=(#contentMargin# + 1)
-Y=4R
-
-[StyleStringGadgetToggleLabel]
-X=(#contentMargin# + 3)
-
-[StyleToggleImage]
-X=(#contentMarginRight# - 31)
-; X=5R
-Y=-1r
-W=31
-H=20
-Group=ToggleButtons
-
 [StyleStringConfigSectionHeader]
 FontFace=#fontFace# Cn
 FontColor=#colorInfo#
@@ -251,7 +235,7 @@ W=(#contentWidth# - 6)
 ClipString=2
 
 [StyleStringConfigTitle]
-FontSize=12
+FontSize=11
 X=#contentMargin#
 Y=(#contentMargin# - 2)
 
@@ -320,3 +304,21 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
+
+[StyleStringToggleLabel]
+FontFace=Roboto
+FontColor=240,240,240
+FontSize=10
+AntiAlias=1
+X=3R
+Y=-1r
+
+[StyleToggleButton]
+FontFace=ElegantIcons
+FontColor=138,210,250
+FontSize=12
+AntiAlias=1
+X=#contentMargin#
+Y=4R
+DynamicVariables=1
+Group=ToggleButtons
