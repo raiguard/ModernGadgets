@@ -1,7 +1,7 @@
 -- MODERNGADGETS CPU CONFIG SCRIPT
 -- Written by iamanai
 
-isDbg = true
+isDbg = false
 
 function Initialize()
 
@@ -13,8 +13,8 @@ end
 function Update() end
 
 function ConfigCores(threads, showAvgCpu, threadsPerCore)
-  
-  LogHelper('Debug', 'Debug')
+
+  if threadsPerCore == nil then threadsPerCore = tonumber(SKIN:GetVariable('threadsPerCore')) end
   
   ConfigureTempVariables(threadsPerCore, threads)
 
