@@ -18,7 +18,6 @@ end
 function GetIcon(setting, activeState)
 
   if activeState == nil then activeState = 1 end
-  setting = tonumber(SKIN:GetVariable(setting))
 
   if setting == activeState then return '[#toggleOn]'
   else return '[#toggleOff]' end
@@ -26,10 +25,11 @@ function GetIcon(setting, activeState)
 end
 
 -- just for ease of use
-function SetVariable(name, parameter)
+function SetVariable(name, parameter, filePath, configPath)
 
   SKIN:Bang('!SetVariable', name, parameter)
-  SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter, cpuSettingsPath)
+  SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter, filePath)
+  if configPath ~= nil then SKIN:Bang('!SetVariable', name, parameter, configPath) end
 
 end
 

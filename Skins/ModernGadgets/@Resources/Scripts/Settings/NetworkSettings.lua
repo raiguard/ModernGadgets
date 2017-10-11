@@ -10,6 +10,8 @@ function Initialize()
   networkMeterPath = SKIN:GetVariable('networkMeterPath')
   networkMeterConfig = SKIN:GetVariable('networkMeterConfig')
 
+  dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
+
 end
 
 function Update() end
@@ -19,19 +21,15 @@ function ToggleCensorExternalIp(currentValue)
   currentValue = tonumber(currentValue)
 
   if currentValue == 0 then
-    SKIN:Bang('!SetVariable', 'censorExternalIp', '1')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'censorExternalIp', '1', networkSettingsPath)
-    SKIN:Bang('!SetOption', 'ExternalIpValueString', 'Text', 'CENSORED', networkMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'ExternalIpValueString', 'Text', 'CENSORED', networkMeterPath)
+    SetVariable('censorExternalIp', '1', networkSettingsPath, networkMeterConfig)
   else
-    SKIN:Bang('!SetVariable', 'censorExternalIp', '0')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'censorExternalIp', '0', networkSettingsPath)
-    SKIN:Bang('!SetOption', 'ExternalIpValueString', 'Text', '%1', networkMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'ExternalIpValueString', 'Text', '%1', networkMeterPath)
+    SetVariable('censorExternalIp', '0', networkSettingsPath, networkMeterConfig)
   end
 
-  SKIN:Bang('!UpdateMeter', 'ExternalIpValueString', networkMeterConfig)
-  SKIN:Bang('!Redraw', networkMeterConfig)
+  SKIN:Bang('!UpdateMeasure', 'MeasureExternalIpString', networkMeterConfig)
+  SKIN:Bang('!Redraw', networkMeterConfig) 
+  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
+  SKIN:Bang('!Redraw')
 
 end
 
@@ -184,7 +182,7 @@ function TogglePeakNetworkUsage(currentValue, showLineGraph)
       SKIN:Bang('!WriteKeyValue', 'GraphPeakString', 'Hidden', '1', networkMeterPath)
     end
   else
-    SKIN:Bang('!Log', 'Cannot show peak network traffic if line graph is hidden', 'Warning')
+    LogHelper('Cannot show peak network traffic if line graph is hidden', 'Warning')
   end
 
   SKIN:Bang('!UpdateMeter', 'GraphPeakString', networkMeterConfig)

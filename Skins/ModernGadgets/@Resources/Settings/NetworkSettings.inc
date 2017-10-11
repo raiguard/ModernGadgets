@@ -7,7 +7,6 @@ showPeakNetworkUsage=1
 showSpeedtestButton=1
 showPing=1
 showTrafficInBytes=0
-showTrafficInBytes=0
 showLineGraph=1
 
 pingUrl=www.google.com
