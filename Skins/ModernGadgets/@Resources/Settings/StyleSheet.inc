@@ -92,10 +92,6 @@ disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
 disksMeterConfig=ModernGadgets\Disks
 disksSettingsPath=#@#Settings\DisksSettings.inc
 
-toggleOffImg=#imgPath#toggle-off.png
-toggleOnImg=#imgPath#toggle-on.png
-toggleLockImg=#imgPath#toggle-off-lock.png
-
 setupSkinConfig=ModernGadgets\Config\Setup
 
 ; Default Color Pallete
