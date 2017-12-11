@@ -1,7 +1,13 @@
 -- LoadSkin.lua
 -- raiguard
--- v1.0.0
+-- v1.1.0
 --
+--
+-- CHANGELOG:
+-- v1.1.0 - 2017-12-7
+--  - Consolidated LoadConfig() into LoadSkin()
+-- v1.0.0 - 2017-10-2
+--  - Initial release
 -- ------------------------------
 -- This script reads the Rainmeter.ini file to determine whether or not certain skins are
 -- loaded, then uses that information to set the image and action of that skin's toggle
@@ -35,6 +41,7 @@
 -- wish to toggle. For example, if the skin is 'MySuite\MySkin\MySkin.ini', then use 'MySkin'
 -- intead of 'ToggledSkin'. You should be able to do this for any skin you want, and it should
 -- be infinitely expandable.
+-- ------------------------------
 
 debug = true
 
@@ -49,34 +56,9 @@ end
 
 function Update() end
 
--- Toggles the specified config. When activating/deactivating the config in general, it will
--- always choose the first skin in the config. So if you have 'MyConfig' with 'First.ini' and
--- 'Second.ini', using ToggleConfig('MyConfig') will always load 'First.ini'.
---
--- Usage: LeftMouseUpAction=[!CommandMeasure MeasureScript "ToggleConfig('ConfigNameHere')"]
-function ToggleConfig(config)
-
-	config = rootConfig .. config
-	local state = 0
-	if iniTable[config] ~= nil then state = tonumber(iniTable[config]['Active']) end
-	LogHelper(state, 'Debug')
-
-	if state > 0 then
-		SKIN:Bang('!DeactivateConfig', config)
-	else
-		SKIN:Bang('!ActivateConfig', config)
-	end
-
-	iniTable = ReadIni(filePath)
-
-	SKIN:Bang('!UpdateMeterGroup', 'SkinToggles')
-	SKIN:Bang('!Redraw')
-
-end
-
 -- Toggles the specified skin. This allows you to load a specific skin in a config, rather
 -- than always defaulting to the first one. It also lets you switch between different
--- skins within a config. The first parameter is the config name, second is the name of the
+-- skins within a config. The first parameter is the config name (omitting the root config), second is the name of the
 -- .INI file of the skin you wish to load (without the .INI), and the third is the spot in
 -- the variants list that specific skin resides in.
 --
@@ -84,15 +66,21 @@ end
 function ToggleSkin(config, skin, variant)
 	if variant == nil then variant = -1 end
 	config = rootConfig .. config
-	skin = skin .. '.ini'
 	local state = 0
 	if iniTable[config] ~= nil then state = tonumber(iniTable[config]['Active']) end
 
-	LogHelper(config, 'Debug')
-	LogHelper(skin, 'Debug')
+	if skin == nil then
+		if state > 0 then
+			SKIN:Bang('!DeactivateConfig', config)
+		else
+			SKIN:Bang('!ActivateConfig', config)
+		end
+	else
+		skin = skin .. '.ini'
 
-	if state > 0 and state ~= variant then SKIN:Bang('!ActivateConfig', config, skin)
-	else SKIN:Bang('!ToggleConfig', config, skin) end
+		if state > 0 and state ~= variant then SKIN:Bang('!ActivateConfig', config, skin)
+		else SKIN:Bang('!ToggleConfig', config, skin) end
+	end
 
 	iniTable = ReadIni(filePath)
 
@@ -110,14 +98,6 @@ function GetIcon(config, variant)
 	if state == variant then return '[#toggleOn]'
 	elseif state > 0 and variant == -1 then return '[#toggleOn]'
 	else return '[#toggleOff]' end
-
-end
-
--- just for ease of use
-function SetVariable(name, parameter)
-
-	SKIN:Bang('!SetVariable', name, parameter)
-	SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter)
 
 end
 
