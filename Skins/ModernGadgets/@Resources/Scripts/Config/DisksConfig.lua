@@ -14,7 +14,7 @@ function Update() end
 -- configures the specified disk's meters and measures based on given input
 function ConfigureDisk(disk, diskType, mode)
 
-  isHwinfoAvailable=tonumber(SKIN:GetVariable('isHwinfoAvailable'))
+  isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
 
   diskType = tonumber(diskType)
 
@@ -33,6 +33,7 @@ function ConfigureDisk(disk, diskType, mode)
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Name', 'Disabled', '0')
     -- SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceTotal', 'Disabled', '0')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceUsed', 'Disabled', '0')
+    SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceTotal', 'Disabled', '0')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceUsedPercent', 'Disabled', '0')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'IdleTime', 'Disabled', '0')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Time', 'Disabled', '0')
@@ -76,6 +77,7 @@ function ConfigureDisk(disk, diskType, mode)
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Name', 'Disabled', '1')
     -- SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceTotal', 'Disabled', '1')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceUsed', 'Disabled', '1')
+    SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceTotal', 'Disabled', '1')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'SpaceUsedPercent', 'Disabled', '1')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'IdleTime', 'Disabled', '1')
     SKIN:Bang('!WriteKeyValue', 'MeasureDisk' .. disk .. 'Time', 'Disabled', '1')
@@ -98,7 +100,6 @@ function ConfigureDisk(disk, diskType, mode)
 
     -- hide all of the disk's meters
     SKIN:Bang('!HideMeterGroup', 'Disk' .. disk)
-    SKIN:Bang('!HideMeter', 'Disk' .. disk .. 'TempString')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'NameString', 'Hidden', '1')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'EjectButton', 'Hidden', '1')
     SKIN:Bang('!WriteKeyValue', 'Disk' .. disk .. 'TimeString', 'Hidden', '1')
