@@ -49,7 +49,7 @@
 -- Versioning 2.0.0 format. See http://semver.org/ for additional information.
 --
 
-isDbg = false
+debug = false
 
 function Initialize() end
 
@@ -118,7 +118,7 @@ end
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
-	if isDbg == true then
+	if debug == true then
 		SKIN:Bang("!Log", message, type)
 	elseif type ~= 'Debug' and type ~= nil then
 		SKIN:Bang("!Log", message, type)

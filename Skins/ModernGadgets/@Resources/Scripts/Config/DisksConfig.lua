@@ -1,7 +1,4 @@
--- MODERNGADGETS DISKS METER CONFIG SCRIPT
--- Written by iamanai
-
-isDbg = false
+debug = false
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -150,7 +147,7 @@ end
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
-	if isDbg == true then
+	if debug == true then
 		SKIN:Bang("!Log", 'DisksConfig.lua: ' .. message, type)
 	elseif type ~= 'Debug' and type ~= nil then
 		SKIN:Bang("!Log", 'DisksConfig.lua: ' .. message, type)

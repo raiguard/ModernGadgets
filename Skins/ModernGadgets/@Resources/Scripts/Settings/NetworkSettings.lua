@@ -1,10 +1,4 @@
--- MODERNGADGETS NETWORK SETTINGS SCRIPT
--- By iamanai
---
--- Consists of hard-coded functions to change settings in Network Meter
---
-
-isDbg = false
+debug = false
 
 function Initialize()
 

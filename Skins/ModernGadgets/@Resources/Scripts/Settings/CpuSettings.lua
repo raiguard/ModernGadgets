@@ -1,4 +1,4 @@
-isDbg = false
+debug = false
 
 function Initialize()
 

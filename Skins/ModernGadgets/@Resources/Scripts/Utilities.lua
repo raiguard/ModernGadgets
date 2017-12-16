@@ -6,7 +6,7 @@
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
-  if isDbg == true then
+  if debug == true then
     SKIN:Bang("!Log", message, type)
   elseif type ~= 'Debug' then
   	SKIN:Bang("!Log", message, type)

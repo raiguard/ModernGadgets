@@ -1,10 +1,4 @@
--- MODERNGADGETS DISKS METER SETTINGS SCRIPT
--- By iamanai
---
--- Consists of hard-coded functions to change settings in Disks Meter
---
-
-isDbg = false
+debug = false
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -13,6 +7,8 @@ function Initialize()
   disksSettingsPath = SKIN:GetVariable('disksSettingsPath')
   disksMeterPath = SKIN:GetVariable('disksMeterPath')
   disksMeterConfig = SKIN:GetVariable('disksMeterConfig')
+
+  -- TempSetHistogramHidden()
 
 end
 
@@ -24,27 +20,17 @@ function ToggleLineGraph(currentValue, showHistograms)
   showHistograms = tonumber(showHistograms)
 
   if currentValue == 0 then
-    SKIN:Bang('!SetVariable', 'showLineGraph', '1')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'showLineGraph', '1', disksSettingsPath)
+    SetVariable('showLineGraph', '1', disksSettingsPath, disksMeterConfig)
     SKIN:Bang('!ShowMeterGroup', 'LineGraph', disksMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '0', disksMeterPath)
-    SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '0', disksMeterPath)
 
     if showHistograms == 1 then
-      ToggleHistograms(0)
+      SKIN:Bang('!ShowMeterGroup', 'Histograms', disksMeterConfig)
     else
       SKIN:Bang('!HideMeterGroup', 'Histograms', disksMeterConfig)
     end
-    SetLineGraphY(1)
   else
-    SKIN:Bang('!SetVariable', 'showLineGraph', '0')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'showLineGraph', '0', disksSettingsPath)
+    SetVariable('showLineGraph', '0', disksSettingsPath, disksMeterConfig)
     SKIN:Bang('!HideMeterGroup', 'LineGraph', disksMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '1', disksMeterPath)
-    SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '1', disksMeterPath)
-
-    ToggleHistograms(1)
-    SetLineGraphY(0)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', disksMeterConfig)
@@ -79,10 +65,10 @@ function ToggleDiskHistograms(currentValue, showLineGraph)
 
 end
 
-function ToggleHistograms(v)
+function TempSetHistogramHidden()
 
   alphabet:gsub(".", function(c)
-    SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'Histogram', 'Hidden', v, disksMeterPath)
+    SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'Histogram', 'Hidden', '(#*showLineGraph*# = 0 || #*showHistograms*# = 0)', disksMeterPath)
   end)
 
 end
@@ -102,7 +88,7 @@ end
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
-	if isDbg == true then
+	if debug == true then
 		SKIN:Bang("!Log", 'DisksSettings.lua: ' .. message, type)
 	elseif type ~= 'Debug' and type ~= nil then
 		SKIN:Bang("!Log", message, type)
