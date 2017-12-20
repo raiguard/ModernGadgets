@@ -4,39 +4,15 @@ fpfWriteDepth=4
 fpfSpaceUsedDepth=5
 fpfSpaceTotalDepth=5
 
+manualHideDisks=
+diskSpaceUsageUpdateDivider=1
+
 diskCommand="C:\Windows\explorer.exe" /E,{drive}\
 histogramA=50
 
-showDiskTemps=1
+showEjectButtons=1
 showLineGraph=1
 showHistograms=1
-
-hideDiskA=0
-hideDiskB=0
-hideDiskC=0
-hideDiskD=0
-hideDiskE=0
-hideDiskF=0
-hideDiskG=0
-hideDiskH=0
-hideDiskI=0
-hideDiskJ=0
-hideDiskK=0
-hideDiskL=0
-hideDiskM=0
-hideDiskN=0
-hideDiskO=0
-hideDiskP=0
-hideDiskQ=0
-hideDiskR=0
-hideDiskS=0
-hideDiskT=0
-hideDiskU=0
-hideDiskV=0
-hideDiskW=0
-hideDiskX=0
-hideDiskY=0
-hideDiskZ=0
 
 colorDisk1=107,238,98
 colorDisk2=255,246,42

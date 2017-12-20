@@ -6,6 +6,8 @@
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
+  if type == nil then type = 'Debug' end
+
   if debug == true then
     SKIN:Bang("!Log", message, type)
   elseif type ~= 'Debug' then
@@ -28,7 +30,8 @@ end
 function SetVariable(name, parameter, filePath, configPath)
 
   SKIN:Bang('!SetVariable', name, parameter)
-  SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter, filePath)
+  if filePath == nil then SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter) 
+  else SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter, filePath) end
   if configPath ~= nil then SKIN:Bang('!SetVariable', name, parameter, configPath) end
 
 end

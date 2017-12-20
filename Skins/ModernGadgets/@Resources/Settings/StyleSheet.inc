@@ -18,6 +18,7 @@ rowSpacing=1
 barTextOffset=1
 barHeight=1
 graphHeight=40
+graphWidth=#contentWidth#
 
 labelOffset=53
 
