@@ -7,7 +7,7 @@ tempUnits=C
 isHwinfoAvailable=1
 
 notifyUpdates=1
-devUpdates=1
+devUpdates=0
 autoBackups=1
 
 showBgBorder=0

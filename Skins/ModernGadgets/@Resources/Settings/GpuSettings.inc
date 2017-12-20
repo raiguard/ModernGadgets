@@ -10,7 +10,7 @@ showLineGraph=1
 
 useManualMaxVram=0
 maxVram=3000
-useMoboFanSensor=1
+useMoboFanSensor=0
 
 sliMode=0
 

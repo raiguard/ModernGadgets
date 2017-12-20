@@ -60,7 +60,6 @@ showCoreTemps=1
 showCpuTempGraph=1
 showTopProcess=0
 showCpuFan=1
-; useAltFanDisplay=1
 showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
