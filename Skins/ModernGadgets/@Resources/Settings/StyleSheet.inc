@@ -292,7 +292,7 @@ DynamicVariables=1
 
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
-ImageTint=#colorInfo#
+ImageTint=120,120,120
 ToolTipText="Eject"
 X=7R
 Y=r

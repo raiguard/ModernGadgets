@@ -7,6 +7,7 @@ function Initialize()
 	dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
 	dynamicVarsPath = SKIN:GetVariable('dynamicVarsPath')
 	UpdateHideDisks()
+	SetDiskColors()
 
 end
 
@@ -19,7 +20,7 @@ function ConfigureDisk(disk, index)
 	if index > 1 and not table.contains(hideDisks, disk) then
 		SKIN:Bang('!ShowMeterGroup', 'Disk' .. disk)
 		SKIN:Bang('!EnableMeasureGroup', 'Disk' .. disk)
-		if index == 4 then
+		if index == 4 or tonumber(SKIN:GetVariable('showEjectButtons')) == 0 then
 			SKIN:Bang('!DisableMeasure', 'MeasureDisk' .. disk .. 'Eject')
 			SKIN:Bang('!HideMeter', 'Disk' .. disk .. 'EjectButton')
 		end
@@ -32,8 +33,8 @@ function ConfigureDisk(disk, index)
 
 	SetDiskColors()
 
-	SKIN:Bang('!UpdateMeasureGroup', 'disk' .. disk)
-	SKIN:Bang('!UpdateMeterGroup', 'disk' .. disk)
+	SKIN:Bang('!UpdateMeasureGroup', 'Disk' .. disk)
+	SKIN:Bang('!UpdateMeterGroup', 'Disk' .. disk)
 	SKIN:Bang('!UpdateMeterGroup', 'LineGraph')
 	SKIN:Bang('!UpdateMeterGroup', 'Background')
 	SKIN:Bang('!Redraw')
