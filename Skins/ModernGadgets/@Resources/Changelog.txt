@@ -111,12 +111,15 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.3.0 - 2017-??-??
+- Added 32-thread support to CPU Meter
+- Added top process display to CPU Meter
+- Added CPU temperature graph option to CPU Meter
 - Added NetMonitor support to Network Meter for more accurate readings
+- Added GPU name toggle to GPU Meter
+- Added custom GPU name option to GPU Meter
+- Added GPU temperature graph option to GPU Meter
 - Added eject button for removable drives in Disks Meter
 - Added capability to disable specific disks in Disks Meter
-- Added support for 32 threads in CPU Meter
-- Added Top Process display to CPU Meter
-- Added CPU Temperature Graph option to CPU Meter
 - Changed from ANSI to UTF-8 file encoding
 - Softened background and text colors, decreased gadget width
 - Rewrote gadget toggle button logic to be more reliable
