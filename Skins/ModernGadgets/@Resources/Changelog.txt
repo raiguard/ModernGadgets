@@ -113,7 +113,10 @@ WIP Releases
 v1.3.0 - 2017-??-??
 - Added NetMonitor support to Network Meter for more accurate readings
 - Added eject button for removable drives in Disks Meter
+- Added capability to disable specific disks in Disks Meter
 - Added support for 32 threads in CPU Meter
+- Added Top Process display to CPU Meter
+- Added CPU Temperature Graph option to CPU Meter
 - Changed from ANSI to UTF-8 file encoding
 - Softened background and text colors, decreased gadget width
 - Rewrote gadget toggle button logic to be more reliable
