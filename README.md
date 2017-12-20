@@ -4,7 +4,7 @@ ModernGadgets is a modernized recreation of the most popular AddGadgets.com syst
 ModernGadgets is released on the Rainmeter platform under a Creative Commons BY-NC-SA 3.0 license. The source code is made available on GitHub under an MIT License.
 
 ## Requirements
-Rainmeter 4.0 or newer: https://www.rainmeter.net
+Rainmeter 4.1 or newer: https://www.rainmeter.net
 
 HWiNFO (required for all GPU information, CPU and disk temperatures): https://www.hwinfo.com
 
@@ -24,7 +24,7 @@ Contributions are welcome! If you would like to add your own code, feel free to 
 Rather than giving ideas or suggestions, please try to implement the functionality yourself. Rainmeter is a very open and community-centric platform, and it's fairly easy to learn, so dig in! The [Rainmeter Forums](https://forum.rainmeter.net) and [Rainmeter Documentation](https://docs.rainmeter.net) are good places to get started and recieve assistance.
 
 ## Credits
-Designed and programmed by Caleb Heuer (iamanai).
+Designed and programmed by Caleb Heuer (raiguard).
 
 Backend code based on "Gadgets" by SilverAzide.
 

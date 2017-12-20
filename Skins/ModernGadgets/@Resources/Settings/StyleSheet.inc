@@ -2,21 +2,23 @@
 
 [Variables]
 ; General positioning and background
-bgOffset=6
-bgWidth=160
+bgOffset=5
+bgWidth=150
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
-mgVersion=1.2.1-beta.1
+mgVersion=1.3.0-beta.1
 
 contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
 contentMarginCenter=((#bgWidth# / 2) + #bgOffset#)
 contentMarginRight=((#bgWidth# + #bgOffset#) - #contentMarginAbs# - 1)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
+columnX=(#contentMarginCenter# + 2)
 
 rowSpacing=1
 barTextOffset=1
 barHeight=1
-graphHeight=41
+graphHeight=40
+graphWidth=#contentWidth#
 
 labelOffset=53
 
@@ -25,7 +27,7 @@ fontFace=Roboto
 fontSize=8
 
 ; Colors
-colorBg=0,0,0,255
+colorBg=15,15,15,255
 colorBgA=255
 colorBgBorder=#colorDim#
 colorBgBorderA=#colorBgA#
@@ -33,7 +35,7 @@ colorBgBorderA=#colorBgA#
 colorGraphBorder=#colorDim#
 colorGraphBorderA=#colorBgA#
 
-colorMain=255,255,255,#colorBgA#
+colorMain=230,230,230,#colorBgA#
 colorMainA=#colorBgA#
 colorInfo=150,150,150,#colorBgA#
 colorInfoA=#colorBgA#
@@ -42,8 +44,7 @@ colorDimA=#colorBgA#
 
 colorBarBg=#colorDim#
 
-colorAccent=138,210,250,220
-colorAccentRgb=138,210,250
+colorAccent=138,210,250
 
 colorButtonPress=255,50,50
 
@@ -56,6 +57,10 @@ colorInputBoxBorder=#colorDim#
 colorIntel=0,125,198
 
 histogramAlpha=50
+
+deg=[\176]
+toggleOn=[\x5a]
+toggleOff=[\x56]
 
 ; Paths
 imgPath=#@#Assets\Images\
@@ -88,10 +93,6 @@ disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
 disksMeterConfig=ModernGadgets\Disks
 disksSettingsPath=#@#Settings\DisksSettings.inc
 
-toggleOffImg=#imgPath#toggle-off.png
-toggleOnImg=#imgPath#toggle-on.png
-toggleLockImg=#imgPath#toggle-off-lock.png
-
 setupSkinConfig=ModernGadgets\Config\Setup
 
 ; Default Color Pallete
@@ -121,6 +122,11 @@ cp23=150,150,150
 cp24=237,28,32
 
 ; Styles
+[StyleBackgroundNew]
+Shape=Rectangle #bgOffset#,#bgOffset#,#bgWidth#,([BackgroundHeight:Y] - (#bgOffset# * 2)) | Fill Color #colorBg# | StrokeWidth 0 | Stroke Color #colorBg#
+DynamicVariables=1
+Group=Background
+
 [StyleBackground]
 SolidColor=#colorBg#
 X=#bgOffset#
@@ -201,25 +207,8 @@ X=#contentMarginCenter#
 Y=r
 FontColor=#colorInfo#
 
-[StyleStringToggleLabel]
-FontSize=10
-X=(#contentMargin# + 1)
-Y=4R
-
-[StyleStringGadgetToggleLabel]
-X=(#contentMargin# + 3)
-
-[StyleToggleImage]
-X=(#contentMarginRight# - 31)
-; X=5R
-Y=-1r
-W=31
-H=20
-Group=ToggleButtons
-
 [StyleStringConfigSectionHeader]
 FontFace=#fontFace# Cn
-FontColor=#colorInfo#
 FontSize=10
 Y=5R
 
@@ -242,7 +231,7 @@ W=(#contentWidth# - 6)
 ClipString=2
 
 [StyleStringConfigTitle]
-FontSize=12
+FontSize=11
 X=#contentMargin#
 Y=(#contentMargin# - 2)
 
@@ -255,6 +244,7 @@ w=(#contentWidth#)
 h=#barHeight#
 BarOrientation=Horizontal
 DynamicVariables=1
+Antialias=1
 
 [StyleCloseButton]
 ImageName=#imgPath#close.png
@@ -290,12 +280,41 @@ Antialias=0
 
 [StyleStringColorPickerLabel]
 StringAlign=Right
-FontSize=10
+FontSize=9
 X=-5r
 Y=5R
 
 [StyleColorPicker]
-Shape=Rectangle 0,0,25,17,3 | Stroke Color 100,100,100,100 | StrokeWidth 1 | Extend MeterSpecific
+Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Extend MeterSpecific
 X=5r
-Y=r
+Y=-1r
 DynamicVariables=1
+
+[StyleEjectButton]
+ImageName=#imgPath#eject.png
+ImageTint=120,120,120
+ToolTipText="Eject"
+X=7R
+Y=r
+W=14
+H=11
+Antialias=1
+DynamicVariables=1
+
+[StyleStringToggleLabel]
+FontFace=Roboto
+FontColor=240,240,240
+FontSize=10
+AntiAlias=1
+X=3R
+Y=-1r
+
+[StyleToggleButton]
+FontFace=ElegantIcons
+FontColor=138,210,250
+FontSize=12
+AntiAlias=1
+X=#contentMargin#
+Y=4R
+DynamicVariables=1
+Group=ToggleButtons

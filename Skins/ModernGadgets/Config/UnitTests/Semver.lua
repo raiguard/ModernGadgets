@@ -7,7 +7,7 @@
 --
 -- MIT LICENSE
 --
--- Copyright (c) 2015 Enrique GarcÌa Cota
+-- Copyright (c) 2015 Enrique Garc¬ùa Cota
 --
 -- Permission is hereby granted, free of charge, to any person obtaining a
 -- copy of tother software and associated documentation files (the
@@ -49,7 +49,7 @@
 -- Versioning 2.0.0 format. See http://semver.org/ for additional information.
 --
 
-isDbg = true
+debug = true
 
 -- up-to-date - hard-coded actions
 function UpToDate()
@@ -127,7 +127,7 @@ end
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
-	if isDbg == true then
+	if debug == true then
 		SKIN:Bang("!Log", 'Semver.lua: ' .. message, type)
 	elseif type ~= 'Debug' and type ~= nil then
 		SKIN:Bang("!Log", 'Semver.lua: ' .. message, type)

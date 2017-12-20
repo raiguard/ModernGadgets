@@ -3,7 +3,7 @@
 -- This script makes backups of the settings files every two hours, which
 -- prevents them from being lost when updating the suite.
 
-isDbg = true
+debug = true
 
 function Initialize()
 
@@ -23,7 +23,7 @@ function Initialize()
   gpuMeterPath = SKIN:GetVariable('gpuMeterPathBase')
   disksMeterPath = SKIN:GetVariable('disksMeterPath')
 
-end
+end 
 
 function Update() end
 
@@ -36,13 +36,7 @@ function ImportBackup()
     local sTable = ReadIni(filesPath .. fileNames[i])
     CrossCheck(bTable, sTable, filesPath .. fileNames[i])
   end
-
-  -- update all gadgets
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', cpuMeterPath)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', networkMeterPath)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', gpuMeterPath)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', disksMeterPath)
-
+  
   SKIN:Bang('!RefreshGroup', 'MgImportRefresh')
 
   LogHelper('Imported settings backup', 'Notice')
@@ -72,14 +66,15 @@ function CheckForBackup()
   local file = io.open(backupsPath .. fileNames[1])
   if file == nil then
     SKIN:Bang('!ActivateConfig', 'ModernGadgets\\Config\\GadgetManager', 'Config.ini')
+    SKIN:Bang('!CommandMeasure', 'MeasureCreateBackup', 'Run')
   else
     SKIN:Bang('!Hide')
     SKIN:Bang('!ShowMeterGroup', 'Essentials')
     SKIN:Bang('!ShowMeterGroup', 'ImportBackupPrompt')
     SKIN:Bang('!Redraw')
     SKIN:Bang('!ShowFade')
+    file:close()
   end
-  io.close(file)
 end
 
 -- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
@@ -111,7 +106,7 @@ end
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
-  if isDbg == true then
+  if debug == true then
     SKIN:Bang("!Log", message, type)
   elseif type ~= 'Debug' then
   	SKIN:Bang("!Log", message, type)

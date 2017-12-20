@@ -21,7 +21,9 @@ colorMemoryController=255,204,0
 
 ; ====== DEFAULTS ======
 
-dColorCoreUsage=#cp2#
-dColorMemoryUsage=#cp21#
-dColorFanUsage=#cp1#
-dColorMemoryController=#cp22#
+dColorCoreUsage=255,246,42
+dColorMemoryUsage=107,198,250
+dColorFanUsage=107,238,98
+dColorMemoryController=255,204,0
+;====== DEFAULTS ======
+;====== DEFAULTS ======

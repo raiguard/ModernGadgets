@@ -1,10 +1,4 @@
--- MODERNGADGETS DISKS METER SETTINGS SCRIPT
--- By iamanai
---
--- Consists of hard-coded functions to change settings in Disks Meter
---
-
-isDbg = false
+debug = false
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -14,9 +8,30 @@ function Initialize()
   disksMeterPath = SKIN:GetVariable('disksMeterPath')
   disksMeterConfig = SKIN:GetVariable('disksMeterConfig')
 
+  -- TempSetHistogramHidden()
+
+  dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
+
 end
 
 function Update() end
+
+function ToggleEjectButtons(currentValue)
+
+  currentValue = tonumber(currentValue)
+
+  if currentValue == 0 then
+    SetVariable('showEjectButtons', '1', disksSettingsPath, disksMeterConfig)
+  else
+    SetVariable('showEjectButtons', '0', disksSettingsPath, disksMeterConfig)
+  end
+
+  SKIN:Bang('!UpdateMeasureGroup', 'EjectButtons', disksMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'EjectButtons', disksMeterConfig)
+  SKIN:Bang('!Redraw', disksMeterConfig)
+  UpdateToggles()
+
+end
 
 function ToggleLineGraph(currentValue, showHistograms)
 
@@ -24,36 +39,28 @@ function ToggleLineGraph(currentValue, showHistograms)
   showHistograms = tonumber(showHistograms)
 
   if currentValue == 0 then
-    SKIN:Bang('!SetVariable', 'showLineGraph', '1')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'showLineGraph', '1', disksSettingsPath)
+    SetVariable('showLineGraph', '1', disksSettingsPath, disksMeterConfig)
     SKIN:Bang('!ShowMeterGroup', 'LineGraph', disksMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '0', disksMeterPath)
-    SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '0', disksMeterPath)
 
     if showHistograms == 1 then
-      ToggleHistograms(0)
+      SKIN:Bang('!ShowMeterGroup', 'Histograms', disksMeterConfig)
     else
       SKIN:Bang('!HideMeterGroup', 'Histograms', disksMeterConfig)
     end
-    SetLineGraphY(1)
   else
-    SKIN:Bang('!SetVariable', 'showLineGraph', '0')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'showLineGraph', '0', disksSettingsPath)
+    SetVariable('showLineGraph', '0', disksSettingsPath, disksMeterConfig)
     SKIN:Bang('!HideMeterGroup', 'LineGraph', disksMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'GraphLines', 'Hidden', '1', disksMeterPath)
-    SKIN:Bang('!WriteKeyValue', 'GraphBorder', 'Hidden', '1', disksMeterPath)
-
-    ToggleHistograms(1)
-    SetLineGraphY(0)
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', disksMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', disksMeterConfig)
   SKIN:Bang('!Redraw', disksMeterConfig)
+  SKIN:Bang('!UpdateMeasure', 'MeasureHistograms')
+  UpdateToggles()
 
 end
 
-function ToggleDiskHistograms(currentValue, showLineGraph)
+function ToggleHistograms(currentValue, showLineGraph)
 
   currentValue = tonumber(currentValue)
   showLineGraph = tonumber(showLineGraph)
@@ -62,67 +69,25 @@ function ToggleDiskHistograms(currentValue, showLineGraph)
     LogHelper('Cannot display disk histograms if line graph is disabled!', 'Warning')
   else
     if currentValue == 0 then
-      SKIN:Bang('!SetVariable', 'showHistograms', '1')
-      SKIN:Bang('!WriteKeyValue', 'Variables', 'showHistograms', '1', disksSettingsPath)
+      SetVariable('showHistograms', '1', disksSettingsPath, disksMeterConfig)
       SKIN:Bang('!ShowMeterGroup', 'Histograms', disksMeterConfig)
-      ToggleHistograms(0)
     else
-      SKIN:Bang('!SetVariable', 'showHistograms', '0')
-      SKIN:Bang('!WriteKeyValue', 'Variables', 'showHistograms', '0', disksSettingsPath)
+      SetVariable('showHistograms', '0', disksSettingsPath, disksMeterConfig)
       SKIN:Bang('!HideMeterGroup', 'Histograms', disksMeterConfig)
-      ToggleHistograms(1)
     end
   end
 
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', disksMeterConfig)
   SKIN:Bang('!Redraw', disksMeterConfig)
-
-end
-
-function ToggleHistograms(v)
-
-  alphabet:gsub(".", function(c)
-    SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'Histogram', 'Hidden', v, disksMeterPath)
-  end)
-
-end
-
-function SetLineGraphY(v)
-
-  if v == 0 then
-    SKIN:Bang('!SetOption', 'DiskZHistogram', 'Y', '3r', disksMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'DiskZHistogram', 'Y', '3r', disksMeterPath)
-  else
-    SKIN:Bang('!SetOption', 'DiskZHistogram', 'Y', '5r', disksMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'DiskZHistogram', 'Y', '5r', disksMeterPath)
-  end
-
-end
-
--- function to make logging messages less cluttered
-function LogHelper(message, type)
-
-	if isDbg == true then
-		SKIN:Bang("!Log", 'DisksSettings.lua: ' .. message, type)
-	elseif type ~= 'Debug' and type ~= nil then
-		SKIN:Bang("!Log", message, type)
-	end
-
-end
-
-function UpdateSettings()
-
-  local showLineGraph = math.abs(tonumber(SKIN:GetVariable('showLineGraph')) - 1)
-  local showHistograms = math.abs(tonumber(SKIN:GetVariable('showHistograms')) - 1)
-
-  ToggleLineGraph(showLineGraph, showHistograms)
-  ToggleHistograms(showHistograms, showLineGraph)
+  UpdateToggles()
 
 end
 
 function SetDefaults()
 
-  ToggleLineGraph(0, 1)
-  -- ToggleHistograms(0, 1)
+  SetVariable('showEjectButtons', 1, disksSettingsPath)
+  -- SetVariable('manualHideDisks', '', disksSettingsPath)
+  SetVariable('showLineGraph', 1, disksSettingsPath)
+  SetVariable('showHistograms', 1, disksSettingsPath)
 
 end

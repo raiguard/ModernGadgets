@@ -4,10 +4,13 @@ fpfWriteDepth=4
 fpfSpaceUsedDepth=5
 fpfSpaceTotalDepth=5
 
+manualHideDisks=
+diskSpaceUsageUpdateDivider=1
+
 diskCommand="C:\Windows\explorer.exe" /E,{drive}\
 histogramA=50
 
-showDiskTemps=1
+showEjectButtons=1
 showLineGraph=1
 showHistograms=1
 
@@ -40,29 +43,31 @@ colorDisk26=204,255,0
 
 ; ====== DEFAULTS ======
 
-dColorDisk1=#cp1#
-dColorDisk2=#cp2#
-dColorDisk3=#cp3#
-dColorDisk4=#cp4#
-dColorDisk5=#cp5#
-dColorDisk6=#cp6#
-dColorDisk7=#cp7#
-dColorDisk8=#cp8#
-dColorDisk9=#cp9#
-dColorDisk10=#cp10#
-dColorDisk11=#cp11#
-dColorDisk12=#cp12#
-dColorDisk13=#cp13#
-dColorDisk14=#cp14#
-dColorDisk15=#cp15#
-dColorDisk16=#cp16#
-dColorDisk17=#cp17#
-dColorDisk18=#cp18#
-dColorDisk19=#cp19#
-dColorDisk20=#cp20#
-dColorDisk21=#cp5#
-dColorDisk22=#cp6#
-dColorDisk23=#cp7#
-dColorDisk24=#cp8#
-dColorDisk25=#cp9#
-dColorDisk26=#cp10#
+dColorDisk1=107,238,98
+dColorDisk2=255,246,42
+dColorDisk3=250,158,0
+dColorDisk4=236,28,70
+dColorDisk5=199,36,199
+dColorDisk6=145,70,232
+dColorDisk7=42,112,250
+dColorDisk8=43,224,224
+dColorDisk9=121,182,62
+dColorDisk10=204,255,0
+dColorDisk11=250,205,22
+dColorDisk12=191,100,55
+dColorDisk13=201,41,56
+dColorDisk14=179,0,91
+dColorDisk15=153,84,166
+dColorDisk16=99,125,217
+dColorDisk17=107,238,98
+dColorDisk18=255,246,42
+dColorDisk19=250,158,0
+dColorDisk20=236,28,70
+dColorDisk21=199,36,199
+dColorDisk22=145,70,232
+dColorDisk23=42,112,250
+dColorDisk24=43,224,224
+dColorDisk25=121,182,62
+dColorDisk26=204,255,0
+;====== DEFAULTS ======
+;====== DEFAULTS ======

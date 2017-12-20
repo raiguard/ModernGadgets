@@ -2,6 +2,16 @@ MODERNGADGETS CHANGELOG
 
 Official Releases
 
+v1.2.2 - 2017-8-3
+- ACTUALLY fixed core temperature issues
+- Changed all author references to raiguard
+
+v1.2.1 - 2017-8-2
+- Fixed non-hyperthreaded core temperatures
+- Fixed bytes/sec option in Network Meter
+- Fixed manual max VRAM not working properly
+- Changed update checker URL
+
 v1.2.0 - 2017-4-19
 - Added average CPU usage graph mode
 - Added global config skin
@@ -51,6 +61,19 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.3.0-beta.1 - 2017-12-20
+- Added 32-thread support to CPU Meter
+- Added top process display to CPU Meter
+- Added CPU temperature graph option to CPU Meter
+- Added eject button for removable drives in Disks Meter
+- Added capability to disable specific disks in Disks Meter
+- Changed from ANSI to UTF-8 file encoding
+- Softened background and text colors, decreased gadget width
+- Rewrote gadget toggle button logic to be more reliable
+- Rewrote settings logic to be more reliable, and avoid directly editing the skin INIs
+- Rewrote update checker and moved update checker URL
+- Fixed gadget toggle buttons desyncing
+
 v1.2.1-beta.1 - 2017-6-9
 - Fixed non-hyperthreaded core temperatures
 - Fixed bytes/sec option in Network Meter
@@ -97,3 +120,22 @@ v1.0.0-rc.2 - 2016-11-18
 
 v1.0.0-rc.1 - 2016-11-14
  - Initial release
+
+WIP Releases
+
+v1.3.0 - 2017-??-??
+- Added 32-thread support to CPU Meter
+- Added top process display to CPU Meter
+- Added CPU temperature graph option to CPU Meter
+- Added NetMonitor support to Network Meter for more accurate readings
+- Added GPU name toggle to GPU Meter
+- Added custom GPU name option to GPU Meter
+- Added GPU temperature graph option to GPU Meter
+- Added eject button for removable drives in Disks Meter
+- Added capability to disable specific disks in Disks Meter
+- Changed from ANSI to UTF-8 file encoding
+- Softened background and text colors, decreased gadget width
+- Rewrote gadget toggle button logic to be more reliable
+- Rewrote settings logic to be more reliable, and avoid directly editing the skin INIs
+- Rewrote update checker and moved update checker URL
+- Fixed gadget toggle buttons desyncing

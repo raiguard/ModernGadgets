@@ -34,7 +34,7 @@ Text="Clock: %1MHz"
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0Temperature
-Text="%1°#tempUnits#"
+Text="%1#deg##tempUnits#"
 
 [Gpu0CoreUsageLabelString]
 Meter=String
@@ -59,18 +59,19 @@ DynamicVariables=1
 [Gpu0MemoryClockLabelString]
 Meter=String
 MeterStyle=StyleString
+Y=((#showMemoryClock# = 1) ? #rowSpacing# : 0)R
 Text="Memory Clock:"
 Group=MemoryClock
-Hidden=0
-Y=#rowSpacing#R
+Hidden=(#showMemoryClock# = 1) ? 0 : 1
+DynamicVariables=1
 
 [Gpu0MemoryClockValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
-MeasureName=MeasureGpu0MemoryClockSpeed
+MeasureName=MeasureMemoryClockSpeed
 Text="%1MHz"
 Group=MemoryClock
-Hidden=0
+Hidden=(#showMemoryClock# = 1) ? 0 : 1
 
 [Gpu0MemoryUsageLabelString]
 Meter=String
@@ -87,7 +88,8 @@ Group=Memory
 [Gpu0MemoryUsageValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
-MeasureName=MeasureGpu0MemUsedPercent
+MeasureName=MeasureVramUsage
+MeasureName2=MeasureVramUsageAlt
 Text="%1%"
 Group=Memory
 DynamicVariables=1
@@ -95,7 +97,7 @@ DynamicVariables=1
 [Gpu0MemoryUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
-MeasureName=MeasureGpu0MemUsedPercent
+MeasureName=MeasureVramUsage
 BarColor=#colorMemoryUsage#
 DynamicVariables=1
 Group=Memory
@@ -111,6 +113,7 @@ Text="Fan:"
 Meter=String
 MeterStyle=StyleString | StyleStringInfo
 MeasureName=MeasureGpu0FanSpeed
+MeasureName2=MeasureMoboGpuFanSpeed
 Text="%1RPM"
 
 [Gpu0FanUsageValueString]
@@ -131,10 +134,10 @@ DynamicVariables=1
 [Gpu0MemoryControllerLabelString]
 Meter=String
 MeterStyle=StyleString
+Y=((#showMemoryController# = 1) ? #rowSpacing# : -#barTextOffset#)R
 Text="Memory Controller:"
 Group=MemoryController
-Hidden=0
-Y=#rowSpacing#R
+Hidden=(#showMemoryController# = 1) ? 0 : 1
 
 [Gpu0MemoryControllerValueString]
 Meter=String
@@ -142,7 +145,7 @@ MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0MemoryControllerLoad
 Text="%1%"
 Group=MemoryController
-Hidden=0
+Hidden=(#showMemoryController# = 1) ? 0 : 1
 
 [Gpu0MemoryControllerBar]
 Meter=Bar
@@ -151,17 +154,17 @@ MeasureName=MeasureGpu0MemoryControllerLoad
 BarColor=#colorMemoryController#
 DynamicVariables=1
 Group=MemoryController
-Hidden=0
+Hidden=(#showMemoryController# = 1) ? 0 : 1
 
 ; ----- Video Clock -----
 
 [Gpu0VideoClockLabelString]
 Meter=String
 MeterStyle=StyleString
+Y=((#showVideoClock# = 1) ? #rowSpacing# : 0)R
 Text="Video Clock:"
 Group=VideoClock
-Hidden=0
-Y=#rowSpacing#R
+Hidden=(#showVideoClock# = 1) ? 0 : 1
 
 [Gpu0VideoClockValueString]
 Meter=String
@@ -169,17 +172,17 @@ MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0VideoClock
 Text="%1MHz"
 Group=VideoClock
-Hidden=0
+Hidden=(#showVideoClock# = 1) ? 0 : 1
 
 ; ----- Core Voltage -----
 
 [Gpu0CoreVoltageLabelString]
 Meter=String
 MeterStyle=StyleString
+Y=((#showCoreVoltage# = 1) ? #rowSpacing# : 0)R
 Text="Core Voltage:"
 Group=CoreVoltage
-Hidden=0
-Y=#rowSpacing#R
+Hidden=(#showCoreVoltage# = 1) ? 0 : 1
 
 [Gpu0CoreVoltageValueString]
 Meter=String
@@ -188,29 +191,29 @@ MeasureName=MeasureGpu0CoreVoltage
 NumOfDecimals=3
 Text="%1V"
 Group=CoreVoltage
-Hidden=0
+Hidden=(#showCoreVoltage# = 1) ? 0 : 1
 
 ; ----- Graph -----
 
 [GraphLines]
 Meter=Line
 X=(#contentMargin# + 1)
-Y=(#barTextOffset# + 1)R
+Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset# + 1) : 0) : ((#showLineGraph# = 1) ? 5 : 2))R
 W=(#contentWidth# - 2)
 H=(#graphHeight# - 2)
 LineCount=4
 MeasureName=MeasureGpu0MemoryControllerLoad
 MeasureName2=MeasureGpu0FanUsage
-MeasureName3=MeasureGpu0MemUsedPercent
+MeasureName3=MeasureVramUsage
 MeasureName4=MeasureGpu0Usage
-LineColor=#colorMemoryController#
+LineColor=#colorMemoryController#,(#showMemoryController# * 255)
 LineColor2=#colorFanUsage#
 LineColor3=#colorMemoryUsage#
 LineColor4=#colorCoreUsage#
 DynamicVariables=1
 Antialias=#lineGraphAa#
 Group=LineGraph
-Hidden=0
+Hidden=(#showLineGraph# = 1) ? 0 : 1
 
 [GraphBorder]
 Meter=Image
@@ -222,4 +225,4 @@ Y=-1r
 W=#contentWidth#
 H=#graphHeight#
 Group=LineGraph
-Hidden=0
+Hidden=(#showLineGraph# = 1) ? 0 : 1

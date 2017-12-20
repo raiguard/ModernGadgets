@@ -1,6 +1,6 @@
 MODERNGADGETS
-Version 1.2.0
-By iamanai
+Version 1.3.0-beta.1
+By raiguard
 
 ----------------------------------------
 ABOUT
@@ -10,7 +10,7 @@ gadgets, with updated visuals and enhanced functionality to better align with mo
 The skin suite is developed completely for free on the Rainmeter platform, with the source
 code available on GitHub.
 
-This skin suite requires Rainmeter 3.3 or above, as well as .NET Framework v4.5 or above.
+This skin suite requires Rainmeter 4.1 or above, as well as .NET Framework v4.5 or above.
 
 ----------------------------------------
 LICENSE AND CREDITS
@@ -18,7 +18,7 @@ LICENSE AND CREDITS
 This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
 Source code is available on GitHub under the MIT License.
 
-Designed and programmed by Caleb Heuer (iamanai).
+Designed and programmed by Caleb Heuer (raiguard).
 Backend code based on "Gadgets" by SilverAzide.
 
 Settings toggle buttons and close buttons taken from Droptop (by virginityrocks).
@@ -34,4 +34,4 @@ balala - Help with fixing Disks Meter's dynamic height adjustment
 CONTACT
 
 Email: iamanaiofficial@gmail.com
-Twitter: @iamanai_
+Twitter: @raiguard_

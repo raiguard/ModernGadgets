@@ -1,13 +1,13 @@
 -- ------------------------------------------------
 -- Update Checker for Rainmeter
 -- Version 1.0.0
--- By iamanai
+-- By raiguard
 --
 -- Modified form of 'semver.lua' by kikito (https://github.com/kikito/semver.lua)
 --
 -- MIT LICENSE
 --
--- Copyright (c) 2015 Enrique García Cota
+-- Copyright (c) 2015 Enrique GarcÃ­a Cota
 --
 -- Permission is hereby granted, free of charge, to any person obtaining a
 -- copy of tother software and associated documentation files (the
@@ -49,7 +49,7 @@
 -- Versioning 2.0.0 format. See http://semver.org/ for additional information.
 --
 
-isDbg = false
+debug = true
 
 function Initialize() end
 
@@ -94,11 +94,18 @@ function ParsingError()
 
 end
 
-function CheckForUpdate(current, remote)
+function CheckForUpdate(dev, cVersion)
 
+  LogHelper(SKIN:GetVariable('CURRENTPATH'), 'Debug')
+  local updateFile = ReadIni(SKIN:GetVariable('CURRENTPATH') .. 'DownloadFile\\Release.inc')
   -- create version objects
-  local cVersion = v(current)
-  local rVersion = v(remote)
+  local cVersion = v(cVersion)
+  local rVersion = nil
+  if dev == 1 then
+    rVersion = v(updateFile['ReleaseVersions']['dev'])
+  else
+    rVersion = v(updateFile['ReleaseVersions']['stable'])
+  end
 
   if cVersion == rVersion then
     LogHelper('Up-to-date', 'Debug')
@@ -118,7 +125,7 @@ end
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
-	if isDbg == true then
+	if debug == true then
 		SKIN:Bang("!Log", message, type)
 	elseif type ~= 'Debug' and type ~= nil then
 		SKIN:Bang("!Log", message, type)
@@ -299,4 +306,30 @@ function v(major, minor, patch, prerelease, build)
 
   local result = {major=major, minor=minor, patch=patch, prerelease=prerelease, build=build}
   return setmetatable(result, mt)
+end
+
+-- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
+function ReadIni(inputfile)
+  local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
+  local tbl, section = {}
+  local num = 0
+  for line in file:lines() do
+    num = num + 1
+    if not line:match('^%s;') then
+      local key, command = line:match('^([^=]+)=(.+)')
+      if line:match('^%s-%[.+') then
+        section = line:match('^%s-%[([^%]]+)')
+            LogHelper(section, 'Debug')
+        if not tbl[section] then tbl[section] = {} end
+      elseif key and command and section then
+            LogHelper(key .. '=' .. command, 'Debug')
+        tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$')
+      elseif #line > 0 and section and not key or command then
+        LogHelper(num .. ': Invalid property or value.', Error)
+      end
+    end
+  end
+  if not section then print('No sections found in ' .. inputfile) end
+  file:close()
+  return tbl
 end

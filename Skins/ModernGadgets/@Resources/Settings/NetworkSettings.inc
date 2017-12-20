@@ -1,21 +1,22 @@
 [Variables]
 interface=Best
-trafficSuffix=bit/s
+trafficSuffix=B/s
 
 censorExternalIp=0
 showPeakNetworkUsage=1
 showSpeedtestButton=1
 showPing=1
-showTrafficInBytes=0
-showTrafficInBytes=0
+showTrafficInBytes=1
 showLineGraph=1
 
-pingUrl=www.google.com
+pingUrl=google.com
 
 colorUpload=107,238,98
 colorDownload=255,246,42
 
 ; ====== DEFAULTS ======
 
-dColorUpload=#cp1#
-dColorDownload=#cp2#
+dColorUpload=107,238,98
+dColorDownload=255,246,42
+;====== DEFAULTS ======
+;====== DEFAULTS ======
