@@ -10,7 +10,7 @@ gadgets, with updated visuals and enhanced functionality to better align with mo
 The skin suite is developed completely for free on the Rainmeter platform, with the source
 code available on GitHub.
 
-This skin suite requires Rainmeter 3.3 or above, as well as .NET Framework v4.5 or above.
+This skin suite requires Rainmeter 4.1 or above, as well as .NET Framework v4.5 or above.
 
 ----------------------------------------
 LICENSE AND CREDITS
