@@ -144,26 +144,6 @@ function SetPingUrl(url)
   
 end
 
-function UpdateSettings()
-
-  local censorExternalIp = math.abs(tonumber(SKIN:GetVariable('censorExternalIp')) - 1)
-  local showSpeedtestButton = math.abs(tonumber(SKIN:GetVariable('showSpeedtestButton')) - 1)
-  local showPing = math.abs(tonumber(SKIN:GetVariable('showPing')) - 1)
-  local showTrafficInBytes = math.abs(tonumber(SKIN:GetVariable('showTrafficInBytes')) - 1)
-  local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
-  local showPeakNetworkUsage = tonumber(SKIN:GetVariable('showPeakNetworkUsage'))
-
-  -- print(tostring(censorExternalIp) .. ' ' .. tostring(SKIN:GetVariable('censorExternalIp')))
-
-  ToggleCensorExternalIp(censorExternalIp)
-  ToggleSpeedtestButton(showSpeedtestButton)
-  TogglePing(showPing)
-  ToggleTrafficSuffix(showTrafficInBytes)
-  ToggleLineGraph(math.abs(showLineGraph - 1), showPeakNetworkUsage)
-  TogglePeakNetworkUsage(math.abs(showPeakNetworkUsage - 1), showLineGraph)
-
-end
-
 function SetDefaults()
 
   SetVariable('censorExternalIp', '0', networkSettingsPath)

@@ -36,13 +36,7 @@ function ImportBackup()
     local sTable = ReadIni(filesPath .. fileNames[i])
     CrossCheck(bTable, sTable, filesPath .. fileNames[i])
   end
-
-  -- update all gadgets
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', cpuMeterPath)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', networkMeterPath)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', gpuMeterPath)
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'updateSettings', '1', disksMeterPath)
-
+  
   SKIN:Bang('!RefreshGroup', 'MgImportRefresh')
 
   LogHelper('Imported settings backup', 'Notice')

@@ -283,36 +283,6 @@ function ToggleTtSound(currentValue, showTt)
 
 end
 
-function UpdateSettings()
-
-  local showCpuName = math.abs(tonumber(SKIN:GetVariable('showCpuName')) - 1)
-  local showPageFile = math.abs(tonumber(SKIN:GetVariable('showPageFile')) - 1)
-  local showCoreTemps = math.abs(tonumber(SKIN:GetVariable('showCoreTemps')) - 1)
-  local showCpuFan = tonumber(SKIN:GetVariable('showCpuFan'))
-  local showCpuClock = tonumber(SKIN:GetVariable('showCpuClock'))
-  local showLineGraph = tonumber(SKIN:GetVariable('showLineGraph'))
-  local showAvgCpu = tonumber(SKIN:GetVariable('showAvgCpu'))
-  local cpuName = tostring(SKIN:GetVariable('cpuName'))
-  local showTt = tonumber(SKIN:GetVariable('showTt'))
-  local playTtSound = tonumber(SKIN:GetVariable('playTtSound'))
-  local isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
-  local cpuCores = tonumber(SKIN:GetVariable('threadCount'))
-
-  if cpuName == 'auto' then cpuName = '' end
-
-  ToggleCpuName(showCpuName)
-  TogglePage(showPageFile)
-  ToggleCoreTemps(showCoreTemps, isHwinfoAvailable, cpuCores)
-  ToggleCpuFan(math.abs(showCpuFan - 1), isHwinfoAvailable, showLineGraph, showCpuClock)
-  ToggleCpuClock(math.abs(showCpuClock - 1), isHwinfoAvailable, showLineGraph, showCpuFan)
-  ToggleLineGraph(math.abs(showLineGraph - 1), showCpuFan, showCpuClock)
-  ToggleAvgCpuGraph(math.abs(showAvgCpu - 1), showLineGraph)
-  SetCpuName(cpuName)
-  ToggleTtDetection(math.abs(showTt - 1))
-  ToggleTtSound(math.abs(playTtSound - 1), showTt)
-
-end
-
 function SetDefaults()
 
   SetVariable('showCpuName', '1', cpuSettingsPath)

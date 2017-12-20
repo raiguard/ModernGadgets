@@ -16,5 +16,7 @@ colorDownload=255,246,42
 
 ; ====== DEFAULTS ======
 
-dColorUpload=#cp1#
-dColorDownload=#cp2#
+dColorUpload=107,238,98
+dColorDownload=255,246,42
+;====== DEFAULTS ======
+;====== DEFAULTS ======

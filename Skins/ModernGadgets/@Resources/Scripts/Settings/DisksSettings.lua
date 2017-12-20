@@ -83,16 +83,6 @@ function ToggleHistograms(currentValue, showLineGraph)
 
 end
 
-function UpdateSettings()
-
-  local showLineGraph = math.abs(tonumber(SKIN:GetVariable('showLineGraph')) - 1)
-  local showHistograms = math.abs(tonumber(SKIN:GetVariable('showHistograms')) - 1)
-
-  ToggleLineGraph(showLineGraph, showHistograms)
-  ToggleHistograms(showHistograms, showLineGraph)
-
-end
-
 function SetDefaults()
 
   SetVariable('showEjectButtons', 1, disksSettingsPath)
