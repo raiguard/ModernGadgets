@@ -61,6 +61,19 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.3.0-beta.1 - 2017-12-20
+- Added 32-thread support to CPU Meter
+- Added top process display to CPU Meter
+- Added CPU temperature graph option to CPU Meter
+- Added eject button for removable drives in Disks Meter
+- Added capability to disable specific disks in Disks Meter
+- Changed from ANSI to UTF-8 file encoding
+- Softened background and text colors, decreased gadget width
+- Rewrote gadget toggle button logic to be more reliable
+- Rewrote settings logic to be more reliable, and avoid directly editing the skin INIs
+- Rewrote update checker and moved update checker URL
+- Fixed gadget toggle buttons desyncing
+
 v1.2.1-beta.1 - 2017-6-9
 - Fixed non-hyperthreaded core temperatures
 - Fixed bytes/sec option in Network Meter
@@ -124,4 +137,5 @@ v1.3.0 - 2017-??-??
 - Softened background and text colors, decreased gadget width
 - Rewrote gadget toggle button logic to be more reliable
 - Rewrote settings logic to be more reliable, and avoid directly editing the skin INIs
+- Rewrote update checker and moved update checker URL
 - Fixed gadget toggle buttons desyncing

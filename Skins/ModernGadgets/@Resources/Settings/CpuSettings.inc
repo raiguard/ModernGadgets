@@ -2,7 +2,7 @@
 
 [Variables]
 tempUom=C
-ttSoundPath=D:\Settings\Caleb\Rainmeter\Skins\ModernGadgets\@Resources\Assets\Sounds\alarmalerteffect.wav
+ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
 
 ; Set automatically - don't bother changing (they will just change back)
 cpuName=auto
