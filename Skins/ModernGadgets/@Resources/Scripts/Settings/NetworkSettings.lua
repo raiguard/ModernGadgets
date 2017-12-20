@@ -166,11 +166,12 @@ end
 
 function SetDefaults()
 
-  ToggleCensorExternalIp(1)
-  ToggleSpeedtestButton(0)
-  TogglePing(0)
-  ToggleTrafficSuffix(1)
-  ToggleLineGraph(0, 1)
-  TogglePeakNetworkUsage(0, 1)
+  SetVariable('censorExternalIp', '0', networkSettingsPath)
+  SetVariable('showSpeedtestButton', '1', networkSettingsPath)
+  SetVariable('showPing', '1', networkSettingsPath)
+  SetVariable('trafficSuffix', 'B/s', networkSettingsPath)
+  SetVariable('showTrafficInBytes', '1', networkSettingsPath)
+  SetVariable('showLineGraph', 1, networkSettingsPath)
+  SetVariable('showPeakNetworkUsage', 1, networkSettingsPath)
 
 end

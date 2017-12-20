@@ -315,18 +315,17 @@ end
 
 function SetDefaults()
 
-  local isHwinfoAvailable = tonumber(SKIN:GetVariable('isHwinfoAvailable'))
-  local cpuCores = tonumber(SKIN:GetVariable('cpuCores'))
-
-  ToggleCpuName(0)
-  TogglePage(1)
-  ToggleCoreTemps(0, isHwinfoAvailable, cpuCores)
-  ToggleCpuFan(0, isHwinfoAvailable, 1, 1)
-  ToggleCpuClock(0, isHwinfoAvailable, 1, 1)
-  ToggleLineGraph(0, 1, 1)
-  ToggleAvgCpuGraph(1,1)
-  SetCpuName('')
-  ToggleTtDetection(0)
-  ToggleTtSound(0, 1)
+  SetVariable('showCpuName', '1', cpuSettingsPath)
+  SetVariable('showPageFile', '0', cpuSettingsPath)
+  SetVariable('showCoreTemps', '1', cpuSettingsPath)
+  SetVariable('showTopProcess', '0', cpuSettingsPath)
+  SetVariable('showCpuFan', '1', cpuSettingsPath)
+  SetVariable('showCpuClock', '1', cpuSettingsPath)
+  SetVariable('showLineGraph', '1', cpuSettingsPath)
+  SetVariable('showAvgCpu', '0', cpuSettingsPath)
+  SetVariable('showCpuTempGraph', '1', cpuSettingsPath)
+  SetVariable('cpuName', 'auto', cpuSettingsPath)
+  SetVariable('showTt', '0', cpuSettingsPath)
+  SetVariable('playTtSound', '0', cpuSettingsPath)
 
 end

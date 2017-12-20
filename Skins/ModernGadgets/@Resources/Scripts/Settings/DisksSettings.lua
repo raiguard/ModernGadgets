@@ -95,7 +95,9 @@ end
 
 function SetDefaults()
 
-  ToggleLineGraph(0, 1)
-  -- ToggleHistograms(0, 1)
+  SetVariable('showEjectButtons', 1, disksSettingsPath)
+  -- SetVariable('manualHideDisks', '', disksSettingsPath)
+  SetVariable('showLineGraph', 1, disksSettingsPath)
+  SetVariable('showHistograms', 1, disksSettingsPath)
 
 end

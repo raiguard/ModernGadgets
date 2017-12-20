@@ -1,11 +1,6 @@
--- MODERNGADGETS GLOBAL SETTINGS SCRIPT
--- By iamanai
---
--- Consists of hard-coded functions to change settigns in all gadgets simultaneously
---
-
 function Initialize()
 
+  dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
   cpuMeterConfig = SKIN:GetVariable('cpuMeterConfig')
   networkMeterConfig = SKIN:GetVariable('networkMeterConfig')
   gpuMeterConfig = SKIN:GetVariable('gpuMeterConfig')
@@ -17,6 +12,13 @@ function Initialize()
 end
 
 function Update() end
+
+function GetTempIcon(currentValue)
+
+  if currentValue == 'C' then return '[#toggleOff]'
+  else return '[#toggleOn]' end
+
+end
 
 function ToggleBgBorder(currentValue)
 
@@ -148,14 +150,16 @@ function SetDefaults()
   SKIN:Bang('!CommandMeasure', 'MeasureGpuSettingsScript', 'SetDefaults()', gpuMeterConfig)
   SKIN:Bang('!CommandMeasure', 'MeasureDisksSettingsScript', 'SetDefaults()', disksMeterConfig)
   
-  ToggleBgBorder(0)
-  ToggleLargeRowSpacing(1)
-  ToggleTempUnits(1)
-  ToggleLineGraphAa(1)
-  ToggleNotifyUpdates(0)
-  ToggleAutoBackups(0)
-  ToggleDevUpdates(1)
+  SetVariable('showBgBorder', '0', globalSettingsPath)
+  SetVariable('largeRowSpacing', '0', globalSettingsPath)
+  SetVariable('tempUnits', 'C', globalSettingsPath)
+  SetVariable('lineGraphAa', '0', globalSettingsPath)
+  SetVariable('notifyUpdates', '1', globalSettingsPath)
+  SetVariable('autoBackups', '1', globalSettingsPath)
+  SetVariable('devUpdates', '0', globalSettingsPath)
   
   SKIN:Bang('!CommandMeasure', 'MeasureCreateBackup', 'Run', setupSkinConfig)
+
+  SKIN:Bang('!RefreshGroup', 'ModernGadgets')
   
 end

@@ -211,13 +211,13 @@ end
 
 function SetDefaults()
 
-  ToggleMemoryClock(0)
-  ToggleMemoryController(0)
-  ToggleVideoClock(0, 1, 1)
-  ToggleCoreVoltage(0, 1, 1)
-  ToggleLineGraph(0, 1, 1)
-  ToggleMoboFan(1)
-  ToggleManualMaxVram(1)
-  SetManualMaxVram(3000)
+  SetVariable('showMemoryClock', 1, gpuSettingsPath)
+  SetVariable('showMemoryController', 1, gpuSettingsPath)
+  SetVariable('showVideoClock', 1, gpuSettingsPath)
+  SetVariable('showCoreVoltage', 1, gpuSettingsPath)
+  SetVariable('showLineGraph', 1, gpuSettingsPath)
+  SetVariable('useMoboFanSensor', 0, gpuSettingsPath)
+  SetVariable('useManualMaxVram', 0, gpuSettingsPath)
+  SetVariable('maxVram', 3000, gpuSettingsPath)
 
 end
