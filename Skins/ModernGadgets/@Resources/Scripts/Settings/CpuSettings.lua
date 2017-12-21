@@ -282,20 +282,3 @@ function ToggleTtSound(currentValue, showTt)
   UpdateToggles()
 
 end
-
-function SetDefaults()
-
-  SetVariable('showCpuName', '1', cpuSettingsPath)
-  SetVariable('showPageFile', '0', cpuSettingsPath)
-  SetVariable('showCoreTemps', '1', cpuSettingsPath)
-  SetVariable('showTopProcess', '0', cpuSettingsPath)
-  SetVariable('showCpuFan', '1', cpuSettingsPath)
-  SetVariable('showCpuClock', '1', cpuSettingsPath)
-  SetVariable('showLineGraph', '1', cpuSettingsPath)
-  SetVariable('showAvgCpu', '0', cpuSettingsPath)
-  SetVariable('showCpuTempGraph', '1', cpuSettingsPath)
-  SetVariable('cpuName', 'auto', cpuSettingsPath)
-  SetVariable('showTt', '0', cpuSettingsPath)
-  SetVariable('playTtSound', '0', cpuSettingsPath)
-
-end

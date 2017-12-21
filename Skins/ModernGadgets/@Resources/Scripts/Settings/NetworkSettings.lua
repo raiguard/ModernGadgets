@@ -155,15 +155,3 @@ function SetPingUrl(url)
   SKIN:Bang('!Redraw')
   
 end
-
-function SetDefaults()
-
-  SetVariable('censorExternalIp', '0', networkSettingsPath)
-  SetVariable('showSpeedtestButton', '1', networkSettingsPath)
-  SetVariable('showPing', '1', networkSettingsPath)
-  SetVariable('trafficSuffix', 'B/s', networkSettingsPath)
-  SetVariable('showTrafficInBytes', '1', networkSettingsPath)
-  SetVariable('showLineGraph', 1, networkSettingsPath)
-  SetVariable('showPeakNetworkUsage', 1, networkSettingsPath)
-
-end

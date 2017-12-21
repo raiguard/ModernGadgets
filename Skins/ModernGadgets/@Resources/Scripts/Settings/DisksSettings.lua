@@ -82,12 +82,3 @@ function ToggleHistograms(currentValue, showLineGraph)
   UpdateToggles()
 
 end
-
-function SetDefaults()
-
-  SetVariable('showEjectButtons', 1, disksSettingsPath)
-  -- SetVariable('manualHideDisks', '', disksSettingsPath)
-  SetVariable('showLineGraph', 1, disksSettingsPath)
-  SetVariable('showHistograms', 1, disksSettingsPath)
-
-end

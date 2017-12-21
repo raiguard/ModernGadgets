@@ -186,16 +186,3 @@ function ToggleMoboFan(currentValue)
   UpdateToggles()
 
 end
-
-function SetDefaults()
-
-  SetVariable('showMemoryClock', 1, gpuSettingsPath)
-  SetVariable('showMemoryController', 1, gpuSettingsPath)
-  SetVariable('showVideoClock', 1, gpuSettingsPath)
-  SetVariable('showCoreVoltage', 1, gpuSettingsPath)
-  SetVariable('showLineGraph', 1, gpuSettingsPath)
-  SetVariable('useMoboFanSensor', 0, gpuSettingsPath)
-  SetVariable('useManualMaxVram', 0, gpuSettingsPath)
-  SetVariable('maxVram', 3000, gpuSettingsPath)
-
-end
