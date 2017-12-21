@@ -1,12 +1,14 @@
 [Variables]
 tempUOM=C
-gpuName=""
 
+showGpuName=1
 showMemoryClock=1
 showMemoryController=1
 showVideoClock=1
 showCoreVoltage=1
 showLineGraph=1
+
+gpuName=auto
 
 useManualMaxVram=0
 maxVram=3000

@@ -16,6 +16,41 @@ end
 
 function Update() end
 
+function ToggleGpuName(currentValue)
+
+  if currentValue == 0 then
+    SetVariable('showGpuName', '1', gpuSettingsPath, gpuMeterConfig)
+    SKIN:Bang('!ShowMeter', 'Gpu0NameString', gpuMeterConfig)
+    SKIN:Bang('!SetOption', 'Gpu0NameString', 'Y', '#*rowSpacing*#R', gpuMeterConfig)
+  else
+    SetVariable('showGpuName', '0', gpuSettingsPath, gpuMeterConfig)
+    SKIN:Bang('!HideMeter', 'Gpu0NameString', gpuMeterConfig)
+    SKIN:Bang('!SetOption', 'Gpu0NameString', 'Y', 'R', gpuMeterConfig)
+  end
+
+  SKIN:Bang('!UpdateMeter', 'Gpu0NameString', gpuMeterConfig)
+  SKIN:Bang('!UpdateMeterGroup', 'Background', gpuMeterConfig)
+  SKIN:Bang('!Redraw', gpuMeterConfig)
+  UpdateToggles()
+
+end
+
+function SetGpuName(name)
+
+  if name == "" then
+    SetVariable('gpuName', 'auto', gpuSettingsPath, gpuMeterConfig)
+    SKIN:Bang('!SetOption', 'Gpu0NameString', 'Text', '%1', gpuMeterConfig)
+    SKIN:Bang('!UpdateMeter', 'Gpu0NameString', gpuMeterConfig)
+    SKIN:Bang('!Redraw', gpuMeterConfig)
+  else
+    SetVariable('gpuName', name, gpuSettingsPath, gpuMeterConfig)
+    SKIN:Bang('!SetOption', 'Gpu0NameString', 'Text', name, gpuMeterConfig)
+    SKIN:Bang('!UpdateMeter', 'Gpu0NameString', gpuMeterConfig)
+    SKIN:Bang('!Redraw', gpuMeterConfig)
+  end
+
+end
+
 function ToggleMemoryClock(currentValue)
 
   currentValue = tonumber(currentValue)

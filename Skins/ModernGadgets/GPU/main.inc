@@ -15,13 +15,24 @@ HWiNFOType=CurrentValue
 IfCondition=MeasureHwinfoDetect = -9000
 IfTrueAction=[!WriteKeyValue Variables page "nohwinfo"][!Refresh]
 
+[MeasureCustomGpuName]
+Measure=String
+String=#gpuName#
+IfMatch=auto
+IfNotMatchAction=[!SetOption Gpu0NameString Text "#*gpuName*#"][!UpdateMeter Gpu0NameString]
+Disabled=(#showGpuName# = 0)
+
 ; ----- GPU Name, Core Usage, Temperature, Clock Speed -----
 
 [Gpu0NameString]
 Meter=String
 MeterStyle=StyleString | StyleStringCenterAlign
 MeasureName=MeasureGpu0DisplayName
+Y=((#showGpuName# = 1) ? #rowSpacing# : 0)R
+W=(#contentWidth# - 4)
+ClipString=1
 Text="%1"
+Hidden=(#showGpuName# = 0)
 
 [Gpu0ClockString]
 Meter=String
