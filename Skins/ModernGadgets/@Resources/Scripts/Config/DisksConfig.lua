@@ -37,6 +37,7 @@ function ConfigureDisk(disk, index)
 	SKIN:Bang('!UpdateMeterGroup', 'Disk' .. disk)
 	SKIN:Bang('!UpdateMeterGroup', 'LineGraph')
 	SKIN:Bang('!UpdateMeterGroup', 'Background')
+	SKIN:Bang('!Update')
 	SKIN:Bang('!Redraw')
 
 end
