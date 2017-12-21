@@ -73,7 +73,7 @@ MeterStyle=StyleString
 Y=((#showMemoryClock# = 1) ? #rowSpacing# : 0)R
 Text="Memory Clock:"
 Group=MemoryClock
-Hidden=(#showMemoryClock# = 1) ? 0 : 1
+Hidden=(#showMemoryClock# = 0)
 DynamicVariables=1
 
 [Gpu0MemoryClockValueString]
@@ -82,7 +82,7 @@ MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureMemoryClockSpeed
 Text="%1MHz"
 Group=MemoryClock
-Hidden=(#showMemoryClock# = 1) ? 0 : 1
+Hidden=(#showMemoryClock# = 0)
 
 [Gpu0MemoryUsageLabelString]
 Meter=String
@@ -148,7 +148,7 @@ MeterStyle=StyleString
 Y=((#showMemoryController# = 1) ? #rowSpacing# : -#barTextOffset#)R
 Text="Memory Controller:"
 Group=MemoryController
-Hidden=(#showMemoryController# = 1) ? 0 : 1
+Hidden=(#showMemoryController# = 0)
 
 [Gpu0MemoryControllerValueString]
 Meter=String
@@ -156,7 +156,7 @@ MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0MemoryControllerLoad
 Text="%1%"
 Group=MemoryController
-Hidden=(#showMemoryController# = 1) ? 0 : 1
+Hidden=(#showMemoryController# = 0)
 
 [Gpu0MemoryControllerBar]
 Meter=Bar
@@ -165,7 +165,7 @@ MeasureName=MeasureGpu0MemoryControllerLoad
 BarColor=#colorMemoryController#
 DynamicVariables=1
 Group=MemoryController
-Hidden=(#showMemoryController# = 1) ? 0 : 1
+Hidden=(#showMemoryController# = 0)
 
 ; ----- Video Clock -----
 
@@ -175,7 +175,7 @@ MeterStyle=StyleString
 Y=((#showVideoClock# = 1) ? #rowSpacing# : 0)R
 Text="Video Clock:"
 Group=VideoClock
-Hidden=(#showVideoClock# = 1) ? 0 : 1
+Hidden=(#showVideoClock# = 0)
 
 [Gpu0VideoClockValueString]
 Meter=String
@@ -183,7 +183,7 @@ MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0VideoClock
 Text="%1MHz"
 Group=VideoClock
-Hidden=(#showVideoClock# = 1) ? 0 : 1
+Hidden=(#showVideoClock# = 0)
 
 ; ----- Core Voltage -----
 
@@ -193,7 +193,7 @@ MeterStyle=StyleString
 Y=((#showCoreVoltage# = 1) ? #rowSpacing# : 0)R
 Text="Core Voltage:"
 Group=CoreVoltage
-Hidden=(#showCoreVoltage# = 1) ? 0 : 1
+Hidden=(#showCoreVoltage# = 0)
 
 [Gpu0CoreVoltageValueString]
 Meter=String
@@ -202,7 +202,7 @@ MeasureName=MeasureGpu0CoreVoltage
 NumOfDecimals=3
 Text="%1V"
 Group=CoreVoltage
-Hidden=(#showCoreVoltage# = 1) ? 0 : 1
+Hidden=(#showCoreVoltage# = 0)
 
 ; ----- Graph -----
 
@@ -226,7 +226,7 @@ LineColor5=#colorTempGraph#,(#showTempGraph# * 255)
 DynamicVariables=1
 Antialias=#lineGraphAa#
 Group=LineGraph
-Hidden=(#showLineGraph# = 1) ? 0 : 1
+Hidden=(#showLineGraph# = 0)
 
 [GraphBorder]
 Meter=Image
@@ -238,4 +238,4 @@ Y=-1r
 W=#contentWidth#
 H=#graphHeight#
 Group=LineGraph
-Hidden=(#showLineGraph# = 1) ? 0 : 1
+Hidden=(#showLineGraph# = 0)

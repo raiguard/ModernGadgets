@@ -4,7 +4,7 @@ fpfWriteDepth=4
 fpfSpaceUsedDepth=5
 fpfSpaceTotalDepth=5
 
-manualHideDisks=
+manualHideDisks=A B
 diskSpaceUsageUpdateDivider=1
 
 diskCommand="C:\Windows\explorer.exe" /E,{drive}\

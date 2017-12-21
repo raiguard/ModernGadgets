@@ -227,11 +227,12 @@ function ToggleMoboFan(currentValue)
     SKIN:Bang('!EnableMeasure', 'MeasureMoboGpuFanSpeed', gpuMeterConfig)
     SKIN:Bang('!SetOption', 'Gpu0FanSpeedString', 'Text', '%2RPM', gpuMeterConfig)
   else
-    SKIN:Bang('!SetVariable', 'useMoboFanSensor', '0')
+    SetVariable('useMoboFanSensor', '0', gpuSettingsPath, gpuMeterConfig)
     SKIN:Bang('!DisableMeasure', 'MeasureMoboGpuFanSpeed', gpuMeterConfig)
     SKIN:Bang('!SetOption', 'Gpu0FanSpeedString', 'Text', '%1RPM', gpuMeterConfig)
   end
 
+  SKIN:Bang('!UpdateMeasure', 'MeasureGpu0FanSpeed', gpuMeterConfig)
   SKIN:Bang('!UpdateMeasure', 'MeasureMoboGpuFanSpeed', gpuMeterConfig)
   SKIN:Bang('!UpdateMeter', 'Gpu0FanSpeedString', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
