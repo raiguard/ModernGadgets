@@ -7,6 +7,7 @@ showMemoryController=1
 showVideoClock=1
 showCoreVoltage=1
 showLineGraph=1
+showTempGraph=1
 
 gpuName=auto
 
@@ -20,6 +21,7 @@ colorCoreUsage=255,246,42
 colorMemoryUsage=107,198,250
 colorFanUsage=107,238,98
 colorMemoryController=255,204,0
+colorTempGraph=200,0,0
 
 ; ====== DEFAULTS ======
 

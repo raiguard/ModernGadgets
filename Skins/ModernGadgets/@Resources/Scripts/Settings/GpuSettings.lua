@@ -197,6 +197,23 @@ function ToggleLineGraph(currentValue)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', gpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', gpuMeterConfig)
   SKIN:Bang('!Redraw', gpuMeterConfig)
+  SKIN:Bang('!UpdateMeasure', 'MeasureTempGraph')
+  UpdateToggles()
+
+end
+
+function ToggleTempGraph(currentValue, showLineGraph)
+
+  if showLineGraph == 1 then
+    if currentValue == 0 then
+      SetVariable('showTempGraph', '1', gpuSettingsPath, gpuMeterConfig)
+    else
+      SetVariable('showTempGraph', '0', gpuSettingsPath, gpuMeterConfig)
+    end
+  end
+
+  SKIN:Bang('!UpdateMeter', 'GraphLines', gpuMeterConfig)
+  SKIN:Bang('!Redraw', gpuMeterConfig)
   UpdateToggles()
 
 end
