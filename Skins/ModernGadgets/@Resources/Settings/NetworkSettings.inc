@@ -8,6 +8,7 @@ showSpeedtestButton=1
 showPing=1
 showTrafficInBytes=1
 showLineGraph=1
+useNetMonitor=1
 
 pingUrl=google.com
 

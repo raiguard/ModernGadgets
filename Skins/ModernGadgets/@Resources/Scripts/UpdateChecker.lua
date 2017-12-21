@@ -49,7 +49,7 @@
 -- Versioning 2.0.0 format. See http://semver.org/ for additional information.
 --
 
-debug = true
+debug = false
 
 function Initialize() end
 
