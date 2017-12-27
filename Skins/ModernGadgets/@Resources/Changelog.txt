@@ -130,7 +130,7 @@ v1.3.0-beta.2 - 2017-12-??
 - Added GPU temperature graph option to GPU Meter
 - Added UI for hiding disks in Disks Meter
 - Rewrote set to defaults functionality to improve performance and expanability
-- Fixed the GPU name being able to extend past the width of GPU Meter
+- Fixed GPU name being able to extend past the width of GPU Meter
 
 v1.3.0 - 2017-??-??
 - Added 32-thread support to CPU Meter
@@ -144,7 +144,11 @@ v1.3.0 - 2017-??-??
 - Added capability to disable specific disks in Disks Meter
 - Changed from ANSI to UTF-8 file encoding
 - Softened background and text colors, decreased gadget width
-- Rewrote gadget toggle button logic to be more reliable
-- Rewrote settings logic to be more reliable, and avoid directly editing the skin INIs
+- Overhauled gadget settings logic to be more reliable and allow for easier expansion
 - Rewrote update checker and moved update checker URL
+- Rewrote external IP check to be more reliable
 - Fixed gadget toggle buttons desyncing
+- Fixed inconsistencies with core temperature visibility when HWiNFO was toggled on/off
+- Fixed oversight where you could not hide fan speed display if HWiNFO was unavailable
+- Fixed Network Meter external IP error message not disappearing
+- Fixed GPU name being able to extend past the width of GPU Meter
