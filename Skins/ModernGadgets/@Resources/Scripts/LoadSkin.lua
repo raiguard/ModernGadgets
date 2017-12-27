@@ -1,103 +1,122 @@
 -- LoadSkin.lua
 -- raiguard
--- v1.1.0
+-- v1.2.0
 --
 --
 -- CHANGELOG:
+-- v1.2.0 - 2017-12-27
+--  - Added ability to specifically load or unload skins, rather than always toggling them
 -- v1.1.0 - 2017-12-7
 --  - Consolidated LoadConfig() into LoadSkin()
 -- v1.0.0 - 2017-10-2
 --  - Initial release
+--
 -- ------------------------------
--- This script reads the Rainmeter.ini file to determine whether or not certain skins are
--- loaded, then uses that information to set the image and action of that skin's toggle
--- button.
+--
+-- This script loads / unlaods the specified skin or config, and sets parameters for toggle
+-- buttons related to those skins.
 --
 --
 -- INSTRUCTIONS FOR USE:
 -- Copy this file and paste it into your own suite, then create a Rainmeter script
--- measure pointing to this file.
+-- measure pointing to this file, like so:
 --
--- The toggle meters themselves have two states: 'off' and 'on'. There are two kinds of
--- toggle meters you can have: image meters, and text meters using character reference
--- variables. In either case, you'll have to define 'toggleOff' and 'toggleOn' variables,
--- the values of which will be the respective images or CR variables.
+-- [MeasureLoadSkinScript]
+-- Measure=Script
+-- ScriptFile=#@#Scripts\LoadSkin.lua
+-- ToggleOn=#@#Images\toggle-on.png
+-- ToggleOff=#@#Images\toggle-off.png
+-- ToggleGroup=ToggleButtons
+-- 
+-- The 'ToggleOn' and 'ToggleOff' parameters are for the toggle buttons. If you are using
+-- images, these will be the image paths for the buttons' respective on and off states. If
+-- you are using strings, these will be the 'on' and 'off' strings that will show on the
+-- buttons. If you do not include these parameters, the script will default to using what's
+-- contained in '#toggleOn#' and '#toggleOff#' variables.
+--
+-- The 'ToggleGroup' parameter specifies the group that the toggle button meters belong to.
+-- If you do not include this option, it will default to 'SkinToggles'.
+--
 --
 -- A toggle button meter should look something like this:
 --
 -- [MeterToggleSkin]
 -- Meter=Image
--- ImageName=[&MeasureScript:GetIcon('ToggledSkin')]
+-- ImageName=[&MeasureLoadSkinScript:GetIcon('ToggledSkin')]
 -- X=5
 -- Y=5
 -- W=31
 -- H=20
--- LeftMouseUpAction=[!CommandMeasure MeasureScript "ToggleSkin('ToggledSkin')"]
+-- LeftMouseUpAction=[!CommandMeasure MeasureLoadSkinScript "ToggleSkin('ToggledSkin')"]
 -- DynamicVariables=1
 -- Group=SkinToggles
 --
--- Notice that the ImageName is using inline LUA to set the toggle image, requiring the use
--- of the DynamicVariables option. Replace 'ToggledSkin' with the config name of the skin you
--- wish to toggle. For example, if the skin is 'MySuite\MySkin\MySkin.ini', then use 'MySkin'
--- intead of 'ToggledSkin'. You should be able to do this for any skin you want, and it should
--- be infinitely expandable.
+-- The toggle buttons get their parameters via inline LUA, which requires that
+-- 'DynamicVariables=1' must be set on all the buttons. The buttons must also belong to the
+-- 'SkinToggles' group, unless otherwise specified in the script measure.
+--
+-- Please note that if you load or unload a skin without using the toggle buttons, the
+-- buttons will not update until one of the buttons is clicked or the skin is refreshed.
+--
 -- ------------------------------
 
-debug = true
+debug = false
 
 function Initialize()
 
-	filePath = SKIN:GetVariable('SETTINGSPATH') .. "Rainmeter.ini"
+	filePath = SKIN:GetVariable('SETTINGSPATH') .. 'Rainmeter.ini'
 	rootConfig = SKIN:GetVariable('ROOTCONFIG') .. '\\'
-
 	iniTable = ReadIni(filePath)
+
+	toggleOn = SELF:GetOption('ToggleOn', '[#toggleOn]')
+	toggleOff = SELF:GetOption('ToggleOff', '[#toggleOff]')
+	toggleGroup = SELF:GetOption('ToggleGroup', 'SkinToggles')
 
 end
 
 function Update() end
 
--- Toggles the specified skin. This allows you to load a specific skin in a config, rather
--- than always defaulting to the first one. It also lets you switch between different
--- skins within a config. The first parameter is the config name (omitting the root config), second is the name of the
--- .INI file of the skin you wish to load (without the .INI), and the third is the spot in
--- the variants list that specific skin resides in.
---
--- Usage: LeftMouseUpAction=[!CommandMeasure MeasureScript "ToggleSkin('ConfigNameHere', 'VariantNameHere', 1"]
-function ToggleSkin(config, skin, variant)
-	if variant == nil then variant = -1 end
+-- Toggles the specified skin.
+function ToggleSkin(config, skin, variant, state)
+	-- CONFIG: The name of the config you wish to toggle, omitting the root config
+	-- SKIN (optional): The file name of the skin you wish to toggle
+	-- VARIANT (optional): The skin file's numeric location in the list of variants
+	-- STATE (optional): The state you wish to toggle to
 	config = rootConfig .. config
-	local state = 0
-	if iniTable[config] ~= nil then state = tonumber(iniTable[config]['Active']) end
+	if variant == nil then variant = -1 end
+	local activeState = 0
+	if iniTable[config] ~= nil then activeState = tonumber(iniTable[config]['Active']) end
 
 	if skin == nil then
-		if state > 0 then
+		if activeState > 0 then
 			SKIN:Bang('!DeactivateConfig', config)
 		else
 			SKIN:Bang('!ActivateConfig', config)
 		end
 	else
-		skin = skin .. '.ini'
-
-		if state > 0 and state ~= variant then SKIN:Bang('!ActivateConfig', config, skin)
+		if state == true then SKIN:Bang('!ActivateConfig', config, skin)
+		elseif state == false then SKIN:Bang('!DeactivateConfig', config, skin)
+		elseif activeState > 0 and activeState ~= variant then SKIN:Bang('!ActivateConfig', config, skin)
 		else SKIN:Bang('!ToggleConfig', config, skin) end
 	end
 
 	iniTable = ReadIni(filePath)
 
-	SKIN:Bang('!UpdateMeterGroup', 'SkinToggles')
+	SKIN:Bang('!UpdateMeterGroup', toggleGroup)
 	SKIN:Bang('!Redraw')
 end
 
+-- Returns whether or not the specified skin or variant is loaded.
 function GetIcon(config, variant)
 
-	if variant == nil then variant = -1 end
 	config = rootConfig .. config
+	if variant == nil then variant = -1 end
 	local state = 0
 	if iniTable[config] ~= nil then state = tonumber(iniTable[config]['Active']) end
 
-	if state == variant then return '[#toggleOn]'
-	elseif state > 0 and variant == -1 then return '[#toggleOn]'
-	else return '[#toggleOff]' end
+	if state == variant then return toggleOn
+	elseif state > 0 and variant == -1 then return toggleOn
+	else return toggleOff end
 
 end
 
