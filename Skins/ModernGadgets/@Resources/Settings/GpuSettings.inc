@@ -15,7 +15,7 @@ useManualMaxVram=0
 maxVram=3000
 useMoboFanSensor=0
 
-sliMode=0
+dualGpuMode=0
 
 colorCoreUsage=255,246,42
 colorMemoryUsage=107,198,250

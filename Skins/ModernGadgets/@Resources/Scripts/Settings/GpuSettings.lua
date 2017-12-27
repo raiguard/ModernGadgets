@@ -239,3 +239,16 @@ function ToggleMoboFan(currentValue)
   UpdateToggles()
 
 end
+
+function ToggleDualGpuMode(currentValue)
+
+  if currentValue == 0 then
+    SetVariable('dualGpuMode', '1', gpuSettingsPath, gpuMeterConfig)
+  else
+    SetVariable('dualGpuMode', '0', gpuSettingsPath, gpuMeterConfig)
+  end
+
+  SKIN:Bang('!Refresh', gpuMeterConfig)
+  UpdateToggles()
+
+end

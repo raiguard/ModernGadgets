@@ -1,4 +1,4 @@
-; MODERNGADGETS GPU METER MAIN SUBPAGE
+; MODERNGADGETS GPU METER SINGLE SUBPAGE
 ; What GPU meter will usually contain
 ;
 
@@ -32,6 +32,7 @@ Y=((#showGpuName# = 1) ? #rowSpacing# : 0)R
 W=(#contentWidth# - 4)
 ClipString=1
 Text="%1"
+Group=GpuName
 Hidden=(#showGpuName# = 0)
 
 [Gpu0ClockString]
@@ -40,23 +41,27 @@ MeterStyle=StyleString
 MeasureName=MeasureGpu0ClockSpeed
 Y=(#rowSpacing# + 1)R
 Text="Clock: %1MHz"
+Group=GpuClock
 
 [Gpu0TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0Temperature
 Text="%1#deg##tempUnits#"
+Group=GpuTemp
 
 [Gpu0CoreUsageLabelString]
 Meter=String
 MeterStyle=StyleString
 Text="Usage:"
+Group=GpuUsage
 
 [Gpu0CoreUsageValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0Usage
 Text="%1%"
+Group=GpuUsage
 
 [Gpu0CoreUsageBar]
 Meter=Bar
@@ -64,6 +69,7 @@ MeterStyle=StyleBar
 MeasureName=MeasureGpu0Usage
 BarColor=#colorCoreUsage#
 DynamicVariables=1
+Group=GpuUsage
 
 ; ----- Memory -----
 
@@ -75,11 +81,12 @@ Text="Memory Clock:"
 Group=MemoryClock
 Hidden=(#showMemoryClock# = 0)
 DynamicVariables=1
+Group=MemoryClock
 
 [Gpu0MemoryClockValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
-MeasureName=MeasureMemoryClockSpeed
+MeasureName=MeasureGpu0MemoryClockSpeed
 Text="%1MHz"
 Group=MemoryClock
 Hidden=(#showMemoryClock# = 0)
@@ -88,30 +95,31 @@ Hidden=(#showMemoryClock# = 0)
 Meter=String
 MeterStyle=StyleString
 Text="VRAM:"
+Group=GpuVram
 
 [Gpu0MemoryUsageFractionString]
 Meter=String
 MeterStyle=StyleString | StyleStringInfo
 Text="#textMemoryUsedGpu0#B / #textMemoryTotalGpu0#B"
 DynamicVariables=1
-Group=Memory
+Group=GpuVram
 
 [Gpu0MemoryUsageValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
-MeasureName=MeasureVramUsage
-MeasureName2=MeasureVramUsageAlt
+MeasureName=MeasureGpu0VramUsage
+MeasureName2=MeasureGpu0VramUsageAlt
 Text="%1%"
-Group=Memory
+Group=GpuVram
 DynamicVariables=1
 
 [Gpu0MemoryUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
-MeasureName=MeasureVramUsage
+MeasureName=MeasureGpu0VramUsage
 BarColor=#colorMemoryUsage#
 DynamicVariables=1
-Group=Memory
+Group=GpuVram
 
 ; ----- Fan -----
 
@@ -119,6 +127,7 @@ Group=Memory
 Meter=String
 MeterStyle=StyleString
 Text="Fan:"
+Group=GpuFan
 
 [Gpu0FanSpeedString]
 Meter=String
@@ -126,12 +135,14 @@ MeterStyle=StyleString | StyleStringInfo
 MeasureName=MeasureGpu0FanSpeed
 MeasureName2=MeasureMoboGpuFanSpeed
 Text="%1RPM"
+Group=GpuFan
 
 [Gpu0FanUsageValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0FanUsage
 Text="%1%"
+Group=GpuFan
 
 [Gpu0FanUsageBar]
 Meter=Bar
@@ -139,6 +150,7 @@ MeterStyle=StyleBar
 MeasureName=MeasureGpu0FanUsage
 BarColor=#colorFanUsage#
 DynamicVariables=1
+Group=GpuFan
 
 ; ----- Memory Controller -----
 
@@ -149,6 +161,7 @@ Y=((#showMemoryController# = 1) ? #rowSpacing# : -#barTextOffset#)R
 Text="Memory Controller:"
 Group=MemoryController
 Hidden=(#showMemoryController# = 0)
+Group=MemoryController
 
 [Gpu0MemoryControllerValueString]
 Meter=String
@@ -215,7 +228,7 @@ H=(#graphHeight# - 2)
 LineCount=5
 MeasureName=MeasureGpu0MemoryControllerLoad
 MeasureName2=MeasureGpu0FanUsage
-MeasureName3=MeasureVramUsage
+MeasureName3=MeasureGpu0VramUsage
 MeasureName4=MeasureGpu0Usage
 MeasureName5=MeasureGpu0Temperature
 LineColor=#colorMemoryController#,(#showMemoryController# * 255)
