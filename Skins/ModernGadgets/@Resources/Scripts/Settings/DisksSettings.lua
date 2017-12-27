@@ -83,11 +83,11 @@ function ToggleHistograms(currentValue, showLineGraph)
 
 end
 
-function SetDefaults()
+function SetHideDisks(string)
 
-  SetVariable('showEjectButtons', 1, disksSettingsPath)
-  -- SetVariable('manualHideDisks', '', disksSettingsPath)
-  SetVariable('showLineGraph', 1, disksSettingsPath)
-  SetVariable('showHistograms', 1, disksSettingsPath)
+  SetVariable('manualHideDisks', string, disksSettingsPath, disksMeterConfig)
+  SKIN:Bang('!CommandMeasure', 'MeasureDisksConfigScript', 'UpdateHideDisks()', disksMeterConfig)
+  SKIN:Bang('!UpdateMeter', 'HideDisksInputBox')
+  SKIN:Bang('!Redraw')
 
 end

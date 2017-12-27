@@ -226,17 +226,13 @@ end
 function SetCpuName(name)
 
   if name == "" then
-    SKIN:Bang('!SetVariable', 'cpuName', 'auto')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuName', 'auto', cpuSettingsPath)
+    SetVariable('cpuName', 'auto', cpuSettingsPath, cpuMeterConfig)
     SKIN:Bang('!SetOption', 'CpuDisplayNameString', 'Text', '%1', cpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'CpuDisplayNameString', 'Text', '%1', cpuMeterPath)
     SKIN:Bang('!UpdateMeter', 'CpuDisplayNameString', cpuMeterConfig)
     SKIN:Bang('!Redraw', cpuMeterConfig)
   else
-    SKIN:Bang('!SetVariable', 'cpuName', name)
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'cpuName', name, cpuSettingsPath)
+    SetVariable('cpuName', name, cpuSettingsPath, cpuMeterConfig)
     SKIN:Bang('!SetOption', 'CpuDisplayNameString', 'Text', name, cpuMeterConfig)
-    SKIN:Bang('!WriteKeyValue', 'CpuDisplayNameString', 'Text', name, cpuMeterPath)
     SKIN:Bang('!UpdateMeter', 'CpuDisplayNameString', cpuMeterConfig)
     SKIN:Bang('!Redraw', cpuMeterConfig)
   end
@@ -280,22 +276,5 @@ function ToggleTtSound(currentValue, showTt)
 
   SKIN:Bang('!UpdateMeasureGroup', 'Tt', cpuMeterConfig)
   UpdateToggles()
-
-end
-
-function SetDefaults()
-
-  SetVariable('showCpuName', '1', cpuSettingsPath)
-  SetVariable('showPageFile', '0', cpuSettingsPath)
-  SetVariable('showCoreTemps', '1', cpuSettingsPath)
-  SetVariable('showTopProcess', '0', cpuSettingsPath)
-  SetVariable('showCpuFan', '1', cpuSettingsPath)
-  SetVariable('showCpuClock', '1', cpuSettingsPath)
-  SetVariable('showLineGraph', '1', cpuSettingsPath)
-  SetVariable('showAvgCpu', '0', cpuSettingsPath)
-  SetVariable('showCpuTempGraph', '1', cpuSettingsPath)
-  SetVariable('cpuName', 'auto', cpuSettingsPath)
-  SetVariable('showTt', '0', cpuSettingsPath)
-  SetVariable('playTtSound', '0', cpuSettingsPath)
 
 end

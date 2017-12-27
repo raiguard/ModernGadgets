@@ -3,7 +3,6 @@ debug = false
 function Initialize()
 
   networkSettingsPath = SKIN:GetVariable('networkSettingsPath')
-  networkMeterPath = SKIN:GetVariable('networkMeterPath')
   networkMeterConfig = SKIN:GetVariable('networkMeterConfig')
 
   dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
@@ -23,6 +22,7 @@ function ToggleCensorExternalIp(currentValue)
   end
 
   SKIN:Bang('!UpdateMeasure', 'MeasureExternalIpString', networkMeterConfig)
+  SKIN:Bang('!UpdateMeter', 'ExternalIpValueString', networkMeterConfig)
   SKIN:Bang('!Redraw', networkMeterConfig) 
   UpdateToggles()
 
@@ -132,6 +132,18 @@ function TogglePeakNetworkUsage(currentValue, showLineGraph)
 
 end
 
+function ToggleUseNetMonitor(currentValue)
+
+  if currentValue == 0 then
+    SetVariable('useNetMonitor', '1', networkSettingsPath, networkMeterConfig)
+    SKIN:Bang('!CommandMeasure', 'MeasureLoadSkinScript', 'ToggleSkin(\'Network\', \'NetworkPro\', 2)')
+  else
+    SetVariable('useNetMonitor', '0', networkSettingsPath, networkMeterConfig)
+    SKIN:Bang('!CommandMeasure', 'MeasureLoadSkinScript', 'ToggleSkin(\'Network\', \'Network\', 1)')
+  end
+
+end
+
 function SetPingUrl(url)
   
   url = tostring(url)
@@ -142,16 +154,4 @@ function SetPingUrl(url)
   SKIN:Bang('!UpdateMeter', 'PingUrlInputBox')
   SKIN:Bang('!Redraw')
   
-end
-
-function SetDefaults()
-
-  SetVariable('censorExternalIp', '0', networkSettingsPath)
-  SetVariable('showSpeedtestButton', '1', networkSettingsPath)
-  SetVariable('showPing', '1', networkSettingsPath)
-  SetVariable('trafficSuffix', 'B/s', networkSettingsPath)
-  SetVariable('showTrafficInBytes', '1', networkSettingsPath)
-  SetVariable('showLineGraph', 1, networkSettingsPath)
-  SetVariable('showPeakNetworkUsage', 1, networkSettingsPath)
-
 end

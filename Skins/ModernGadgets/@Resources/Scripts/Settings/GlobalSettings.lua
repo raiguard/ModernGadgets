@@ -142,24 +142,3 @@ function ToggleAutoBackups(currentValue)
   SKIN:Bang('!Refresh', 'ModernGadgets\\Config\\Setup')
 
 end
-
-function SetDefaults()
-  
-  SKIN:Bang('!CommandMeasure', 'MeasureCpuSettingsScript', 'SetDefaults()', cpuMeterConfig)
-  SKIN:Bang('!CommandMeasure', 'MeasureNetworkSettingsScript', 'SetDefaults()', networkMeterConfig)
-  SKIN:Bang('!CommandMeasure', 'MeasureGpuSettingsScript', 'SetDefaults()', gpuMeterConfig)
-  SKIN:Bang('!CommandMeasure', 'MeasureDisksSettingsScript', 'SetDefaults()', disksMeterConfig)
-  
-  SetVariable('showBgBorder', '0', globalSettingsPath)
-  SetVariable('largeRowSpacing', '0', globalSettingsPath)
-  SetVariable('tempUnits', 'C', globalSettingsPath)
-  SetVariable('lineGraphAa', '0', globalSettingsPath)
-  SetVariable('notifyUpdates', '1', globalSettingsPath)
-  SetVariable('autoBackups', '1', globalSettingsPath)
-  SetVariable('devUpdates', '0', globalSettingsPath)
-  
-  SKIN:Bang('!CommandMeasure', 'MeasureCreateBackup', 'Run', setupSkinConfig)
-
-  SKIN:Bang('!RefreshGroup', 'ModernGadgets')
-  
-end

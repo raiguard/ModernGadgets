@@ -1,7 +1,7 @@
 ; MODERNGADGETS GPU METER NO HWINFO PAGE
 ; What GPU meter displays if HWiNFO is not detected
 
-[MeasureHwinfoDetect]
+[MeasureHwinfoDetectSingle]
 Measure=Plugin
 Plugin=HWiNFO
 HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
@@ -9,8 +9,21 @@ HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
 HWiNFOEntryId=#HWiNFO-GPU0-Temp#
 HWiNFOLogHandler=2
 HWiNFOType=CurrentValue
-IfCondition=MeasureHwinfoDetect = -9000
-IfFalseAction=[!WriteKeyValue Variables page "main"][!Refresh]
+IfCondition=MeasureHwinfoDetectSingle = -9000
+IfFalseAction=[!WriteKeyValue Variables page "single"][!Refresh]
+Disabled=#dualGpuMode#
+
+[MeasureHwinfoDetectDual]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
+HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
+HWiNFOEntryId=#HWiNFO-GPU0-Temp#
+HWiNFOLogHandler=2
+HWiNFOType=CurrentValue
+IfCondition=MeasureHwinfoDetectDual = -9000
+IfFalseAction=[!WriteKeyValue Variables page "dual"][!Refresh]
+Disabled=(#dualGpuMode# = 0)
 
 [NoHwinfoWarningString]
 Meter=String

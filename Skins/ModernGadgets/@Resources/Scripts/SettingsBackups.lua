@@ -75,6 +75,7 @@ function CheckForBackup()
     SKIN:Bang('!ShowFade')
     file:close()
   end
+  
 end
 
 -- parses a INI formatted text file into a 'Table[Section][Key] = Value' table

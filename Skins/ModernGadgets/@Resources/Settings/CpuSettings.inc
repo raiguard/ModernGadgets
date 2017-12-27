@@ -2,7 +2,7 @@
 
 [Variables]
 tempUom=C
-ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
+ttSoundPath=D:\Caleb\Development\Rainmeter\Projects\ModernGadgets\Skins\ModernGadgets\@Resources\Assets\Sounds\alarmalerteffect.wav
 
 ; Set automatically - don't bother changing (they will just change back)
 cpuName=auto
@@ -58,7 +58,7 @@ showCpuName=1
 showPageFile=0
 showCoreTemps=1
 showCpuTempGraph=1
-showTopProcess=0
+showTopProcess=1
 showCpuFan=1
 showCpuClock=1
 showLineGraph=1
