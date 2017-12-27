@@ -131,6 +131,8 @@ v1.3.0-beta.2 - 2017-12-??
 - Added UI for hiding disks in Disks Meter
 - Rewrote set to defaults functionality to improve performance and expanability
 - Fixed GPU name being able to extend past the width of GPU Meter
+- Fixed Network Meter external IP error message not disappearing
+- Fixed GPU name being able to extend past the width of GPU Meter
 
 v1.3.0 - 2017-??-??
 - Added 32-thread support to CPU Meter
