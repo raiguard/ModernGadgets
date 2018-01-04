@@ -136,11 +136,13 @@ function ToggleUseNetMonitor(currentValue)
 
   if currentValue == 0 then
     SetVariable('useNetMonitor', '1', networkSettingsPath, networkMeterConfig)
-    SKIN:Bang('!CommandMeasure', 'MeasureLoadSkinScript', 'ToggleSkin(\'Network\', \'NetworkPro\', 2)')
+    SKIN:Bang('!CommandMeasure', 'MeasureLoadSkinScript', 'ToggleSkin(\'Network\', \'NetworkPro.ini\', 2, true)')
   else
     SetVariable('useNetMonitor', '0', networkSettingsPath, networkMeterConfig)
-    SKIN:Bang('!CommandMeasure', 'MeasureLoadSkinScript', 'ToggleSkin(\'Network\', \'Network\', 1)')
+    SKIN:Bang('!CommandMeasure', 'MeasureLoadSkinScript', 'ToggleSkin(\'Network\', \'Network.ini\', 1, true)')
   end
+
+  UpdateToggles()
 
 end
 

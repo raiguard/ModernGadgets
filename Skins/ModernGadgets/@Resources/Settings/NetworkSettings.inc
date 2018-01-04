@@ -8,7 +8,7 @@ showSpeedtestButton=1
 showPing=1
 showTrafficInBytes=1
 showLineGraph=1
-useNetMonitor=1
+useNetMonitor=0
 
 pingUrl=google.com
 
@@ -19,5 +19,3 @@ colorDownload=255,246,42
 
 dColorUpload=107,238,98
 dColorDownload=255,246,42
-;====== DEFAULTS ======
-;====== DEFAULTS ======
