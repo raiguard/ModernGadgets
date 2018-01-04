@@ -3,7 +3,7 @@
 -- This script makes backups of the settings files every two hours, which
 -- prevents them from being lost when updating the suite.
 
-debug = true
+debug = false
 
 function Initialize()
 
@@ -29,8 +29,6 @@ function Update() end
 
 function ImportBackup()
 
-  -- local bTable = ReadIni(backupsPath .. fileNames[2])
-
   for i=1, 5 do
     local bTable = ReadIni(backupsPath .. fileNames[i])
     local sTable = ReadIni(filesPath .. fileNames[i])
@@ -40,8 +38,6 @@ function ImportBackup()
   SKIN:Bang('!RefreshGroup', 'MgImportRefresh')
 
   LogHelper('Imported settings backup', 'Notice')
-
-  -- SKIN:Bang('!Refresh')
 
 end
 
