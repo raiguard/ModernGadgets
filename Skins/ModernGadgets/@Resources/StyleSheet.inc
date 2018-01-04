@@ -49,7 +49,7 @@ colorAccent=138,210,250
 colorButtonPress=255,50,50
 
 colorHwinfoValueInputText=225,220,225,255
-colorHwinfoValueInputBg=30,30,30,255
+colorHwinfoValueInputBg=35,35,35,255
 colorHwinfoError=255,30,30,255
 
 colorInputBoxBorder=#colorDim#
