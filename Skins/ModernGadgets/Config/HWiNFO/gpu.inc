@@ -396,7 +396,7 @@ Group=Gpu0Values
 [Gpu1SensorIdValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
-X=(#hwinfoColumnX# + 85)
+X=3R
 Y=[Gpu0SensorIdValueString:Y]
 Text="#HWiNFO-GPU1-SensorId#"
 LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 1"]
