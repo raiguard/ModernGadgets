@@ -82,20 +82,13 @@ function ToggleNotifyUpdates(currentValue)
   currentValue = tonumber(currentValue)
 
   if currentValue == 0 then
-    SKIN:Bang('!SetVariable', 'notifyUpdates', '1')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'notifyUpdates', '1', globalSettingsPath)
-    SKIN:Bang('!SetOption', 'AutoNotifyUpdatesButton', 'ImageName', '#*toggleOnImg*#')
-    SKIN:Bang('!WriteKeyValue', 'AutoNotifyUpdatesButton', 'ImageName', '#*toggleOnImg*#')
+    SetVariable('notifyUpdates', '1', globalSettingsPath, setupSkinConfig)
   else
-    SKIN:Bang('!SetVariable', 'notifyUpdates', '0')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'notifyUpdates', '0', globalSettingsPath)
-    SKIN:Bang('!SetOption', 'AutoNotifyUpdatesButton', 'ImageName', '#*toggleOffImg*#')
-    SKIN:Bang('!WriteKeyValue', 'AutoNotifyUpdatesButton', 'ImageName', '#*toggleOffImg*#')
+    SetVariable('notifyUpdates', '0', globalSettingsPath, setupSkinConfig)
   end
 
-  SKIN:Bang('!UpdateMeter', 'AutoNotifyUpdatesButton')
-  SKIN:Bang('!Redraw')
-  SKIN:Bang('!Refresh', 'ModernGadgets\\Config\\Setup')
+  SKIN:Bang('!Refresh', setupSkinConfig)
+  UpdateToggles()
 
 end
 
@@ -104,20 +97,15 @@ function ToggleDevUpdates(currentValue)
   currentValue = tonumber(currentValue)
 
   if currentValue == 0 then
-    SKIN:Bang('!SetVariable', 'devUpdates', '1')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'devUpdates', '1', globalSettingsPath)
-    SKIN:Bang('!SetOption', 'DevUpdatesButton', 'ImageName', '#*toggleOnImg*#')
-    SKIN:Bang('!WriteKeyValue', 'DevUpdatesButton', 'ImageName', '#*toggleOnImg*#')
+    SetVariable('devUpdates', '1', globalSettingsPath, setupSkinConfig)
+    SetVariable('rVersionKey', 'dev', globalSettingsPath, setupSkinConfig)
   else
-    SKIN:Bang('!SetVariable', 'devUpdates', '0')
-    SKIN:Bang('!WriteKeyValue', 'Variables', 'devUpdates', '0', globalSettingsPath)
-    SKIN:Bang('!SetOption', 'DevUpdatesButton', 'ImageName', '#*toggleOffImg*#')
-    SKIN:Bang('!WriteKeyValue', 'DevUpdatesButton', 'ImageName', '#*toggleOffImg*#')
+    SetVariable('devUpdates', '0', globalSettingsPath, setupSkinConfig)
+    SetVariable('rVersionKey', 'stable', globalSettingsPath, setupSkinConfig)
   end
 
-  SKIN:Bang('!UpdateMeter', 'DevUpdatesButton')
-  SKIN:Bang('!Redraw')
-  SKIN:Bang('!Refresh', 'ModernGadgets\\Config\\Setup')
+  SKIN:Bang('!Refresh', setupSkinConfig)
+  UpdateToggles()
 
 end
 

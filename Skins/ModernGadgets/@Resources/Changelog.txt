@@ -61,6 +61,18 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.3.0-beta.2 - 2017-12-27
+- Added NetMonitor support to Network Meter for more accurate readings
+- Added GPU name toggle to GPU Meter
+- Added custom GPU name option to GPU Meter
+- Added GPU temperature graph option to GPU Meter
+- Added preliminary dual GPU support
+- Added UI for hiding disks in Disks Meter
+- Rewrote set to defaults functionality to improve performance and expanability
+- Fixed GPU name being able to extend past the width of GPU Meter
+- Fixed Network Meter external IP error message not disappearing
+- Fixed GPU name being able to extend past the width of GPU Meter
+
 v1.3.0-beta.1 - 2017-12-20
 - Added 32-thread support to CPU Meter
 - Added top process display to CPU Meter
@@ -122,18 +134,6 @@ v1.0.0-rc.1 - 2016-11-14
  - Initial release
 
 WIP Releases
-
-v1.3.0-beta.2 - 2017-12-??
-- Added NetMonitor support to Network Meter for more accurate readings
-- Added GPU name toggle to GPU Meter
-- Added custom GPU name option to GPU Meter
-- Added GPU temperature graph option to GPU Meter
-- Added preliminary dual GPU support
-- Added UI for hiding disks in Disks Meter
-- Rewrote set to defaults functionality to improve performance and expanability
-- Fixed GPU name being able to extend past the width of GPU Meter
-- Fixed Network Meter external IP error message not disappearing
-- Fixed GPU name being able to extend past the width of GPU Meter
 
 v1.3.0 - 2017-??-??
 - Added 32-thread support to CPU Meter

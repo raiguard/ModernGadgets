@@ -5,7 +5,7 @@
 bgOffset=5
 bgWidth=150
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
-mgVersion=1.3.0-beta.2
+mgVersion=1.2.2
 
 contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
@@ -122,11 +122,6 @@ cp23=150,150,150
 cp24=237,28,32
 
 ; Styles
-[StyleBackgroundNew]
-Shape=Rectangle #bgOffset#,#bgOffset#,#bgWidth#,([BackgroundHeight:Y] - (#bgOffset# * 2)) | Fill Color #colorBg# | StrokeWidth 0 | Stroke Color #colorBg#
-DynamicVariables=1
-Group=Background
-
 [StyleBackground]
 SolidColor=#colorBg#
 X=#bgOffset#

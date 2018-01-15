@@ -1,9 +1,174 @@
 -- ------------------------------------------------
 -- Update Checker for Rainmeter
--- Version 1.0.0
+-- v4.0.0
 -- By raiguard
 --
 -- Modified form of 'semver.lua' by kikito (https://github.com/kikito/semver.lua)
+--
+-- ------------------------------------------------
+--
+-- Release Notes:
+-- v4.0.0 - Removed hard-coded actions and replaced with arguments in the script
+--          measure; implemented "semver.lua" for more robust comparisons;
+--          switched to using INI format for the remote version data; added
+--          'GetIniValue' function for retrieving other information from remote
+-- v3.0.0 - Added support for update checking on development versions
+-- v2.1.0 - Fixed oversight where if the user is on a development version for an
+--          outdated release, it would not return UpdateAvailable(), added
+--          'ParsingError' return
+-- v2.0.0 - Removed dependancy on an output meter in favor of hard-coded actions,
+--          added more documentation
+-- v1.0.1 - Optimized gmatch function, more debug functionality
+-- v1.0.0 - Initial release
+--
+-- --------------------------------------------------
+--
+-- This script compares two Semantic Versioning-formatted version strings to
+-- determine which one is newer, then takes action depending on the outcome
+-- of the comparison. It is intended for use as an "update checker" for Rainmeter
+-- skins, allowing you to notify your users when an update is available.
+--
+-- Please keep in mind that version strings must be formatted using the Semantic
+-- Versioning 2.0.0 format. See http://semver.org/ for additional information.
+--
+-- --------------------
+--
+-- INSTRUCTIONS FOR USE:
+--
+-- [MeasureUpdateCheckerScript]
+-- Measure=Script
+-- Script=#@#Scripts\UpdateChecker.lua
+-- UpToDateAction=[!ShowMeter "UpToDateString"]
+-- DevAction=[!ShowMeter "DevString"]
+-- UpdateAvailable=[!ShowMeter "UpdateAvailableString"]
+-- ParsingErrorAction=[!ShowMeter "ParsingErrorString"]
+-- 
+-- This is an example of the script measure you will use to invoke this script.
+-- Each action option is a series of bangs to execute when that outcome is
+-- reached by the comparison function. There is a fifth option, 'FilePath', that
+-- can be used to override the default file path of the downloaded file. It
+-- defaults to '#CURRENTPATH#\DownloadFile\Release.inc'. This is mainly used for
+-- the example, but could have some potential usecases in certain situations.
+--
+-- [MeasureUpdateWebParser]
+-- Measure=Plugin
+-- Plugin=WebParser
+-- URL=#updateCheckerUrl#
+-- Download=1
+-- OnConnectErrorAction=[!Log "Could not connect to update server" "Error"]
+-- FinishAction=[!CommandMeasure MeasureUpdateCheckerScript "CheckForUpdate('#version#', '#section#', '#key#', 'MeasureUpdateWebParser')"]
+--
+-- This is an example of the webparser measure used to download the remote file.
+-- The important thing to note here is the last argument on the 'FinishAction'
+-- line. This must be the name of the WebParser measure, whatever that may
+-- be. The reason for this is that the path to the file that WebParser
+-- downloads is provided as the string value of the measure, and the script
+-- must be able to access it if the 'FilePath' argument in the script measure
+-- is not specified.
+--
+-- There is one more capability of this script: retrieving any of the values
+-- contained in the downloaded INI file. This allows you to, for example,
+-- display the changelog of the most recent version in the skin directly.
+-- It is also used to display the remote version that is being compared with
+-- the local version.
+--
+
+debug = true
+
+function Initialize()
+
+  upToDateAction = SELF:GetOption('UpToDateAction')
+  updateAvailableAction = SELF:GetOption('UpdateAvailableAction')
+  parsingErrorAction = SELF:GetOption('ParsingErrorAction')
+  devAction = SELF:GetOption('DevAction')
+  if devAction == '' or devAction == nil then devAction = upToDateAction end
+  filePath = SELF:GetOption('FilePath')
+
+end
+
+function Update() end
+
+function CheckForUpdate(cVersion, section, key, measure)
+  -- cVersion: The skin's current version
+  -- section: The section in the INI file that the remote version is contained in
+  -- key: The key in the INI file that the remote version is contained in
+  -- measure: The name of the WebParser measure that downloaded the file
+  if filePath == '' then filePath = SKIN:GetMeasure(measure):GetStringValue() end
+  LogHelper(filePath, 'Debug')
+  updateFile = ReadIni(filePath)
+  -- create version objects
+  local cVersion = v(cVersion)
+  local rVersion = v(updateFile[section][key])
+
+  if cVersion == rVersion then
+    LogHelper('Up-to-date', 'Debug')
+    SKIN:Bang(upToDateAction)
+  elseif cVersion > rVersion then
+    LogHelper('Up-to-date', 'Debug')
+    SKIN:Bang(devAction)
+  elseif cVersion < rVersion then
+    LogHelper('Update available', 'Debug')
+    SKIN:Bang(updateAvailableAction)
+  else
+    LogHelper('WTF?', 'Debug')
+  end
+
+end
+
+function GetIniValue(section, key)
+
+  if updateFile == nil then
+    return ''
+  elseif updateFile[section] == nil then
+    return 'nil'
+  else
+    return tostring(updateFile[section][key])
+  end
+
+end
+
+-- function to make logging messages less cluttered
+function LogHelper(message, type)
+
+  if debug == true then
+    SKIN:Bang("!Log", message, type)
+  elseif type ~= 'Debug' and type ~= nil then
+    SKIN:Bang("!Log", message, type)
+  end
+
+end
+
+-- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
+function ReadIni(inputfile)
+  local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
+  local tbl, section = {}
+  local num = 0
+  for line in file:lines() do
+    num = num + 1
+    if not line:match('^%s;') then
+      local key, command = line:match('^([^=]+)=(.+)')
+      if line:match('^%s-%[.+') then
+        section = line:match('^%s-%[([^%]]+)')
+            LogHelper(section, 'Debug')
+        if not tbl[section] then tbl[section] = {} end
+      elseif key and command and section then
+            LogHelper(key .. '=' .. command, 'Debug')
+        tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$')
+      elseif #line > 0 and section and not key or command then
+        LogHelper(num .. ': Invalid property or value.', Error)
+      end
+    end
+  end
+  if not section then print('No sections found in ' .. inputfile) end
+  file:close()
+  return tbl
+end
+
+--
+-- ------------------------------------------------
+--
+-- SEMVER.LUA
+-- By kitito
 --
 -- MIT LICENSE
 --
@@ -28,110 +193,6 @@
 -- TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 -- SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --
--- ------------------------------------------------
---
--- Release Notes:
--- v1.0.0 - Initial release
---
--- ------------------------------------------------
---
--- This script is to be used for implementing into your own skin suite. To
--- implement this script, you will need to populate the corresponding functions
--- with hard-coded actions for your skin to perform. There are four possible
--- outcomes: 'up-to-date', 'update available', 'connection error', and
--- 'parsing error'.
---
--- The corresponding functions are included below. To see an example of what an
--- implementation could look like, see the 'UpdateCheckerExample.lua' script included
--- with the example skin.
---
--- Please keep in mind that version strings must be formatted using the Semantic
--- Versioning 2.0.0 format. See http://semver.org/ for additional information.
---
-
-debug = false
-
-function Initialize() end
-
-function Update() end
-
--- up-to-date - hard-coded actions
-function UpToDate()
-
-  LogHelper('ModernGadgets is up-to-date', 'Notice')
-
-end
-
--- update available - hard-coded actions
-function UpdateAvailable(rVersion)
-
-  LogHelper('An update is available!', 'Notice')
-
-  SKIN:Bang('!CommandMeasure', 'MeasureCreateBackup', 'Run')
-  SKIN:Bang('!SetVariable', 'releaseVer', tostring(rVersion))
-  SKIN:Bang('!WriteKeyValue', 'Variables', 'releaseVer', tostring(rVersion))
-  SKIN:Bang('!Hide')
-  SKIN:Bang('!UpdateMeterGroup', 'UpdateAvailable')
-  SKIN:Bang('!HideMeterGroup', 'ImportBackupPrompt')
-  SKIN:Bang('!ShowMeterGroup', 'Essentials')
-  SKIN:Bang('!ShowMeterGroup', 'UpdateAvailable')
-  SKIN:Bang('!Redraw')
-  SKIN:Bang('!ShowFade')
-
-end
-
--- connection error - hard-coded actions
-function ConnectError()
-
-    LogHelper('Could not connect to update server', 'Error')
-
-end
-
--- parsing error - hard-coded actions
-function ParsingError()
-
-  LogHelper('Could not parse one or both version strings', 'Error')
-
-end
-
-function CheckForUpdate(dev, cVersion)
-
-  LogHelper(SKIN:GetVariable('CURRENTPATH'), 'Debug')
-  local updateFile = ReadIni(SKIN:GetVariable('CURRENTPATH') .. 'DownloadFile\\Release.inc')
-  -- create version objects
-  local cVersion = v(cVersion)
-  local rVersion = nil
-  if dev == 1 then
-    rVersion = v(updateFile['ReleaseVersions']['dev'])
-  else
-    rVersion = v(updateFile['ReleaseVersions']['stable'])
-  end
-
-  if cVersion == rVersion then
-    LogHelper('Up-to-date', 'Debug')
-    UpToDate()
-  elseif cVersion > rVersion then
-    LogHelper('Up-to-date', 'Debug')
-    UpToDate()
-  elseif cVersion < rVersion then
-    LogHelper('Update available', 'Debug')
-    UpdateAvailable(rVersion)
-  else
-    LogHelper('WTF?', 'Debug')
-  end
-
-end
-
--- function to make logging messages less cluttered
-function LogHelper(message, type)
-
-	if debug == true then
-		SKIN:Bang("!Log", message, type)
-	elseif type ~= 'Debug' and type ~= nil then
-		SKIN:Bang("!Log", message, type)
-	end
-
-end
 
 local function checkPositiveInteger(number, name)
   assert(number >= 0, name .. ' must be a valid positive number')
@@ -306,30 +367,4 @@ function v(major, minor, patch, prerelease, build)
 
   local result = {major=major, minor=minor, patch=patch, prerelease=prerelease, build=build}
   return setmetatable(result, mt)
-end
-
--- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
-function ReadIni(inputfile)
-  local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
-  local tbl, section = {}
-  local num = 0
-  for line in file:lines() do
-    num = num + 1
-    if not line:match('^%s;') then
-      local key, command = line:match('^([^=]+)=(.+)')
-      if line:match('^%s-%[.+') then
-        section = line:match('^%s-%[([^%]]+)')
-            LogHelper(section, 'Debug')
-        if not tbl[section] then tbl[section] = {} end
-      elseif key and command and section then
-            LogHelper(key .. '=' .. command, 'Debug')
-        tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$')
-      elseif #line > 0 and section and not key or command then
-        LogHelper(num .. ': Invalid property or value.', Error)
-      end
-    end
-  end
-  if not section then print('No sections found in ' .. inputfile) end
-  file:close()
-  return tbl
 end
