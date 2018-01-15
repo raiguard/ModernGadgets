@@ -1,521 +1,439 @@
-; HWiNFO Config Tool GPU Subpage
+; ========= Measures =========
 
-; ----- Input Measures -----
-
-[MeasureInputGpu0]
+[MeasureInputTextGpu0]
 Measure=Plugin
 Plugin=InputText
-SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorHwinfoValueInputText#
-FontSize=10
-FontFace=#fontFace#
-UpdateDivider=-1
+FontColor=#colorMain#
+SolidColor=#colorHwinfoBackground#
+FontSize=8
+FontFace=Roboto Cn
 FocusDismiss=1
+UpdateDivider=-1
 Antialias=1
-H=16
-Command1=[!WriteKeyValue Variables HWiNFO-GPU0-SensorId "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-SensorId# X=[Gpu0SensorIdValueString:X] Y=[Gpu0SensorIdValueString:Y] W=[Gpu0SensorIdValueString:W]
-Command2=[!WriteKeyValue Variables HWiNFO-GPU0-SensorInstance "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-SensorInstance# X=[Gpu0SensorInstanceValueString:X] Y=[Gpu0SensorInstanceValueString:Y] W=[Gpu0SensorInstanceValueString:W]
-Command3=[!WriteKeyValue Variables HWiNFO-GPU0-Clock "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-Clock# X=[Gpu0ClockValueString:X] Y=[Gpu0ClockValueString:Y] W=[Gpu0ClockValueString:W]
-Command4=[!WriteKeyValue Variables HWiNFO-GPU0-Temp "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-Temp# X=[Gpu0TempValueString:X] Y=[Gpu0TempValueString:Y] W=[Gpu0TempValueString:W]
-Command5=[!WriteKeyValue Variables HWiNFO-GPU0-CoreLoad "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-CoreLoad# X=[Gpu0CoreLoadValueString:X] Y=[Gpu0CoreLoadValueString:Y] W=[Gpu0CoreLoadValueString:W]
-Command6=[!WriteKeyValue Variables HWiNFO-GPU0-MemoryClock "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemoryClock# X=[Gpu0MemoryClockValueString:X] Y=[Gpu0MemoryClockValueString:Y] W=[Gpu0MemoryClockValueString:W]
-Command7=[!WriteKeyValue Variables HWiNFO-GPU0-MemoryUsage "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemoryUsage# X=[Gpu0MemoryUsageValueString:X] Y=[Gpu0MemoryUsageValueString:Y] W=[Gpu0MemoryUsageValueString:W]
-Command8=[!WriteKeyValue Variables HWiNFO-GPU0-MemoryAlloc "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemoryAlloc# X=[Gpu0MemoryAllocValueString:X] Y=[Gpu0MemoryAllocValueString:Y] W=[Gpu0MemoryAllocValueString:W]
-Command9=[!WriteKeyValue Variables HWiNFO-GPU0-FanSpeed "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-FanSpeed# X=[Gpu0FanSpeedValueString:X] Y=[Gpu0FanSpeedValueString:Y] W=[Gpu0FanSpeedValueString:W]
-Command10=[!WriteKeyValue Variables HWiNFO-GPU0-FanUsage "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-FanUsage# X=[Gpu0FanUsageValueString:X] Y=[Gpu0FanUsageValueString:Y] W=[Gpu0FanUsageValueString:W]
-Command11=[!WriteKeyValue Variables HWiNFO-GPU0-VideoClock "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-VideoClock# X=[Gpu0VideoClockValueString:X] Y=[Gpu0VideoClockValueString:Y] W=[Gpu0VideoClockValueString:W]
-Command12=[!WriteKeyValue Variables HWiNFO-GPU0-MemController "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemController# X=[Gpu0MemoryControllerValueString:X] Y=[Gpu0MemoryControllerValueString:Y] W=[Gpu0MemoryControllerValueString:W]
-Command13=[!WriteKeyValue Variables HWiNFO-GPU0-CoreVoltage "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-CoreVoltage# X=[Gpu0CoreVoltageValueString:X] Y=[Gpu0CoreVoltageValueString:Y] W=[Gpu0CoreVoltageValueString:W]
+Command1=[!WriteKeyValue Variables HWiNFO-GPU0-SensorId "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-SensorId# X=[Gpu0SensorIdInputString:X] Y=[Gpu0SensorIdInputString:Y] W=[Gpu0SensorIdInputString:W] H=[Gpu0SensorIdInputString:H]
+Command2=[!WriteKeyValue Variables HWiNFO-GPU0-SensorInstance "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-SensorInstance# X=[Gpu0SensorInstanceInputString:X] Y=[Gpu0SensorInstanceInputString:Y] W=[Gpu0SensorInstanceInputString:W] H=[Gpu0SensorInstanceInputString:H]
+Command3=[!WriteKeyValue Variables HWiNFO-GPU0-Clock "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-Clock# X=[Gpu0ClockInputString:X] Y=[Gpu0ClockInputString:Y] W=[Gpu0ClockInputString:W] H=[Gpu0ClockInputString:H]
+Command4=[!WriteKeyValue Variables HWiNFO-GPU0-Temp "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-Temp# X=[Gpu0TemperatureInputString:X] Y=[Gpu0TemperatureInputString:Y] W=[Gpu0TemperatureInputString:W] H=[Gpu0TemperatureInputString:H]
+Command5=[!WriteKeyValue Variables HWiNFO-GPU0-CoreLoad "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-CoreLoad# X=[Gpu0CoreLoadInputString:X] Y=[Gpu0CoreLoadInputString:Y] W=[Gpu0CoreLoadInputString:W] H=[Gpu0CoreLoadInputString:H]
+Command6=[!WriteKeyValue Variables HWiNFO-GPU0-MemoryClock "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemoryClock# X=[Gpu0MemoryClockInputString:X] Y=[Gpu0MemoryClockInputString:Y] W=[Gpu0MemoryClockInputString:W] H=[Gpu0MemoryClockInputString:H]
+Command7=[!WriteKeyValue Variables HWiNFO-GPU0-MemoryUsage "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemoryUsage# X=[Gpu0MemoryUsageInputString:X] Y=[Gpu0MemoryUsageInputString:Y] W=[Gpu0MemoryUsageInputString:W] H=[Gpu0MemoryUsageInputString:H]
+Command8=[!WriteKeyValue Variables HWiNFO-GPU0-MemoryAlloc "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemoryAlloc# X=[Gpu0MemoryAllocInputString:X] Y=[Gpu0MemoryAllocInputString:Y] W=[Gpu0MemoryAllocInputString:W] H=[Gpu0MemoryAllocInputString:H]
+Command9=[!WriteKeyValue Variables HWiNFO-GPU0-FanSpeed "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-FanSpeed# X=[Gpu0FanSpeedInputString:X] Y=[Gpu0FanSpeedInputString:Y] W=[Gpu0FanSpeedInputString:W] H=[Gpu0FanSpeedInputString:H]
+Command10=[!WriteKeyValue Variables HWiNFO-GPU0-FanUsage "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-FanUsage# X=[Gpu0FanUsageInputString:X] Y=[Gpu0FanUsageInputString:Y] W=[Gpu0FanUsageInputString:W] H=[Gpu0FanUsageInputString:H]
+Command11=[!WriteKeyValue Variables HWiNFO-GPU0-VideoClock "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-VideoClock# X=[Gpu0VideoClockInputString:X] Y=[Gpu0VideoClockInputString:Y] W=[Gpu0VideoClockInputString:W] H=[Gpu0VideoClockInputString:H]
+Command12=[!WriteKeyValue Variables HWiNFO-GPU0-MemController "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-MemController# X=[Gpu0MemControllerInputString:X] Y=[Gpu0MemControllerInputString:Y] W=[Gpu0MemControllerInputString:W] H=[Gpu0MemControllerInputString:H]
+Command13=[!WriteKeyValue Variables HWiNFO-GPU0-CoreVoltage "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU0-CoreVoltage# X=[Gpu0CoreVoltageInputString:X] Y=[Gpu0CoreVoltageInputString:Y] W=[Gpu0CoreVoltageInputString:W] H=[Gpu0CoreVoltageInputString:H]
 
-[MeasureInputGpu1]
+[MeasureInputTextGpu1]
 Measure=Plugin
 Plugin=InputText
-SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorHwinfoValueInputText#
-FontSize=10
-FontFace=#fontFace#
-UpdateDivider=-1
+FontColor=#colorMain#
+SolidColor=#colorHwinfoBackground#
+FontSize=8
+FontFace=Roboto Cn
 FocusDismiss=1
+UpdateDivider=-1
 Antialias=1
-H=16
-Command1=[!WriteKeyValue Variables HWiNFO-GPU1-SensorId "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-SensorId# X=[Gpu1SensorIdValueString:X] Y=[Gpu1SensorIdValueString:Y] W=[Gpu1SensorIdValueString:W]
-Command2=[!WriteKeyValue Variables HWiNFO-GPU1-SensorInstance "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-SensorInstance# X=[Gpu1SensorInstanceValueString:X] Y=[Gpu1SensorInstanceValueString:Y] W=[Gpu1SensorInstanceValueString:W]
-Command3=[!WriteKeyValue Variables HWiNFO-GPU1-Clock "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-Clock# X=[Gpu1ClockValueString:X] Y=[Gpu1ClockValueString:Y] W=[Gpu1ClockValueString:W]
-Command4=[!WriteKeyValue Variables HWiNFO-GPU1-Temp "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-Temp# X=[Gpu1TempValueString:X] Y=[Gpu1TempValueString:Y] W=[Gpu1TempValueString:W]
-Command5=[!WriteKeyValue Variables HWiNFO-GPU1-CoreLoad "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-CoreLoad# X=[Gpu1CoreLoadValueString:X] Y=[Gpu1CoreLoadValueString:Y] W=[Gpu1CoreLoadValueString:W]
-Command6=[!WriteKeyValue Variables HWiNFO-GPU1-MemoryClock "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-MemoryClock# X=[Gpu1MemoryClockValueString:X] Y=[Gpu1MemoryClockValueString:Y] W=[Gpu1MemoryClockValueString:W]
-Command7=[!WriteKeyValue Variables HWiNFO-GPU1-MemoryUsage "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-MemoryUsage# X=[Gpu1MemoryUsageValueString:X] Y=[Gpu1MemoryUsageValueString:Y] W=[Gpu1MemoryUsageValueString:W]
-Command8=[!WriteKeyValue Variables HWiNFO-GPU1-MemoryAlloc "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-MemoryAlloc# X=[Gpu1MemoryAllocValueString:X] Y=[Gpu1MemoryAllocValueString:Y] W=[Gpu1MemoryAllocValueString:W]
-Command9=[!WriteKeyValue Variables HWiNFO-GPU1-FanSpeed "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-FanSpeed# X=[Gpu1FanSpeedValueString:X] Y=[Gpu1FanSpeedValueString:Y] W=[Gpu1FanSpeedValueString:W]
-Command10=[!WriteKeyValue Variables HWiNFO-GPU1-FanUsage "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-FanUsage# X=[Gpu1FanUsageValueString:X] Y=[Gpu1FanUsageValueString:Y] W=[Gpu1FanUsageValueString:W]
-Command11=[!WriteKeyValue Variables HWiNFO-GPU1-VideoClock "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-VideoClock# X=[Gpu1VideoClockValueString:X] Y=[Gpu1VideoClockValueString:Y] W=[Gpu1VideoClockValueString:W]
-Command12=[!WriteKeyValue Variables HWiNFO-GPU1-MemController "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-MemController# X=[Gpu1MemoryControllerValueString:X] Y=[Gpu1MemoryControllerValueString:Y] W=[Gpu1MemoryControllerValueString:W]
-Command13=[!WriteKeyValue Variables HWiNFO-GPU1-CoreVoltage "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-CoreVoltage# X=[Gpu1CoreVoltageValueString:X] Y=[Gpu1CoreVoltageValueString:Y] W=[Gpu1CoreVoltageValueString:W]
+Command1=[!WriteKeyValue Variables HWiNFO-GPU1-SensorId "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-SensorId# X=[Gpu1SensorIdInputString:X] Y=[Gpu1SensorIdInputString:Y] W=[Gpu1SensorIdInputString:W] H=[Gpu1SensorIdInputString:H]
+Command2=[!WriteKeyValue Variables HWiNFO-GPU1-SensorInstance "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-SensorInstance# X=[Gpu1SensorInstanceInputString:X] Y=[Gpu1SensorInstanceInputString:Y] W=[Gpu1SensorInstanceInputString:W] H=[Gpu1SensorInstanceInputString:H]
+Command3=[!WriteKeyValue Variables HWiNFO-GPU1-Clock "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-Clock# X=[Gpu1ClockInputString:X] Y=[Gpu1ClockInputString:Y] W=[Gpu1ClockInputString:W] H=[Gpu1ClockInputString:H]
+Command4=[!WriteKeyValue Variables HWiNFO-GPU1-Temp "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-Temp# X=[Gpu1TemperatureInputString:X] Y=[Gpu1TemperatureInputString:Y] W=[Gpu1TemperatureInputString:W] H=[Gpu1TemperatureInputString:H]
+Command5=[!WriteKeyValue Variables HWiNFO-GPU1-CoreLoad "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-CoreLoad# X=[Gpu1CoreLoadInputString:X] Y=[Gpu1CoreLoadInputString:Y] W=[Gpu1CoreLoadInputString:W] H=[Gpu1CoreLoadInputString:H]
+Command6=[!WriteKeyValue Variables HWiNFO-GPU1-MemoryClock "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-MemoryClock# X=[Gpu1MemoryClockInputString:X] Y=[Gpu1MemoryClockInputString:Y] W=[Gpu1MemoryClockInputString:W] H=[Gpu1MemoryClockInputString:H]
+Command7=[!WriteKeyValue Variables HWiNFO-GPU1-MemoryUsage "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-MemoryUsage# X=[Gpu1MemoryUsageInputString:X] Y=[Gpu1MemoryUsageInputString:Y] W=[Gpu1MemoryUsageInputString:W] H=[Gpu1MemoryUsageInputString:H]
+Command8=[!WriteKeyValue Variables HWiNFO-GPU1-MemoryAlloc "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-MemoryAlloc# X=[Gpu1MemoryAllocInputString:X] Y=[Gpu1MemoryAllocInputString:Y] W=[Gpu1MemoryAllocInputString:W] H=[Gpu1MemoryAllocInputString:H]
+Command9=[!WriteKeyValue Variables HWiNFO-GPU1-FanSpeed "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-FanSpeed# X=[Gpu1FanSpeedInputString:X] Y=[Gpu1FanSpeedInputString:Y] W=[Gpu1FanSpeedInputString:W] H=[Gpu1FanSpeedInputString:H]
+Command10=[!WriteKeyValue Variables HWiNFO-GPU1-FanUsage "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-FanUsage# X=[Gpu1FanUsageInputString:X] Y=[Gpu1FanUsageInputString:Y] W=[Gpu1FanUsageInputString:W] H=[Gpu1FanUsageInputString:H]
+Command11=[!WriteKeyValue Variables HWiNFO-GPU1-VideoClock "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-VideoClock# X=[Gpu1VideoClockInputString:X] Y=[Gpu1VideoClockInputString:Y] W=[Gpu1VideoClockInputString:W] H=[Gpu1VideoClockInputString:H]
+Command12=[!WriteKeyValue Variables HWiNFO-GPU1-MemController "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-MemController# X=[Gpu1MemControllerInputString:X] Y=[Gpu1MemControllerInputString:Y] W=[Gpu1MemControllerInputString:W] H=[Gpu1MemControllerInputString:H]
+Command13=[!WriteKeyValue Variables HWiNFO-GPU1-CoreVoltage "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-GPU1-CoreVoltage# X=[Gpu1CoreVoltageInputString:X] Y=[Gpu1CoreVoltageInputString:Y] W=[Gpu1CoreVoltageInputString:W] H=[Gpu1CoreVoltageInputString:H]
 
-[MeasureInputMobo]
+[MeasureInputTextMobo]
 Measure=Plugin
 Plugin=InputText
-SolidColor=#colorHwinfoValueInputBg#
-FontColor=#colorHwinfoValueInputText#
-FontSize=10
-FontFace=#fontFace#
-UpdateDivider=-1
+FontColor=#colorMain#
+SolidColor=#colorHwinfoBackground#
+FontSize=8
+FontFace=Roboto Cn
 FocusDismiss=1
+UpdateDivider=-1
 Antialias=1
-H=16
-Command1=[!WriteKeyValue Variables HWiNFO-MOBO-GPUFan "$UserInput$" "#hwinfoFilePath#"][!Refresh] DefaultValue=#HWiNFO-MOBO-GPUFan# X=[MoboGpuFanValueString:X] Y=[MoboGpuFanValueString:Y] W=[MoboGpuFanValueString:W]
-
-; ----- Test Measures -----
-
-[MeasureHwinfoTestGpu0SensorId]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=0x0
-HWiNFOEntryId=0x0
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-
-[MeasureHwinfoTestGpu0SensorInstance]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=0x0
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=(MeasureHwinfoTestGpu0SensorId = -9102) || (MeasureHwinfoTestGpu0SensorInstance = -9102)
-IfTrueAction=[!SetOptionGroup Gpu0Values MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorSensorNotFound"][!UpdateMeterGroup Gpu0Values][!Redraw]
-
-[MeasureHwinfoTestGpu0Clock]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-Clock#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0Clock = -9201
-IfTrueAction=[!SetOption Gpu0ClockValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0ClockValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-Temp#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0Temp = -9201
-IfTrueAction=[!SetOption Gpu0TempValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0TempValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0CoreLoad]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-CoreLoad#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0CoreLoad = -9201
-IfTrueAction=[!SetOption Gpu0CoreLoadValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0CoreLoadValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0MemoryClock]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-MemoryClock#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0MemoryClock = -9201
-IfTrueAction=[!SetOption Gpu0MemoryClockValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0MemoryClockValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0MemoryUsage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-MemoryUsage#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0MemoryUsage = -9201
-IfTrueAction=[!SetOption Gpu0MemoryUsageValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0MemoryUsageValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0MemoryAlloc]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-MemoryAlloc#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0MemoryAlloc = -9201
-IfTrueAction=[!SetOption Gpu0MemoryAllocValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0MemoryAllocValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0FanSpeed]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-FanSpeed#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0FanSpeed = -9201
-IfTrueAction=[!SetOption Gpu0FanSpeedValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0FanSpeedValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0FanUsage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-FanUsage#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0FanUsage = -9201
-IfTrueAction=[!SetOption Gpu0FanUsageValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0FanUsageValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0VideoClock]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-VideoClock#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0VideoClock = -9201
-IfTrueAction=[!SetOption Gpu0VideoClockValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0VideoClockValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0MemoryController]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-MemController#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0MemoryController = -9201
-IfTrueAction=[!SetOption Gpu0MemoryControllerValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0MemoryControllerValueString][!Redraw]
-
-[MeasureHwinfoTestGpu0CoreVoltage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-CoreVoltage#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestGpu0CoreVoltage = -9201
-IfTrueAction=[!SetOption Gpu0CoreVoltageValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter Gpu0CoreVoltageValueString][!Redraw]
-
-[MeasureHwinfoTestMoboGpuFan]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-CoreVoltage#
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=MeasureHwinfoTestMoboGpuFan = -9201
-IfTrueAction=[!SetOption MoboGpuFanValueString MeterStyle "StyleString | StyleStringHwinfoValue | StyleHwinfoError | StyleHwinfoErrorEntryNotFound"][!UpdateMeter MoboGpuFanValueString][!Redraw]
+Command1=[!WriteKeyValue Variables HWiNFO-MOBO-GpuFan "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-MOBO-GpuFan# X=[MoboGpuFanInputString:X] Y=[MoboGpuFanInputString:Y] W=[MoboGpuFanInputString:W] H=[MoboGpuFanInputString:H]
 
 ; ========= Meters =========
 
-; ----- GPU 0 -----
-
-[Gpu0HeaderString]
+[Gpu0Gpu1LabelString]
 Meter=String
-MeterStyle=StyleString | StyleStringConfigSectionHeader
-X=(#hwinfoColumnX# + 20)
-Text="GPU 0"
+MeterStyle=StyleString | StyleStringHwinfoSectionLabel
+Text="GPU0 / GPU1"
 
-[Gpu1HeaderString]
-Meter=String
-MeterStyle=StyleString | StyleStringConfigSectionHeader
-X=(#hwinfoColumnX# + 108)
-Y=r
-Text="GPU 1"
-
-[Gpu0SensorIdLabelString]
+[Gpu0LabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Y=R
+StringAlign=Left
+X=(#hwinfoColumnX# + 21)
+Text="GPU0"
+
+[SensorIdLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoLabel
 Text="Sensor ID"
 
-[Gpu0SensorIdValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-SensorId#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 1"]
-Group=Gpu0Values
-
-[Gpu0SensorInstanceLabelString]
+[SensorInstanceLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
 Text="Sensor Instance"
 
-[Gpu0SensorInstanceValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 2"]
-Group=Gpu0Values
-
-[Gpu0ClockLabelString]
+[ClockLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Base Clock"
+Text="GPU Clock"
 
-[Gpu0ClockValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-Clock#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 3"]
-Group=Gpu0Values
-
-[Gpu0TempLabelString]
+[TemperatureLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
 Text="Temperature"
 
-[Gpu0TempValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 4"]
-Group=Gpu0Values
-
-[Gpu0CoreLoadLabelString]
+[CoreLoadLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
 Text="Core Load"
 
-[Gpu0CoreLoadValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-CoreLoad#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 5"]
-Group=Gpu0Values
-
-[Gpu0MemoryClockLabelString]
+[MemoryClockLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
 Text="Memory Clock"
 
-[Gpu0MemoryClockValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-MemoryClock#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 6"]
-Group=Gpu0Values
-
-[Gpu0MemoryUsageLabelString]
+[MemoryUsageLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Memory Usage"
+Text="VRAM Usage"
 
-[Gpu0MemoryUsageValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-MemoryUsage#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 7"]
-Group=Gpu0Values
-
-[Gpu0MemoryAllocLabelString]
+[MemoryAllocLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Memory Allocated"
+Text="VRAM Allocated"
 
-[Gpu0MemoryAllocValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-MemoryAlloc#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 8"]
-Group=Gpu0Values
-
-[Gpu0FanSpeedLabelString]
+[FanSpeedLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Fan Speed (RPM)"
+Text="Fan Speed"
 
-[Gpu0FanSpeedValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-FanSpeed#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 9"]
-Group=Gpu0Values
-
-[Gpu0FanUsageLabelString]
+[FanUsageLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Fan Usage (%)"
+Text="Fan Usage"
 
-[Gpu0FanUsageValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-FanUsage#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 10"]
-Group=Gpu0Values
-
-[Gpu0VideoClockLabelString]
+[VideoClockLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
 Text="Video Clock"
 
-[Gpu0VideoClockValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-VideoClock#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 11"]
-Group=Gpu0Values
-
-[Gpu0MemoryControllerLabelString]
+[MemControllerLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Memory Controller"
+Text="Mem. Controller"
 
-[Gpu0MemoryControllerValueString]
-Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-MemController#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 12"]
-Group=Gpu0Values
-
-[Gpu0CoreVoltageLabelString]
+[CoreVoltageLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
 Text="Core Voltage"
 
-[Gpu0CoreVoltageValueString]
+[Gpu0SensorIdInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-GPU0-CoreVoltage#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu0 "Executebatch 13"]
-Group=Gpu0Values
+MeterStyle=StyleString | StyleStringHwinfoInput
+X=(#hwinfoColumnX# + 1)
+Y=[SensorIdLabelString:Y]
+Text="#HWiNFO-GPU0-SensorId#"
+DynamicVariables=1
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 1"]
 
-[Gpu1SensorIdValueString]
+[Gpu0SensorInstanceInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
-X=3R
-Y=[Gpu0SensorIdValueString:Y]
-Text="#HWiNFO-GPU1-SensorId#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 1"]
-Group=Gpu1Values
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-SensorInstance#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 2"]
+
+[Gpu0ClockInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-Clock#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 3"]
+
+[Gpu0TemperatureInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-Temp#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 4"]
+
+[Gpu0CoreLoadInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-CoreLoad#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 5"]
+
+[Gpu0MemoryClockInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-MemoryClock#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 6"]
+
+[Gpu0MemoryUsageInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-MemoryUsage#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 7"]
+
+[Gpu0MemoryAllocInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-MemoryAlloc#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 8"]
+
+[Gpu0FanSpeedInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-FanSpeed#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 9"]
+
+[Gpu0FanUsageInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-FanUsage#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 10"]
+
+[Gpu0VideoClockInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-VideoClock#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 11"]
+
+[Gpu0MemControllerInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-MemController#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 12"]
+
+[Gpu0CoreVoltageInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-GPU0-CoreVoltage#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu0 "Executebatch 13"]
+
+[Gpu1LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoLabel
+StringAlign=Left
+X=23R
+Y=[Gpu0LabelString:Y]
+Text="GPU1"
 DynamicVariables=1
 
-[Gpu1SensorInstanceValueString]
+[Gpu1SensorIdInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
+X=-20r
+Text="#HWiNFO-GPU1-SensorId#"
+DynamicVariables=1
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 1"]
+
+[Gpu1SensorInstanceInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-SensorInstance#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 2"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 2"]
 
-[Gpu1ClockValueString]
+[Gpu1ClockInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-Clock#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 3"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 3"]
 
-[Gpu1TempValueString]
+[Gpu1TemperatureInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-Temp#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 4"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 4"]
 
-[Gpu1CoreLoadValueString]
+[Gpu1CoreLoadInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-CoreLoad#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 5"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 5"]
 
-[Gpu1MemoryClockValueString]
+[Gpu1MemoryClockInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-MemoryClock#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 6"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 6"]
 
-[Gpu1MemoryUsageValueString]
+[Gpu1MemoryUsageInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-MemoryUsage#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 7"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 7"]
 
-[Gpu1MemoryAllocValueString]
+[Gpu1MemoryAllocInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-MemoryAlloc#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 8"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 8"]
 
-[Gpu1FanSpeedValueString]
+[Gpu1FanSpeedInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-FanSpeed#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 9"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 9"]
 
-[Gpu1FanUsageValueString]
+[Gpu1FanUsageInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-FanUsage#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 10"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 10"]
 
-[Gpu1VideoClockValueString]
+[Gpu1VideoClockInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-VideoClock#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 11"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 11"]
 
-[Gpu1MemoryControllerValueString]
+[Gpu1MemControllerInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-MemController#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 12"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 12"]
 
-[Gpu1CoreVoltageValueString]
+[Gpu1CoreVoltageInputString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue | StyleStringHwinfoValueColumn2
+MeterStyle=StyleString | StyleStringHwinfoInput
 Text="#HWiNFO-GPU1-CoreVoltage#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputGpu1 "Executebatch 13"]
-Group=Gpu1Values
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextGpu1 "Executebatch 13"]
 
-[Gpu0SeparatorBar]
-Meter=Image
-MeterStyle=StyleSectionSeparator
-Y=5R
+; ----- Motherboard -----
 
-; ----- MOBO -----
-
-[MoboHeaderString]
+[MoboLabelString]
 Meter=String
-MeterStyle=StyleString | StyleStringConfigSectionHeader
+MeterStyle=StyleString | StyleStringHwinfoSectionLabel
+Y=10R
 Text="Motherboard"
+
+[MoboSensorIdLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoLabel
+Text="Sensor ID"
+
+[MoboSensorInstanceLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoLabel
+Text="Sensor Instance"
 
 [MoboGpuFanLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringHwinfoLabel
-Text="Fan Speed (RPM)"
+Text="GPU Fan"
 
-[MoboGpuFanValueString]
+[MoboSensorIdString]
 Meter=String
-MeterStyle=StyleString | StyleStringHwinfoValue
-Text="#HWiNFO-MOBO-GpuFan#"
-LeftMouseUpAction=[!CommandMeasure MeasureInputMobo "Executebatch 1"]
-Group=Cpu0Values
+MeterStyle=StyleString | StyleStringHwinfoInput
+FontColor=#colorInfo#
+X=(#hwinfoColumnX# + 1)
+Y=[MoboSensorIdLabelString:Y]
+Text="#HWiNFO-MOBO-SensorId#"
+DynamicVariables=1
 
-[MoboGpuFanString]
+[MoboSensorInstanceString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+FontColor=#colorInfo#
+Text="#HWiNFO-MOBO-SensorInstance#"
+
+[MoboGpuFanInputString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoInput
+Text="#HWiNFO-MOBO-GpuFan#"
+LeftMouseUpAction=[!CommandMeasure MeasureInputTextMobo "Executebatch 1"]
+
+[MoboGpuFanInfoString]
+Meter=String
+MeterStyle=StyleString | StyleStringParagraph
+FontColor=#colorInfo#
+FontSize=8
+X=3R
+Y=([MoboSensorIdLabelString:Y] - 2)
+W=(#contentMarginRight# - [MoboGpuFanInfoString:X])
+Text="If the GPU Fan is under the motherboard group, configure it here and enable the toggle in GPU Meter's settings."
+DynamicVariables=1
+
+; ----- Nav Bar -----
+
+[CpuMeterNavString]
 Meter=String
 MeterStyle=StyleString
-FontColor=#colorInfo#
-ClipString=2
-Y=3R
-W=(#contentWidth# - 3)
-Text="In the case that your GPU Fan speed is under the Motherboard group, fill in its Entry ID here and enable the toggle in GPU Meter's settings. This value uses the motherboard Sensor ID and Instance set on the CPU Meter page."
+FontSize=10
+Y=10R
+Text="CPU Meter"
+MouseOverAction=[!SetOption CpuMeterNavString FontColor "#colorButtonPress#"][!UpdateMeter CpuMeterNavString][!Redraw]
+MouseLeaveAction=[!SetOption CpuMeterNavString FontColor ""][!UpdateMeter CpuMeterNavString][!Redraw]
+LeftMouseUpAction=[!WriteKeyValue Variables page "cpu"][!Refresh]
+
+[GpuMeterNavString]
+Meter=String
+MeterStyle=StyleString
+FontSize=10
+X=10R
+Y=r
+Text="GPU Meter"
+
+[GpuMeterNavBar]
+Meter=Image
+SolidColor=#colorAccent#
+X=[GpuMeterNavString:X]
+Y=R
+W=[GpuMeterNavString:W]
+H=1
+DynamicVariables=1
+
+[HwinfoSmvButton]
+Meter=Image
+ImageName=#imgPath#HWiNFO.png
+ImageAlpha=#colorBgA#
+X=(#contentMarginRight# - 13)
+Y=-14r
+W=15
+H=15
+Antialias=1
+ToolTipText="Open HWiNFO Shared Memory Viewer"
+MouseOverAction=[!SetOption HwinfoSmvButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoSmvButton][!Redraw]
+MouseLeaveAction=[!SetOption HwinfoSmvButton ImageTint ""][!UpdateMeter HwinfoSmvButton][!Redraw]
+LeftMouseUpAction=["#@#Addons\HWiNFO\HWiNFOSharedMemoryViewer.exe"]
+DynamicVariables=1
+
+[TutorialButton]
+Meter=Image
+ImageName=#imgPath#book.png
+Greyscale=1
+X=(-15 - 2)r
+Y=r
+W=15
+H=15
+Antialias=1
+ToolTipText="View HWiNFO Tutorial"
+MouseOverAction=[!SetOption TutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter TutorialButton][!Redraw]
+MouseLeaveAction=[!SetOption TutorialButton ImageTint ""][!UpdateMeter TutorialButton][!Redraw]
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/Setup-Tutorial"]
+
+[RefreshButton]
+Meter=Image
+ImageName=#imgPath#refresh-up.png
+ImageTint=#colorAccent#
+Grayscale=1
+X=(-15 - 2)r
+Y=r
+W=15
+H=15
+Antialias=1
+ToolTipText="Refresh gadget"
+MouseOverAction=[!SetOption RefreshButton ImageName "#*imgPath*#refresh-over.png"][!UpdateMeter RefreshButton][!Redraw]
+MouseLeaveAction=[!SetOption RefreshButton ImageName "#*imgPath*#refresh-up.png"][!SetOption RefreshButton ImageTint "#colorAccent#"][!UpdateMeter RefreshButton][!Redraw]
+LeftMouseDownAction=[!SetOption RefreshButton ImageTint "#colorButtonPress#"][!UpdateMeter RefreshButton][!Redraw]
+LeftMouseUpAction=[!Refresh ModernGadgets\GPU]
