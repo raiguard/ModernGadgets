@@ -67,7 +67,7 @@ v1.3.0-beta.4 - 2018-1-15
 - Fixed large row spacing issues in Disks Meter
 - Updated copyright information
 
-v1.3.0-beta.4 - 2018-1-15
+v1.3.0-beta.3 - 2018-1-15
 - Added changelog display to update available notification
 - Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
 - Improved reliability of NetMonitor settings
@@ -153,6 +153,12 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.3.0-rc.1 -2018-1-??
+- Improved performance in CPU Meter
+- Fixed external IP fetch needing a refresh before showing up
+- Fixed Network Meter refresh buttons not working
+
+
 v1.3.0 - 2018-??-??
 - Added 32-thread support to CPU Meter
 - Added top process display to CPU Meter
@@ -162,6 +168,7 @@ v1.3.0 - 2018-??-??
 - Added GPU name toggle to GPU Meter
 - Added custom GPU name option to GPU Meter
 - Added GPU temperature graph option to GPU Meter
+- Added dual GPU mode to GPU Meter
 - Added eject button for removable drives in Disks Meter
 - Added capability to disable specific disks in Disks Meter
 - Added changelog display to update available notification
