@@ -61,7 +61,13 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
-v1.3.0-beta.3 - 2018-1-15
+v1.3.0-beta.4 - 2018-1-15
+- Added core voltages to CPU Meter
+- Fixed download update button in setup skin
+- Fixed large row spacing issues in Disks Meter
+- Updated copyright information
+
+v1.3.0-beta.4 - 2018-1-15
 - Added changelog display to update available notification
 - Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
 - Improved reliability of NetMonitor settings
@@ -146,11 +152,6 @@ v1.0.0-rc.1 - 2016-11-14
  - Initial release
 
 WIP Releases
-
-v1.3.0-beta.4 - 2018-1-??
-- Added core voltages to CPU Meter
-- Fixed download update button in setup skin
-- Fixed large row spacing issues in Disks Meter
 
 v1.3.0 - 2018-??-??
 - Added 32-thread support to CPU Meter
