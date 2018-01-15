@@ -73,7 +73,7 @@
 -- the local version.
 --
 
-debug = true
+debug = false
 
 function Initialize()
 

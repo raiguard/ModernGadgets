@@ -7,8 +7,8 @@ tempUnits=C
 isHwinfoAvailable=1
 
 notifyUpdates=1
-devUpdates=0
-rVersionKey=stable
+devUpdates=1
+rVersionKey=dev
 autoBackups=1
 
 showBgBorder=0
