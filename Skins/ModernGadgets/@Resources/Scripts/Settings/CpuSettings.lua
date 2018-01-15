@@ -80,12 +80,35 @@ function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
       SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ToggleTemps(' .. cpuCores .. ', false)', cpuMeterConfig)
     end
 
-  SKIN:Bang('!UpdateMeterGroup', 'CoreTemps', cpuMeterConfig)
-  SKIN:Bang('!Redraw', cpuMeterConfig)
-  UpdateToggles()
+    SKIN:Bang('!UpdateMeterGroup', 'CoreTemps', cpuMeterConfig)
+    SKIN:Bang('!UpdateMeterGroup', 'CoreVoltages', cpuMeterConfig)
+    SKIN:Bang('!Redraw', cpuMeterConfig)
+    UpdateToggles()
+  end
 
-  else
-    SKIN:Bang('!Log', 'Cannot display core temperatures, for HWiNFO is not running!', 'Warning')
+end
+
+function ToggleCoreVoltages(currentValue, isHwinfoAvailable, cpuCores)
+
+  LogHelper(tostring(currentValue), 'Debug')
+
+  currentValue = tonumber(currentValue)
+  isHwinfoAvailable = tonumber(isHwinfoAvailable)
+  cpuCores = tonumber(cpuCores)
+
+  if isHwinfoAvailable == 1 then
+    if currentValue == 0 then
+      SetVariable('showCoreVoltages', '1', cpuSettingsPath, cpuMeterConfig)
+      SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ToggleVoltages(' .. cpuCores .. ', true)', cpuMeterConfig)
+    else
+      SetVariable('showCoreVoltages', '0', cpuSettingsPath, cpuMeterConfig)
+      SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ToggleVoltages(' .. cpuCores .. ', false)', cpuMeterConfig)
+    end
+
+    SKIN:Bang('!UpdateMeterGroup', 'CoreVoltages', cpuMeterConfig)
+    SKIN:Bang('!UpdateMeterGroup', 'CoreTemps', cpuMeterConfig)
+    SKIN:Bang('!Redraw', cpuMeterConfig)
+    UpdateToggles()
   end
 
 end
