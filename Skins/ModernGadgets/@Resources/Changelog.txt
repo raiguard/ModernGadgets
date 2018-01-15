@@ -61,6 +61,30 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.3.0-beta.3 - 2018-1-15
+- Added changelog display to update available notification
+- Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
+- Improved reliability of NetMonitor settings
+- Rewrote HWiNFO config tool
+- Rewrote update checker again and generalized it
+- Added per-core CPU temps, fans, and voltages to the config tool
+- Added GPU1 to the config tool
+- Added CPU package temperature to the config tool
+- Updated NetMonitor installer
+- Updated ActiveNet plugin to 2.7.0.0
+
+v1.3.0-beta.3 - 2017-12-27
+- Added NetMonitor support to Network Meter for more accurate readings
+- Added GPU name toggle to GPU Meter
+- Added custom GPU name option to GPU Meter
+- Added GPU temperature graph option to GPU Meter
+- Added preliminary dual GPU support
+- Added UI for hiding disks in Disks Meter
+- Rewrote set to defaults functionality to improve performance and expanability
+- Fixed GPU name being able to extend past the width of GPU Meter
+- Fixed Network Meter external IP error message not disappearing
+- Fixed GPU name being able to extend past the width of GPU Meter
+
 v1.3.0-beta.1 - 2017-12-20
 - Added 32-thread support to CPU Meter
 - Added top process display to CPU Meter
@@ -123,19 +147,7 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.3.0-beta.2 - 2017-12-??
-- Added NetMonitor support to Network Meter for more accurate readings
-- Added GPU name toggle to GPU Meter
-- Added custom GPU name option to GPU Meter
-- Added GPU temperature graph option to GPU Meter
-- Added preliminary dual GPU support
-- Added UI for hiding disks in Disks Meter
-- Rewrote set to defaults functionality to improve performance and expanability
-- Fixed GPU name being able to extend past the width of GPU Meter
-- Fixed Network Meter external IP error message not disappearing
-- Fixed GPU name being able to extend past the width of GPU Meter
-
-v1.3.0 - 2017-??-??
+v1.3.0 - 2018-??-??
 - Added 32-thread support to CPU Meter
 - Added top process display to CPU Meter
 - Added CPU temperature graph option to CPU Meter
@@ -145,11 +157,14 @@ v1.3.0 - 2017-??-??
 - Added GPU temperature graph option to GPU Meter
 - Added eject button for removable drives in Disks Meter
 - Added capability to disable specific disks in Disks Meter
+- Added changelog display to update available notification
 - Changed from ANSI to UTF-8 file encoding
 - Softened background and text colors, decreased gadget width
 - Overhauled gadget settings logic to be more reliable and allow for easier expansion
 - Rewrote update checker and moved update checker URL
 - Rewrote external IP check to be more reliable
+- Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
+- Rewrote HWiNFO config tool
 - Fixed gadget toggle buttons desyncing
 - Fixed inconsistencies with core temperature visibility when HWiNFO was toggled on/off
 - Fixed oversight where you could not hide fan speed display if HWiNFO was unavailable

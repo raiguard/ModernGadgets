@@ -5,7 +5,11 @@
 bgOffset=5
 bgWidth=150
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
+<<<<<<< HEAD:Skins/ModernGadgets/@Resources/Settings/StyleSheet.inc
 mgVersion=1.3.0-beta.2
+=======
+mgVersion=1.3.0-beta.3
+>>>>>>> master:Skins/ModernGadgets/@Resources/StyleSheet.inc
 
 contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
@@ -49,7 +53,11 @@ colorAccent=138,210,250
 colorButtonPress=255,50,50
 
 colorHwinfoValueInputText=225,220,225,255
+<<<<<<< HEAD:Skins/ModernGadgets/@Resources/Settings/StyleSheet.inc
 colorHwinfoValueInputBg=30,30,30,255
+=======
+colorHwinfoValueInputBg=35,35,35,255
+>>>>>>> master:Skins/ModernGadgets/@Resources/StyleSheet.inc
 colorHwinfoError=255,30,30,255
 
 colorInputBoxBorder=#colorDim#
@@ -74,7 +82,11 @@ rainFilePath=#@#Addons\RainFile\RainFile.exe
 globalSettingsPath=#@#Settings\GlobalSettings.inc
 gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
+<<<<<<< HEAD:Skins/ModernGadgets/@Resources/Settings/StyleSheet.inc
 styleSheetPath=#@#Settings\StyleSheet.inc
+=======
+styleSheetPath=#@#StyleSheet.inc
+>>>>>>> master:Skins/ModernGadgets/@Resources/StyleSheet.inc
 
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
@@ -122,11 +134,14 @@ cp23=150,150,150
 cp24=237,28,32
 
 ; Styles
+<<<<<<< HEAD:Skins/ModernGadgets/@Resources/Settings/StyleSheet.inc
 [StyleBackgroundNew]
 Shape=Rectangle #bgOffset#,#bgOffset#,#bgWidth#,([BackgroundHeight:Y] - (#bgOffset# * 2)) | Fill Color #colorBg# | StrokeWidth 0 | Stroke Color #colorBg#
 DynamicVariables=1
 Group=Background
 
+=======
+>>>>>>> master:Skins/ModernGadgets/@Resources/StyleSheet.inc
 [StyleBackground]
 SolidColor=#colorBg#
 X=#bgOffset#

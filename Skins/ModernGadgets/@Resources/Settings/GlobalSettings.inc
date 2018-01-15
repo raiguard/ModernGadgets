@@ -7,7 +7,8 @@ tempUnits=C
 isHwinfoAvailable=1
 
 notifyUpdates=1
-devUpdates=1
+devUpdates=0
+rVersionKey=stable
 autoBackups=1
 
 showBgBorder=0
@@ -44,17 +45,49 @@ HWiNFO-CPU0-Core8Clock=0x6000008
 ; core 9 clock frequency (MHz)
 HWiNFO-CPU0-Core9Clock=0x6000009
 ; core 10 clock frequency (MHz)
-HWiNFO-CPU0-Core10Clock=0x6000000
+HWiNFO-CPU0-Core10Clock=0x600000a
 ; core 11 clock frequency (MHz)
-HWiNFO-CPU0-Core11Clock=0x600000a
+HWiNFO-CPU0-Core11Clock=0x600000b
 ; core 12 clock frequency (MHz)
-HWiNFO-CPU0-Core12Clock=0x600000b
+HWiNFO-CPU0-Core12Clock=0x600000c
 ; core 13 clock frequency (MHz)
-HWiNFO-CPU0-Core13Clock=0x600000c
+HWiNFO-CPU0-Core13Clock=0x600000d
 ; core 14 clock frequency (MHz)
-HWiNFO-CPU0-Core14Clock=0x600000d
+HWiNFO-CPU0-Core14Clock=0x600000e
 ; core 15 clock frequency (MHz)
-HWiNFO-CPU0-Core15Clock=0x600000e
+HWiNFO-CPU0-Core15Clock=0x600000f
+; core 0 voltage (V)
+HWiNFO-CPU0-Core0VID=0x2000000
+; core 1 voltage (V)
+HWiNFO-CPU0-Core1VID=0x2000001
+; core 2 voltage (V)
+HWiNFO-CPU0-Core2VID=0x2000002
+; core 3 voltage (V)
+HWiNFO-CPU0-Core3VID=0x2000003
+; core 4 voltage (V)
+HWiNFO-CPU0-Core4VID=0x2000004
+; core 5 voltage (V)
+HWiNFO-CPU0-Core5VID=0x2000005
+; core 6 voltage (V)
+HWiNFO-CPU0-Core6VID=0x2000006
+; core 7 voltage (V)
+HWiNFO-CPU0-Core7VID=0x2000007
+; core 8 voltage (V)
+HWiNFO-CPU0-Core8VID=0x2000008
+; core 9 voltage (V)
+HWiNFO-CPU0-Core9VID=0x2000009
+; core 10 voltage (V)
+HWiNFO-CPU0-Core10VID=0x200000a
+; core 11 voltage (V)
+HWiNFO-CPU0-Core11VID=0x200000b
+; core 12 voltage (V)
+HWiNFO-CPU0-Core12VID=0x200000c
+; core 13 voltage (V)
+HWiNFO-CPU0-Core13VID=0x200000d
+; core 14 voltage (V)
+HWiNFO-CPU0-Core14VID=0x200000e
+; core 15 voltage (V)
+HWiNFO-CPU0-Core15VID=0x200000f
 
 ;
 ; CPU 0 DTS
@@ -95,6 +128,8 @@ HWiNFO-CPU0-DTS-Core13Temp=0x100000d
 HWiNFO-CPU0-DTS-Core14Temp=0x100000e
 ; core 15 temperature (degrees)
 HWiNFO-CPU0-DTS-Core15Temp=0x100000f
+; package temperature (degrees)
+HWiNFO-CPU0-DTS-PackageTemp=0x100007e
 ; package/ring thermal throttling (yes/no)
 HWiNFO-CPU0-DTS-PackageTt=0x800000c
 

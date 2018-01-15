@@ -22,7 +22,7 @@ function ToggleCpuName(currentValue)
     SKIN:Bang('!ShowMeter', 'CpuDisplayNameString', cpuMeterConfig)
     SKIN:Bang('!SetOption', 'CpuDisplayNameString', 'Y', '#*rowSpacing*#R', cpuMeterConfig)
   else
-    SKIN:Bang('!SetVariable', 'showCpuName', '0')
+    SetVariable('showCpuName', '0', cpuSettingsPath, cpuMeterConfig)
     SKIN:Bang('!HideMeter', 'CpuDisplayNameString', cpuMeterConfig)
     SKIN:Bang('!SetOption', 'CpuDisplayNameString', 'Y', 'R', cpuMeterConfig)
   end

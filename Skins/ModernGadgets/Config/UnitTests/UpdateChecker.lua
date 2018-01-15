@@ -1,36 +1,14 @@
 -- ------------------------------------------------
 -- Update Checker for Rainmeter
--- Version 1.0.0
--- By iamanai
+-- v2.0.0
+-- By raiguard
 --
 -- Modified form of 'semver.lua' by kikito (https://github.com/kikito/semver.lua)
---
--- MIT LICENSE
---
--- Copyright (c) 2015 Enrique Garca Cota
---
--- Permission is hereby granted, free of charge, to any person obtaining a
--- copy of tother software and associated documentation files (the
--- "Software"), to deal in the Software without restriction, including
--- without limitation the rights to use, copy, modify, merge, publish,
--- distribute, sublicense, and/or sell copies of the Software, and to
--- permit persons to whom the Software is furnished to do so, subject to
--- the following conditions:
---
--- The above copyright notice and tother permission notice shall be included
--- in all copies or substantial portions of the Software.
---
--- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
--- OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
--- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
--- IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
--- CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
--- TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
--- SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --
 -- ------------------------------------------------
 --
 -- Release Notes:
+-- v2.0.0 - 
 -- v1.0.0 - Initial release
 --
 -- ------------------------------------------------
@@ -51,76 +29,44 @@
 
 debug = true
 
--- up-to-date - hard-coded actions
-function UpToDate()
+function Initialize()
 
-  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Up-to-date')
-  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
-  SKIN:Bang('!Redraw')
+  upToDateAction = SELF:GetOption('UpToDateAction')
+  updateAvailableAction = SELF:GetOption('UpdateAvailableAction')
+  parsingErrorAction = SELF:GetOption('ParsingErrorAction')
+  filePath = SELF:GetOption('FilePath')
 
-end
-
--- update available - hard-coded actions
-function UpdateAvailable()
-
-  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Update Available')
-  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
-  SKIN:Bang('!Redraw')
+  if filePath == '' or filePath == nil then filePath = SKIN:GetVariable('CURRENTPATH') .. 'DownloadFile\\Release.inc' end
 
 end
-
--- connection error - hard-coded actions
-function ConnectError()
-
-  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Connection Error')
-  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
-  SKIN:Bang('!Redraw')
-
-end
-
--- parsing error - hard-coded actions
-function ParsingError()
-
-  SKIN:Bang('!SetOption', 'UpdateCheckResultString', 'Text', 'Result: Parsing Error')
-  SKIN:Bang('!UpdateMeter', 'UpdateCheckResultString')
-  SKIN:Bang('!Redraw')
-
-end
-
-function Initialize() end
 
 function Update() end
 
-function CheckForUpdate(current, remote)
+function CheckForUpdate(dev, cVersion)
 
+  LogHelper(filePath, 'Debug')
+  local updateFile = ReadIni(filePath)
   -- create version objects
-  local cVersion = v(current)
-  local rVersion = v(remote)
+  local cVersion = v(cVersion)
+  local rVersion = nil
+  if dev == 1 then
+    rVersion = v(updateFile['ReleaseVersions']['dev'])
+  else
+    rVersion = v(updateFile['ReleaseVersions']['stable'])
+  end
 
   if cVersion == rVersion then
     LogHelper('Up-to-date', 'Debug')
-    UpToDate()
+    SKIN:Bang(upToDateAction)
   elseif cVersion > rVersion then
     LogHelper('Up-to-date', 'Debug')
-    UpToDate()
+    SKIN:Bang(upToDateAction)
   elseif cVersion < rVersion then
     LogHelper('Update available', 'Debug')
-    UpdateAvailable()
+    SKIN:Bang(updateAvailableAction)
   else
     LogHelper('WTF?', 'Debug')
   end
-
-end
-
-function UnitTest()
-
-  print(tostring(v'1.0.0' == v'2.3.4'))
-  print(tostring(v'1.0.0' > v'2.3.4'))
-  print(tostring(v'1.0.0' <  v'2.3.4'))
-
-  print(tostring(v'1.0.0-alpha.1' == v'1.0.0-alpha.2'))
-  print(tostring(v'1.0.0-alpha.1' < v'1.0.0-alpha.2'))
-  print(tostring(v'1.0.0-alpha.1' > v'1.0.0-alpha.2'))
 
 end
 
@@ -128,12 +74,65 @@ end
 function LogHelper(message, type)
 
 	if debug == true then
-		SKIN:Bang("!Log", 'Semver.lua: ' .. message, type)
+		SKIN:Bang("!Log", message, type)
 	elseif type ~= 'Debug' and type ~= nil then
-		SKIN:Bang("!Log", 'Semver.lua: ' .. message, type)
+		SKIN:Bang("!Log", message, type)
 	end
 
 end
+
+-- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
+function ReadIni(inputfile)
+  local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
+  local tbl, section = {}
+  local num = 0
+  for line in file:lines() do
+    num = num + 1
+    if not line:match('^%s;') then
+      local key, command = line:match('^([^=]+)=(.+)')
+      if line:match('^%s-%[.+') then
+        section = line:match('^%s-%[([^%]]+)')
+            LogHelper(section, 'Debug')
+        if not tbl[section] then tbl[section] = {} end
+      elseif key and command and section then
+            LogHelper(key .. '=' .. command, 'Debug')
+        tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$')
+      elseif #line > 0 and section and not key or command then
+        LogHelper(num .. ': Invalid property or value.', Error)
+      end
+    end
+  end
+  if not section then print('No sections found in ' .. inputfile) end
+  file:close()
+  return tbl
+end
+
+-- ------------------------------------------------
+-- SEMVER.LUA
+-- By kitito
+--
+-- MIT LICENSE
+--
+-- Copyright (c) 2015 Enrique García Cota
+--
+-- Permission is hereby granted, free of charge, to any person obtaining a
+-- copy of tother software and associated documentation files (the
+-- "Software"), to deal in the Software without restriction, including
+-- without limitation the rights to use, copy, modify, merge, publish,
+-- distribute, sublicense, and/or sell copies of the Software, and to
+-- permit persons to whom the Software is furnished to do so, subject to
+-- the following conditions:
+--
+-- The above copyright notice and tother permission notice shall be included
+-- in all copies or substantial portions of the Software.
+--
+-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+-- OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+-- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+-- IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+-- CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+-- TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+-- SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 local function checkPositiveInteger(number, name)
   assert(number >= 0, name .. ' must be a valid positive number')
