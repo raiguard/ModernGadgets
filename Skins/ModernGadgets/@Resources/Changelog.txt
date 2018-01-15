@@ -143,6 +143,8 @@ v1.3.0-beta.3 - 2018-1-??
 - Added per-core CPU temps, fans, and voltages to the config tool
 - Added GPU1 to the config tool
 - Added average CPU temperature to the config tool
+- Updated NetMonitor installer
+- Updated ActiveNet plugin to 2.7.0.0
 
 v1.3.0 - 2018-??-??
 - Added 32-thread support to CPU Meter
