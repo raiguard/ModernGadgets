@@ -92,10 +92,6 @@ dColorCore13=201,41,56
 dColorCore14=179,0,91
 dColorCore15=153,84,166
 dColorCore16=99,125,217
-dColorCore17=107,238,98
-dColorCore18=255,246,42
-dColorCore19=250,158,0
-dColorCore20=236,28,70
 dColorTt=255,120,147
 dTtHistogramAlpha=50
 ;====== DEFAULTS ======
