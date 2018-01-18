@@ -74,6 +74,8 @@ Command15=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core12Temp "$UserInput$" "#g
 Command16=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core13Temp "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-Core13Temp# X=[Cpu0DtsCore13TempInputString:X] Y=[Cpu0DtsCore13TempInputString:Y] W=[Cpu0DtsCore13TempInputString:W] H=[Cpu0DtsCore13TempInputString:H]
 Command17=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core14Temp "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-Core14Temp# X=[Cpu0DtsCore14TempInputString:X] Y=[Cpu0DtsCore14TempInputString:Y] W=[Cpu0DtsCore14TempInputString:W] H=[Cpu0DtsCore14TempInputString:H]
 Command18=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-Core15Temp "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-Core15Temp# X=[Cpu0DtsCore15TempInputString:X] Y=[Cpu0DtsCore15TempInputString:Y] W=[Cpu0DtsCore15TempInputString:W] H=[Cpu0DtsCore15TempInputString:H]
+Command19=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-PackageTemp "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-PackageTemp# X=[Cpu0DtsPackageTempInputString:X] Y=[Cpu0DtsPackageTempInputString:Y] W=[Cpu0DtsPackageTempInputString:W] H=[Cpu0DtsPackageTempInputString:H]
+Command20=[!WriteKeyValue Variables HWiNFO-CPU0-DTS-PackageTt "$UserInput$" "#globalSettingsPath#"][!Refresh] DefaultValue=#HWiNFO-CPU0-DTS-PackageTt# X=[Cpu0DtsThermalThrottlingInputString:X] Y=[Cpu0DtsThermalThrottlingInputString:Y] W=[Cpu0DtsThermalThrottlingInputString:W] H=[Cpu0DtsThermalThrottlingInputString:H]
 
 [MeasureInputTextMobo]
 Measure=Plugin
