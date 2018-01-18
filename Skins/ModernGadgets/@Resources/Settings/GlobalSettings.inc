@@ -8,8 +8,8 @@ isHwinfoAvailable=1
 
 notifyUpdates=1
 devUpdates=0
-rVersionKey=stable
 autoBackups=1
+rVersionKey=stable
 
 showBgBorder=0
 largeRowSpacing=0

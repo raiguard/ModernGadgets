@@ -55,6 +55,7 @@ function TogglePage(currentValue)
     SKIN:Bang('!SetOption', 'GraphLines', 'LineColor34', '0,0,0,0', cpuMeterConfig)
   end
 
+  SKIN:Bang('!UpdateMeasureGroup', 'CpuPage', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'CpuPage', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'LineGraph', cpuMeterConfig)
   SKIN:Bang('!UpdateMeterGroup', 'Background', cpuMeterConfig)
@@ -78,7 +79,7 @@ function ToggleCoreTemps(currentValue, isHwinfoAvailable, cpuCores)
     else
       SetVariable('showCoreTemps', '0', cpuSettingsPath, cpuMeterConfig)
       SKIN:Bang('!CommandMeasure', 'MeasureCpuConfigScript', 'ToggleTemps(' .. cpuCores .. ', false)', cpuMeterConfig)
-    end
+    end    
 
     SKIN:Bang('!UpdateMeterGroup', 'CoreTemps', cpuMeterConfig)
     SKIN:Bang('!UpdateMeterGroup', 'CoreVoltages', cpuMeterConfig)
