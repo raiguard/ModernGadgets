@@ -61,6 +61,13 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.3.0-rc.1 - 2018-1-18
+- Added Nomfrep plugin to replace AdvancedCPU
+- Fixed HWiNFO package temperature and thermal throttling input boxes not working
+- Fixed page file measures not enabling correctly
+- Fixed external IP fetch needing a refresh before showing up
+- Fixed Network Meter refresh buttons not working
+
 v1.3.0-beta.4 - 2018-1-15
 - Added core voltages to CPU Meter
 - Fixed download update button in setup skin
@@ -152,12 +159,6 @@ v1.0.0-rc.1 - 2016-11-14
  - Initial release
 
 WIP Releases
-
-v1.3.0-rc.1 -2018-1-??
-- Fixed HWiNFO package temperature and thermal throttling input boxes not working
-- Fixed page file measures not enabling correctly
-- Fixed external IP fetch needing a refresh before showing up
-- Fixed Network Meter refresh buttons not working
 
 
 v1.3.0 - 2018-??-??
