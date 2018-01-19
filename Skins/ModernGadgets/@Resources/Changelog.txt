@@ -154,10 +154,10 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.3.0-rc.1 -2018-1-??
-- Improved performance in CPU Meter
+- Fixed HWiNFO package temperature and thermal throttling input boxes not working
+- Fixed page file measures not enabling correctly
 - Fixed external IP fetch needing a refresh before showing up
 - Fixed Network Meter refresh buttons not working
-- Fixed package temperature and thermal throttling input boxes not working
 
 
 v1.3.0 - 2018-??-??

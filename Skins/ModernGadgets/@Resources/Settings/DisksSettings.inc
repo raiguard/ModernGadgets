@@ -69,5 +69,3 @@ dColorDisk23=42,112,250
 dColorDisk24=43,224,224
 dColorDisk25=121,182,62
 dColorDisk26=204,255,0
-;====== DEFAULTS ======
-;====== DEFAULTS ======

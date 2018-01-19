@@ -1,12 +1,6 @@
-; MODERNGADGETS "CPU" SETTINGS FILE
-
 [Variables]
 tempUom=C
-ttSoundPath=D:\Caleb\Development\Rainmeter\Projects\ModernGadgets\Skins\ModernGadgets\@Resources\Assets\Sounds\alarmalerteffect.wav
-
-; Set automatically - don't bother changing (they will just change back)
-cpuName=auto
-threadCount=8
+ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
 
 ; Fixed precision format
 fpfRamDepth=4
@@ -67,6 +61,8 @@ showAvgCpu=0
 showTt=0
 playTtSound=0
 
+cpuName=auto
+
 isHwinfoAvailable=1
 useHwinfoClock=1
 
@@ -94,5 +90,3 @@ dColorCore15=153,84,166
 dColorCore16=99,125,217
 dColorTt=255,120,147
 dTtHistogramAlpha=50
-;====== DEFAULTS ======
-;====== DEFAULTS ======
