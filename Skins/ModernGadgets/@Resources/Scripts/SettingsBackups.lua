@@ -3,7 +3,7 @@
 -- This script makes backups of the settings files every two hours, which
 -- prevents them from being lost when updating the suite.
 
-debug = false
+debug = true
 
 function Initialize()
 
@@ -34,6 +34,7 @@ function ImportBackup()
   for i=1, 5 do
     local bTable = ReadIni(backupsPath .. fileNames[i])
     local sTable = ReadIni(filesPath .. fileNames[i])
+    if i == 1 then print(bTable['variables']['test'] .. ' | ' .. sTable['variables']['test']) end
     CrossCheck(bTable, sTable, filesPath .. fileNames[i])
   end
   
@@ -79,24 +80,21 @@ function CheckForBackup()
   
 end
 
--- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
 function ReadIni(inputfile)
   local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
   local tbl, section = {}
   local num = 0
   for line in file:lines() do
     num = num + 1
-    if not line:match('^%s;') then
+    if not line:match('^%s-;') then
       local key, command = line:match('^([^=]+)=(.+)')
       if line:match('^%s-%[.+') then
-        section = line:match('^%s-%[([^%]]+)')
-        LogHelper('[' .. section .. ']', 'Debug')
+        section = line:match('^%s-%[([^%]]+)'):lower()
         if not tbl[section] then tbl[section] = {} end
       elseif key and command and section then
-        LogHelper(key .. '=' .. command, 'Debug')
-        tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$'):gsub( '#(.-)#', '#\*%1\*#')
+        tbl[section][key:lower():match('^s*(%S*)%s*$')] = command:match('^s*(.-)%s*$'):gsub('#(.-)#', '#\*%1\*#')
       elseif #line > 0 and section and not key or command then
-        LogHelper(num .. ': Invalid property or value.', Debug)
+        print(num .. ': Invalid property or value.')
       end
     end
   end
