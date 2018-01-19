@@ -2,7 +2,7 @@
 
 [Variables]
 
-lineGraphAa=0
+lineGraphAa=1
 tempUnits=C
 isHwinfoAvailable=1
 
