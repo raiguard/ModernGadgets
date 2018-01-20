@@ -145,17 +145,15 @@ function ReadIni(inputfile)
   local num = 0
   for line in file:lines() do
     num = num + 1
-    if not line:match('^%s;') then
+    if not line:match('^%s-;') then
       local key, command = line:match('^([^=]+)=(.+)')
       if line:match('^%s-%[.+') then
         section = line:match('^%s-%[([^%]]+)')
-            LogHelper(section, 'Debug')
         if not tbl[section] then tbl[section] = {} end
       elseif key and command and section then
-            LogHelper(key .. '=' .. command, 'Debug')
-        tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$')
+        tbl[section][key:match('^%s*(%S*)%s*$')] = command:match('^%s*(.-)%s*$')
       elseif #line > 0 and section and not key or command then
-        LogHelper(num .. ': Invalid property or value.', Error)
+        print(num .. ': Invalid property or value.')
       end
     end
   end

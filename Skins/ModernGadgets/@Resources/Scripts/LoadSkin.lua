@@ -122,28 +122,26 @@ end
 
 -- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
 function ReadIni(inputfile)
-	local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
-	local tbl, section = {}
+  local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
+  local tbl, section = {}
   local num = 0
-	for line in file:lines() do
-		num = num + 1
-		if not line:match('^%s;') then
-			local key, command = line:match('^([^=]+)=(.+)')
-			if line:match('^%s-%[.+') then
-				section = line:match('^%s-%[([^%]]+)')
-        		-- LogHelper(section, 'Debug')
-				if not tbl[section] then tbl[section] = {} end
-			elseif key and command and section then
-        		-- LogHelper(key .. '=' .. command, 'Debug')
-				tbl[section][key:match('(%S*)%s*$')] = command:match('^s*(.-)%s*$')
-			elseif #line > 0 and section and not key or command then
-				LogHelper(num .. ': Invalid property or value.', Error)
-			end
-		end
-	end
-	if not section then print('No sections found in ' .. inputfile) end
-	file:close()
-	return tbl
+  for line in file:lines() do
+    num = num + 1
+    if not line:match('^%s-;') then
+      local key, command = line:match('^([^=]+)=(.+)')
+      if line:match('^%s-%[.+') then
+        section = line:match('^%s-%[([^%]]+)')
+        if not tbl[section] then tbl[section] = {} end
+      elseif key and command and section then
+        tbl[section][key:match('^%s*(%S*)%s*$')] = command:match('^%s*(.-)%s*$')
+      elseif #line > 0 and section and not key or command then
+        print(num .. ': Invalid property or value.')
+      end
+    end
+  end
+  if not section then print('No sections found in ' .. inputfile) end
+  file:close()
+  return tbl
 end
 
 -- function to make logging messages less cluttered

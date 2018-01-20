@@ -10,6 +10,7 @@ notifyUpdates=1
 devUpdates=0
 autoBackups=1
 rVersionKey=stable
+test=sally
 
 showBgBorder=0
 largeRowSpacing=0
