@@ -67,6 +67,7 @@ v1.3.0-rc.1 - 2018-1-18
 - Fixed page file measures not enabling correctly
 - Fixed external IP fetch needing a refresh before showing up
 - Fixed Network Meter refresh buttons not working
+- Fixed ReadINI script dropping leading S'es
 
 v1.3.0-beta.4 - 2018-1-15
 - Added core voltages to CPU Meter
