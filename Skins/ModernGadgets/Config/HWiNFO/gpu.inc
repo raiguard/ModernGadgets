@@ -437,3 +437,17 @@ MouseOverAction=[!SetOption RefreshButton ImageName "#*imgPath*#refresh-over.png
 MouseLeaveAction=[!SetOption RefreshButton ImageName "#*imgPath*#refresh-up.png"][!SetOption RefreshButton ImageTint "#colorAccent#"][!UpdateMeter RefreshButton][!Redraw]
 LeftMouseDownAction=[!SetOption RefreshButton ImageTint "#colorButtonPress#"][!UpdateMeter RefreshButton][!Redraw]
 LeftMouseUpAction=[!Refresh ModernGadgets\GPU]
+
+[ManualEditButton]
+Meter=String
+MeterStyle=StyleString
+FontFace=ElegantIcons
+StringAlign=Right
+FontSize=10
+X=-3r
+Y=-1r
+Text=[\x6c]
+MouseOverAction=[!SetOption ManualEditButton FontColor "#colorButtonPress#"][!UpdateMeter ManualEditButton][!Redraw]
+MouseLeaveAction=[!SetOption ManualEditButton FontColor ""][!UpdateMeter ManualEditButton][!Redraw]
+LeftMouseUpAction=["#@#Settings\GlobalSettings.inc"]
+ToolTipText="Open HWiNFO configuration file"
