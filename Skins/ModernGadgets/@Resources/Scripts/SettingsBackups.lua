@@ -92,7 +92,7 @@ function ReadIni(inputfile)
         section = line:match('^%s-%[([^%]]+)'):lower()
         if not tbl[section] then tbl[section] = {} end
       elseif key and command and section then
-        tbl[section][key:lower():match('^s*(%S*)%s*$')] = command:match('^s*(.-)%s*$'):gsub('#(.-)#', '#\*%1\*#')
+        tbl[section][key:lower():match('^%s*(%S*)%s*$')] = command:match('^%s*(.-)%s*$'):gsub('#(.-)#', '#\*%1\*#')
       elseif #line > 0 and section and not key or command then
         print(num .. ': Invalid property or value.')
       end
