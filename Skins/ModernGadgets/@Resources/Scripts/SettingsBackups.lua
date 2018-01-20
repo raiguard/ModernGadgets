@@ -3,7 +3,7 @@
 -- This script makes backups of the settings files every two hours, which
 -- prevents them from being lost when updating the suite.
 
-debug = true
+debug = false
 
 function Initialize()
 
@@ -34,7 +34,6 @@ function ImportBackup()
   for i=1, 5 do
     local bTable = ReadIni(backupsPath .. fileNames[i])
     local sTable = ReadIni(filesPath .. fileNames[i])
-    if i == 1 then print(bTable['variables']['test'] .. ' | ' .. sTable['variables']['test']) end
     CrossCheck(bTable, sTable, filesPath .. fileNames[i])
   end
   
