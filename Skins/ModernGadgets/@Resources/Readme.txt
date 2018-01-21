@@ -1,5 +1,5 @@
 MODERNGADGETS
-Version 1.3.0-rc.1
+v1.3.0-rc.1
 By raiguard
 
 ----------------------------------------
@@ -21,17 +21,18 @@ Source code is available on GitHub under the MIT License.
 Designed and programmed by Caleb Heuer (raiguard).
 Backend code based on "Gadgets" by SilverAzide.
 
-Settings toggle buttons and close buttons taken from Droptop (by virginityrocks).
-"Roboto" Font taken from Google Fonts, under the Apache License, version 2.0.
+"Roboto" font from Google Fonts, under the Apache License, version 2.0.
 
 Additional Attributions:
-SilverAzide - ActiveNet plugin, fixed precision format script
+SilverAzide - ActiveNet plugin, NetMonitor utility, fixed precision format script
 stangowner - HWiNFO Plugin, HWiNFO Shared Memory Viewer
-Jeffrey Morley - RainRGB, Rainmeter
+jsmorley - RainRGB, Rainmeter
 balala - Help with fixing Disks Meter's dynamic height adjustment
+smurfier - ReadINI function
 
 ----------------------------------------
 CONTACT
 
 Email: iamanaiofficial@gmail.com
 Twitter: @raiguard_
+Reddit: /u/raiguard

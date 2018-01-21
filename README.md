@@ -6,7 +6,7 @@ ModernGadgets is released on the Rainmeter platform under a Creative Commons BY-
 ## Requirements
 Rainmeter 4.1 or newer: https://www.rainmeter.net
 
-HWiNFO (required for all GPU information, CPU and disk temperatures): https://www.hwinfo.com
+HWiNFO (not required for all features): https://www.hwinfo.com
 
 .NET Framework 4.5 or newer
 
@@ -28,16 +28,16 @@ Designed and programmed by Caleb Heuer (raiguard).
 
 Backend code based on "Gadgets" by SilverAzide.
 
-Settings toggle buttons and close buttons taken from Droptop (by virginityrocks).
-
-"Roboto" font taken from Google Fonts, under the Apache License, version 2.0.
+"Roboto" font from Google Fonts, under the Apache License, version 2.0.
 
 ### Additional Attributions
 
-SilverAzide - ActiveNet plugin, fixed precision format script
+SilverAzide - ActiveNet plugin, NetMonitor utility, fixed precision format script
 
 stangowner - HWiNFO Plugin, HWiNFO Shared Memory Viewer
 
-Jeffrey Morley - RainRGB, Rainmeter
+jsmorley - RainRGB, Rainmeter
 
 balala - Help with fixing Disks Meter's dynamic height adjustment
+
+smurfier - ReadINI function
