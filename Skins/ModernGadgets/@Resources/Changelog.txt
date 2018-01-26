@@ -61,11 +61,6 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
-v1.3.0-rc.2 - 2018-1-26
-- Fixed show/hide behavior of core voltage meters
-- Fixed core temps and voltages toggles crashing Rainmeter
-- Fixed top process display to omit "#1" from Rainmeter's program name
-
 v1.3.0-rc.1 - 2018-1-18
 - Added Nomfrep plugin to replace AdvancedCPU
 - Fixed HWiNFO package temperature and thermal throttling input boxes not working
@@ -165,6 +160,11 @@ v1.0.0-rc.1 - 2016-11-14
  - Initial release
 
 WIP Releases
+
+v1.3.0-rc.2 - 2018-1-??
+- Fixed show/hide behavior of core voltage meters
+- Fixed core temps and voltages toggles crashing Rainmeter
+- Fixed top process display to omit "#1" from Rainmeter's program name
 
 v1.3.0 - 2018-??-??
 - Added 32-thread support to CPU Meter
