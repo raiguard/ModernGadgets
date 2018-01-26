@@ -297,18 +297,15 @@ Antialias=1
 DynamicVariables=1
 
 [StyleStringToggleLabel]
-FontFace=Roboto
-FontColor=240,240,240
+FontColor=#colorMain#
 FontSize=10
-AntiAlias=1
 X=3R
 Y=-1r
 
 [StyleToggleButton]
 FontFace=ElegantIcons
-FontColor=138,210,250
+FontColor=#colorAccent#
 FontSize=12
-AntiAlias=1
 X=#contentMargin#
 Y=4R
 DynamicVariables=1
