@@ -166,6 +166,7 @@ v1.3.0-rc.2 - 2018-1-??
 - Fixed background height adjustment on HWiNFO state change
 - Fixed CPU clock speed not using alternate measure when HWiNFO is unavailable
 - Fixed core temps and voltages toggles crashing Rainmeter
+- Fixed ReadINI throwing an error when coming across an invalid section name
 
 v1.3.0 - 2018-??-??
 - Added 32-thread support to CPU Meter
@@ -188,7 +189,6 @@ v1.3.0 - 2018-??-??
 - Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
 - Rewrote HWiNFO config tool
 - Fixed gadget toggle buttons desyncing
-- Fixed inconsistencies with core temperature visibility when HWiNFO was toggled on/off
-- Fixed oversight where you could not hide fan speed display if HWiNFO was unavailable
+- Fixed behavior of HWiNFO detection in CPU Meter
 - Fixed Network Meter external IP error message not disappearing
 - Fixed GPU name being able to extend past the width of GPU Meter
