@@ -1,7 +1,6 @@
 ; MODERNGADGETS GLOBAL SETTINGS
 
 [Variables]
-
 lineGraphAa=0
 tempUnits=C
 isHwinfoAvailable=1
@@ -10,7 +9,6 @@ notifyUpdates=1
 devUpdates=0
 autoBackups=1
 rVersionKey=stable
-test=sally
 
 showBgBorder=0
 largeRowSpacing=0

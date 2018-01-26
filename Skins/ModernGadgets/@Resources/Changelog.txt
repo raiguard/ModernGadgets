@@ -163,6 +163,7 @@ WIP Releases
 
 v1.3.0-rc.2 - 2018-1-??
 - Fixed show/hide behavior of core voltage meters
+- Fixed background height adjustment on HWiNFO state change
 - Fixed core temps and voltages toggles crashing Rainmeter
 - Fixed top process display to omit "#1" from Rainmeter's program name
 
