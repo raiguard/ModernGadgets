@@ -4,9 +4,9 @@ trafficSuffix=B/s
 
 censorExternalIp=0
 showPeakNetworkUsage=1
-showSpeedtestButton=1
+showSpeedtestButton=0
 showPing=1
-showTrafficInBytes=1
+showTrafficInBytes=0
 showLineGraph=1
 useNetMonitor=1
 
