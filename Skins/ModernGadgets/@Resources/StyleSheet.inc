@@ -63,37 +63,37 @@ toggleOn=[\x5a]
 toggleOff=[\x56]
 
 ; Paths
-imgPath=#@#Assets\Images\
-soundPath=#@#Assets\Sounds\
-fontPath=#@#Fonts\
-scriptPath=#@#Scripts\
+imgPath=#@#Assets\\Images\\
+soundPath=#@#Assets\\Sounds\\
+fontPath=#@#Fonts\\
+scriptPath=#@#Scripts\\
 
-rainRgbPath=#@#Addons\RainRGB\RainRGB4.exe
-rainFilePath=#@#Addons\RainFile\RainFile.exe
+rainRgbPath=#@#Addons\\RainRGB\\RainRGB4.exe
+rainFilePath=#@#Addons\\RainFile\\RainFile.exe
 
-globalSettingsPath=#@#Settings\GlobalSettings.inc
-gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
+globalSettingsPath=#@#Settings\\GlobalSettings.inc
+gadgetManagerPath=#ROOTCONFIGPATH#Config\\GadgetManager\\gadgetmanager.inc
 
 styleSheetPath=#@#StyleSheet.inc
 
-cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
-cpuMeterConfig=ModernGadgets\CPU
-cpuSettingsPath=#@#Settings\CpuSettings.inc
+cpuMeterPath=#ROOTCONFIGPATH#CPU\\CPU.ini
+cpuMeterConfig=ModernGadgets\\CPU
+cpuSettingsPath=#@#Settings\\CpuSettings.inc
 
-networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
-networkMeterConfig=ModernGadgets\Network
-networkSettingsPath=#@#Settings\NetworkSettings.inc
+networkMeterPath=#ROOTCONFIGPATH#Network\\Network.ini
+networkMeterConfig=ModernGadgets\\Network
+networkSettingsPath=#@#Settings\\NetworkSettings.inc
 
-gpuMeterPathBase=#ROOTCONFIGPATH#GPU\GPU.ini
-gpuMeterPath=#ROOTCONFIGPATH#GPU\main.inc
-gpuMeterConfig=ModernGadgets\GPU
-gpuSettingsPath=#@#Settings\GpuSettings.inc
+gpuMeterPathBase=#ROOTCONFIGPATH#GPU\\GPU.ini
+gpuMeterPath=#ROOTCONFIGPATH#GPU\\main.inc
+gpuMeterConfig=ModernGadgets\\GPU
+gpuSettingsPath=#@#Settings\\GpuSettings.inc
 
-disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
-disksMeterConfig=ModernGadgets\Disks
-disksSettingsPath=#@#Settings\DisksSettings.inc
+disksMeterPath=#ROOTCONFIGPATH#Disks\\Disks.ini
+disksMeterConfig=ModernGadgets\\Disks
+disksSettingsPath=#@#Settings\\DisksSettings.inc
 
-setupSkinConfig=ModernGadgets\Config\Setup
+setupSkinConfig=ModernGadgets\\Config\\Setup
 
 ; Default Color Pallete
 cp1=107,238,98
