@@ -28,13 +28,11 @@ fontFace=Roboto
 fontSize=8
 
 ; Colors
-colorBg=15,15,15,255
 colorBgA=255
+colorBg=15,15,15,#colorBgA#
 colorBgBorder=#colorDim#
-colorBgBorderA=#colorBgA#
 
 colorGraphBorder=#colorDim#
-colorGraphBorderA=#colorBgA#
 
 colorMain=230,230,230
 colorInfo=150,150,150
@@ -132,7 +130,7 @@ Group=Background
 [StyleBackgroundBorder]
 ImageName=#imgPath#border.png
 ImageTint=#colorBgBorder#
-ImageAlpha=#colorBgBorderA#
+ImageAlpha=#colorBgA#
 ScaleMargins=2,2,2,2
 X=(#bgOffset# - 1)
 Y=(#bgOffset# - 1)
