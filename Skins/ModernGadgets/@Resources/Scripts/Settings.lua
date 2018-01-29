@@ -27,7 +27,7 @@
 -- --------------------------------------------------------------------------------
 -- Documentation: https://github.com/raiguard/rainmeter-settings/blob/master/README.md
 
-debug = true
+debug = false
 
 function Initialize()
 
@@ -39,19 +39,13 @@ function Initialize()
 
 end
 
-function Update()
-
-
-
-end
+function Update() end
 
 -- for use with toggle buttons. Toggles the specified variable between the two
 -- given states, and executes ActionSets as normal.
 function Toggle(variable, offState, onState, settingsPath, configPath, actionSet, ifLogic)
 
 	local value = SKIN:GetVariable(variable)
-	local settingsPath = SKIN:GetVariable(settingsPath)
-	local configPath = SKIN:GetVariable(configPath)
 	local actionSetName = actionSet
 
 	if value == offState then
@@ -84,8 +78,6 @@ end
 -- ActionSets as normal. Functionally identical to Input().
 function Radio(state, variable, settingsPath, configPath, actionSet, ifLogic)
 
-	local settingsPath = SKIN:GetVariable(settingsPath)
-	local configPath = SKIN:GetVariable(configPath)
 	local actionSetName = actionSet
 
 	SetVariable(variable, state, settingsPath, configPath)
@@ -111,8 +103,6 @@ end
 -- ActionSets as normal. Functionally identical to Radio().
 function Input(input, variable, settingsPath, configPath, actionSet, ifLogic)
 
-	local settingsPath = SKIN:GetVariable(settingsPath)
-	local configPath = SKIN:GetVariable(configPath)
 	local actionSetName = actionSet
 
 	SetVariable(variable, input, settingsPath, configPath)
@@ -148,6 +138,8 @@ function GetIcon(value, offState, onState)
 
 end
 
+-- returns the 'radioOn' or 'radioOff' parameters depending on the state of the
+-- given variable
 function GetRadioIcon(value, onState)
 
 	if value == onState then return radioOn
