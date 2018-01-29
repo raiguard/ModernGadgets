@@ -224,6 +224,7 @@ X=#contentMargin#
 Y=4R
 DynamicVariables=1
 Group=ToggleButtons
+Antialias=1
 
 [StyleStringColorPickerLabel]
 StringAlign=Right

@@ -166,6 +166,7 @@ v1.3.0-rc.2 - 2018-1-??
 - Fixed background height adjustment on HWiNFO state change
 - Fixed CPU clock speed not using alternate measure when HWiNFO is unavailable
 - Fixed core temps and voltages toggles crashing Rainmeter
+- Fixed NetMonitor uninstaller version conflict preventing uninstall
 - Fixed ReadINI throwing an error when coming across an invalid section name
 - Fixed disk eject buttons not changing visible state until skin refresh
 
