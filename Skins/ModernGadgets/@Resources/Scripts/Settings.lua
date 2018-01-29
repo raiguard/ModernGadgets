@@ -27,7 +27,7 @@
 -- --------------------------------------------------------------------------------
 -- Documentation: https://github.com/raiguard/rainmeter-settings/blob/master/README.md
 
-debug = false
+debug = true
 
 function Initialize()
 

@@ -3,7 +3,7 @@ interface=Best
 trafficSuffix=B/s
 
 censorExternalIp=0
-showSpeedtestButton=0
+showSpeedtestButton=1
 showPing=1
 showTrafficInBytes=1
 showLineGraph=1

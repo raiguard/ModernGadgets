@@ -212,6 +212,7 @@ X=(#contentMargin# + 1)
 Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset# + 1) : 0) : ((#showLineGraph# = 1) ? 5 : 2))R
 W=(#contentWidth# - 2)
 H=(#graphHeight# - 2)
+SolidColor=#colorGraphBg#
 LineCount=5
 MeasureName=MeasureGpu0MemoryControllerLoad
 MeasureName2=MeasureGpu0FanUsage
@@ -435,6 +436,7 @@ X=(#contentMargin# + 1)
 Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset# + 1) : 0) : ((#showLineGraph# = 1) ? 5 : 2))R
 W=(#contentWidth# - 2)
 H=(#graphHeight# - 2)
+SolidColor=#colorGraphBg#
 LineCount=5
 MeasureName=MeasureGpu1MemoryControllerLoad
 MeasureName2=MeasureGpu1FanUsage
