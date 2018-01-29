@@ -1,5 +1,3 @@
-; MODERNGADGETS GLOBAL SETTINGS
-
 [Variables]
 lineGraphAa=0
 tempUnits=C
