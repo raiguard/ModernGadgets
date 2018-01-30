@@ -32,6 +32,7 @@ colorBgA=255
 colorBg=15,15,15,#colorBgA#
 colorBgBorder=#colorDim#
 
+colorGraphBg=25,25,25
 colorGraphBorder=#colorDim#
 
 colorMain=230,230,230
