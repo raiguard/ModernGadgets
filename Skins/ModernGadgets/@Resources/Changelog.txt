@@ -172,6 +172,9 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.4.0 - 2018-??-??
+- Implemented new dynamic settings system (https://github.com/raiguard/rainmeter-settings)
+
 v1.3.0 - 2018-??-??
 - Added 32-thread support to CPU Meter
 - Added top process display to CPU Meter
