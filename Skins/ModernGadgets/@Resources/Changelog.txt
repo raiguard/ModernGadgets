@@ -61,6 +61,17 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.3.0-rc.2 - 2018-1-30
+- Added troubleshooting link to disks meter settings
+- Added graph background to give the lines a "surface" to sit on
+- Fixed show/hide behavior of core voltage meters
+- Fixed background height adjustment on HWiNFO state change
+- Fixed CPU clock speed not using alternate measure when HWiNFO is unavailable
+- Fixed core temps and voltages toggles crashing Rainmeter
+- Fixed NetMonitor uninstaller version conflict preventing uninstall
+- Fixed ReadINI throwing an error when coming across an invalid section name
+- Fixed disk eject buttons not changing visible state until skin refresh
+
 v1.3.0-rc.1 - 2018-1-18
 - Added Nomfrep plugin to replace AdvancedCPU
 - Fixed HWiNFO package temperature and thermal throttling input boxes not working
@@ -160,16 +171,6 @@ v1.0.0-rc.1 - 2016-11-14
  - Initial release
 
 WIP Releases
-
-v1.3.0-rc.2 - 2018-1-30
-- Added troubleshooting link to disks meter settings
-- Fixed show/hide behavior of core voltage meters
-- Fixed background height adjustment on HWiNFO state change
-- Fixed CPU clock speed not using alternate measure when HWiNFO is unavailable
-- Fixed core temps and voltages toggles crashing Rainmeter
-- Fixed NetMonitor uninstaller version conflict preventing uninstall
-- Fixed ReadINI throwing an error when coming across an invalid section name
-- Fixed disk eject buttons not changing visible state until skin refresh
 
 v1.3.0 - 2018-??-??
 - Added 32-thread support to CPU Meter
