@@ -184,6 +184,19 @@ end
 -- for use in other suites, do not include this section.
 -- --------------------------------------------------------------------------------
 
+function SetCustomCpuName(input)
+
+	local settingsPath = SKIN:GetVariable('cpuSettingsPath')
+	local configPath = SKIN:GetVariable('cpuMeterConfig')
+
+	if input == '' then
+		Input('auto', 'cpuName', settingsPath, configPath, 'CustomCpuNameActionAuto')
+	else
+		Input(input, 'cpuName', settingsPath, configPath, 'CustomCpuNameAction')
+	end
+
+end
+
 function SetCustomGpuName(input)
 
 	local settingsPath = SKIN:GetVariable('gpuSettingsPath')
