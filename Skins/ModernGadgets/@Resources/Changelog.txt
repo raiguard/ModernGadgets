@@ -161,7 +161,8 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.3.0-rc.2 - 2018-1-??
+v1.3.0-rc.2 - 2018-1-30
+- Added troubleshooting link to disks meter settings
 - Fixed show/hide behavior of core voltage meters
 - Fixed background height adjustment on HWiNFO state change
 - Fixed CPU clock speed not using alternate measure when HWiNFO is unavailable
