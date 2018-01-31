@@ -27,7 +27,7 @@
 -- --------------------------------------------------------------------------------
 -- Documentation: https://github.com/raiguard/rainmeter-settings/blob/master/README.md
 
-debug = true
+debug = false
 
 function Initialize()
 
@@ -173,5 +173,26 @@ function UpdateToggles()
 
 	SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
 	SKIN:Bang('!Redraw')
+
+end
+
+-- --------------------------------------------------------------------------------
+-- CUSTOM LUA ACTIONS
+--
+-- Everything below this point is not usually included with the script, and are
+-- functions specifically designed for settings in this suite. If copying this file
+-- for use in other suites, do not include this section.
+-- --------------------------------------------------------------------------------
+
+function SetCustomGpuName(input)
+
+	local settingsPath = SKIN:GetVariable('gpuSettingsPath')
+	local configPath = SKIN:GetVariable('gpuMeterConfig')
+
+	if input == '' then
+		Input('auto', 'gpuName', settingsPath, configPath, 'CustomGpuNameActionAuto')
+	else
+		Input(input, 'gpuName', settingsPath, configPath, 'CustomGpuNameAction')
+	end
 
 end

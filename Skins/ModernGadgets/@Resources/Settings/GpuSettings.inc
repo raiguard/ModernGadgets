@@ -1,6 +1,4 @@
 [Variables]
-tempUOM=C
-
 showGpuName=1
 showMemoryClock=1
 showMemoryController=1
@@ -12,7 +10,7 @@ showTempGraph=1
 gpuName=auto
 
 useManualMaxVram=0
-maxVram=3000
+maxVram=4096
 useMoboFanSensor=0
 
 dualGpuMode=0
@@ -29,3 +27,4 @@ dColorCoreUsage=255,246,42
 dColorMemoryUsage=107,198,250
 dColorFanUsage=107,238,98
 dColorMemoryController=255,204,0
+=the fox
