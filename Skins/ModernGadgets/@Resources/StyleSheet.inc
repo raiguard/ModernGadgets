@@ -44,11 +44,12 @@ colorBarBg=#colorDim#
 
 colorButtonPress=255,50,50
 
-colorHwinfoValueInputText=225,220,225,255
-colorHwinfoValueInputBg=35,35,35,255
-colorHwinfoError=255,30,30,255
+colorHwinfoValueInputText=225,220,225
+colorHwinfoValueInputBg=35,35,35
+colorHwinfoError=255,30,30
 
-colorInputBoxBorder=#colorDim#
+colorInputBg=25,25,25
+colorInputBorder=#colorDim#
 
 colorIntel=0,125,198
 
@@ -202,14 +203,17 @@ Y=5R
 
 ; Settings
 [StyleStringInputBox]
-FontColor=#colorInfo#
-FontFace=Roboto
-; SolidColor=100,100,100,250
-X=5r
-Y=2r
-W=200
-H=13
-Padding=0,2,0,0
+FontSize=10
+FontFace=Roboto Lt
+SolidColor=#colorInputBg#
+Padding=2,0,2,1
+X=1r
+Y=1r
+W=(#contentWidth# - 6)
+H=16
+ClipString=1
+DynamicVariables=1
+Group=ToggleButtons
 
 [StyleStringToggleLabel]
 FontColor=#colorMain#
