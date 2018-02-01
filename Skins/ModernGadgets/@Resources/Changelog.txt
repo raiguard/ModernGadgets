@@ -61,7 +61,7 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
-v1.3.0-rc.3 - 2018-1-31
+v1.3.0-rc.3 - 2018-2-1
 - Implemented new dynamic settings system (https://github.com/raiguard/rainmeter-settings)
 - Refined settings UI
 - Fixed several bugs and oversights in dynamic settings changes
