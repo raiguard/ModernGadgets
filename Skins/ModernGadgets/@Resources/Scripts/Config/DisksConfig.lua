@@ -18,12 +18,9 @@ function ConfigureDisk(disk, index)
 	LogHelper('CONFIGURING  disk: ' .. disk .. ' | index: ' .. index, 'Debug')
 
 	if index > 1 and not table.contains(hideDisks, disk) then
-		SKIN:Bang('!ShowMeterGroup', 'Disk' .. disk)
 		SKIN:Bang('!EnableMeasureGroup', 'Disk' .. disk)
-		if index == 4 or tonumber(SKIN:GetVariable('showEjectButtons')) == 0 then
-			SKIN:Bang('!DisableMeasure', 'MeasureDisk' .. disk .. 'Eject')
-			SKIN:Bang('!HideMeter', 'Disk' .. disk .. 'EjectButton')
-		end
+		SKIN:Bang('!ShowMeterGroup', 'Disk' .. disk)
+		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'EjectButton', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] = 4) || (#*showEjectButtons*# = 0)')
 		SetVariable('hideDisk' .. disk, '0', dynamicVarsPath)
 	else
 		SKIN:Bang('!HideMeterGroup', 'Disk' .. disk)

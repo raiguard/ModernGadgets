@@ -1,7 +1,4 @@
-; MODERNGADGETS GLOBAL SETTINGS
-
 [Variables]
-
 lineGraphAa=0
 tempUnits=C
 isHwinfoAvailable=1
@@ -10,7 +7,6 @@ notifyUpdates=1
 devUpdates=0
 autoBackups=1
 rVersionKey=stable
-test=sally
 
 showBgBorder=0
 largeRowSpacing=0
@@ -132,7 +128,7 @@ HWiNFO-CPU0-DTS-Core15Temp=0x100000f
 ; package temperature (degrees)
 HWiNFO-CPU0-DTS-PackageTemp=0x100007e
 ; package/ring thermal throttling (yes/no)
-HWiNFO-CPU0-DTS-PackageTt=0x800000c
+HWiNFO-CPU0-DTS-PackageTt=0xf0000400
 
 ;
 ; Motherboard

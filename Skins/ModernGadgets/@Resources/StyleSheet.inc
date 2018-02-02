@@ -1,11 +1,12 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-; General positioning and background
+mgVersion=1.3.0-rc.3
+
+; Positioning
 bgOffset=5
 bgWidth=150
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
-mgVersion=1.3.0-rc.1
 
 contentMarginAbs=3
 contentMargin=(#bgOffset# + #contentMarginAbs#)
@@ -22,42 +23,39 @@ graphWidth=#contentWidth#
 
 labelOffset=53
 
-; Font options
+; Font settings
 fontFace=Roboto
 fontSize=8
 
 ; Colors
-colorBg=15,15,15,255
 colorBgA=255
+colorBg=15,15,15,#colorBgA#
 colorBgBorder=#colorDim#
-colorBgBorderA=#colorBgA#
 
+colorGraphBg=25,25,25
 colorGraphBorder=#colorDim#
-colorGraphBorderA=#colorBgA#
 
-colorMain=230,230,230,#colorBgA#
-colorMainA=#colorBgA#
-colorInfo=150,150,150,#colorBgA#
-colorInfoA=#colorBgA#
-colorDim=50,50,50,#colorBgA#
-colorDimA=#colorBgA#
+colorMain=230,230,230
+colorInfo=150,150,150
+colorDim=50,50,50
+colorAccent=138,210,250
 
 colorBarBg=#colorDim#
 
-colorAccent=138,210,250
-
 colorButtonPress=255,50,50
 
-colorHwinfoValueInputText=225,220,225,255
-colorHwinfoValueInputBg=35,35,35,255
-colorHwinfoError=255,30,30,255
+colorHwinfoValueInputText=225,220,225
+colorHwinfoValueInputBg=35,35,35
+colorHwinfoError=255,30,30
 
-colorInputBoxBorder=#colorDim#
+colorInputBg=25,25,25
+colorInputBorder=#colorDim#
 
 colorIntel=0,125,198
 
 histogramAlpha=50
 
+; Character reference variables
 deg=[\176]
 toggleOn=[\x5a]
 toggleOff=[\x56]
@@ -121,7 +119,7 @@ cp22=255,204,0
 cp23=150,150,150
 cp24=237,28,32
 
-; Styles
+; Background
 [StyleBackground]
 SolidColor=#colorBg#
 X=#bgOffset#
@@ -134,7 +132,7 @@ Group=Background
 [StyleBackgroundBorder]
 ImageName=#imgPath#border.png
 ImageTint=#colorBgBorder#
-ImageAlpha=#colorBgBorderA#
+ImageAlpha=#colorBgA#
 ScaleMargins=2,2,2,2
 X=(#bgOffset# - 1)
 Y=(#bgOffset# - 1)
@@ -152,6 +150,7 @@ W=#bgWidthAbs#
 H=1
 Group=Background
 
+; Strings (general)
 [StyleString]
 FontColor=#colorMain#
 FontSize=#fontSize#
@@ -159,33 +158,6 @@ FontFace=#fontFace#
 X=#contentMargin#
 Y=#rowSpacing#R
 Antialias=1
-
-[StyleStringArrowButtonLabel]
-FontSize=10
-StringAlign=Right
-X=(#contentMarginRight# - 17)
-
-[StyleStringArrowButton]
-ImageName=#imgPath#arrow-right.png
-ImageTint=#colorAccent#
-X=r
-Y=r
-W=17
-H=17
-Antialias=0
-
-[StyleToggleImageGadgets]
-X=110
-DynamicVariables=1
-
-[StyleStringSectionHeader]
-FontSize=12
-Y=10R
-
-[StyleStringGadgetHeader]
-FontSize=10
-X=#contentMargin#
-Y=(#contentMargin# - 2)
 
 [StyleStringCenterAlign]
 StringAlign=Center
@@ -202,44 +174,89 @@ X=#contentMarginCenter#
 Y=r
 FontColor=#colorInfo#
 
-[StyleStringConfigSectionHeader]
-FontFace=#fontFace# Cn
-FontSize=10
-Y=5R
-
-[StyleStringInputBox]
-FontColor=#colorInfo#
-FontFace=Roboto
-; SolidColor=100,100,100,250
-X=5r
-Y=2r
-W=200
-H=13
-Padding=0,2,0,0
-
 [StyleStringParagraph]
-FontColor=#colorMain#
 FontSize=10
 X=(#contentMargin# + 2)
 Y=5R
 W=(#contentWidth# - 6)
 ClipString=2
 
+; Strings (headers)
 [StyleStringConfigTitle]
 FontSize=11
 X=#contentMargin#
 Y=(#contentMargin# - 2)
 
-[StyleBar]
-SolidColor=#colorBarBg#
-X=(#contentMargin#)
-Y=#barTextOffset#R
-W=(#contentWidth#)
-w=(#contentWidth#)
-h=#barHeight#
-BarOrientation=Horizontal
+[StyleStringSectionHeader]
+FontSize=12
+Y=10R
+
+[StyleStringGadgetHeader]
+FontSize=10
+X=#contentMargin#
+Y=(#contentMargin# - 2)
+
+[StyleStringConfigSectionHeader]
+FontFace=#fontFace# Cn
+FontSize=10
+Y=5R
+
+; Settings
+[StyleStringInputBox]
+FontSize=10
+FontFace=Roboto Lt
+SolidColor=#colorInputBg#
+Padding=2,0,2,1
+X=1r
+Y=1r
+W=(#contentWidth# - 6)
+H=16
+ClipString=1
 DynamicVariables=1
+Group=ToggleButtons
+
+[StyleStringToggleLabel]
+FontColor=#colorMain#
+FontSize=10
+X=3R
+Y=-1r
+
+[StyleToggleButton]
+FontFace=ElegantIcons
+FontColor=#colorAccent#
+FontSize=12
+X=#contentMargin#
+Y=4R
+DynamicVariables=1
+Group=ToggleButtons
 Antialias=1
+
+[StyleStringColorPickerLabel]
+StringAlign=Right
+FontSize=9
+X=-5r
+Y=5R
+
+[StyleColorPicker]
+Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Extend MeterSpecific
+X=5r
+Y=-1r
+DynamicVariables=1
+
+; Buttons
+[StyleStringArrowButtonLabel]
+FontSize=10
+StringAlign=Right
+X=(#contentMarginRight# - 17)
+
+[StyleStringArrowButton]
+ImageName=#imgPath#arrow-right.png
+ImageTint=#colorAccent#
+X=r
+Y=r
+W=17
+H=17
+Antialias=0
 
 [StyleCloseButton]
 ImageName=#imgPath#close.png
@@ -273,18 +290,6 @@ W=14
 H=14
 Antialias=0
 
-[StyleStringColorPickerLabel]
-StringAlign=Right
-FontSize=9
-X=-5r
-Y=5R
-
-[StyleColorPicker]
-Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Extend MeterSpecific
-X=5r
-Y=-1r
-DynamicVariables=1
-
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
 ImageTint=120,120,120
@@ -296,20 +301,14 @@ H=11
 Antialias=1
 DynamicVariables=1
 
-[StyleStringToggleLabel]
-FontFace=Roboto
-FontColor=240,240,240
-FontSize=10
-AntiAlias=1
-X=3R
-Y=-1r
-
-[StyleToggleButton]
-FontFace=ElegantIcons
-FontColor=138,210,250
-FontSize=12
-AntiAlias=1
-X=#contentMargin#
-Y=4R
+; Other
+[StyleBar]
+SolidColor=#colorBarBg#
+X=(#contentMargin#)
+Y=#barTextOffset#R
+W=(#contentWidth#)
+w=(#contentWidth#)
+h=#barHeight#
+BarOrientation=Horizontal
 DynamicVariables=1
-Group=ToggleButtons
+Antialias=1
