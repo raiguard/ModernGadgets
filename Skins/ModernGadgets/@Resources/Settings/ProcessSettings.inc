@@ -1,5 +1,10 @@
 [Variables]
 showLineGraph=1
+processLabelFontFace=Roboto Cn
+percentDecimals=1
+
+pinChar=[\xe082]
+unpinChar=[\xe01e]
 ; Colors
 colorProcess1=107,238,98
 colorProcess2=255,246,42
@@ -16,4 +21,4 @@ colorProcess12=191,100,55
 colorProcess13=201,41,56
 colorProcess14=179,0,91
 colorProcess15=153,84,166
-colorProcess16=99,125,217
+colorProcess16=99,125,217 
