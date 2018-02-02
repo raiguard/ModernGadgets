@@ -60,7 +60,7 @@ showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
 showTt=0
-playTtSound=0
+playTtSound=1
 
 cpuName=auto
 

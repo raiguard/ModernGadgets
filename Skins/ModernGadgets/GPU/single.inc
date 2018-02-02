@@ -219,13 +219,14 @@ Hidden=(#showCoreVoltage# = 0)
 
 ; ----- Graph -----
 
-[GraphLines]
+[LineGraphBackground]
+Meter=Image
+MeterStyle=StyleLineGraphBackground
+Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset#) : 0) : ((#showLineGraph# = 1) ? #contentMarginAbs# : 1))R
+
+[LineGraph]
 Meter=Line
-X=(#contentMargin# + 1)
-Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset# + 1) : 0) : ((#showLineGraph# = 1) ? 4 : 1))R
-W=(#contentWidth# - 2)
-H=(#graphHeight# - 2)
-SolidColor=#colorGraphBg#
+MeterStyle=StyleLineGraph
 LineCount=5
 MeasureName=MeasureGpu0MemoryControllerLoad
 MeasureName2=MeasureGpu0FanUsage
@@ -237,19 +238,7 @@ LineColor2=#colorFanUsage#
 LineColor3=#colorMemoryUsage#
 LineColor4=#colorCoreUsage#
 LineColor5=#colorTempGraph#,(#showTempGraph# * 255)
-DynamicVariables=1
-Antialias=#lineGraphAa#
-Group=LineGraph
-Hidden=(#showLineGraph# = 0)
 
-[GraphBorder]
+[LineGraphBgAdjustor]
 Meter=Image
-ImageName=#imgPath#border.png
-ScaleMargins=2,2,2,2
-ImageTint=#colorGraphBorder#
-X=-1r
-Y=-1r
-W=#contentWidth#
-H=#graphHeight#
-Group=LineGraph
-Hidden=(#showLineGraph# = 0)
+MeterStyle=StyleLineGraphBgAdjustor

@@ -206,13 +206,14 @@ Hidden=(#showCoreVoltage# = 0)
 
 ; ----- Line Graph -----
 
-[Gpu0GraphLines]
+[Gpu0LineGraphBackground]
+Meter=Image
+MeterStyle=StyleLineGraphBackground
+Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset#) : 0) : ((#showLineGraph# = 1) ? #contentMarginAbs# : 1))R
+
+[Gpu0LineGraph]
 Meter=Line
-X=(#contentMargin# + 1)
-Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset# + 1) : 0) : ((#showLineGraph# = 1) ? 5 : 2))R
-W=(#contentWidth# - 2)
-H=(#graphHeight# - 2)
-SolidColor=#colorGraphBg#
+MeterStyle=StyleLineGraph
 LineCount=5
 MeasureName=MeasureGpu0MemoryControllerLoad
 MeasureName2=MeasureGpu0FanUsage
@@ -224,22 +225,11 @@ LineColor2=#colorFanUsage#
 LineColor3=#colorMemoryUsage#
 LineColor4=#colorCoreUsage#
 LineColor5=#colorTempGraph#,(#showTempGraph# * 255)
-DynamicVariables=1
-Antialias=#lineGraphAa#
-Group=LineGraph
-Hidden=(#showLineGraph# = 0)
 
-[Gpu0GraphBorder]
+[Gpu0LineGraphBgAdjustor]
 Meter=Image
-ImageName=#imgPath#border.png
-ScaleMargins=2,2,2,2
-ImageTint=#colorGraphBorder#
-X=-1r
-Y=-1r
-W=#contentWidth#
-H=#graphHeight#
-Group=LineGraph
-Hidden=(#showLineGraph# = 0)
+MeterStyle=StyleLineGraphBgAdjustor
+
 
 ; ========= GPU 1 =========
 
@@ -430,37 +420,26 @@ Hidden=(#showCoreVoltage# = 0)
 
 ; ----- Graph -----
 
-[Gpu1GraphLines]
+[Gpu1LineGraphBackground]
+Meter=Image
+MeterStyle=StyleLineGraphBackground
+Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset#) : 0) : ((#showLineGraph# = 1) ? #contentMarginAbs# : 1))R
+
+[Gpu1LineGraph]
 Meter=Line
-X=(#contentMargin# + 1)
-Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset# + 1) : 0) : ((#showLineGraph# = 1) ? 5 : 2))R
-W=(#contentWidth# - 2)
-H=(#graphHeight# - 2)
-SolidColor=#colorGraphBg#
+MeterStyle=StyleLineGraph
 LineCount=5
-MeasureName=MeasureGpu1MemoryControllerLoad
-MeasureName2=MeasureGpu1FanUsage
-MeasureName3=MeasureGpu1VramUsage
-MeasureName4=MeasureGpu1Usage
-MeasureName5=MeasureGpu1Temperature
+MeasureName=MeasureGpu0MemoryControllerLoad
+MeasureName2=MeasureGpu0FanUsage
+MeasureName3=MeasureGpu0VramUsage
+MeasureName4=MeasureGpu0Usage
+MeasureName5=MeasureGpu0Temperature
 LineColor=#colorMemoryController#,(#showMemoryController# * 255)
 LineColor2=#colorFanUsage#
 LineColor3=#colorMemoryUsage#
 LineColor4=#colorCoreUsage#
 LineColor5=#colorTempGraph#,(#showTempGraph# * 255)
-DynamicVariables=1
-Antialias=#lineGraphAa#
-Group=LineGraph
-Hidden=(#showLineGraph# = 0)
 
-[Gpu1GraphBorder]
+[Gpu1LineGraphBgAdjustor]
 Meter=Image
-ImageName=#imgPath#border.png
-ScaleMargins=2,2,2,2
-ImageTint=#colorGraphBorder#
-X=-1r
-Y=-1r
-W=#contentWidth#
-H=#graphHeight#
-Group=LineGraph
-Hidden=(#showLineGraph# = 0)
+MeterStyle=StyleLineGraphBgAdjustor

@@ -202,3 +202,7 @@ v1.3.0 - 2018-??-??
 - Fixed behavior of HWiNFO detection in CPU Meter
 - Fixed Network Meter external IP error message not disappearing
 - Fixed GPU name being able to extend past the width of GPU Meter
+
+v1.4.0 - 2018-??-??
+- Consolidated graph and background borders into their respective background meters
+- Standardized graph positioning

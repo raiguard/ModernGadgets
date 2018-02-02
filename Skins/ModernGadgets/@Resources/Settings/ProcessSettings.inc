@@ -1,4 +1,6 @@
 [Variables]
+showLineGraph=1
+; Colors
 colorProcess1=107,238,98
 colorProcess2=255,246,42
 colorProcess3=250,158,0

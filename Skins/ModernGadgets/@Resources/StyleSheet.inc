@@ -121,7 +121,11 @@ cp24=237,28,32
 
 ; Background
 [StyleBackground]
+ImageName=#imgPath#border.png
+ScaleMargins=2,2,2,2
 SolidColor=#colorBg#
+ImageTint=#colorBgBorder#
+ImageAlpha=((#showBgBorder# = 0) ? 0 : 255)
 X=#bgOffset#
 Y=#bgOffset#
 W=#bgWidth#
@@ -300,6 +304,35 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
+
+; Line Graph
+[StyleLineGraphBackground]
+ImageName=#imgPath#border.png
+SolidColor=#colorGraphBg#
+ScaleMargins=2,2,2,2
+ImageTint=#colorGraphBorder#
+X=(#contentMargin#)
+Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)R
+W=(#contentWidth#)
+H=#graphHeight#
+Group=LineGraph
+Hidden=(#showLineGraph# = 0)
+
+[StyleLineGraph]
+X=1r
+Y=1r
+W=(#contentWidth# - 2)
+H=(#graphHeight# - 2)
+Group=LineGraph
+Antialias=#lineGraphAa#
+DynamicVariables=1
+Hidden=(#showLineGraph# = 0)
+
+[StyleLineGraphBgAdjustor]
+X=#contentMargin#
+Y=((#showLineGraph# = 0) ? 0 : 1)R
+Hidden=(#showLineGraph# = 0)
+Group=LineGraph
 
 ; Other
 [StyleBar]
