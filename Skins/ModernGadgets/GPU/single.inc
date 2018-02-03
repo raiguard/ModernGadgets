@@ -221,7 +221,7 @@ Hidden=(#showCoreVoltage# = 0)
 [LineGraphBackground]
 Meter=Image
 MeterStyle=StyleLineGraphBackground
-Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset#) : 0) : ((#showLineGraph# = 1) ? #contentMarginAbs# : 1))R
+Y=((#showVideoClock# = 1 || #showCoreVoltage# = 1) ? ((#showLineGraph# = 1) ? (#barTextOffset#) : -1) : ((#showLineGraph# = 1) ? #contentMarginAbs# : 1))R
 
 [LineGraph]
 Meter=Line
