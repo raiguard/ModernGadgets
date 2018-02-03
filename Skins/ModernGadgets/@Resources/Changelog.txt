@@ -2,6 +2,32 @@ MODERNGADGETS CHANGELOG
 
 Official Releases
 
+v1.3.0 - 2018-2-3
+- Added 32-thread support to CPU Meter
+- Added top process display to CPU Meter
+- Added CPU temperature graph option to CPU Meter
+- Added core voltages to CPU Meter
+- Added NetMonitor support to Network Meter for more accurate readings
+- Added GPU name toggle to GPU Meter
+- Added custom GPU name option to GPU Meter
+- Added GPU temperature graph option to GPU Meter
+- Added dual GPU mode to GPU Meter
+- Added eject button for removable drives in Disks Meter
+- Added capability to disable specific disks in Disks Meter
+- Added link to Disks Meter troubleshooting wiki page in Disks Meter settings
+- Added changelog display to update available notification
+- Changed from ANSI to UTF-8 file encoding
+- Updated and refined user interface
+- Implemented new dynamic settings system (https://github.com/raiguard/rainmeter-settings)
+- Rewrote update checker and moved update checker URL
+- Rewrote external IP check to be more reliable
+- Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
+- Rewrote HWiNFO config tool
+- Fixed gadget toggle buttons desyncing
+- Fixed behavior of HWiNFO detection in CPU Meter
+- Fixed Network Meter external IP error message not disappearing
+- Fixed GPU name being able to extend past the width of GPU Meter
+
 v1.2.2 - 2017-8-3
 - ACTUALLY fixed core temperature issues
 - Changed all author references to raiguard
@@ -176,29 +202,3 @@ v1.0.0-rc.1 - 2016-11-14
  - Initial release
 
 WIP Releases
-
-v1.3.0 - 2018-??-??
-- Added 32-thread support to CPU Meter
-- Added top process display to CPU Meter
-- Added CPU temperature graph option to CPU Meter
-- Added core voltages to CPU Meter
-- Added NetMonitor support to Network Meter for more accurate readings
-- Added GPU name toggle to GPU Meter
-- Added custom GPU name option to GPU Meter
-- Added GPU temperature graph option to GPU Meter
-- Added dual GPU mode to GPU Meter
-- Added eject button for removable drives in Disks Meter
-- Added capability to disable specific disks in Disks Meter
-- Added link to Disks Meter troubleshooting wiki page in Disks Meter settings
-- Added changelog display to update available notification
-- Changed from ANSI to UTF-8 file encoding
-- Updated and refined user interface
-- Implemented new dynamic settings system (https://github.com/raiguard/rainmeter-settings)
-- Rewrote update checker and moved update checker URL
-- Rewrote external IP check to be more reliable
-- Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
-- Rewrote HWiNFO config tool
-- Fixed gadget toggle buttons desyncing
-- Fixed behavior of HWiNFO detection in CPU Meter
-- Fixed Network Meter external IP error message not disappearing
-- Fixed GPU name being able to extend past the width of GPU Meter
