@@ -12,7 +12,7 @@ v1.3.0 - 2018-2-3
 - Added custom GPU name option to GPU Meter
 - Added GPU temperature graph option to GPU Meter
 - Added dual GPU mode to GPU Meter
-- Added eject button for removable drives in Disks Meter
+- Added eject button for removable disks in Disks Meter
 - Added capability to disable specific disks in Disks Meter
 - Added link to Disks Meter troubleshooting wiki page in Disks Meter settings
 - Added changelog display to update available notification
