@@ -20,7 +20,6 @@ Measure=String
 String=#gpuName#
 IfMatch=auto
 IfNotMatchAction=[!SetOption Gpu0NameString Text "#*gpuName*#"][!UpdateMeter Gpu0NameString]
-Disabled=(#showGpuName# = 0)
 
 ; ----- GPU Name, Core Usage, Temperature, Clock Speed -----
 

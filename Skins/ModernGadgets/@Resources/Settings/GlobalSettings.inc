@@ -128,7 +128,7 @@ HWiNFO-CPU0-DTS-Core15Temp=0x100000f
 ; package temperature (degrees)
 HWiNFO-CPU0-DTS-PackageTemp=0x100007e
 ; package/ring thermal throttling (yes/no)
-HWiNFO-CPU0-DTS-PackageTt=0x1000000
+HWiNFO-CPU0-DTS-PackageTt=0x800000c
 
 ;
 ; Motherboard
