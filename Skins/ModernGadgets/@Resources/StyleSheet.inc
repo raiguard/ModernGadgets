@@ -91,6 +91,10 @@ disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
 disksMeterConfig=ModernGadgets\Disks
 disksSettingsPath=#@#Settings\DisksSettings.inc
 
+processMeterPath=#ROOTCONFIGPATH#Process\Process.ini
+processMeterConfig=ModernGadgets\Process
+processSettingsPath=#@#Settings\ProcessSettings.inc
+
 setupSkinConfig=ModernGadgets\Config\Setup
 
 ; Default Color Pallete

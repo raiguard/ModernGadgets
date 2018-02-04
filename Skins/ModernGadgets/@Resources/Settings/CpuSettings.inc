@@ -59,8 +59,8 @@ showCpuFan=1
 showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
-showTt=0
-playTtSound=0
+showTt=1
+playTtSound=1
 
 cpuName=auto
 
