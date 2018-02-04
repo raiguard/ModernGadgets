@@ -210,6 +210,20 @@ FontSize=10
 Y=5R
 
 ; Settings
+[StyleStringInputBoxLabel]
+FontSize=10
+X=(#contentMargin# + 2)
+Y=3R
+
+[StyleInputBoxBorder]
+ImageName=#imgPath#border.png
+ImageTint=#colorInputBorder#
+X=#contentMargin#
+Y=3R
+W=#contentWidth#
+H=19
+ScaleMargins=2,2,2,2
+
 [StyleStringInputBox]
 FontSize=10
 FontFace=Roboto Lt
@@ -294,9 +308,12 @@ LeftMouseUpAction=[!SkinCustomMenu]
 
 [StyleHelpButton]
 ImageName=#imgPath#help.png
+X=(#contentMarginRight# - 15)
+Y=2r
 W=14
 H=14
 Antialias=0
+ToolTipIcon=Info
 
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
