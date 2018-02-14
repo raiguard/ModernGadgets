@@ -1,6 +1,6 @@
 [Variables]
 showLineGraph=1
-processLabelFontFace=Roboto
+processLabelFontFace=Roboto Cn
 percentDecimals=1
 
 pinChar=[\xe082]
