@@ -39,7 +39,7 @@ Meter=String
 MeterStyle=StyleString
 MeasureName=MeasureGpu0ClockSpeed
 Y=(#rowSpacing# + 1)R
-Text="Clock: %1MHz"
+Text="Clock: %1 MHz"
 
 [Gpu0TempString]
 Meter=String
@@ -80,7 +80,7 @@ DynamicVariables=1
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0MemoryClockSpeed
-Text="%1MHz"
+Text="%1 MHz"
 Group=MemoryClock
 Hidden=(#showMemoryClock# = 0)
 
@@ -125,7 +125,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringInfo
 MeasureName=MeasureGpu0FanSpeed
 MeasureName2=MeasureMoboGpuFanSpeed
-Text="%1RPM"
+Text="%1 RPM"
 
 [Gpu0FanUsageValueString]
 Meter=String
@@ -181,7 +181,7 @@ Hidden=(#showVideoClock# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu0VideoClock
-Text="%1MHz"
+Text="%1 MHz"
 Group=VideoClock
 Hidden=(#showVideoClock# = 0)
 
@@ -250,7 +250,7 @@ Meter=String
 MeterStyle=StyleString
 MeasureName=MeasureGpu1ClockSpeed
 Y=(#rowSpacing# + 1)R
-Text="Clock: %1MHz"
+Text="Clock: %1 MHz"
 
 [Gpu1TempString]
 Meter=String
@@ -291,7 +291,7 @@ DynamicVariables=1
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu1MemoryClockSpeed
-Text="%1MHz"
+Text="%1 MHz"
 Group=MemoryClock
 Hidden=(#showMemoryClock# = 0)
 
@@ -336,7 +336,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringInfo
 MeasureName=MeasureGpu1FanSpeed
 MeasureName2=MeasureMoboGpuFanSpeed
-Text="%1RPM"
+Text="%1 RPM"
 
 [Gpu1FanUsageValueString]
 Meter=String
@@ -392,7 +392,7 @@ Hidden=(#showVideoClock# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureGpu1VideoClock
-Text="%1MHz"
+Text="%1 MHz"
 Group=VideoClock
 Hidden=(#showVideoClock# = 0)
 
