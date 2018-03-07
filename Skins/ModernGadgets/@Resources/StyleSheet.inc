@@ -191,6 +191,11 @@ FontSize=11
 X=#contentMargin#
 Y=(#contentMargin# - 2)
 
+[StyleGlobalSettingsFileButton]
+FontSize=11
+X=5R
+Y=(#contentMargin# - 2)
+
 [StyleStringSectionHeader]
 FontSize=12
 Y=10R
