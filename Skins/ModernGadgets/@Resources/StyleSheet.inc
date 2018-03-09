@@ -191,11 +191,6 @@ FontSize=11
 X=#contentMargin#
 Y=(#contentMargin# - 2)
 
-[StyleGlobalSettingsFileButton]
-FontSize=11
-X=5R
-Y=(#contentMargin# - 2)
-
 [StyleStringSectionHeader]
 FontSize=12
 Y=10R
@@ -292,6 +287,17 @@ Antialias=0
 ToolTipText="Close"
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
+
+[StyleOpenConfigFile]
+FontColor=#colorMain#
+FontSize=11
+FontFace=ElegantIcons
+Antialias=1
+StringAlign=Right
+X=(#contentMarginRight# - 18)
+Y=(#contentMargin# - 2)
+Text=[\x6c]
+ToolTipText="Open configuration file to edit manually"
 
 [StyleSettingsButton]
 ImageName=#imgPath#Wrench.png
