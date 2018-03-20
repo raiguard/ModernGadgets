@@ -7,9 +7,9 @@
 [MeasureHwinfoDetect]
 Measure=Plugin
 Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-GPU0-Temp#
+HWiNFOSensorId=#HWiNFO-Host0-GPU0-SensorId#
+HWiNFOSensorInstance=#HWiNFO-Host0-GPU0-SensorInstance#
+HWiNFOEntryId=#HWiNFO-Host0-GPU0-Temp#
 HWiNFOLogHandler=2
 HWiNFOType=CurrentValue
 IfCondition=MeasureHwinfoDetect = -9000
