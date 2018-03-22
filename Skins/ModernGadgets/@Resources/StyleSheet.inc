@@ -288,6 +288,17 @@ ToolTipText="Close"
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
 
+[StyleOpenConfigFile]
+FontColor=#colorMain#
+FontSize=11
+FontFace=ElegantIcons
+Antialias=1
+StringAlign=Right
+X=(#contentMarginRight# - 18)
+Y=(#contentMargin# - 2)
+Text=[\x6c]
+ToolTipText="Open configuration file to edit manually"
+
 [StyleSettingsButton]
 ImageName=#imgPath#Wrench.png
 ImageAlpha=#colorBgA#
