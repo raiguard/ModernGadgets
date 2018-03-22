@@ -1,7 +1,7 @@
 [Variables]
 tempUom=C
 ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
-threadCount=8
+threadCount=36
 
 ; Fixed precision format
 fpfRamDepth=4
