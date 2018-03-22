@@ -290,7 +290,7 @@ LeftMouseUpAction=[!DeactivateConfig]
 
 [StyleOpenConfigFile]
 FontColor=#colorMain#
-FontSize=11
+FontSize=10
 FontFace=ElegantIcons
 Antialias=1
 StringAlign=Right
