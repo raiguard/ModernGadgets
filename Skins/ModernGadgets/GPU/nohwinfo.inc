@@ -4,9 +4,9 @@
 [MeasureHwinfoDetectSingle]
 Measure=Plugin
 Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-Host0-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-Host0-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-Host0-GPU0-Temp#
+HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
+HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
+HWiNFOEntryId=#HWiNFO-GPU0-Temp#
 HWiNFOLogHandler=2
 HWiNFOType=CurrentValue
 IfCondition=MeasureHwinfoDetectSingle = -9000
@@ -16,9 +16,9 @@ Disabled=#dualGpuMode#
 [MeasureHwinfoDetectDual]
 Measure=Plugin
 Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-Host0-GPU0-SensorId#
-HWiNFOSensorInstance=#HWiNFO-Host0-GPU0-SensorInstance#
-HWiNFOEntryId=#HWiNFO-Host0-GPU0-Temp#
+HWiNFOSensorId=#HWiNFO-GPU0-SensorId#
+HWiNFOSensorInstance=#HWiNFO-GPU0-SensorInstance#
+HWiNFOEntryId=#HWiNFO-GPU0-Temp#
 HWiNFOLogHandler=2
 HWiNFOType=CurrentValue
 IfCondition=MeasureHwinfoDetectDual = -9000

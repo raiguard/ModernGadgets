@@ -23,12 +23,12 @@ Written by SilverAzide, edited by raiguard
     shown in the viewer.
 
     Example:  The CPU core #0 temperature sensor variable shown below is:
-              HWiNFO-Host0-CPU0-DTS-Core0Temp=0x1000000
+              HWiNFO-CPU0-DTS-Core0Temp=0x1000000
 
               In the Viewer app, expand the "CPU [#0]: <your CPU name>: DTS" branch of the sensor
               tree and look for a entry named "Core #0" and select it.  In the bottom left corner
               of the Entry Details, highlight the hexadecimal ID value (0x1000000) and paste it as
-              the value of the "HWiNFO-Host0-CPU0-DTS-Core0Temp" variable in the settings skin.
+              the value of the "HWiNFO-CPU0-DTS-Core0Temp" variable in the settings skin.
 
     If you can't find the Entry ID in the Viewer, that may simply mean that sensor is not
     available on your hardware, OR that the name of the sensor is slightly different than shown.
