@@ -276,11 +276,11 @@ HWiNFO-CPU0-Core15Temp-EntryId=0x100000f
 ; Core 16 Temperature [HWiNFO-CPU0-Core16Temp]
 HWiNFO-CPU0-Core16Temp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
 HWiNFO-CPU0-Core16Temp-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
-HWiNFO-CPU0-Core16Temp-EntryId=0x100000g
+HWiNFO-CPU0-Core16Temp-EntryId=0x1000010
 ; Core 17 Temperature [HWiNFO-CPU0-Core17Temp]
 HWiNFO-CPU0-Core17Temp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
 HWiNFO-CPU0-Core17Temp-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
-HWiNFO-CPU0-Core17Temp-EntryId=0x100000h
+HWiNFO-CPU0-Core17Temp-EntryId=0x1000011
 
 ; CPU Package Temperature [HWiNFO-CPU0-PackageTemp]
 HWiNFO-CPU0-PackageTemp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
@@ -292,7 +292,7 @@ HWiNFO-CPU0-PackageTt-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
 HWiNFO-CPU0-PackageTt-EntryId=0x800000c
 
 ; Core 0 Voltage [HWiNFO-CPU0-Core0Vid]
-HWiNFO-CPU0-Core0Vid-SensorId=0xf0000400
+HWiNFO-CPU0-Core0Vid-SensorId=0xf0000300
 HWiNFO-CPU0-Core0Vid-SensorInstance=0x0
 HWiNFO-CPU0-Core0Vid-EntryId=0x2000000
 ; Core 1 Voltage [HWiNFO-CPU0-Core1Vid]
@@ -358,14 +358,14 @@ HWiNFO-CPU0-Core15Vid-EntryId=0x200000f
 ; Core 16 Voltage [HWiNFO-CPU0-Core16Vid]
 HWiNFO-CPU0-Core16Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
 HWiNFO-CPU0-Core16Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
-HWiNFO-CPU0-Core16Vid-EntryId=0x200000g
+HWiNFO-CPU0-Core16Vid-EntryId=0x1000010
 ; Core 17 Voltage [HWiNFO-CPU0-Core17Vid]
 HWiNFO-CPU0-Core17Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
 HWiNFO-CPU0-Core17Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
-HWiNFO-CPU0-Core17Vid-EntryId=0x200000h
+HWiNFO-CPU0-Core17Vid-EntryId=0x1000011
 
 ; Core 0 Clock [HWiNFO-CPU0-Core0Clock]
-HWiNFO-CPU0-Core0Clock-SensorId=0xf0000400
+HWiNFO-CPU0-Core0Clock-SensorId=0xf0000300
 HWiNFO-CPU0-Core0Clock-SensorInstance=0x0
 HWiNFO-CPU0-Core0Clock-EntryId=0x6000000
 ; Core 1 Clock [HWiNFO-CPU0-Core1Clock]
@@ -431,11 +431,11 @@ HWiNFO-CPU0-Core15Clock-EntryId=0x600000f
 ; Core 16 Clock [HWiNFO-CPU0-Core16Clock]
 HWiNFO-CPU0-Core16Clock-SensorId=#HWiNFO-CPU0-Core0Clock-SensorId#
 HWiNFO-CPU0-Core16Clock-SensorInstance=#HWiNFO-CPU0-Core0Clock-SensorInstance#
-HWiNFO-CPU0-Core16Clock-EntryId=0x600000g
+HWiNFO-CPU0-Core16Clock-EntryId=0x1000010
 ; Core 17 Clock [HWiNFO-CPU0-Core17Clock]
 HWiNFO-CPU0-Core17Clock-SensorId=#HWiNFO-CPU0-Core0Clock-SensorId#
 HWiNFO-CPU0-Core17Clock-SensorInstance=#HWiNFO-CPU0-Core0Clock-SensorInstance#
-HWiNFO-CPU0-Core17Clock-EntryId=0x600000h
+HWiNFO-CPU0-Core17Clock-EntryId=0x1000011
 
 ;
 ; MOBO
