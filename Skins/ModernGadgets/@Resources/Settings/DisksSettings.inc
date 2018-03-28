@@ -69,3 +69,13 @@ dColorDisk23=42,112,250
 dColorDisk24=43,224,224
 dColorDisk25=121,182,62
 dColorDisk26=204,255,0
+
+; ====== HWiNFO ======
+
+HWiNFO-Smart-DiskATemp-SensorId=0xf0000100
+HWiNFO-Smart-DiskATemp-SensorInstance=0x0
+HWiNFO-Smart-DiskATemp-EntryId=0x1000001
+
+HWiNFO-Smart-DiskBTemp-SensorId=#HWiNFO-Smart-DiskATemp-SensorId#
+HWiNFO-Smart-DiskBTemp-SensorInstance=0x0
+HWiNFO-Smart-DiskBTemp-EntryId=0x1000001
