@@ -260,12 +260,12 @@ HWiNFO-CPU0-Core0Clock-SensorId=0xf0000300
 HWiNFO-CPU0-Core0Clock-SensorInstance=0x0
 HWiNFO-CPU0-Core0Clock-EntryId=0x6000000
 ; Core 1 Clock [HWiNFO-CPU0-Core1Clock]
-HWiNFO-CPU0-Core1Clock-SensorId=0xf0000300
-HWiNFO-CPU0-Core1Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core1Clock-SensorId=#HWiNFO-CPU0-Core0Clock-SensorId#
+HWiNFO-CPU0-Core1Clock-SensorInstance=#HWiNFO-CPU0-Core0Clock-SensorInstance#
 HWiNFO-CPU0-Core1Clock-EntryId=0x6000001
 ; Core 2 Clock [HWiNFO-CPU0-Core2Clock]
-HWiNFO-CPU0-Core2Clock-SensorId=0xf0000300
-HWiNFO-CPU0-Core2Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core2Clock-SensorId=#HWiNFO-CPU0-Core0Clock-SensorId#
+HWiNFO-CPU0-Core2Clock-SensorInstance=#HWiNFO-CPU0-Core0Clock-SensorInstance#
 HWiNFO-CPU0-Core2Clock-EntryId=0x6000002
 ; Core 3 Clock [HWiNFO-CPU0-Core3Clock]
 HWiNFO-CPU0-Core3Clock-SensorId=#HWiNFO-CPU0-Core0Clock-SensorId#
@@ -327,6 +327,14 @@ HWiNFO-CPU0-Core16Clock-EntryId=0x1000010
 HWiNFO-CPU0-Core17Clock-SensorId=#HWiNFO-CPU0-Core0Clock-SensorId#
 HWiNFO-CPU0-Core17Clock-SensorInstance=#HWiNFO-CPU0-Core0Clock-SensorInstance#
 HWiNFO-CPU0-Core17Clock-EntryId=0x1000011
+; CPU Package Temperature [HWiNFO-CPU0-PackageTemp]
+HWiNFO-CPU0-PackageTemp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
+HWiNFO-CPU0-PackageTemp-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
+HWiNFO-CPU0-PackageTemp-EntryId=0x100007e
+; CPU Package Thermal Throttling [HWiNFO-CPU0-PackageTt]
+HWiNFO-CPU0-PackageTt-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
+HWiNFO-CPU0-PackageTt-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
+HWiNFO-CPU0-PackageTt-EntryId=0x800000c
 
 ;
 ; MOBO
@@ -337,6 +345,8 @@ HWiNFO-MOBO-CPUFan-SensorInstance=0x0
 HWiNFO-MOBO-CPUFan-EntryId=0x3000001
 
 [HWiNFO-Config]
+HWiNFO-CPU0-PackageTemp=CPU Package Temperature
+HWINFO-CPU0-PackageTt=CPU Package Thermal Throttling
 HWiNFO-CPU0-Core0Temp=Core 0 Temperature
 HWiNFO-CPU0-Core1Temp=Core 1 Temperature
 HWiNFO-CPU0-Core2Temp=Core 2 Temperature

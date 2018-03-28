@@ -10,7 +10,7 @@ diskSpaceUsageUpdateDivider=1
 diskCommand="C:\Windows\explorer.exe" /E,{drive}\
 histogramA=50
 
-showEjectButtons=1
+showEjectButtons=0
 showLineGraph=1
 showHistograms=1
 
@@ -72,10 +72,10 @@ dColorDisk26=204,255,0
 
 ; ====== HWiNFO ======
 
-HWiNFO-Smart-DiskATemp-SensorId=0xf0000100
-HWiNFO-Smart-DiskATemp-SensorInstance=0x0
-HWiNFO-Smart-DiskATemp-EntryId=0x1000001
+HWiNFO-SMART-DiskATemp-SensorId=0xf0000100
+HWiNFO-SMART-DiskATemp-SensorInstance=0x0
+HWiNFO-SMART-DiskATemp-EntryId=0x1000001
 
-HWiNFO-Smart-DiskBTemp-SensorId=#HWiNFO-Smart-DiskATemp-SensorId#
-HWiNFO-Smart-DiskBTemp-SensorInstance=0x0
-HWiNFO-Smart-DiskBTemp-EntryId=0x1000001
+HWiNFO-SMART-DiskBTemp-SensorId=#HWiNFO-SMART-DiskATemp-SensorId#
+HWiNFO-SMART-DiskBTemp-SensorInstance=0x0
+HWiNFO-SMART-DiskBTemp-EntryId=0x1000001
