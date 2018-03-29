@@ -1,4 +1,4 @@
-debug = false
+debug = true
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -21,6 +21,7 @@ function ConfigureDisk(disk, index)
 		SKIN:Bang('!EnableMeasureGroup', 'Disk' .. disk)
 		SKIN:Bang('!ShowMeterGroup', 'Disk' .. disk)
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'EjectButton', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] = 4) || (#*showEjectButtons*# = 0)')
+		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] <> 4) || (#*showDiskTemps*# = 0)')
 		SetVariable('hideDisk' .. disk, '0', dynamicVarsPath)
 	else
 		SKIN:Bang('!HideMeterGroup', 'Disk' .. disk)
