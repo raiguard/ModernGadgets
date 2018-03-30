@@ -1,5 +1,5 @@
 HOW TO CONFIGURE HWiNFO SENSORS:
-Written by SilverAzide, edited by iamanai
+Written by SilverAzide, edited by raiguard
 
  1. Ensure the HWiNFO application is open and ensure the Sensors window is enabled.
 

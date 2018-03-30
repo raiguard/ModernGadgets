@@ -206,3 +206,11 @@ WIP Releases
 v1.4.0 - 2018-??-??
 - Consolidated graph and background borders into their respective background meters
 - Standardized graph positioning
+- Updated to HWiNFO plugin 4.0.0
+- Deleted HWiNFO config tool in favor of the HWiNFO plugin's built-in tool
+- Added session total and simultaneous bits/bytes display to Network Meter
+- Added three additional GPU Meters for monitoring up to four GPUs simultaneously (useful for SLI setups)
+- Removed dual GPU meter option
+- Added fixed disk temperatures to Disks Meter
+- Added setting to hide disk read/write speeds in Disks Meter
+- Fixed oversight where clicking the total reset button in Network Meter Pro would not work
