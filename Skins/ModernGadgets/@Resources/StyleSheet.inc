@@ -232,15 +232,14 @@ Group=ToggleButtons
 Antialias=1
 
 [StyleStringColorPickerLabel]
-StringAlign=Right
 FontSize=9
-X=-5r
-Y=5R
+X=5R
+Y=1r
 
 [StyleColorPicker]
 Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Extend MeterSpecific
-X=5r
-Y=-1r
+X=-20r
+Y=5R
 DynamicVariables=1
 
 ; Buttons

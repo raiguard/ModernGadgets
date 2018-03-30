@@ -10,7 +10,7 @@ devUpdates=0
 autoBackups=1
 rVersionKey=stable
 
-showBgBorder=0
+showBgBorder=1
 largeRowSpacing=0
 rowSpacing=1
 
@@ -20,9 +20,22 @@ colorDim=50,50,50
 colorAccent=138,210,250
 
 colorBg=15,15,15
-colorBgBorder=#colorDim#
-colorBarBg=#colorDim#
+colorBgBorder=50,50,50
+colorBarBg=#colorBgBorder#
 
 colorButtonPress=255,50,50
 colorInputBg=25,25,25
 colorInputBorder=#colorDim#
+
+; ----- Default Colors -----
+
+dColorMain=230,230,230
+dColorInfo=150,150,150
+dColorDim=50,50,50
+dColorAccent=138,210,250
+
+dColorBg=15,15,15
+dColorBgBorder=50,50,50
+dColorBarBg=#colorDim#
+
+dColorButtonPress=255,50,50
