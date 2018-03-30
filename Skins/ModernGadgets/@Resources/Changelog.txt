@@ -208,6 +208,7 @@ v1.4.0 - 2018-??-??
 - Added three additional GPU Meters for monitoring up to four GPUs simultaneously (useful for SLI setups)
 - Added fixed disk temperatures to Disks Meter
 - Added setting to hide disk read/write speeds in Disks Meter
+- Improved performance of manual hide disks setting
 - Removed dual GPU meter option (replaced by separate GPU Meters)
 - Consolidated graph and background borders into their respective background meters
 - Standardized graph positioning
