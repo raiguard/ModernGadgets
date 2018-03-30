@@ -279,7 +279,7 @@ Y=(#contentMargin# - 2)
 Text=[\x6c]
 ToolTipText="Open configuration file to edit manually"
 
-[StyleSettingsButton]
+[StyleConfigButton]
 ImageName=#imgPath#Wrench.png
 X=(#contentMarginRight# - 10)
 Y=(#contentMargin# + 2)
@@ -287,9 +287,9 @@ W=9
 H=9
 Antialias=1
 Hidden=1
-Group=SettingsButton
-MouseOverAction=[!SetOption MeterSettingsButton ImageTint "#colorButtonPress#"][!UpdateMeter MeterSettingsButton][!Redraw]
-MouseLeaveAction=[!SetOption MeterSettingsButton ImageTint ""][!UpdateMeter MeterSettingsButton][!Redraw]
+Group=ConfigButton
+MouseOverAction=[!SetOption MeterConfigButton ImageTint "#colorButtonPress#"][!UpdateMeter MeterConfigButton][!Redraw]
+MouseLeaveAction=[!SetOption MeterConfigButton ImageTint ""][!UpdateMeter MeterConfigButton][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
 
 [StyleHelpButton]
