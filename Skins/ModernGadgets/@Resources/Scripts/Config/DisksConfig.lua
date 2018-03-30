@@ -22,10 +22,13 @@ function ConfigureDisk(disk, index)
 		SKIN:Bang('!ShowMeterGroup', 'Disk' .. disk)
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'EjectButton', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] = 4) || (#*showEjectButtons*# = 0)')
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] <> 4) || (#*showDiskTemps*# = 0)')
+		SKIN:Bang('!SetOptionGroup', 'Disk' .. disk .. 'ReadWrite', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || (#*showDiskReadWrite*# = 0)')
+		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'WriteArrow', 'Y', '(((#*showDiskReadWrite*# = 0) && (0 = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
 		SetVariable('hideDisk' .. disk, '0', dynamicVarsPath)
 	else
 		SKIN:Bang('!HideMeterGroup', 'Disk' .. disk)
 		SKIN:Bang('!DisableMeasureGroup', 'Disk' .. disk)
+		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'WriteArrow', 'Y', '(((#*showDiskReadWrite*# = 0) && (1 = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
 		SetVariable('hideDisk' .. disk, '1', dynamicVarsPath)
 	end
 
@@ -50,7 +53,7 @@ function SetDiskColors()
 			i = i + 1
 			local color = SKIN:GetVariable('colorDisk' .. i)
 			SetVariable('colorDisk' .. c, color, dynamicVarsPath)
-			SKIN:Bang('!SetOptionGroup', 'Disk' .. c .. 'Arrows', 'ImageTint', color)
+			SKIN:Bang('!SetOptionGroup', 'Disk' .. c .. 'ReadWrite', 'ImageTint', color)
 			-- LogHelper('Set disk ' .. c .. ' color to: ' .. color, 'Debug')
 		else
 			SetVariable('colorDisk' .. c, '0,0,0,0', dynamicVarsPath)
@@ -83,6 +86,18 @@ function UpdateHideDisks()
 	    end
 	end)
 
+end
+
+function UpdateDiskReadWrite(state)
+
+		alphabet:gsub(".", function(c)
+			SKIN:Bang('!SetOptionGroup', 'Disk' .. c .. 'ReadWrite', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (' .. state .. ' = 0)')
+			SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Y', '(((' .. state .. ' = 0) && (#*hideDisk' .. c .. '*# = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
+			SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
+		end)
+	SKIN:Bang('!UpdateMeterGroup', 'LineGraph')
+	SKIN:Bang('!UpdateMeterGroup', 'Background')
+	SKIN:Bang('!Redraw')
 end
 
 function table.contains(table, element)
