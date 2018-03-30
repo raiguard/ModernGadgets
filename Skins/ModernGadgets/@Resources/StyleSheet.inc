@@ -353,6 +353,12 @@ BarOrientation=Horizontal
 DynamicVariables=1
 Antialias=1
 
+[StyleStringPeakIcon]
+FontFace=ElegantIcons
+FontColor=#colorPeak#
+Text=[\xe0ec]
+Antialias=0
+
 ; HWiNFO SMV Button
 [StyleHwinfoSmvButtonRegion]
 SolidColor=255,255,255,0

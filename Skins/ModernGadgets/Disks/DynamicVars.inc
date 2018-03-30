@@ -1,5 +1,5 @@
 [Variables]
-hideDiskA=1
+hideDiskA=0
 hideDiskB=1
 hideDiskC=0
 hideDiskD=0
@@ -26,11 +26,11 @@ hideDiskX=1
 hideDiskY=1
 hideDiskZ=1
 
-colorDiskA=0,0,0,0
+colorDiskA=107,238,98
 colorDiskB=0,0,0,0
-colorDiskC=107,238,98
-colorDiskD=255,246,42
-colorDiskE=250,158,0
+colorDiskC=255,246,42
+colorDiskD=250,158,0
+colorDiskE=236,28,70
 colorDiskF=0,0,0,0
 colorDiskG=0,0,0,0
 colorDiskH=0,0,0,0
