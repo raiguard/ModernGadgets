@@ -28,8 +28,7 @@ fontFace=Roboto
 fontSize=8
 
 ; Colors
-colorBgA=255
-colorBg=15,15,15,#colorBgA#
+colorBg=15,15,15
 colorBgBorder=#colorDim#
 
 colorGraphBg=25,25,25
@@ -43,10 +42,6 @@ colorAccent=138,210,250
 colorBarBg=#colorDim#
 
 colorButtonPress=255,50,50
-
-colorHwinfoValueInputText=225,220,225
-colorHwinfoValueInputBg=35,35,35
-colorHwinfoError=255,30,30
 
 colorInputBg=25,25,25
 colorInputBorder=#colorDim#
@@ -131,19 +126,6 @@ Y=#bgOffset#
 W=#bgWidth#
 H=([BackgroundHeight:Y] - (#bgOffset# * 2))
 DynamicVariables=1
-Group=Background
-
-[StyleBackgroundBorder]
-ImageName=#imgPath#border.png
-ImageTint=#colorBgBorder#
-ImageAlpha=#colorBgA#
-ScaleMargins=2,2,2,2
-X=(#bgOffset# - 1)
-Y=(#bgOffset# - 1)
-W=(#bgWidth# + 2)
-H=([BackgroundHeight:Y] - (#bgOffset# * 2) + 2)
-DynamicVariables=1
-Hidden=(#showBgBorder# = 1) ? 0 : 1
 Group=Background
 
 [StyleBackgroundHeight]
@@ -278,7 +260,6 @@ Antialias=0
 
 [StyleCloseButton]
 ImageName=#imgPath#close.png
-ImageAlpha=#colorBgA#
 X=(#contentMarginRight# - 18)
 Y=(#contentMargin# - 5)
 W=24
@@ -301,7 +282,6 @@ ToolTipText="Open configuration file to edit manually"
 
 [StyleSettingsButton]
 ImageName=#imgPath#Wrench.png
-ImageAlpha=#colorBgA#
 X=(#contentMarginRight# - 10)
 Y=(#contentMargin# + 2)
 W=9
