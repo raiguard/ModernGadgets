@@ -3,7 +3,7 @@ lineGraphAa=0
 tempUnits=C
 isHwinfoAvailable=1
 
-gadgetUpdateRate=800
+gadgetUpdateRate=1000
 
 notifyUpdates=1
 devUpdates=0
