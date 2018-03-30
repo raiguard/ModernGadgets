@@ -326,7 +326,7 @@ ToolTipIcon=Info
 ImageName=#imgPath#eject.png
 ImageTint=120,120,120
 ToolTipText="Eject"
-X=7R
+X=13R
 Y=r
 W=14
 H=11
@@ -373,3 +373,45 @@ h=#barHeight#
 BarOrientation=Horizontal
 DynamicVariables=1
 Antialias=1
+
+; HWiNFO SMV Button
+[StyleHwinfoSmvButtonRegion]
+SolidColor=255,255,255,0
+X=[HwinfoSmvButtonIcon:X]
+Y=[HwinfoSmvButtonIcon:Y]
+W=([HwinfoSmvButtonIcon:X] + ([HwinfoSmvButtonString:X] + [HwinfoSmvButtonString:W]) - 12)
+H=21
+DynamicVariables=1
+MouseOverAction=[!SetOption HwinfoSmvButtonIcon ImageTint "#colorButtonPress#"][!SetOption HwinfoSmvButtonString FontColor "#colorButtonPress#"][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
+MouseLeaveAction=[!SetOption HwinfoSmvButtonIcon ImageTint ""][!SetOption HwinfoSmvButtonString FontColor ""][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
+LeftMouseUpAction=["#@#Addons\HWiNFO\HWiNFOSharedMemoryViewer.exe"]
+Group=HwinfoSmvButton
+
+[StyleStringHwinfoSmvButton]
+X=5R
+Y=5r
+FontSize=9
+Text="Open Shared Memory Viewer"
+Group=HwinfoSmvButton
+
+[StyleHwinfoSmvButtonIcon]
+ImageName=#imgPath#hwinfo.png
+X=#contentMargin#
+Y=3R
+W=21
+H=21
+Group=HwinfoSmvButton
+
+[StyleHwinfoTutorialButton]
+ImageName=#imgPath#book.png
+Greyscale=1
+ImageTint=#colorAccent#
+X=(#contentMarginRight# - 15)
+Y=r
+W=15
+H=15
+Antialias=1
+ToolTipText="View HWiNFO Tutorial"
+MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
+MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/Setup-Tutorial"]
