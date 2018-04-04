@@ -32,7 +32,7 @@ colorBg=15,15,15
 colorBgBorder=#colorDim#
 
 colorGraphBg=25,25,25
-colorGraphBorder=#colorDim#
+colorGraphBorder=#colorBgBorder#
 
 colorMain=230,230,230
 colorInfo=150,150,150
@@ -44,7 +44,7 @@ colorBarBg=#colorDim#
 colorButtonPress=255,50,50
 
 colorInputBg=25,25,25
-colorInputBorder=#colorDim#
+colorInputBorder=#colorBgBorder#
 
 colorIntel=0,125,198
 
@@ -285,6 +285,7 @@ X=(#contentMarginRight# - 10)
 Y=(#contentMargin# + 2)
 W=9
 H=9
+ImageTint=#colorMain#
 Antialias=1
 Hidden=1
 Group=ConfigButton

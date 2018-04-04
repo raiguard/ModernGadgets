@@ -24,8 +24,12 @@ colorBgBorder=50,50,50
 colorBarBg=#colorBgBorder#
 
 colorButtonPress=255,50,50
+
 colorInputBg=25,25,25
-colorInputBorder=#colorDim#
+colorInputBorder=#colorBgBorder#
+
+colorGraphBg=25,25,25
+colorGraphBorder=#colorBgBorder#
 
 ; ----- Default Colors -----
 
