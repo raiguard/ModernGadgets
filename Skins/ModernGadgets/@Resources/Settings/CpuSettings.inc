@@ -64,6 +64,7 @@ showLineGraph=1
 showAvgCpu=0
 showTt=0
 playTtSound=0
+coreTempSource=HWiNFO
 
 cpuName=auto
 
@@ -345,6 +346,8 @@ HWiNFO-CPU0-PackageTt-EntryId=0x800000c
 HWiNFO-MOBO-CPUFan-SensorId=0xf7067910
 HWiNFO-MOBO-CPUFan-SensorInstance=0x0
 HWiNFO-MOBO-CPUFan-EntryId=0x3000001
+CoreTemp=coreTempSource
+SpeedFan=coreTempSource
 
 [HWiNFO-Config]
 HWiNFO-CPU0-PackageTemp=CPU Package Temperature

@@ -54,6 +54,8 @@ histogramAlpha=50
 deg=[\176]
 toggleOn=[\x5a]
 toggleOff=[\x56]
+radioOn=[\x5c]
+radioOff=[\x5b]
 
 ; Paths
 imgPath=#@#Assets\Images\
@@ -230,6 +232,10 @@ Y=4R
 DynamicVariables=1
 Group=ToggleButtons
 Antialias=1
+
+[StyleRadioButton]
+X=5R
+Y=1r
 
 [StyleStringColorPickerLabel]
 FontSize=9
