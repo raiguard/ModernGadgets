@@ -205,6 +205,7 @@ WIP Releases
 
 v1.4.0 - 2018-??-??
 - Added session total and simultaneous bits/bytes display to Network Meter
+- Added separate bits/bytes peak traffic displays to Network Meter
 - Added three additional GPU Meters for monitoring up to four GPUs simultaneously (useful for SLI setups)
 - Added fixed disk temperatures to Disks Meter
 - Added setting to hide disk read/write speeds in Disks Meter
