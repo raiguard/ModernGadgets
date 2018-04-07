@@ -112,3 +112,11 @@ function table.contains(table, element)
   end
   return false
 end
+
+function AddSetting()
+
+	alphabet:gsub(".", function(c)
+			SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'TempString', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || ([MeasureDisk' .. c .. 'Type:] <> 4) || (#*showDiskTemps*# = 0) || ([MeasureHwinfoDetect:] = -9000)')
+		end)
+
+end
