@@ -349,9 +349,7 @@ HWiNFO-MOBO-CPUFan-EntryId=0x3000001
 CoreTemp=coreTempSource
 SpeedFan=coreTempSource
 
-[HWiNFO-Config]
-HWiNFO-CPU0-PackageTemp=CPU Package Temperature
-HWINFO-CPU0-PackageTt=CPU Package Thermal Throttling
+[HWiNFO-Config-Temperatures]
 HWiNFO-CPU0-Core0Temp=Core 0 Temperature
 HWiNFO-CPU0-Core1Temp=Core 1 Temperature
 HWiNFO-CPU0-Core2Temp=Core 2 Temperature
@@ -368,6 +366,10 @@ HWiNFO-CPU0-Core12Temp=Core 12 Temperature
 HWiNFO-CPU0-Core13Temp=Core 13 Temperature
 HWiNFO-CPU0-Core14Temp=Core 14 Temperature
 HWiNFO-CPU0-Core15Temp=Core 15 Temperature
+HWiNFO-CPU0-PackageTemp=CPU Package Temperature
+HWINFO-CPU0-PackageTt=CPU Package Thermal Throttling
+
+[HWiNFO-Config-Voltages]
 HWiNFO-CPU0-Core0Vid=Core 0 VID
 HWiNFO-CPU0-Core1Vid=Core 1 VID
 HWiNFO-CPU0-Core2Vid=Core 2 VID
@@ -384,6 +386,8 @@ HWiNFO-CPU0-Core12Vid=Core 12 VID
 HWiNFO-CPU0-Core13Vid=Core 13 VID
 HWiNFO-CPU0-Core14Vid=Core 14 VID
 HWiNFO-CPU0-Core15Vid=Core 15 VID
+
+[HWiNFO-Config-Clocks]
 HWiNFO-CPU0-Core0Clock=Core 0 Clock
 HWiNFO-CPU0-Core1Clock=Core 1 Clock
 HWiNFO-CPU0-Core2Clock=Core 2 Clock

@@ -376,7 +376,7 @@ H=21
 DynamicVariables=1
 MouseOverAction=[!SetOption HwinfoSmvButtonIcon ImageTint "#colorButtonPress#"][!SetOption HwinfoSmvButtonString FontColor "#colorButtonPress#"][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoSmvButtonIcon ImageTint ""][!SetOption HwinfoSmvButtonString FontColor ""][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
-LeftMouseUpAction=["#@#Addons\HWiNFO\HWiNFOSharedMemoryViewer.exe"]
+LeftMouseUpAction=[!CommandMeasure MeasureOpenHwinfoSmv "Run"]
 Group=HwinfoSmvButton
 
 [StyleStringHwinfoSmvButton]

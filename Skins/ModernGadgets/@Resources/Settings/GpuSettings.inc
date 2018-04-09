@@ -219,7 +219,7 @@ HWiNFO-GPU3-CoreVoltage-SensorId=#HWiNFO-GPU3-Clock-SensorId#
 HWiNFO-GPU3-CoreVoltage-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
 HWiNFO-GPU3-CoreVoltage-EntryId=0x2000000
 
-[HWiNFO-Config]
+[HWiNFO-Config-GPU-0]
 HWiNFO-GPU0-Clock=GPU Clock
 HWiNFO-GPU0-Temp=GPU Temperature
 HWiNFO-GPU0-CoreLoad=GPU Core Load
@@ -231,3 +231,42 @@ HWiNFO-GPU0-FanUsage=GPU Fan Usage
 HWiNFO-GPU0-VideoClock=Video Clock Frequency
 HWiNFO-GPU0-MemController=Memory Controller Usage
 HWiNFO-GPU0-CoreVoltage=GPU Core Voltage
+
+[HWiNFO-Config-GPU-1]
+HWiNFO-GPU1-Clock=GPU Clock
+HWiNFO-GPU1-Temp=GPU Temperature
+HWiNFO-GPU1-CoreLoad=GPU Core Load
+HWiNFO-GPU1-MemoryClock=GPU Memory Clock Frequency
+HWiNFO-GPU1-MemoryUsage=GPU Memory Usage
+HWiNFO-GPU1-MemoryAlloc=GPU Memory Allocated
+HWiNFO-GPU1-FanSpeed=GPU Fan Speed
+HWiNFO-GPU1-FanUsage=GPU Fan Usage
+HWiNFO-GPU1-VideoClock=Video Clock Frequency
+HWiNFO-GPU1-MemController=Memory Controller Usage
+HWiNFO-GPU1-CoreVoltage=GPU Core Voltage
+
+[HWiNFO-Config-GPU-2]
+HWiNFO-GPU2-Clock=GPU Clock
+HWiNFO-GPU2-Temp=GPU Temperature
+HWiNFO-GPU2-CoreLoad=GPU Core Load
+HWiNFO-GPU2-MemoryClock=GPU Memory Clock Frequency
+HWiNFO-GPU2-MemoryUsage=GPU Memory Usage
+HWiNFO-GPU2-MemoryAlloc=GPU Memory Allocated
+HWiNFO-GPU2-FanSpeed=GPU Fan Speed
+HWiNFO-GPU2-FanUsage=GPU Fan Usage
+HWiNFO-GPU2-VideoClock=Video Clock Frequency
+HWiNFO-GPU2-MemController=Memory Controller Usage
+HWiNFO-GPU2-CoreVoltage=GPU Core Voltage
+
+[HWiNFO-Config-GPU-3]
+HWiNFO-GPU3-Clock=GPU Clock
+HWiNFO-GPU3-Temp=GPU Temperature
+HWiNFO-GPU3-CoreLoad=GPU Core Load
+HWiNFO-GPU3-MemoryClock=GPU Memory Clock Frequency
+HWiNFO-GPU3-MemoryUsage=GPU Memory Usage
+HWiNFO-GPU3-MemoryAlloc=GPU Memory Allocated
+HWiNFO-GPU3-FanSpeed=GPU Fan Speed
+HWiNFO-GPU3-FanUsage=GPU Fan Usage
+HWiNFO-GPU3-VideoClock=Video Clock Frequency
+HWiNFO-GPU3-MemController=Memory Controller Usage
+HWiNFO-GPU3-CoreVoltage=GPU Core Voltage

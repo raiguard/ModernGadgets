@@ -1,3 +1,4 @@
+; DISKS METER SETTINGS
 [Variables]
 fpfReadDepth=4
 fpfWriteDepth=4
@@ -180,6 +181,8 @@ HWiNFO-SMART-DiskZTemp-SensorInstance=0x0
 HWiNFO-SMART-DiskZTemp-EntryId=0x0
 
 [HWiNFO-Config]
+
+[HWiNFO-Config-Temperatures]
 HWiNFO-SMART-DiskATemp=Disk A Temperature
 HWiNFO-SMART-DiskBTemp=Disk B Temperature
 HWiNFO-SMART-DiskCTemp=Disk C Temperature
