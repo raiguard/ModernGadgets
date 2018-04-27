@@ -118,7 +118,7 @@ function Initialize()
   --
 
   -- initialize array of suffixes for scaled values
-  asSuffix = { " ", " k", " M", " G", " T", " P", " E", " Z", " Y" }
+  asSuffix = { "", " k", " M", " G", " T", " P", " E", " Z", " Y" }
 
   return
 end                                                                                    -- Initialize
