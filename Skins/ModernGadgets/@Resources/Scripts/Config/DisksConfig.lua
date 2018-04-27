@@ -122,3 +122,21 @@ function AddSetting()
 		end)
 
 end
+
+function Rewrite()
+
+	alphabet:gsub(".", function(c)
+		wkv('MeasureDisk' .. c .. 'Type', 'Measure', 'FreeDiskSpace')
+		wkv('MeasureDisk' .. c .. 'Type', 'Drive', c .. ':')
+		wkv('MeasureDisk' .. c .. 'Type', 'Type', '1')
+		wkv('MeasureDisk' .. c .. 'Type', 'Temp', '')
+		wkv('MeasureDisk' .. c .. 'Name', 'Measure', 'FreeDiskSpace')
+		
+	end)
+
+
+end
+
+function wkv(section, key, value)
+	SKIN:Bang('!WriteKeyValue', section, key, value, '#ROOTCONFIGPATH#Disks\\Temp.inc')
+end

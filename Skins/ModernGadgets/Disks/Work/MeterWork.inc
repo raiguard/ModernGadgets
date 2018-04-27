@@ -1,90 +1,90 @@
-; Disk O:
-[DiskONameString]
+; Disk A
+[DiskANameString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
-MeasureName=MeasureDiskOName
-Y=((#hideDiskO# = 1) ? ((#largeRowSpacing# = 1) ? -5 : -3) : #rowSpacing#)R
-Text=O: %1
-MouseOverAction=[!SetOption DiskONameString FontColor "#colorButtonPress#"][!UpdateMeter DiskONameString][!Redraw]
-MouseLeaveAction=[!SetOption DiskONameString FontColor ""][!UpdateMeter DiskONameString][!Redraw]
-LeftMouseUpAction=["O:\Windows\explorer.exe" /E,O:\]
-Group=DiskO
-Hidden=#hideDiskO#
+MeasureName=MeasureDiskAName
+Y=((#hideDiskA# = 1) ? ((#largeRowSpacing# = 1) ? -5 : -3) : #rowSpacing#)R
+Text=A: %1
+MouseOverAction=[!SetOption DiskANameString FontColor "#colorButtonPress#"][!UpdateMeter DiskANameString][!Redraw]
+MouseLeaveAction=[!SetOption DiskANameString FontColor ""][!UpdateMeter DiskANameString][!Redraw]
+LeftMouseUpAction=["C:\Windows\explorer.exe" /E,A:\]
+Group=DiskA
+Hidden=#hideDiskA#
 
-[DiskOEjectButton]
+[DiskAEjectButton]
 Meter=Image
 MeterStyle=StyleEjectButton
-MouseOverAction=[!SetOption DiskOEjectButton ImageTint "#colorButtonPress#"][!UpdateMeter DiskOEjectButton][!Redraw]
-MouseLeaveAction=[!SetOption DiskOEjectButton ImageTint ""][!UpdateMeter DiskOEjectButton][!Redraw]
-LeftMouseUpAction=[!CommandMeasure MeasureDiskOEject "Run"]
-Group=DiskO | EjectButtons
-Hidden=(#hideDiskO# = 1) || ([MeasureDiskOType:] = 4) || (#showEjectButtons# = 0)
+MouseOverAction=[!SetOption DiskAEjectButton ImageTint "#colorButtonPress#"][!UpdateMeter DiskAEjectButton][!Redraw]
+MouseLeaveAction=[!SetOption DiskAEjectButton ImageTint ""][!UpdateMeter DiskAEjectButton][!Redraw]
+LeftMouseUpAction=[!CommandMeasure MeasureDiskAEject "Run"]
+Group=DiskA | EjectButtons
+Hidden=(#hideDiskA# = 1) || ([MeasureDiskAType:] = 4) || (#showEjectButtons# = 0)
 
-[DiskOTempString]
+[DiskATempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
-MeasureName=MeasureDiskOTemp
-Group=DiskO | DiskTemps
-Hidden=(#hideDiskO# = 1) || ([MeasureDiskOType:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+MeasureName=MeasureDiskATemp
+Group=DiskA | DiskTemps
+Hidden=(#hideDiskA# = 1) || ([MeasureDiskAType:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
 
-[DiskORWTimeString]
+[DiskARWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
-MeasureName=MeasureDiskORWTime
+MeasureName=MeasureDiskARWTime
 Text=%1%
-Group=DiskO
-Hidden=#hideDiskO#
+Group=DiskA
+Hidden=#hideDiskA#
 
-[DiskOWriteArrow]
+[DiskAWriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
-ImageTint=#colorDiskO#
-Y=(((#showDiskReadWrite# = 0) && (#hideDiskO# = 0)) ? -#rowSpacing# + 1 : #rowSpacing#)R
-Group=DiskO | DiskOReadWrite
-Hidden=(#hideDiskO# = 1) || (#showDiskReadWrite# = 0)
+ImageTint=#colorDiskA#
+Y=(((#showDiskReadWrite# = 0) && (#hideDiskA# = 0)) ? -#rowSpacing# + 1 : #rowSpacing#)R
+Group=DiskA | DiskAReadWrite
+Hidden=(#hideDiskA# = 1) || (#showDiskReadWrite# = 0)
 
-[DiskOWriteString]
+[DiskAWriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskOWrite:],[#fpfWriteDepth],'1k')"]B/s
-Group=DiskO | DiskOReadWrite
-Hidden=(#hideDiskO# = 1) || (#showDiskReadWrite# = 0)
+Text=#textDiskAWrite#B/s
+Group=DiskA | DiskAReadWrite
+Hidden=(#hideDiskA# = 1) || (#showDiskReadWrite# = 0)
 
-[DiskOReadArrow]
+[DiskAReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
-ImageTint=#colorDiskO#
-Group=DiskO | DiskOReadWrite
-Hidden=(#hideDiskO# = 1) || (#showDiskReadWrite# = 0)
+ImageTint=#colorDiskA#
+Group=DiskA | DiskAReadWrite
+Hidden=(#hideDiskA# = 1) || (#showDiskReadWrite# = 0)
 
-[DiskOReadString]
+[DiskAReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskORead:],[#fpfReadDepth],'1k')"]B/s
-Group=DiskO | DiskOReadWrite
-Hidden=(#hideDiskO# = 1) || (#showDiskReadWrite# = 0)
+Text=#textDiskARead#B/s
+Group=DiskA | DiskAReadWrite
+Hidden=(#hideDiskA# = 1) || (#showDiskReadWrite# = 0)
 
-[DiskOSpaceString]
+[DiskASpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskOSpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskOSpaceTotal:],[#fpfSpaceUsedDepth],'1k')"]B
-Group=DiskO
-Hidden=#hideDiskO#
+Text=#textDiskASpaceUsed#B / #textDiskASpaceTotal#B
+Group=DiskA
+Hidden=#hideDiskA#
 
-[DiskOSpaceUsageString]
+[DiskASpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
-MeasureName=MeasureDiskOSpaceUsage
+MeasureName=MeasureDiskASpaceUsage
 Percentual=1
 Text=%1%
-Group=DiskO
-Hidden=#hideDiskO#
+Group=DiskA
+Hidden=#hideDiskA#
 
-[DiskOSpaceUsageBar]
+[DiskASpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
-MeasureName=MeasureDiskOSpaceUsage
-BarColor=#colorDiskO#
-Group=DiskO
-Hidden=#hideDiskO#
+MeasureName=MeasureDiskASpaceUsage
+BarColor=#colorDiskA#
+Group=DiskA
+Hidden=#hideDiskA#
 

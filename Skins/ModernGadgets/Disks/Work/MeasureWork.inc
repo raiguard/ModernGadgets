@@ -1,103 +1,106 @@
-; Disk P:
-[MeasureDiskPType]
+; Disk A
+[MeasureDiskBType]
 Measure=FreeDiskSpace
-Drive=P:
+Drive=A:
 Type=1
 IgnoreRemovable=0
 
-[MeasureDiskPName]
+[MeasureDiskBName]
 Measure=FreeDiskSpace
-Drive=P:
+Drive=A:
 Label=1
 IgnoreRemovable=0
 Substitute="":"Unnamed"
-Group=DiskP
-Disabled=#hideDiskP#
+Group=DiskB
+Disabled=#hideDiskB#
 
-[MeasureDiskPEject]
+[MeasureDiskBEject]
 Measure=Plugin
 Plugin=RunCommand
 StartInFolder=#@#Addons\Sync
-Parameter=sync -e P:
-Group=DiskP | EjectButtons
-Disabled=(#hideDiskP# = 1) || (#showEjectButtons# = 0)
+Parameter=sync -e A:
+Group=DiskB | EjectButtons
+Disabled=(#hideDiskB# = 1) || (#showEjectButtons# = 0)
 
-[MeasureDiskPTemp]
+[MeasureDiskBTemp]
 Measure=Plugin
 Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-SMART-DiskPTemp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-SMART-DiskPTemp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-SMART-DiskPTemp-EntryId#
+HWiNFOSensorId=#HWiNFO-SMART-DiskBTemp-SensorId#
+HWiNFOSensorInstance=#HWiNFO-SMART-DiskBTemp-SensorInstance#
+HWiNFOEntryId=#HWiNFO-SMART-DiskBTemp-EntryId#
 HWiNFOType=CurrentValue
-Group=DiskP | DiskTemps
-Disabled=(#hideDiskP# = 1) || (#showDiskTemps# = 0)
+Group=DiskB | DiskTemps
+Disabled=(#hideDiskB# = 1) || (#showDiskTemps# = 0)
 
-[MeasureDiskPIdleTime]
+[MeasureDiskBIdleTime]
 Measure=Plugin
 Plugin=UsageMonitor
 Category=LogicalDisk
 Counter=% Idle Time
-Name=P:
-Group=DiskP
-Disabled=#hideDiskP#
+Name=A:
+Group=DiskB
+Disabled=#hideDiskB#
 
-[MeasureDiskPRWTime]
+[MeasureDiskBRWTime]
 Measure=Calc
-Formula=100 - Clamp(MeasureDiskPIdleTime,0,100)
+Formula=100 - Clamp(MeasureDiskBIdleTime,0,100)
 MinValue=0
 MaxValue=100
-Group=DiskP
-Disabled=#hideDiskP#
+Group=DiskB
+Disabled=#hideDiskB#
 
-[MeasureDiskPActivity]
-Measure=Plugin
-Plugin=UsageMonitor
-Category=LogicalDisk
-Counter=Disk Bytes/sec
-Name=P:
-Group=DiskP
-Disabled=#hideDiskP#
-
-[MeasureDiskPWrite]
+[MeasureDiskBWrite]
 Measure=Plugin
 Plugin=UsageMonitor
 Category=LogicalDisk
 Counter=Disk Write Bytes/sec
-Name=P:
-Group=DiskP
-Disabled=#hideDiskP#
+IfCondition=1
+IfTrueAction=[!SetVariable textDiskBWrite [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskBWrite:],[#fpfWriteDepth],'1k')"]]
+OnChangeAction=[!SetVariable textDiskBWrite [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskBWrite:],[#fpfWriteDepth],'1k')"]]
+Name=A:
+Group=DiskB
+Disabled=#hideDiskB#
 
-[MeasureDiskPRead]
+[MeasureDiskBRead]
 Measure=Plugin
 Plugin=UsageMonitor
 Category=LogicalDisk
 Counter=Disk Read Bytes/sec
-Name=P:
-Group=DiskP
-Disabled=#hideDiskP#
+IfCondition=1
+IfTrueAction=[!SetVariable textDiskBRead [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskBRead:],[#fpfReadDepth],'1k')"]]
+OnChangeAction=[!SetVariable textDiskBRead [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskBRead:],[#fpfReadDepth],'1k')"]]
+Name=A:
+Group=DiskB
+Disabled=#hideDiskB#
 
-[MeasureDiskPSpaceUsed]
+[MeasureDiskBSpaceUsed]
 Measure=FreeDiskSpace
-Drive=P:
+Drive=A:
 InvertMeasure=1
 IgnoreRemovable=0
-Group=DiskP
-Disabled=#hideDiskP#
+IfCondition=1
+IfTrueAction=[!SetVariable textDiskBSpaceUsed [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskBSpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]]
+OnChangeAction=[!SetVariable textDiskBSpaceUsed [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskBSpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]]
+Group=DiskB
+Disabled=#hideDiskB#
 
-[MeasureDiskPSpaceTotal]
+[MeasureDiskBSpaceTotal]
 Measure=FreeDiskSpace
-Drive=P:
+Drive=A:
 Total=1
 IgnoreRemovable=0
-IfCondition=(MeasureDiskPSpaceTotal > 0) && (#hideDiskP# = 1)
-IfTrueAction=[!CommandMeasure MeasureDisksConfigScript "ConfigureDisk('P:', [MeasureDiskPType:])"]
-IfCondition2=(MeasureDiskPSpaceTotal = 0) && (#hideDiskP# = 0)
-IfTrueAction2=[!CommandMeasure MeasureDisksConfigScript "ConfigureDisk('P:', 0)"]
+IfCondition=1
+IfTrueAction=[!SetVariable textDiskBSpaceTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskBSpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]]
+OnChangeAction=[!SetVariable textDiskBSpaceTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDiskBSpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]]
+IfCondition=(MeasureDiskBSpaceTotal > 0) && (#hideDiskB# = 1)
+IfTrueAction=[!CommandMeasure MeasureDisksConfigScript "ConfigureDisk('A:', [MeasureDiskBType:])"]
+IfCondition2=(MeasureDiskBSpaceTotal = 0) && (#hideDiskB# = 0)
+IfTrueAction2=[!CommandMeasure MeasureDisksConfigScript "ConfigureDisk('A:', 0)"]
 DynamicVariables=1
 
-[MeasureDiskPSpaceUsage]
+[MeasureDiskBSpaceUsage]
 Measure=Calc
-Formula=(MeasureDiskPSpaceUsed / MeasureDiskPSpaceTotal)
-Group=DiskP
-Disabled=#hideDiskP#
+Formula=(MeasureDiskBSpaceUsed / MeasureDiskBSpaceTotal)
+Group=DiskB
+Disabled=#hideDiskB#
 
