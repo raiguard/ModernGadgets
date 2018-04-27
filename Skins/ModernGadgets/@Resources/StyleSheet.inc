@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.3.0
+mgVersion=1.4.0-beta.1
 
 ; Positioning
 bgOffset=5
@@ -28,12 +28,11 @@ fontFace=Roboto
 fontSize=8
 
 ; Colors
-colorBgA=255
-colorBg=15,15,15,#colorBgA#
+colorBg=15,15,15
 colorBgBorder=#colorDim#
 
 colorGraphBg=25,25,25
-colorGraphBorder=#colorDim#
+colorGraphBorder=#colorBgBorder#
 
 colorMain=230,230,230
 colorInfo=150,150,150
@@ -44,12 +43,8 @@ colorBarBg=#colorDim#
 
 colorButtonPress=255,50,50
 
-colorHwinfoValueInputText=225,220,225
-colorHwinfoValueInputBg=35,35,35
-colorHwinfoError=255,30,30
-
 colorInputBg=25,25,25
-colorInputBorder=#colorDim#
+colorInputBorder=#colorBgBorder#
 
 colorIntel=0,125,198
 
@@ -59,6 +54,8 @@ histogramAlpha=50
 deg=[\176]
 toggleOn=[\x5a]
 toggleOff=[\x56]
+radioOn=[\x5c]
+radioOff=[\x5b]
 
 ; Paths
 imgPath=#@#Assets\Images\
@@ -135,19 +132,6 @@ Y=#bgOffset#
 W=#bgWidth#
 H=([BackgroundHeight:Y] - (#bgOffset# * 2))
 DynamicVariables=1
-Group=Background
-
-[StyleBackgroundBorder]
-ImageName=#imgPath#border.png
-ImageTint=#colorBgBorder#
-ImageAlpha=#colorBgA#
-ScaleMargins=2,2,2,2
-X=(#bgOffset# - 1)
-Y=(#bgOffset# - 1)
-W=(#bgWidth# + 2)
-H=([BackgroundHeight:Y] - (#bgOffset# * 2) + 2)
-DynamicVariables=1
-Hidden=(#showBgBorder# = 1) ? 0 : 1
 Group=Background
 
 [StyleBackgroundHeight]
@@ -253,16 +237,19 @@ DynamicVariables=1
 Group=ToggleButtons
 Antialias=1
 
+[StyleRadioButton]
+X=5R
+Y=1r
+
 [StyleStringColorPickerLabel]
-StringAlign=Right
 FontSize=9
-X=-5r
-Y=5R
+X=5R
+Y=1r
 
 [StyleColorPicker]
 Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Extend MeterSpecific
-X=5r
-Y=-1r
+X=-20r
+Y=5R
 DynamicVariables=1
 
 ; Buttons
@@ -282,7 +269,6 @@ Antialias=0
 
 [StyleCloseButton]
 ImageName=#imgPath#close.png
-ImageAlpha=#colorBgA#
 X=(#contentMarginRight# - 18)
 Y=(#contentMargin# - 5)
 W=24
@@ -292,13 +278,24 @@ ToolTipText="Close"
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
 
+[StyleOpenConfigFile]
+FontColor=#colorMain#
+FontSize=10
+FontFace=ElegantIcons
+Antialias=1
+StringAlign=Right
+X=(#contentMarginRight# - 18)
+Y=(#contentMargin# - 2)
+Text=[\x6c]
+ToolTipText="Open configuration file to edit manually"
+
 [StyleSettingsButton]
 ImageName=#imgPath#Wrench.png
-ImageAlpha=#colorBgA#
 X=(#contentMarginRight# - 10)
 Y=(#contentMargin# + 2)
 W=9
 H=9
+ImageTint=#colorMain#
 Antialias=1
 Hidden=1
 Group=ConfigButton
@@ -319,7 +316,7 @@ ToolTipIcon=Info
 ImageName=#imgPath#eject.png
 ImageTint=120,120,120
 ToolTipText="Eject"
-X=7R
+X=13R
 Y=r
 W=14
 H=11
@@ -366,3 +363,51 @@ h=#barHeight#
 BarOrientation=Horizontal
 DynamicVariables=1
 Antialias=1
+
+[StyleStringPeakIcon]
+FontFace=ElegantIcons
+FontColor=#colorPeak#
+Text=[\xe0ec]
+Antialias=0
+
+; HWiNFO SMV Button
+[StyleHwinfoSmvButtonRegion]
+SolidColor=255,255,255,0
+X=[HwinfoSmvButtonIcon:X]
+Y=[HwinfoSmvButtonIcon:Y]
+W=([HwinfoSmvButtonIcon:X] + ([HwinfoSmvButtonString:X] + [HwinfoSmvButtonString:W]) - 12)
+H=21
+DynamicVariables=1
+MouseOverAction=[!SetOption HwinfoSmvButtonIcon ImageTint "#colorButtonPress#"][!SetOption HwinfoSmvButtonString FontColor "#colorButtonPress#"][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
+MouseLeaveAction=[!SetOption HwinfoSmvButtonIcon ImageTint ""][!SetOption HwinfoSmvButtonString FontColor ""][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
+LeftMouseUpAction=[!CommandMeasure MeasureOpenHwinfoSmv "Run"]
+Group=HwinfoSmvButton
+
+[StyleStringHwinfoSmvButton]
+X=5R
+Y=5r
+FontSize=9
+Text="Open Shared Memory Viewer"
+Group=HwinfoSmvButton
+
+[StyleHwinfoSmvButtonIcon]
+ImageName=#imgPath#hwinfo.png
+X=#contentMargin#
+Y=3R
+W=21
+H=21
+Group=HwinfoSmvButton
+
+[StyleHwinfoTutorialButton]
+ImageName=#imgPath#book.png
+Greyscale=1
+ImageTint=#colorAccent#
+X=(#contentMarginRight# - 15)
+Y=r
+W=15
+H=15
+Antialias=1
+ToolTipText="View HWiNFO Tutorial"
+MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
+MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/Setup-Tutorial"]
