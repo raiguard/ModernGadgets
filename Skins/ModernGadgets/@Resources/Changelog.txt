@@ -206,10 +206,14 @@ WIP Releases
 v1.4.0 - 2018-??-??
 - Added session total and simultaneous bits/bytes display to Network Meter
 - Added separate bits/bytes peak traffic displays to Network Meter
-- Added three additional GPU Meters for monitoring up to four GPUs simultaneously (useful for SLI setups)
+- Added three additional GPU Meters for monitoring up to four GPUs simultaneously
 - Added fixed disk temperatures to Disks Meter
 - Added setting to hide disk read/write speeds in Disks Meter
-- Improved performance of manual hide disks setting
+- Added global color customization
+- Added gadget update rate setting (not supported by all readings)
+- Added "open config file" buttons to all settings skins to allow access to more advanced settings
+- Enhanced Disk Eject functionality with support for USB card readers and virtual disks (requires admin privileges)
+- Significantly improved Disks Meter performance
 - Removed dual GPU meter option (replaced by separate GPU Meters)
 - Consolidated graph and background borders into their respective background meters
 - Standardized graph positioning

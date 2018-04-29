@@ -15,6 +15,8 @@ function Update() end
 
 function ConfigureDisk(disk, index, updatemode)
 
+	disk = disk:gsub(':', '')
+
 	LogHelper('CONFIGURING  disk: ' .. disk .. ' | index: ' .. index, 'Debug')
 
 	if index > 1 and not table.contains(hideDisks, disk) then
