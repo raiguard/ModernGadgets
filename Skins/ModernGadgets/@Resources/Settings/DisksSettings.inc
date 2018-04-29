@@ -6,7 +6,7 @@ fpfSpaceUsedDepth=5
 fpfSpaceTotalDepth=5
 
 manualHideDisks=
-diskSpaceUsageUpdateDivider=1
+unnamedDiskLabel=---
 
 diskCommand="C:\Windows\explorer.exe" /E,{drive}\
 histogramA=50

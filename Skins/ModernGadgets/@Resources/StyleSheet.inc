@@ -249,6 +249,14 @@ Y=5R
 DynamicVariables=1
 
 ; Buttons
+[StyleStringButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
+[StyleImgButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
 [StyleStringArrowButtonLabel]
 FontSize=10
 StringAlign=Right
