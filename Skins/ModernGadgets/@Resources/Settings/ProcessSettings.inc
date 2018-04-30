@@ -3,8 +3,11 @@ showLineGraph=1
 processLabelFontFace=Roboto
 percentDecimals=1
 
-pinChar=[\xe082]
-unpinChar=[\xe01e]
+processes=5
+stdProcessesMode=1
+processBlacklist=_Total,Idle,dwm,csrss,svchost,lsass,System,spoolsv
+pinnedProcesses=
+
 ; Colors
 colorProcess1=107,238,98
 colorProcess2=255,246,42

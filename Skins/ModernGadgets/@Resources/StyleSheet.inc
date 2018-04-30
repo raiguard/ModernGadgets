@@ -227,6 +227,10 @@ FontSize=10
 X=3R
 Y=-1r
 
+[StyleStringInputLabel]
+FontColor=#colorMain#
+FontSize=10
+
 [StyleToggleButton]
 FontFace=ElegantIcons
 FontColor=#colorAccent#
