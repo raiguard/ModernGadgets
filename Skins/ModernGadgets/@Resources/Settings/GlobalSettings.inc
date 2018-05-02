@@ -6,9 +6,8 @@ isHwinfoAvailable=1
 gadgetUpdateRate=1000
 
 notifyUpdates=1
-devUpdates=0
 autoBackups=1
-rVersionKey=stable
+rVersionKey=dev
 
 showBgBorder=0
 largeRowSpacing=0
@@ -24,8 +23,12 @@ colorBgBorder=50,50,50
 colorBarBg=#colorBgBorder#
 
 colorButtonPress=255,50,50
+
 colorInputBg=25,25,25
-colorInputBorder=#colorDim#
+colorInputBorder=#colorBgBorder#
+
+colorGraphBg=25,25,25
+colorGraphBorder=#colorBgBorder#
 
 ; ----- Default Colors -----
 

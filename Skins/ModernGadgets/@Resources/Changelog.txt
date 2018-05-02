@@ -87,6 +87,25 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.4.0-beta.1 - 2018-5-2
+- Added 36-thread support to CPU Meter
+- Added session total and simultaneous bits/bytes display to Network Meter
+- Added separate bits/bytes peak traffic displays to Network Meter
+- Added three additional GPU Meters for monitoring up to four GPUs simultaneously
+- Added disk temperatures to Disks Meter
+- Added setting to hide disk read/write speeds in Disks Meter
+- Added global color customization
+- Added gadget update rate setting (not supported by all readings)
+- Added "open config file" buttons to all settings skins to allow access to more advanced settings
+- Increased precision of readouts in Network Meter
+- Removed dual GPU meter option (replaced by separate GPU Meters)
+- Enhanced Disk Eject functionality with support for USB card readers and virtual disks (requires admin privileges)
+- Significantly improved Disks Meter performance
+- Consolidated graph and background borders into their respective background meters
+- Standardized graph positioning
+- Implement new built-in HWiNFO config tool (alpha) 
+- Fixed oversight where clicking the total reset button in Network Meter Pro would not work
+
 v1.3.0-rc.3 - 2018-2-1
 - Implemented new dynamic settings system (https://github.com/raiguard/rainmeter-settings)
 - Refined settings UI
@@ -204,13 +223,22 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.4.0 - 2018-??-??
+- Added 36-thread support to CPU Meter
+- Added session total and simultaneous bits/bytes display to Network Meter
+- Added separate bits/bytes peak traffic displays to Network Meter
+- Added three additional GPU Meters for monitoring up to four GPUs simultaneously
+- Added disk temperatures to Disks Meter
+- Added setting to hide disk read/write speeds in Disks Meter
+- Added setting to only display fixed disks in Disks Meter
+- Added global color customization
+- Added gadget update rate setting (not supported by all readings)
+- Added "open config file" buttons to all settings skins to allow access to more advanced settings
+- Increased precision of readouts in Network Meter
+- Removed dual GPU meter option (replaced by separate GPU Meters)
+- Enhanced Disk Eject functionality with support for USB card readers and virtual disks (requires admin privileges)
+- Significantly improved Disks Meter performance
 - Consolidated graph and background borders into their respective background meters
 - Standardized graph positioning
-- Updated to HWiNFO plugin 4.0.0
-- Deleted HWiNFO config tool in favor of the HWiNFO plugin's built-in tool
-- Added session total and simultaneous bits/bytes display to Network Meter
-- Added three additional GPU Meters for monitoring up to four GPUs simultaneously (useful for SLI setups)
-- Removed dual GPU meter option
-- Added fixed disk temperatures to Disks Meter
-- Added setting to hide disk read/write speeds in Disks Meter
+- Upgraded to HWiNFO plugin 4.0.0 alpha
+- Deleted HWiNFO config tool in favor of the HWiNFO plugin's built-in tool (alpha)
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work

@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.3.0
+mgVersion=1.4.0-beta.1
 
 ; Positioning
 bgOffset=5
@@ -32,7 +32,7 @@ colorBg=15,15,15
 colorBgBorder=#colorDim#
 
 colorGraphBg=25,25,25
-colorGraphBorder=#colorDim#
+colorGraphBorder=#colorBgBorder#
 
 colorMain=230,230,230
 colorInfo=150,150,150
@@ -44,7 +44,7 @@ colorBarBg=#colorDim#
 colorButtonPress=255,50,50
 
 colorInputBg=25,25,25
-colorInputBorder=#colorDim#
+colorInputBorder=#colorBgBorder#
 
 colorIntel=0,125,198
 
@@ -54,6 +54,8 @@ histogramAlpha=50
 deg=[\176]
 toggleOn=[\x5a]
 toggleOff=[\x56]
+radioOn=[\x5c]
+radioOff=[\x5b]
 
 ; Paths
 imgPath=#@#Assets\Images\
@@ -77,9 +79,8 @@ networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
 networkMeterConfig=ModernGadgets\Network
 networkSettingsPath=#@#Settings\NetworkSettings.inc
 
-gpuMeterPathBase=#ROOTCONFIGPATH#GPU\GPU.ini
-gpuMeterPath=#ROOTCONFIGPATH#GPU\main.inc
-gpuMeterConfig=ModernGadgets\GPU
+gpuMeterPath=#ROOTCONFIGPATH#GPU\GPU0\GPU.ini
+gpuMeterConfig=ModernGadgets\GPU\GPU0
 gpuSettingsPath=#@#Settings\GpuSettings.inc
 
 disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
@@ -231,6 +232,10 @@ DynamicVariables=1
 Group=ToggleButtons
 Antialias=1
 
+[StyleRadioButton]
+X=5R
+Y=1r
+
 [StyleStringColorPickerLabel]
 FontSize=9
 X=5R
@@ -243,6 +248,14 @@ Y=5R
 DynamicVariables=1
 
 ; Buttons
+[StyleStringButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
+[StyleImgButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
 [StyleStringArrowButtonLabel]
 FontSize=10
 StringAlign=Right
@@ -285,6 +298,7 @@ X=(#contentMarginRight# - 10)
 Y=(#contentMargin# + 2)
 W=9
 H=9
+ImageTint=#colorMain#
 Antialias=1
 Hidden=1
 Group=ConfigButton
@@ -300,6 +314,7 @@ W=14
 H=14
 Antialias=0
 ToolTipIcon=Info
+ToolTipWidth=300
 
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
@@ -311,6 +326,9 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
+
+[StyleToolTip]
+ToolTipWidth=250
 
 ; Line Graph
 [StyleLineGraphBackground]
@@ -353,6 +371,12 @@ BarOrientation=Horizontal
 DynamicVariables=1
 Antialias=1
 
+[StyleStringPeakIcon]
+FontFace=ElegantIcons
+FontColor=#colorPeak#
+Text=[\xe0ec]
+Antialias=0
+
 ; HWiNFO SMV Button
 [StyleHwinfoSmvButtonRegion]
 SolidColor=255,255,255,0
@@ -363,7 +387,7 @@ H=21
 DynamicVariables=1
 MouseOverAction=[!SetOption HwinfoSmvButtonIcon ImageTint "#colorButtonPress#"][!SetOption HwinfoSmvButtonString FontColor "#colorButtonPress#"][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoSmvButtonIcon ImageTint ""][!SetOption HwinfoSmvButtonString FontColor ""][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
-LeftMouseUpAction=["#@#Addons\HWiNFO\HWiNFOSharedMemoryViewer.exe"]
+LeftMouseUpAction=[!CommandMeasure MeasureOpenHwinfoSmv "Run"]
 Group=HwinfoSmvButton
 
 [StyleStringHwinfoSmvButton]

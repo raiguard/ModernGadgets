@@ -31,8 +31,8 @@ colorCore13=201,41,56
 colorCore14=179,0,91
 colorCore15=153,84,166
 colorCore16=99,125,217
-colorCore17=107,238,98
-colorCore18=255,246,42
+colorCore17=43,224,152
+colorCore18=227,242,10
 colorCore19=#colorCore1#
 colorCore20=#colorCore2#
 colorCore21=#colorCore3#
@@ -64,6 +64,7 @@ showLineGraph=1
 showAvgCpu=0
 showTt=0
 playTtSound=0
+coreTempSource=HWiNFO
 
 cpuName=auto
 
@@ -92,6 +93,8 @@ dColorCore13=201,41,56
 dColorCore14=179,0,91
 dColorCore15=153,84,166
 dColorCore16=99,125,217
+dColorCore17=43,224,152
+dColorCore18=227,242,10
 dColorTt=255,120,147
 dTtHistogramAlpha=50
 
@@ -343,10 +346,10 @@ HWiNFO-CPU0-PackageTt-EntryId=0x800000c
 HWiNFO-MOBO-CPUFan-SensorId=0xf7067910
 HWiNFO-MOBO-CPUFan-SensorInstance=0x0
 HWiNFO-MOBO-CPUFan-EntryId=0x3000001
+CoreTemp=coreTempSource
+SpeedFan=coreTempSource
 
-[HWiNFO-Config]
-HWiNFO-CPU0-PackageTemp=CPU Package Temperature
-HWINFO-CPU0-PackageTt=CPU Package Thermal Throttling
+[HWiNFO-Config-Temperatures]
 HWiNFO-CPU0-Core0Temp=Core 0 Temperature
 HWiNFO-CPU0-Core1Temp=Core 1 Temperature
 HWiNFO-CPU0-Core2Temp=Core 2 Temperature
@@ -363,6 +366,10 @@ HWiNFO-CPU0-Core12Temp=Core 12 Temperature
 HWiNFO-CPU0-Core13Temp=Core 13 Temperature
 HWiNFO-CPU0-Core14Temp=Core 14 Temperature
 HWiNFO-CPU0-Core15Temp=Core 15 Temperature
+HWiNFO-CPU0-PackageTemp=CPU Package Temperature
+HWINFO-CPU0-PackageTt=CPU Package Thermal Throttling
+
+[HWiNFO-Config-Voltages]
 HWiNFO-CPU0-Core0Vid=Core 0 VID
 HWiNFO-CPU0-Core1Vid=Core 1 VID
 HWiNFO-CPU0-Core2Vid=Core 2 VID
@@ -379,6 +386,8 @@ HWiNFO-CPU0-Core12Vid=Core 12 VID
 HWiNFO-CPU0-Core13Vid=Core 13 VID
 HWiNFO-CPU0-Core14Vid=Core 14 VID
 HWiNFO-CPU0-Core15Vid=Core 15 VID
+
+[HWiNFO-Config-Clocks]
 HWiNFO-CPU0-Core0Clock=Core 0 Clock
 HWiNFO-CPU0-Core1Clock=Core 1 Clock
 HWiNFO-CPU0-Core2Clock=Core 2 Clock

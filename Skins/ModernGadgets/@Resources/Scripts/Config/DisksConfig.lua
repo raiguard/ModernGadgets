@@ -1,4 +1,4 @@
-debug = true
+debug = false
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -13,7 +13,9 @@ end
 
 function Update() end
 
-function ConfigureDisk(disk, index)
+function ConfigureDisk(disk, index, updatemode)
+
+	disk = disk:gsub(':', '')
 
 	LogHelper('CONFIGURING  disk: ' .. disk .. ' | index: ' .. index, 'Debug')
 
@@ -25,21 +27,23 @@ function ConfigureDisk(disk, index)
 		SKIN:Bang('!SetOptionGroup', 'Disk' .. disk .. 'ReadWrite', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || (#*showDiskReadWrite*# = 0)')
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'WriteArrow', 'Y', '(((#*showDiskReadWrite*# = 0) && (0 = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
 		SetVariable('hideDisk' .. disk, '0', dynamicVarsPath)
-	else
+	elseif updatemode == true or not table.contains(hideDisks, disk) then
 		SKIN:Bang('!HideMeterGroup', 'Disk' .. disk)
 		SKIN:Bang('!DisableMeasureGroup', 'Disk' .. disk)
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'WriteArrow', 'Y', '(((#*showDiskReadWrite*# = 0) && (1 = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
 		SetVariable('hideDisk' .. disk, '1', dynamicVarsPath)
 	end
 
-	SetDiskColors()
+	if updatemode == true or not table.contains(hideDisks, disk) then
+		SetDiskColors()
 
-	SKIN:Bang('!UpdateMeasureGroup', 'Disk' .. disk)
-	SKIN:Bang('!UpdateMeterGroup', 'Disk' .. disk)
-	SKIN:Bang('!UpdateMeterGroup', 'LineGraph')
-	SKIN:Bang('!UpdateMeterGroup', 'Background')
-	SKIN:Bang('!Update')
-	SKIN:Bang('!Redraw')
+		SKIN:Bang('!UpdateMeasureGroup', 'Disk' .. disk)
+		SKIN:Bang('!UpdateMeterGroup', 'Disk' .. disk)
+		SKIN:Bang('!UpdateMeterGroup', 'LineGraph')
+		SKIN:Bang('!UpdateMeterGroup', 'Background')
+		SKIN:Bang('!Update')
+		SKIN:Bang('!Redraw')
+	end
 
 end
 
@@ -70,6 +74,8 @@ function UpdateHideDisks()
 	for i in string.gmatch(manualHideDisks, "%S+") do
 		table.insert(hideDisks, i)
 	end
+
+	LogHelper(manualHideDisks, 'Debug')
 
 	alphabet:gsub(".", function(c)
 		local d = tonumber(SKIN:GetVariable('hideDisk' .. c))
@@ -107,4 +113,12 @@ function table.contains(table, element)
     end
   end
   return false
+end
+
+function AddSetting()
+
+	alphabet:gsub(".", function(c)
+			SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'TempString', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || ([MeasureDisk' .. c .. 'Type:] <> 4) || (#*showDiskTemps*# = 0) || ([MeasureHwinfoDetect:] = -9000)')
+		end)
+
 end
