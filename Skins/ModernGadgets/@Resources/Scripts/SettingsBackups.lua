@@ -13,7 +13,10 @@ function Initialize()
                 'CpuSettings.inc',
                 'NetworkSettings.inc',
                 'GpuSettings.inc',
-                'DisksSettings.inc'  }
+                'DisksSettings.inc',
+                'GPU Variants\\GpuSettings1.inc',
+                'GPU Variants\\GpuSettings2.inc',
+                'GPU Variants\\GpuSettings3.inc'  }
 
 
   backupsPath = SKIN:GetVariable('SETTINGSPATH') .. 'ModernGadgetsSettings\\'
@@ -31,7 +34,7 @@ function Update() end
 
 function ImportBackup()
 
-  for i=1, 5 do
+  for i=1, 8 do
     local bTable = ReadIni(backupsPath .. fileNames[i])
     local sTable = ReadIni(filesPath .. fileNames[i])
     CrossCheck(bTable, sTable, filesPath .. fileNames[i])
