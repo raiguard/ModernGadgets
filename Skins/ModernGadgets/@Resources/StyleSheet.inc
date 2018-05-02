@@ -79,9 +79,8 @@ networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
 networkMeterConfig=ModernGadgets\Network
 networkSettingsPath=#@#Settings\NetworkSettings.inc
 
-gpuMeterPathBase=#ROOTCONFIGPATH#GPU\GPU.ini
-gpuMeterPath=#ROOTCONFIGPATH#GPU\main.inc
-gpuMeterConfig=ModernGadgets\GPU
+gpuMeterPath=#ROOTCONFIGPATH#GPU\GPU0\GPU.ini
+gpuMeterConfig=ModernGadgets\GPU\GPU0
 gpuSettingsPath=#@#Settings\GpuSettings.inc
 
 disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
@@ -323,6 +322,7 @@ W=14
 H=14
 Antialias=0
 ToolTipIcon=Info
+ToolTipWidth=300
 
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
@@ -334,6 +334,9 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
+
+[StyleToolTip]
+ToolTipWidth=250
 
 ; Line Graph
 [StyleLineGraphBackground]

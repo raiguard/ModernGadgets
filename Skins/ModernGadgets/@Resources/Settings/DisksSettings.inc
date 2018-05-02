@@ -11,6 +11,8 @@ unnamedDiskLabel=---
 diskCommand="C:\Windows\explorer.exe" /E,{drive}\
 histogramA=50
 
+ignoreRemovable=0
+
 showEjectButtons=1
 showDiskTemps=1
 showDiskReadWrite=1
