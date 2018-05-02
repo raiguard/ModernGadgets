@@ -8,7 +8,7 @@ showPing=1
 showNetTotals=1
 showLineGraph=1
 showPeakNetworkUsage=1
-useNetMonitor=1
+useNetMonitor=0
 netInOutFontFace=Roboto Cn
 
 pingUrl=google.com
