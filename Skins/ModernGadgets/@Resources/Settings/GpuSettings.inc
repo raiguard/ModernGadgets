@@ -9,7 +9,7 @@ showTempGraph=1
 
 gpuName=auto
 
-useManualMaxVram=1
+useManualMaxVram=0
 maxVram=4096
 useMoboFanSensor=0
 

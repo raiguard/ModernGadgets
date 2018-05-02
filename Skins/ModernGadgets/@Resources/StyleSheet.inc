@@ -314,6 +314,7 @@ W=14
 H=14
 Antialias=0
 ToolTipIcon=Info
+ToolTipWidth=300
 
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
@@ -325,6 +326,9 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
+
+[StyleToolTip]
+ToolTipWidth=250
 
 ; Line Graph
 [StyleLineGraphBackground]
