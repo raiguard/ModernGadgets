@@ -58,6 +58,8 @@ function Toggle(variable, offState, onState, settingsPath, configPath, actionSet
 		value = offState
 	end
 
+	UpdateToggles()
+
 	if actionSet == nil then
 		SKIN:Bang(defaultAction)
 	else
@@ -70,8 +72,6 @@ function Toggle(variable, offState, onState, settingsPath, configPath, actionSet
 		SKIN:Bang(actionSet)
 	end
 
-	UpdateToggles()
-
 end
 
 -- for use with radio buttons. sets the variable to the given input and executes
@@ -82,6 +82,7 @@ function Radio(state, variable, settingsPath, configPath, actionSet, ifLogic)
 
 	SetVariable(variable, state, settingsPath, configPath)
 	LogHelper(variable .. '=' .. state, 'Debug')	
+	UpdateToggles()
 
 	if actionSet == nil then
 		SKIN:Bang(defaultAction)
@@ -95,8 +96,6 @@ function Radio(state, variable, settingsPath, configPath, actionSet, ifLogic)
 		SKIN:Bang(actionSet)
 	end
 
-	UpdateToggles()
-
 end
 
 -- for use with input boxes. sets the variable to the given input and executes
@@ -107,6 +106,7 @@ function Input(input, variable, settingsPath, configPath, actionSet, ifLogic)
 
 	SetVariable(variable, input, settingsPath, configPath)
 	LogHelper(variable .. '=' .. input, 'Debug')
+	UpdateToggles()
 
 	if actionSet == nil then
 		SKIN:Bang(defaultAction)
@@ -119,8 +119,6 @@ function Input(input, variable, settingsPath, configPath, actionSet, ifLogic)
 		LogHelper(actionSetName .. '=' .. actionSet, 'Debug')
 		SKIN:Bang(actionSet)
 	end
-
-	UpdateToggles()
 
 end
 
