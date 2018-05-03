@@ -28,23 +28,25 @@ fontFace=Roboto
 fontSize=8
 
 ; Colors
+colorBorder=50,50,50
 colorBg=15,15,15
-colorBgBorder=#colorDim#
+colorBgBorder=#colorBorder#
+colorSubBg=25,25,25
 
-colorGraphBg=25,25,25
-colorGraphBorder=#colorBgBorder#
+colorGraphBg=#colorSubBg#
+colorGraphBorder=#colorBorder#
 
 colorMain=230,230,230
 colorInfo=150,150,150
-colorDim=50,50,50
 colorAccent=138,210,250
 
-colorBarBg=#colorDim#
+colorBarBg=#colorBorder#
 
 colorButtonPress=255,50,50
 
-colorInputBg=25,25,25
-colorInputBorder=#colorBgBorder#
+colorInputBg=#colorSubBg#
+colorInputBorder=#colorBorder#
+colorInputText=200,200,200
 
 colorIntel=0,125,198
 
@@ -211,7 +213,7 @@ ScaleMargins=2,2,2,2
 [StyleStringInputBox]
 FontSize=10
 FontFace=Roboto
-FontColor=200,200,200
+FontColor=#colorInputText#
 X=3r
 Y=2r
 W=(#contentWidth# - 6)

@@ -13,28 +13,33 @@ showBgBorder=1
 largeRowSpacing=0
 rowSpacing=1
 
+colorBorder=50,50,50
+colorBg=15,15,15
+colorBgBorder=#colorBorder#
+colorSubBg=25,25,25
+
+colorGraphBg=#colorSubBg#
+colorGraphBorder=#colorBorder#
+
 colorMain=230,230,230
 colorInfo=150,150,150
 colorAccent=138,210,250
 
-colorBg=15,15,15
-colorBgBorder=50,50,50
-colorBarBg=#colorBgBorder#
+colorBarBg=#colorBorder#
 
 colorButtonPress=255,50,50
 
-colorInputBg=25,25,25
-colorInputText=200,200,200
-colorInputBorder=#colorBgBorder#
+colorInputBg=#colorSubBg#
+colorInputBorder=#colorBorder#
 
-colorGraphBg=25,25,25
-colorGraphBorder=#colorBgBorder#
+colorIntel=0,125,198
 
 ; ----- Default Colors -----
 
 dColorMain=230,230,230
 dColorInfo=150,150,150
-dColorDim=50,50,50
+dColorSubBg=25,25,25
+dColorBorder=50,50,50
 dColorAccent=138,210,250
 
 dColorBg=15,15,15
