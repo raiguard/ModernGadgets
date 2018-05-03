@@ -201,6 +201,7 @@ Y=3R
 [StyleInputBoxBorder]
 ImageName=#imgPath#border.png
 ImageTint=#colorInputBorder#
+SolidColor=#colorInputBg#
 X=#contentMargin#
 Y=3R
 W=#contentWidth#
@@ -209,13 +210,13 @@ ScaleMargins=2,2,2,2
 
 [StyleStringInputBox]
 FontSize=10
-FontFace=Roboto Lt
-SolidColor=#colorInputBg#
-Padding=2,0,2,1
-X=1r
-Y=1r
+FontFace=Roboto
+FontColor=200,200,200
+X=3r
+Y=2r
 W=(#contentWidth# - 6)
 H=16
+Padding=0,-1,0,0
 ClipString=1
 DynamicVariables=1
 Group=ToggleButtons
@@ -334,9 +335,6 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
-
-[StyleToolTip]
-ToolTipWidth=250
 
 ; Line Graph
 [StyleLineGraphBackground]

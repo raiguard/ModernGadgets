@@ -15,7 +15,6 @@ rowSpacing=1
 
 colorMain=230,230,230
 colorInfo=150,150,150
-colorDim=50,50,50
 colorAccent=138,210,250
 
 colorBg=15,15,15
@@ -25,6 +24,7 @@ colorBarBg=#colorBgBorder#
 colorButtonPress=255,50,50
 
 colorInputBg=25,25,25
+colorInputText=200,200,200
 colorInputBorder=#colorBgBorder#
 
 colorGraphBg=25,25,25

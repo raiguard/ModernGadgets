@@ -1,15 +1,14 @@
 [Variables]
-showLineGraph=1
+showLineGraph=0
 processLabelFontFace=Roboto
 percentDecimals=1
 
 processes=5
 stdProcessesMode=1
-processBlacklist=_Total,Idle,dwm,csrss,svchost,lsass,System,spoolsv
-pinnedProcesses=factorio
+processBlacklist=_Total|Idle|dwm|csrss|svchost|lsass|System|spoolsv|[#pProcess1]|[#pProcess2]|[#pProcess3]|[#pProcess4]|[#pProcess5]
 
 pProcess1=factorio
-pProcess2=Rainmeter
+pProcess2=
 pProcess3=
 pProcess4=
 pProcess5=
