@@ -200,7 +200,7 @@ FontSize=10
 X=(#contentMargin# + 2)
 Y=3R
 
-[StyleInputBoxBorder]
+[StyleInputBoxBackground]
 ImageName=#imgPath#border.png
 ImageTint=#colorInputBorder#
 SolidColor=#colorInputBg#
@@ -216,7 +216,7 @@ FontFace=Roboto
 FontColor=#colorInputText#
 X=3r
 Y=2r
-W=(#contentWidth# - 6)
+W=([&[#CURRENTSECTION]Background:W] - 6)
 H=16
 Padding=0,-1,0,0
 ClipString=1
