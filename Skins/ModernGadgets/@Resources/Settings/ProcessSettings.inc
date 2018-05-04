@@ -1,7 +1,7 @@
 [Variables]
 showBars=1
 showLineGraph=1
-processLabelFontFace=Roboto
+processLabelFontFace=Roboto Cn
 
 processes=10
 processMode=1
