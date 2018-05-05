@@ -7,7 +7,7 @@ showSpeedtestButton=1
 showPing=1
 showNetTotals=1
 showLineGraph=1
-showPeakNetworkUsage=1
+showPeakNetworkUsage=0
 useNetMonitor=1
 netInOutFontFace=Roboto Cn
 

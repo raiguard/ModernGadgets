@@ -3,7 +3,7 @@ showBars=1
 showLineGraph=1
 processLabelFontFace=Roboto Cn
 
-processes=10
+processes=5
 processMode=1
 processBlacklist=_Total|Idle|dwm|csrss|svchost|lsass|System|spoolsv
 
@@ -18,6 +18,11 @@ colorProcess2=255,246,42
 colorProcess3=250,158,0
 colorProcess4=236,28,70
 colorProcess5=199,36,199
+colorProcess6=145,70,232
+colorProcess7=42,112,250
+colorProcess8=43,224,224
+colorProcess9=121,182,62
+colorProcess10=204,255,0
 
 colorCpuUsage=107,238,98
 colorGpuUsage=107,238,98

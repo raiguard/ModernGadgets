@@ -156,7 +156,7 @@ Substitute="":"---"
 Disabled=(#processes# < 1) || (#stdProcessesMode# <> 5)
 
 ; Process 2
-[MeasureTopProcess2Cpu]
+[MeasureTopProcess3Cpu]
 Measure=Plugin
 Plugin=UsageMonitor
 Alias=CPU
@@ -165,7 +165,7 @@ Blacklist=#processBlacklist#
 Substitute="":"---"
 Disabled=(#processes# < 2) || (#stdProcessesMode# <> 1)
 
-[MeasureTopProcess2Ram]
+[MeasureTopProcess3Ram]
 Measure=Plugin
 Plugin=UsageMonitor
 Alias=RAM
@@ -174,7 +174,7 @@ Blacklist=#processBlacklist#
 Substitute="":"---"
 Disabled=(#processes# < 2) || (#stdProcessesMode# <> 2)
 
-[MeasureTopProcess2Disk]
+[MeasureTopProcess3Disk]
 Measure=Plugin
 Plugin=UsageMonitor
 Alias=IO
@@ -183,7 +183,7 @@ Blacklist=#processBlacklist#
 Substitute="":"---"
 Disabled=(#processes# < 2) || (#stdProcessesMode# <> 3)
 
-[MeasureTopProcess2Gpu]
+[MeasureTopProcess3Gpu]
 Measure=Plugin
 Plugin=UsageMonitor
 Alias=GPU
@@ -192,7 +192,7 @@ Blacklist=#processBlacklist#
 Substitute="":"---"
 Disabled=(#processes# < 2) || (#stdProcessesMode# <> 4)
 
-[MeasureTopProcess2Vram]
+[MeasureTopProcess3Vram]
 Measure=Plugin
 Plugin=UsageMonitor
 Alias=VRAM
@@ -491,82 +491,82 @@ MeterStyle=StyleString | StyleStringProcessPlaceholder
 Hidden=(#processes# < 1)
 
 ; Process 2
-[TopProcess2CpuLabelString]
+[TopProcess3CpuLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringProcessLabel
-MeasureName=MeasureTopProcess2Cpu
+MeasureName=MeasureTopProcess3Cpu
 Y=((#processes# < 2) ? 0 : #rowSpacing#)R
-Group=Process2 | ProcessCpu
+Group=Process3 | ProcessCpu
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 1)
 
-[TopProcess2CpuValueString]
+[TopProcess3CpuValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringProcessValue
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess2Cpu:],[#fpfProcessCpuDepth],'0')]%
-Group=Process2 | ProcessCpu
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess3Cpu:],[#fpfProcessCpuDepth],'0')]%
+Group=Process3 | ProcessCpu
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 1)
 
-[TopProcess2RamLabelString]
+[TopProcess3RamLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringProcessLabel
-MeasureName=MeasureTopProcess2Ram
+MeasureName=MeasureTopProcess3Ram
 Y=r
-Group=Process2 | ProcessRam
+Group=Process3 | ProcessRam
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 2)
 
-[TopProcess2RamValueString]
+[TopProcess3RamValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringProcessValue
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess2Ram:],[#fpfProcessRamDepth],'1k')]B
-Group=Process2 | ProcessRam
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess3Ram:],[#fpfProcessRamDepth],'1k')]B
+Group=Process3 | ProcessRam
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 2)
 
-[TopProcess2DiskLabelString]
+[TopProcess3DiskLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringProcessLabel
-MeasureName=MeasureTopProcess2Disk
+MeasureName=MeasureTopProcess3Disk
 Y=r
-Group=Process2 | ProcessDisk
+Group=Process3 | ProcessDisk
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 3)
 
-[TopProcess2DiskValueString]
+[TopProcess3DiskValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringProcessValue
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess2Disk:],[#fpfProcessDiskDepth],'1k')]B/s
-Group=Process2 | ProcessDisk
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess3Disk:],[#fpfProcessDiskDepth],'1k')]B/s
+Group=Process3 | ProcessDisk
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 3)
 
-[TopProcess2GpuLabelString]
+[TopProcess3GpuLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringProcessLabel
-MeasureName=MeasureTopProcess2Gpu
+MeasureName=MeasureTopProcess3Gpu
 Y=r
-Group=Process2 | ProcessGpu
+Group=Process3 | ProcessGpu
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 4)
 
-[TopProcess2GpuValueString]
+[TopProcess3GpuValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringProcessValue
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess2Gpu:],[#fpfProcessGpuDepth],'0')]%
-Group=Process2 | ProcessGpu
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess3Gpu:],[#fpfProcessGpuDepth],'0')]%
+Group=Process3 | ProcessGpu
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 4)
 
-[TopProcess2VramLabelString]
+[TopProcess3VramLabelString]
 Meter=String
 MeterStyle=StyleString | StyleStringProcessLabel
-MeasureName=MeasureTopProcess2Vram
+MeasureName=MeasureTopProcess3Vram
 Y=r
-Group=Process2 | ProcessVram
+Group=Process3 | ProcessVram
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 5)
 
-[TopProcess2VramValueString]
+[TopProcess3VramValueString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringProcessValue
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess2Vram:],[#fpfProcessVramDepth],'1k')]B
-Group=Process2 | ProcessVram
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureTopProcess3Vram:],[#fpfProcessVramDepth],'1k')]B
+Group=Process3 | ProcessVram
 Hidden=(#processes# < 2) || (#stdProcessesMode# <> 5)
 
-[TopProcess2Placeholder]
+[TopProcess3Placeholder]
 Meter=String
 MeterStyle=StyleString | StyleStringProcessPlaceholder
 Hidden=(#processes# < 2)
@@ -827,12 +827,12 @@ MeterStyle=StyleLineGraphBackground
 ;MeasureName=MeasureTopProcess5
 ;MeasureName2=MeasureTopProcess4
 ;MeasureName3=MeasureTopProcess3
-;MeasureName4=MeasureTopProcess2
+;MeasureName4=MeasureTopProcess3
 ;MeasureName5=MeasureTopProcess1
 ;LineColor=#colorProcess5#
 ;LineColor2=#colorProcess4#
 ;LineColor3=#colorProcess3#
-;LineColor4=#colorProcess2#
+;LineColor4=#colorProcess3#
 ;LineColor5=#colorProcess1#
 
 [LineGraph]
