@@ -327,6 +327,10 @@ Antialias=0
 ToolTipIcon=Info
 ToolTipWidth=300
 
+[StyleColorsHelpButton]
+ToolTipTitle=Color Customization
+ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a color to reset it to its default value. Once you are finished, click the 'apply color changes' button.
+
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
 ImageTint=120,120,120
