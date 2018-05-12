@@ -1,4 +1,4 @@
-![](docs/preview.png)
+<div style="text-align:center"><img src ="docs/preview.png" /></div>
 ModernGadgets is a modernized recreation of the most popular AddGadgets.com system monitoring gadgets, built on the Rainmeter platform. Included are CPU Meter, Network Meter, GPU Meter, and Disks Meter. More gadgets will be added over time.
 
 ModernGadgets is released on the Rainmeter platform under a Creative Commons BY-NC-SA 3.0 license. The source code is made available on GitHub under an MIT License.
