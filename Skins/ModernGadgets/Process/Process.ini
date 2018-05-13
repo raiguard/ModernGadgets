@@ -20,7 +20,7 @@ Name=Process Meter
 Author=raiguard
 Information=A gadget to track processes that are using high amounts of CPU, or specific processes chosen by the user.
 License=Creative Commons BY-NC-SA 3.0
-Version=1.4.0-beta.1
+Version=1.4.0-beta.2
 
 [Variables]
 @includeStyleSheet=#@#StyleSheet.inc

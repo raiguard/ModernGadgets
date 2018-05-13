@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.4.0-beta.1
+mgVersion=1.4.0-beta.2
 
 ; Positioning
 bgOffset=5

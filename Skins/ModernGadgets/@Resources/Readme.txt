@@ -1,11 +1,11 @@
 MODERNGADGETS
-v1.4.0-beta.1
+v1.4.0-beta.2
 By raiguard
 
 ----------------------------------------
 ABOUT
 
-ModernGadgets is a Rainmeter recreation of the most popular AddGadgets.com system monitoring
+ModernGadgets is a re-imagining of the most popular AddGadgets.com system monitoring
 gadgets, with updated visuals and enhanced functionality to better align with modern systems.
 The skin suite is developed completely for free on the Rainmeter platform, with the source
 code available on GitHub.
