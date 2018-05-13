@@ -8,4 +8,4 @@ devChangelog=v1.4.0-beta.2 - 2018-5-13[#CRLF]- Added Process Meter[#CRLF]- Refac
 
 [URLs]
 stableUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.3.1/ModernGadgets_1.3.1.rmskin
-devUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.4.0-beta.1-fix/ModernGadgets_1.4.0-beta.1.rmskin
+devUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.4.0-beta.2/ModernGadgets_1.4.0-beta.2.rmskin
