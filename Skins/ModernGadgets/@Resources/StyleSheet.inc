@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.4.0-beta.1
+mgVersion=1.4.0-beta.2
 
 ; Positioning
 bgOffset=5
@@ -28,23 +28,25 @@ fontFace=Roboto
 fontSize=8
 
 ; Colors
+colorBorder=50,50,50
 colorBg=15,15,15
-colorBgBorder=#colorDim#
+colorBgBorder=#colorBorder#
+colorSubBg=25,25,25
 
-colorGraphBg=25,25,25
-colorGraphBorder=#colorBgBorder#
+colorGraphBg=#colorSubBg#
+colorGraphBorder=#colorBorder#
 
 colorMain=230,230,230
 colorInfo=150,150,150
-colorDim=50,50,50
 colorAccent=138,210,250
 
-colorBarBg=#colorDim#
+colorBarBg=#colorBorder#
 
 colorButtonPress=255,50,50
 
-colorInputBg=25,25,25
-colorInputBorder=#colorBgBorder#
+colorInputBg=#colorSubBg#
+colorInputBorder=#colorBorder#
+colorInputText=200,200,200
 
 colorIntel=0,125,198
 
@@ -86,6 +88,10 @@ gpuSettingsPath=#@#Settings\GpuSettings.inc
 disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
 disksMeterConfig=ModernGadgets\Disks
 disksSettingsPath=#@#Settings\DisksSettings.inc
+
+processMeterPath=#ROOTCONFIGPATH#Process\Process.ini
+processMeterConfig=ModernGadgets\Process
+processSettingsPath=#@#Settings\ProcessSettings.inc
 
 setupSkinConfig=ModernGadgets\Config\Setup
 
@@ -194,9 +200,10 @@ FontSize=10
 X=(#contentMargin# + 2)
 Y=3R
 
-[StyleInputBoxBorder]
+[StyleInputBoxBackground]
 ImageName=#imgPath#border.png
 ImageTint=#colorInputBorder#
+SolidColor=#colorInputBg#
 X=#contentMargin#
 Y=3R
 W=#contentWidth#
@@ -205,13 +212,13 @@ ScaleMargins=2,2,2,2
 
 [StyleStringInputBox]
 FontSize=10
-FontFace=Roboto Lt
-SolidColor=#colorInputBg#
-Padding=2,0,2,1
-X=1r
-Y=1r
-W=(#contentWidth# - 6)
+FontFace=Roboto
+FontColor=#colorInputText#
+X=3r
+Y=2r
+W=([&[#CURRENTSECTION]Background:W] - 6)
 H=16
+Padding=0,-1,0,0
 ClipString=1
 DynamicVariables=1
 Group=ToggleButtons
@@ -221,6 +228,10 @@ FontColor=#colorMain#
 FontSize=10
 X=3R
 Y=-1r
+
+[StyleStringInputLabel]
+FontColor=#colorMain#
+FontSize=10
 
 [StyleToggleButton]
 FontFace=ElegantIcons
@@ -316,6 +327,10 @@ Antialias=0
 ToolTipIcon=Info
 ToolTipWidth=300
 
+[StyleColorsHelpButton]
+ToolTipTitle=Color Customization
+ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a color to reset it to its default value. Once you are finished, click the 'apply color changes' button.
+
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
 ImageTint=120,120,120
@@ -326,9 +341,6 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
-
-[StyleToolTip]
-ToolTipWidth=250
 
 ; Line Graph
 [StyleLineGraphBackground]

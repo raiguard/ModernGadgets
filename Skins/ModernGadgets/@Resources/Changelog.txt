@@ -90,6 +90,13 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
+v1.4.0-beta.2 - 2018-5-13
+- Added Process Meter
+- Refactored input box visuals
+- Removed condensed font toggle for Network traffic
+- Disk eject buttons will auto-hide if the user is not an administrator
+- Changelog button now shows local changelog rather than the one from GitHub
+
 v1.4.0-beta.1 - 2018-5-2
 - Added 36-thread support to CPU Meter
 - Added session total and simultaneous bits/bytes display to Network Meter
@@ -226,6 +233,7 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.4.0 - 2018-??-??
+- Added Process Meter
 - Added 36-thread support to CPU Meter
 - Added session total and simultaneous bits/bytes display to Network Meter
 - Added separate bits/bytes peak traffic displays to Network Meter
@@ -237,11 +245,13 @@ v1.4.0 - 2018-??-??
 - Added gadget update rate setting (not supported by all readings)
 - Added "open config file" buttons to all settings skins to allow access to more advanced settings
 - Increased precision of readouts in Network Meter
+- Removed condensed font toggle for Network traffic (condensed is now the only option)
 - Removed dual GPU meter option (replaced by separate GPU Meters)
 - Enhanced Disk Eject functionality with support for USB card readers and virtual disks (requires admin privileges)
 - Significantly improved Disks Meter performance
 - Consolidated graph and background borders into their respective background meters
 - Standardized graph positioning
-- Upgraded to HWiNFO plugin 4.0.0 alpha
+- Refactored input box visuals
 - Deleted HWiNFO config tool in favor of the HWiNFO plugin's built-in tool (alpha)
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
+- Changelog button now shows local changelog rather than the one from GitHub
