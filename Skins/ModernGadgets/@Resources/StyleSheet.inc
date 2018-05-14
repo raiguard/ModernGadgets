@@ -73,6 +73,10 @@ gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
 styleSheetPath=#@#StyleSheet.inc
 
+clockPath=#ROOTCONFIGPATH#Clock\Clock.ini
+clockConfig=ModernGadgets\Clock
+clockSettingsPath=#@#Settings\ClockSettings.inc
+
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
 cpuSettingsPath=#@#Settings\CpuSettings.inc
@@ -430,3 +434,13 @@ ToolTipText="View HWiNFO Tutorial"
 MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/Setup-Tutorial"]
+
+[StyleTutorialButton]
+ImageName=#imgPath#book.png
+Greyscale=1
+ImageTint=#colorAccent#
+X=(#contentMarginRight# - 15)
+Y=r
+W=15
+H=15
+Antialias=1
