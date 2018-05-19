@@ -167,12 +167,28 @@ end
 -- for use in other suites, do not include this section.
 -- --------------------------------------------------------------------------------
 
-function CustomText(input)
+function SetCustomCpuName(input)
+
+	local settingsPath = SKIN:GetVariable('cpuSettingsPath')
+	local configPath = SKIN:GetVariable('cpuMeterConfig')
 
 	if input == '' then
-		Set('customText', 'auto', 'CustomTextActionAuto')
+		Set('cpuName', 'auto', 'CustomCpuNameActionAuto')
 	else
-		Set('customText', input, 'CustomTextAction')
+		Set('cpuName', input, 'CustomCpuNameAction')
+	end
+
+end
+
+function SetCustomGpuName(input)
+
+	local settingsPath = SKIN:GetVariable('gpuSettingsPath')
+	local configPath = SKIN:GetVariable('gpuMeterConfig')
+
+	if input == '' then
+		Set('gpuName', 'auto', 'CustomGpuNameActionAuto')
+	else
+		Set('gpuName', input, 'CustomGpuNameAction')
 	end
 
 end
