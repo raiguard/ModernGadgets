@@ -9,7 +9,7 @@ notifyUpdates=1
 autoBackups=1
 rVersionKey=dev
 
-showBgBorder=0
+showBgBorder=1
 largeRowSpacing=0
 rowSpacing=1
 
