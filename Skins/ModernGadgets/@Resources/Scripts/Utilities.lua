@@ -39,7 +39,7 @@ end
 -- updates the toggle buttons for the current skin
 function UpdateToggles()
 
-  SKIN:Bang('!UpdateMeterGroup', 'ToggleButtons')
+  SKIN:Bang('!UpdateMeterGroup', 'Settings')
   SKIN:Bang('!Redraw')
 
 end

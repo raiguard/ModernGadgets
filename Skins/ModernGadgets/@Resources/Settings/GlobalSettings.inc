@@ -27,7 +27,7 @@ colorAccent=138,210,250
 
 colorBarBg=#colorBorder#
 
-colorButtonPress=255,50,50
+colorButtonPress=200,50,50
 
 colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#

@@ -225,7 +225,7 @@ H=16
 Padding=0,-1,0,0
 ClipString=1
 DynamicVariables=1
-Group=ToggleButtons
+Group=Settings
 
 [StyleStringToggleLabel]
 FontColor=#colorMain#
@@ -244,7 +244,7 @@ FontSize=12
 X=#contentMargin#
 Y=4R
 DynamicVariables=1
-Group=ToggleButtons
+Group=Settings
 Antialias=1
 
 [StyleRadioButton]
