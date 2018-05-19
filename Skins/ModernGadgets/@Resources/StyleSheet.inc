@@ -73,9 +73,9 @@ gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
 styleSheetPath=#@#StyleSheet.inc
 
-clockPath=#ROOTCONFIGPATH#Clock\Clock.ini
-clockConfig=ModernGadgets\Clock
-clockSettingsPath=#@#Settings\ClockSettings.inc
+chronometerPath=#ROOTCONFIGPATH#Chronometer\Chronometer.ini
+chronometerConfig=ModernGadgets\Chronometer
+chronometerSettingsPath=#@#Settings\ChronometerSettings.inc
 
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
