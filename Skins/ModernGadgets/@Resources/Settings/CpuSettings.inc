@@ -181,8 +181,8 @@ HWiNFO-CPU0-PackageTemp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
 HWiNFO-CPU0-PackageTemp-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
 HWiNFO-CPU0-PackageTemp-EntryId=0x100007e
 ; CPU Package Thermal Throttling [HWiNFO-CPU0-PackageTt]
-HWiNFO-CPU0-PackageTt-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
-HWiNFO-CPU0-PackageTt-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
+HWiNFO-CPU0-PackageTt-SensorId=0xf0000400
+HWiNFO-CPU0-PackageTt-SensorInstance=0x0
 HWiNFO-CPU0-PackageTt-EntryId=0x800000c
 
 ; Core 0 Voltage [HWiNFO-CPU0-Core0Vid]
@@ -346,8 +346,6 @@ HWiNFO-CPU0-PackageTt-EntryId=0x800000c
 HWiNFO-MOBO-CPUFan-SensorId=0xf7067910
 HWiNFO-MOBO-CPUFan-SensorInstance=0x0
 HWiNFO-MOBO-CPUFan-EntryId=0x3000001
-CoreTemp=coreTempSource
-SpeedFan=coreTempSource
 
 [HWiNFO-Config-Temperatures]
 HWiNFO-CPU0-Core0Temp=Core 0 Temperature
