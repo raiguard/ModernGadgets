@@ -21,6 +21,7 @@ function Initialize()
 	dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
 	measureTime = SKIN:GetMeasure('MeasureTime')
 	lapListHeight = tonumber(SELF:GetOption('LapListHeight', 5))
+	showHours = tonumber(SELF:GetOption('ShowHours', 1))
 	Reset()
 
 end
@@ -99,7 +100,8 @@ function FormatTimeString(time)
 	local tenths = round((time * 10) % 10)
 	if tenths == 10 then tenths = 0 end
 
-	return hours .. ':' .. minutes .. ':' .. seconds .. '.' .. tenths
+	if showHours == 1 then return hours .. ':' .. minutes .. ':' .. seconds .. '.' .. tenths
+		else return minutes .. ':' .. seconds .. '.' .. tenths end
 
 end
 
