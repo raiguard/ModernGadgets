@@ -1,53 +1,75 @@
 -- STOPWATCH SCRIPT
 
-baseTime = 0
 measureTime = 0
-rTime = 0
+realTime = 0
+deltaTime = 0
+elapsedTime = 0
 
-lapBaseTime = 0
+lapDeltaTime = 0
 lapTime = 0
 lapCount = 0
 lapScroll = 0
 laps = {}
 lapListHeight = 0
 
-debug = true
+paused = 0
+
+debug = false
 
 function Initialize()
 
 	dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
 	measureTime = SKIN:GetMeasure('MeasureTime')
 	lapListHeight = tonumber(SELF:GetOption('LapListHeight', 5))
+	Reset()
 
 end
 
 function Update()
 
-	rTime = measureTime:GetValue() - baseTime
+	realTime = measureTime:GetValue()
+	if paused == 1 then deltaTime = realTime - elapsedTime
+		else elapsedTime = (realTime - deltaTime) end
 
 end
 
-function GetTime() return rTime end
+function Reset()
 
-function GetLapTime() return rTime - lapBaseTime end
+	realTime = 0
+	deltaTime = 0
+	elapsedTime = 0
 
-function Lap()
+	lapDeltaTime = 0
+	lapTime = 0
+	lapCount = 0
+	lapScroll = 0
+	laps = {}
 
-	if lapScroll == lapCount then lapScroll = lapScroll + 1 end
-	lapCount = lapCount + 1
-	table.insert(laps, lapCount, { lap = FormatTimeString(GetLapTime()), total = FormatTimeString(rTime) })
-	lapBaseTime = rTime
-	-- LogHelper('Lap ' .. lapCount .. ' = ' .. laps[lapCount]['total'], 'Debug')
-	SKIN:Bang('!UpdateMeterGroup', 'LapMeters')
-	SKIN:Bang('!Redraw')
+	paused = 0
 
 end
+
+function GetTime() return FormatTimeString(elapsedTime) end
+
+function GetLapTime() return FormatTimeString(elapsedTime - lapDeltaTime) end
 
 function GetLap(lap, value)
 
 	if lapCount <= lap - 1 then return '-'
 	elseif value then return laps[lapScroll - (lap - 1)][value]
 		else return lapScroll - (lap - 1) end
+
+end
+
+function Lap()
+
+	if lapScroll == lapCount then lapScroll = lapScroll + 1 end
+	lapCount = lapCount + 1
+	table.insert(laps, lapCount, { lap = GetLapTime(), total = GetTime() })
+	lapDeltaTime = elapsedTime
+	LogHelper('Lap ' .. lapCount .. ' = ' .. laps[lapCount]['total'], 'Debug')
+	SKIN:Bang('!UpdateMeterGroup', 'LapMeters')
+	SKIN:Bang('!Redraw')
 
 end
 
@@ -71,25 +93,19 @@ end
 
 function FormatTimeString(time)
 
-	-- local timeString = tostring(round(time, 1))
-	-- local seconds, tenths = string.match(timeString, '(%d*)\.(%d*)')
-	-- seconds = tonumber(seconds)
-	-- tenths = tonumber(tenths)
-	-- if tenths == nil then tenths = 0 end
-	-- if seconds ~= nil then
-	-- 	local minutes = math.floor(seconds / 60)
-	-- 	seconds = seconds % 60
-	-- 	LogHelper(timeString)
-	-- 	return tostring(minutes .. ':' .. seconds .. '.' .. tenths)
-	-- end
+	local hours = tostring(math.floor((time / 3600) % 24)):gsub('(.+)', '0%1'):gsub('^%d(%d%d)$', '%1')
+	local minutes = tostring(math.floor((time / 60) % 60)):gsub('(.+)', '0%1'):gsub('^%d(%d%d)$', '%1')
+	local seconds = tostring(math.floor(time % 60)):gsub('(.+)', '0%1'):gsub('^%d(%d%d)$', '%1')
+	local tenths = round((time * 10) % 10)
+	if tenths == 10 then tenths = 0 end
 
-	-- LogHelper(tostring(round(time, 0)), 'Debug')
-	return round(time, 1)
+	return hours .. ':' .. minutes .. ':' .. seconds .. '.' .. tenths
 
 end
 
-function round(num, numDecimalPlaces)
-
-  return tonumber(string.format("%." .. (numDecimalPlaces or 0) .. "f", num))
-
+function round(x)
+  if x%2 ~= 0.5 then
+    return math.floor(x+0.5)
+  end
+  return x-0.5
 end
