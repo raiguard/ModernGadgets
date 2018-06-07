@@ -1,0 +1,173 @@
+[Rainmeter]
+Update=#gadgetUpdateRate#
+MiddleMouseUpAction=[!Refresh]
+MouseOverAction=[!ToggleMeterGroup ConfigButton][!Redraw]
+MouseLeaveAction=[!ToggleMeterGroup ConfigButton][!Redraw]
+AccurateText=1
+Group=ModernGadgets | MgGlobalRefresh
+
+; Custom Context Menu
+ContextTitle=Disks Meter settings
+ContextAction=[!ActivateConfig "ModernGadgets\Config\Disks" "Config.ini"]
+ContextTitle2=Global settings
+ContextAction2=[!ActivateConfig "ModernGadgets\Config\Global" "Config.ini"]
+ContextTitle3=Gadget manager
+ContextAction3=[!ActivateConfig "ModernGadgets\Config\GadgetManager" "Config.ini"]
+
+[Metadata]
+Name=Disks Meter
+Author=raiguard
+Information=A Rainmeter recreation of the Drives Meter gadget, updated and enhanced to give it a "modern" feel.
+License=Creative Commons BY-NC-SA 3.0
+Version=1.4.0-beta.2
+
+[Variables]
+@includeStyleSheet=#@#StyleSheet.inc
+@includeGlobalSettings=#@#Settings\GlobalSettings.inc
+@includeDisksSettings=#@#Settings\DisksSettings.inc
+
+@includeDynamicVariables=DynamicVars.inc
+
+dynamicVarsPath="#CURRENTPATH#DynamicVars.inc"
+
+userIsAdmin=1
+tempUserIsAdmin=
+
+[StyleStringDiskName]
+W=(#contentWidth# - 54)
+H=14
+ClipString=1
+DynamicVariables=1
+ToolTipText="Open file explorer"
+
+[StyleWriteArrow]
+ImageName=#imgPath#arrow-up.png
+X=#contentMargin#
+Y=#rowSpacing#R
+W=12
+H=13
+
+[StyleStringWrite]
+X=3R
+Y=r
+DynamicVariables=1
+
+[StyleReadArrow]
+ImageName=#imgPath#arrow-down.png
+X=#columnX#
+Y=-2r
+W=12
+H=13
+
+[StyleStringRead]
+X=3R
+Y=2r
+DynamicVariables=1
+
+[StyleStringDiskTemp]
+FontColor=#colorInfo#
+X=10r
+Y=r
+Text="%1#deg##tempUnits#"
+DynamicVariables=1
+
+[StyleStringDiskSpace]
+DynamicVariables=1
+
+; ========= Measures =========
+
+; ----- Utilities -----
+
+[MeasureDisksConfigScript]
+Measure=Script
+ScriptFile=#@#Scripts\Config\DisksConfig.lua
+
+[MeasureFixedPrecisionFormatScript]
+Measure=Script
+ScriptFile=#@#Scripts\FixedPrecisionFormat.lua
+
+[MeasureHwinfoDetect]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-SMART-DiskATemp-SensorId#
+HWiNFOSensorInstance=#HWiNFO-SMART-DiskATemp-SensorInstance#
+HWiNFOEntryId=#HWiNFO-SMART-DiskATemp-EntryId#
+HWiNFOLogHandler=2
+HWiNFOType=CurrentValue
+
+; ----- Admin Detection -----
+
+[MeasureUserName]
+Measure=Plugin
+Plugin=SysInfo
+SysInfoType=USER_NAME
+IfCondition=1
+IfTrueAction=[!CommandMeasure MeasureGetLocalGroup "Run"]
+
+[MeasureGetLocalGroup]
+Measure=Plugin
+Plugin=RunCommand
+Parameter=net localgroup Administrators
+OutputType=ANSI
+FinishAction=[!EnableMeasure MeasureUserAdmin][!UpdateMeasure MeasureUserAdmin]
+
+[MeasureUserAdmin]
+Measure=String
+String=[MeasureGetLocalGroup]
+IfMatch=(?s).*[MeasureUserName:EscapeRegExp].*
+IfMatchAction=[!SetVariable tempUserIsAdmin 1][!EnableMeasure MeasureUserAdminActions][!UpdateMeasure MeasureUserAdminActions]
+IfNotMatchAction=[!SetVariable tempUserIsAdmin 0][!EnableMeasure MeasureUserAdminActions][!UpdateMeasure MeasureUserAdminActions]
+DynamicVariables=1
+Disabled=1
+
+[MeasureUserAdminActions]
+Measure=Calc
+Formula=#userIsAdmin#
+IfCondition=(#userIsAdmin# = #tempUserIsAdmin#)
+IfFalseAction=[!SetVariable userIsAdmin #tempUserIsAdmin#][!WriteKeyValue Variables userIsAdmin #tempUserIsAdmin#][!UpdateMeasureGroup EjectButtons][!UpdateMeterGroup EjectButtons][!Redraw]
+DynamicVariables=1
+Disabled=1
+
+; ========= Meters =========
+
+[Background]
+Meter=Image
+MeterStyle=StyleBackground
+
+; ----- Title Bar -----
+
+[ConfigButton]
+Meter=Image
+MeterStyle=StyleSettingsButton
+
+[DiskIcon]
+Meter=Image
+ImageName=#imgPath#disk.png
+ImageTint=#colorInfo#
+X=(#contentMargin# - 1)
+Y=(#contentMargin# + 1)
+W=13
+H=11
+Antialias=1
+Hidden=0
+
+[GadgetNameString]
+Meter=String
+MeterStyle=StyleString | StyleStringGadgetHeader
+X=2R
+Text=Disks Meter
+
+; ----- Graph -----
+
+[GraphBackground]
+Meter=Image
+MeterStyle=StyleLineGraphBackground
+Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)r
+
+[LineGraphBgAdjustor]
+Meter=Image
+MeterStyle=StyleLineGraphBgAdjustor
+
+[BackgroundHeight]
+Meter=Image
+MeterStyle=StyleBackgroundHeight
