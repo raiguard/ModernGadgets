@@ -49,6 +49,7 @@ colorInputBorder=#colorBorder#
 colorInputText=200,200,200
 
 colorIntel=0,125,198
+colorSnapdragon=0,125,198
 
 histogramAlpha=50
 
