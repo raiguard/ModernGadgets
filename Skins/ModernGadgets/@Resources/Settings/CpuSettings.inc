@@ -1,5 +1,4 @@
 [Variables]
-tempUom=C
 ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
 threadCount=2
 
