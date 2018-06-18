@@ -1,7 +1,7 @@
 [Variables]
 tempUom=C
 ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
-threadCount=8
+threadCount=2
 
 ; Fixed precision format
 fpfRamDepth=4
@@ -57,19 +57,16 @@ showPageFile=0
 showCoreTemps=1
 showCoreVoltages=1
 showCpuTempGraph=1
-showTopProcess=0
+showTopProcess=1
 showCpuFan=1
 showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
 showTt=0
 playTtSound=0
-coreTempSource=HWiNFO
+coreTempSource=2
 
 cpuName=auto
-
-isHwinfoAvailable=1
-useHwinfoClock=1
 
 ; ====== DEFAULTS ======
 
@@ -180,6 +177,10 @@ HWiNFO-CPU0-Core17Temp-EntryId=0x1000011
 HWiNFO-CPU0-PackageTemp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
 HWiNFO-CPU0-PackageTemp-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
 HWiNFO-CPU0-PackageTemp-EntryId=0x100007e
+; CPU Core 0 Distance to TjMax [HWiNFO-CPU0-Core0TjMax]
+HWiNFO-CPU0-Core0TjMax-SensorId=0xf0000400
+HWiNFO-CPU0-Core0TjMax-SensorInstance=0x0
+HWiNFO-CPU0-Core0TjMax-EntryId=0x1000004
 ; CPU Package Thermal Throttling [HWiNFO-CPU0-PackageTt]
 HWiNFO-CPU0-PackageTt-SensorId=0xf0000400
 HWiNFO-CPU0-PackageTt-SensorInstance=0x0
@@ -338,6 +339,10 @@ HWiNFO-CPU0-PackageTemp-EntryId=0x100007e
 HWiNFO-CPU0-PackageTt-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
 HWiNFO-CPU0-PackageTt-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
 HWiNFO-CPU0-PackageTt-EntryId=0x800000c
+; CPU Ring Clock [HWiNFO-CPU0-RingClock]
+HWiNFO-CPU0-RingClock-SensorId=0xf0000300
+HWiNFO-CPU0-RingClock-SensorInstance=0x0
+HWiNFO-CPU0-RingClock-EntryId=0x6000005
 
 ;
 ; MOBO
@@ -365,6 +370,7 @@ HWiNFO-CPU0-Core13Temp=Core 13 Temperature
 HWiNFO-CPU0-Core14Temp=Core 14 Temperature
 HWiNFO-CPU0-Core15Temp=Core 15 Temperature
 HWiNFO-CPU0-PackageTemp=CPU Package Temperature
+HWiNFO-CPU0-Core0TjMax=Core 0 Distance to TjMax
 HWINFO-CPU0-PackageTt=CPU Package Thermal Throttling
 
 [HWiNFO-Config-Voltages]
@@ -402,3 +408,4 @@ HWiNFO-CPU0-Core12Clock=Core 12 Clock
 HWiNFO-CPU0-Core13Clock=Core 13 Clock
 HWiNFO-CPU0-Core14Clock=Core 14 Clock
 HWiNFO-CPU0-Core15Clock=Core 15 Clock
+HWiNFO-CPU0-RingClock=Ring/LLC Clock
