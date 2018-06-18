@@ -232,9 +232,17 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.4.0-beta.3 - 2018-6-??
+- Added tentative Snapdragon support to CPU Meter
+- Added support for CoreTemp and Speedfan in CPU Meter
+- Increased supported threads in CPU Meter from 36 to 64 (AMD Threadripper 2)
+- Updated dynamic settings system to v1.0.0 (public release)
+
 v1.4.0 - 2018-??-??
+- Added Chronometer
 - Added Process Meter
-- Added 36-thread support to CPU Meter
+- Added tentative Snapdragon support to CPU Meter
+- Added support for CoreTemp and Speedfan in CPU Meter
 - Added session total and simultaneous bits/bytes display to Network Meter
 - Added separate bits/bytes peak traffic displays to Network Meter
 - Added three additional GPU Meters for monitoring up to four GPUs simultaneously
@@ -244,6 +252,7 @@ v1.4.0 - 2018-??-??
 - Added global color customization
 - Added gadget update rate setting (not supported by all readings)
 - Added "open config file" buttons to all settings skins to allow access to more advanced settings
+- Increased supported threads in CPU Meter from 32 to 64 (AMD Threadripper 2)
 - Increased precision of readouts in Network Meter
 - Removed condensed font toggle for Network traffic (condensed is now the only option)
 - Removed dual GPU meter option (replaced by separate GPU Meters)
@@ -254,4 +263,5 @@ v1.4.0 - 2018-??-??
 - Refactored input box visuals
 - Deleted HWiNFO config tool in favor of the HWiNFO plugin's built-in tool (alpha)
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
+- Updated dynamic settings system to v1.0 (public release)
 - Changelog button now shows local changelog rather than the one from GitHub
