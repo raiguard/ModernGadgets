@@ -1,6 +1,6 @@
 [Variables]
 ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
-threadCount=2
+threadCount=64
 
 ; Fixed precision format
 fpfRamDepth=4
@@ -56,7 +56,7 @@ showPageFile=0
 showCoreTemps=1
 showCoreVoltages=1
 showCpuTempGraph=1
-showTopProcess=1
+showTopProcess=0
 showCpuFan=1
 showCpuClock=1
 showLineGraph=1
