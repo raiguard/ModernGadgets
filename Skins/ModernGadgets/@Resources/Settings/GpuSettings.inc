@@ -11,9 +11,6 @@ gpuName=auto
 
 useManualMaxVram=0
 maxVram=4096
-useMoboFanSensor=0
-
-dualGpuMode=0
 
 colorCoreUsage=255,246,42
 colorMemoryUsage=107,198,250

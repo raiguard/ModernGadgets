@@ -237,6 +237,7 @@ v1.4.0-beta.3 - 2018-6-??
 - Added support for CoreTemp and Speedfan in CPU Meter
 - Increased supported threads in CPU Meter from 36 to 64 (AMD Threadripper 2)
 - Updated dynamic settings system to v1.0.0 (public release)
+- Fixed error with the update checker reading a file while it was being written by WebParser
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
