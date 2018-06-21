@@ -265,3 +265,4 @@ v1.4.0 - 2018-??-??
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
 - Updated dynamic settings system to v1.0 (public release)
 - Changelog button now shows local changelog rather than the one from GitHub
+- Fixed error with the update checker reading a file while it was being written by WebParser
