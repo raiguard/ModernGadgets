@@ -247,6 +247,7 @@ v1.4.0 - 2018-??-??
 - Added Process Meter
 - Added tentative Snapdragon support to CPU Meter
 - Added support for CoreTemp and Speedfan in CPU Meter
+- Added dynamic fan display to CPU Meter
 - Added session total and simultaneous bits/bytes display to Network Meter
 - Added separate bits/bytes peak traffic displays to Network Meter
 - Added three additional GPU Meters for monitoring up to four GPUs simultaneously
