@@ -88,7 +88,7 @@ showCpuFan=1
 showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
-showTt=1
+showTt=0
 playTtSound=0
 coreTempSource=2
 
@@ -119,6 +119,7 @@ dColorCore16=99,125,217
 dColorCore17=43,224,152
 dColorCore18=227,242,10
 dColorTt=255,120,147
+dColorTempGraph=200,0,0
 dTtHistogramAlpha=50
 
 ; ===== HWiNFO =====

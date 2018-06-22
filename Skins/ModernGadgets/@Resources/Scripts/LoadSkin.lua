@@ -68,7 +68,7 @@ buttons will not update until one of the buttons is clicked or the skin is refre
 --------------------------------------------------
 ]]--
 
-debug = true
+debug = false
 
 function Initialize()
 
