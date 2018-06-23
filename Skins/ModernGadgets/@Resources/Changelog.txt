@@ -90,7 +90,7 @@ v1.0.0 - 2016-12-4
 
 Development Releases
 
-v1.4.0-beta.3 - 2018-6-21
+v1.4.0-beta.3 - 2018-6-22
 - Added tentative Snapdragon support to CPU Meter
 - Added support for CoreTemp and Speedfan in CPU Meter
 - Added dynamic fan display to CPU Meter
