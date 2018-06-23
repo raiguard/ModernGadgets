@@ -3,11 +3,13 @@
 
 LoadSkin.lua
 raiguard
-v1.3.0
+v2.0.0
 
 --------------------------------------------------
 
 Release Notes:
+v2.0.0 - 2018-6-22
+- Updated to use the new ConfigActive plugin rather than WebParser
 v1.3.0 - 2018-6-21
 - The script now gets the input from a WebParser measure, rather than directly parsing
   Rainmeter.ini (for Rainmeter 4.2+ compatibility)
@@ -24,7 +26,7 @@ This script loads / unlaods the specified skin or config, and sets parameters fo
 buttons related to those skins.
 
 
-INSTRUCTIONS FOR USE:
+INSTRUCTIONS FOR USE: (not updated yet!)
 Copy this file and paste it into your own suite, then create a Rainmeter script
 measure pointing to this file, like so:
 
@@ -72,105 +74,60 @@ debug = false
 
 function Initialize()
 
-	webParserName = SELF:GetOption('WebParser', 'MeasureWebParser')
-	webParser = SKIN:GetMeasure(webParserName)
-	rootConfig = SKIN:GetVariable('ROOTCONFIG') .. '\\'
-
 	toggleOn = SELF:GetOption('ToggleOn', '[#toggleOn]')
 	toggleOff = SELF:GetOption('ToggleOff', '[#toggleOff]')
+	radioOn = SELF:GetOption('RadioOn', toggleOn)
+	radioOff = SELF:GetOption('RadioOff', toggleOff)
 	toggleGroup = SELF:GetOption('ToggleGroup', 'SkinToggles')
-
-	iniTable = {}
 
 end
 
 function Update() end
 
-function UpdateIniTable()
-
-	iniTable = ReadIni(webParser:GetStringValue())
-	SKIN:Bang('!UpdateMeterGroup', toggleGroup)
-	SKIN:Bang('!Redraw')
-
-end
-
 -- Toggles the specified skin.
-function ToggleSkin(config, skin, variant, state)
-	-- CONFIG: The name of the config you wish to toggle, omitting the root config
-	-- SKIN (optional): The file name of the skin you wish to toggle
-	-- VARIANT (optional): The skin file's numeric location in the list of variants
-	-- STATE (optional): The state you wish to toggle to
-	config = rootConfig .. config
-	if variant == nil then variant = -1 end
-	local activeState = 0
-	if iniTable[config] ~= nil then activeState = tonumber(iniTable[config]['Active']) end
+function ToggleSkin(configName, configState, skinIni, activeIni, toState)
 
-	if skin == nil then
-		if activeState > 0 then
-			SKIN:Bang('!DeactivateConfig', config)
+	configName = configName:gsub('\\', '\\\\'):gsub('\\\\', '\\')
+	toState = toState or skinIni and (skinIni == activeIni and -1 or 1) or configState * -1
+
+	if toState == 1 then
+		if skinIni == nil then
+			SKIN:Bang('!ActivateConfig', configName)
 		else
-			SKIN:Bang('!ActivateConfig', config)
+			SKIN:Bang('!ActivateConfig', configName, skinIni)
 		end
 	else
-		if state == true then SKIN:Bang('!ActivateConfig', config, skin)
-		elseif state == false then SKIN:Bang('!DeactivateConfig', config, skin)
-		elseif activeState > 0 and activeState ~= variant then SKIN:Bang('!ActivateConfig', config, skin)
-		else SKIN:Bang('!ToggleConfig', config, skin) end
+		SKIN:Bang('!DeactivateConfig', configName)
 	end
 
-	SKIN:Bang('!CommandMeasure', webParserName, 'Update')
+	SKIN:Bang('!UpdateMeterGroup', toggleGroup)
+	SKIN:Bang('!Redraw')
+	return ''
 
 end
 
--- Returns whether or not the specified skin or variant is loaded.
-function GetIcon(config, variant)
+-- Returns the corresponding button state depending on the state of the skin
+function GetIcon(configState, skinIni, activeIni, radioOverride)
 
-	config = rootConfig .. config
-	if variant == nil then variant = -1 end
-	local state = 0
-	if iniTable[config] ~= nil then state = tonumber(iniTable[config]['Active']) end
+	if activeIni == nil then
+		if configState == 1 then return toggleOn
+		else return toggleOff end
+	else
+		if activeIni == skinIni then return radioOverride and toggleOn or radioOn
+		else return radioOverride and toggleOff or radioOff end
+	end
 
-	if state == variant then return toggleOn
-	elseif state > 0 and variant == -1 then return toggleOn
-	else return toggleOff end
-
-end
-
--- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
-function ReadIni(file)
-  local tbl, num, section = {}, 0
-
-  for line in string.gmatch(file,'[^\r\n]+') do
-    num = num + 1
-    if not line:match('^%s-;') then
-      local key, command = line:match('^([^=]+)=(.+)')
-        if line:match('^%s-%[.+') then
-          section = line:match('^%s-%[([^%]]+)')
-            if section == '' or not section then
-              section = nil
-              LogHelper('ReadINI: Empty section name found in source', 'Debug')
-            end
-            if not tbl[section] then tbl[section] = {} end
-        elseif key and command and section then
-          tbl[section][key:match('^%s*(%S*)%s*$')] = command:match('^%s*(.-)%s*$')
-        elseif #line > 0 and section and not key or command then
-          LogHelper('ReadINI: ' .. num .. ': Invalid property or value.', 'Debug')
-        end
-      end
-    end
-
-    if not section then LogHelper('ReadINI: No sections found in source', 'Debug') end
-   
-    return tbl
 end
 
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
-  	if debug == true then
-    	SKIN:Bang("!Log", message, type)
-  	elseif type ~= 'Debug' then
-  		SKIN:Bang("!Log", message, type)
+  if type == nil then type = 'Debug' end
+
+  if debug == true then
+    SKIN:Bang("!Log", message, type)
+  elseif type ~= 'Debug' then
+  	SKIN:Bang("!Log", message, type)
 	end
 
 end
