@@ -431,3 +431,8 @@ ToolTipText=View HWiNFO Tutorial
 MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/Setup-Tutorial"]
+
+[StyleStringHwinfoAlpha]
+FontSize=8
+FontColor=#colorInfo#
+Text=NOTE: The new SMV is currently in an early alpha. The user interface is unfinished and there may be bugs. Proceed at your own risk!
