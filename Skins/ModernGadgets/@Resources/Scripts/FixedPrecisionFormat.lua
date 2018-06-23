@@ -97,7 +97,7 @@
 -- ; display inbound bytes/sec; e.g., "12.34 MB/s"
 -- [MeterNetIn]
 -- Meter=String
--- Text="#TextNetIn#B/s"
+-- Text=#TextNetIn#B/s
 -- DynamicVariables=1
 --
 -- ; alternative approach

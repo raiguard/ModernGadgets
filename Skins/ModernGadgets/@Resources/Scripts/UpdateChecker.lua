@@ -1,77 +1,82 @@
--- ------------------------------------------------
--- Update Checker for Rainmeter
--- v4.0.0
--- By raiguard
---
--- Modified form of 'semver.lua' by kikito (https://github.com/kikito/semver.lua)
---
--- ------------------------------------------------
---
--- Release Notes:
--- v4.0.0 - Removed hard-coded actions and replaced with arguments in the script
---          measure; implemented "semver.lua" for more robust comparisons;
---          switched to using INI format for the remote version data; added
---          'GetIniValue' function for retrieving other information from remote
--- v3.0.0 - Added support for update checking on development versions
--- v2.1.0 - Fixed oversight where if the user is on a development version for an
---          outdated release, it would not return UpdateAvailable(), added
---          'ParsingError' return
--- v2.0.0 - Removed dependancy on an output meter in favor of hard-coded actions,
---          added more documentation
--- v1.0.1 - Optimized gmatch function, more debug functionality
--- v1.0.0 - Initial release
---
--- --------------------------------------------------
---
--- This script compares two Semantic Versioning-formatted version strings to
--- determine which one is newer, then takes action depending on the outcome
--- of the comparison. It is intended for use as an "update checker" for Rainmeter
--- skins, allowing you to notify your users when an update is available.
---
--- Please keep in mind that version strings must be formatted using the Semantic
--- Versioning 2.0.0 format. See http://semver.org/ for additional information.
---
--- --------------------
---
--- INSTRUCTIONS FOR USE:
---
--- [MeasureUpdateCheckerScript]
--- Measure=Script
--- Script=#@#Scripts\UpdateChecker.lua
--- UpToDateAction=[!ShowMeter "UpToDateString"]
--- DevAction=[!ShowMeter "DevString"]
--- UpdateAvailable=[!ShowMeter "UpdateAvailableString"]
--- ParsingErrorAction=[!ShowMeter "ParsingErrorString"]
--- 
--- This is an example of the script measure you will use to invoke this script.
--- Each action option is a series of bangs to execute when that outcome is
--- reached by the comparison function. There is a fifth option, 'FilePath', that
--- can be used to override the default file path of the downloaded file. It
--- defaults to '#CURRENTPATH#\DownloadFile\Release.inc'. This is mainly used for
--- the example, but could have some potential usecases in certain situations.
---
--- [MeasureUpdateWebParser]
--- Measure=Plugin
--- Plugin=WebParser
--- URL=#updateCheckerUrl#
--- Download=1
--- OnConnectErrorAction=[!Log "Could not connect to update server" "Error"]
--- FinishAction=[!CommandMeasure MeasureUpdateCheckerScript "CheckForUpdate('#version#', '#section#', '#key#', 'MeasureUpdateWebParser')"]
---
--- This is an example of the webparser measure used to download the remote file.
--- The important thing to note here is the last argument on the 'FinishAction'
--- line. This must be the name of the WebParser measure, whatever that may
--- be. The reason for this is that the path to the file that WebParser
--- downloads is provided as the string value of the measure, and the script
--- must be able to access it if the 'FilePath' argument in the script measure
--- is not specified.
---
--- There is one more capability of this script: retrieving any of the values
--- contained in the downloaded INI file. This allows you to, for example,
--- display the changelog of the most recent version in the skin directly.
--- It is also used to display the remote version that is being compared with
--- the local version.
---
+--[[
+--------------------------------------------------
+
+Update Checker for Rainmeter
+v4.1.0
+By raiguard
+
+Modified form of 'semver.lua' by kikito (https://github.com/kikito/semver.lua)
+
+--------------------------------------------------
+
+Release Notes:
+v4.1.0 - Switched to using the WebParser measure output rather than a downloaded
+        file for the ReadINI function
+v4.0.0 - Removed hard-coded actions and replaced with arguments in the script
+        measure; implemented "semver.lua" for more robust comparisons;
+        switched to using INI format for the remote version data; added
+        'GetIniValue' function for retrieving other information from remote
+v3.0.0 - Added support for update checking on development versions
+v2.1.0 - Fixed oversight where if the user is on a development version for an
+        outdated release, it would not return UpdateAvailable(), added
+        'ParsingError' return
+v2.0.0 - Removed dependancy on an output meter in favor of hard-coded actions,
+        added more documentation
+v1.0.1 - Optimized gmatch function, more debug functionality
+v1.0.0 - Initial release
+
+--------------------------------------------------
+
+This script compares two Semantic Versioning-formatted version strings to
+determine which one is newer, then takes action depending on the outcome
+of the comparison. It is intended for use as an "update checker" for Rainmeter
+skins, allowing you to notify your users when an update is available.
+
+Please keep in mind that version strings must be formatted using the Semantic
+Versioning 2.0.0 format. See http://semver.org/ for additional information.
+
+--------------------------------------------------
+
+INSTRUCTIONS FOR USE:
+
+[MeasureUpdateCheckerScript]
+Measure=Script
+Script=#@#Scripts\UpdateChecker.lua
+UpToDateAction=[!ShowMeter "UpToDateString"]
+DevAction=[!ShowMeter "DevString"]
+UpdateAvailableAction=[!ShowMeter "UpdateAvailableString"]
+ParsingErrorAction=[!ShowMeter "ParsingErrorString"]
+
+This is an example of the script measure you will use to invoke this script.
+Each action option is a series of bangs to execute when that outcome is
+reached by the comparison function.
+
+[MeasureUpdateWebParser]
+Measure=Plugin
+Plugin=WebParser
+URL=#updateCheckerUrl#
+UpdateRate=1800
+RegExp=(?siU)^(.*)$
+StringIndex=1
+UpdateRate=#updateCheckRate#
+OnConnectErrorAction=[!Log "Could not connect to update server" "Error"]
+FinishAction=[!CommandMeasure MeasureUpdateCheckerScript "CheckForUpdate('#version#', '#section#', '#key#', 'MeasureUpdateWebParser')"]
+Disabled=(#notifyUpdates# = 0)
+
+This is an example of the webparser measure used to download the information.
+The important thing to note here is the last argument on the 'FinishAction'
+line. This must be the name of the WebParser measure, whatever that may
+be. This allows the script to actually retrieve the string that was downloaded,
+which lets the update check actually take place.
+
+There is one more capability of this script: retrieving any of the values
+contained in the downloaded INI file. This allows you to, for example,
+display the changelog of the most recent version in the skin directly.
+It could also be used to display the remote version that is being compared
+with the local version (i.e "Update v1.4.0 is available!")
+
+--------------------------------------------------
+]]--
 
 debug = false
 
@@ -82,7 +87,6 @@ function Initialize()
   parsingErrorAction = SELF:GetOption('ParsingErrorAction')
   devAction = SELF:GetOption('DevAction')
   if devAction == '' or devAction == nil then devAction = upToDateAction end
-  filePath = SELF:GetOption('FilePath')
 
 end
 
@@ -93,9 +97,8 @@ function CheckForUpdate(cVersion, section, key, measure)
   -- section: The section in the INI file that the remote version is contained in
   -- key: The key in the INI file that the remote version is contained in
   -- measure: The name of the WebParser measure that downloaded the file
-  if filePath == '' then filePath = SKIN:GetMeasure(measure):GetStringValue() end
-  LogHelper(filePath, 'Debug')
-  updateFile = ReadIni(filePath)
+  inputFile = SKIN:GetMeasure(measure):GetStringValue()
+  updateFile = ReadIni(inputFile)
   -- create version objects
   local cVersion = v(cVersion)
   local rVersion = v(updateFile[section][key])
@@ -104,7 +107,7 @@ function CheckForUpdate(cVersion, section, key, measure)
     LogHelper('Up-to-date', 'Debug')
     SKIN:Bang(upToDateAction)
   elseif cVersion > rVersion then
-    LogHelper('Up-to-date', 'Debug')
+    LogHelper('Development version', 'Debug')
     SKIN:Bang(devAction)
   elseif cVersion < rVersion then
     LogHelper('Update available', 'Debug')
@@ -130,73 +133,77 @@ end
 -- function to make logging messages less cluttered
 function LogHelper(message, type)
 
+  if type == nil then type = 'Debug' end
+
   if debug == true then
     SKIN:Bang("!Log", message, type)
-  elseif type ~= 'Debug' and type ~= nil then
+  elseif type ~= 'Debug' then
     SKIN:Bang("!Log", message, type)
   end
 
 end
 
 -- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
-function ReadIni(inputfile)
-   local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
-   local tbl, num, section = {}, 0
+function ReadIni(file)
+  local tbl, num, section = {}, 0
 
-   for line in file:lines() do
-      num = num + 1
-      if not line:match('^%s-;') then
-         local key, command = line:match('^([^=]+)=(.+)')
-         if line:match('^%s-%[.+') then
-            section = line:match('^%s-%[([^%]]+)')
+  for line in string.gmatch(file,'[^\r\n]+') do
+    num = num + 1
+    if not line:match('^%s-;') then
+      local key, command = line:match('^([^=]+)=(.+)')
+        if line:match('^%s-%[.+') then
+          section = line:match('^%s-%[([^%]]+)')
             if section == '' or not section then
-               section = nil
-               LogHelper('Empty section name found in ' .. inputfile, 'Debug')
+              section = nil
+              LogHelper('ReadINI: Empty section name found in source', 'Debug')
             end
             if not tbl[section] then tbl[section] = {} end
-         elseif key and command and section then
-            tbl[section][key:match('^%s*(%S*)%s*$')] = command:match('^%s*(.-)%s*$')
-         elseif #line > 0 and section and not key or command then
-            LogHelper(num .. ': Invalid property or value.', 'Debug')
-         end
+        elseif key and command and section then
+          tbl[section][key:match('^%s*(%S*)%s*$')] = command:match('^%s*(.-)%s*$')
+        elseif #line > 0 and section and not key or command then
+          LogHelper('ReadINI: ' .. num .. ': Invalid property or value.', 'Debug')
+        end
       end
-   end
+    end
 
-   file:close()
-   if not section then LogHelper('No sections found in ' .. inputfile, 'Debug') end
+    if not section then LogHelper('ReadINI: No sections found in source', 'Debug') end
    
-   return tbl
+    return tbl
 end
 
---
--- ------------------------------------------------
---
--- SEMVER.LUA
--- By kitito
---
--- MIT LICENSE
---
--- Copyright (c) 2015 Enrique García Cota
---
--- Permission is hereby granted, free of charge, to any person obtaining a
--- copy of tother software and associated documentation files (the
--- "Software"), to deal in the Software without restriction, including
--- without limitation the rights to use, copy, modify, merge, publish,
--- distribute, sublicense, and/or sell copies of the Software, and to
--- permit persons to whom the Software is furnished to do so, subject to
--- the following conditions:
---
--- The above copyright notice and tother permission notice shall be included
--- in all copies or substantial portions of the Software.
---
--- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
--- OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
--- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
--- IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
--- CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
--- TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
--- SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
---
+
+--[[
+  --------------------------------------------------
+
+  SEMVER.LUA
+  By kitito
+
+  MIT LICENSE
+
+  Copyright (c) 2015 Enrique García Cota
+
+  Permission is hereby granted, free of charge, to any person obtaining a
+  copy of tother software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and tother permission notice shall be included
+  in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+  --------------------------------------------------
+]]--
+
 
 local function checkPositiveInteger(number, name)
   assert(number >= 0, name .. ' must be a valid positive number')

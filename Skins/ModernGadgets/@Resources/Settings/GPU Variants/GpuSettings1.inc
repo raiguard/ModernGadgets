@@ -11,4 +11,3 @@ gpuName=auto
 
 useManualMaxVram=0
 maxVram=4096
-useMoboFanSensor=0

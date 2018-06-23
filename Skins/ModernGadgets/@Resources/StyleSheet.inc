@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.4.0-beta.2
+mgVersion=1.4.0-beta.3
 
 ; Positioning
 bgOffset=5
@@ -49,6 +49,7 @@ colorInputBorder=#colorBorder#
 colorInputText=200,200,200
 
 colorIntel=0,125,198
+colorSnapdragon=0,80,198
 
 histogramAlpha=50
 
@@ -292,7 +293,7 @@ Y=(#contentMargin# - 5)
 W=24
 H=24
 Antialias=0
-ToolTipText="Close"
+ToolTipText=Close
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
 
@@ -305,7 +306,7 @@ StringAlign=Right
 X=(#contentMarginRight# - 18)
 Y=(#contentMargin# - 2)
 Text=[\x6c]
-ToolTipText="Open configuration file to edit manually"
+ToolTipText=Open configuration file to edit manually
 
 [StyleConfigButton]
 ImageName=#imgPath#Wrench.png
@@ -338,7 +339,7 @@ ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a col
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
 ImageTint=120,120,120
-ToolTipText="Eject"
+ToolTipText=Eject
 X=13R
 Y=r
 W=14
@@ -410,7 +411,7 @@ Group=HwinfoSmvButton
 X=5R
 Y=5r
 FontSize=9
-Text="Open Shared Memory Viewer"
+Text=Open Shared Memory Viewer
 Group=HwinfoSmvButton
 
 [StyleHwinfoSmvButtonIcon]
@@ -430,7 +431,7 @@ Y=r
 W=15
 H=15
 Antialias=1
-ToolTipText="View HWiNFO Tutorial"
+ToolTipText=View HWiNFO Tutorial
 MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/Setup-Tutorial"]
@@ -444,3 +445,9 @@ Y=r
 W=15
 H=15
 Antialias=1
+
+[StyleStringHwinfoAlpha]
+FontSize=8
+FontColor=#colorInfo#
+Text=NOTE: The new SMV is currently in an early alpha. The user interface is unfinished and there may be bugs. Proceed at your own risk!
+
