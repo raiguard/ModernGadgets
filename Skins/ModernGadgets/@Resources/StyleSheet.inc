@@ -318,8 +318,8 @@ ImageTint=#colorMain#
 Antialias=1
 Hidden=1
 Group=ConfigButton
-MouseOverAction=[!SetOption MeterConfigButton ImageTint "#colorButtonPress#"][!UpdateMeter MeterConfigButton][!Redraw]
-MouseLeaveAction=[!SetOption MeterConfigButton ImageTint ""][!UpdateMeter MeterConfigButton][!Redraw]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
 
 [StyleHelpButton]
