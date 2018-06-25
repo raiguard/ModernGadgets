@@ -1,9 +1,10 @@
 [Variables]
 timeFormat=WinLong
 dateFormat=WinLong
-customTimeFormat=%I:%M:%S
+customTimeFormat=%I:%M:%S %p
 customDateFormat=%m.%d.%G
 showSystemUptime=1
+timeAmPmSize=12
 
 ; Colors
 colorStopwatchMain=107,238,98
