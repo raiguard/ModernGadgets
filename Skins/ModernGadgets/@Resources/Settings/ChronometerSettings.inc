@@ -1,7 +1,8 @@
 [Variables]
-primaryTimeFormat=%H:%M:%S
-primaryDateFormat=%m.%d.%G
-useDefaultPrimaryTimeFormat=1
+timeFormat=WinLong
+dateFormat=WinLong
+customTimeFormat=%I:%M:%S
+customDateFormat=%m.%d.%G
 showSystemUptime=1
 
 ; Colors
