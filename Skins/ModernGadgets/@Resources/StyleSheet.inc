@@ -435,15 +435,7 @@ H=21
 Group=HwinfoSmvButton
 
 [StyleHwinfoTutorialButton]
-ImageName=#imgPath#book.png
-Greyscale=1
-ImageTint=#colorAccent#
-X=(#contentMarginRight# - 15)
-Y=r
-W=15
-H=15
-Antialias=1
-ToolTipText=View HWiNFO Tutorial
+ToolTipText=View HWiNFO Configuration Tutorial
 MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/Setup-Tutorial"]
