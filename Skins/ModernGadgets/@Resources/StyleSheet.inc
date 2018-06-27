@@ -359,6 +359,20 @@ H=11
 Antialias=1
 DynamicVariables=1
 
+[StyleRefreshButton]
+ImageName=#imgPath#refresh-up.png
+ImageTint=#colorAccent#
+X=3R
+Y=r
+W=13
+H=13
+DynamicVariables=1
+Antialias=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+LeftMouseDownAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
 ; Line Graph
 [StyleLineGraphBackground]
 ImageName=#imgPath#border.png
@@ -439,6 +453,13 @@ ToolTipText=View HWiNFO Configuration Tutorial
 MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/HWiNFO-Configuration"]
+
+[StyleHwinfoRefreshGadgetButton]
+X=-20r
+Y=r
+W=15
+H=15
+ToolTipText=Refresh Gadget
 
 [StyleStringHwinfoAlpha]
 FontSize=8
