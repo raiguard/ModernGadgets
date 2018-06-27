@@ -242,6 +242,10 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.4.0-beta.4 - 2018-??-??
+- Added SpeedFan configuration to CPU Meter settings
+- Fixed SpeedFan core temperatures all showing Core 0 temperature
+
 v1.4.0 - 2018-??-??
 - Added Chronometer
 - Added Process Meter
