@@ -6,6 +6,26 @@ threadCount=64
 fpfRamDepth=4
 fpfPageDepth=4
 
+; SpeedFan Configuration
+sfCoreTemp=10
+sfCpuFan=1
+
+; Settings
+showCpuName=1
+showPageFile=0
+showCoreTemps=1
+showCoreVoltages=1
+showCpuTempGraph=1
+showTopProcess=0
+showCpuFan=1
+showCpuClock=1
+showLineGraph=1
+showAvgCpu=0
+showTt=0
+playTtSound=0
+
+cpuName=auto
+
 ; Colors
 colorRam=107,198,250
 colorPage=255,204,0
@@ -77,22 +97,6 @@ colorCore61=#colorCore13#
 colorCore62=#colorCore14#
 colorCore63=#colorCore15#
 colorCore64=#colorCore16#
-
-showCpuName=1
-showPageFile=0
-showCoreTemps=1
-showCoreVoltages=1
-showCpuTempGraph=1
-showTopProcess=0
-showCpuFan=1
-showCpuClock=1
-showLineGraph=1
-showAvgCpu=0
-showTt=0
-playTtSound=0
-coreTempSource=2
-
-cpuName=auto
 
 ; ====== DEFAULTS ======
 

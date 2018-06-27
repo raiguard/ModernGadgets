@@ -211,6 +211,12 @@ W=#contentWidth#
 H=19
 ScaleMargins=2,2,2,2
 
+[StyleInputBoxBackgroundAdjacent]
+X=5R
+Y=r
+W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin#)
+DynamicVariables=1
+
 [StyleStringInputBox]
 FontSize=10
 FontFace=Roboto
@@ -327,6 +333,16 @@ H=14
 Antialias=0
 ToolTipIcon=Info
 ToolTipWidth=300
+
+[StyleTutorialButton]
+ImageName=#imgPath#book.png
+Greyscale=1
+ImageTint=#colorAccent#
+X=(#contentMarginRight# - 15)
+Y=r
+W=15
+H=15
+Antialias=1
 
 [StyleColorsHelpButton]
 ToolTipTitle=Color Customization
