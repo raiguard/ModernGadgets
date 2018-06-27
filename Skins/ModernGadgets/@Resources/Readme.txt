@@ -15,7 +15,7 @@ This skin suite requires Rainmeter 4.1 or above, as well as .NET Framework v4.5 
 ----------------------------------------
 LICENSE AND CREDITS
 
-This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
+This software is released to you under a Creative Commons Attribution - Non - Commercial - Share Alike 3.0 license.
 Source code is available on GitHub under the MIT License.
 
 Designed and programmed by Caleb Heuer (raiguard).
