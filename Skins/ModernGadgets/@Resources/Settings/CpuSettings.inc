@@ -6,6 +6,26 @@ threadCount=64
 fpfRamDepth=4
 fpfPageDepth=4
 
+; SpeedFan Configuration
+sfCoreTemp=10
+sfCpuFan=1
+
+; Settings
+showCpuName=1
+showPageFile=0
+showCoreTemps=1
+showCoreVoltages=1
+showCpuTempGraph=1
+showTopProcess=0
+showCpuFan=1
+showCpuClock=1
+showLineGraph=1
+showAvgCpu=0
+showTt=0
+playTtSound=0
+
+cpuName=auto
+
 ; Colors
 colorRam=107,198,250
 colorPage=255,204,0
@@ -77,22 +97,6 @@ colorCore61=#colorCore13#
 colorCore62=#colorCore14#
 colorCore63=#colorCore15#
 colorCore64=#colorCore16#
-
-showCpuName=1
-showPageFile=0
-showCoreTemps=1
-showCoreVoltages=1
-showCpuTempGraph=1
-showTopProcess=0
-showCpuFan=1
-showCpuClock=1
-showLineGraph=1
-showAvgCpu=0
-showTt=0
-playTtSound=0
-coreTempSource=2
-
-cpuName=auto
 
 ; ====== DEFAULTS ======
 
@@ -336,11 +340,67 @@ HWiNFO-CPU0-Core15Vid-EntryId=0x200000f
 ; Core 16 Voltage [HWiNFO-CPU0-Core16Vid]
 HWiNFO-CPU0-Core16Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
 HWiNFO-CPU0-Core16Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
-HWiNFO-CPU0-Core16Vid-EntryId=0x1000010
+HWiNFO-CPU0-Core16Vid-EntryId=0x2000010
 ; Core 17 Voltage [HWiNFO-CPU0-Core17Vid]
 HWiNFO-CPU0-Core17Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
 HWiNFO-CPU0-Core17Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
-HWiNFO-CPU0-Core17Vid-EntryId=0x1000011
+HWiNFO-CPU0-Core17Vid-EntryId=0x2000011
+; Core 18 Voltage [HWiNFO-CPU0-Core18Vid]
+HWiNFO-CPU0-Core18Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core18Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core18Vid-EntryId=0x2000012
+; Core 19 Voltage [HWiNFO-CPU0-Core19Vid]
+HWiNFO-CPU0-Core19Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core19Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core19Vid-EntryId=0x2000013
+; Core 20 Voltage [HWiNFO-CPU0-Core20Vid]
+HWiNFO-CPU0-Core20Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core20Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core20Vid-EntryId=0x2000014
+; Core 21 Voltage [HWiNFO-CPU0-Core21Vid]
+HWiNFO-CPU0-Core21Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core21Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core21Vid-EntryId=0x2000015
+; Core 22 Voltage [HWiNFO-CPU0-Core22Vid]
+HWiNFO-CPU0-Core22Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core22Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core22Vid-EntryId=0x2000016
+; Core 23 Voltage [HWiNFO-CPU0-Core23Vid]
+HWiNFO-CPU0-Core23Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core23Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core23Vid-EntryId=0x2000017
+; Core 24 Voltage [HWiNFO-CPU0-Core24Vid]
+HWiNFO-CPU0-Core24Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core24Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core24Vid-EntryId=0x2000018
+; Core 25 Voltage [HWiNFO-CPU0-Core25Vid]
+HWiNFO-CPU0-Core25Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core25Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core25Vid-EntryId=0x2000019
+; Core 26 Voltage [HWiNFO-CPU0-Core26Vid]
+HWiNFO-CPU0-Core26Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core26Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core26Vid-EntryId=0x200001a
+; Core 27 Voltage [HWiNFO-CPU0-Core27Vid]
+HWiNFO-CPU0-Core27Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core27Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core27Vid-EntryId=0x200001b
+; Core 28 Voltage [HWiNFO-CPU0-Core28Vid]
+HWiNFO-CPU0-Core28Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core28Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core28Vid-EntryId=0x200001c
+; Core 29 Voltage [HWiNFO-CPU0-Core29Vid]
+HWiNFO-CPU0-Core29Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core29Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core29Vid-EntryId=0x200001d
+; Core 30 Voltage [HWiNFO-CPU0-Core30Vid]
+HWiNFO-CPU0-Core30Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core30Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core30Vid-EntryId=0x200001e
+; Core 31 Voltage [HWiNFO-CPU0-Core31Vid]
+HWiNFO-CPU0-Core31Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
+HWiNFO-CPU0-Core31Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core31Vid-EntryId=0x200001f
 
 ; CPU Ring Clock [HWiNFO-CPU0-RingClock]
 HWiNFO-CPU0-RingClock-SensorId=0xf0000300

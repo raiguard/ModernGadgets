@@ -215,6 +215,12 @@ W=#contentWidth#
 H=19
 ScaleMargins=2,2,2,2
 
+[StyleInputBoxBackgroundAdjacent]
+X=5R
+Y=r
+W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin#)
+DynamicVariables=1
+
 [StyleStringInputBox]
 FontSize=10
 FontFace=Roboto
@@ -332,6 +338,16 @@ Antialias=0
 ToolTipIcon=Info
 ToolTipWidth=300
 
+[StyleTutorialButton]
+ImageName=#imgPath#book.png
+Greyscale=1
+ImageTint=#colorAccent#
+X=(#contentMarginRight# - 15)
+Y=r
+W=15
+H=15
+Antialias=1
+
 [StyleColorsHelpButton]
 ToolTipTitle=Color Customization
 ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a color to reset it to its default value. Once you are finished, click the 'apply color changes' button.
@@ -346,6 +362,20 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
+
+[StyleRefreshButton]
+ImageName=#imgPath#refresh-up.png
+ImageTint=#colorAccent#
+X=3R
+Y=r
+W=13
+H=13
+DynamicVariables=1
+Antialias=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+LeftMouseDownAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
 ; Line Graph
 [StyleLineGraphBackground]
@@ -423,18 +453,17 @@ H=21
 Group=HwinfoSmvButton
 
 [StyleHwinfoTutorialButton]
-ImageName=#imgPath#book.png
-Greyscale=1
-ImageTint=#colorAccent#
-X=(#contentMarginRight# - 15)
+ToolTipText=View HWiNFO Configuration Tutorial
+MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
+MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/HWiNFO-Configuration"]
+
+[StyleHwinfoRefreshGadgetButton]
+X=-20r
 Y=r
 W=15
 H=15
-Antialias=1
-ToolTipText=View HWiNFO Tutorial
-MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
-MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
-LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/Setup-Tutorial"]
+ToolTipText=Refresh Gadget
 
 [StyleTutorialButton]
 ImageName=#imgPath#book.png
