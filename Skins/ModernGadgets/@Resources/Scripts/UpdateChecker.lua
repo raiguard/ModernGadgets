@@ -165,7 +165,7 @@ function AssembleReleaseInfo(jsonTable)
       releases[1] = {}
       releases[1]['name'] = jsonTable[k]['tag_name']:gsub('v', '')
       releases[1]['date'] = jsonTable[k]['published_at']:gsub('(.*)T(.*)', '%1')
-      releases[1]['changelog'] = 'v' .. releases[1]['name'] .. ' - ' .. releases[1]['date'] .. ':\n' .. jsonTable[k]['body']:gsub('\r\n', '\n')
+      releases[1]['changelog'] = 'v' .. releases[1]['name'] .. ' - ' .. releases[1]['date'] .. '\n' .. jsonTable[k]['body']:gsub('\r\n', '\n')
       releases[1]['downloadUrl'] = jsonTable[k]['assets'][1]['browser_download_url']
     end
   end
