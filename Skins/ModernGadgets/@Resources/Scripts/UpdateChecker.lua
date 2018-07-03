@@ -11,7 +11,7 @@ Implements 'JSON.lua' by rxi (https://github.com/rxi/json.lua)
 --------------------------------------------------
 
 Release Notes:
-v5.0.0 - 2018-7.2:
+v5.0.0 - 2018-7-2:
 - Switched to use GitHub REST v3 API, rather than a customized INI file
 v4.1.0 - 2018-6-21:
 - Switched to using the WebParser measure output rather than a downloaded file
