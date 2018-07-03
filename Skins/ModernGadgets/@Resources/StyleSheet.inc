@@ -74,6 +74,10 @@ gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
 
 styleSheetPath=#@#StyleSheet.inc
 
+chronometerPath=#ROOTCONFIGPATH#Chronometer\Chronometer.ini
+chronometerConfig=ModernGadgets\Chronometer
+chronometerSettingsPath=#@#Settings\ChronometerSettings.inc
+
 cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
 cpuMeterConfig=ModernGadgets\CPU
 cpuSettingsPath=#@#Settings\CpuSettings.inc
@@ -310,7 +314,7 @@ Y=(#contentMargin# - 2)
 Text=[\x6c]
 ToolTipText=Open configuration file to edit manually
 
-[StyleSettingsButton]
+[StyleConfigButton]
 ImageName=#imgPath#Wrench.png
 X=(#contentMarginRight# - 10)
 Y=(#contentMargin# + 2)
@@ -320,8 +324,8 @@ ImageTint=#colorMain#
 Antialias=1
 Hidden=1
 Group=ConfigButton
-MouseOverAction=[!SetOption ConfigButton ImageTint "#colorButtonPress#"][!UpdateMeter ConfigButton][!Redraw]
-MouseLeaveAction=[!SetOption ConfigButton ImageTint ""][!UpdateMeter ConfigButton][!Redraw]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
 
 [StyleHelpButton]
@@ -461,7 +465,18 @@ W=15
 H=15
 ToolTipText=Refresh Gadget
 
+[StyleTutorialButton]
+ImageName=#imgPath#book.png
+Greyscale=1
+ImageTint=#colorAccent#
+X=(#contentMarginRight# - 15)
+Y=r
+W=15
+H=15
+Antialias=1
+
 [StyleStringHwinfoAlpha]
 FontSize=8
 FontColor=#colorInfo#
 Text=NOTE: The new SMV is currently in an early alpha. The user interface is unfinished and there may be bugs. Proceed at your own risk!
+
