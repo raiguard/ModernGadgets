@@ -5,6 +5,7 @@ isHwinfoAvailable=1
 
 notifyUpdates=1
 autoBackups=1
+checkForPrereleases=1
 rVersionKey=dev
 
 showBgBorder=1

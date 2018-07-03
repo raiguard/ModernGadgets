@@ -246,6 +246,7 @@ v1.4.0-beta.4 - 2018-??-??
 - Added SpeedFan configuration to CPU Meter settings
 - Fixed SpeedFan core temperatures all showing Core 0 temperature
 - Removed gadget update rate option due to unavoidable issues with HWiNFO and UsageMonitor
+- Updated update checker to 5.0.0 (now uses GitHub REST API rather than a customized INI file)
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
