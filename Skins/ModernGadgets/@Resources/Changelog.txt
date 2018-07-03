@@ -242,11 +242,12 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.4.0-beta.4 - 2018-??-??
+v1.4.0-beta.4 - 2018-7-3
+- Added Chronometer (beta)
 - Added SpeedFan configuration to CPU Meter settings
-- Fixed SpeedFan core temperatures all showing Core 0 temperature
 - Removed gadget update rate option due to unavoidable issues with HWiNFO and UsageMonitor
 - Updated update checker to 5.0.0 (now uses GitHub REST API rather than a customized INI file)
+- Fixed SpeedFan core temperatures all showing Core 0 temperature
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
@@ -261,7 +262,6 @@ v1.4.0 - 2018-??-??
 - Added setting to hide disk read/write speeds in Disks Meter
 - Added setting to only display fixed disks in Disks Meter
 - Added global color customization
-- Added gadget update rate setting (not supported by all readings)
 - Added "open config file" buttons to all settings skins to allow access to more advanced settings
 - Increased supported threads in CPU Meter from 32 to 64 (AMD Threadripper 2)
 - Increased precision of readouts in Network Meter
