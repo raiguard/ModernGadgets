@@ -1,4 +1,5 @@
 [Variables]
+showAvgUsage=0
 showBars=1
 showLineGraph=0
 processLabelFontFace=Roboto Cn
