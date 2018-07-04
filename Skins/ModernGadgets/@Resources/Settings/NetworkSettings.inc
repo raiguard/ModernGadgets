@@ -1,5 +1,10 @@
 [Variables]
 interface=Best
+
+interfaceEthernet=Intel(R) Ethernet Connection (2) I219-V
+interfaceWireless=
+interfaceOther=
+
 trafficSuffix=B/s
 
 censorExternalIp=0

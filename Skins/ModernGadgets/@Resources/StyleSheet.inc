@@ -379,6 +379,10 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png
 LeftMouseDownAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
+[StyleStringSmallTextButton]
+FontColor=#colorAccent#
+Y=7R
+
 ; Line Graph
 [StyleLineGraphBackground]
 ImageName=#imgPath#border.png
