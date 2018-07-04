@@ -2,42 +2,50 @@
 --------------------------------------------------
 
 Update Checker for Rainmeter
-v5.0.0
+v6.1.0
 By raiguard
 
-Modified form of 'semver.lua' by kikito (https://github.com/kikito/semver.lua)
+Implements 'semver.lua' by kikito (https://github.com/kikito/semver.lua)
 Implements 'JSON.lua' by rxi (https://github.com/rxi/json.lua)
 
 --------------------------------------------------
 
 Release Notes:
-v5.0.0 - 2018-7-2:
+v6.1.0 - 2018-7-4
+- Added 'RawChangelog' option
+v6.0.0 - 2018-7-2
 - Switched to use GitHub REST v3 API, rather than a customized INI file
-v4.1.0 - 2018-6-21:
+v5.1.0 - 2018-6-21
 - Switched to using the WebParser measure output rather than a downloaded file
   for the ReadINI function
-v4.0.0 - 2018-??-??:
+v5.0.0 - 2017-12-20
 - Removed hard-coded actions and replaced with arguments in the script measure
-- Implemented "semver.lua" for more robust comparisons
 - Switched to using INI format for the remote version data
 - Added 'GetIniValue' function for retrieving other information from remote
-v3.0.0 - 2018-??-??:
+v4.0.0 - 2016-11-18
+- Implemented "semver.lua" for more robust comparisons
+v3.0.0 - 2016-11-14
 - Added support for update checking on development versions
-v2.1.0 - 2018-??-??:
+v2.1.0 - 2016-11-14
 - Fixed oversight where if the user is on a development version for an
   outdated release, it would not return UpdateAvailable()
 - Added 'ParsingError' return
-v2.0.0 - 2018-??-??:
+v2.0.0 - 2016-8-4
 - Removed dependancy on an output meter in favor of hard-coded actions, added
   more documentation
-v1.0.1 - 2018-??-??:
+v1.0.1 - 2016-7-1
 - Optimized gmatch function, more debug functionality
-v1.0.0 - 2018-??-??:
+v1.0.0 - 2016-1-25
 - Initial release
 
 --------------------------------------------------
 
-This script takes
+This script compares two semver-formatted version strings and compares them,
+returning whether the current version is outdated, up-to-date, or a development
+version. By default, it uses the GitHub REST API to download release information,
+automatically extracting the most recent release from the specified repository.
+However, you do not need to use this if you have another method for retrieving
+the most recently released version.
 
 Please keep in mind that version strings must be formatted using the Semantic
 Versioning 2.0.0 format. See http://semver.org/ for additional information.
@@ -96,6 +104,13 @@ following options:
 'downloadUrl' - returns the URL that can be used to download the .RMSKIN
                 attached to the release
 
+Please note that any meter that extracts information from the script in this way
+will need 'DynamicVariables=1' set in order to function properly.
+
+By default, the changelog will include the release's tag version and published
+date attached to the beginning of the string. If you wish to disable this, add
+'RawChangelog=1' to the script measure.
+
 --------------------------------------------------
 ]]--
 
@@ -107,6 +122,7 @@ function Initialize()
   updateAvailableAction = SELF:GetOption('UpdateAvailableAction')
   parsingErrorAction = SELF:GetOption('ParsingErrorAction')
   devAction = SELF:GetOption('DevAction')
+  rawChangelog = tonumber(SELF:GetOption('RawChangelog', '0'))
   checkForPrereleases = tonumber(SELF:GetOption('CheckForPrereleases', '1'))
   if devAction == '' or devAction == nil then devAction = upToDateAction end
   printIndent = ' '
@@ -117,7 +133,6 @@ end
 function Update() end
 
 function CheckForUpdate(cVersion, measureName)
-
 
   showPrereleases = tonumber(SELF:GetOption('ShowPrereleases', 1))
   apiJson = json.decode(SKIN:GetMeasure(measureName or 'MeasureUpdateCheck'):GetStringValue())
@@ -165,7 +180,7 @@ function AssembleReleaseInfo(jsonTable)
       releases[1] = {}
       releases[1]['name'] = jsonTable[k]['tag_name']:gsub('v', '')
       releases[1]['date'] = jsonTable[k]['published_at']:gsub('(.*)T(.*)', '%1')
-      releases[1]['changelog'] = 'v' .. releases[1]['name'] .. ' - ' .. releases[1]['date'] .. '\n' .. jsonTable[k]['body']:gsub('\r\n', '\n')
+      releases[1]['changelog'] = (rawChangelog == 0 and  'v' .. releases[1]['name'] .. ' - ' .. releases[1]['date'] .. '\n' or '') .. jsonTable[k]['body']:gsub('\r\n', '\n')
       releases[1]['downloadUrl'] = jsonTable[k]['assets'][1]['browser_download_url']
     end
   end
@@ -173,7 +188,7 @@ function AssembleReleaseInfo(jsonTable)
   releases[2] = {}
   releases[2]['name'] = jsonTable[1]['tag_name']:gsub('v', '')
   releases[2]['date'] = jsonTable[1]['published_at']:gsub('(.*)T(.*)', '%1')
-  releases[2]['changelog'] = 'v' .. releases[2]['name'] .. ' - ' .. releases[2]['date'] .. ':\n' .. jsonTable[1]['body']:gsub('\r\n', '\n')
+  releases[2]['changelog'] = (rawChangelog == 0 and  'v' .. releases[2]['name'] .. ' - ' .. releases[2]['date'] .. '\n' or '') .. jsonTable[1]['body']:gsub('\r\n', '\n')
   releases[2]['downloadUrl'] = jsonTable[1]['assets'][1]['browser_download_url']
   return releases
 
