@@ -85,6 +85,7 @@ cpuMeterConfig=ModernGadgets\CPU
 cpuSettingsPath=#@#Settings\CpuSettings.inc
 
 networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
+networkMeterProPath=#ROOTCONFIGPATH#Network\NetworkPro.ini
 networkMeterConfig=ModernGadgets\Network
 networkSettingsPath=#@#Settings\NetworkSettings.inc
 
