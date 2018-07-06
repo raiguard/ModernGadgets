@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.4.0-beta.4
+mgVersion=1.4.0-rc.1
 
 ; Positioning
 bgOffset=5
@@ -85,6 +85,7 @@ cpuMeterConfig=ModernGadgets\CPU
 cpuSettingsPath=#@#Settings\CpuSettings.inc
 
 networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
+networkMeterProPath=#ROOTCONFIGPATH#Network\NetworkPro.ini
 networkMeterConfig=ModernGadgets\Network
 networkSettingsPath=#@#Settings\NetworkSettings.inc
 
@@ -181,15 +182,18 @@ Y=5R
 W=(#contentWidth# - 6)
 ClipString=2
 
+[StyleStringInfoParagraph]
+X=(#contentMargin# + 2)
+Y=5R
+W=(#contentWidth# - 6)
+ClipString=2
+FontColor=#colorInfo#
+
 ; Strings (headers)
 [StyleStringConfigTitle]
 FontSize=11
 X=#contentMargin#
 Y=(#contentMargin# - 2)
-
-[StyleStringSectionHeader]
-FontSize=12
-Y=10R
 
 [StyleStringGadgetHeader]
 FontSize=10
@@ -200,6 +204,7 @@ Y=(#contentMargin# - 2)
 FontFace=#fontFace# Cn
 FontSize=10
 Y=5R
+StringCase=UPPER
 
 ; Settings
 [StyleStringInputBoxLabel]
@@ -242,10 +247,6 @@ FontSize=10
 X=3R
 Y=-1r
 
-[StyleStringInputLabel]
-FontColor=#colorMain#
-FontSize=10
-
 [StyleToggleButton]
 FontFace=ElegantIcons
 FontColor=#colorAccent#
@@ -285,7 +286,7 @@ FontSize=10
 StringAlign=Right
 X=(#contentMarginRight# - 17)
 
-[StyleStringArrowButton]
+[StyleArrowButton]
 ImageName=#imgPath#arrow-right.png
 ImageTint=#colorAccent#
 X=r
@@ -305,7 +306,7 @@ ToolTipText=Close
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
 
-[StyleOpenConfigFile]
+[StyleOpenConfigFileButton]
 FontColor=#colorMain#
 FontSize=10
 FontFace=ElegantIcons
@@ -447,6 +448,7 @@ Group=HwinfoSmvButton
 X=5R
 Y=5r
 FontSize=9
+;FontColor=104,132,232
 Text=Open Shared Memory Viewer
 Group=HwinfoSmvButton
 
@@ -471,18 +473,7 @@ W=15
 H=15
 ToolTipText=Refresh Gadget
 
-[StyleTutorialButton]
-ImageName=#imgPath#book.png
-Greyscale=1
-ImageTint=#colorAccent#
-X=(#contentMarginRight# - 15)
-Y=r
-W=15
-H=15
-Antialias=1
-
 [StyleStringHwinfoAlpha]
 FontSize=8
 FontColor=#colorInfo#
-Text=NOTE: The new SMV is currently in an early alpha. The user interface is unfinished and there may be bugs. Proceed at your own risk!
-
+Text=NOTE: The new SMV is currently in an early alpha. As such, the user interface is unfinished, and there may be a few bugs. Please report any and all issues you come across to the ModernGadgets GitHub Repository.

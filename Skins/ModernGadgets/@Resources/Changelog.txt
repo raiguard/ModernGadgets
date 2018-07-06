@@ -2,10 +2,10 @@ MODERNGADGETS CHANGELOG
 
 Official Releases
 
-v1.3.1 - 2018-5-2
+v1.3.1 - 2018-05-02
 - Fixed development testing opt-in not working
 
-v1.3.0 - 2018-2-3
+v1.3.0 - 2018-02-03
 - Added 32-thread support to CPU Meter
 - Added top process display to CPU Meter
 - Added CPU temperature graph option to CPU Meter
@@ -31,17 +31,17 @@ v1.3.0 - 2018-2-3
 - Fixed Network Meter external IP error message not disappearing
 - Fixed GPU name being able to extend past the width of GPU Meter
 
-v1.2.2 - 2017-8-3
+v1.2.2 - 2017-08-03
 - ACTUALLY fixed core temperature issues
 - Changed all author references to raiguard
 
-v1.2.1 - 2017-8-2
+v1.2.1 - 2017-08-02
 - Fixed non-hyperthreaded core temperatures
 - Fixed bytes/sec option in Network Meter
 - Fixed manual max VRAM not working properly
 - Changed update checker URL
 
-v1.2.0 - 2017-4-19
+v1.2.0 - 2017-04-19
 - Added average CPU usage graph mode
 - Added global config skin
 - Added color customization
@@ -57,11 +57,11 @@ v1.2.0 - 2017-4-19
 - Fixed CPU Meter not adjusting the icon for non-intel CPUs
 - Split official releases from dev releases in the changelog
 
-v1.1.2 - 2017-1-14
+v1.1.2 - 2017-01-14
 - Fixed average cpu usage in CPU Meter header (OOPS)
 - Corrected typo in changelog
 
-v1.1.1 - 2017-1-14
+v1.1.1 - 2017-01-14
 - Fixed display glitches with setup skin
 - Fixed gadget manager buttons becoming desynced if clicked too quickly
 - Fixed CPU Meter config script not toggling measures
@@ -70,7 +70,7 @@ v1.1.1 - 2017-1-14
 - Fixed gadget manager path (was incorrect in Network, GPU, and Disks Meters)
 - Fixed memory controller line graph not disappearing when disabled
 
-v1.1.0 - 2017-1-9
+v1.1.0 - 2017-01-09
 - Updated to Rainmeter 4.0
 - Replaced external settings system with a local system that makes periodic backups
 - Separated update checking and settings backups functionality from the gadget manager
@@ -84,20 +84,28 @@ v1.1.0 - 2017-1-9
 - Separated changelog from readme
 - Fixed Core Temps toggle in CPU Meter settings (was causing a crash)
 
-v1.0.0 - 2016-12-4
+v1.0.0 - 2016-12-04
 - Fixed mistakes in CPU meter that could prevent it from adjusting to different CPUs
 - Official release
 
 Development Releases
 
-v1.4.0-beta.4 - 2018-7-3
+v1.4.0-rc.1 - 2018-07-06
+- Added All Cores mode to CPU Meter line graph
+- Added show/hide average usage option to Process Meter
+- Network Meter globe is no longer affected by accent color changes
+- Corrected typo in Process Blacklist help tooltip
+- Fixed not copying defaults for GPU Meter variants
+- Corrected date formatting in changelog
+
+v1.4.0-beta.4 - 2018-07-03
 - Added Chronometer (beta)
 - Added SpeedFan configuration to CPU Meter settings
 - Removed gadget update rate option due to unavoidable issues with HWiNFO and UsageMonitor
 - Updated update checker to 5.0.0 (now uses GitHub REST API rather than a customized INI file)
 - Fixed SpeedFan core temperatures all showing Core 0 temperature
 
-v1.4.0-beta.3 - 2018-6-22
+v1.4.0-beta.3 - 2018-06-22
 - Added tentative Snapdragon support to CPU Meter
 - Added support for CoreTemp and Speedfan in CPU Meter
 - Added dynamic fan display to CPU Meter
@@ -107,14 +115,14 @@ v1.4.0-beta.3 - 2018-6-22
 - Settings backups are now made upon closing a settings skin, rather than at a preset interval
 - Fixed error with the update checker reading a file while it was being written by WebParser
 
-v1.4.0-beta.2 - 2018-5-13
+v1.4.0-beta.2 - 2018-05-13
 - Added Process Meter
 - Refactored input box visuals
 - Removed condensed font toggle for Network traffic
 - Disk eject buttons will auto-hide if the user is not an administrator
 - Changelog button now shows local changelog rather than the one from GitHub
 
-v1.4.0-beta.1 - 2018-5-2
+v1.4.0-beta.1 - 2018-05-02
 - Added 36-thread support to CPU Meter
 - Added session total and simultaneous bits/bytes display to Network Meter
 - Added separate bits/bytes peak traffic displays to Network Meter
@@ -133,12 +141,12 @@ v1.4.0-beta.1 - 2018-5-2
 - Implement new built-in HWiNFO config tool (alpha) 
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
 
-v1.3.0-rc.3 - 2018-2-1
+v1.3.0-rc.3 - 2018-02-01
 - Implemented new dynamic settings system (https://github.com/raiguard/rainmeter-settings)
 - Refined settings UI
 - Fixed several bugs and oversights in dynamic settings changes
 
-v1.3.1-rc.2 - 2018-1-30
+v1.3.1-rc.2 - 2018-01-30
 - Added troubleshooting link to disks meter settings
 - Added graph background to give the lines a "surface" to sit on
 - Fixed show/hide behavior of core voltage meters
@@ -149,7 +157,7 @@ v1.3.1-rc.2 - 2018-1-30
 - Fixed ReadINI throwing an error when coming across an invalid section name
 - Fixed disk eject buttons not changing visible state until skin refresh
 
-v1.3.1-rc.1 - 2018-1-18
+v1.3.1-rc.1 - 2018-01-18
 - Added Nomfrep plugin to replace AdvancedCPU
 - Fixed HWiNFO package temperature and thermal throttling input boxes not working
 - Fixed page file measures not enabling correctly
@@ -157,13 +165,13 @@ v1.3.1-rc.1 - 2018-1-18
 - Fixed Network Meter refresh buttons not working
 - Fixed ReadINI script dropping leading S'es
 
-v1.3.1-beta.4 - 2018-1-15
+v1.3.1-beta.4 - 2018-01-15
 - Added core voltages to CPU Meter
 - Fixed download update button in setup skin
 - Fixed large row spacing issues in Disks Meter
 - Updated copyright information
 
-v1.3.1-beta.3 - 2018-1-15
+v1.3.1-beta.3 - 2018-01-15
 - Added changelog display to update available notification
 - Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
 - Improved reliability of NetMonitor settings
@@ -200,18 +208,18 @@ v1.3.1-beta.1 - 2017-12-20
 - Rewrote update checker and moved update checker URL
 - Fixed gadget toggle buttons desyncing
 
-v1.2.1-beta.1 - 2017-6-9
+v1.2.1-beta.1 - 2017-06-09
 - Fixed non-hyperthreaded core temperatures
 - Fixed bytes/sec option in Network Meter
 - Fixed manual max VRAM not working properly
 
-v1.2.0-beta.3 - 2017-4-7
+v1.2.0-beta.3 - 2017-04-07
 - Corrected typo in changelog
 - Added manual max VRAM toggle to GPU meter
 - Changed how thermal throttling detection works
 - Added thermal throttling entry ID to config tool
 
-v1.2.0-beta.2 - 2017-4-6
+v1.2.0-beta.2 - 2017-04-06
 - Added network ping display to Network Meter
 - Added thermal throttling detection to CPU Meter
 - Fixed CPU Meter not adjusting the icon for non-intel CPUs
@@ -219,7 +227,7 @@ v1.2.0-beta.2 - 2017-4-6
 - Added reset to defaults function
 - Added line graph antialiasing toggle
 
-v1.2.0-beta.1 - 2017-2-4
+v1.2.0-beta.1 - 2017-02-04
 - Switched to Direct2D font rendering
 - Text alignment touch-ups
 - Added average CPU usage graph mode
@@ -252,18 +260,13 @@ WIP Releases
 v1.5.0 - 2018-??-??
 - Added Network Interface settings to Network Meter
 
-v1.4.0-beta.5 - 2018-??-??
-- Added show/hide average usage option to Process Meter
-- Network Meter globe is no longer affected by accent color changes
-- Corrected typo in Process Blacklist help tooltip
-- Fixed not copying defaults for GPU Meter variants
-
 v1.4.0 - 2018-??-??
 - Added Chronometer
 - Added Process Meter
 - Added tentative Snapdragon support to CPU Meter
 - Added support for CoreTemp and Speedfan in CPU Meter
 - Added dynamic fan display to CPU Meter
+- Added All Cores mode to CPU Meter line graph
 - Added session total and simultaneous bits/bytes display to Network Meter
 - Added separate bits/bytes peak traffic displays to Network Meter
 - Added three additional GPU Meters for monitoring up to four GPUs simultaneously
@@ -275,6 +278,7 @@ v1.4.0 - 2018-??-??
 - Increased supported threads in CPU Meter from 32 to 64 (AMD Threadripper 2)
 - Increased precision of readouts in Network Meter
 - Removed condensed font toggle for Network traffic (condensed is now the only option)
+- Network Meter globe is no longer affected by accent color changes
 - Removed dual GPU meter option (replaced by separate GPU Meters)
 - Enhanced Disk Eject functionality with support for USB card readers and virtual disks (requires admin privileges)
 - Significantly improved Disks Meter performance
@@ -288,3 +292,4 @@ v1.4.0 - 2018-??-??
 - Changelog button now shows local changelog rather than the one from GitHub
 - Fixed error with the update checker reading a file while it was being written by WebParser
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
+- Corrected date formatting in changelog
