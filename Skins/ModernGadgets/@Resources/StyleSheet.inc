@@ -443,6 +443,7 @@ Group=HwinfoSmvButton
 X=5R
 Y=5r
 FontSize=9
+FontColor=#colorAccent#
 Text=Open Shared Memory Viewer
 Group=HwinfoSmvButton
 
@@ -480,5 +481,5 @@ Antialias=1
 [StyleStringHwinfoAlpha]
 FontSize=8
 FontColor=#colorInfo#
-Text=NOTE: The new SMV is currently in an early alpha. The user interface is unfinished and there may be bugs. Proceed at your own risk!
+Text=NOTE: The new SMV is currently in an early alpha. As such, the user interface is unfinished, and there may be a few bugs. Please report any and all issues you come across to the ModernGadgets GitHub Repository.
 
