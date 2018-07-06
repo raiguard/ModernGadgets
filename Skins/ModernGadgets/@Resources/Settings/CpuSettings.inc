@@ -24,7 +24,7 @@ showAvgCpu=0
 showTt=0
 playTtSound=0
 
-graphAllCoresMode=1
+graphAllCoresMode=0
 
 cpuName=auto
 
