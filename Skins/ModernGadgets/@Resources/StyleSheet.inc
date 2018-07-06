@@ -443,7 +443,7 @@ Group=HwinfoSmvButton
 X=5R
 Y=5r
 FontSize=9
-FontColor=#colorAccent#
+;FontColor=104,132,232
 Text=Open Shared Memory Viewer
 Group=HwinfoSmvButton
 

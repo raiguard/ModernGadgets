@@ -1,6 +1,6 @@
 [Variables]
 ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
-threadCount=64
+threadCount=8
 
 ; Fixed precision format
 fpfRamDepth=4
@@ -23,6 +23,8 @@ showLineGraph=1
 showAvgCpu=0
 showTt=0
 playTtSound=0
+
+graphAllCoresMode=1
 
 cpuName=auto
 

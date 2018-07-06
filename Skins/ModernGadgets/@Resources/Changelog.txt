@@ -250,6 +250,7 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.4.0-beta.5 - 2018-??-??
+- Added All Cores mode to CPU Meter line graph
 - Added show/hide average usage option to Process Meter
 - Network Meter globe is no longer affected by accent color changes
 - Corrected typo in Process Blacklist help tooltip
