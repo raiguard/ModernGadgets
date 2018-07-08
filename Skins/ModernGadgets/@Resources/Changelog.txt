@@ -260,7 +260,8 @@ WIP Releases
 v1.4.0-rc.2 - 2018-??-??
 - Updated PerfMon Troubleshooting link
 - Added Process Meter troubleshooting button
-- Fixed process meter settings label font size
+- Fixed Process Meter settings label font size
+- Fixed Process Meter and Chronometer settings backups not being imported
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
