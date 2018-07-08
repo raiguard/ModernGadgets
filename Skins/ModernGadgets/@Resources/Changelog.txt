@@ -257,6 +257,11 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.4.0-rc.2 - 2018-??-??
+- Updated PerfMon Troubleshooting link
+- Added Process Meter troubleshooting button
+- Fixed process meter settings label font size
+
 v1.4.0 - 2018-??-??
 - Added Chronometer
 - Added Process Meter

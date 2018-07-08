@@ -281,6 +281,10 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURREN
 MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
+[StyleStringSmallTextButton]
+FontColor=#colorAccent#
+Y=8R
+
 [StyleStringArrowButtonLabel]
 FontSize=10
 StringAlign=Right
