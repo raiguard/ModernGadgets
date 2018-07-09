@@ -90,6 +90,12 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.4.0-rc.2 - 2018-07-09
+- Updated PerfMon Troubleshooting link
+- Added Process Meter troubleshooting button
+- Fixed Process Meter settings label font size
+- Fixed Process Meter and Chronometer settings backups not being imported
+
 v1.4.0-rc.1 - 2018-07-06
 - Added All Cores mode to CPU Meter line graph
 - Added show/hide average usage option to Process Meter
@@ -256,12 +262,6 @@ v1.0.0-rc.1 - 2016-11-14
  - Initial release
 
 WIP Releases
-
-v1.4.0-rc.2 - 2018-??-??
-- Updated PerfMon Troubleshooting link
-- Added Process Meter troubleshooting button
-- Fixed Process Meter settings label font size
-- Fixed Process Meter and Chronometer settings backups not being imported
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
