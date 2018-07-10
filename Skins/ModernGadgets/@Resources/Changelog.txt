@@ -90,6 +90,12 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.4.0-rc.2 - 2018-07-09
+- Updated PerfMon Troubleshooting link
+- Added Process Meter troubleshooting button
+- Fixed Process Meter settings label font size
+- Fixed Process Meter and Chronometer settings backups not being imported
+
 v1.4.0-rc.1 - 2018-07-06
 - Added All Cores mode to CPU Meter line graph
 - Added show/hide average usage option to Process Meter
@@ -146,7 +152,7 @@ v1.3.0-rc.3 - 2018-02-01
 - Refined settings UI
 - Fixed several bugs and oversights in dynamic settings changes
 
-v1.3.1-rc.2 - 2018-01-30
+v1.3.0-rc.2 - 2018-01-30
 - Added troubleshooting link to disks meter settings
 - Added graph background to give the lines a "surface" to sit on
 - Fixed show/hide behavior of core voltage meters
@@ -157,7 +163,7 @@ v1.3.1-rc.2 - 2018-01-30
 - Fixed ReadINI throwing an error when coming across an invalid section name
 - Fixed disk eject buttons not changing visible state until skin refresh
 
-v1.3.1-rc.1 - 2018-01-18
+v1.3.0-rc.1 - 2018-01-18
 - Added Nomfrep plugin to replace AdvancedCPU
 - Fixed HWiNFO package temperature and thermal throttling input boxes not working
 - Fixed page file measures not enabling correctly
@@ -165,13 +171,13 @@ v1.3.1-rc.1 - 2018-01-18
 - Fixed Network Meter refresh buttons not working
 - Fixed ReadINI script dropping leading S'es
 
-v1.3.1-beta.4 - 2018-01-15
+v1.3.0-beta.4 - 2018-01-15
 - Added core voltages to CPU Meter
 - Fixed download update button in setup skin
 - Fixed large row spacing issues in Disks Meter
 - Updated copyright information
 
-v1.3.1-beta.3 - 2018-01-15
+v1.3.0-beta.3 - 2018-01-15
 - Added changelog display to update available notification
 - Moved StyleSheet out of settings directory to avoid accidental changes / overwrites
 - Improved reliability of NetMonitor settings
@@ -183,7 +189,7 @@ v1.3.1-beta.3 - 2018-01-15
 - Updated NetMonitor installer
 - Updated ActiveNet plugin to 2.7.0.0
 
-v1.3.1-beta.2 - 2017-12-27
+v1.3.0-beta.2 - 2017-12-27
 - Added NetMonitor support to Network Meter for more accurate readings
 - Added GPU name toggle to GPU Meter
 - Added custom GPU name option to GPU Meter
@@ -195,7 +201,7 @@ v1.3.1-beta.2 - 2017-12-27
 - Fixed Network Meter external IP error message not disappearing
 - Fixed GPU name being able to extend past the width of GPU Meter
 
-v1.3.1-beta.1 - 2017-12-20
+v1.3.0-beta.1 - 2017-12-20
 - Added 32-thread support to CPU Meter
 - Added top process display to CPU Meter
 - Added CPU temperature graph option to CPU Meter
@@ -259,6 +265,12 @@ WIP Releases
 
 v1.5.0 - 2018-??-??
 - Added Network Interface settings to Network Meter
+
+v1.4.0-rc.3 - 2018-??-??
+- Added open config file button to Process Meter settings
+- Fixed update notification not being centered on the monitor properly
+- Fix Process Meter background height calculations when large row spacing was enabled
+- Fixed typo in changelog
 
 v1.4.0 - 2018-??-??
 - Added Chronometer

@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.4.0-rc.1
+mgVersion=1.4.0-rc.2
 
 ; Positioning
 bgOffset=5
@@ -280,6 +280,10 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURREN
 [StyleImgButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
+[StyleStringSmallTextButton]
+FontColor=#colorAccent#
+Y=8R
 
 [StyleStringArrowButtonLabel]
 FontSize=10
