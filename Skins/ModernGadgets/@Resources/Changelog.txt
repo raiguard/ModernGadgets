@@ -265,6 +265,7 @@ WIP Releases
 
 v1.5.0 - 2018-??-??
 - Added Network Interface settings to Network Meter
+- Added support for monitoring up to three Network Interfaces at once
 
 v1.4.0-rc.3 - 2018-??-??
 - Added open config file button to Process Meter settings
