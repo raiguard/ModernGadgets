@@ -1,19 +1,21 @@
 ![](Wiki/devpreview.png)
-ModernGadgets is a modernized recreation of the most popular AddGadgets.com system monitoring gadgets, built on the Rainmeter platform. Included are CPU Meter, Network Meter, GPU Meter, and Disks Meter. More gadgets will be added over time.
+ModernGadgets is a set of sleek, minimalist, information-dense gadgets that are designed to fit right into your modern desktop. It is inspired by the AddGadgets.com system monitoring gadgets and is heavily based on [SilverAzide's Gadget Replicas](https://www.deviantart.com/silverazide/art/Gadgets-4-1-1-522574269).
 
-ModernGadgets is released on the Rainmeter platform under a Creative Commons BY-NC-SA 3.0 license. The source code is made available on GitHub under an MIT License.
+ModernGadgets is released on the Rainmeter platform under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license. The source code is made available on GitHub under an MIT License.
 
 ## Requirements
-Rainmeter 4.1 or newer: https://www.rainmeter.net
+Rainmeter 4.2 or newer: https://www.rainmeter.net
 
-HWiNFO (not required for all features): https://www.hwinfo.com
+HWiNFO: https://www.hwinfo.com
 
 .NET Framework 4.5 or newer
+
+Additionally, CPU Meter supports [CoreTemp](https://www.alcpu.com/CoreTemp/) or [SpeedFan](http://www.almico.com/speedfan.php) for CPU core temperatures.
 
 ## Installation Instructions
 ModernGadgets official releases are packaged using the Rainmeter skin installer. After downloading the .RMSKIN package, make sure you have Rainmeter installed, then simply open the file to install the suite. Make certain that you keep the "load included skins" box checked. Once installed, you will be presented with the gadget manager, from which you can load the gadgets you want.
 
-## Repository Information
+## Code of Conduct
 ### Bug Reports
 First and foremost, please read through the setup tutorial. You may find that something you thought was broken just needs to be configured properly (e.g. HWiNFO not communicating with Rainmeter). If the problem is not addressed in the setup tutorial, please SEARCH FOR the issue under the issues section of the repository. If the issue has not already been reported, feel free to make a new one. Be clear and use proper language both in the title and the description of any issues you create.
 

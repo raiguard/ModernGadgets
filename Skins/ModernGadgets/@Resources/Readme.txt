@@ -5,16 +5,16 @@ By raiguard
 ----------------------------------------
 ABOUT
 
-ModernGadgets is a re-imagining of the most popular AddGadgets.com system monitoring gadgets, with updated
-visuals and enhanced functionality to better align with modern systems. The skin suite is developed
-completely for free on the Rainmeter platform, with the source code available on GitHub.
+ModernGadgets is a set of sleek, minimalist, information-dense desktop gadgets that are designed to fit right
+into your modern desktop. It is inspired by the AddGadgets.com system monitoring gadgets and is heavily based
+on SilverAzide's Gadget Replicas.
 
 This skin suite requires Rainmeter 4.1 or above, as well as .NET Framework v4.5 or above.
 
 ----------------------------------------
 LICENSE AND CREDITS
 
-This software is released under a Creative Commons Attribution - Non - Commercial - Share Alike 3.0 license.
+This software is released to you under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license.
 Source code is available on GitHub under an MIT License.
 
 Designed and programmed by Caleb Heuer (raiguard).
@@ -33,5 +33,4 @@ smurfier - ReadINI function
 CONTACT
 
 Email: iamanaiofficial@gmail.com
-Twitter: @raiguard_
 Reddit: /u/raiguard
