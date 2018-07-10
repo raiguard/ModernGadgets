@@ -33,5 +33,4 @@ smurfier - ReadINI function
 CONTACT
 
 Email: iamanaiofficial@gmail.com
-Twitter: @raiguard_
 Reddit: /u/raiguard
