@@ -8,7 +8,6 @@ autoBackups=1
 checkForPrereleases=1
 
 showBgBorder=1
-largeRowSpacing=0
 rowSpacing=1
 
 colorBorder=50,50,50
