@@ -20,7 +20,7 @@ colorGraphBorder=#colorBorder#
 
 colorMain=230,230,230
 colorInfo=150,150,150
-colorAccent=138,210,250
+colorAccent=137,190,250
 
 colorBarBg=#colorBorder#
 
@@ -37,7 +37,7 @@ dColorMain=230,230,230
 dColorInfo=150,150,150
 dColorSubBg=25,25,25
 dColorBorder=50,50,50
-dColorAccent=138,210,250
+dColorAccent=137,190,250
 
 dColorBg=15,15,15
 dColorBgBorder=50,50,50
