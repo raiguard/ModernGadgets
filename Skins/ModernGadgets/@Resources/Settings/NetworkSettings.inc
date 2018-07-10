@@ -17,6 +17,8 @@ useNetMonitor=1
 
 pingUrl=google.com
 
+autoAdapterConfig=0
+
 colorUpload=107,238,98
 colorDownload=255,246,42
 colorPeak=99,125,217
