@@ -266,8 +266,9 @@ WIP Releases
 v1.4.0-rc.3 - 2018-??-??
 - Added open config file button to Process Meter settings
 - Fixed update notification not being centered on the monitor properly
-- Fix Process Meter background height calculations when large row spacing was enabled
+- Fixed Process Meter background height calculations when large row spacing was enabled
 - Fixed typo in changelog
+- FIxed inconsistent NetMonitor button logic
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
