@@ -1,9 +1,10 @@
 --
--- FixedPrecisionFormat v1.1.0 by SilverAzide
+-- FixedPrecisionFormat v4.0.0 by SilverAzide
 --
 -- This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
 --
 -- History:
+-- 4.0.0 - 2018-03-17:  Revised code to work with inline Lua (requires Rainmeter 4.1 or later).
 -- 1.1.0 - 2015-05-22:  Added support for scale factor "0" to match Rainmeter's AutoScale option.
 --                      Thanks to TGonZo for code improvements.
 -- 1.0.0 - 2015-05-09:  Initial release.
@@ -45,7 +46,7 @@
 --
 -- Usage
 --
---   FormatNumber(InputValue, Precision, Factor, VariableName)
+--   FormatNumber(InputValue, Precision, Factor)
 --
 --     InputValue
 --
@@ -68,34 +69,45 @@
 --
 --       NOTE:
 --
---         The value returned by the plugin includes a space between the scaled number and the scale
+--         The value returned by the script includes a space between the scaled number and the scale
 --         unit abbreviation.  When scaling is disabled, the number will include a trailing space.
 --         To remove this space simply add Substitute=" ":"" to the measure.
 --
---     VariableName
---
---       The name of a varible used to hold the formatted string.
---
 --
 -- Example skin:
+--
+-- [Rainmeter]
+-- Update=1000
+-- BackgroundMode=2
+-- SolidColor=255,255,255,255
 --
 -- [Variables]
 -- ; create variable to hold formatted text
 -- TextNetIn=""
 --
--- [FormatScript]
+-- [LuaScript]
 -- Measure=Script
 -- ScriptFile=#@#FixedPrecisionFormat.lua
 --
 -- ; measure network inbound bytes/sec, format value when changed; e.g., "12.34 M"
 -- [MeasureNetIn]
 -- Measure=NetIn
--- OnChangeAction=[!CommandMeasure FormatScript "FormatNumber([MeasureNetIn], 4, '1k', 'TextNetIn')"]
+-- OnChangeAction=[!SetVariable TextNetIn [&LuaScript:FormatNumber([&MeasureNetIn],4,'1k')]]
 --
 -- ; display inbound bytes/sec; e.g., "12.34 MB/s"
 -- [MeterNetIn]
 -- Meter=String
--- Text="#TextNetIn#B/s"
+-- Text=#TextNetIn#B/s
+-- DynamicVariables=1
+--
+-- ; alternative approach
+-- ; NOTE:  This option does not need a variable to hold the formatted value, but the Lua function
+-- ;        will be invoked on every update (once per second) instead of only when the value
+-- ;        changes.
+-- [MeterNetIn2]
+-- Meter=String
+-- Y=20r
+-- Text=[&LuaScript:FormatNumber([&MeasureNetIn], 4, '1k')]B/s
 -- DynamicVariables=1
 --
 ----------------------------------------------------------------------------------------------------
@@ -106,20 +118,26 @@ function Initialize()
   --
 
   -- initialize array of suffixes for scaled values
-  asSuffix = { " ", " k", " M", " G", " T", " P", " E", " Z", " Y" }
+  asSuffix = { "", " k", " M", " G", " T", " P", " E", " Z", " Y" }
 
   return
 end                                                                                    -- Initialize
 
-function FormatNumber(sInputValue, sPrecision, sFactor, sVarName)
+function Update()
+  --
+  -- this function is called when the script measure is updated
+  --
+  return "success"
+end
+
+function FormatNumber(sInputValue, sPrecision, sFactor)
   --
   -- This function formats a number using a "fixed precision, variable scale" methodology.  Can be
-  -- called on demand via a CommandMeasure bang.
+  -- called on demand via inline Lua.
   --
   -- Where:  sInputValue = value to be formatted
   --         sPrecision  = numeric scale
   --         sFactor     = scale factor ("0", "1", "1k", "2", "2k")
-  --         sVarName    = name of variable to be updated
   --
   -- Examples:  sInputValue = 3.141592654, sPrecision = 7, sFactor = "1":  output = "3.141593 "
   --            sInputValue = 31.41592654, sPrecision = 7, sFactor = "1":  output = "31.41593 "
@@ -187,12 +205,7 @@ function FormatNumber(sInputValue, sPrecision, sFactor, sVarName)
   sPattern = "%." .. nDigitsAfterDecimal .. "f"
 
   -- format the number
-  sText = string.format(sPattern, nValue)
+  sText = string.format(sPattern, nValue) .. asSuffix[nDivCount]
 
-  --
-  -- save the result to the variable and exit
-  --
-  SKIN:Bang("!SetVariable", sVarName, sText .. asSuffix[nDivCount])
-
-  return
+  return sText
 end                                                                                  -- FormatNumber

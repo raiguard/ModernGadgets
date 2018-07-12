@@ -1,37 +1,36 @@
 MODERNGADGETS
-Version 1.3.0-beta.2
+v1.4.0-rc.2
 By raiguard
 
 ----------------------------------------
 ABOUT
 
-ModernGadgets is a Rainmeter recreation of the most popular AddGadgets.com system monitoring
-gadgets, with updated visuals and enhanced functionality to better align with modern systems.
-The skin suite is developed completely for free on the Rainmeter platform, with the source
-code available on GitHub.
+ModernGadgets is a set of sleek, minimalist, information-dense desktop gadgets that are designed to fit right
+into your modern desktop. It is inspired by the AddGadgets.com system monitoring gadgets and is heavily based
+on SilverAzide's Gadget Replicas.
 
 This skin suite requires Rainmeter 4.1 or above, as well as .NET Framework v4.5 or above.
 
 ----------------------------------------
 LICENSE AND CREDITS
 
-This software is released to you under a Creative Commons BY-NC-SA 3.0 license.
-Source code is available on GitHub under the MIT License.
+This software is released to you under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license.
+Source code is available on GitHub under an MIT License.
 
 Designed and programmed by Caleb Heuer (raiguard).
 Backend code based on "Gadgets" by SilverAzide.
 
-Settings toggle buttons and close buttons taken from Droptop (by virginityrocks).
-"Roboto" Font taken from Google Fonts, under the Apache License, version 2.0.
+"Roboto" Font - Google Fonts, under the Apache License, version 2.0.
 
 Additional Attributions:
-SilverAzide - ActiveNet plugin, fixed precision format script
+SilverAzide - ActiveNet plugin, NetMonitor utility, fixed precision format script
 stangowner - HWiNFO Plugin, HWiNFO Shared Memory Viewer
-Jeffrey Morley - RainRGB, Rainmeter
+jsmorley - RainRGB, Rainmeter
 balala - Help with fixing Disks Meter's dynamic height adjustment
+smurfier - ReadINI function
 
 ----------------------------------------
 CONTACT
 
 Email: iamanaiofficial@gmail.com
-Twitter: @raiguard_
+Reddit: /u/raiguard

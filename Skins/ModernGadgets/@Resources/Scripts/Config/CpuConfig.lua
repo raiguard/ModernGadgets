@@ -12,21 +12,36 @@ end
 
 function Update() end
 
-function ToggleTemps(threads, mode)
+function ToggleTemps(group, threads, mode)
 
   if mode then
     for i=1,32 do
       if (i <= threads) then
-        SKIN:Bang('!EnableMeasure', 'MeasureCpuTempCore' .. i)
-        SKIN:Bang('!ShowMeter', 'Core' .. i .. 'TempString')
+        SKIN:Bang('!EnableMeasure', 'MeasureCpuTemp' .. group .. 'Core' .. i)
       end
     end
   else
-    SKIN:Bang('!HideMeterGroup', 'CoreTemps')
     SKIN:Bang('!DisableMeasureGroup', 'CoreTemps')
   end
 
   SKIN:Bang('!UpdateMeasureGroup', 'CoreTemps')
   SKIN:Bang('!UpdateMeterGroup', 'CoreTemps')
+
+end
+
+function ToggleVoltages(threads, mode)
+
+  if mode then
+    for i=1,32 do
+      if (i <= threads) then
+        SKIN:Bang('!EnableMeasure', 'MeasureCpuVoltageCore' .. i)
+      end
+    end
+  else
+    SKIN:Bang('!DisableMeasureGroup', 'CoreVoltages')
+  end
+
+  SKIN:Bang('!UpdateMeasureGroup', 'CoreVoltages')
+  SKIN:Bang('!UpdateMeterGroup', 'CoreVoltages')
 
 end
