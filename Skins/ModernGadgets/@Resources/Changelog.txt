@@ -269,6 +269,8 @@ v1.5.0 - 2018-??-??
 
 v1.4.0-rc.3 - 2018-??-??
 - Added open config file button to Process Meter settings
+- Updated ActiveNet plugin to 2.8.0.0
+- Darkened default accent color
 - Fixed update notification not being centered on the monitor properly
 - Fixed Process Meter background height calculations when large row spacing was enabled
 - Fixed typo in changelog
