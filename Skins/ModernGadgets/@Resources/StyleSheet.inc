@@ -38,9 +38,9 @@ colorGraphBorder=#colorBorder#
 
 colorMain=230,230,230
 colorInfo=150,150,150
-colorAccent=138,210,250
+colorAccent=137,190,250
 
-colorGlobe=138,210,250
+colorGlobe=137,190,250
 
 colorBarBg=#colorBorder#
 
