@@ -47,7 +47,5 @@ HWiNFO-GPU0-CoreLoad-SensorId=0xe0002000
 HWiNFO-GPU0-CoreLoad-SensorInstance=0x0
 HWiNFO-GPU0-CoreLoad-EntryId=0x7000000
 
-[HWiNFO-Config]
-
 [HWiNFO-Config-GPU0]
 HWiNFO-GPU0-CoreLoad=GPU Core Load

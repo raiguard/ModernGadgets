@@ -268,10 +268,11 @@ v1.4.0-rc.3 - 2018-??-??
 - Updated ActiveNet plugin to 2.8.0.0
 - Darkened default accent color
 - Enhanced update download button to directly download and open the update .RMSKIN without a browser
+- Updated HWiNFO SMV to fix bug with having only one custom-named section
 - Fixed update notification not being centered on the monitor properly
 - Fixed Process Meter background height calculations when large row spacing was enabled
 - Fixed typo in changelog
-- FIxed inconsistent NetMonitor button logic
+- Fixed inconsistent NetMonitor button logic
 - Fixed NetMonitor controls not appearing on non-English systems
 
 v1.4.0 - 2018-??-??
@@ -289,6 +290,8 @@ v1.4.0 - 2018-??-??
 - Added setting to only display fixed disks in Disks Meter
 - Added global color customization
 - Added "open config file" buttons to all settings skins to allow access to more advanced settings
+- Darkened default accent color
+- Enhanced update download button to directly download and open the update .RMSKIN without a browser
 - Increased supported threads in CPU Meter from 32 to 64 (AMD Threadripper 2)
 - Increased precision of readouts in Network Meter
 - Removed condensed font toggle for Network traffic (condensed is now the only option)
@@ -306,4 +309,6 @@ v1.4.0 - 2018-??-??
 - Changelog button now shows local changelog rather than the one from GitHub
 - Fixed error with the update checker reading a file while it was being written by WebParser
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
+- Fixed inconsistent NetMonitor button logic
+- Fixed NetMonitor controls not appearing on non-English systems
 - Corrected date formatting in changelog
