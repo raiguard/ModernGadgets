@@ -267,6 +267,7 @@ v1.4.0-rc.3 - 2018-??-??
 - Added open config file button to Process Meter settings
 - Updated ActiveNet plugin to 2.8.0.0
 - Darkened default accent color
+- Enhanced update download button to directly download and open the update .RMSKIN without a browser
 - Fixed update notification not being centered on the monitor properly
 - Fixed Process Meter background height calculations when large row spacing was enabled
 - Fixed typo in changelog
