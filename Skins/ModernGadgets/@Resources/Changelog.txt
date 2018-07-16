@@ -271,6 +271,7 @@ v1.4.0-rc.3 - 2018-??-??
 - Fixed Process Meter background height calculations when large row spacing was enabled
 - Fixed typo in changelog
 - FIxed inconsistent NetMonitor button logic
+- Fixed NetMonitor controls not appearing on non-English systems
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
