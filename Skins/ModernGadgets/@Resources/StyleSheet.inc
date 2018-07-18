@@ -101,6 +101,10 @@ processMeterPath=#ROOTCONFIGPATH#Process\Process.ini
 processMeterConfig=ModernGadgets\Process
 processSettingsPath=#@#Settings\ProcessSettings.inc
 
+audioMeterPath=#ROOTCONFIGPATH#Audio\Audio.ini
+audioMeterConfig=ModernGadgets\Audio
+audioSettingsPath=#@#Settings\AudioSettings.inc
+
 setupSkinConfig=ModernGadgets\Config\Setup
 
 ; Default Color Pallete
