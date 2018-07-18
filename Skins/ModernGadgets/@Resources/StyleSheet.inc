@@ -55,6 +55,8 @@ colorSnapdragon=0,80,198
 
 histogramAlpha=50
 
+insetToggleX=-3r
+
 ; Character reference variables
 deg=[\176]
 toggleOn=[\x5a]
