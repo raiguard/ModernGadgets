@@ -233,6 +233,11 @@ Y=r
 W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin#)
 DynamicVariables=1
 
+[StyleInputBoxBackgroundAdjacentRightAlign]
+X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1
+Y=r
+DynamicVariables=1
+
 [StyleStringInputBox]
 FontSize=10
 FontFace=Roboto
