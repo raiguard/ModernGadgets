@@ -90,6 +90,19 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.4.0-rc.3 - 2018-07-22
+- Added open config file button to Process Meter settings
+- Updated ActiveNet plugin to 2.8.0.0
+- Darkened default accent color
+- Enhanced update download button to directly download and open the update .RMSKIN without a browser
+- Updated HWiNFO SMV to fix bug with having only one custom-named section
+- Made HWiNFO config import warning more prominent
+- Fixed update notification not being centered on the monitor properly
+- Fixed Process Meter background height calculations when large row spacing was enabled
+- Fixed typo in changelog
+- Fixed inconsistent NetMonitor button logic
+- Fixed NetMonitor controls not appearing on non-English systems
+
 v1.4.0-rc.2 - 2018-07-09
 - Updated PerfMon Troubleshooting link
 - Added Process Meter troubleshooting button
@@ -267,18 +280,6 @@ v1.5.0 - 2018-??-??
 - Added Audio Meter
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
-
-v1.4.0-rc.3 - 2018-??-??
-- Added open config file button to Process Meter settings
-- Updated ActiveNet plugin to 2.8.0.0
-- Darkened default accent color
-- Enhanced update download button to directly download and open the update .RMSKIN without a browser
-- Updated HWiNFO SMV to fix bug with having only one custom-named section
-- Fixed update notification not being centered on the monitor properly
-- Fixed Process Meter background height calculations when large row spacing was enabled
-- Fixed typo in changelog
-- Fixed inconsistent NetMonitor button logic
-- Fixed NetMonitor controls not appearing on non-English systems
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
