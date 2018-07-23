@@ -78,7 +78,8 @@ function CheckForBackup()
     SKIN:Bang('!UpdateMeter', 'BackgroundHeightAdjuster')
     SKIN:Bang('!UpdateMeterGroup', 'Essentials')
     SKIN:Bang('!Redraw')
-    SKIN:Bang('!ShowFade')
+    SKIN:Bang('!EnableMeasure', 'MeasureMove')
+    SKIN:Bang('!UpdateMeasure', 'MeasureMove')
     file:close()
   end
   
