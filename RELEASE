@@ -1,11 +1,11 @@
 [ReleaseVersions]
 stable=1.3.1
-dev=1.4.0-rc.2
+dev=1.4.0-rc.3
 
 [Changelogs]
-stableChangelog=v1.3.1 - 2018-5-2[#CRLF]- Fixed development testing opt-in not working
-devChangelog=v1.4.0-rc.2 - 2018-07-09[#CRLF]- Updated PerfMon Troubleshooting link[#CRLF]- Added Process Meter troubleshooting button[#CRLF]- Fixed Process Meter settings label font size[#CRLF]- Fixed Process Meter and Chronometer settings backups not being imported
+stableChangelog=v1.3.1 - 2018-05-02[#CRLF]- Fixed development testing opt-in not working
+devChangelog=v1.4.0-rc.3 - 2018-07-22[#CRLF]- Added open config file button to Process Meter settings[#CRLF]- Updated ActiveNet plugin to 2.8.0.0[#CRLF]- Darkened default accent color[#CRLF]- Enhanced update download button to directly download and open the update .RMSKIN without a[#CRLF]browser[#CRLF]- Updated HWiNFO SMV to fix bug with having only one custom-named section[#CRLF]- Made HWiNFO config import warning more prominent[#CRLF]- Fixed update notification not being centered on the monitor properly[#CRLF]- Fixed Process Meter background height calculations when large row spacing was enabled[#CRLF]- Fixed typo in changelog[#CRLF]- Fixed inconsistent NetMonitor button logic[#CRLF]- Fixed NetMonitor controls not appearing on non-English systems
 
 [URLs]
 stableUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.3.1/ModernGadgets_1.3.1.rmskin
-devUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.4.0-rc.2/ModernGadgets_1.4.0-rc.2.rmskin
+devUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.4.0-rc.3/ModernGadgets_1.4.0-rc.3.rmskin
