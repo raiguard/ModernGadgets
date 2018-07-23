@@ -6,6 +6,6 @@ showVisualizer=1
 showMediaController=1
 mediaPlayer=AIMP
 ; Visualizer Configuration
-fftSize=512
-fftAttack=15
-fftDecay=150
+fftSize=2048
+fftAttack=100
+fftDecay=60
