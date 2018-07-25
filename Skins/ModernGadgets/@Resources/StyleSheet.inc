@@ -107,6 +107,10 @@ audioMeterPath=#ROOTCONFIGPATH#Audio\Audio.ini
 audioMeterConfig=ModernGadgets\Audio
 audioSettingsPath=#@#Settings\AudioSettings.inc
 
+weatherMeterPath=#ROOTCONFIGPATH#Weather\Weather.ini
+weatherMeterConfig=ModernGadgets\Weather
+weatherSettingsPath=#@#Settings\WeatherSettings.inc
+
 setupSkinConfig=ModernGadgets\Config\Setup
 
 ; Default Color Pallete
