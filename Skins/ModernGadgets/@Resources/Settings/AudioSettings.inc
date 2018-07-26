@@ -1,6 +1,8 @@
 [Variables]
 smoothUpdates=1
 
+colorVisualizer=#colorAccent#,80
+
 showVisualizer=1
 ; Media Controller
 showMediaController=1
