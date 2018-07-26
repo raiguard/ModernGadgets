@@ -12,3 +12,5 @@ daysFeed=6
 ; Note that Weather.com uses "_" underline instead of "-" dash in the codes.
 locale=en_US
 ;Locale=fr_FR
+
+weatherUpdateRate=10
