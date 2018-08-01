@@ -14,3 +14,10 @@ locale=en_US
 ;Locale=fr_FR
 
 weatherUpdateRate=10
+
+showHumidity=1
+showUv=1
+showVisibility=0
+showDewpoint=1
+
+showMoon=1
