@@ -17,7 +17,7 @@ weatherUpdateRate=10
 
 showHumidity=1
 showUv=1
-showVisibility=0
+showVisibility=1
 showDewpoint=1
 
 showMoon=1
