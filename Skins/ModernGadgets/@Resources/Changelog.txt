@@ -276,6 +276,11 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.4.0-rc.4 - 2018-08-??
+- Replaced readme link with MG Wiki link
+- Various code optimizations
+- Updated to signed SMV application
+
 v1.4.0 - 2018-??-??
 - Added Chronometer
 - Added Process Meter
