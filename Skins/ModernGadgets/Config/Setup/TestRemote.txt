@@ -1,8 +1,8 @@
 [
   {
     "_description": "This file is used for local debugging. It is a heavily truncated version of the actual output that the API will provide.",
-    "tag_name": "v1.4.1-rc.1",
-    "name": "v1.4.1-rc.1",
+    "tag_name": "v1.4.0-rc.1",
+    "name": "v1.4.0-rc.1",
     "prerelease": true,
     "published_at": "2018-06-23T00:45:18Z",
     "assets": [

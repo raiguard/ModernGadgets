@@ -51,7 +51,7 @@ end
 function CrossCheck(bTable, sTable, filePath)
 
   for i,v in pairs(bTable) do
-    if type(v) == 'table' then
+    if i == 'Variables' and type(v) == 'table' then
       for a,b in pairs(v) do
         if sTable[i][a] then
           SKIN:Bang('!WriteKeyValue', i, a, b, filePath)

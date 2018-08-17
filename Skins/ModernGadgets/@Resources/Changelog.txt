@@ -280,6 +280,7 @@ v1.4.0-rc.4 - 2018-08-??
 - Replaced readme link with MG Wiki link
 - Various code optimizations
 - Updated to signed SMV application
+- Fixed settings backup import overwriting HWiNFO SMV sections
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
