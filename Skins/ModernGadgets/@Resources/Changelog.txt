@@ -281,6 +281,7 @@ v1.4.0-rc.4 - 2018-08-??
 - Various code optimizations
 - Updated to signed SMV application
 - Fixed settings backup import overwriting HWiNFO SMV sections
+- Fixed settings backup import crashing if a settings file doesn't exist in the backup
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
@@ -318,4 +319,6 @@ v1.4.0 - 2018-??-??
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
 - Fixed inconsistent NetMonitor button logic
 - Fixed NetMonitor controls not appearing on non-English systems
+- Fixed settings backup import overwriting HWiNFO SMV sections
+- Fixed settings backup import crashing if a settings file doesn't exist in the backup
 - Corrected date formatting in changelog
