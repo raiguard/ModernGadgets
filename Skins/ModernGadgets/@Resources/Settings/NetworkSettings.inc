@@ -15,9 +15,3 @@ pingUrl=google.com
 colorUpload=107,238,98
 colorDownload=255,246,42
 colorPeak=99,125,217
-
-; ====== DEFAULTS ======
-
-dColorUpload=107,238,98
-dColorDownload=255,246,42
-dColorPeak=99,125,217

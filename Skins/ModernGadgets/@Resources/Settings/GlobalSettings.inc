@@ -30,17 +30,3 @@ colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#
 
 colorIntel=0,125,198
-
-; ----- Default Colors -----
-
-dColorMain=230,230,230
-dColorInfo=150,150,150
-dColorSubBg=25,25,25
-dColorBorder=50,50,50
-dColorAccent=137,190,250
-
-dColorBg=15,15,15
-dColorBgBorder=50,50,50
-dColorBarBg=#colorDim#
-
-dColorButtonPress=255,50,50

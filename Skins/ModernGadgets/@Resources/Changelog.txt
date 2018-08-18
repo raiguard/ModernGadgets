@@ -282,6 +282,7 @@ v1.4.0-rc.4 - 2018-08-??
 - Updated to signed SMV application
 - Fixed settings backup import overwriting HWiNFO SMV sections
 - Fixed settings backup import crashing if a settings file doesn't exist in the backup
+- Fixed settings backup overwriting default colors
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
