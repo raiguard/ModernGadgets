@@ -90,6 +90,14 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.4.0-rc.4 - 2018-09-22
+- Added Disk Read/Write Letters option
+- Replaced readme link with MG Wiki link
+- Various code optimizations
+- Fixed settings backup import overwriting HWiNFO SMV sections
+- Fixed settings backup import crashing if a settings file doesn't exist in the backup
+- Fixed settings backup overwriting default colors
+
 v1.4.0-rc.3 - 2018-07-22
 - Added open config file button to Process Meter settings
 - Updated ActiveNet plugin to 2.8.0.0
@@ -276,15 +284,6 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.4.0-rc.4 - 2018-09-??
-- Added Disk Read/Write Letters option
-- Replaced readme link with MG Wiki link
-- Various code optimizations
-- Updated to signed SMV application
-- Fixed settings backup import overwriting HWiNFO SMV sections
-- Fixed settings backup import crashing if a settings file doesn't exist in the backup
-- Fixed settings backup overwriting default colors
-
 v1.4.0 - 2018-??-??
 - Added Chronometer
 - Added Process Meter
@@ -297,6 +296,7 @@ v1.4.0 - 2018-??-??
 - Added three additional GPU Meters for monitoring up to four GPUs simultaneously
 - Added disk temperatures to Disks Meter
 - Added setting to hide disk read/write speeds in Disks Meter
+- Added Disk Read/Write Letters option
 - Added setting to only display fixed disks in Disks Meter
 - Added global color customization
 - Added "open config file" buttons to all settings skins to allow access to more advanced settings
@@ -317,6 +317,7 @@ v1.4.0 - 2018-??-??
 - Updated LoadSkin and UpdateChecker scripts for Rainmeter 4.2 compatibility
 - Settings backups are now made upon closing a settings skin, rather than at a preset interval
 - Changelog button now shows local changelog rather than the one from GitHub
+- Replaced readme link with MG Wiki link
 - Fixed error with the update checker reading a file while it was being written by WebParser
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
 - Fixed inconsistent NetMonitor button logic
