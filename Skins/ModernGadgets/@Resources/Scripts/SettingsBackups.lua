@@ -37,7 +37,7 @@ function Update() end
 function ImportBackup()
 
   for i=1, 10 do
-    local bTable = ReadIni(backupsPath .. fileNames[i])
+    local bTable = ReadIni(backupsPath .. fileNames[i]) or {}
     local sTable = ReadIni(filesPath .. fileNames[i])
     CrossCheck(bTable, sTable, filesPath .. fileNames[i])
   end
@@ -51,7 +51,7 @@ end
 function CrossCheck(bTable, sTable, filePath)
 
   for i,v in pairs(bTable) do
-    if type(v) == 'table' then
+    if i == 'Variables' and type(v) == 'table' then
       for a,b in pairs(v) do
         if sTable[i][a] then
           SKIN:Bang('!WriteKeyValue', i, a, b, filePath)
@@ -87,7 +87,8 @@ end
 
 -- parses a INI formatted text file into a 'Table[Section][Key] = Value' table
 function ReadIni(inputfile)
-   local file = assert(io.open(inputfile, 'r'), 'Unable to open ' .. inputfile)
+   local file = io.open(inputfile, 'r')
+   if file == nil then return nil end
    local tbl, num, section = {}, 0
 
    for line in file:lines() do

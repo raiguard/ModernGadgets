@@ -18,13 +18,6 @@ colorFanUsage=107,238,98
 colorMemoryController=255,204,0
 colorTempGraph=200,0,0
 
-; ====== DEFAULTS ======
-
-dColorCoreUsage=255,246,42
-dColorMemoryUsage=107,198,250
-dColorFanUsage=107,238,98
-dColorMemoryController=255,204,0
-
 ; ===== HWiNFO =====
 
 ; 

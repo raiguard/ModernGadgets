@@ -282,10 +282,14 @@ v1.5.0 - 2018-??-??
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
 
-v1.4.0-rc.4 - 2018-08-??
+v1.4.0-rc.4 - 2018-09-??
+- Added Disk Read/Write Letters option
 - Replaced readme link with MG Wiki link
 - Various code optimizations
 - Updated to signed SMV application
+- Fixed settings backup import overwriting HWiNFO SMV sections
+- Fixed settings backup import crashing if a settings file doesn't exist in the backup
+- Fixed settings backup overwriting default colors
 
 v1.4.0 - 2018-??-??
 - Added Chronometer
@@ -323,4 +327,6 @@ v1.4.0 - 2018-??-??
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
 - Fixed inconsistent NetMonitor button logic
 - Fixed NetMonitor controls not appearing on non-English systems
+- Fixed settings backup import overwriting HWiNFO SMV sections
+- Fixed settings backup import crashing if a settings file doesn't exist in the backup
 - Corrected date formatting in changelog
