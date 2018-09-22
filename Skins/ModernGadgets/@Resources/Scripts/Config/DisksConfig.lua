@@ -106,6 +106,17 @@ function UpdateDiskReadWrite(state)
 	SKIN:Bang('!Redraw')
 end
 
+function UpdateDiskReadWriteLetters(state)
+
+	alphabet:gsub(".", function(c)
+			SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
+			SKIN:Bang('!SetOption', 'Disk' .. c .. 'ReadArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
+			SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
+		end)
+	SKIN:Bang('!Redraw')
+
+end
+
 function table.contains(table, element)
   for _, value in pairs(table) do
     if value == element then
