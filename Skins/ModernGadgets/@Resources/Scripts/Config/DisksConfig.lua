@@ -96,17 +96,17 @@ end
 
 function UpdateDiskReadWrite(state)
 
-		alphabet:gsub(".", function(c)
-			SKIN:Bang('!SetOptionGroup', 'Disk' .. c .. 'ReadWrite', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (' .. state .. ' = 0)')
-			SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Y', '(((' .. state .. ' = 0) && (#*hideDisk' .. c .. '*# = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
-			SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
-		end)
+	alphabet:gsub(".", function(c)
+		SKIN:Bang('!SetOptionGroup', 'Disk' .. c .. 'ReadWrite', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (' .. state .. ' = 0)')
+		SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Y', '(((' .. state .. ' = 0) && (#*hideDisk' .. c .. '*# = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
+		SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
+	end)
 	SKIN:Bang('!UpdateMeterGroup', 'LineGraph')
 	SKIN:Bang('!UpdateMeterGroup', 'Background')
-	SKIN:Bang('!Redraw')
+	UpdateDiskReadWriteLetters(SKIN:GetVariable('showDiskReadWriteLetters'))
 end
 
-function UpdateDiskReadWriteLetters(state)
+function UpdateDiskReadWriteLetters()
 
 	alphabet:gsub(".", function(c)
 			SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
