@@ -284,6 +284,9 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.4.0-rc.5 - 2018-??-??
+- Added 'Welcome' dialog for first-time users
+
 v1.4.0 - 2018-??-??
 - Added Chronometer
 - Added Process Meter
