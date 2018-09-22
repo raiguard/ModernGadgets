@@ -55,7 +55,7 @@ colorSnapdragon=0,80,198
 
 histogramAlpha=50
 
-insetToggleX=-3r
+insetToggleX=(#contentMargin# + 16)
 
 ; Character reference variables
 deg=[\176]
