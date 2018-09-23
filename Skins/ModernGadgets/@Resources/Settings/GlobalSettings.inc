@@ -4,6 +4,7 @@ tempUnits=C
 isHwinfoAvailable=1
 
 notifyUpdates=1
+updateCheckRate=90
 autoBackups=1
 checkForPrereleases=1
 
