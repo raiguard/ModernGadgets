@@ -25,6 +25,8 @@ function ConfigureDisk(disk, index, updatemode)
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'EjectButton', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] = 4) || (#*showEjectButtons*# = 0)')
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] <> 4) || (#*showDiskTemps*# = 0)')
 		SKIN:Bang('!SetOptionGroup', 'Disk' .. disk .. 'ReadWrite', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || (#*showDiskReadWrite*# = 0)')
+		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'WriteArrow', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
+		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'ReadArrow', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'WriteArrow', 'Y', '(((#*showDiskReadWrite*# = 0) && (0 = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
 		SetVariable('hideDisk' .. disk, '0', dynamicVarsPath)
 	elseif updatemode == true or not table.contains(hideDisks, disk) then
