@@ -111,10 +111,10 @@ end
 function UpdateDiskReadWriteLetters()
 
 	alphabet:gsub(".", function(c)
-			SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
-			SKIN:Bang('!SetOption', 'Disk' .. c .. 'ReadArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
-			SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
-		end)
+		SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
+		SKIN:Bang('!SetOption', 'Disk' .. c .. 'ReadArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
+		SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
+	end)
 	SKIN:Bang('!Redraw')
 
 end
@@ -131,7 +131,7 @@ end
 function AddSetting()
 
 	alphabet:gsub(".", function(c)
-			SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'TempString', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || ([MeasureDisk' .. c .. 'Type:] <> 4) || (#*showDiskTemps*# = 0) || ([MeasureHwinfoDetect:] = -9000)')
-		end)
+		SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'TempString', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || ([MeasureDisk' .. c .. 'Type:] <> 4) || (#*showDiskTemps*# = 0) || ([MeasureHwinfoDetect:] = -9000)')
+	end)
 
 end
