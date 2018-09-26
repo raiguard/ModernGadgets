@@ -25,6 +25,8 @@ function ConfigureDisk(disk, index, updatemode)
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'EjectButton', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] = 4) || (#*showEjectButtons*# = 0)')
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'TempString', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || ([MeasureDisk' .. disk .. 'Type:] <> 4) || (#*showDiskTemps*# = 0)')
 		SKIN:Bang('!SetOptionGroup', 'Disk' .. disk .. 'ReadWrite', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || (#*showDiskReadWrite*# = 0)')
+		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'WriteArrow', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
+		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'ReadArrow', 'Hidden', '(#*hideDisk' .. disk .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
 		SKIN:Bang('!SetOption', 'Disk' .. disk .. 'WriteArrow', 'Y', '(((#*showDiskReadWrite*# = 0) && (0 = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
 		SetVariable('hideDisk' .. disk, '0', dynamicVarsPath)
 	elseif updatemode == true or not table.contains(hideDisks, disk) then
@@ -109,10 +111,10 @@ end
 function UpdateDiskReadWriteLetters()
 
 	alphabet:gsub(".", function(c)
-			SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
-			SKIN:Bang('!SetOption', 'Disk' .. c .. 'ReadArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
-			SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
-		end)
+		SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
+		SKIN:Bang('!SetOption', 'Disk' .. c .. 'ReadArrow', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (#*showDiskReadWrite*# = 0) || (#*showDiskReadWriteLetters*# = 1)')
+		SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
+	end)
 	SKIN:Bang('!Redraw')
 
 end
@@ -129,7 +131,7 @@ end
 function AddSetting()
 
 	alphabet:gsub(".", function(c)
-			SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'TempString', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || ([MeasureDisk' .. c .. 'Type:] <> 4) || (#*showDiskTemps*# = 0) || ([MeasureHwinfoDetect:] = -9000)')
-		end)
+		SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'TempString', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || ([MeasureDisk' .. c .. 'Type:] <> 4) || (#*showDiskTemps*# = 0) || ([MeasureHwinfoDetect:] = -9000)')
+	end)
 
 end
