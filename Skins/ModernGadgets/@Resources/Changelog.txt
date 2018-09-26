@@ -287,6 +287,7 @@ WIP Releases
 v1.4.0-rc.5 - 2018-??-??
 - Added 'Welcome' dialog for first-time users
 - Added update check interval customization
+- Added controls for settings backups in global settings skin
 - Fixed bug where disk configuration would ignore the disk read/write letters option
 
 v1.4.0 - 2018-??-??
