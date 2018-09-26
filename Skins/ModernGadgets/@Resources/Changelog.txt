@@ -280,7 +280,7 @@ v1.0.0-rc.2 - 2016-11-18
   greater flexibility (and better reliability)
 
 v1.0.0-rc.1 - 2016-11-14
- - Initial release
+- Initial release
 
 WIP Releases
 
