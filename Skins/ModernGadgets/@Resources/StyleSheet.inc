@@ -15,6 +15,8 @@ contentMarginRight=((#bgWidth# + #bgOffset#) - #contentMarginAbs# - 1)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
 columnX=(#contentMarginCenter# + 2)
 
+scale=1.0
+
 rowSpacing=1
 barTextOffset=1
 barHeight=1
@@ -152,6 +154,7 @@ W=#bgWidth#
 H=([BackgroundHeight:Y] - (#bgOffset# * 2))
 DynamicVariables=1
 Group=Background
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleBackgroundHeight]
 SolidColor=255,255,255,0
@@ -160,6 +163,7 @@ Y=(#contentMarginAbs# + #bgOffset#)R
 W=#bgWidthAbs#
 H=1
 Group=Background
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 ; Strings (general)
 [StyleString]
@@ -169,6 +173,7 @@ FontFace=#fontFace#
 X=#contentMargin#
 Y=#rowSpacing#R
 Antialias=1
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleStringCenterAlign]
 StringAlign=Center
@@ -230,6 +235,7 @@ Y=3R
 W=#contentWidth#
 H=19
 ScaleMargins=2,2,2,2
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleInputBoxBackgroundAdjacent]
 X=5R
@@ -270,6 +276,7 @@ Y=4R
 DynamicVariables=1
 Group=Settings
 Antialias=1
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleRadioButton]
 X=5R
@@ -285,6 +292,7 @@ Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Ext
 X=-20r
 Y=5R
 DynamicVariables=1
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 ; Buttons
 [StyleStringButtonHover]
@@ -312,6 +320,7 @@ Y=r
 W=17
 H=17
 Antialias=0
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleCloseButton]
 ImageName=#imgPath#close.png
@@ -323,6 +332,7 @@ Antialias=0
 ToolTipText=Close
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleOpenConfigFileButton]
 FontColor=#colorMain#
@@ -334,6 +344,7 @@ X=(#contentMarginRight# - 18)
 Y=(#contentMargin# - 2)
 Text=[\x6c]
 ToolTipText=Open configuration file to edit manually
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleConfigButton]
 ImageName=#imgPath#Wrench.png
@@ -348,6 +359,7 @@ Group=ConfigButton
 MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleHelpButton]
 ImageName=#imgPath#help.png
@@ -358,6 +370,7 @@ H=14
 Antialias=0
 ToolTipIcon=Info
 ToolTipWidth=300
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleTutorialButton]
 ImageName=#imgPath#book.png
@@ -368,6 +381,7 @@ Y=r
 W=15
 H=15
 Antialias=1
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleColorsHelpButton]
 ToolTipTitle=Color Customization
@@ -383,6 +397,7 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleRefreshButton]
 ImageName=#imgPath#refresh-up.png
@@ -397,10 +412,7 @@ MouseOverAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-over.pn
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseDownAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-
-[StyleStringSmallTextButton]
-FontColor=#colorAccent#
-Y=7R
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 ; Line Graph
 [StyleLineGraphBackground]
@@ -414,6 +426,7 @@ W=(#contentWidth#)
 H=#graphHeight#
 Group=LineGraph
 Hidden=(#showLineGraph# = 0)
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleLineGraph]
 X=1r
@@ -424,12 +437,14 @@ Group=LineGraph
 Antialias=#lineGraphAa#
 DynamicVariables=1
 Hidden=(#showLineGraph# = 0)
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleLineGraphBgAdjustor]
 X=#contentMargin#
 Y=((#showLineGraph# = 0) ? 0 : 1)R
 Hidden=(#showLineGraph# = 0)
 Group=LineGraph
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 ; Other
 [StyleBar]
@@ -442,6 +457,7 @@ h=#barHeight#
 BarOrientation=Horizontal
 DynamicVariables=1
 Antialias=1
+TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 
 [StyleStringPeakIcon]
 FontFace=ElegantIcons

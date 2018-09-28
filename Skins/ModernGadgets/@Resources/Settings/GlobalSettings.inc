@@ -3,6 +3,8 @@ lineGraphAa=0
 tempUnits=C
 isHwinfoAvailable=1
 
+scale=1.25
+
 notifyUpdates=1
 updateCheckRate=90
 autoBackups=1
