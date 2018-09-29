@@ -151,7 +151,7 @@ ImageAlpha=((#showBgBorder# = 0) ? 0 : 255)
 X=#bgOffset#
 Y=#bgOffset#
 W=#bgWidth#
-H=([BackgroundHeight:Y] - (#bgOffset# * 2))
+H=(([BackgroundHeight:Y] - (#bgOffset# * 2)) * #scale#)
 DynamicVariables=1
 Group=Background
 TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
@@ -160,7 +160,7 @@ TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
 SolidColor=255,255,255,0
 X=0
 Y=(#contentMarginAbs# + #bgOffset#)R
-W=#bgWidthAbs#
+W=(#bgWidthAbs# * #scale#)
 H=1
 Group=Background
 TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
