@@ -9,13 +9,14 @@ bgWidth=150
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
 
 contentMarginAbs=3
-contentMargin=(#bgOffset# + #contentMarginAbs#)
+contentMargin=(#contentMarginAbs# + #bgOffset# - 1)
+contentMarginRight=(#bgWidth# - #contentMarginAbs# + #bgOffset# - 2)
 contentMarginCenter=((#bgWidth# / 2) + #bgOffset#)
-contentMarginRight=((#bgWidth# + #bgOffset#) - #contentMarginAbs# - 1)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
 columnX=(#contentMarginCenter# + 2)
 
 scale=1.0
+transformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 
 rowSpacing=1
 barTextOffset=1
@@ -142,19 +143,29 @@ cp23=150,150,150
 cp24=237,28,32
 
 ; Background
+[StyleBackgroundMargin]
+SolidColor=255,255,255,0
+X=-1
+Y=-1
+W=((#bgWidth# + (#bgOffset# * 2)) * #scale#)
+H=([MeterBackgroundHeight:Y] * #scale#)
+DynamicVariables=1
+Group=Background
+TransformationMatrix=#transformationMatrix#
+
 [StyleBackground]
 ImageName=#imgPath#border.png
 ScaleMargins=2,2,2,2
 SolidColor=#colorBg#
 ImageTint=#colorBgBorder#
 ImageAlpha=((#showBgBorder# = 0) ? 0 : 255)
-X=#bgOffset#
-Y=#bgOffset#
+X=(#bgOffset# - 1)
+Y=(#bgOffset# - 1)
 W=#bgWidth#
-H=(([BackgroundHeight:Y] - (#bgOffset# * 2)) * #scale#)
+H=([MeterBackgroundHeight:Y] - (#bgOffset# * 2))
 DynamicVariables=1
 Group=Background
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleBackgroundHeight]
 SolidColor=255,255,255,0
@@ -163,7 +174,7 @@ Y=(#contentMarginAbs# + #bgOffset#)R
 W=(#bgWidthAbs# * #scale#)
 H=1
 Group=Background
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 ; Strings (general)
 [StyleString]
@@ -173,7 +184,7 @@ FontFace=#fontFace#
 X=#contentMargin#
 Y=#rowSpacing#R
 Antialias=1
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleStringCenterAlign]
 StringAlign=Center
@@ -235,7 +246,7 @@ Y=3R
 W=#contentWidth#
 H=19
 ScaleMargins=2,2,2,2
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleInputBoxBackgroundAdjacent]
 X=5R
@@ -276,7 +287,7 @@ Y=4R
 DynamicVariables=1
 Group=Settings
 Antialias=1
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleRadioButton]
 X=5R
@@ -292,7 +303,7 @@ Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Ext
 X=-20r
 Y=5R
 DynamicVariables=1
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 ; Buttons
 [StyleStringButtonHover]
@@ -320,7 +331,7 @@ Y=r
 W=17
 H=17
 Antialias=0
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleCloseButton]
 ImageName=#imgPath#close.png
@@ -332,7 +343,7 @@ Antialias=0
 ToolTipText=Close
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
 LeftMouseUpAction=[!DeactivateConfig]
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleOpenConfigFileButton]
 FontColor=#colorMain#
@@ -344,7 +355,7 @@ X=(#contentMarginRight# - 18)
 Y=(#contentMargin# - 2)
 Text=[\x6c]
 ToolTipText=Open configuration file to edit manually
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleConfigButton]
 ImageName=#imgPath#Wrench.png
@@ -359,7 +370,7 @@ Group=ConfigButton
 MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseUpAction=[!SkinCustomMenu]
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleHelpButton]
 ImageName=#imgPath#help.png
@@ -370,7 +381,7 @@ H=14
 Antialias=0
 ToolTipIcon=Info
 ToolTipWidth=300
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleTutorialButton]
 ImageName=#imgPath#book.png
@@ -381,7 +392,7 @@ Y=r
 W=15
 H=15
 Antialias=1
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleColorsHelpButton]
 ToolTipTitle=Color Customization
@@ -397,7 +408,7 @@ W=14
 H=11
 Antialias=1
 DynamicVariables=1
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleRefreshButton]
 ImageName=#imgPath#refresh-up.png
@@ -412,7 +423,7 @@ MouseOverAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-over.pn
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseDownAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 ; Line Graph
 [StyleLineGraphBackground]
@@ -426,7 +437,7 @@ W=(#contentWidth#)
 H=#graphHeight#
 Group=LineGraph
 Hidden=(#showLineGraph# = 0)
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleLineGraph]
 X=1r
@@ -437,14 +448,14 @@ Group=LineGraph
 Antialias=#lineGraphAa#
 DynamicVariables=1
 Hidden=(#showLineGraph# = 0)
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleLineGraphBgAdjustor]
 X=#contentMargin#
 Y=((#showLineGraph# = 0) ? 0 : 1)R
 Hidden=(#showLineGraph# = 0)
 Group=LineGraph
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 ; Other
 [StyleBar]
@@ -457,7 +468,7 @@ h=#barHeight#
 BarOrientation=Horizontal
 DynamicVariables=1
 Antialias=1
-TransformationMatrix=#Scale#;0;0;#Scale#;#Scale#;#Scale#
+TransformationMatrix=#transformationMatrix#
 
 [StyleStringPeakIcon]
 FontFace=ElegantIcons
