@@ -1,3 +1,4 @@
 Tokyo, Japan: JAXX0085:1:JA
 Saratoga Springs, UT: USUT0281:1:US
 Beijing, China: CHXX0008:1:CH
+Cairo, Egypt: EGXX0004:1:EG

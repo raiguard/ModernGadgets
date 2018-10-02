@@ -1,7 +1,6 @@
 [Variables]
 lineGraphAa=0
 tempUnits=C
-isHwinfoAvailable=1
 
 notifyUpdates=1
 updateCheckRate=90
