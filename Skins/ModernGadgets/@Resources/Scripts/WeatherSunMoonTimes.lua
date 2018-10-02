@@ -219,7 +219,7 @@ function GetSunMoonTimes(nLatitude,
   values['dayLength'] = TimeString(nDayLength, 0, 1) or '---'
   values['sunAngle'] = nAngle
   values['moonAngle'] = nmAngle
-  PrintTable(values)
+  -- PrintTable(values)
   
 end                                                                      -- function GetSunMoonTimes
 
