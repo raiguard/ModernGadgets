@@ -1,33 +1,90 @@
---[[
-
-    CHANGES SO FAR:
-    (variable) date.valueOf() = SKIN:GetMeasure('MeasureLocalTime'):GetValue() -- raw timestamp value
-
-
-]]--
-
 debug = true
+data = {}
 
 function Initialize() 
 
-    local timestamp = 13182906972
-    local latitude = 40.34
-    local longitude = -111.92
+    latitude = SELF:GetOption('Latitude')
+    longitude = SELF:GetOption('Longitude')
+    mTime = SKIN:GetMeasure(SELF:GetOption('TimestampMeasure'))
 
-    -- debug
-    LogHelper(PrintTable(SunCalc.getTimes(timestamp, latitude, longitude)))
-    LogHelper(PrintTable(SunCalc.getMoonTimes(timestamp, latitude, longitude)))
+    if not mTime then RmLog('Must define a timestamp measure', 'Error') end
 
 end
 
-function Update() end
+-- if you wish to update the info on-demand via a !CommandMeasure, simply move this code to another function (e.g. 'GetSunMoonTimes()').
+-- additionally, you may substitute the values obtained in Initialize() with your own function arguments if you do this.
+function Update()
+    
+    -- setup timestamps
+    local tDate = os.date("!*t", mTime:GetValue())   -- WINDOWS timestamp value
+    tDate.year = tDate.year - (1970 - 1601)   -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
+    local timestamp = os.time(tDate)
 
--- function GetSunMoonTimes(timestamp, latitude, longitude)
+    local mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes)
+    
+    -- create 'zero-date', or timestamp at 0:00 on current day
+    local zDateTbl = os.date('*t', os.time()) -- table with current time values
+    local zDate = tonumber(tostring(os.time{ year = zDateTbl.year, month = zDateTbl.month, day = zDateTbl.day, hour = 0, min = 0, sec = 0 }) .. '000')
 
--- end
+    local sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
+    local moonTimes = SunCalc.getMoonTimes(zDate, latitude, longitude)
+    local sunPosition = SunCalc.getPosition(mDate, latitude, longitude)
+    local moonPosition = SunCalc.getMoonPosition(mDate, latitude, longitude)
+    local moonIllumination = SunCalc.getMoonIllumination(mDate, latitude, longitude)
+    
+    --[[
+        VALUES TO PROVIDE:
+        data:
+            sunRise (time string)
+            sunSet (time string)
+            sunTime (time string)
+            sunDialAngle (deg)
+            moonRise (time string)
+            moonSet (time string)
+            moonTime (time string)
+            moonDialAngle (deg)
+            moonViewAngle (deg)
+    ]]--
+
+    data.sunrise = os.date('%H:%M', correctTimestamp(sunTimes.sunrise))
+    data.sunset = os.date('%H:%M', correctTimestamp(sunTimes.sunset))
+    data.suntime = os.date('%H:%M', correctTimestamp(sunTimes.sunset - sunTimes.sunrise))
+    data.moonrise = os.date('%H:%M', correctTimestamp(moonTimes.rise))
+    data.moonset = os.date('%H:%M', correctTimestamp(moonTimes.set))
+    data.moontime = os.date('%H:%M', correctTimestamp(getDifference(moonTimes.set, moonTimes.rise)))
+    PrintTable(data)
+
+    -- debug
+    -- RmLog('getTimes():')
+    -- PrintTable(sunTimes)
+    -- RmLog('getMoonTimes():')
+    -- PrintTable(moonTimes)
+    -- RmLog('getPosition():')
+    -- PrintTable(sunPosition)
+    -- RmLog('getMoonPosition():')
+    -- PrintTable(moonPosition)
+    -- RmLog('getMoonIllumination():')
+    -- PrintTable(moonIllumination)
+    
+
+end
+
+function getDifference(a1, a2)
+
+    return a1
+
+end
+
+function GetData(key) return data[key] or '---' end
+
+-- ----- Utilities -----
+
+function correctTimestamp(timestamp) return tostring(timestamp):sub(1,10) end
+
+function toDegrees(rad) return rad * 180 / math.pi end
 
 -- function to make logging messages less cluttered
-function LogHelper(message, type)
+function RmLog(message, type)
 
     if type == nil then type = 'Debug' end
       
@@ -39,28 +96,21 @@ function LogHelper(message, type)
       
 end
 
-printIndent = ''
+printIndent = '     '
 
 -- prints the entire contents of a table to the Rainmeter log
 function PrintTable(table)
     for k,v in pairs(table) do
         if type(v) == 'table' then
             local pI = printIndent
-            print(printIndent .. k .. ':')
+            RmLog(printIndent .. tostring(k) .. ':')
             printIndent = printIndent .. '  '
             PrintTable(v)
             printIndent = pI
         else
-            print(printIndent .. k .. ': ' .. v)
+            RmLog(printIndent .. tostring(k) .. ': ' .. tostring(v))
         end
     end
-end
-
-function math.round(x)
-    if x%2 ~= 0.5 then
-        return math.floor(x+0.5)
-    end
-    return x-0.5
 end
 
 -- ------------------------------------------------------------------------------------------------------------------------
@@ -93,8 +143,8 @@ dayMs = 1000 * 60 * 60 * 24
 J1970 = 2440588
 J2000 = 2451545
 
-function toJulian(date)  return date.valueOf() / dayMs - 0.5 + J1970  end
-function fromJulian(j)   return Date((j + 0.5 - J1970) * dayMs)  end
+function toJulian(date)  return date / dayMs - 0.5 + J1970  end
+function fromJulian(j)   return (j + 0.5 - J1970) * dayMs  end
 function toDays(date)    return toJulian(date) - J2000  end
 
 
@@ -229,14 +279,14 @@ SunCalc.getTimes = function (date, lat, lng)
         nadir = fromJulian(Jnoon - 0.5)
     }
 
-    for i = 0,times.length do
+    for i = 1,table.length(times) do
         time = times[i]
 
-        Jset = getSetJ(time[0] * rad, lw, phi, dec, n, M, L)
+        Jset = getSetJ(time[1] * rad, lw, phi, dec, n, M, L)
         Jrise = Jnoon - (Jset - Jnoon)
 
-        result[time[1]] = fromJulian(Jrise)
-        result[time[2]] = fromJulian(Jset)
+        result[time[2]] = fromJulian(Jrise)
+        result[time[3]] = fromJulian(Jset)
     end
 
     return result
@@ -294,7 +344,7 @@ end
 
 SunCalc.getMoonIllumination = function (date)
 
-    d = toDays(date or Date())
+    d = toDays(date)
     s = sunCoords(d)
     m = moonCoords(d)
 
@@ -314,16 +364,14 @@ end
 
 
 function hoursLater(date, h)
-    return Date(date.valueOf() + h * dayMs / 24)
+    return date + h * dayMs / 24
 end
 
 -- calculations for moon rise/set times are based on http://www.stargazing.net/kepler/moonrise.html article
 
-SunCalc.getMoonTimes = function (date, lat, lng, inUTC)
-    t = Date(date)
-    if inUTC then t.setUTCHours(0, 0, 0, 0)
-    else t.setHours(0, 0, 0, 0) end
+SunCalc.getMoonTimes = function (date, lat, lng)
 
+    t = date
     hc = 0.133 * rad
     h0 = SunCalc.getMoonPosition(t, lat, lng).altitude - hc
     h1, h2, rise, set, a, b, xe, ye, d, roots, x1, x2, dx = nil
@@ -373,3 +421,18 @@ SunCalc.getMoonTimes = function (date, lat, lng, inUTC)
     return result
 
 end
+
+-- ---------- NOT PART OF THE ORIGINAL SCRIPT - HAD TO BE ADDED FOR THE SCRIPT TO WORK IN LUA ----------
+
+function math.round(x)
+    if x%2 ~= 0.5 then
+        return math.floor(x+0.5)
+    end
+    return x-0.5
+end
+
+function table.length(T)
+    local count = 0
+    for _ in pairs(T) do count = count + 1 end
+    return count
+  end
