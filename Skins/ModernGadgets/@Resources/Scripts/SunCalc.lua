@@ -1,87 +1,88 @@
 debug = true
-data = {}
+data = { moonViewAngle = 0 }
 
-function Initialize() 
-
-    latitude = SELF:GetOption('Latitude')
-    longitude = SELF:GetOption('Longitude')
-    mTime = SKIN:GetMeasure(SELF:GetOption('TimestampMeasure'))
-
-    if not mTime then RmLog('Must define a timestamp measure', 'Error') end
-
-end
+function Initialize() end
 
 -- if you wish to update the info on-demand via a !CommandMeasure, simply move this code to another function (e.g. 'GetSunMoonTimes()').
--- additionally, you may substitute the values obtained in Initialize() with your own function arguments if you do this.
+-- additionally, you may substitute the script measure options for function arguments if you do this.
 function Update()
+
+    -- get information from script measure
+    latitude = SELF:GetOption('Latitude')
+    longitude = SELF:GetOption('Longitude')
+    timestamp = SELF:GetOption('Timestamp')
+    tzOffset = SELF:GetOption('TzOffset')
     
     -- setup timestamps
-    local tDate = os.date("!*t", mTime:GetValue())   -- WINDOWS timestamp value
+    tDate = os.date("*t", timestamp)  -- WINDOWS timestamp value
     tDate.year = tDate.year - (1970 - 1601)   -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
-    local timestamp = os.time(tDate)
+    tDate.hour = tDate.hour - tzOffset -- correct for timezone offset
+    timestamp = os.time(tDate) -- recreate timestamp with new parameters
+    mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes) -- table with current time values
+    zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000') -- timestamp at current day, 0:00:00 (12:00 AM)
+    RmLog('timestamp: ' .. timestamp)
 
-    local mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes)
-    
-    -- create 'zero-date', or timestamp at 0:00 on current day
-    local zDateTbl = os.date('*t', os.time()) -- table with current time values
-    local zDate = tonumber(tostring(os.time{ year = zDateTbl.year, month = zDateTbl.month, day = zDateTbl.day, hour = 0, min = 0, sec = 0 }) .. '000')
+    -- retrieve data tables from SunCalc script
+    sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
+    moonTimes = SunCalc.getMoonTimes(zDate, latitude, longitude)
+    sunPosition = SunCalc.getPosition(mDate, latitude, longitude)
+    moonPosition = SunCalc.getMoonPosition(mDate, latitude, longitude)
+    moonIllumination = SunCalc.getMoonIllumination(mDate, latitude, longitude)
+    -- debug logging
+    RmLog('getTimes():')
+    PrintTable(sunTimes)
+    RmLog('getMoonTimes():')
+    PrintTable(moonTimes)
+    RmLog('getPosition():')
+    PrintTable(sunPosition)
+    RmLog('getMoonPosition():')
+    PrintTable(moonPosition)
+    RmLog('getMoonIllumination():')
+    PrintTable(moonIllumination)
 
-    local sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
-    local moonTimes = SunCalc.getMoonTimes(zDate, latitude, longitude)
-    local sunPosition = SunCalc.getPosition(mDate, latitude, longitude)
-    local moonPosition = SunCalc.getMoonPosition(mDate, latitude, longitude)
-    local moonIllumination = SunCalc.getMoonIllumination(mDate, latitude, longitude)
-    
-    --[[
-        VALUES TO PROVIDE:
-        data:
-            sunRise (time string)
-            sunSet (time string)
-            sunTime (time string)
-            sunDialAngle (deg)
-            moonRise (time string)
-            moonSet (time string)
-            moonTime (time string)
-            moonDialAngle (deg)
-            moonViewAngle (deg)
-    ]]--
+    -- calculate suntime and moontime in minutes
+    suntime = getDifference(sunTimes.sunset, sunTimes.sunrise)
+    moontime = getDifference(moonTimes.set, moonTimes.rise)
 
+    -- translate the data into the formats used by the skin
     data.sunrise = os.date('%H:%M', correctTimestamp(sunTimes.sunrise))
     data.sunset = os.date('%H:%M', correctTimestamp(sunTimes.sunset))
-    data.suntime = os.date('%H:%M', correctTimestamp(sunTimes.sunset - sunTimes.sunrise))
+    data.suntime = FormatTimeString(suntime)
     data.moonrise = os.date('%H:%M', correctTimestamp(moonTimes.rise))
     data.moonset = os.date('%H:%M', correctTimestamp(moonTimes.set))
-    data.moontime = os.date('%H:%M', correctTimestamp(getDifference(moonTimes.set, moonTimes.rise)))
+    data.moontime = FormatTimeString(moontime)
+    data.moonViewAngle = rtd(moonIllumination.angle - moonPosition.parallacticAngle)
+    
+    -- calculcate sun and moon dial angles
+    data.sunDialAngle = (getDifference(mDate, sunTimes.sunrise) / suntime) * 180
+    data.moonDialAngle = (getDifference(mDate, moonTimes.rise) / moontime) * 180
+    -- brute-force reset angle to -1 if things get wacky or if the object is set
+    if data.sunDialAngle > 180 or data.sunDialAngle < 0 then data.sunDialAngle = -1 end
+    if data.moonDialAngle > 180 or data.moonDialAngle < 0 then data.moonDialAngle = -1 end
+    -- debug logging
     PrintTable(data)
 
-    -- debug
-    -- RmLog('getTimes():')
-    -- PrintTable(sunTimes)
-    -- RmLog('getMoonTimes():')
-    -- PrintTable(moonTimes)
-    -- RmLog('getPosition():')
-    -- PrintTable(sunPosition)
-    -- RmLog('getMoonPosition():')
-    -- PrintTable(moonPosition)
-    -- RmLog('getMoonIllumination():')
-    -- PrintTable(moonIllumination)
-    
-
 end
 
-function getDifference(a1, a2)
-
-    return a1
-
-end
-
+-- retrieves data from the data table using inline LUA in the skin
 function GetData(key) return data[key] or '---' end
 
 -- ----- Utilities -----
 
-function correctTimestamp(timestamp) return tostring(timestamp):sub(1,10) end
+function FormatTimeString(time)
 
-function toDegrees(rad) return rad * 180 / math.pi end
+	local hours = tostring(math.floor(time / 60) % 24):gsub('(.+)', '0%1'):gsub('^%d(%d%d)$', '%1')
+    local minutes = tostring(math.floor(time % 60)):gsub('(.+)', '0%1'):gsub('^%d(%d%d)$', '%1')
+    
+    return hours .. ':' .. minutes
+
+end
+
+function getDifference(a1, a2) return ((a1 - a2) / 60000) end
+
+function rtd(r) return (r * 180) / math.pi end
+
+function correctTimestamp(timestamp) return tostring(timestamp):sub(1,10) end
 
 -- function to make logging messages less cluttered
 function RmLog(message, type)
