@@ -1,11 +1,11 @@
 [Variables]
 smoothUpdates=1
 
-colorVisualizer=#colorAccent#,80
+colorVisualizer=#colorAccent#,120
 
 showVisualizer=1
 ; Media Controller
-showMediaController=1
+showMediaControls=1
 mediaPlayer=AIMP
 ; Visualizer Configuration
 fftSize=2048
