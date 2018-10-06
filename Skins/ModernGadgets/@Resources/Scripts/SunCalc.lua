@@ -1,4 +1,4 @@
-debug = true
+debug = false
 data = { moonViewAngle = 0 }
 
 function Initialize() end
