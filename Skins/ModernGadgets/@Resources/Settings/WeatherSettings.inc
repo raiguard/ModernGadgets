@@ -11,7 +11,6 @@ daysFeed=6
 ; https://msdn.microsoft.com/en-us/goglobal/bb896001.aspx
 ; Note that Weather.com uses "_" underline instead of "-" dash in the codes.
 locale=en_US
-;Locale=fr_FR
 
 weatherUpdateRate=10
 
@@ -20,5 +19,14 @@ showUv=1
 showUvChart=1
 showVisibility=1
 showDewpoint=1
-
 showMoon=1
+
+colorUvLow=47,149,35
+colorUvModerate=245,229,55
+colorUvHigh=247,90,26
+colorUvVeryHigh=214,0,27
+colorUvExtreme=109,69,198
+
+colorSkyDialBg=150,150,150
+colorSkyDialSun=250,222,110
+colorSkyDialMoon=200,200,200
