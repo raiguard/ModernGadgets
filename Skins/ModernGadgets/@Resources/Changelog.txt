@@ -288,6 +288,7 @@ v1.4.0-rc.5 - 2018-10-07
 - Added 'Welcome' dialog for first-time users
 - Added update check interval customization
 - Added controls for settings backups in global settings skin
+- Added units to HWiNFO SMV labels
 - Updated to signed SMV application
 - Reordered toggles in gadget manager
 - Fixed bug where disk configuration would ignore the disk read/write letters option
