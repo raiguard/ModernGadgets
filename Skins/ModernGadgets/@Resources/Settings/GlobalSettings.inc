@@ -20,7 +20,7 @@ colorGraphBg=#colorSubBg#
 colorGraphBorder=#colorBorder#
 
 colorMain=230,230,230
-colorInfo=150,150,150
+colorDim=150,150,150
 colorAccent=137,190,250
 
 colorBarBg=#colorBorder#

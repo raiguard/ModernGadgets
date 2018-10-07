@@ -37,7 +37,7 @@ colorGraphBg=#colorSubBg#
 colorGraphBorder=#colorBorder#
 
 colorMain=230,230,230
-colorInfo=150,150,150
+colorDim=150,150,150
 colorAccent=137,190,250
 
 colorGlobe=137,190,250
@@ -175,7 +175,7 @@ Y=r
 StringAlign=Center
 X=#contentMarginCenter#
 Y=r
-FontColor=#colorInfo#
+FontColor=#colorDim#
 
 [StyleStringParagraph]
 FontSize=10
@@ -189,7 +189,7 @@ X=(#contentMargin# + 2)
 Y=5R
 W=(#contentWidth# - 6)
 ClipString=2
-FontColor=#colorInfo#
+FontColor=#colorDim#
 
 ; Strings (headers)
 [StyleStringConfigTitle]
@@ -476,6 +476,6 @@ ToolTipText=Refresh Gadget
 
 [StyleStringHwinfoAlpha]
 FontSize=8
-FontColor=#colorInfo#
+FontColor=#colorDim#
 Text=The new SMV is feature-complete. However, it is still an early access preview version, and as such, it might have a few scaling or display issues. If you encounter any display issues, please click here to report them.
 LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/issues"]
