@@ -321,7 +321,7 @@ v1.4.0 - 2018-??-??
 - Consolidated graph and background borders into their respective background meters
 - Standardized graph positioning
 - Refactored input box visuals
-- Deleted HWiNFO config tool in favor of the HWiNFO plugin's built-in tool (alpha)
+- Implemented new HWiNFO SMV application, replacing the HWiNFO Config Tool
 - Updated dynamic settings system with more consistent and flexible functions
 - Updated LoadSkin and UpdateChecker scripts for Rainmeter 4.2 compatibility
 - Settings backups are now made upon closing a settings skin, rather than at a preset interval
