@@ -90,6 +90,16 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.4.0-rc.5 - 2018-10-07
+- Added 'Welcome' dialog for first-time users
+- Added update check interval customization
+- Added controls for settings backups in global settings skin
+- Added units to HWiNFO SMV labels
+- Updated to signed SMV application
+- Reordered toggles in gadget manager
+- Rewrote config file button tooltip
+- Fixed bug where disk configuration would ignore the disk read/write letters option
+
 v1.4.0-rc.4 - 2018-09-22
 - Added Disk Read/Write Letters option
 - Replaced readme link with MG Wiki link
@@ -284,15 +294,6 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.4.0-rc.5 - 2018-10-07
-- Added 'Welcome' dialog for first-time users
-- Added update check interval customization
-- Added controls for settings backups in global settings skin
-- Added units to HWiNFO SMV labels
-- Updated to signed SMV application
-- Reordered toggles in gadget manager
-- Fixed bug where disk configuration would ignore the disk read/write letters option
-
 v1.4.0 - 2018-??-??
 - Added Chronometer
 - Added Process Meter
@@ -309,6 +310,9 @@ v1.4.0 - 2018-??-??
 - Added setting to only display fixed disks in Disks Meter
 - Added global color customization
 - Added "open config file" buttons to all settings skins to allow access to more advanced settings
+- Added 'Welcome' dialog for first-time users
+- Added update check interval customization
+- Added controls for settings backups in global settings skin
 - Darkened default accent color
 - Enhanced update download button to directly download and open the update .RMSKIN without a browser
 - Increased supported threads in CPU Meter from 32 to 64 (AMD Threadripper 2)
@@ -327,10 +331,13 @@ v1.4.0 - 2018-??-??
 - Settings backups are now made upon closing a settings skin, rather than at a preset interval
 - Changelog button now shows local changelog rather than the one from GitHub
 - Replaced readme link with MG Wiki link
+- Reordered toggles in gadget manager
 - Fixed error with the update checker reading a file while it was being written by WebParser
 - Fixed oversight where clicking the total reset button in Network Meter Pro would not work
 - Fixed inconsistent NetMonitor button logic
 - Fixed NetMonitor controls not appearing on non-English systems
+- Fixed update notification not being centered on the monitor properly
 - Fixed settings backup import overwriting HWiNFO SMV sections
 - Fixed settings backup import crashing if a settings file doesn't exist in the backup
+- Fixed settings backup overwriting default colors
 - Corrected date formatting in changelog

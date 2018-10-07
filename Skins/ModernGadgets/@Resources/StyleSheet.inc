@@ -320,7 +320,7 @@ StringAlign=Right
 X=(#contentMarginRight# - 18)
 Y=(#contentMargin# - 2)
 Text=[\x6c]
-ToolTipText=Open configuration file to edit manually
+ToolTipText=Open configuration file to access more advanced settings
 
 [StyleConfigButton]
 ImageName=#imgPath#Wrench.png
