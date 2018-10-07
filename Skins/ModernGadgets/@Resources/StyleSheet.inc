@@ -48,7 +48,7 @@ colorButtonPress=255,50,50
 
 colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#
-colorInputText=200,200,200
+colorInputText=#colorDim#
 
 colorIntel=0,125,198
 colorSnapdragon=0,80,198

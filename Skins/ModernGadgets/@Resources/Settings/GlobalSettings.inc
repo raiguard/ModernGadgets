@@ -29,5 +29,6 @@ colorButtonPress=200,50,50
 
 colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#
+colorInputText=#colorDim#
 
 colorIntel=0,125,198
