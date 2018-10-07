@@ -35,3 +35,4 @@ CONTACT
 Email: iamanaiofficial@gmail.com
 Twitter: @_raiguard
 Reddit: /u/raiguard
+Discord: Raiguard#7402
