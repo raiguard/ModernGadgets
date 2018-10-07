@@ -1,11 +1,11 @@
 [ReleaseVersions]
 stable=1.3.1
-dev=1.4.0-rc.4
+dev=1.4.0-rc.5
 
 [Changelogs]
 stableChangelog=v1.3.1 - 2018-05-02[#CRLF]- Fixed development testing opt-in not working
-devChangelog=v1.4.0-rc.4 - 2018-09-22[#CRLF]- Added Disk Read/Write Letters option[#CRLF]- Replaced readme link with MG Wiki link[#CRLF]- Various code optimizations[#CRLF]- Fixed settings backup import overwriting HWiNFO SMV sections[#CRLF]- Fixed settings backup import crashing if a settings file doesn't exist in the backup[#CRLF]- Fixed settings backup overwriting default colors
+devChangelog=v1.4.0-rc.5 - 2018-10-07[#CRLF]- Added 'Welcome' dialog for first-time users[#CRLF]- Added update check interval customization[#CRLF]- Added controls for settings backups in global settings skin[#CRLF]- Added units to HWiNFO SMV labels[#CRLF]- Updated to signed SMV application[#CRLF]- Reordered toggles in gadget manager[#CRLF]- Rewrote config file button tooltip[#CRLF]- Fixed bug where disk configuration would ignore the disk read/write letters option
 
 [URLs]
 stableUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.3.1/ModernGadgets_1.3.1.rmskin
-devUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.4.0-rc.4/ModernGadgets_1.4.0-rc.4.rmskin
+devUrl=https://github.com/raiguard/ModernGadgets/releases/download/v1.4.0-rc.5/ModernGadgets_1.4.0-rc.5.rmskin
