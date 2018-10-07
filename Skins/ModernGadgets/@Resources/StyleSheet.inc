@@ -477,4 +477,5 @@ ToolTipText=Refresh Gadget
 [StyleStringHwinfoAlpha]
 FontSize=8
 FontColor=#colorInfo#
-Text=NOTE: The new SMV is currently in an early alpha. As such, the user interface is unfinished, and there may be a few bugs. Please report any and all issues you come across to the ModernGadgets GitHub Repository.
+Text=The new SMV is feature-complete. However, it is still an early access preview version, and as such, it might have a few scaling or display issues. If you encounter any display issues, please click here to report them.
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/issues"]

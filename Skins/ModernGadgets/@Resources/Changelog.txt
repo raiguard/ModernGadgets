@@ -284,10 +284,11 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.4.0-rc.5 - 2018-??-??
+v1.4.0-rc.5 - 2018-10-07
 - Added 'Welcome' dialog for first-time users
 - Added update check interval customization
 - Added controls for settings backups in global settings skin
+- Updated to signed SMV application
 - Reordered toggles in gadget manager
 - Fixed bug where disk configuration would ignore the disk read/write letters option
 
