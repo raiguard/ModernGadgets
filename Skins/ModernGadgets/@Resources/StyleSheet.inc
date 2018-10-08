@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.4.0-rc.5
+mgVersion=1.4.0-rc.6
 
 ; Positioning
 bgOffset=5
@@ -474,8 +474,8 @@ W=15
 H=15
 ToolTipText=Refresh Gadget
 
-[StyleStringHwinfoAlpha]
+[StyleStringHwinfoIssuesLink]
+Y=6R
 FontSize=8
-FontColor=#colorDim#
-Text=The new SMV is feature-complete. However, it is still an early access preview version, and as such, it might have a few scaling or display issues. If you encounter any display issues, please click here to report them.
-LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/issues"]
+Text=Report issues with the new SMV
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/issues/103"]

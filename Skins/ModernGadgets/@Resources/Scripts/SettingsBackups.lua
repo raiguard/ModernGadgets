@@ -45,6 +45,7 @@ function ImportBackup()
   SKIN:Bang('!RefreshGroup', 'MgImportRefresh')
 
   LogHelper('Imported settings backup', 'Notice')
+  SKIN:Bang('!Refresh')
 
 end
 

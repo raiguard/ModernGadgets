@@ -90,7 +90,12 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
-v1.4.0-rc.5 - 2018-10-07
+v1.4.0-rc.6 - 2018-10-08
+- Redesigned HWiNFO SMV report link
+- Fixed import backup prompt disappearing if an update is available
+- Fixed incorrect date for v1.4.0-rc.5 in changelog
+
+v1.4.0-rc.5 - 2018-10-08
 - Added 'Welcome' dialog for first-time users
 - Added update check interval customization
 - Added controls for settings backups in global settings skin
@@ -294,7 +299,7 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.4.0 - 2018-??-??
+v1.4.0 - 2018-10-09
 - Added Chronometer
 - Added Process Meter
 - Added tentative Snapdragon support to CPU Meter
