@@ -74,7 +74,7 @@ rainRgbPath=#@#Addons\RainRGB\RainRGB4.exe
 rainFilePath=#@#Addons\RainFile\RainFile.exe
 
 globalSettingsPath=#@#Settings\GlobalSettings.inc
-gadgetManagerPath=#ROOTCONFIGPATH#Config\GadgetManager\gadgetmanager.inc
+gadgetManagerPath=#ROOTCONFIGPATH#Settings\GadgetManager\GadgetManager.ini
 
 styleSheetPath=#@#StyleSheet.inc
 
@@ -82,28 +82,36 @@ chronometerPath=#ROOTCONFIGPATH#Chronometer\Chronometer.ini
 chronometerConfig=ModernGadgets\Chronometer
 chronometerSettingsPath=#@#Settings\ChronometerSettings.inc
 
-cpuMeterPath=#ROOTCONFIGPATH#CPU\CPU.ini
-cpuMeterConfig=ModernGadgets\CPU
+cpuMeterPath=#ROOTCONFIGPATH#CpuMeter\CpuMeter.ini
+cpuMeterConfig=ModernGadgets\CpuMeter
 cpuSettingsPath=#@#Settings\CpuSettings.inc
 
-networkMeterPath=#ROOTCONFIGPATH#Network\Network.ini
-networkMeterProPath=#ROOTCONFIGPATH#Network\NetworkPro.ini
-networkMeterConfig=ModernGadgets\Network
+networkMeterPath=#ROOTCONFIGPATH#Network\NetworkMeter.ini
+networkMeterProPath=#ROOTCONFIGPATH#Network\NetworkMeterPro.ini
+networkMeterConfig=ModernGadgets\NetworkMeter
 networkSettingsPath=#@#Settings\NetworkSettings.inc
 
-gpuMeterPath=#ROOTCONFIGPATH#GPU\GPU0\GPU.ini
-gpuMeterConfig=ModernGadgets\GPU\GPU0
+gpuMeterPath=#ROOTCONFIGPATH#GpuMeter\GPU0\GpuMeter.ini
+gpuMeterConfig=ModernGadgets\GpuMeter\GPU0
 gpuSettingsPath=#@#Settings\GpuSettings.inc
 
-disksMeterPath=#ROOTCONFIGPATH#Disks\Disks.ini
-disksMeterConfig=ModernGadgets\Disks
+disksMeterPath=#ROOTCONFIGPATH#DisksMeter\DisksMeter.ini
+disksMeterConfig=ModernGadgets\DisksMeter
 disksSettingsPath=#@#Settings\DisksSettings.inc
 
-processMeterPath=#ROOTCONFIGPATH#Process\Process.ini
-processMeterConfig=ModernGadgets\Process
+processMeterPath=#ROOTCONFIGPATH#ProcessMeter\ProcessMeter.ini
+processMeterConfig=ModernGadgets\ProcessMeter
 processSettingsPath=#@#Settings\ProcessSettings.inc
 
-setupSkinConfig=ModernGadgets\Config\Setup
+audioMeterPath=#ROOTCONFIGPATH#AudioMeter\AudioMeter.ini
+audioMeterConfig=ModernGadgets\AudioMeter
+audioSettingsPath=#@#Settings\AudioSettings.inc
+
+weatherMeterPath=#ROOTCONFIGPATH#WeatherMeter\WeatherMeter.ini
+weatherMeterConfig=ModernGadgets\WeatherMeter
+weatherSettingsPath=#@#Settings\WeatherSettings.inc
+
+setupSkinConfig=ModernGadgets\Settings\Setup
 
 ; Default Color Pallete
 cp1=107,238,98
@@ -227,6 +235,11 @@ ScaleMargins=2,2,2,2
 X=5R
 Y=r
 W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin#)
+DynamicVariables=1
+
+[StyleInputBoxBackgroundAdjacentRightAlign]
+X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1
+Y=r
 DynamicVariables=1
 
 [StyleStringInputBox]
@@ -384,6 +397,10 @@ MouseOverAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-over.pn
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseDownAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
+[StyleStringSmallTextButton]
+FontColor=#colorAccent#
+Y=7R
 
 ; Line Graph
 [StyleLineGraphBackground]

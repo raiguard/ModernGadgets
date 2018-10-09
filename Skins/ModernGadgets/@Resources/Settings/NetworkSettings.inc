@@ -1,5 +1,10 @@
 [Variables]
 interface=Best
+
+interfaceEthernet=Intel(R) Ethernet Connection (2) I219-V
+interfaceWireless=
+interfaceOther=
+
 trafficSuffix=B/s
 
 censorExternalIp=0
@@ -11,6 +16,8 @@ showPeakNetworkUsage=0
 useNetMonitor=0
 
 pingUrl=google.com
+
+autoAdapterConfig=0
 
 colorUpload=107,238,98
 colorDownload=255,246,42
