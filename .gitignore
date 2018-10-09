@@ -1,5 +1,7 @@
-Skins/ModernGadgets/ReleaseStatsMeter/ReleaseStatsMeter.ini
-Skins/ModernGadgets/ReleaseStatsMeter/Settings/ReleaseStatsMeterSettings.ini
+Skins/ModernGadgets/ReleaseStatsMeter
 Skins/ModernGadgets/@Resources/Settings/ReleaseSettings.inc
 Skins/ModernGadgets/@Resources/Scripts/GitHubStats.lua
 Skins/ModernGadgets/@Resources/Assets/Images/source.png
+Skins/ModernGadgets/LaunchMeter
+Skins/ModernGadgets/@Resources/Settings/LaunchSettings.inc
+Skins/ModernGadgets/@Resources/Scripts/Launch.lua
