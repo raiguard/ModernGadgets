@@ -353,6 +353,7 @@ v1.5.0-beta.1 - 2018-??-??
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
 - Removed subtitle from gadget manager
+- Improved organization of skin directories and config names
 
 v1.5.0 - 2018-??-??
 - Added Audio Meter
@@ -360,3 +361,4 @@ v1.5.0 - 2018-??-??
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
 - Removed subtitle from gadget manager
+- Improved organization of skin directories and config names
