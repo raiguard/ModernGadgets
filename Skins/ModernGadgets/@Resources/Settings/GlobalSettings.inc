@@ -6,7 +6,7 @@ isHwinfoAvailable=1
 notifyUpdates=1
 updateCheckRate=90
 autoBackups=1
-checkForPrereleases=1
+checkForPrereleases=0
 
 showBgBorder=1
 rowSpacing=1
