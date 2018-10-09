@@ -17,7 +17,7 @@ function ConfigureDisk(disk, index, updatemode)
 
 	disk = disk:gsub(':', '')
 
-	LogHelper('CONFIGURING  disk: ' .. disk .. ' | index: ' .. index, 'Debug')
+	RmLog('CONFIGURING  disk: ' .. disk .. ' | index: ' .. index, 'Debug')
 
 	if index > 1 and not table.contains(hideDisks, disk) then
 		SKIN:Bang('!EnableMeasureGroup', 'Disk' .. disk)
@@ -60,7 +60,7 @@ function SetDiskColors()
 			local color = SKIN:GetVariable('colorDisk' .. i)
 			SetVariable('colorDisk' .. c, color, dynamicVarsPath)
 			SKIN:Bang('!SetOptionGroup', 'Disk' .. c .. 'ReadWrite', 'ImageTint', color)
-			-- LogHelper('Set disk ' .. c .. ' color to: ' .. color, 'Debug')
+			-- RmLog('Set disk ' .. c .. ' color to: ' .. color, 'Debug')
 		else
 			SetVariable('colorDisk' .. c, '0,0,0,0', dynamicVarsPath)
 	    end
@@ -77,7 +77,7 @@ function UpdateHideDisks()
 		table.insert(hideDisks, i)
 	end
 
-	LogHelper(manualHideDisks, 'Debug')
+	RmLog(manualHideDisks, 'Debug')
 
 	alphabet:gsub(".", function(c)
 		local d = tonumber(SKIN:GetVariable('hideDisk' .. c))
@@ -128,10 +128,15 @@ function table.contains(table, element)
   return false
 end
 
-function AddSetting()
+-- function to make logging messages less cluttered
+function RmLog(message, type)
 
-	alphabet:gsub(".", function(c)
-		SKIN:Bang('!WriteKeyValue', 'Disk' .. c .. 'TempString', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || ([MeasureDisk' .. c .. 'Type:] <> 4) || (#*showDiskTemps*# = 0) || ([MeasureHwinfoDetect:] = -9000)')
-	end)
-
+	if type == nil then type = 'Debug' end
+	
+	if debug == true then
+		SKIN:Bang("!Log", message, type)
+	elseif type ~= 'Debug' then
+		SKIN:Bang("!Log", message, type)
+	end
+		
 end
