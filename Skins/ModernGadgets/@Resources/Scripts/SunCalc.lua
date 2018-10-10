@@ -45,11 +45,11 @@ function Update()
     moontime = getDifference(moonTimes.set, moonTimes.rise)
 
     -- translate the data into the formats used by the skin
-    data.sunrise = os.date('%H:%M', correctTimestamp(sunTimes.sunrise))
-    data.sunset = os.date('%H:%M', correctTimestamp(sunTimes.sunset))
+    data.sunrise = unixToFiletime(correctTimestamp(sunTimes.sunrise))
+    data.sunset = unixToFiletime(correctTimestamp(sunTimes.sunset))
     data.suntime = FormatTimeString(suntime)
-    data.moonrise = os.date('%H:%M', correctTimestamp(moonTimes.rise))
-    data.moonset = os.date('%H:%M', correctTimestamp(moonTimes.set))
+    data.moonrise = unixToFiletime(correctTimestamp(moonTimes.rise))
+    data.moonset = unixToFiletime(correctTimestamp(moonTimes.set))
     data.moontime = FormatTimeString(moontime)
     data.moonViewAngle = rtd(moonIllumination.angle - moonPosition.parallacticAngle)
     
@@ -61,6 +61,9 @@ function Update()
     if data.moonDialAngle > 180 or data.moonDialAngle < 0 then data.moonDialAngle = -1 end
     -- debug logging
     PrintTable(data)
+    SKIN:Bang('!UpdateMeasureGroup', 'SunCalc')
+    SKIN:Bang('!UpdateMeterGroup', 'SunCalc')
+    SKIN:Bang('!Redraw')
 
 end
 
@@ -75,6 +78,16 @@ function FormatTimeString(time)
     local minutes = tostring(math.floor(time % 60)):gsub('(.+)', '0%1'):gsub('^%d(%d%d)$', '%1')
     
     return hours .. ':' .. minutes
+
+end
+
+function unixToFiletime(timestamp)
+
+    local tDate = os.date("*t", timestamp)
+    tDate.year = tDate.year + (1970 - 1601)
+    tDate.hour = tDate.hour + tzOffset
+    timestamp = os.time(tDate)
+    return timestamp
 
 end
 
