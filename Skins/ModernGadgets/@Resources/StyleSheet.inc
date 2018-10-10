@@ -149,7 +149,7 @@ ImageAlpha=((#showBgBorder# = 0) ? 0 : 255)
 X=#bgOffset#
 Y=#bgOffset#
 W=#bgWidth#
-H=([BackgroundHeight:Y] - (#bgOffset# * 2))
+H=([MeterBackgroundHeight:Y] - (#bgOffset# * 2))
 DynamicVariables=1
 Group=Background
 
