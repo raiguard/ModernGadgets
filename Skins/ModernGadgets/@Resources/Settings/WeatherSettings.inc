@@ -21,6 +21,11 @@ showVisibility=1
 showDewpoint=1
 showMoon=1
 
+timeFormat=WinShort
+dateFormat=WinShort
+customTimeFormat=%#H:%M
+customDateFormat=%m/%d/%y
+
 colorUvLow=47,149,35
 colorUvModerate=245,229,55
 colorUvHigh=247,90,26
