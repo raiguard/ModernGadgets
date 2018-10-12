@@ -23,10 +23,14 @@ showLineGraph=1
 showAvgCpu=0
 showTt=0
 playTtSound=0
-
 graphAllCoresMode=0
 
 cpuName=auto
+
+maxCpuTempMode=auto
+maxCpuFanMode=auto
+customMaxCpuTemp=100
+customMaxCpuFan=1600
 
 ; Colors
 colorRam=107,198,250

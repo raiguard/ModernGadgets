@@ -138,6 +138,13 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.4.1-rc.2 - 2018-10-12
+- Added max CPU temp, CPU fan speed, and GPU temp configurations
+- ACTUALLY fixed dynamic fan display bar issues
+- Tweaked core color info paragraph
+- Fixed GPU meter core voltage readout formatting
+- Fixed CPU and GPU temperature graph scaling
+
 v1.4.1-rc.1 - 2018-10-12
 - Added safeguards for extraordinarily long changelogs preventing access to the download button
 - Fixed dynamic fan display bar always staying at 100%
