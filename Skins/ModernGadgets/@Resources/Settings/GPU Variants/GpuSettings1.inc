@@ -11,3 +11,4 @@ gpuName=auto
 
 useManualMaxVram=0
 maxVram=4096
+maxGpuTemp=100

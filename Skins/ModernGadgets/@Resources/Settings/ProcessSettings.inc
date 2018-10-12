@@ -1,5 +1,5 @@
 [Variables]
-showAvgUsage=1
+showAvgUsage=0
 showBars=1
 showLineGraph=1
 processLabelFontFace=Roboto Cn
