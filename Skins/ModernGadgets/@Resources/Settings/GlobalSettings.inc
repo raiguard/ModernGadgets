@@ -11,7 +11,7 @@ showBgBorder=1
 rowSpacing=1
 
 ; Sidebar backgrounds
-sb1BlurType=Blur
+sb1BlurType=blur
 sb1MaskColor=0,0,0
 sb1MaskAlpha=50
 sb1Columns=1
