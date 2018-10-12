@@ -35,3 +35,5 @@ colorUvExtreme=109,69,198
 colorSkyDialBg=150,150,150
 colorSkyDialSun=250,222,110
 colorSkyDialMoon=200,200,200
+
+showMoonAngle=1

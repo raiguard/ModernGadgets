@@ -10,6 +10,15 @@ checkForPrereleases=1
 showBgBorder=1
 rowSpacing=1
 
+; Sidebar backgrounds
+sb1BlurType=Blur
+sb1MaskColor=0,0,0
+sb1MaskAlpha=50
+sb1Columns=1
+sb1Alignment=right
+
+colorSbControlCorner=0,0,3
+
 colorBorder=50,50,50
 colorBg=15,15,15
 colorBgBorder=#colorBorder#
