@@ -138,6 +138,10 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.4.1-rc.1 - 2018-10-11
+- Added safeguards for extraordinarily long changelogs preventing access to the download button
+- Fixed dynamic fan display bar always staying at 100%
+
 v1.4.0-rc.6 - 2018-10-08
 - Redesigned HWiNFO SMV report link
 - Fixed import backup prompt disappearing if an update is available
