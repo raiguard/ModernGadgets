@@ -11,9 +11,9 @@ showBgBorder=1
 rowSpacing=1
 
 ; Sidebar backgrounds
-sb1BlurType=acrylic
+sb1MaskType=blur
 sb1MaskColor=0,0,0
-sb1MaskAlpha=125
+sb1MaskAlpha=100
 sb1Columns=1
 sb1Alignment=right
 sb1Monitor=2
