@@ -18,7 +18,7 @@ sb1Columns=1
 sb1Alignment=right
 sb1Monitor=2
 
-colorSbControlCorner=0,255,255
+colorSbControlCorner=0,0,3
 
 colorBorder=50,50,50
 colorBg=15,15,15
