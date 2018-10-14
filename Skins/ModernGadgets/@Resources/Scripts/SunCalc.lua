@@ -1,5 +1,5 @@
 debug = false
-data = { moonViewAngle = 0 }
+data = { moonViewAngle = 0, moonPhase = 0 }
 
 function Initialize() end
 
@@ -52,6 +52,7 @@ function Update()
     data.moonset = unixToFiletime(correctTimestamp(moonTimes.set))
     data.moontime = FormatTimeString(moontime)
     data.moonViewAngle = rtd(moonIllumination.angle - moonPosition.parallacticAngle)
+    data.moonPhase = moonIllumination.phase
     
     -- calculcate sun and moon dial angles
     data.sunDialAngle = (getDifference(mDate, sunTimes.sunrise) / suntime) * 180
