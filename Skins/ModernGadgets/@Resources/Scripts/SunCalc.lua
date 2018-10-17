@@ -1,4 +1,4 @@
-debug = false
+debug = true
 data = { moonViewAngle = 0, moonPhase = 0 }
 
 function Initialize() end
@@ -14,12 +14,24 @@ function Update()
     tzOffset = SELF:GetOption('TzOffset')
     
     -- setup timestamps
-    tDate = os.date("*t", timestamp)  -- WINDOWS timestamp value
-    tDate.year = tDate.year - (1970 - 1601)   -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
-    tDate.hour = tDate.hour - tzOffset -- correct for timezone offset
+    local localTz = (getTimeOffset() / 3600)
+    if tzOffset == localTz then
+        tDate = os.date("!*t", timestamp)
+    else
+        tDate = os.date("!*t", timestamp - getTimeOffset() + (tzOffset * 3600))
+    end
+    
+    -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
+    tDate.year = tDate.year - (1970 - 1601)
+
+
+    -- tDate = os.date("*t", timestamp)  -- WINDOWS timestamp value
+    -- tDate.year = tDate.year - (1970 - 1601)-- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
+    
     timestamp = os.time(tDate) -- recreate timestamp with new parameters
     mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes) -- table with current time values
     zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000') -- timestamp at current day, 0:00:00 (12:00 AM)
+    lDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 23, min = 59, sec = 59 }) .. '000') -- timestamp at current day, 0:00:00 (12:00 AM)
     RmLog('timestamp: ' .. timestamp)
 
     -- retrieve data tables from SunCalc script
@@ -41,6 +53,7 @@ function Update()
     PrintTable(moonIllumination)
 
     -- calculate suntime and moontime in minutes
+    moonTimes.set = moonTimes.set or lDate
     suntime = getDifference(sunTimes.sunset, sunTimes.sunrise)
     moontime = getDifference(moonTimes.set, moonTimes.rise)
 
@@ -91,6 +104,8 @@ function unixToFiletime(timestamp)
     return timestamp
 
 end
+
+function getTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
 
 function getDifference(a1, a2) return ((a1 - a2) / 60000) end
 
