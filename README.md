@@ -33,7 +33,6 @@ Backend code based on "Gadgets" by SilverAzide.
 "Roboto" font from Google Fonts, under the Apache License, version 2.0.
 
 ### Additional Attributions
-
 SilverAzide - ActiveNet plugin, NetMonitor utility, fixed precision format script
 
 stangowner - HWiNFO Plugin, HWiNFO Shared Memory Viewer
