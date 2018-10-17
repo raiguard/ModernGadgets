@@ -1,4 +1,4 @@
-debug = true
+debug = false
 data = { moonViewAngle = 0, moonPhase = 0 }
 
 function Initialize() end
@@ -55,7 +55,7 @@ function Update()
     PrintTable(moonIllumination)
 
     -- calculate suntime and moontime in minutes
-    if moonTimes.set == nil or (moonTimes.set < moonTimes.rise and mDate > moonTimes.set) then
+    if moonTimes.set == nil or moonTimes.set < moonTimes.rise and mDate > moonTimes.set then
         RmLog('changing moonset')
         -- RmLog(mDate .. ' | ' .. moonTimes.set or '')
         moonTimes.set = SunCalc.getMoonTimes(tmDate, latitude, longitude)['set']
