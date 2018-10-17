@@ -306,6 +306,16 @@ DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 
 ; Buttons
+[StyleImgMouseRegion]
+SolidColor=255,255,255,100
+DynamicVariables=1
+X=([#CURRENTSECTION#_:X] * #scale# + #scale#)
+Y=([#CURRENTSECTION#_:Y] * #scale# + #scale#)
+W=([#CURRENTSECTION#_:W] * #scale#)
+H=([#CURRENTSECTION#_:H] * #scale#)
+MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageTint ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+
 [StyleStringButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
@@ -367,9 +377,9 @@ ImageTint=#colorMain#
 Antialias=1
 Hidden=1
 Group=ConfigButton
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
-LeftMouseUpAction=[!SkinCustomMenu]
+; MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+; MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+; LeftMouseUpAction=[!SkinCustomMenu]
 TransformationMatrix=#transformationMatrix#
 
 [StyleHelpButton]
