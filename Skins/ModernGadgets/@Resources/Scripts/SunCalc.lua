@@ -11,6 +11,7 @@ function Update()
     latitude = SELF:GetOption('Latitude')
     longitude = SELF:GetOption('Longitude')
     timestamp = SELF:GetOption('Timestamp')
+    -- timestamp = 13184205925
     tzOffset = SELF:GetOption('TzOffset')
     
     -- setup timestamps
@@ -28,11 +29,12 @@ function Update()
     -- tDate = os.date("*t", timestamp)  -- WINDOWS timestamp value
     -- tDate.year = tDate.year - (1970 - 1601)-- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
     
-    timestamp = os.time(tDate) -- recreate timestamp with new parameters
+    timestamp = os.time(tDate)
+    RmLog('timestamp: ' .. timestamp) -- recreate timestamp with new parameters
     mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes) -- table with current time values
     zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000') -- timestamp at current day, 0:00:00 (12:00 AM)
-    lDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 23, min = 59, sec = 59 }) .. '000') -- timestamp at current day, 0:00:00 (12:00 AM)
-    RmLog('timestamp: ' .. timestamp)
+    ysDate = zDate - 86400000
+    tmDate =  zDate + 86400000
 
     -- retrieve data tables from SunCalc script
     sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
@@ -53,7 +55,14 @@ function Update()
     PrintTable(moonIllumination)
 
     -- calculate suntime and moontime in minutes
-    if not moonTimes.set then moonTimes.set = lDate; data.moonsetPrefix = '> ' end
+    if moonTimes.set == nil or (moonTimes.set < moonTimes.rise and mDate > moonTimes.set) then
+        RmLog('changing moonset')
+        -- RmLog(mDate .. ' | ' .. moonTimes.set or '')
+        moonTimes.set = SunCalc.getMoonTimes(tmDate, latitude, longitude)['set']
+    elseif moonTimes.set < moonTimes.rise and mDate < moonTimes.set then
+        RmLog('changing moonrise')
+        moonTimes.rise = SunCalc.getMoonTimes(ysDate, latitude, longitude)['rise']
+    end
     suntime = getDifference(sunTimes.sunset, sunTimes.sunrise)
     moontime = getDifference(moonTimes.set, moonTimes.rise)
 
@@ -66,6 +75,7 @@ function Update()
     data.moontime = FormatTimeString(moontime)
     data.moonViewAngle = rtd(moonIllumination.angle - moonPosition.parallacticAngle)
     data.moonPhase = moonIllumination.phase
+    data.moonPhaseName = getMoonPhaseName(data.moonPhase)
     
     -- calculcate sun and moon dial angles
     data.sunDialAngle = (getDifference(mDate, sunTimes.sunrise) / suntime) * 180
@@ -74,6 +84,7 @@ function Update()
     if data.sunDialAngle > 180 or data.sunDialAngle < 0 then data.sunDialAngle = -1 end
     if data.moonDialAngle > 180 or data.moonDialAngle < 0 then data.moonDialAngle = -1 end
     -- debug logging
+    RmLog('data:')
     PrintTable(data)
     SKIN:Bang('!UpdateMeasureGroup', 'SunCalc')
     SKIN:Bang('!UpdateMeterGroup', 'SunCalc')
@@ -85,6 +96,20 @@ end
 function GetData(key) return data[key] or '' end
 
 -- ----- Utilities -----
+
+function getMoonPhaseName(phase)
+
+    if phase == 0 or phase == 1 then return 'New Moon'
+    elseif phase > 0 and phase < 0.25 then return 'Waxing Crescent'
+    elseif phase == 0.25 then return 'First Quarter'
+    elseif phase > 0.25 and phase < 0.5 then return 'Waxing Gibbous'
+    elseif phase == 0.5 then return 'Full Moon'
+    elseif phase > 0.5 and phase < 0.75 then return 'Waning Gibbous'
+    elseif phase == 0.75 then return 'Last Quarter'
+    elseif phase > 0.75 and phase < 1 then return 'Waning Crescent'
+    else return 'WTF?' end
+
+end
 
 function FormatTimeString(time)
 
