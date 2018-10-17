@@ -1,7 +1,7 @@
 ; MODERNGADGETS STYLESHEET
 
 [Variables]
-mgVersion=1.4.0-rc.4
+mgVersion=1.4.1
 
 ; Positioning
 bgOffset=5
@@ -40,7 +40,7 @@ colorGraphBg=#colorSubBg#
 colorGraphBorder=#colorBorder#
 
 colorMain=230,230,230
-colorInfo=150,150,150
+colorDim=150,150,150
 colorAccent=137,190,250
 
 colorGlobe=137,190,250
@@ -51,7 +51,7 @@ colorButtonPress=255,50,50
 
 colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#
-colorInputText=200,200,200
+colorInputText=#colorDim#
 
 colorIntel=0,125,198
 colorSnapdragon=0,80,198
@@ -199,7 +199,7 @@ Y=r
 StringAlign=Center
 X=#contentMarginCenter#
 Y=r
-FontColor=#colorInfo#
+FontColor=#colorDim#
 
 [StyleStringParagraph]
 FontSize=10
@@ -213,7 +213,7 @@ X=(#contentMargin# + 2)
 Y=5R
 W=(#contentWidth# - 6)
 ClipString=2
-FontColor=#colorInfo#
+FontColor=#colorDim#
 
 ; Strings (headers)
 [StyleStringConfigTitle]
@@ -354,7 +354,7 @@ StringAlign=Right
 X=(#contentMarginRight# - 18)
 Y=(#contentMargin# - 2)
 Text=[\x6c]
-ToolTipText=Open configuration file to edit manually
+ToolTipText=Open configuration file to access more advanced settings
 TransformationMatrix=#transformationMatrix#
 
 [StyleConfigButton]
@@ -444,6 +444,8 @@ X=1r
 Y=1r
 W=(#contentWidth# - 2)
 H=(#graphHeight# - 2)
+; HorizontalLines=1
+; HorizontalLineColor=#colorBorder#
 Group=LineGraph
 Antialias=#lineGraphAa#
 DynamicVariables=1
@@ -518,7 +520,8 @@ W=15
 H=15
 ToolTipText=Refresh Gadget
 
-[StyleStringHwinfoAlpha]
+[StyleStringHwinfoIssuesLink]
+Y=6R
 FontSize=8
-FontColor=#colorInfo#
-Text=NOTE: The new SMV is currently in an early alpha. As such, the user interface is unfinished, and there may be a few bugs. Please report any and all issues you come across to the ModernGadgets GitHub Repository.
+Text=Report issues with the new SMV
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/issues/103"]

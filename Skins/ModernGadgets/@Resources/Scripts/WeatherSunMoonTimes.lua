@@ -177,6 +177,30 @@ function GetSunMoonTimes(nLatitude,
     end
   end
 
+  local nmAngle
+  local nMoonRise                                                          -- sunrise time in hours
+  local nMoonSet                                                           -- sunset time in hours
+  local nCurrTime
+  local nMoonLength                                                         -- current time in hours
+
+  nMoonRise = moonRiseSetTimes[1]
+  nMoonSet = moonRiseSetTimes[2]
+  nCurrTime = ((tDate.hour * 3600) + (tDate.min * 60)) / 3600
+  nMoonLength = nMoonRise - nMoonSet
+
+  -- convert fraction of day to fraction of 180 degrees, fix for night time (negative values)
+  nmAngle = (((nMoonSet - nCurrTime) / nMoonLength) * 180)
+  nmAngle = DMath.fixAngle(nmAngle)
+
+  -- if northern hemisphere, calculate supplementary angle (so sun will move left to right)
+  if nLatitude > 0 then
+    if nmAngle < 180 then
+      nmAngle = 180 - nmAngle
+    else
+      nmAngle = 180 + (360 - nmAngle)
+    end
+  end
+
   -- debugging
   -- print("dawn = "       .. TimeString(sunRiseSetTimes[1],  nTimeLZero, nTimeStyle) .. " (" .. sunRiseSetTimes[1]  ..")")
   -- print("sunrise = "    .. TimeString(sunRiseSetTimes[2],  nTimeLZero, nTimeStyle) .. " (" .. sunRiseSetTimes[2]  ..")")
@@ -194,6 +218,7 @@ function GetSunMoonTimes(nLatitude,
   values['moonsetTime'] = TimeString(moonRiseSetTimes[2], nTimeLZero, nTimeStyle) or '---'
   values['dayLength'] = TimeString(nDayLength, 0, 1) or '---'
   values['sunAngle'] = nAngle
+  values['moonAngle'] = nmAngle
   -- PrintTable(values)
   
 end                                                                      -- function GetSunMoonTimes

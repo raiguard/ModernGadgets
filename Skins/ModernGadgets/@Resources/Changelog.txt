@@ -2,6 +2,63 @@ MODERNGADGETS CHANGELOG
 
 Official Releases
 
+v1.4.1 - 2018-10-14
+- Added safeguards for extraordinarily long changelogs preventing access to the download button
+- Added max CPU temp, CPU fan speed, and GPU temp configurations
+- Tweaked core color info paragraph
+- Tweaked backup import prompt UI
+- Fixed GPU meter core voltage readout formatting
+- Fixed CPU and GPU temperature graph scaling
+- Fixed dynamic fan display bar always staying at 100%
+
+v1.4.0 - 2018-10-09
+- Added Chronometer
+- Added Process Meter
+- Added tentative Snapdragon support to CPU Meter
+- Added support for CoreTemp and Speedfan in CPU Meter
+- Added dynamic fan display to CPU Meter
+- Added All Cores mode to CPU Meter line graph
+- Added session total and simultaneous bits/bytes display to Network Meter
+- Added separate bits/bytes peak traffic displays to Network Meter
+- Added three additional GPU Meters for monitoring up to four GPUs simultaneously
+- Added disk temperatures to Disks Meter
+- Added setting to hide disk read/write speeds in Disks Meter
+- Added Disk Read/Write Letters option
+- Added setting to only display fixed disks in Disks Meter
+- Added global color customization
+- Added "open config file" buttons to all settings skins to allow access to more advanced settings
+- Added 'Welcome' dialog for first-time users
+- Added update check interval customization
+- Added controls for settings backups in global settings skin
+- Darkened default accent color
+- Enhanced update download button to directly download and open the update .RMSKIN without a browser
+- Increased supported threads in CPU Meter from 32 to 64 (AMD Threadripper 2)
+- Increased precision of readouts in Network Meter
+- Removed condensed font toggle for Network traffic (condensed is now the only option)
+- Network Meter globe is no longer affected by accent color changes
+- Removed dual GPU meter option (replaced by separate GPU Meters)
+- Enhanced Disk Eject functionality with support for USB card readers and virtual disks (requires admin privileges)
+- Significantly improved Disks Meter performance
+- Consolidated graph and background borders into their respective background meters
+- Standardized graph positioning
+- Refactored input box visuals
+- Implemented new HWiNFO SMV application, replacing the HWiNFO Config Tool
+- Updated dynamic settings system with more consistent and flexible functions
+- Updated LoadSkin and UpdateChecker scripts for Rainmeter 4.2 compatibility
+- Settings backups are now made upon closing a settings skin, rather than at a preset interval
+- Changelog button now shows local changelog rather than the one from GitHub
+- Replaced readme link with MG Wiki link
+- Reordered toggles in gadget manager
+- Fixed error with the update checker reading a file while it was being written by WebParser
+- Fixed oversight where clicking the total reset button in Network Meter Pro would not work
+- Fixed inconsistent NetMonitor button logic
+- Fixed NetMonitor controls not appearing on non-English systems
+- Fixed update notification not being centered on the monitor properly
+- Fixed settings backup import overwriting HWiNFO SMV sections
+- Fixed settings backup import crashing if a settings file doesn't exist in the backup
+- Fixed settings backup overwriting default colors
+- Corrected date formatting in changelog
+
 v1.3.1 - 2018-05-02
 - Fixed development testing opt-in not working
 
@@ -89,6 +146,35 @@ v1.0.0 - 2016-12-04
 - Official release
 
 Development Releases
+
+v1.4.1-rc.3 - 2018-10-13
+- ACTUALLY ACTUALLY fixed dynamic fan display bar issues
+
+v1.4.1-rc.2 - 2018-10-12
+- Added max CPU temp, CPU fan speed, and GPU temp configurations
+- ACTUALLY fixed dynamic fan display bar issues
+- Tweaked core color info paragraph
+- Fixed GPU meter core voltage readout formatting
+- Fixed CPU and GPU temperature graph scaling
+
+v1.4.1-rc.1 - 2018-10-12
+- Added safeguards for extraordinarily long changelogs preventing access to the download button
+- Fixed dynamic fan display bar always staying at 100%
+
+v1.4.0-rc.6 - 2018-10-08
+- Redesigned HWiNFO SMV report link
+- Fixed import backup prompt disappearing if an update is available
+- Fixed incorrect date for v1.4.0-rc.5 in changelog
+
+v1.4.0-rc.5 - 2018-10-08
+- Added 'Welcome' dialog for first-time users
+- Added update check interval customization
+- Added controls for settings backups in global settings skin
+- Added units to HWiNFO SMV labels
+- Updated to signed SMV application
+- Reordered toggles in gadget manager
+- Rewrote config file button tooltip
+- Fixed bug where disk configuration would ignore the disk read/write letters option
 
 v1.4.0-rc.4 - 2018-09-22
 - Added Disk Read/Write Letters option
@@ -284,58 +370,18 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.5.0-beta.1 - 2018-??-??
+- Added Audio Meter
+- Added Weather Meter
+- Added Network Interface settings to Network Meter
+- Added support for monitoring up to three Network Interfaces at once
+- Removed subtitle from gadget manager
+- Improved organization of skin directories and config names
+
 v1.5.0 - 2018-??-??
 - Added Audio Meter
 - Added Weather Meter
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
 - Removed subtitle from gadget manager
-
-v1.4.0-rc.5 - 2018-??-??
-- Added 'Welcome' dialog for first-time users
-- Added update check interval customization
-- Added controls for settings backups in global settings skin
-- Reordered toggles in gadget manager
-- Fixed bug where disk configuration would ignore the disk read/write letters option
-
-v1.4.0 - 2018-??-??
-- Added Chronometer
-- Added Process Meter
-- Added tentative Snapdragon support to CPU Meter
-- Added support for CoreTemp and Speedfan in CPU Meter
-- Added dynamic fan display to CPU Meter
-- Added All Cores mode to CPU Meter line graph
-- Added session total and simultaneous bits/bytes display to Network Meter
-- Added separate bits/bytes peak traffic displays to Network Meter
-- Added three additional GPU Meters for monitoring up to four GPUs simultaneously
-- Added disk temperatures to Disks Meter
-- Added setting to hide disk read/write speeds in Disks Meter
-- Added Disk Read/Write Letters option
-- Added setting to only display fixed disks in Disks Meter
-- Added global color customization
-- Added "open config file" buttons to all settings skins to allow access to more advanced settings
-- Darkened default accent color
-- Enhanced update download button to directly download and open the update .RMSKIN without a browser
-- Increased supported threads in CPU Meter from 32 to 64 (AMD Threadripper 2)
-- Increased precision of readouts in Network Meter
-- Removed condensed font toggle for Network traffic (condensed is now the only option)
-- Network Meter globe is no longer affected by accent color changes
-- Removed dual GPU meter option (replaced by separate GPU Meters)
-- Enhanced Disk Eject functionality with support for USB card readers and virtual disks (requires admin privileges)
-- Significantly improved Disks Meter performance
-- Consolidated graph and background borders into their respective background meters
-- Standardized graph positioning
-- Refactored input box visuals
-- Deleted HWiNFO config tool in favor of the HWiNFO plugin's built-in tool (alpha)
-- Updated dynamic settings system with more consistent and flexible functions
-- Updated LoadSkin and UpdateChecker scripts for Rainmeter 4.2 compatibility
-- Settings backups are now made upon closing a settings skin, rather than at a preset interval
-- Changelog button now shows local changelog rather than the one from GitHub
-- Replaced readme link with MG Wiki link
-- Fixed error with the update checker reading a file while it was being written by WebParser
-- Fixed oversight where clicking the total reset button in Network Meter Pro would not work
-- Fixed inconsistent NetMonitor button logic
-- Fixed NetMonitor controls not appearing on non-English systems
-- Fixed settings backup import overwriting HWiNFO SMV sections
-- Fixed settings backup import crashing if a settings file doesn't exist in the backup
-- Corrected date formatting in changelog
+- Improved organization of skin directories and config names

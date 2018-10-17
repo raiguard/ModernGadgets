@@ -7,8 +7,6 @@ debug = false
 
 function Initialize()
 
-  dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
-
   fileNames = { 'GlobalSettings.inc',
                 'CpuSettings.inc',
                 'NetworkSettings.inc',
@@ -44,7 +42,8 @@ function ImportBackup()
   
   SKIN:Bang('!RefreshGroup', 'MgImportRefresh')
 
-  LogHelper('Imported settings backup', 'Notice')
+  RmLog('Imported settings backup', 'Notice')
+  SKIN:Bang('!Refresh')
 
 end
 
@@ -56,7 +55,7 @@ function CrossCheck(bTable, sTable, filePath)
         if sTable[i][a] then
           SKIN:Bang('!WriteKeyValue', i, a, b, filePath)
         else
-          LogHelper('Key \'' .. a .. '\' does not exist in local', 'Debug')
+          RmLog('Key \'' .. a .. '\' does not exist in local')
         end
       end
     end
@@ -81,7 +80,7 @@ function CheckForBackup()
     SKIN:Bang('!Hide')
     SKIN:Bang('!ShowMeterGroup', 'Essentials')
     SKIN:Bang('!ShowMeterGroup', 'ImportBackupPrompt')
-    SKIN:Bang('!SetVariable', 'page', 'ImportBackup')
+    SKIN:Bang('!SetVariable', 'page', 'Import')
     SKIN:Bang('!UpdateMeterGroup', 'Essentials')
     SKIN:Bang('!Redraw')
     SKIN:Bang('!EnableMeasure', 'MeasureMove')
@@ -105,19 +104,32 @@ function ReadIni(inputfile)
             section = line:match('^%s-%[([^%]]+)')
             if section == '' or not section then
                section = nil
-               LogHelper('Empty section name found in ' .. inputfile, 'Debug')
+               RmLog('Empty section name found in ' .. inputfile)
             end
             if not tbl[section] then tbl[section] = {} end
          elseif key and command and section then
             tbl[section][key:match('^%s*(%S*)%s*$')] = command:match('^%s*(.-)%s*$'):gsub('#(.-)#', '#\*%1\*#')
          elseif #line > 0 and section and not key or command then
-            LogHelper(num .. ': Invalid property or value.', 'Debug')
+            RmLog(num .. ': Invalid property or value.')
          end
       end
    end
 
    file:close()
-   if not section then LogHelper('No sections found in ' .. inputfile, 'Debug') end
+   if not section then RmLog('No sections found in ' .. inputfile) end
    
    return tbl
+end
+
+-- function to make logging messages less cluttered
+function RmLog(message, type)
+
+  if type == nil then type = 'Debug' end
+      
+  if debug == true then
+      SKIN:Bang("!Log", message, type)
+  elseif type ~= 'Debug' then
+      SKIN:Bang("!Log", message, type)
+  end
+      
 end

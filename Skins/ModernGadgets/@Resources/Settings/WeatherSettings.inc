@@ -1,6 +1,6 @@
 [Variables]
 ; LocationCode can be obtained at http://wxdata.weather.com/wxdata/search/search?where=YourCityName
-locationCode=JAXX0085:1:JA
+locationCode=USUT0281:1:US
 ; UnitOfMeasure can be "f" (Fahrenheit / Imperial) or "m" (Celsius / Metric)
 unitOfMeasure=f
 ; Number of days to return in the feed.(1-6).
@@ -11,7 +11,6 @@ daysFeed=6
 ; https://msdn.microsoft.com/en-us/goglobal/bb896001.aspx
 ; Note that Weather.com uses "_" underline instead of "-" dash in the codes.
 locale=en_US
-;Locale=fr_FR
 
 weatherUpdateRate=10
 
@@ -20,5 +19,25 @@ showUv=1
 showUvChart=1
 showVisibility=1
 showDewpoint=1
-
 showMoon=1
+
+timeFormat=WinShort
+dateFormat=WinShort
+customTimeFormat=%#I:%M %p
+customDateFormat=%m/%d/%y
+
+colorUvLow=47,149,35
+colorUvModerate=245,229,55
+colorUvHigh=247,90,26
+colorUvVeryHigh=214,0,27
+colorUvExtreme=109,69,198
+
+colorSkyDialBg=150,150,150
+colorSkyDialSun=250,222,110
+colorSkyDialMoon=200,200,200
+
+colorMoon=175,175,175
+colorMoonBg=60,60,60
+
+showMoonInfo=1
+showMoonAngle=1

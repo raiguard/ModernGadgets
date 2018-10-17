@@ -1,5 +1,5 @@
 MODERNGADGETS
-v1.4.0-rc.4
+v1.4.1
 By raiguard
 
 ----------------------------------------
@@ -35,3 +35,4 @@ CONTACT
 Email: iamanaiofficial@gmail.com
 Twitter: @_raiguard
 Reddit: /u/raiguard
+Discord: Raiguard#7402

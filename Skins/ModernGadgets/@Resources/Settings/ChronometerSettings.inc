@@ -15,4 +15,4 @@ colorStopwatchStart=50,240,50
 colorStopwatchLapButton=255,246,42
 colorStopwatchStop=240,50,50
 colorStopwatchPauseButton=100,100,200
-colorStopwatchResetButton=#colorInfo#
+colorStopwatchResetButton=#colorDim#
