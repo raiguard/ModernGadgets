@@ -23,7 +23,7 @@ showMoon=1
 
 timeFormat=WinShort
 dateFormat=WinShort
-customTimeFormat=%#H:%M
+customTimeFormat=%#I:%M %p
 customDateFormat=%m/%d/%y
 
 colorUvLow=47,149,35
@@ -37,6 +37,7 @@ colorSkyDialSun=250,222,110
 colorSkyDialMoon=200,200,200
 
 colorMoon=175,175,175
+colorMoonBg=60,60,60
 
 showMoonInfo=1
 showMoonAngle=1

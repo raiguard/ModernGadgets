@@ -53,7 +53,7 @@ function Update()
     PrintTable(moonIllumination)
 
     -- calculate suntime and moontime in minutes
-    moonTimes.set = moonTimes.set or lDate
+    if not moonTimes.set then moonTimes.set = lDate; data.moonsetPrefix = '> ' end
     suntime = getDifference(sunTimes.sunset, sunTimes.sunrise)
     moontime = getDifference(moonTimes.set, moonTimes.rise)
 
@@ -82,7 +82,7 @@ function Update()
 end
 
 -- retrieves data from the data table using inline LUA in the skin
-function GetData(key) return data[key] or '---' end
+function GetData(key) return data[key] or '' end
 
 -- ----- Utilities -----
 
