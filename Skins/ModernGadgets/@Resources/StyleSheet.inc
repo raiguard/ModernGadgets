@@ -454,6 +454,13 @@ FontColor=#colorPeak#
 Text=[\xe0ec]
 Antialias=0
 
+[StyleHorizontalRule]
+SolidColor=#colorBorder#
+X=#contentMargin#
+Y=(#rowSpacing# + 1)R
+W=#contentWidth#
+H=1
+
 ; HWiNFO SMV Button
 [StyleHwinfoSmvButtonRegion]
 SolidColor=255,255,255,0
