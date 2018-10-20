@@ -2,7 +2,6 @@ debug = false
 
 function Initialize()
 
-	dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
 	cpuCores = SKIN:GetVariable('cpuCores')
 	threadsPerCore = SKIN:GetVariable('threadsPerCore')
 
