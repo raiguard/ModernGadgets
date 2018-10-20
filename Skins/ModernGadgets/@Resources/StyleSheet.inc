@@ -334,6 +334,10 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION#_ FontColor ""][!UpdateMeter #CURRE
 MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
+[StyleMouseRegionCloseButton]
+LeftMouseUpAction=[!DeactivateConfig]
+ToolTipText=Close
+
 [StyleStringSmallTextButton]
 FontColor=#colorAccent#
 Y=8R
