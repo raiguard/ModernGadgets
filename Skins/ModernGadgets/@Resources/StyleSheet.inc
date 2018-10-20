@@ -310,7 +310,7 @@ TransformationMatrix=#transformationMatrix#
 
 ; Buttons
 [StyleMouseRegion]
-SolidColor=255,255,255,100
+SolidColor=255,255,255,50
 DynamicVariables=1
 X=([#CURRENTSECTION#_:X] * #scale# + #scale#)
 Y=([#CURRENTSECTION#_:Y] * #scale# + #scale#)
@@ -329,6 +329,10 @@ LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"
 [StyleMouseRegionStringButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ FontColor ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+
+[StyleStringButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
 [StyleStringSmallTextButton]
 FontColor=#colorAccent#
