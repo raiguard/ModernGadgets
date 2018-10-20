@@ -421,7 +421,6 @@ ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a col
 [StyleEjectButton]
 ImageName=#imgPath#eject.png
 ImageTint=120,120,120
-ToolTipText=Eject
 X=13R
 Y=r
 W=14
