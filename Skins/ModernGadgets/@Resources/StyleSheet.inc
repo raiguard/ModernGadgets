@@ -309,23 +309,26 @@ DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 
 ; Buttons
-[StyleImgMouseRegion]
+[StyleMouseRegion]
 SolidColor=255,255,255,100
 DynamicVariables=1
 X=([#CURRENTSECTION#_:X] * #scale# + #scale#)
 Y=([#CURRENTSECTION#_:Y] * #scale# + #scale#)
 W=([#CURRENTSECTION#_:W] * #scale#)
 H=([#CURRENTSECTION#_:H] * #scale#)
+
+[StyleMouseRegionImgButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageTint ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
-[StyleStringButtonHover]
-MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+[StyleMouseRegionImgRefreshHover]
+MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION#_ ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
-[StyleImgButtonHover]
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+[StyleMouseRegionStringButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION#_ FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ FontColor ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleStringSmallTextButton]
 FontColor=#colorAccent#
@@ -497,6 +500,7 @@ X=#contentMargin#
 Y=(#rowSpacing# + 1)R
 W=#contentWidth#
 H=1
+TransformationMatrix=#transformationMatrix#
 
 ; HWiNFO SMV Button
 [StyleHwinfoSmvButtonRegion]
