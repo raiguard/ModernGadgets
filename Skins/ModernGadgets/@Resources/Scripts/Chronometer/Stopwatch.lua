@@ -18,7 +18,6 @@ debug = false
 
 function Initialize()
 
-	dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
 	measureTime = SKIN:GetMeasure('MeasureTime')
 	lapListHeight = tonumber(SELF:GetOption('LapListHeight', 5))
 	showHours = tonumber(SELF:GetOption('ShowHours', 1))
@@ -68,7 +67,7 @@ function Lap()
 	lapCount = lapCount + 1
 	table.insert(laps, lapCount, { lap = GetLapTime(), total = GetTime() })
 	lapDeltaTime = elapsedTime
-	LogHelper('Lap ' .. lapCount .. ' = ' .. laps[lapCount]['total'], 'Debug')
+	RmLog('Lap ' .. lapCount .. ' = ' .. laps[lapCount]['total'], 'Debug')
 	SKIN:Bang('!UpdateMeterGroup', 'LapMeters')
 	SKIN:Bang('!Redraw')
 
@@ -111,3 +110,16 @@ function round(x)
   end
   return x-0.5
 end
+
+-- function to make logging messages less cluttered
+	function RmLog(message, type)
+
+		if type == nil then type = 'Debug' end
+		  
+		if debug == true then
+			SKIN:Bang("!Log", message, type)
+		elseif type ~= 'Debug' then
+			SKIN:Bang("!Log", message, type)
+		end
+		  
+	end

@@ -4,7 +4,6 @@ alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 function Initialize()
 
-	dofile(SKIN:GetVariable('scriptPath') .. 'Utilities.lua')
 	dynamicVarsPath = SKIN:GetVariable('dynamicVarsPath')
 	UpdateHideDisks()
 	SetDiskColors()
@@ -139,4 +138,15 @@ function RmLog(message, type)
 		SKIN:Bang("!Log", message, type)
 	end
 		
+end
+
+-- sets the variable using both !SetVariable and !WriteKeyValue, updating the
+-- value both in the settings skin and the primary skin
+function SetVariable(name, parameter, filePath, configPath)
+
+	SKIN:Bang('!SetVariable', name, parameter)
+	if filePath == nil then SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter) 
+		else SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter, filePath) end
+	if configPath ~= nil then SKIN:Bang('!SetVariable', name, parameter, configPath) end
+
 end
