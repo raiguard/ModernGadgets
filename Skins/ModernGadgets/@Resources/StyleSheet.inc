@@ -259,6 +259,9 @@ X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1
 Y=r
 DynamicVariables=1
 
+[StyleInputBoxBackgroundAdjacentRightAlignHelpButton]
+X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1 - 21
+
 [StyleStringInputBox]
 FontSize=10
 FontFace=Roboto
@@ -487,6 +490,13 @@ FontFace=ElegantIcons
 FontColor=#colorPeak#
 Text=[\xe0ec]
 Antialias=0
+
+[StyleHorizontalRule]
+SolidColor=#colorBorder#
+X=#contentMargin#
+Y=(#rowSpacing# + 1)R
+W=#contentWidth#
+H=1
 
 ; HWiNFO SMV Button
 [StyleHwinfoSmvButtonRegion]
