@@ -16,25 +16,19 @@ function Update()
     
     -- setup timestamps
     local localTz = (getTimeOffset() / 3600)
+    RmLog(localTz)
     if tzOffset == localTz then
         tDate = os.date("!*t", timestamp)
     else
         tDate = os.date("!*t", timestamp - getTimeOffset() + (tzOffset * 3600))
     end
-    
-    -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
-    tDate.year = tDate.year - (1970 - 1601)
-
-
-    -- tDate = os.date("*t", timestamp)  -- WINDOWS timestamp value
-    -- tDate.year = tDate.year - (1970 - 1601)-- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
-    
-    timestamp = os.time(tDate)
-    RmLog('timestamp: ' .. timestamp) -- recreate timestamp with new parameters
-    mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes) -- table with current time values
+    tDate.year = tDate.year - (1970 - 1601)  -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
+    timestamp = os.time(tDate)  -- recreate timestamp with new parameters
+    RmLog('timestamp: ' .. timestamp)
+    mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes)
     zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000') -- timestamp at current day, 0:00:00 (12:00 AM)
-    ysDate = zDate - 86400000
-    tmDate =  zDate + 86400000
+    ysDate = zDate - 86400000  -- timestamp at yesterday, 0:00:00 (12:00 AM)
+    tmDate =  zDate + 86400000  -- timestamp at tomorrow, 0:00:00 (12:00 AM)
 
     -- retrieve data tables from SunCalc script
     sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
