@@ -242,6 +242,9 @@ X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1
 Y=r
 DynamicVariables=1
 
+[StyleInputBoxBackgroundAdjacentRightAlignHelpButton]
+X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1 - 21
+
 [StyleStringInputBox]
 FontSize=10
 FontFace=Roboto

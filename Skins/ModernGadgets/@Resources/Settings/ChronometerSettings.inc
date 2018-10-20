@@ -11,6 +11,8 @@ dateFormat=WinLong
 customTimeFormat=%I:%M:%S %p
 customDateFormat=%m.%d.%G
 
+locale=en-US
+
 ; Colors
 colorStopwatchMain=107,238,98
 colorStopwatchLap=255,246,42
