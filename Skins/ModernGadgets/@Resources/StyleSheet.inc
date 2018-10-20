@@ -310,7 +310,7 @@ TransformationMatrix=#transformationMatrix#
 
 ; Buttons
 [StyleMouseRegion]
-SolidColor=255,255,255,50
+SolidColor=255,255,255,0
 DynamicVariables=1
 X=([#CURRENTSECTION#_:X] * #scale# + #scale#)
 Y=([#CURRENTSECTION#_:Y] * #scale# + #scale#)
