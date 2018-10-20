@@ -321,7 +321,7 @@ H=([#CURRENTSECTION#_:H] * #scale#)
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageTint ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
-[StyleMouseRegionImgRefreshHover]
+[StyleMouseRegionRefreshButton]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION#_ ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
