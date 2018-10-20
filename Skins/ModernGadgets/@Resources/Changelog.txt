@@ -373,6 +373,7 @@ WIP Releases
 v1.5.0-beta.1 - 2018-??-??
 - Added Audio Meter
 - Added Weather Meter
+- Added a custom event countdown to Chronometer
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
 - Removed subtitle from gadget manager
@@ -381,6 +382,7 @@ v1.5.0-beta.1 - 2018-??-??
 v1.5.0 - 2018-??-??
 - Added Audio Meter
 - Added Weather Meter
+- Added a custom event countdown to Chronometer
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
 - Removed subtitle from gadget manager

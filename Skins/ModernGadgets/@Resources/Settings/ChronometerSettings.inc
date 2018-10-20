@@ -1,6 +1,10 @@
 [Variables]
 timeAmPmSize=12
 showSystemUptime=1
+showEventCountdown=1
+
+eventName=Christmas
+eventTimestamp=2018-12-25 00:00:00
 
 timeFormat=WinLong
 dateFormat=WinLong
