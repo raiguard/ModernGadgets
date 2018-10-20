@@ -16,7 +16,7 @@ function Update()
     
     -- setup timestamps
     local localTz = (getTimeOffset() / 3600)
-    RmLog(localTz)
+    RmLog(localTz .. ' | ' .. tzOffset)
     if tzOffset == localTz then
         tDate = os.date("!*t", timestamp)
     else
@@ -24,7 +24,7 @@ function Update()
     end
     tDate.year = tDate.year - (1970 - 1601)  -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
     timestamp = os.time(tDate)  -- recreate timestamp with new parameters
-    RmLog('timestamp: ' .. timestamp)
+    RmLog(timestamp)
     mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes)
     zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000') -- timestamp at current day, 0:00:00 (12:00 AM)
     ysDate = zDate - 86400000  -- timestamp at yesterday, 0:00:00 (12:00 AM)
