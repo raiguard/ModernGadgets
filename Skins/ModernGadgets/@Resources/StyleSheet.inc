@@ -73,6 +73,9 @@ soundPath=#@#Assets\Sounds\
 fontPath=#@#Fonts\
 scriptPath=#@#Scripts\
 
+extPath=#SETTINGSPATH#ModernGadgets\
+extVarsPath=#extPath#ExtVariables.inc
+
 rainRgbPath=#@#Addons\RainRGB\RainRGB4.exe
 rainFilePath=#@#Addons\RainFile\RainFile.exe
 
