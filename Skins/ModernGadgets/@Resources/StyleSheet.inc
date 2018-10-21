@@ -341,6 +341,14 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURREN
 LeftMouseUpAction=[!DeactivateConfig]
 ToolTipText=Close
 
+[StyleMouseRegionHelpButton]
+ToolTipIcon=Info
+ToolTipWidth=300
+
+[StyleMouseRegionHelpButtonColors]
+ToolTipTitle=Color Customization
+ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a color to reset it to its default value. Once you are finished, click the 'apply color changes' button.
+
 [StyleStringSmallTextButton]
 FontColor=#colorAccent#
 Y=8R
@@ -361,11 +369,11 @@ Antialias=0
 TransformationMatrix=#transformationMatrix#
 
 [StyleCloseButton]
-ImageName=#imgPath#close.png
-X=(#contentMarginRight# - 18)
-Y=(#contentMargin# - 5)
-W=24
-H=24
+ImageName=#imgPath#close-new.png
+X=(#contentMarginRight# - 14)
+Y=(#contentMargin#)
+W=14
+H=14
 Antialias=0
 ToolTipText=Close
 ; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
@@ -379,7 +387,7 @@ FontFace=ElegantIcons
 Antialias=1
 StringAlign=Right
 X=(#contentMarginRight# - 18)
-Y=(#contentMargin# - 2)
+Y=(#contentMargin# - 1)
 Text=[\x6c]
 ToolTipText=Open configuration file to access more advanced settings
 TransformationMatrix=#transformationMatrix#
@@ -406,8 +414,6 @@ Y=2r
 W=14
 H=14
 Antialias=0
-ToolTipIcon=Info
-ToolTipWidth=300
 TransformationMatrix=#transformationMatrix#
 
 [StyleTutorialButton]
@@ -420,10 +426,6 @@ W=15
 H=15
 Antialias=1
 TransformationMatrix=#transformationMatrix#
-
-[StyleColorsHelpButton]
-ToolTipTitle=Color Customization
-ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a color to reset it to its default value. Once you are finished, click the 'apply color changes' button.
 
 [StyleEjectButton]
 ImageName=#imgPath#eject.png

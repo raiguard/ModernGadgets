@@ -7,7 +7,7 @@ interfaceOther=
 
 trafficSuffix=B/s
 
-censorExternalIp=1
+censorExternalIp=0
 showSpeedtestButton=1
 showPing=0
 showNetTotals=1

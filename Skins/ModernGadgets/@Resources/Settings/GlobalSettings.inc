@@ -2,7 +2,7 @@
 lineGraphAa=1
 tempUnits=C
 
-scale=1
+scale=2.00
 
 notifyUpdates=1
 updateCheckRate=90
