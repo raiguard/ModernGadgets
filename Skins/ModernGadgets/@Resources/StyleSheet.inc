@@ -333,6 +333,10 @@ LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"
 MouseOverAction=[!SetOption #CURRENTSECTION#_ FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ FontColor ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
+[StyleImgButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
 [StyleStringButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
@@ -340,14 +344,6 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURREN
 [StyleMouseRegionCloseButton]
 LeftMouseUpAction=[!DeactivateConfig]
 ToolTipText=Close
-
-[StyleMouseRegionHelpButton]
-ToolTipIcon=Info
-ToolTipWidth=300
-
-[StyleMouseRegionHelpButtonColors]
-ToolTipTitle=Color Customization
-ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a color to reset it to its default value. Once you are finished, click the 'apply color changes' button.
 
 [StyleStringSmallTextButton]
 FontColor=#colorAccent#
@@ -414,6 +410,8 @@ Y=2r
 W=14
 H=14
 Antialias=0
+ToolTipIcon=Info
+ToolTipWidth=300
 TransformationMatrix=#transformationMatrix#
 
 [StyleTutorialButton]
