@@ -1,6 +1,6 @@
 [Variables]
 ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
-threadCount=8
+threadCount=64
 
 ; Fixed precision format
 fpfRamDepth=4
