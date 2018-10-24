@@ -374,17 +374,20 @@ v1.5.0-beta.1 - 2018-??-??
 - Added Audio Meter
 - Added Weather Meter
 - Added locale customization to Chronometer
-- Added a custom event countdown to Chronometer
+- Added custom event countdown to Chronometer
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
+- Added scaling support to the gadgets
 - Removed subtitle from gadget manager
 - Improved organization of skin directories and config names
 
 v1.5.0 - 2018-??-??
 - Added Audio Meter
 - Added Weather Meter
-- Added a custom event countdown to Chronometer
+- Added locale customization to Chronometer
+- Added custom event countdown to Chronometer
 - Added Network Interface settings to Network Meter
 - Added support for monitoring up to three Network Interfaces at once
+- Added scaling support to the gadgets
 - Removed subtitle from gadget manager
 - Improved organization of skin directories and config names
