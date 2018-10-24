@@ -1,9 +1,9 @@
 [Variables]
-lineGraphAa=0
+lineGraphAa=1
 tempUnits=C
 
-scale=1.00
-tScale=1.00
+scale=2.00
+tScale=2.00
 
 notifyUpdates=1
 updateCheckRate=90

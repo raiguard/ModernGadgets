@@ -156,24 +156,34 @@ DynamicVariables=1
 Group=Background
 TransformationMatrix=#transformationMatrix#
 
+; [StyleBackground]
+; ImageName=#imgPath#border.png
+; ScaleMargins=2,2,2,2
+; SolidColor=#colorBg#
+; ImageTint=#colorBgBorder#
+; ImageAlpha=((#showBgBorder# = 0) ? 0 : 255)
+; X=(#bgOffset# - 1)
+; Y=(#bgOffset# - 1)
+; W=#bgWidth#
+; H=([MeterBackgroundHeight:Y] - (#bgOffset# * 2))
+; DynamicVariables=1
+; Group=Background
+; TransformationMatrix=#transformationMatrix#
+
 [StyleBackground]
-ImageName=#imgPath#border.png
-ScaleMargins=2,2,2,2
-SolidColor=#colorBg#
-ImageTint=#colorBgBorder#
-ImageAlpha=((#showBgBorder# = 0) ? 0 : 255)
-X=(#bgOffset# - 1)
-Y=(#bgOffset# - 1)
-W=#bgWidth#
-H=([MeterBackgroundHeight:Y] - (#bgOffset# * 2))
+Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),([[#CURRENTSECTION]:H] - ((#bgOffset# * 2) * #scale#)) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0)
+Shape2=Rectangle ((#bgOffset# + #showBgBorder#) * #scale#),((#bgOffset# + #showBgBorder#) * #scale#),((#bgWidth# - (#showBgBorder# * 2)) * #scale#),([[#CURRENTSECTION]:H] - (((#bgOffset# * 2) + (#showBgBorder# * 2)) * #scale#)) | StrokeWidth 0 | Fill Color #colorBg#
+X=0
+Y=0
+W=((#bgWidth# + (#bgOffset# * 2)) * #scale#)
+H=([MeterBackgroundHeight:Y] * #scale#)
 DynamicVariables=1
 Group=Background
-TransformationMatrix=#transformationMatrix#
 
 [StyleBackgroundHeight]
 SolidColor=255,255,255,0
 X=0
-Y=(#contentMarginAbs# + #bgOffset#)R
+Y=(#contentMarginAbs# + #bgOffset# + 1)R
 W=(#bgWidthAbs# * #scale#)
 H=1
 Group=Background
@@ -241,14 +251,13 @@ FontSize=10
 Y=3R
 
 [StyleInputBoxBackground]
-ImageName=#imgPath#border.png
-ImageTint=#colorInputBorder#
-SolidColor=#colorInputBg#
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H] | StrokeWidth 0 | Fill Color #colorBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2) | StrokeWidth 0 | Fill Color #colorSubBg#
 X=#contentMargin#
 Y=3R
 W=#contentWidth#
 H=19
-ScaleMargins=2,2,2,2
+DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 
 [StyleInputBoxBackgroundAdjacent]
@@ -452,11 +461,22 @@ LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.pn
 TransformationMatrix=#transformationMatrix#
 
 ; Line Graph
+; [StyleLineGraphBackground]
+; ImageName=#imgPath#border.png
+; SolidColor=#colorGraphBg#
+; ScaleMargins=2,2,2,2
+; ImageTint=#colorGraphBorder#
+; X=(#contentMargin#)
+; Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)R
+; W=(#contentWidth#)
+; H=#graphHeight#
+; Group=LineGraph
+; Hidden=(#showLineGraph# = 0)
+; TransformationMatrix=#transformationMatrix#
+
 [StyleLineGraphBackground]
-ImageName=#imgPath#border.png
-SolidColor=#colorGraphBg#
-ScaleMargins=2,2,2,2
-ImageTint=#colorGraphBorder#
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H] | StrokeWidth 0 | Fill Color #colorBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2) | StrokeWidth 0 | Fill Color #colorSubBg#
 X=(#contentMargin#)
 Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)R
 W=(#contentWidth#)
