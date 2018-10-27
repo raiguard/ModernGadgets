@@ -1,34 +1,37 @@
+--[[
+    ----------------------------------------------------------------------------------------------------
+    SUNCALC.LUA
+    raiguard
+    v1.0.0
+
+    This script is a form of 'SunCalc' by mourner, translated to LUA and adapted for Rainmeter
+    The original source code of SunCalc can be found at https://github.com/mourner/suncalc
+    See below to view SunCalc's source code license
+    ----------------------------------------------------------------------------------------------------
+    CHANGELOG:
+    v1.0.0 - 2018-10-26
+        - Initial release
+    ----------------------------------------------------------------------------------------------------
+]]--
+
 debug = false
-data = { moonViewAngle = 0, moonPhase = 0 }
+data = { moonViewAngle = 0, moonPhase = 0, moonPhaseName = 'New Moon' } -- set default values
 
 function Initialize() end
 
--- if you wish to update the info on-demand via a !CommandMeasure, simply move this code to another function (e.g. 'GetSunMoonTimes()').
--- additionally, you may substitute the script measure options for function arguments if you do this.
+-- on every update, retrieve inputs from the script measure and generate the data tables
+-- if you are going to use the script through !CommandMeasures, delete the contents of this function
 function Update()
 
-    -- get information from script measure
-    latitude = SELF:GetOption('Latitude')
-    longitude = SELF:GetOption('Longitude')
-    timestamp = SELF:GetOption('Timestamp')
-    -- timestamp = 13184205925
-    tzOffset = SELF:GetOption('TzOffset')
-    
+    GenerateData(SELF:GetOption('Timestamp'), SELF:GetOption('Latitude'), SELF:GetOption('Longitude'), SELF:GetOption('TzOffset'))
+
+end
+
+-- this function does all of the actual work, so it can also be called through a !CommandMeasure bang if desired
+function GenerateData(timestamp, latitude, longitude, tzOffset)
+
     -- setup timestamps
-    local localTz = (getTimeOffset() / 3600)
-    RmLog(localTz .. ' | ' .. tzOffset)
-    if tzOffset == localTz then
-        tDate = os.date("!*t", timestamp)
-    else
-        tDate = os.date("!*t", timestamp - getTimeOffset() + (tzOffset * 3600))
-    end
-    tDate.year = tDate.year - (1970 - 1601)  -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
-    timestamp = os.time(tDate)  -- recreate timestamp with new parameters
-    RmLog(timestamp)
-    mDate = tonumber(tostring(timestamp) .. '000')   -- millisecond date (timestamp with three extra zeroes)
-    zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000') -- timestamp at current day, 0:00:00 (12:00 AM)
-    ysDate = zDate - 86400000  -- timestamp at yesterday, 0:00:00 (12:00 AM)
-    tmDate =  zDate + 86400000  -- timestamp at tomorrow, 0:00:00 (12:00 AM)
+    local timestamp, mDate, zDate, ysDate, tmDate = SetupTimestamps(timestamp, tzOffset)
 
     -- retrieve data tables from SunCalc script
     sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
@@ -48,32 +51,32 @@ function Update()
     RmLog('getMoonIllumination():')
     PrintTable(moonIllumination)
 
-    -- calculate suntime and moontime in minutes
+    -- fix moonrise / moonset times if necessary
     if moonTimes.set == nil or moonTimes.set < moonTimes.rise and mDate > moonTimes.set then
-        RmLog('changing moonset')
-        -- RmLog(mDate .. ' | ' .. moonTimes.set or '')
+        -- set moonset to that of the next day
         moonTimes.set = SunCalc.getMoonTimes(tmDate, latitude, longitude)['set']
     elseif moonTimes.set < moonTimes.rise and mDate < moonTimes.set then
-        RmLog('changing moonrise')
+        -- set moonrise to that of the previous day
         moonTimes.rise = SunCalc.getMoonTimes(ysDate, latitude, longitude)['rise']
     end
-    suntime = getDifference(sunTimes.sunset, sunTimes.sunrise)
-    moontime = getDifference(moonTimes.set, moonTimes.rise)
+    -- calculate suntime and moontime in minutes
+    suntime = GetDifference(sunTimes.sunset, sunTimes.sunrise)
+    moontime = GetDifference(moonTimes.set, moonTimes.rise)
 
     -- translate the data into the formats used by the skin
-    data.sunrise = unixToFiletime(correctTimestamp(sunTimes.sunrise))
-    data.sunset = unixToFiletime(correctTimestamp(sunTimes.sunset))
+    data.sunrise = UnixToFiletime(CorrectTimestamp(sunTimes.sunrise), tzOffset)
+    data.sunset = UnixToFiletime(CorrectTimestamp(sunTimes.sunset), tzOffset)
     data.suntime = FormatTimeString(suntime)
-    data.moonrise = unixToFiletime(correctTimestamp(moonTimes.rise))
-    data.moonset = unixToFiletime(correctTimestamp(moonTimes.set))
+    data.moonrise = UnixToFiletime(CorrectTimestamp(moonTimes.rise), tzOffset)
+    data.moonset = UnixToFiletime(CorrectTimestamp(moonTimes.set), tzOffset)
     data.moontime = FormatTimeString(moontime)
-    data.moonViewAngle = rtd(moonIllumination.angle - moonPosition.parallacticAngle)
+    data.moonViewAngle = math.deg(moonIllumination.angle - moonPosition.parallacticAngle)
     data.moonPhase = moonIllumination.phase
-    data.moonPhaseName = getMoonPhaseName(data.moonPhase)
+    data.moonPhaseName = GetMoonPhaseName(data.moonPhase)
     
-    -- calculcate sun and moon dial angles
-    data.sunDialAngle = (getDifference(mDate, sunTimes.sunrise) / suntime) * 180
-    data.moonDialAngle = (getDifference(mDate, moonTimes.rise) / moontime) * 180
+    -- calculate sun and moon dial angles
+    data.sunDialAngle = (GetDifference(mDate, sunTimes.sunrise) / suntime) * 180
+    data.moonDialAngle = (GetDifference(mDate, moonTimes.rise) / moontime) * 180
     -- brute-force reset angle to -1 if things get wacky or if the object is set
     if data.sunDialAngle > 180 or data.sunDialAngle < 0 then data.sunDialAngle = -1 end
     if data.moonDialAngle > 180 or data.moonDialAngle < 0 then data.moonDialAngle = -1 end
@@ -86,21 +89,49 @@ function Update()
 
 end
 
+-- converts a Windows FILETIME timestamp into a Unix epoch timestamp, accounting for timezone and DST, then returns several useful timestamps
+function SetupTimestamps(timestamp, tzOffset)
+
+    tzOffset = tzOffset or 0
+    local localTz = (GetTimeOffset() / 3600)
+    RmLog(localTz .. ' | ' .. tzOffset)
+    if tzOffset == localTz then
+        tDate = os.date("!*t", timestamp)
+    else
+        tDate = os.date("!*t", timestamp - GetTimeOffset() + (tzOffset * 3600))
+    end
+    tDate.year = tDate.year - (1970 - 1601)
+    timestamp = os.time(tDate) - (os.date('*t')['isdst'] and 3600 or 0)
+    RmLog(timestamp)
+    mDate = tonumber(tostring(timestamp) .. '000')   
+    zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000')
+    ysDate = zDate - 86400000  
+    tmDate =  zDate + 86400000
+
+    return timestamp, -- current unix epoch timestamp value
+           mDate,     -- 'millisecond date' (timestamp with three extra zeroes)
+           zDate,     -- timestamp at current day, 0:00:00 (12:00 AM)
+           ysDate,    -- timestamp at yesterday, 0:00:00 (12:00 AM)
+           tmDate     -- timestamp at tomorrow, 0:00:00 (12:00 AM)
+
+end
+
 -- retrieves data from the data table using inline LUA in the skin
 function GetData(key) return data[key] or '' end
 
 -- ----- Utilities -----
 
-function getMoonPhaseName(phase)
+function GetMoonPhaseName(phase)
 
-    if phase == 0 or phase == 1 then return 'New Moon'
-    elseif phase > 0 and phase < 0.25 then return 'Waxing Crescent'
-    elseif phase == 0.25 then return 'First Quarter'
-    elseif phase > 0.25 and phase < 0.5 then return 'Waxing Gibbous'
-    elseif phase == 0.5 then return 'Full Moon'
-    elseif phase > 0.5 and phase < 0.75 then return 'Waning Gibbous'
-    elseif phase == 0.75 then return 'Last Quarter'
-    elseif phase > 0.75 and phase < 1 then return 'Waning Crescent'
+    if phase >= 0 and phase < 0.03 then return 'New Moon'
+    elseif phase >= 0.03 and phase < 0.23 then return 'Waxing Crescent'
+    elseif phase >= 0.23 and phase < 0.27 then return 'First Quarter'
+    elseif phase >= 0.27 and phase < 0.48 then return 'Waxing Gibbous'
+    elseif phase >= 0.48 and phase < 0.52 then return 'Full Moon'
+    elseif phase >= 0.52 and phase < 0.73 then return 'Waning Gibbous'
+    elseif phase >= 0.73 and phase < 0.77 then return 'Last Quarter'
+    elseif phase >= 0.77 and phase < 0.98 then return 'Waning Crescent'
+    elseif phase >= 0.98 and phase <= 1 then return 'New Moon'
     else return 'WTF?' end
 
 end
@@ -114,7 +145,7 @@ function FormatTimeString(time)
 
 end
 
-function unixToFiletime(timestamp)
+function UnixToFiletime(timestamp, tzOffset)
 
     local tDate = os.date("*t", timestamp)
     tDate.year = tDate.year + (1970 - 1601)
@@ -124,13 +155,11 @@ function unixToFiletime(timestamp)
 
 end
 
-function getTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
+function GetTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
 
-function getDifference(a1, a2) return ((a1 - a2) / 60000) end
+function GetDifference(a1, a2) return ((a1 - a2) / 60000) end
 
-function rtd(r) return (r * 180) / math.pi end
-
-function correctTimestamp(timestamp) return tostring(timestamp):sub(1,10) end
+function CorrectTimestamp(timestamp) return tostring(timestamp):sub(1,10) end
 
 -- function to make logging messages less cluttered
 function RmLog(message, type)
@@ -170,6 +199,29 @@ end
  (c) 2011-2015, Vladimir Agafonkin
  SunCalc is a JavaScript library for calculating sun/moon position and light phases.
  https://github.com/mourner/suncalc
+
+ Copyright (c) 2014, Vladimir Agafonkin
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without modification, are
+ permitted provided that the following conditions are met:
+ 
+ 1. Redistributions of source code must retain the above copyright notice, this list of
+     conditions and the following disclaimer.
+ 
+ 2. Redistributions in binary form must reproduce the above copyright notice, this list
+     of conditions and the following disclaimer in the documentation and/or other materials
+     provided with the distribution.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+ EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ]]--
 
 -- shortcuts for easier to read formulas
