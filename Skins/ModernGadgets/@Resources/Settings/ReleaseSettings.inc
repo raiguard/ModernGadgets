@@ -1,4 +1,4 @@
 [Variables]
-showPrereleases=0
+showPrereleases=1
 updateRate=5
 repoName=raiguard/ModernGadgets
