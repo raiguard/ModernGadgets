@@ -9,6 +9,7 @@ v3.0.1
 
 Release Notes:
 v3.0.1 - 2018-10-28
+- Changed default toggle values back to the #toggleOn# and #toggleOff# variables
 - Fixed script crashing if called through inline LUA
 v3.0.0 - 2018-10-28
 - Redesigned script to simplify the required inputs
