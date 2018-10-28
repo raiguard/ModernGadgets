@@ -381,6 +381,12 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.5.0-beta.2 - 2018-??-??
+- Added 'standard' CPU temperature display to CPU Meter
+- Added CPU fan speed graph option to CPU Meter
+- Corrected timestamp conversion bugs in SunCalc script
+- Corrected background height calculations in certain skins
+
 v1.5.0 - 2018-??-??
 - Added Audio Meter
 - Added Weather Meter
