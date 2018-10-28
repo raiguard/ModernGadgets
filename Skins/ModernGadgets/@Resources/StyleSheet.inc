@@ -171,7 +171,7 @@ TransformationMatrix=#transformationMatrix#
 ; TransformationMatrix=#transformationMatrix#
 
 [StyleBackground]
-Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),([[#CURRENTSECTION]:H] - ((#bgOffset# * 2) * #scale#)) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0)
+Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),(([[#CURRENTSECTION]:H] - (#bgOffset# * 2)) * #scale#) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0)
 Shape2=Rectangle ((#bgOffset# + #showBgBorder#) * #scale#),((#bgOffset# + #showBgBorder#) * #scale#),((#bgWidth# - (#showBgBorder# * 2)) * #scale#),([[#CURRENTSECTION]:H] - (((#bgOffset# * 2) + (#showBgBorder# * 2)) * #scale#)) | StrokeWidth 0 | Fill Color #colorBg#
 X=0
 Y=0
