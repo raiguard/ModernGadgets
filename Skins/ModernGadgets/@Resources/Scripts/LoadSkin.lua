@@ -3,11 +3,13 @@
 
 LOADSKIN.LUA
 raiguard
-v3.0.0
+v3.0.1
 
 --------------------------------------------------
 
 Release Notes:
+v3.0.1 - 2018-10-28
+- Fixed script crashing if called through inline LUA
 v3.0.0 - 2018-10-28
 - Redesigned script to simplify the required inputs
 - Improved documentation
