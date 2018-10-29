@@ -1,12 +1,9 @@
-function CheckVars(default, alignment, Arg1, Arg2, Arg3, Arg4)
+function Initialize()
 	
-	if alignment == 'right' then
-		if Arg2 ~= default and Arg4 ~= default then return 1
-		else return 0 end
-	elseif alignment == 'left' then
-		if Arg1 ~= default and Arg3 ~= default then return 1
-		else return 0 end
-	else return 0
-	end
+	default = SKIN:GetVariable('colorSbControlCorner')
 
 end
+
+function Update() end
+
+function CheckColor(input) return (input ~= default) end

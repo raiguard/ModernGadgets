@@ -5,7 +5,8 @@ mgVersion=1.5.0-beta.1
 
 ; Positioning
 bgOffset=5
-bgWidth=150
+gadgetBgWidth=150
+bgWidth=#gadgetBgWidth#
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
 
 contentMarginAbs=3
@@ -118,6 +119,8 @@ weatherMeterConfig=ModernGadgets\WeatherMeter
 weatherSettingsPath=#@#Settings\WeatherSettings.inc
 
 setupSkinConfig=ModernGadgets\Settings\Setup
+sb1ControlConfig=ModernGadgets\Settings\Sidebars\Control\1
+sb2ControlConfig=ModernGadgets\Settings\Sidebars\Control\2
 
 ; Default Color Pallete
 cp1=107,238,98
