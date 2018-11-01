@@ -2,13 +2,15 @@
     ----------------------------------------------------------------------------------------------------
     SUNCALC.LUA
     raiguard
-    v1.0.0
+    v1.0.1
 
     This script is a form of 'SunCalc' by mourner, translated to LUA and adapted for Rainmeter
     The original source code of SunCalc can be found at https://github.com/mourner/suncalc
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
+    v1.0.1 - 2018-10-31
+        - Fixed crash when moonrise is nil
     v1.0.0 - 2018-10-26
         - Initial release
     ----------------------------------------------------------------------------------------------------
@@ -52,10 +54,10 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
     PrintTable(moonIllumination)
 
     -- fix moonrise / moonset times if necessary
-    if moonTimes.set == nil or moonTimes.set < moonTimes.rise and mDate > moonTimes.set then
+    if moonTimes.rise ~= nil and (moonTimes.set == nil or moonTimes.set < moonTimes.rise and mDate > moonTimes.set) then
         -- set moonset to that of the next day
         moonTimes.set = SunCalc.getMoonTimes(tmDate, latitude, longitude)['set']
-    elseif moonTimes.set < moonTimes.rise and mDate < moonTimes.set then
+    elseif moonTimes.rise == nil or (moonTimes.set < moonTimes.rise and mDate < moonTimes.set) then
         -- set moonrise to that of the previous day
         moonTimes.rise = SunCalc.getMoonTimes(ysDate, latitude, longitude)['rise']
     end
