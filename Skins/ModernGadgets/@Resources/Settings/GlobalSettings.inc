@@ -19,7 +19,7 @@ sb1MaskColor=0,0,0
 sb1MaskAlpha=100
 sb1Columns=1
 sb1Alignment=right
-sb1Monitor=2
+sb1Monitor=1
 
 sb2MaskType=blur
 sb2MaskColor=0,0,0
