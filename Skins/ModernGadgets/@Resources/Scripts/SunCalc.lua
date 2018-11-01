@@ -9,7 +9,7 @@
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
-    v1.0.1 - 2018-10-31
+    v1.0.1 - 2018-11-01
         - Fixed crash when moonrise is nil
     v1.0.0 - 2018-10-26
         - Initial release
