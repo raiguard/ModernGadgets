@@ -123,18 +123,25 @@ function GetData(key) return data[key] or '' end
 
 -- ----- Utilities -----
 
+moonPhases = {
+    { 0.00, 0.03, 'New Moon'        },
+    { 0.03, 0.23, 'Waxing Crescent' },
+    { 0.23, 0.27, 'First Quarter'   },
+    { 0.27, 0.48, 'Waxing Gibbous'  },
+    { 0.48, 0.52, 'Full Moon'       },
+    { 0.52, 0.73, 'Waning Gibbous'  },
+    { 0.73, 0.77, 'Last Quarter'    },
+    { 0.77, 0.98, 'Waning Crescent' },
+    { 0.98, 1.00, 'New Moon'        }
+}
+
 function GetMoonPhaseName(phase)
 
-    if phase >= 0 and phase < 0.03 then return 'New Moon'
-    elseif phase >= 0.03 and phase < 0.23 then return 'Waxing Crescent'
-    elseif phase >= 0.23 and phase < 0.27 then return 'First Quarter'
-    elseif phase >= 0.27 and phase < 0.48 then return 'Waxing Gibbous'
-    elseif phase >= 0.48 and phase < 0.52 then return 'Full Moon'
-    elseif phase >= 0.52 and phase < 0.73 then return 'Waning Gibbous'
-    elseif phase >= 0.73 and phase < 0.77 then return 'Last Quarter'
-    elseif phase >= 0.77 and phase < 0.98 then return 'Waning Crescent'
-    elseif phase >= 0.98 and phase <= 1 then return 'New Moon'
-    else return 'WTF?' end
+    for i,v in pairs(moonPhases) do
+        if phase >= v[1] and phase < v[2] then return v[3] end
+    end
+
+    return 'WTF?'
 
 end
 
