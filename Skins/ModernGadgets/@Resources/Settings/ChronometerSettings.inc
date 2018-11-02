@@ -1,7 +1,7 @@
 [Variables]
 timeAmPmSize=12
 showSystemUptime=1
-showEventCountdown=0
+showEventCountdown=1
 
 eventName=Smash Ultimate
 eventTimestamp=2018-12-06 22:00:00

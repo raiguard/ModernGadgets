@@ -389,13 +389,5 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.5.0 - 2018-??-??
-- Added Audio Meter
-- Added Weather Meter
-- Added locale customization to Chronometer
-- Added custom event countdown to Chronometer
-- Added Network Interface settings to Network Meter
-- Added support for monitoring up to three Network Interfaces at once
-- Added scaling support to the gadgets
-- Removed subtitle from gadget manager
-- Improved organization of skin directories and config names
+v1.5.0-beta.3 - 2018-11-??
+- Cleaned up SunCalc script code

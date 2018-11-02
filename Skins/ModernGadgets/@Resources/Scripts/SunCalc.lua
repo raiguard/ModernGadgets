@@ -2,13 +2,16 @@
     ----------------------------------------------------------------------------------------------------
     SUNCALC.LUA
     raiguard
-    v1.0.1
+    v1.0.2
 
     This script is a form of 'SunCalc' by mourner, translated to LUA and adapted for Rainmeter
     The original source code of SunCalc can be found at https://github.com/mourner/suncalc
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
+    v1.0.2 - 2018-11-02
+        - Improved moon phase name function
+        - Added debug logging description
     v1.0.1 - 2018-11-01
         - Fixed crash when moonrise is nil
     v1.0.0 - 2018-10-26
@@ -16,7 +19,7 @@
     ----------------------------------------------------------------------------------------------------
 ]]--
 
-debug = false
+debug = false -- set to true to enable debug logging
 data = { moonViewAngle = 0, moonPhase = 0, moonPhaseName = 'New Moon' } -- set default values
 
 function Initialize() end
@@ -132,7 +135,7 @@ moonPhases = {
     { 0.52, 0.73, 'Waning Gibbous'  },
     { 0.73, 0.77, 'Last Quarter'    },
     { 0.77, 0.98, 'Waning Crescent' },
-    { 0.98, 1.00, 'New Moon'        }
+    { 0.98, 1.01, 'New Moon'        }
 }
 
 function GetMoonPhaseName(phase)
