@@ -390,4 +390,6 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.5.0-beta.3 - 2018-11-??
+- Mostly finished sidebar implementation
 - Cleaned up SunCalc script code
+- Fixed sidebar tutorial link
