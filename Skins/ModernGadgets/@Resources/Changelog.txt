@@ -391,8 +391,10 @@ WIP Releases
 
 v1.5.0-beta.3 - 2018-11-??
 - Added WiFi and LAN support to Network Meter
+- Added barometric pressure to Weather Meter
 - Mostly finished sidebar implementation
 - Cleaned up SunCalc script code
 - Updated external IP location website
 - Fixed Network Meter log errors
 - Fixed sidebar tutorial link
+- Fixed background border issues on non-default scales
