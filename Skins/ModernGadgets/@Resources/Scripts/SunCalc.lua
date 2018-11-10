@@ -2,13 +2,15 @@
     ----------------------------------------------------------------------------------------------------
     SUNCALC.LUA
     raiguard
-    v1.0.2
+    v1.0.3
 
     This script is a form of 'SunCalc' by mourner, translated to LUA and adapted for Rainmeter
     The original source code of SunCalc can be found at https://github.com/mourner/suncalc
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
+    v1.0.3 - 2018-11-09
+        - Removed suntime and moontime exports, FormatTimeString() function
     v1.0.2 - 2018-11-02
         - Improved moon phase name function
         - Added debug logging description
@@ -71,10 +73,8 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
     -- translate the data into the formats used by the skin
     data.sunrise = UnixToFiletime(CorrectTimestamp(sunTimes.sunrise), tzOffset)
     data.sunset = UnixToFiletime(CorrectTimestamp(sunTimes.sunset), tzOffset)
-    data.suntime = FormatTimeString(suntime)
     data.moonrise = UnixToFiletime(CorrectTimestamp(moonTimes.rise), tzOffset)
     data.moonset = UnixToFiletime(CorrectTimestamp(moonTimes.set), tzOffset)
-    data.moontime = FormatTimeString(moontime)
     data.moonViewAngle = math.deg(moonIllumination.angle - moonPosition.parallacticAngle)
     data.moonPhase = moonIllumination.phase
     data.moonPhaseName = GetMoonPhaseName(data.moonPhase)
@@ -145,15 +145,6 @@ function GetMoonPhaseName(phase)
     end
 
     return 'WTF?'
-
-end
-
-function FormatTimeString(time)
-
-	local hours = tostring(math.floor(time / 60) % 24):gsub('(.+)', '0%1'):gsub('^%d(%d%d)$', '%1')
-    local minutes = tostring(math.floor(time % 60)):gsub('(.+)', '0%1'):gsub('^%d(%d%d)$', '%1')
-    
-    return hours .. ':' .. minutes
 
 end
 
