@@ -147,6 +147,14 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.5.0-beta.3 - 2018-11-16
+- Added WiFi and LAN support to Network Meter
+- Added barometric pressure to Weather Meter
+- Cleaned up SunCalc script code
+- Updated external IP location website
+- Fixed Network Meter log errors
+- Fixed background border issues on non-default scales
+
 v1.5.0-beta.2 - 2018-11-01
 - Added 'standard' CPU temperature display to CPU Meter
 - Added CPU fan speed graph option to CPU Meter
@@ -389,12 +397,3 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.5.0-beta.3 - 2018-11-??
-- Added WiFi and LAN support to Network Meter
-- Added barometric pressure to Weather Meter
-- Mostly finished sidebar implementation
-- Cleaned up SunCalc script code
-- Updated external IP location website
-- Fixed Network Meter log errors
-- Fixed sidebar tutorial link
-- Fixed background border issues on non-default scales
