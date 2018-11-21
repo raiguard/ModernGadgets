@@ -9,6 +9,9 @@
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
+    v1.0.4 - 2018-11-21
+        - Corrected timestamp conversion issues when monitoring a different timezone from the one the
+          PC is located in
     v1.0.3 - 2018-11-09
         - Removed suntime and moontime exports, FormatTimeString() function
     v1.0.2 - 2018-11-02
@@ -100,11 +103,7 @@ function SetupTimestamps(timestamp, tzOffset)
     tzOffset = tzOffset or 0
     local localTz = (GetTimeOffset() / 3600)
     RmLog(localTz .. ' | ' .. tzOffset)
-    if tzOffset == localTz then
-        tDate = os.date("!*t", timestamp)
-    else
-        tDate = os.date("!*t", timestamp - GetTimeOffset() + (tzOffset * 3600))
-    end
+    tDate = os.date("!*t", timestamp)
     tDate.year = tDate.year - (1970 - 1601)
     timestamp = os.time(tDate) - (os.date('*t')['isdst'] and 3600 or 0)
     RmLog(timestamp)
@@ -112,6 +111,7 @@ function SetupTimestamps(timestamp, tzOffset)
     zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000')
     ysDate = zDate - 86400000  
     tmDate =  zDate + 86400000
+    RmLog('zDate: ' .. zDate)
 
     return timestamp, -- current unix epoch timestamp value
            mDate,     -- 'millisecond date' (timestamp with three extra zeroes)
