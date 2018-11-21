@@ -397,3 +397,7 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.5.0-beta.4 - 2018-11-??
+- Added five-day forecast to Weather Meter
+- Switched to lower resolution weather condition icons
+- Fixed SunCalc timestamp conversion issues
