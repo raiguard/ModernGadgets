@@ -26,7 +26,7 @@ sb2MaskColor=0,0,0
 sb2MaskAlpha=100
 sb2Columns=1
 sb2Alignment=left
-sb2Monitor=3
+sb2Monitor=1
 
 colorSbControlCorner=0,0,3
 
