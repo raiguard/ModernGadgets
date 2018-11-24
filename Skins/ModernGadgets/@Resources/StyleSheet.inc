@@ -10,6 +10,7 @@ bgOffset=5
 gadgetBgWidth=150
 bgWidth=#gadgetBgWidth#
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
+bgCornerRoundness=3
 
 contentMarginAbs=3
 contentMargin=(#contentMarginAbs# + #bgOffset# - 1)
@@ -151,33 +152,9 @@ cp23=150,150,150
 cp24=237,28,32
 
 ; Background
-[StyleBackgroundMargin]
-SolidColor=255,255,255,0
-X=-1
-Y=-1
-W=((#bgWidth# + (#bgOffset# * 2)) * #scale#)
-H=([MeterBackgroundHeight:Y] * #scale#)
-DynamicVariables=1
-Group=Background
-TransformationMatrix=#transformationMatrix#
-
-; [StyleBackground]
-; ImageName=#imgPath#border.png
-; ScaleMargins=2,2,2,2
-; SolidColor=#colorBg#
-; ImageTint=#colorBgBorder#
-; ImageAlpha=((#showBgBorder# = 0) ? 0 : 255)
-; X=(#bgOffset# - 1)
-; Y=(#bgOffset# - 1)
-; W=#bgWidth#
-; H=([MeterBackgroundHeight:Y] - (#bgOffset# * 2))
-; DynamicVariables=1
-; Group=Background
-; TransformationMatrix=#transformationMatrix#
-
 [StyleBackground]
-Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),([[#CURRENTSECTION]:H] - ((#bgOffset# * 2) * #scale#)) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0)
-Shape2=Rectangle ((#bgOffset# + #showBgBorder#) * #scale#),((#bgOffset# + #showBgBorder#) * #scale#),((#bgWidth# - (#showBgBorder# * 2)) * #scale#),([[#CURRENTSECTION]:H] - (((#bgOffset# * 2) + (#showBgBorder# * 2)) * #scale#)) | StrokeWidth 0 | Fill Color #colorBg#
+Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),([[#CURRENTSECTION]:H] - ((#bgOffset# * 2) * #scale#)),(#bgCornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0)
+Shape2=Rectangle ((#bgOffset# + #showBgBorder#) * #scale#),((#bgOffset# + #showBgBorder#) * #scale#),((#bgWidth# - (#showBgBorder# * 2)) * #scale#),([[#CURRENTSECTION]:H] - (((#bgOffset# * 2) + (#showBgBorder# * 2)) * #scale#)),(#bgCornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBg#
 X=0
 Y=0
 W=((#bgWidth# + (#bgOffset# * 2)) * #scale#)
@@ -256,8 +233,8 @@ FontSize=10
 Y=3R
 
 [StyleInputBoxBackground]
-Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H] | StrokeWidth 0 | Fill Color #colorBorder#
-Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2) | StrokeWidth 0 | Fill Color #colorSubBg#
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#bgCornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),(#bgCornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorSubBg#
 X=#contentMargin#
 Y=3R
 W=#contentWidth#
@@ -465,23 +442,9 @@ LeftMouseDownAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"]
 LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 TransformationMatrix=#transformationMatrix#
 
-; Line Graph
-; [StyleLineGraphBackground]
-; ImageName=#imgPath#border.png
-; SolidColor=#colorGraphBg#
-; ScaleMargins=2,2,2,2
-; ImageTint=#colorGraphBorder#
-; X=(#contentMargin#)
-; Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)R
-; W=(#contentWidth#)
-; H=#graphHeight#
-; Group=LineGraph
-; Hidden=(#showLineGraph# = 0)
-; TransformationMatrix=#transformationMatrix#
-
 [StyleLineGraphBackground]
-Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H] | StrokeWidth 0 | Fill Color #colorBorder#
-Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2) | StrokeWidth 0 | Fill Color #colorSubBg#
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#bgCornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#bgCornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
 X=(#contentMargin#)
 Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)R
 W=(#contentWidth#)
