@@ -402,4 +402,6 @@ v1.5.0-beta.4 - 2018-11-??
 - Added severe weather alerts to Weather Meter
 - Added rounded corners option
 - Switched to lower resolution weather condition icons
+- Reworded reset to defaults warning message
 - Fixed SunCalc timestamp conversion issues
+- Fixed reset to defaults screen background not appearing instantly
