@@ -5,7 +5,7 @@ tempUnits=C
 scale=1.00
 tScale=1.00
 
-bgCornerRoundness=3
+cornerRoundness=3
 
 notifyUpdates=1
 updateCheckRate=90

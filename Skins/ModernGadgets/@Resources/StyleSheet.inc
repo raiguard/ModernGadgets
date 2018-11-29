@@ -10,7 +10,7 @@ bgOffset=5
 gadgetBgWidth=150
 bgWidth=#gadgetBgWidth#
 bgWidthAbs=(#bgWidth# + (#bgOffset# * 2))
-bgCornerRoundness=3
+cornerRoundness=3
 
 contentMarginAbs=3
 contentMargin=(#contentMarginAbs# + #bgOffset# - 1)
@@ -153,8 +153,8 @@ cp24=237,28,32
 
 ; Background
 [StyleBackground]
-Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),([[#CURRENTSECTION]:H] - ((#bgOffset# * 2) * #scale#)),(#bgCornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0)
-Shape2=Rectangle ((#bgOffset# + #showBgBorder#) * #scale#),((#bgOffset# + #showBgBorder#) * #scale#),((#bgWidth# - (#showBgBorder# * 2)) * #scale#),([[#CURRENTSECTION]:H] - (((#bgOffset# * 2) + (#showBgBorder# * 2)) * #scale#)),(#bgCornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBg#
+Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),([[#CURRENTSECTION]:H] - ((#bgOffset# * 2) * #scale#)),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0)
+Shape2=Rectangle ((#bgOffset# + #showBgBorder#) * #scale#),((#bgOffset# + #showBgBorder#) * #scale#),((#bgWidth# - (#showBgBorder# * 2)) * #scale#),([[#CURRENTSECTION]:H] - (((#bgOffset# * 2) + (#showBgBorder# * 2)) * #scale#)),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBg#
 X=0
 Y=0
 W=((#bgWidth# + (#bgOffset# * 2)) * #scale#)
@@ -233,8 +233,8 @@ FontSize=10
 Y=3R
 
 [StyleInputBoxBackground]
-Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#bgCornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBorder#
-Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),(#bgCornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorSubBg#
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorSubBg#
 X=#contentMargin#
 Y=3R
 W=#contentWidth#
@@ -291,14 +291,15 @@ X=5R
 Y=1r
 
 [StyleStringColorPickerLabel]
-FontSize=9
-X=5R
-Y=1r
+FontSize=10
+X=3R
+Y=-1r
 
 [StyleColorPicker]
-Shape=Rectangle 0,0,15,15,1 | Stroke Color 100,100,100,100 | StrokeWidth 0 | Extend MeterSpecific
-X=-20r
-Y=5R
+Shape=Rectangle 0,0,15,15,#cornerRoundness# | Fill Color #colorBorder# | StrokeWidth 0
+Shape2=Rectangle 1,1,13,13,#cornerRoundness# | StrokeWidth 0 | Extend MeterSpecific
+X=-18r
+Y=3R
 DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 
@@ -443,8 +444,8 @@ LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.pn
 TransformationMatrix=#transformationMatrix#
 
 [StyleLineGraphBackground]
-Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#bgCornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
-Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#bgCornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
 X=(#contentMargin#)
 Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)R
 W=(#contentWidth#)
