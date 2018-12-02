@@ -1,6 +1,6 @@
 [Variables]
 ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
-threadCount=8
+threadCount=64
 
 ; Fixed precision format
 fpfRamDepth=4
@@ -18,6 +18,7 @@ showCoreVoltages=1
 showCpuTempGraph=1
 showTopProcess=0
 showCpuFan=1
+showCpuFanGraph=0
 showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
@@ -35,7 +36,7 @@ customMaxCpuFan=1600
 ; Colors
 colorRam=107,198,250
 colorPage=255,204,0
-colorTempGraph=200,0,0
+colorCpuTemp=200,0,0
 colorCpuFan=150,150,150
 ttHistogramAlpha=70
 colorTt=255,100,100
