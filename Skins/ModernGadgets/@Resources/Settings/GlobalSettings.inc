@@ -20,15 +20,15 @@ sb1MaskType=blur
 sb1MaskColor=0,0,0
 sb1MaskAlpha=100
 sb1Columns=1
-sb1Alignment=right
-sb1Monitor=2
+sb1Alignment=left
+sb1Monitor=1
 
 sb2MaskType=blur
 sb2MaskColor=0,0,0
 sb2MaskAlpha=100
 sb2Columns=1
-sb2Alignment=left
-sb2Monitor=1
+sb2Alignment=right
+sb2Monitor=2
 
 colorSbControlCorner=0,0,3
 
