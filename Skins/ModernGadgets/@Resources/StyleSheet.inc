@@ -31,7 +31,8 @@ graphWidth=#contentWidth#
 labelOffset=53
 
 ; Font settings
-fontFace=Roboto
+fontFace=IBM Plex Sans
+fontFaceCn=IBM Plex Sans Condensed
 fontSize=8
 
 ; Colors
@@ -222,7 +223,7 @@ X=#contentMargin#
 Y=(#contentMargin# - 2)
 
 [StyleStringConfigSectionHeader]
-FontFace=#fontFace# Cn
+FontFace=#fontFaceCn#
 FontSize=10
 Y=5R
 StringCase=UPPER

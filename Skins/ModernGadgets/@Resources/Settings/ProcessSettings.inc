@@ -2,7 +2,7 @@
 showAvgUsage=0
 showBars=1
 showLineGraph=0
-processLabelFontFace=Roboto Cn
+processLabelFontFace=IBM Plex Sans Condensed
 
 processes=5
 processMode=1
