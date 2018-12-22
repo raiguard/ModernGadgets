@@ -1,5 +1,6 @@
 [Variables]
 lineGraphAa=1
+lineGraphHr=1
 tempUnits=C
 
 scale=1.00

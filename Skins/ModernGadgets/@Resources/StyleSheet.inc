@@ -274,7 +274,7 @@ Group=Settings
 FontColor=#colorMain#
 FontSize=10
 X=3R
-Y=-1r
+Y=-2r
 
 [StyleToggleButton]
 FontFace=ElegantIcons
@@ -289,12 +289,12 @@ TransformationMatrix=#transformationMatrix#
 
 [StyleRadioButton]
 X=5R
-Y=1r
+Y=2r
 
 [StyleStringColorPickerLabel]
 FontSize=10
 X=3R
-Y=-1r
+Y=-2r
 
 [StyleColorPicker]
 Shape=Rectangle 0,0,15,15,#cornerRoundness# | Fill Color #colorBorder# | StrokeWidth 0
@@ -346,12 +346,13 @@ Y=8R
 FontSize=10
 StringAlign=Right
 X=(#contentMarginRight# - 17)
+Y=R
 
 [StyleArrowButton]
 ImageName=#imgPath#arrow-right.png
 ImageTint=#colorAccent#
 X=r
-Y=r
+Y=2r
 W=17
 H=17
 Antialias=0
@@ -399,7 +400,7 @@ TransformationMatrix=#transformationMatrix#
 [StyleHelpButton]
 ImageName=#imgPath#help.png
 X=(#contentMarginRight# - 15)
-Y=2r
+Y=3r
 W=14
 H=14
 Antialias=0
@@ -412,7 +413,7 @@ ImageName=#imgPath#book.png
 Greyscale=1
 ImageTint=#colorAccent#
 X=(#contentMarginRight# - 15)
-Y=r
+Y=1r
 W=15
 H=15
 Antialias=1
@@ -460,8 +461,8 @@ X=1r
 Y=1r
 W=(#contentWidth# - 2)
 H=(#graphHeight# - 2)
-; HorizontalLines=1
-; HorizontalLineColor=#colorBorder#
+HorizontalLines=#lineGraphHr#
+HorizontalLineColor=#colorBorder#
 Group=LineGraph
 Antialias=#lineGraphAa#
 DynamicVariables=1
@@ -517,7 +518,7 @@ Group=HwinfoSmvButton
 
 [StyleStringHwinfoSmvButton]
 X=5R
-Y=5r
+Y=3r
 FontSize=9
 ;FontColor=104,132,232
 Text=Open Shared Memory Viewer
