@@ -37,7 +37,8 @@ colorSkyDialSun=250,222,110
 colorSkyDialMoon=180,180,180
 
 colorMoon=200,200,200
-colorMoonBg=60,60,60
+colorMoonBg=30,30,30
+colorMoonBorder=100,100,100
 
 showMoonInfo=1
 showMoonAngle=1
