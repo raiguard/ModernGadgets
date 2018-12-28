@@ -221,7 +221,7 @@ Y=(#contentMargin# - 2)
 [StyleStringGadgetHeader]
 FontSize=10
 X=#contentMargin#
-Y=(#contentMargin# - 2)
+Y=(#contentMargin# - 3)
 
 [StyleStringConfigSectionHeader]
 FontFace=#fontFaceCn#
@@ -249,6 +249,9 @@ X=5R
 Y=r
 W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin#)
 DynamicVariables=1
+
+[StyleInputBoxBackgroundAdjacentRightMargin]
+W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin# - 21)
 
 [StyleInputBoxBackgroundAdjacentRightAlign]
 X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1
