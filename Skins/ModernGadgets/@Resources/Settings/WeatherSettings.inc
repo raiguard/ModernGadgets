@@ -14,14 +14,14 @@ locale=en_US
 
 weatherUpdateRate=10
 
-showHumidity=0
-showUv=0
+showHumidity=1
+showUv=1
 showUvChart=1
 showAtmPressure=0
 showVisibility=1
-showDewpoint=1
+showDewpoint=0
 showWindInfo=1
-showSunMoonInfo=0
+showSunMoonInfo=1
 showMoonAngle=1
 
 timeFormat=WinShort
