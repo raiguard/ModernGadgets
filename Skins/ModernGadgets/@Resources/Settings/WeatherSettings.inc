@@ -20,6 +20,8 @@ showUvChart=1
 showVisibility=1
 showDewpoint=1
 showMoon=1
+showMoonInfo=1
+showMoonAngle=1
 
 timeFormat=WinShort
 dateFormat=WinShort
@@ -38,7 +40,4 @@ colorSkyDialMoon=180,180,180
 
 colorMoon=200,200,200
 colorMoonBg=30,30,30
-colorMoonBorder=100,100,100
-
-showMoonInfo=1
-showMoonAngle=1
+colorMoonBorder=70,70,70
