@@ -408,5 +408,7 @@ WIP Releases
 
 v1.5.0-beta.5 - 2018-??-??
 - Added horizontal rules option to line graphs
+- Added city lookup as an alternative to manually typing in a weather location code
+- Implemented final iteration of the moon icon
 - Switched default font to IBM Plex Sans
 - Fixed StyleSheet positioning constants to work with new default font
