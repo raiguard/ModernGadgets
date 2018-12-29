@@ -99,7 +99,7 @@ function UpdateDiskReadWrite(state)
 
 	alphabet:gsub(".", function(c)
 		SKIN:Bang('!SetOptionGroup', 'Disk' .. c .. 'ReadWrite', 'Hidden', '(#*hideDisk' .. c .. '*# = 1) || (' .. state .. ' = 0)')
-		SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Y', '(((' .. state .. ' = 0) && (#*hideDisk' .. c .. '*# = 0)) ? -#*rowSpacing*# + 1 : #*rowSpacing*#)R')
+		SKIN:Bang('!SetOption', 'Disk' .. c .. 'WriteArrow', 'Y', '(((' .. state .. ' = 0) && (#*hideDisk' .. c .. '*# = 0)) ? -#*rowSpacing*# + 2 : #*rowSpacing*# + 1)R')
 		SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'ReadWrite')
 		SKIN:Bang('!UpdateMeterGroup', 'Disk' .. c .. 'MouseRegions')
 	end)
