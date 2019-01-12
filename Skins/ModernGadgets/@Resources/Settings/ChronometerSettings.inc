@@ -1,10 +1,10 @@
 [Variables]
 timeAmPmSize=12
 showSystemUptime=1
-showEventCountdown=0
+showEventCountdown=1
 
-eventName=Christmas
-eventTimestamp=2018-12-25 00:00:00
+eventName=19th Birthday
+eventTimestamp=2019-03-02 00:00:00
 
 timeFormat=WinLong
 dateFormat=WinLong
