@@ -2,13 +2,17 @@
     ----------------------------------------------------------------------------------------------------
     SUNCALC.LUA
     raiguard
-    v1.0.4
+    v1.0.5
 
     This script is a form of 'SunCalc' by mourner, translated to LUA and adapted for Rainmeter
     The original source code of SunCalc can be found at https://github.com/mourner/suncalc
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
+    v1.0.5 - 2018-12-30
+        - Removed code from the Update() function to facilitate invoking the script multiple times
+          with different parameters through !CommandMeasure bangs
+        - Updated documentation
     v1.0.4 - 2018-11-21
         - Corrected timestamp conversion issues when monitoring a different timezone from the one the
           PC is located in
@@ -29,15 +33,11 @@ data = { moonViewAngle = 0, moonPhase = 0, moonPhaseName = 'New Moon' } -- set d
 
 function Initialize() end
 
--- on every update, retrieve inputs from the script measure and generate the data tables
--- if you are going to use the script through !CommandMeasures, delete the contents of this function
-function Update()
+function Update() end
 
-    GenerateData(SELF:GetOption('Timestamp'), SELF:GetOption('Latitude'), SELF:GetOption('Longitude'), SELF:GetOption('TzOffset'))
-
-end
-
--- this function does all of the actual work, so it can also be called through a !CommandMeasure bang if desired
+-- generates all of the data and translates it into a format usable by the skin.
+-- invoke through a !CommandMeasure bang.
+-- all data table outputs that have to do with time are given as Windows FILETIME values.
 function GenerateData(timestamp, latitude, longitude, tzOffset)
 
     -- setup timestamps
