@@ -13,6 +13,9 @@ updateCheckRate=90
 autoBackups=1
 checkForPrereleases=1
 
+updateNotificationSound="C:\Windows\media\notify.wav"
+useUpdateNotificationSound=1
+
 showBgBorder=1
 rowSpacing=1
 
