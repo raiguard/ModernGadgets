@@ -1,6 +1,6 @@
 [Variables]
 ; LocationCode can be obtained at http://wxdata.weather.com/wxdata/search/search?where=YourCityName
-locationCode=USUT0281:1:US
+locationCode=USUT0281
 ; UnitOfMeasure can be "f" (Fahrenheit / Imperial) or "m" (Celsius / Metric)
 unitOfMeasure=f
 ; Number of days to return in the feed.(1-6).
@@ -17,9 +17,12 @@ weatherUpdateRate=10
 showHumidity=1
 showUv=1
 showUvChart=1
+showAtmPressure=0
 showVisibility=1
-showDewpoint=1
-showMoon=1
+showDewpoint=0
+showWindInfo=1
+showSunMoonInfo=1
+showMoonAngle=1
 
 timeFormat=WinShort
 dateFormat=WinShort
@@ -37,7 +40,5 @@ colorSkyDialSun=250,222,110
 colorSkyDialMoon=180,180,180
 
 colorMoon=200,200,200
-colorMoonBg=60,60,60
-
-showMoonInfo=1
-showMoonAngle=1
+colorMoonBg=30,30,30
+colorMoonBorder=70,70,70

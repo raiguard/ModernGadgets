@@ -1,5 +1,6 @@
 [Variables]
 lineGraphAa=1
+lineGraphHr=1
 tempUnits=C
 
 scale=1.00
@@ -11,6 +12,9 @@ notifyUpdates=1
 updateCheckRate=90
 autoBackups=1
 checkForPrereleases=1
+
+updateNotificationSound="C:\Windows\media\notify.wav"
+useUpdateNotificationSound=1
 
 showBgBorder=1
 rowSpacing=1
