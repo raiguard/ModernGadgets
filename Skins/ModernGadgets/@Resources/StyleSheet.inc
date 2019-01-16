@@ -226,6 +226,8 @@ Y=(#contentMargin# - 3)
 [StyleStringConfigSectionHeader]
 FontFace=#fontFaceCn#
 FontSize=10
+FontWeight=600
+FontColor=#colorDim#
 Y=5R
 StringCase=UPPER
 
