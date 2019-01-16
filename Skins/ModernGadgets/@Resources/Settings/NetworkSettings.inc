@@ -1,6 +1,6 @@
 [Variables]
-interfaceEthernet=
-interfaceWireless=
+interfaceEthernet=Intel(R) Ethernet Connection (2) I219-V
+interfaceWireless=NETGEAR A7000 WiFi USB3.0 Adapter
 interfaceOther=
 
 censorExternalIp=0
@@ -9,7 +9,7 @@ showPing=0
 showNetTotals=1
 showLineGraph=1
 showPeakNetworkUsage=0
-useNetMonitor=0
+useNetMonitor=1
 
 pingUrl=google.com
 
@@ -20,4 +20,4 @@ colorPeak=99,125,217
 colorLanOnly=250,137,139
 colorGlobe=137,190,250
 
-autoAdapterConfig=1
+autoAdapterConfig=0
