@@ -418,6 +418,7 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.5.0-beta.6 - 2018-01-??
+- Added hover animation to volume slider in Audio Meter
 - Added beta Media Controls interface to Audio Meter
 - Added settings wrench icon to Audio Meter
 - Added option to disable or change update notification sound
