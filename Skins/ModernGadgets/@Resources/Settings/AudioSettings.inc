@@ -5,7 +5,7 @@ colorVisualizer=#colorAccent#,120
 
 showVisualizer=1
 ; Media Controller
-showMediaControls=0
+showMediaControls=1
 mediaPlayer=AIMP
 ; Visualizer Configuration
 fftSize=2048
