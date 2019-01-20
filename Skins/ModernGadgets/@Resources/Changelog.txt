@@ -147,6 +147,17 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.5.0-beta.6 - 2018-01-20
+- Added hover animation to volume slider in Audio Meter
+- Added beta Media Controls interface to Audio Meter
+- Added settings wrench icon to Audio Meter
+- Added alarms to Chronometer
+- Added timer applet to Chronometer
+- Added option to disable or change update notification sound
+- Removed in-development options from settings files to allow changes to be applied during development
+- Removed temperature units from hi/low, feels-like temperatures
+- Made update notification and welcome screen non-draggable
+
 v1.5.0-beta.5 - 2019-01-13
 - Added horizontal rules option to line graphs
 - Added city lookup as an alternative to manually typing in a weather location code
@@ -417,13 +428,3 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.5.0-beta.6 - 2018-01-??
-- Added hover animation to volume slider in Audio Meter
-- Added beta Media Controls interface to Audio Meter
-- Added settings wrench icon to Audio Meter
-- Added alarms to Chronometer
-- Added timer applet to Chronometer
-- Added option to disable or change update notification sound
-- Removed in-development options from settings files to allow changes to be applied during development
-- Removed temperature units from hi/low, feels-like temperatures
-- Made update notification and welcome screen non-draggable
