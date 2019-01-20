@@ -2,10 +2,11 @@
 smoothUpdates=1
 
 colorVisualizer=#colorAccent#,120
-
+showDeviceSwitcher=0
 showVisualizer=1
 ; Media Controller
-showMediaControls=0
+showMediaControls=2
+npType=Web
 mediaPlayer=AIMP
 ; Visualizer Configuration
 fftSize=2048
