@@ -421,6 +421,7 @@ v1.5.0-beta.6 - 2018-01-??
 - Added hover animation to volume slider in Audio Meter
 - Added beta Media Controls interface to Audio Meter
 - Added settings wrench icon to Audio Meter
+- Added alarms to Chronometer
 - Added option to disable or change update notification sound
 - Removed in-development options from settings files to allow changes to be applied during development
 - Removed temperature units from hi/low, feels-like temperatures

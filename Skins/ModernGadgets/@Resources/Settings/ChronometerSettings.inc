@@ -13,6 +13,17 @@ customDateFormat=%m.%d.%G
 
 locale=en-US
 
+; DEBUGGING VARIABLES
+alarm1Time=18:12
+alarm2Time=18:13
+enableAlarm1=0
+enableAlarm2=0
+
+alarm1Sound=C:\Windows\Media\Alarm01.wav
+alarm2Sound=C:\Windows\Media\Alarm02.wav
+alarm1Duration=60
+alarm2Duration=45
+
 ; Colors
 colorStopwatchMain=107,238,98
 colorStopwatchLap=255,246,42
