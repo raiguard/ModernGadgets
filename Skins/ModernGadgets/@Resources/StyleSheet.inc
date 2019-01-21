@@ -463,17 +463,6 @@ H=15
 Antialias=1
 TransformationMatrix=#transformationMatrix#
 
-[StyleEjectButton]
-ImageName=#imgPath#eject.png
-ImageTint=120,120,120
-X=13R
-Y=r
-W=14
-H=11
-Antialias=1
-DynamicVariables=1
-TransformationMatrix=#transformationMatrix#
-
 [StyleRefreshButton]
 ImageName=#imgPath#refresh-up.png
 ImageTint=#colorAccent#
