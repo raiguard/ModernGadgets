@@ -1,4 +1,4 @@
-debug = false
+debug = true
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
