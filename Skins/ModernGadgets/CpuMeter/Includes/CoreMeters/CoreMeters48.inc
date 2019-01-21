@@ -1,7 +1,4 @@
-[IncludeSection]
-@includeCoreMeters8=CoreMeters8.inc
-@includeCoreMeters16=CoreMeters16.inc
-@includeCoreMeters24=CoreMeters24.inc
+[IncludeCoreMeters32]
 @includeCoreMeters32=CoreMeters32.inc
 
 ; Core 33

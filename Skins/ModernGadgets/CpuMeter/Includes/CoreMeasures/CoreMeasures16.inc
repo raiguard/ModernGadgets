@@ -1,4 +1,4 @@
-[IncludeSection]
+[IncludeCoreMeasures8]
 @includeCoreMeasures8=CoreMeasures8.inc
 
 ; Core Usages

@@ -1,4 +1,4 @@
-[IncludeSection]
+[IncludeCoreMeters8]
 @includeCoreMeters8=CoreMeters8.inc
 
 ; Core 9
