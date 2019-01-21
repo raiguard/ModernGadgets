@@ -297,6 +297,44 @@ TransformationMatrix=#transformationMatrix#
 X=5R
 Y=2r
 
+[StyleStringPivotLabel]
+FontSize=10
+FontWeight=600
+FontColor=#colorDim#
+StringCase=UPPER
+X=(#contentMargin# + 2)
+Y=3R
+
+[StyleStringPivotValue]
+FontSize=10
+FontWeight=600
+StringAlign=CENTER
+StringCase=UPPER
+X=(([#CURRENTSECTION#:W] / 2) + 25)R
+Y=r
+DynamicVariables=1
+Group=Settings
+
+[StylePivotRightButton]
+FontFace=ElegantIcons
+FontSize=12
+FontColor=#colorAccent#
+Y=2r
+Text=[\x0045]
+DynamicVariables=1
+Group=Settings
+Antialias=1
+
+[StylePivotLeftButton]
+FontFace=ElegantIcons
+FontSize=12
+FontColor=#colorAccent#
+Y=r
+Text=[\x0044]
+DynamicVariables=1
+Group=Settings
+Antialias=1
+
 [StyleStringColorPickerLabel]
 FontSize=10
 X=3R
