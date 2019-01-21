@@ -44,41 +44,25 @@ end
 
 function Update() end
 
--- for use with toggle buttons. Toggles the specified variable between the two
--- given states
+-- oggles the specified variable between the two given states
 function Toggle(variable, onState, offState, actionSet, ifLogic, oSettingsPath, oConfigPath)
 
 	local value = SKIN:GetVariable(variable)
-	local actionSetName = actionSet
-
-	local lSettingsPath = settingsPath
-	local lConfigPath = configPath
-	if oSettingsPath ~= nil then lSettingsPath = oSettingsPath end
-	if oConfigPath ~= nil then lConfigPath = oSettingsPath end
+	local lSettingsPath = oSettingsPath or settingsPath
+	local lConfigPath = oConfigPath or configPath
 
 	if value == offState then
 		SetVariable(variable, onState, lSettingsPath, lConfigPath)
-		LogHelper(variable .. '=' .. onState, 'Debug')
+		RmLog(variable .. '=' .. onState, 'Debug')
 		value = onState
 	else
 		SetVariable(variable, offState, lSettingsPath, lConfigPath)
-		LogHelper(variable .. '=' .. offState, 'Debug')
+		RmLog(variable .. '=' .. offState, 'Debug')
 		value = offState
 	end
 
 	UpdateMeters()
-
-	if actionSet == nil then
-		SKIN:Bang(defaultAction)
-	else
-		if ifLogic == true then
-			actionSet = SELF:GetOption(actionSet .. value)
-			actionSetName = actionSetName .. value
-			else actionSet = SELF:GetOption(actionSet) end
-		if actionSet == '' then LogHelper('ActionSet \'' .. actionSetName .. '\' is empty or missing', 'Warning') end
-		LogHelper(actionSetName .. '=' .. actionSet, 'Debug')
-		SKIN:Bang(actionSet)
-	end
+	ActionSet(actionSet, ifLogic, value)
 
 end
 
@@ -86,26 +70,74 @@ end
 -- and input boxes.
 function Set(variable, input, actionSet, ifLogic, oSettingsPath, oConfigPath)
 
-	local actionSetName = actionSet
-
-	local lSettingsPath = settingsPath
-	local lConfigPath = configPath
-	if oSettingsPath ~= nil then lSettingsPath = oSettingsPath end
-	if oConfigPath ~= nil then lConfigPath = oSettingsPath end
+	local lSettingsPath = oSettingsPath or settingsPath
+	local lConfigPath = oConfigPath or configPath
 
 	SetVariable(variable, input, lSettingsPath, lConfigPath)
-	LogHelper(variable .. '=' .. input, 'Debug')	
+	RmLog(variable .. '=' .. input, 'Debug')	
 	UpdateMeters()
+	ActionSet(actionSet, ifLogic, input)
+
+end
+
+-- changes variable to the next or previous value, based on a provided data table
+function Pivot(variable, data, direction, actionSet, ifLogic, oSettingsPath, oConfigPath)
+
+	local lSettingsPath = oSettingsPath or settingsPath
+	local lConfigPath = oConfigPath or configPath
+
+	local tableLength = table.length(data)
+	local index = table.find(data, SKIN:GetVariable(variable))
+	
+	if index < tableLength and direction == 'right' then
+		SetVariable(variable, data[index + 1], lSettingsPath, lConfigPath)
+		RmLog(variable .. '=' .. data[index + 1], 'Debug')	
+		UpdateMeters()
+		ActionSet(actionSet, ifLogic, data[index + 1])
+	elseif index > 1 and direction == 'left' then
+		SetVariable(variable, data[index - 1], lSettingsPath, lConfigPath)
+		RmLog(variable .. '=' .. data[index - 1], 'Debug')
+		UpdateMeters()	
+		ActionSet(actionSet, ifLogic, data[index - 1])
+	end
+
+end
+
+function Switch(data, actionSet, ifLogic, oSettingsPath, oConfigPath)
+
+	local lSettingsPath = oSettingsPath or settingsPath
+	local lConfigPath = oConfigPath or configPath
+
+	for k,v in pairs(data) do
+		local cValue = SKIN:GetVariable(k)
+		if type(v) == 'table' then
+			for k1, v1 in pairs(v) do
+				if v1 == cValue then
+					RmLog(k .. ': this is it!')
+				else
+					RmLog(k .. ': this is definitely not it!')
+				end
+			end
+		else
+			v = tostring(v)
+		end
+	end
+
+end
+
+function ActionSet(actionSet, ifLogic, input)
+
+	local actionSetName = actionSet
 
 	if actionSet == nil then
 		SKIN:Bang(defaultAction)
 	else
 		if ifLogic == true then
+			actionSetName = actionSet .. input
 			actionSet = SELF:GetOption(actionSet .. input)
-			actionSetName = actionSetName .. input
 			else actionSet = SELF:GetOption(actionSet) end
-		if actionSet == '' then LogHelper('ActionSet \'' .. actionSetName .. '\' is empty or missing', 'Warning') end
-		LogHelper(actionSetName .. '=' .. actionSet, 'Debug')
+		if actionSet == '' then RmLog('ActionSet \'' .. actionSetName .. '\' is empty or missing', 'Warning') end
+		RmLog(actionSetName .. '=' .. actionSet)
 		SKIN:Bang(actionSet)
 	end
 
@@ -134,6 +166,12 @@ end
 -- value both in the settings skin and the primary skin
 function SetVariable(name, parameter, filePath, configPath)
 
+	-- -- handle any escaped variables
+	-- while true do
+	-- 	local v = string.match(parameter, '%#%*(.*)%*%#')
+		
+
+	-- enact the changes within the skin
 	SKIN:Bang('!SetVariable', name, parameter)
 	if filePath == nil then SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter) 
 		else SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter, filePath) end
@@ -142,7 +180,7 @@ function SetVariable(name, parameter, filePath, configPath)
 end
 
 -- function to make logging messages less complicated
-function LogHelper(message, type)
+function RmLog(message, type)
 
 	if type == nil then type = 'Debug' end
 
@@ -157,6 +195,38 @@ function UpdateMeters()
 	SKIN:Bang('!UpdateMeterGroup', meterUpdateGroup)
 	SKIN:Bang('!Redraw')
 
+end
+
+function table.length(T)
+    local count = 0
+    for _ in pairs(T) do count = count + 1 end
+    return count
+end
+
+function table.find(t, value)
+	for _,v in pairs(t) do
+		if (v == value) then
+			return _
+		end
+	end
+	return false
+end
+
+printIndent = '     '
+
+-- prints the entire contents of a table to the Rainmeter log
+function PrintTable(table)
+    for k,v in pairs(table) do
+        if type(v) == 'table' then
+            local pI = printIndent
+            RmLog(printIndent .. tostring(k) .. ':')
+            printIndent = printIndent .. '  '
+            PrintTable(v)
+            printIndent = pI
+        else
+            RmLog(printIndent .. tostring(k) .. ': ' .. tostring(v))
+        end
+    end
 end
 
 -- --------------------------------------------------------------------------------
