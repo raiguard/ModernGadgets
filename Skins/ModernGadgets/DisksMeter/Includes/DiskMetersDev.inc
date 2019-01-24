@@ -1,5 +1,5 @@
 ; Disk 1
-[Disk1NameString_]
+[MeterDisk1NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk1Name
@@ -8,21 +8,20 @@ Text=#d1#: %1
 Group=Disk1
 Hidden=#hideDisk1#
 
-[Disk1EjectButton_]
+[MeterDisk1EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk1Eject "Run"]
-Group=Disk1 | EjectButtons
-Hidden=(#hideDisk1# = 1) || ([MeasureDisk1Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk1 | EjectButtons | DiskElements
+Hidden=(#hideDisk1# = 1) || ([MeasureDisk1Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d1]Element] = 0)
 
-[Disk1TempString]
+[MeterDisk1TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk1Temp
-Group=Disk1 | DiskTemps
-Hidden=(#hideDisk1# = 1) || ([MeasureDisk1Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk1 | DiskTemps | DiskElements
+Hidden=(#hideDisk1# = 1) || ([MeasureDisk1Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d1]Element] = 0)
 
-[Disk1RWTimeString]
+[MeterDisk1RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk1RWTime
@@ -30,16 +29,16 @@ Text=%1%
 Group=Disk1
 Hidden=#hideDisk1#
 
-[Disk1WriteArrow]
+[MeterDisk1WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk1#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk1# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk1 | Disk1ReadWrite
+Group=Disk1 | Disk1ReadWrite | DiskReadWrite
 Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk1WriteString]
+[MeterDisk1WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk1#
@@ -47,15 +46,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk1 | Disk1ReadWrite | DiskReadWrite
 Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk1ReadArrow]
+[MeterDisk1ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk1#
-Group=Disk1 | Disk1ReadWrite
+Group=Disk1 | Disk1ReadWrite | DiskReadWrite
 Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk1ReadString]
+[MeterDisk1ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk1#
@@ -63,14 +62,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk1 | Disk1ReadWrite | DiskReadWrite
 Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk1SpaceString]
+[MeterDisk1SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk1
 Hidden=#hideDisk1#
 
-[Disk1SpaceUsageString]
+[MeterDisk1SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk1SpaceUsage
@@ -79,7 +78,7 @@ Text=%1%
 Group=Disk1
 Hidden=#hideDisk1#
 
-[Disk1SpaceUsageBar]
+[MeterDisk1SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk1SpaceUsage
@@ -88,7 +87,7 @@ Group=Disk1
 Hidden=#hideDisk1#
 
 ; Disk 2
-[Disk2NameString_]
+[MeterDisk2NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk2Name
@@ -97,21 +96,20 @@ Text=#d2#: %1
 Group=Disk2
 Hidden=#hideDisk2#
 
-[Disk2EjectButton_]
+[MeterDisk2EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk2Eject "Run"]
-Group=Disk2 | EjectButtons
-Hidden=(#hideDisk2# = 1) || ([MeasureDisk2Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk2 | EjectButtons | DiskElements
+Hidden=(#hideDisk2# = 1) || ([MeasureDisk2Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d2]Element] = 0)
 
-[Disk2TempString]
+[MeterDisk2TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk2Temp
-Group=Disk2 | DiskTemps
-Hidden=(#hideDisk2# = 1) || ([MeasureDisk2Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk2 | DiskTemps | DiskElements
+Hidden=(#hideDisk2# = 1) || ([MeasureDisk2Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d2]Element] = 0)
 
-[Disk2RWTimeString]
+[MeterDisk2RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk2RWTime
@@ -119,16 +117,16 @@ Text=%1%
 Group=Disk2
 Hidden=#hideDisk2#
 
-[Disk2WriteArrow]
+[MeterDisk2WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk2#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk2# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk2 | Disk2ReadWrite
+Group=Disk2 | Disk2ReadWrite | DiskReadWrite
 Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk2WriteString]
+[MeterDisk2WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk2#
@@ -136,15 +134,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk2 | Disk2ReadWrite | DiskReadWrite
 Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk2ReadArrow]
+[MeterDisk2ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk2#
-Group=Disk2 | Disk2ReadWrite
+Group=Disk2 | Disk2ReadWrite | DiskReadWrite
 Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk2ReadString]
+[MeterDisk2ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk2#
@@ -152,14 +150,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk2 | Disk2ReadWrite | DiskReadWrite
 Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk2SpaceString]
+[MeterDisk2SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk2
 Hidden=#hideDisk2#
 
-[Disk2SpaceUsageString]
+[MeterDisk2SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk2SpaceUsage
@@ -168,7 +166,7 @@ Text=%1%
 Group=Disk2
 Hidden=#hideDisk2#
 
-[Disk2SpaceUsageBar]
+[MeterDisk2SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk2SpaceUsage
@@ -177,7 +175,7 @@ Group=Disk2
 Hidden=#hideDisk2#
 
 ; Disk 3
-[Disk3NameString_]
+[MeterDisk3NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk3Name
@@ -186,21 +184,20 @@ Text=#d3#: %1
 Group=Disk3
 Hidden=#hideDisk3#
 
-[Disk3EjectButton_]
+[MeterDisk3EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk3Eject "Run"]
-Group=Disk3 | EjectButtons
-Hidden=(#hideDisk3# = 1) || ([MeasureDisk3Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk3 | EjectButtons | DiskElements
+Hidden=(#hideDisk3# = 1) || ([MeasureDisk3Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d3]Element] = 0)
 
-[Disk3TempString]
+[MeterDisk3TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk3Temp
-Group=Disk3 | DiskTemps
-Hidden=(#hideDisk3# = 1) || ([MeasureDisk3Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk3 | DiskTemps | DiskElements
+Hidden=(#hideDisk3# = 1) || ([MeasureDisk3Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d3]Element] = 0)
 
-[Disk3RWTimeString]
+[MeterDisk3RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk3RWTime
@@ -208,16 +205,16 @@ Text=%1%
 Group=Disk3
 Hidden=#hideDisk3#
 
-[Disk3WriteArrow]
+[MeterDisk3WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk3#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk3# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk3 | Disk3ReadWrite
+Group=Disk3 | Disk3ReadWrite | DiskReadWrite
 Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk3WriteString]
+[MeterDisk3WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk3#
@@ -225,15 +222,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk3 | Disk3ReadWrite | DiskReadWrite
 Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk3ReadArrow]
+[MeterDisk3ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk3#
-Group=Disk3 | Disk3ReadWrite
+Group=Disk3 | Disk3ReadWrite | DiskReadWrite
 Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk3ReadString]
+[MeterDisk3ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk3#
@@ -241,14 +238,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk3 | Disk3ReadWrite | DiskReadWrite
 Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk3SpaceString]
+[MeterDisk3SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk3
 Hidden=#hideDisk3#
 
-[Disk3SpaceUsageString]
+[MeterDisk3SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk3SpaceUsage
@@ -257,7 +254,7 @@ Text=%1%
 Group=Disk3
 Hidden=#hideDisk3#
 
-[Disk3SpaceUsageBar]
+[MeterDisk3SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk3SpaceUsage
@@ -266,7 +263,7 @@ Group=Disk3
 Hidden=#hideDisk3#
 
 ; Disk 4
-[Disk4NameString_]
+[MeterDisk4NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk4Name
@@ -275,21 +272,20 @@ Text=#d4#: %1
 Group=Disk4
 Hidden=#hideDisk4#
 
-[Disk4EjectButton_]
+[MeterDisk4EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk4Eject "Run"]
-Group=Disk4 | EjectButtons
-Hidden=(#hideDisk4# = 1) || ([MeasureDisk4Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk4 | EjectButtons | DiskElements
+Hidden=(#hideDisk4# = 1) || ([MeasureDisk4Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d4]Element] = 0)
 
-[Disk4TempString]
+[MeterDisk4TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk4Temp
-Group=Disk4 | DiskTemps
-Hidden=(#hideDisk4# = 1) || ([MeasureDisk4Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk4 | DiskTemps | DiskElements
+Hidden=(#hideDisk4# = 1) || ([MeasureDisk4Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d4]Element] = 0)
 
-[Disk4RWTimeString]
+[MeterDisk4RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk4RWTime
@@ -297,16 +293,16 @@ Text=%1%
 Group=Disk4
 Hidden=#hideDisk4#
 
-[Disk4WriteArrow]
+[MeterDisk4WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk4#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk4# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk4 | Disk4ReadWrite
+Group=Disk4 | Disk4ReadWrite | DiskReadWrite
 Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk4WriteString]
+[MeterDisk4WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk4#
@@ -314,15 +310,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk4 | Disk4ReadWrite | DiskReadWrite
 Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk4ReadArrow]
+[MeterDisk4ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk4#
-Group=Disk4 | Disk4ReadWrite
+Group=Disk4 | Disk4ReadWrite | DiskReadWrite
 Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk4ReadString]
+[MeterDisk4ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk4#
@@ -330,14 +326,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk4 | Disk4ReadWrite | DiskReadWrite
 Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk4SpaceString]
+[MeterDisk4SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk4
 Hidden=#hideDisk4#
 
-[Disk4SpaceUsageString]
+[MeterDisk4SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk4SpaceUsage
@@ -346,7 +342,7 @@ Text=%1%
 Group=Disk4
 Hidden=#hideDisk4#
 
-[Disk4SpaceUsageBar]
+[MeterDisk4SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk4SpaceUsage
@@ -355,7 +351,7 @@ Group=Disk4
 Hidden=#hideDisk4#
 
 ; Disk 5
-[Disk5NameString_]
+[MeterDisk5NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk5Name
@@ -364,21 +360,20 @@ Text=#d5#: %1
 Group=Disk5
 Hidden=#hideDisk5#
 
-[Disk5EjectButton_]
+[MeterDisk5EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk5Eject "Run"]
-Group=Disk5 | EjectButtons
-Hidden=(#hideDisk5# = 1) || ([MeasureDisk5Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk5 | EjectButtons | DiskElements
+Hidden=(#hideDisk5# = 1) || ([MeasureDisk5Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d5]Element] = 0)
 
-[Disk5TempString]
+[MeterDisk5TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk5Temp
-Group=Disk5 | DiskTemps
-Hidden=(#hideDisk5# = 1) || ([MeasureDisk5Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk5 | DiskTemps | DiskElements
+Hidden=(#hideDisk5# = 1) || ([MeasureDisk5Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d5]Element] = 0)
 
-[Disk5RWTimeString]
+[MeterDisk5RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk5RWTime
@@ -386,16 +381,16 @@ Text=%1%
 Group=Disk5
 Hidden=#hideDisk5#
 
-[Disk5WriteArrow]
+[MeterDisk5WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk5#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk5# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk5 | Disk5ReadWrite
+Group=Disk5 | Disk5ReadWrite | DiskReadWrite
 Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk5WriteString]
+[MeterDisk5WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk5#
@@ -403,15 +398,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk5 | Disk5ReadWrite | DiskReadWrite
 Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk5ReadArrow]
+[MeterDisk5ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk5#
-Group=Disk5 | Disk5ReadWrite
+Group=Disk5 | Disk5ReadWrite | DiskReadWrite
 Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk5ReadString]
+[MeterDisk5ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk5#
@@ -419,14 +414,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk5 | Disk5ReadWrite | DiskReadWrite
 Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk5SpaceString]
+[MeterDisk5SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk5
 Hidden=#hideDisk5#
 
-[Disk5SpaceUsageString]
+[MeterDisk5SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk5SpaceUsage
@@ -435,7 +430,7 @@ Text=%1%
 Group=Disk5
 Hidden=#hideDisk5#
 
-[Disk5SpaceUsageBar]
+[MeterDisk5SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk5SpaceUsage
@@ -444,7 +439,7 @@ Group=Disk5
 Hidden=#hideDisk5#
 
 ; Disk 6
-[Disk6NameString_]
+[MeterDisk6NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk6Name
@@ -453,21 +448,20 @@ Text=#d6#: %1
 Group=Disk6
 Hidden=#hideDisk6#
 
-[Disk6EjectButton_]
+[MeterDisk6EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk6Eject "Run"]
-Group=Disk6 | EjectButtons
-Hidden=(#hideDisk6# = 1) || ([MeasureDisk6Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk6 | EjectButtons | DiskElements
+Hidden=(#hideDisk6# = 1) || ([MeasureDisk6Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d6]Element] = 0)
 
-[Disk6TempString]
+[MeterDisk6TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk6Temp
-Group=Disk6 | DiskTemps
-Hidden=(#hideDisk6# = 1) || ([MeasureDisk6Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk6 | DiskTemps | DiskElements
+Hidden=(#hideDisk6# = 1) || ([MeasureDisk6Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d6]Element] = 0)
 
-[Disk6RWTimeString]
+[MeterDisk6RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk6RWTime
@@ -475,16 +469,16 @@ Text=%1%
 Group=Disk6
 Hidden=#hideDisk6#
 
-[Disk6WriteArrow]
+[MeterDisk6WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk6#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk6# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk6 | Disk6ReadWrite
+Group=Disk6 | Disk6ReadWrite | DiskReadWrite
 Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk6WriteString]
+[MeterDisk6WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk6#
@@ -492,15 +486,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk6 | Disk6ReadWrite | DiskReadWrite
 Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk6ReadArrow]
+[MeterDisk6ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk6#
-Group=Disk6 | Disk6ReadWrite
+Group=Disk6 | Disk6ReadWrite | DiskReadWrite
 Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk6ReadString]
+[MeterDisk6ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk6#
@@ -508,14 +502,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk6 | Disk6ReadWrite | DiskReadWrite
 Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk6SpaceString]
+[MeterDisk6SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk6
 Hidden=#hideDisk6#
 
-[Disk6SpaceUsageString]
+[MeterDisk6SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk6SpaceUsage
@@ -524,7 +518,7 @@ Text=%1%
 Group=Disk6
 Hidden=#hideDisk6#
 
-[Disk6SpaceUsageBar]
+[MeterDisk6SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk6SpaceUsage
@@ -533,7 +527,7 @@ Group=Disk6
 Hidden=#hideDisk6#
 
 ; Disk 7
-[Disk7NameString_]
+[MeterDisk7NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk7Name
@@ -542,21 +536,20 @@ Text=#d7#: %1
 Group=Disk7
 Hidden=#hideDisk7#
 
-[Disk7EjectButton_]
+[MeterDisk7EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk7Eject "Run"]
-Group=Disk7 | EjectButtons
-Hidden=(#hideDisk7# = 1) || ([MeasureDisk7Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk7 | EjectButtons | DiskElements
+Hidden=(#hideDisk7# = 1) || ([MeasureDisk7Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d7]Element] = 0)
 
-[Disk7TempString]
+[MeterDisk7TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk7Temp
-Group=Disk7 | DiskTemps
-Hidden=(#hideDisk7# = 1) || ([MeasureDisk7Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk7 | DiskTemps | DiskElements
+Hidden=(#hideDisk7# = 1) || ([MeasureDisk7Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d7]Element] = 0)
 
-[Disk7RWTimeString]
+[MeterDisk7RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk7RWTime
@@ -564,16 +557,16 @@ Text=%1%
 Group=Disk7
 Hidden=#hideDisk7#
 
-[Disk7WriteArrow]
+[MeterDisk7WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk7#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk7# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk7 | Disk7ReadWrite
+Group=Disk7 | Disk7ReadWrite | DiskReadWrite
 Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk7WriteString]
+[MeterDisk7WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk7#
@@ -581,15 +574,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk7 | Disk7ReadWrite | DiskReadWrite
 Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk7ReadArrow]
+[MeterDisk7ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk7#
-Group=Disk7 | Disk7ReadWrite
+Group=Disk7 | Disk7ReadWrite | DiskReadWrite
 Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk7ReadString]
+[MeterDisk7ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk7#
@@ -597,14 +590,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk7 | Disk7ReadWrite | DiskReadWrite
 Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk7SpaceString]
+[MeterDisk7SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk7
 Hidden=#hideDisk7#
 
-[Disk7SpaceUsageString]
+[MeterDisk7SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk7SpaceUsage
@@ -613,7 +606,7 @@ Text=%1%
 Group=Disk7
 Hidden=#hideDisk7#
 
-[Disk7SpaceUsageBar]
+[MeterDisk7SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk7SpaceUsage
@@ -622,7 +615,7 @@ Group=Disk7
 Hidden=#hideDisk7#
 
 ; Disk 8
-[Disk8NameString_]
+[MeterDisk8NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk8Name
@@ -631,21 +624,20 @@ Text=#d8#: %1
 Group=Disk8
 Hidden=#hideDisk8#
 
-[Disk8EjectButton_]
+[MeterDisk8EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk8Eject "Run"]
-Group=Disk8 | EjectButtons
-Hidden=(#hideDisk8# = 1) || ([MeasureDisk8Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk8 | EjectButtons | DiskElements
+Hidden=(#hideDisk8# = 1) || ([MeasureDisk8Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d8]Element] = 0)
 
-[Disk8TempString]
+[MeterDisk8TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk8Temp
-Group=Disk8 | DiskTemps
-Hidden=(#hideDisk8# = 1) || ([MeasureDisk8Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk8 | DiskTemps | DiskElements
+Hidden=(#hideDisk8# = 1) || ([MeasureDisk8Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d8]Element] = 0)
 
-[Disk8RWTimeString]
+[MeterDisk8RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk8RWTime
@@ -653,16 +645,16 @@ Text=%1%
 Group=Disk8
 Hidden=#hideDisk8#
 
-[Disk8WriteArrow]
+[MeterDisk8WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk8#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk8# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk8 | Disk8ReadWrite
+Group=Disk8 | Disk8ReadWrite | DiskReadWrite
 Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk8WriteString]
+[MeterDisk8WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk8#
@@ -670,15 +662,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk8 | Disk8ReadWrite | DiskReadWrite
 Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk8ReadArrow]
+[MeterDisk8ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk8#
-Group=Disk8 | Disk8ReadWrite
+Group=Disk8 | Disk8ReadWrite | DiskReadWrite
 Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk8ReadString]
+[MeterDisk8ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk8#
@@ -686,14 +678,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk8 | Disk8ReadWrite | DiskReadWrite
 Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk8SpaceString]
+[MeterDisk8SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk8
 Hidden=#hideDisk8#
 
-[Disk8SpaceUsageString]
+[MeterDisk8SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk8SpaceUsage
@@ -702,7 +694,7 @@ Text=%1%
 Group=Disk8
 Hidden=#hideDisk8#
 
-[Disk8SpaceUsageBar]
+[MeterDisk8SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk8SpaceUsage
@@ -711,7 +703,7 @@ Group=Disk8
 Hidden=#hideDisk8#
 
 ; Disk 9
-[Disk9NameString_]
+[MeterDisk9NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk9Name
@@ -720,21 +712,20 @@ Text=#d9#: %1
 Group=Disk9
 Hidden=#hideDisk9#
 
-[Disk9EjectButton_]
+[MeterDisk9EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk9Eject "Run"]
-Group=Disk9 | EjectButtons
-Hidden=(#hideDisk9# = 1) || ([MeasureDisk9Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk9 | EjectButtons | DiskElements
+Hidden=(#hideDisk9# = 1) || ([MeasureDisk9Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d9]Element] = 0)
 
-[Disk9TempString]
+[MeterDisk9TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk9Temp
-Group=Disk9 | DiskTemps
-Hidden=(#hideDisk9# = 1) || ([MeasureDisk9Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk9 | DiskTemps | DiskElements
+Hidden=(#hideDisk9# = 1) || ([MeasureDisk9Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d9]Element] = 0)
 
-[Disk9RWTimeString]
+[MeterDisk9RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk9RWTime
@@ -742,16 +733,16 @@ Text=%1%
 Group=Disk9
 Hidden=#hideDisk9#
 
-[Disk9WriteArrow]
+[MeterDisk9WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk9#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk9# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk9 | Disk9ReadWrite
+Group=Disk9 | Disk9ReadWrite | DiskReadWrite
 Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk9WriteString]
+[MeterDisk9WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk9#
@@ -759,15 +750,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk9 | Disk9ReadWrite | DiskReadWrite
 Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk9ReadArrow]
+[MeterDisk9ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk9#
-Group=Disk9 | Disk9ReadWrite
+Group=Disk9 | Disk9ReadWrite | DiskReadWrite
 Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk9ReadString]
+[MeterDisk9ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk9#
@@ -775,14 +766,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk9 | Disk9ReadWrite | DiskReadWrite
 Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk9SpaceString]
+[MeterDisk9SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk9
 Hidden=#hideDisk9#
 
-[Disk9SpaceUsageString]
+[MeterDisk9SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk9SpaceUsage
@@ -791,7 +782,7 @@ Text=%1%
 Group=Disk9
 Hidden=#hideDisk9#
 
-[Disk9SpaceUsageBar]
+[MeterDisk9SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk9SpaceUsage
@@ -800,7 +791,7 @@ Group=Disk9
 Hidden=#hideDisk9#
 
 ; Disk 10
-[Disk10NameString_]
+[MeterDisk10NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
 MeasureName=MeasureDisk10Name
@@ -809,21 +800,20 @@ Text=#d10#: %1
 Group=Disk10
 Hidden=#hideDisk10#
 
-[Disk10EjectButton_]
+[MeterDisk10EjectButton_]
 Meter=Image
 MeterStyle=StyleEjectButton | StyleImgButtonHover
-LeftMouseUpAction=[!CommandMeasure MeasureDisk10Eject "Run"]
-Group=Disk10 | EjectButtons
-Hidden=(#hideDisk10# = 1) || ([MeasureDisk10Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
+Group=Disk10 | EjectButtons | DiskElements
+Hidden=(#hideDisk10# = 1) || ([MeasureDisk10Type:] = 4) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0) || ([#showDisk[#d10]Element] = 0)
 
-[Disk10TempString]
+[MeterDisk10TempString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk10Temp
-Group=Disk10 | DiskTemps
-Hidden=(#hideDisk10# = 1) || ([MeasureDisk10Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000)
+Group=Disk10 | DiskTemps | DiskElements
+Hidden=(#hideDisk10# = 1) || ([MeasureDisk10Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d10]Element] = 0)
 
-[Disk10RWTimeString]
+[MeterDisk10RWTimeString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk10RWTime
@@ -831,16 +821,16 @@ Text=%1%
 Group=Disk10
 Hidden=#hideDisk10#
 
-[Disk10WriteArrow]
+[MeterDisk10WriteArrow]
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk10#
 Y=(((#showDiskReadWrite# = 0) && (#hideDisk10# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
-Group=Disk10 | Disk10ReadWrite
+Group=Disk10 | Disk10ReadWrite | DiskReadWrite
 Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk10WriteString]
+[MeterDisk10WriteString]
 Meter=String
 MeterStyle=StyleString | StyleStringWrite
 InlineSetting=Color | #colorDisk10#
@@ -848,15 +838,15 @@ Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&Measure
 Group=Disk10 | Disk10ReadWrite | DiskReadWrite
 Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk10ReadArrow]
+[MeterDisk10ReadArrow]
 Meter=Image
 MeterStyle=StyleReadArrow
 ImageTint=#colorDisk10#
-Group=Disk10 | Disk10ReadWrite
+Group=Disk10 | Disk10ReadWrite | DiskReadWrite
 Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
 
-[Disk10ReadString]
+[MeterDisk10ReadString]
 Meter=String
 MeterStyle=StyleString | StyleStringRead
 InlineSetting=Color | #colorDisk10#
@@ -864,14 +854,14 @@ Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureD
 Group=Disk10 | Disk10ReadWrite | DiskReadWrite
 Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0)
 
-[Disk10SpaceString]
+[MeterDisk10SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
 Group=Disk10
 Hidden=#hideDisk10#
 
-[Disk10SpaceUsageString]
+[MeterDisk10SpaceUsageString]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk10SpaceUsage
@@ -880,7 +870,7 @@ Text=%1%
 Group=Disk10
 Hidden=#hideDisk10#
 
-[Disk10SpaceUsageBar]
+[MeterDisk10SpaceUsageBar]
 Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk10SpaceUsage

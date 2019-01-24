@@ -1,10 +1,14 @@
-debug = false
+debug = true
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+numDisks = 10
 
 function Initialize()
 
     extVarsPath = SKIN:GetVariable('extVarsPath')
+
+    hiddenDisks = SKIN:GetVariable('manualHideDisks')
 
     measureCheckTable = {
         A = SKIN:GetMeasure('MeasureCheckDiskAExists'),
@@ -41,24 +45,27 @@ function Update()
 
     local active,inactive = '',''
     local diskIndex = 0
-    local i = 0
+    local isChanged = false
+
+    hiddenDisks = SKIN:GetVariable('manualHideDisks')
+    hideElements = SKIN:GetVariable('hideElements')
 
     alphabet:gsub(".", function(c)
-        diskIndex = tonumber(SKIN:GetVariable('lgDisk' .. c .. 'Index'))
-        if measureCheckTable[c]:GetValue() > 0 then
+        diskIndex = tonumber(SKIN:GetVariable('disk' .. c .. 'Index'))
+        if measureCheckTable[c]:GetValue() > 0 and string.find(hiddenDisks, c) == nil then
             active = active .. c
             if diskIndex == 0 then
-                i = i + 1
+                isChanged = true
             end
         else
             inactive = inactive .. c
             if diskIndex > 0 then
-                i = i + 1
+                isChanged = true
             end 
         end
     end)
 
-    if i > 0 then UpdateConnectedDisks(active, inactive) end
+    if isChanged then UpdateConnectedDisks(active, inactive) end
 
 end
 
@@ -66,26 +73,30 @@ function UpdateConnectedDisks(active, inactive)
 
     RmLog('Disk state changed: ' .. active)
 
-    local i = 0
+    local i,oobDisks = 0,''
+
+    SetVariable('hideDisk0', 1)
     
     active:gsub(".", function(c)
         i = i + 1
         -- Set disk index value to the new letter
-        SetVariable('d' .. i, c)
+        SetVariable('d' .. ((i > numDisks) and 0 or i), c)
         -- Set disk hide variable
-        SetVariable('hideDisk' .. i, '0')
+        SetVariable('hideDisk' .. ((i > numDisks) and 0 or i), '0')
         -- Set line graph disk index
-        SetVariable('lgDisk' .. c .. 'Index', i)
+        SetVariable('disk' .. c .. 'Index', (i > numDisks) and -1 or i)
+        -- Add the disk to 'oobDisks' if it won't be shown in Disks Meter
+        if i > numDisks then oobDisks = oobDisks .. c .. ': ' end
         -- Update measures and meters
         SKIN:Bang('!UpdateMeasureGroup', 'Disk' .. i)
         SKIN:Bang('!UpdateMeterGroup', 'Disk' .. i)   
     end)
 
     inactive:gsub(".", function(c)
-        SetVariable('lgDisk' .. c .. 'Index', 0)
+        SetVariable('disk' .. c .. 'Index', 0)
     end)
 
-    for i=i+1,10 do
+    for i=i+1,numDisks do
         -- Set disk index value to blank
         SetVariable('d' .. i, '')
         -- Set disk hide variable
@@ -95,7 +106,20 @@ function UpdateConnectedDisks(active, inactive)
         SKIN:Bang('!UpdateMeterGroup', 'Disk' .. i)  
     end
 
+    SetVariable('oobDisks', oobDisks)
+
     SKIN:Bang('!UpdateMeterGroup', 'Background')
+
+end
+
+function UpdateDiskElements(hideElements)
+
+    alphabet:gsub(".", function(c)
+        SetVariable('showDisk' .. c .. 'Element', (string.find(hideElements, c) and 0 or 1))
+    end)
+
+    SKIN:Bang('!UpdateMeterGroup', 'DiskElements')
+    SKIN:Bang('!Redraw')
 
 end
 
