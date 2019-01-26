@@ -10,7 +10,7 @@ showTempGraph=1
 gpuName=auto
 
 useManualMaxVram=0
-maxVram=4096
+maxVram=5192
 maxGpuTemp=100
 
 colorCoreUsage=255,246,42
