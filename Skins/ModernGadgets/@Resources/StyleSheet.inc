@@ -174,6 +174,13 @@ H=1
 Group=Background
 TransformationMatrix=#transformationMatrix#
 
+[StyleSubBackground]
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#cornerRoundness# * #scale#) | StrokeWidth 0 | Extend BorderColor
+Shape2=Rectangle 2,2,([&[#CURRENTSECTION]:W] - 4),([&[#CURRENTSECTION]:H] - 4),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Extend InsetColor
+Shape3=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#cornerRoundness# * #scale#) | StrokeWidth 0 | Extend HoverColor
+DynamicVariables=1
+TransformationMatrix=#transformationMatrix#
+
 ; Strings (general)
 [StyleString]
 FontColor=#colorMain#

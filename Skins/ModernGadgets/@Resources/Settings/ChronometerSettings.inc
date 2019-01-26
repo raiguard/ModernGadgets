@@ -14,7 +14,7 @@ customDateFormat=%m.%d.%G
 locale=en-US
 
 ; DEBUGGING VARIABLES
-alarm1Time=18:12
+alarm1Time=12:41
 alarm2Time=18:13
 enableAlarm1=0
 enableAlarm2=0
