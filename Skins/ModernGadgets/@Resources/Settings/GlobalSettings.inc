@@ -1,10 +1,10 @@
 [Variables]
 lineGraphAa=1
-lineGraphBgType=1
+lineGraphBgType=3
 tempUnits=C
 
-scale=1.00
-tScale=1.00
+scale=1
+tScale=1
 
 cornerRoundness=3
 
@@ -18,6 +18,10 @@ useUpdateNotificationSound=1
 
 showBgBorder=1
 rowSpacing=1
+barTextOffset=1
+barHeight=1
+graphHeight=42
+graphWidth=#contentWidth#
 
 ; Sidebars
 sb1MaskType=blur
