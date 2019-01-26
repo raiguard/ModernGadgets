@@ -431,3 +431,6 @@ WIP Releases
 v1.5.0-beta.7 - 2019-01-??
 - Separated CPU Meter's core measures and meters from the main file, to only load those that are necessary (drastically improves performance)
 - Converted CPU Meter's config script into an ActionTimer measure
+- Rewrote Disks Meter to only display up to 10 disks at once, significantly improving performance
+- Added proper UI to the timer applet in Chronometer
+- Added separate timer sound setting

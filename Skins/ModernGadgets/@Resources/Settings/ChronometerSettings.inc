@@ -24,6 +24,8 @@ alarm2Sound=C:\Windows\Media\Alarm02.wav
 alarm1Duration=60
 alarm2Duration=60
 
+timerFinishedSound=C:\Windows\Media\Alarm05.wav
+
 ; Colors
 colorStopwatchMain=107,238,98
 colorStopwatchLap=255,246,42
