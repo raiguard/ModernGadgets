@@ -300,19 +300,29 @@ Y=2r
 
 [StyleStringPivotLabel]
 FontSize=10
-FontWeight=600
-FontColor=#colorDim#
-StringCase=UPPER
 X=(#contentMargin# + 2)
 Y=3R
 
+[StylePivotLeftButton]
+FontFace=ElegantIcons
+FontSize=12
+FontColor=#colorAccent#
+X=10R
+Y=3r
+Text=[\x0044]
+DynamicVariables=1
+Group=Settings
+Antialias=1
+
 [StyleStringPivotValue]
-FontSize=10
+FontSize=9
+FontColor=#colorDim#
+FontFace=#fontFaceCn#
 FontWeight=600
 StringAlign=CENTER
 StringCase=UPPER
-X=(([#CURRENTSECTION#:W] / 2) + 25)R
-Y=r
+X=(([#CURRENTSECTION#:W] / 2))R
+Y=-1r
 DynamicVariables=1
 Group=Settings
 
@@ -320,18 +330,8 @@ Group=Settings
 FontFace=ElegantIcons
 FontSize=12
 FontColor=#colorAccent#
-Y=2r
+Y=1r
 Text=[\x0045]
-DynamicVariables=1
-Group=Settings
-Antialias=1
-
-[StylePivotLeftButton]
-FontFace=ElegantIcons
-FontSize=12
-FontColor=#colorAccent#
-Y=r
-Text=[\x0044]
 DynamicVariables=1
 Group=Settings
 Antialias=1
@@ -483,24 +483,27 @@ TransformationMatrix=#transformationMatrix#
 Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
 Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
 ; Vertical
-Shape3=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 1)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
-Shape4=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 2)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
-Shape5=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 3)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
-Shape6=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 4)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
-Shape7=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 5)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
-Shape8=Rectangle (ceil((([&[#CURRENTSECTION]:W] - 2) / 10) * 6)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
-Shape9=Rectangle (ceil((([&[#CURRENTSECTION]:W] - 2) / 10) * 7)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
-Shape10=Rectangle (ceil((([&[#CURRENTSECTION]:W] - 2) / 10) * 8)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
-Shape11=Rectangle (ceil((([&[#CURRENTSECTION]:W] - 2) / 10) * 9)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape3=Rectangle (floor(([&[#CURRENTSECTION]:W] - 2) * 0.1)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
+Shape4=Rectangle (floor(([&[#CURRENTSECTION]:W] - 2) * 0.2)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
+Shape5=Rectangle (floor(([&[#CURRENTSECTION]:W] - 2) * 0.3)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
+Shape6=Rectangle (floor(([&[#CURRENTSECTION]:W] - 2) * 0.4)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
+Shape7=Rectangle (floor(([&[#CURRENTSECTION]:W] - 2) * 0.5)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
+Shape8=Rectangle (ceil(([&[#CURRENTSECTION]:W] - 2) * 0.6)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
+Shape9=Rectangle (ceil(([&[#CURRENTSECTION]:W] - 2) * 0.7)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
+Shape10=Rectangle (ceil(([&[#CURRENTSECTION]:W] - 2) * 0.8)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
+Shape11=Rectangle (ceil(([&[#CURRENTSECTION]:W] - 2) * 0.9)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
 ; Horizontal
-Shape12=Rectangle 1,(floor((([&[#CURRENTSECTION]:H] - 2) / 4) * 1)),([&[#CURRENTSECTION]:W] - 2),1 | Extend LineSettings
-Shape13=Rectangle 1,(floor((([&[#CURRENTSECTION]:H] - 2) / 4) * 2)),([&[#CURRENTSECTION]:W] - 2),1 | Extend LineSettings
-Shape14=Rectangle 1,(ceil((([&[#CURRENTSECTION]:H] - 2) / 4) * 3)),([&[#CURRENTSECTION]:W] - 2),1 | Extend LineSettings
-LineSettings=Fill Color #colorGraphGrid#,(#lineGraphGrid# * 255) | StrokeWidth 0
+Shape12=Rectangle 1,(floor(([&[#CURRENTSECTION]:H] - 2) * 0.2)),([&[#CURRENTSECTION]:W] - 2),1 | Extend HorizontalLines
+Shape13=Rectangle 1,(floor(([&[#CURRENTSECTION]:H] - 2) * 0.4)),([&[#CURRENTSECTION]:W] - 2),1 | Extend HorizontalLines
+Shape14=Rectangle 1,(ceil(([&[#CURRENTSECTION]:H] - 2) * 0.6)),([&[#CURRENTSECTION]:W] - 2),1 | Extend HorizontalLines
+Shape15=Rectangle 1,(ceil(([&[#CURRENTSECTION]:H] - 2) * 0.8)),([&[#CURRENTSECTION]:W] - 2),1 | Extend HorizontalLines
+HorizontalLines=Fill Color #colorGraphGrid#,(255 * ((#lineGraphBgType# % 2) = 1)) | StrokeWidth 0
+VerticalLines=Fill Color #colorGraphGrid#,(255 * (#lineGraphBgType# > 1)) | StrokeWidth 0
 X=(#contentMargin#)
 Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)R
 W=(#contentWidth#)
 H=#graphHeight#
+DynamicVariables=1
 Group=LineGraph
 Hidden=(#showLineGraph# = 0)
 TransformationMatrix=#transformationMatrix#
