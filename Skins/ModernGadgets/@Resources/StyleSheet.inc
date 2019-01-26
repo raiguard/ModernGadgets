@@ -25,7 +25,7 @@ transformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
 rowSpacing=1
 barTextOffset=1
 barHeight=1
-graphHeight=40
+graphHeight=42
 graphWidth=#contentWidth#
 
 labelOffset=53
