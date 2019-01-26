@@ -43,6 +43,7 @@ colorSubBg=25,25,25
 
 colorGraphBg=#colorSubBg#
 colorGraphBorder=#colorBorder#
+colorGraphGrid=#colorGraphBorder#
 
 colorMain=230,230,230
 colorDim=150,150,150
@@ -481,6 +482,21 @@ TransformationMatrix=#transformationMatrix#
 [StyleLineGraphBackground]
 Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
 Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
+; Vertical
+Shape3=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 1)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape4=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 2)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape5=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 3)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape6=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 4)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape7=Rectangle (floor((([&[#CURRENTSECTION]:W] - 2) / 10) * 5)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape8=Rectangle (ceil((([&[#CURRENTSECTION]:W] - 2) / 10) * 6)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape9=Rectangle (ceil((([&[#CURRENTSECTION]:W] - 2) / 10) * 7)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape10=Rectangle (ceil((([&[#CURRENTSECTION]:W] - 2) / 10) * 8)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+Shape11=Rectangle (ceil((([&[#CURRENTSECTION]:W] - 2) / 10) * 9)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend LineSettings
+; Horizontal
+Shape12=Rectangle 1,(floor((([&[#CURRENTSECTION]:H] - 2) / 4) * 1)),([&[#CURRENTSECTION]:W] - 2),1 | Extend LineSettings
+Shape13=Rectangle 1,(floor((([&[#CURRENTSECTION]:H] - 2) / 4) * 2)),([&[#CURRENTSECTION]:W] - 2),1 | Extend LineSettings
+Shape14=Rectangle 1,(ceil((([&[#CURRENTSECTION]:H] - 2) / 4) * 3)),([&[#CURRENTSECTION]:W] - 2),1 | Extend LineSettings
+LineSettings=Fill Color #colorGraphGrid#,(#lineGraphGrid# * 255) | StrokeWidth 0
 X=(#contentMargin#)
 Y=((#showLineGraph# = 0) ? -1 : #contentMarginAbs#)R
 W=(#contentWidth#)
@@ -489,13 +505,27 @@ Group=LineGraph
 Hidden=(#showLineGraph# = 0)
 TransformationMatrix=#transformationMatrix#
 
+[StyleLineGraphBackgroundOverlay]
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
+Shape3=Combine Shape | XOR Shape2
+
+X=-1r
+Y=-1r
+W=(#contentWidth#)
+H=#graphHeight#
+Group=LineGraph
+Hidden=(#showLineGraph# = 0)
+TransformationMatrix=#transformationMatrix#
+
+
 [StyleLineGraph]
 X=1r
 Y=1r
 W=(#contentWidth# - 2)
 H=(#graphHeight# - 2)
-HorizontalLines=#lineGraphHr#
-HorizontalLineColor=#colorBorder#
+; HorizontalLines=#lineGraphHr#
+; HorizontalLineColor=#colorBorder#
 Group=LineGraph
 Antialias=#lineGraphAa#
 DynamicVariables=1

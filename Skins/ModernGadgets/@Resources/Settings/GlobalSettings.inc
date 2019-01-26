@@ -1,10 +1,10 @@
 [Variables]
 lineGraphAa=1
-lineGraphHr=1
+lineGraphGrid=1
 tempUnits=C
 
-scale=1.00
-tScale=1.00
+scale=1
+tScale=1
 
 cornerRoundness=3
 
@@ -20,12 +20,12 @@ showBgBorder=1
 rowSpacing=1
 
 ; Sidebar backgrounds
-sb1MaskType=acrylic
+sb1MaskType=blur
 sb1MaskColor=0,0,0
 sb1MaskAlpha=100
 sb1Columns=1
 sb1Alignment=left
-sb1Monitor=2
+sb1Monitor=1
 
 sb2MaskType=blur
 sb2MaskColor=0,0,0
