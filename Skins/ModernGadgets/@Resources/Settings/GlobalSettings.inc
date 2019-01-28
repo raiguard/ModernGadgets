@@ -1,6 +1,6 @@
 [Variables]
 lineGraphAa=1
-lineGraphBgType=3
+lineGraphBgType=1
 tempUnits=C
 
 scale=1
