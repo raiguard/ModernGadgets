@@ -429,11 +429,13 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.5.0-beta.7 - 2019-01-??
-- Added ability to individually hide disk temperatures / eject buttons per-disk in Disks Meter
 - Added proper UI to the timer applet in Chronometer
 - Added timer finished sound setting to Chronometer
-- Added five-day forecast applet to Weather Meter
 - Adding scaling support to media control buttons and Mute Alarms button
+- Added setting to individually hide disk temperatures / eject buttons per-disk in Disks Meter
+- Added five-day forecast applet to Weather Meter
 - Separated CPU Meter's core measures and meters from the main file, to only load those that are necessary (drastically improves performance)
 - Converted CPU Meter's config script into an ActionTimer measure
+- Merged Network Meter Pro into Network Meter, eliminating the need to maintain two versions of the gadget
 - Rewrote Disks Meter to only display up to 10 disks at once, significantly improving performance
+- Fixed background height calculations to work with new font

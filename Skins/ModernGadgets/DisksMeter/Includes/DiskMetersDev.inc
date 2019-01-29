@@ -33,7 +33,7 @@ Hidden=#hideDisk1#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk1#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk1# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk1# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk1 | Disk1ReadWrite | DiskReadWrite
 Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -121,7 +121,7 @@ Hidden=#hideDisk2#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk2#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk2# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk2# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk2 | Disk2ReadWrite | DiskReadWrite
 Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -209,7 +209,7 @@ Hidden=#hideDisk3#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk3#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk3# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk3# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk3 | Disk3ReadWrite | DiskReadWrite
 Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -297,7 +297,7 @@ Hidden=#hideDisk4#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk4#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk4# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk4# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk4 | Disk4ReadWrite | DiskReadWrite
 Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -385,7 +385,7 @@ Hidden=#hideDisk5#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk5#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk5# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk5# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk5 | Disk5ReadWrite | DiskReadWrite
 Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -473,7 +473,7 @@ Hidden=#hideDisk6#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk6#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk6# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk6# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk6 | Disk6ReadWrite | DiskReadWrite
 Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -561,7 +561,7 @@ Hidden=#hideDisk7#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk7#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk7# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk7# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk7 | Disk7ReadWrite | DiskReadWrite
 Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -649,7 +649,7 @@ Hidden=#hideDisk8#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk8#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk8# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk8# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk8 | Disk8ReadWrite | DiskReadWrite
 Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -737,7 +737,7 @@ Hidden=#hideDisk9#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk9#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk9# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk9# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk9 | Disk9ReadWrite | DiskReadWrite
 Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
@@ -825,7 +825,7 @@ Hidden=#hideDisk10#
 Meter=Image
 MeterStyle=StyleWriteArrow
 ImageTint=#colorDisk10#
-Y=(((#showDiskReadWrite# = 0) && (#hideDisk10# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 1)R
+Y=(((#showDiskReadWrite# = 0) && (#hideDisk10# = 0)) ? -#rowSpacing# + 2 : #rowSpacing# + 2)R
 Group=Disk10 | Disk10ReadWrite | DiskReadWrite
 Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLetters# = 1)
 TransformationMatrix=#transformationMatrix#
