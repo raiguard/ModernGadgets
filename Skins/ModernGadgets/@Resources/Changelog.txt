@@ -433,6 +433,7 @@ v1.5.0-beta.7 - 2019-01-??
 - Added proper UI to the timer applet in Chronometer
 - Added timer finished sound setting to Chronometer
 - Added five-day forecast applet to Weather Meter
+- Adding scaling support to media control buttons and Mute Alarms button
 - Separated CPU Meter's core measures and meters from the main file, to only load those that are necessary (drastically improves performance)
 - Converted CPU Meter's config script into an ActionTimer measure
 - Rewrote Disks Meter to only display up to 10 disks at once, significantly improving performance
