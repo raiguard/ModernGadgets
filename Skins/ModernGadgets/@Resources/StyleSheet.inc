@@ -242,6 +242,7 @@ StringCase=UPPER
 ; Settings
 [StyleStringInputBoxLabel]
 FontSize=10
+X=(#contentMargin# + 2)
 Y=3R
 
 [StyleInputBoxBackground]

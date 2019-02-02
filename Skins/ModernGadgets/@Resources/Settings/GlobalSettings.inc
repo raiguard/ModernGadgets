@@ -24,7 +24,10 @@ graphHeight=42
 graphWidth=#contentWidth#
 
 ; Sidebars
-sb1MaskType=blur
+setupSb=1
+sbSetupMode=Placement
+
+sb1MaskType=tint
 sb1MaskColor=0,0,0
 sb1MaskAlpha=100
 sb1Columns=1
@@ -61,4 +64,3 @@ colorInputBorder=#colorBorder#
 colorInputText=#colorDim#
 
 colorIntel=0,125,198
-setupSb=2
