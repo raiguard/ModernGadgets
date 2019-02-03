@@ -28,6 +28,7 @@
 -- Documentation: https://github.com/raiguard/rainmeter-settings/blob/master/README.md
 
 debug = false
+rainRgbInfo = {}
 
 function Initialize()
 
@@ -39,6 +40,7 @@ function Initialize()
 	radioOn = SELF:GetOption('RadioOn')
 	radioOff = SELF:GetOption('RadioOff')
 	defaultAction = SELF:GetOption('DefaultAction')
+	measureRainRgb=SELF:GetOption('MeasureRainRgb', 'MeasureRainRgb')
 
 end
 
@@ -100,6 +102,31 @@ function Pivot(variable, data, direction, actionSet, ifLogic, oSettingsPath, oCo
 		UpdateMeters()	
 		ActionSet(actionSet, ifLogic, data[index - 1])
 	end
+
+end
+
+function RainRgb(variable, actionSet, ifLogic, oSettingsPath, oConfigPath)
+
+	local lSettingsPath = oSettingsPath or settingsPath
+	local lConfigPath = oConfigPath or configPath
+
+	SKIN:Bang('!SetOption', measureRainRgb, 'Parameter', '\"VarName=' .. variable .. '\" \"FileName=' .. lSettingsPath .. '\" \"RefreshConfig=-1\"')
+	SKIN:Bang('!UpdateMeasure', measureRainRgb)
+	SKIN:Bang('!CommandMeasure', measureRainRgb, 'Run')
+
+	rainRgbInfo = { variable, actionSet, ifLogic or 'nil', lSettingsPath, lConfigPath }
+
+end
+
+function FinishRainRgb(rainRgbOutput)
+
+	if rainRgbOutput ~= '' then Set(rainRgbInfo[1], rainRgbOutput, rainRgbInfo[2], rainRgbInfo[3], rainRgbInfo[4], rainRgbInfo[5]) end
+
+end
+
+function InputText(variable, meterName, defaultValue, actionSet, ifLogic, oSettingsPath, oConfigPath)
+
+	
 
 end
 

@@ -354,6 +354,7 @@ Shape=Rectangle 0,0,15,15,#cornerRoundness# | Fill Color #colorBorder# | StrokeW
 Shape2=Rectangle 1,1,13,13,#cornerRoundness# | StrokeWidth 0 | Extend MeterSpecific
 X=-18r
 Y=3R
+Group=Settings
 DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 
