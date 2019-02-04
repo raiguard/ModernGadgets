@@ -147,10 +147,15 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.5.0-beta.8 - 2019-02-04
+- Added fan information toggle to GPU Meter settings
+- Fixed Disks Meter breaking on update
+- Fixed minor typo in changelog
+
 v1.5.0-beta.7 - 2019-02-04
 - Added proper UI to the timer applet in Chronometer
 - Added timer finished sound setting to Chronometer
-- Adding scaling support to media control buttons and Mute Alarms button
+- Added scaling support to media control buttons and Mute Alarms button
 - Added SSID and dBm displays to Network Meter while on WiFi
 - Added setting to individually hide disk temperatures / eject buttons per-disk in Disks Meter
 - Added five-day forecast applet to Weather Meter
@@ -443,5 +448,3 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.5.0-beta.8 - 2019-??-??
-- Added fan information toggle to GPU Meter settings
