@@ -6,7 +6,7 @@ fpfSpaceUsedDepth=5
 fpfSpaceTotalDepth=5
 
 manualHideDisks=
-hideElements=L
+hideElements=
 unnamedDiskLabel=---
 
 diskCommand="C:\Windows\explorer.exe" /E,{drive}\
