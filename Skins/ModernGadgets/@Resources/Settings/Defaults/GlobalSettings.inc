@@ -1,10 +1,10 @@
 [Variables]
 lineGraphAa=1
-lineGraphHr=1
+lineGraphBgType=1
 tempUnits=C
 
-scale=1.00
-tScale=1.00
+scale=1
+tScale=1
 
 cornerRoundness=3
 
@@ -18,8 +18,15 @@ useUpdateNotificationSound=1
 
 showBgBorder=1
 rowSpacing=1
+barTextOffset=1
+barHeight=1
+graphHeight=42
+graphWidth=#contentWidth#
 
-; Sidebar backgrounds
+; Sidebars
+setupSb=1
+sbSetupMode=Placement
+
 sb1MaskType=blur
 sb1MaskColor=0,0,0
 sb1MaskAlpha=100
@@ -47,6 +54,7 @@ colorGraphBorder=#colorBorder#
 colorMain=230,230,230
 colorDim=175,175,175
 colorAccent=137,190,250
+colorDisabled=120,120,120,200
 
 colorBarBg=#colorBorder#
 

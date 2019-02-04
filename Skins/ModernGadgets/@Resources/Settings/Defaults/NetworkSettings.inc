@@ -9,7 +9,7 @@ showPing=0
 showNetTotals=1
 showLineGraph=1
 showPeakNetworkUsage=0
-useNetMonitor=0
+monitoringType=standard
 
 pingUrl=google.com
 
