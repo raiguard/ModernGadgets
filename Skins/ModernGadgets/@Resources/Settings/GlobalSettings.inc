@@ -54,6 +54,7 @@ colorGraphBorder=#colorBorder#
 colorMain=230,230,230
 colorDim=175,175,175
 colorAccent=137,190,250
+colorDisabled=120,120,120,200
 
 colorBarBg=#colorBorder#
 

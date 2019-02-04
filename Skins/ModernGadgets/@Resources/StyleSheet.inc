@@ -48,6 +48,7 @@ colorGraphGrid=#colorGraphBorder#
 colorMain=230,230,230
 colorDim=150,150,150
 colorAccent=137,190,250
+colorDisabled=120,120,120,200
 
 colorGlobe=137,190,250
 
