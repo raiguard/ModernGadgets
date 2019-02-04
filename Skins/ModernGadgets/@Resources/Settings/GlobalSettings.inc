@@ -27,7 +27,7 @@ graphWidth=#contentWidth#
 setupSb=1
 sbSetupMode=Placement
 
-sb1MaskType=tint
+sb1MaskType=blur
 sb1MaskColor=0,0,0
 sb1MaskAlpha=100
 sb1Columns=1
