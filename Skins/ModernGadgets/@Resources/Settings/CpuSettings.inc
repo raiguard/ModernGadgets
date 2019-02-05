@@ -139,7 +139,7 @@ dTtHistogramAlpha=50
 ; Core 0 Temperature [HWiNFO-CPU0-Core0Temp]
 HWiNFO-CPU0-Core0Temp-SensorId=0xf0000400
 HWiNFO-CPU0-Core0Temp-SensorInstance=0x0
-HWiNFO-CPU0-Core0Temp-EntryId=0x10000002928
+HWiNFO-CPU0-Core0Temp-EntryId=0x1000000
 ; Core 1 Temperature [HWiNFO-CPU0-Core1Temp]
 HWiNFO-CPU0-Core1Temp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
 HWiNFO-CPU0-Core1Temp-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
