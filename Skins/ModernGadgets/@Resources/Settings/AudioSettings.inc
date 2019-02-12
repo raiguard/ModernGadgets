@@ -8,6 +8,9 @@ showVisualizer=1
 showMediaControls=2
 npType=Web
 mediaPlayer=AIMP
+hotkeyPlayPause=0xB3
+hotkeyPrevious=0xB1
+hotkeyNext=0xB0
 ; Visualizer Configuration
 fftSize=2048
 fftAttack=100
