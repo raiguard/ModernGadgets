@@ -2,7 +2,7 @@
 smoothUpdates=1
 
 colorVisualizer=#colorAccent#,120
-showDeviceSwitcher=0
+showDeviceSwitcher=1
 showVisualizer=1
 ; Media Controller
 showMediaControls=2
