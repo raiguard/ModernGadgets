@@ -12,12 +12,12 @@ sfCpuFan=1
 
 ; Settings
 showCpuName=1
-showPageFile=0
+showPageFile=1
 showCoreTemps=1
 showCoreVoltages=1
 showCpuTempGraph=1
-showTopProcess=0
-showCpuFan=1
+showTopProcess=1
+showCpuFan=0
 showCpuFanGraph=0
 showCpuClock=1
 showLineGraph=1
@@ -141,8 +141,8 @@ HWiNFO-CPU0-Core0Temp-SensorId=0xf0000400
 HWiNFO-CPU0-Core0Temp-SensorInstance=0x0
 HWiNFO-CPU0-Core0Temp-EntryId=0x1000000
 ; Core 1 Temperature [HWiNFO-CPU0-Core1Temp]
-HWiNFO-CPU0-Core1Temp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
-HWiNFO-CPU0-Core1Temp-SensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
+HWiNFO-CPU0-Core1Temp-SensorId=0xf0000400
+HWiNFO-CPU0-Core1Temp-SensorInstance=0x0
 HWiNFO-CPU0-Core1Temp-EntryId=0x1000001
 ; Core 2 Temperature [HWiNFO-CPU0-Core2Temp]
 HWiNFO-CPU0-Core2Temp-SensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
@@ -272,19 +272,19 @@ HWiNFO-CPU0-PackageTemp-EntryId=0x100007e
 ; CPU Core 0 Distance to TjMax [HWiNFO-CPU0-Core0TjMax]
 HWiNFO-CPU0-Core0TjMax-SensorId=0xf0000400
 HWiNFO-CPU0-Core0TjMax-SensorInstance=0x0
-HWiNFO-CPU0-Core0TjMax-EntryId=0x1000004
+HWiNFO-CPU0-Core0TjMax-EntryId=0x1000002
 ; CPU Package Thermal Throttling [HWiNFO-CPU0-PackageTt]
 HWiNFO-CPU0-PackageTt-SensorId=0xf0000400
 HWiNFO-CPU0-PackageTt-SensorInstance=0x0
-HWiNFO-CPU0-PackageTt-EntryId=0x800000c
+HWiNFO-CPU0-PackageTt-EntryId=0x8000006
 
 ; Core 0 Voltage [HWiNFO-CPU0-Core0Vid]
 HWiNFO-CPU0-Core0Vid-SensorId=0xf0000300
 HWiNFO-CPU0-Core0Vid-SensorInstance=0x0
 HWiNFO-CPU0-Core0Vid-EntryId=0x2000000
 ; Core 1 Voltage [HWiNFO-CPU0-Core1Vid]
-HWiNFO-CPU0-Core1Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
-HWiNFO-CPU0-Core1Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
+HWiNFO-CPU0-Core1Vid-SensorId=0xf0000300
+HWiNFO-CPU0-Core1Vid-SensorInstance=0x0
 HWiNFO-CPU0-Core1Vid-EntryId=0x2000001
 ; Core 2 Voltage [HWiNFO-CPU0-Core2Vid]
 HWiNFO-CPU0-Core2Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
@@ -410,7 +410,7 @@ HWiNFO-CPU0-Core31Vid-EntryId=0x200001f
 ; CPU Ring Clock [HWiNFO-CPU0-RingClock]
 HWiNFO-CPU0-RingClock-SensorId=0xf0000300
 HWiNFO-CPU0-RingClock-SensorInstance=0x0
-HWiNFO-CPU0-RingClock-EntryId=0x6000005
+HWiNFO-CPU0-RingClock-EntryId=0x6000000
 
 ;
 ; MOBO
