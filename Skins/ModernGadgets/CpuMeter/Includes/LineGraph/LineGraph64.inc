@@ -77,9 +77,9 @@ MeasureName69=MeasureRamUsage
 MeasureName70=MeasureCpuTempHwinfoPackage
 MeasureName71=MeasureCpuTempCoreTempCore1
 MeasureName72=MeasureCpuTempSpeedFanCore1
-Scale70=(100 / [#[#maxCpuTempMode]MaxCpuTemp])
-Scale71=(100 / [#[#maxCpuTempMode]MaxCpuTemp])
-Scale72=(100 / [#[#maxCpuTempMode]MaxCpuTemp])
+Scale70=(100 / max([#[#maxCpuTempMode]MaxCpuTemp],1))
+Scale71=(100 / max([#[#maxCpuTempMode]MaxCpuTemp],1))
+Scale72=(100 / max([#[#maxCpuTempMode]MaxCpuTemp],1))
 LineColor=#colorCore64#,(255 * (#cpuCores# >= 64) * (#showAvgCpu# = 0) * (#graphAllCoresMode# = 1))
 LineColor2=#colorCore63#,(255 * (#cpuCores# >= 63) * (#showAvgCpu# = 0) * (#graphAllCoresMode# = 1))
 LineColor3=#colorCore62#,(255 * (#cpuCores# >= 62) * (#showAvgCpu# = 0) * (#graphAllCoresMode# = 1))

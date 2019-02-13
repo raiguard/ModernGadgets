@@ -453,3 +453,4 @@ v1.5.0-beta.9 - 2019-??-??
 - Added preliminary support for track info at any size scale (text will not marquee)
 - Redesigned Audio Meter's volume slider and device switcher interfaces
 - Fixed CPU Meter disabling HWiNFO readings if the Core 0 Temperature sensor was misconfigured
+- Fixed CPU Meter line graph log error
