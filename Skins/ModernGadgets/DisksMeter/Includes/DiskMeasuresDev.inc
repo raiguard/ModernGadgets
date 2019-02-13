@@ -78,7 +78,7 @@ Disabled=#hideDisk1#
 [MeasureDisk1SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d1#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk1
@@ -188,7 +188,7 @@ Disabled=#hideDisk2#
 [MeasureDisk2SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d2#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk2
@@ -298,7 +298,7 @@ Disabled=#hideDisk3#
 [MeasureDisk3SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d3#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk3
@@ -408,7 +408,7 @@ Disabled=#hideDisk4#
 [MeasureDisk4SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d4#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk4
@@ -518,7 +518,7 @@ Disabled=#hideDisk5#
 [MeasureDisk5SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d5#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk5
@@ -628,7 +628,7 @@ Disabled=#hideDisk6#
 [MeasureDisk6SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d6#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk6
@@ -738,7 +738,7 @@ Disabled=#hideDisk7#
 [MeasureDisk7SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d7#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk7
@@ -848,7 +848,7 @@ Disabled=#hideDisk8#
 [MeasureDisk8SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d8#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk8
@@ -958,7 +958,7 @@ Disabled=#hideDisk9#
 [MeasureDisk9SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d9#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk9
@@ -1068,7 +1068,7 @@ Disabled=#hideDisk10#
 [MeasureDisk10SpaceUsed]
 Measure=FreeDiskSpace
 Drive=#d10#:
-InvertMeasure=1
+InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 Group=Disk10
