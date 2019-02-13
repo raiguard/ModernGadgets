@@ -8,13 +8,13 @@ eventTimestamp=2019-03-02 00:00:00
 
 timeFormat=WinLong
 dateFormat=WinLong
-customTimeFormat=%I:%M:%S %p
+customTimeFormat=%#I:%M:%S %p
 customDateFormat=%m.%d.%G
 
 locale=en-US
 
 ; DEBUGGING VARIABLES
-alarm1Time=12:41
+alarm1Time=19:04
 alarm2Time=18:13
 enableAlarm1=0
 enableAlarm2=0

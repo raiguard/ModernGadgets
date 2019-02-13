@@ -1,6 +1,6 @@
 [Variables]
 interfaceEthernet=Intel(R) Ethernet Connection (2) I219-V
-interfaceWireless=
+interfaceWireless=NETGEAR A7000 WiFi USB3.0 Adapter
 interfaceOther=
 
 censorExternalIp=0

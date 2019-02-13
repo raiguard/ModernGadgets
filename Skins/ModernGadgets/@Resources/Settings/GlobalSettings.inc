@@ -25,18 +25,18 @@ graphWidth=#contentWidth#
 
 ; Sidebars
 setupSb=1
-sbSetupMode=Placement
+sbSetupMode=Visual
 
-sb1MaskType=blur
+sb1MaskType=acrylic
 sb1MaskColor=0,0,0
-sb1MaskAlpha=100
+sb1MaskAlpha=150
 sb1Columns=1
 sb1Alignment=left
 sb1Monitor=1
 
-sb2MaskType=blur
+sb2MaskType=acrylic
 sb2MaskColor=0,0,0
-sb2MaskAlpha=100
+sb2MaskAlpha=150
 sb2Columns=1
 sb2Alignment=right
 sb2Monitor=2
