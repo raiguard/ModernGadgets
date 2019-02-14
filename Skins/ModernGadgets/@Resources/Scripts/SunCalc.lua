@@ -33,7 +33,8 @@
 ]]--
 
 debug = true -- set to true to enable debug logging
-data = { moonIllumination = { phase = 0, phaseName = '---' } }
+-- data = { moonIllumination = { phase = 0, phaseName = '---' }, moonPosition = { parallacticAngle = 0, } }
+data = {}
 
 function Initialize() end
 
@@ -65,7 +66,7 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
     end
 
     -- convert timestamps back to FILETIME
-    data.sunTimes = UnixToFiletime(data.SunTimes, tzOffset)
+    data.sunTimes = UnixToFiletime(data.sunTimes, tzOffset)
     data.moonTimes = UnixToFiletime(data.moonTimes, tzOffset)
 
     -- add moon phase name info
@@ -77,7 +78,7 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
 end
 
 -- retrieves data from the data table using inline LUA in the skin
-function GetData(key, value) return data[key] and data[key][value] or '' end
+function GetData(key, value) return data[key] and data[key][value] or 0 end
 
 -- ----- Utilities -----
 
