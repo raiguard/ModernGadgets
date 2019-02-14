@@ -9,6 +9,10 @@
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
+    v2.0.0 - 2018-02-14
+        - Enabled skin-side access to SunCalc's raw data tables
+        - Removed proprietary calculations and data table from the GenerateData() script
+        - 
     v1.0.5 - 2018-12-30
         - Removed code from the Update() function to facilitate invoking the script multiple times
           with different parameters through !CommandMeasure bangs
@@ -28,8 +32,8 @@
     ----------------------------------------------------------------------------------------------------
 ]]--
 
-debug = false -- set to true to enable debug logging
-data = { moonViewAngle = 0, moonPhase = 0, moonPhaseName = 'New Moon' } -- set default values
+debug = true -- set to true to enable debug logging
+data = { moonIllumination = { phase = 0, phaseName = '---' } }
 
 function Initialize() end
 
@@ -37,76 +41,56 @@ function Update() end
 
 -- generates all of the data and translates it into a format usable by the skin.
 -- invoke through a !CommandMeasure bang.
--- all data table outputs that have to do with time are given as Windows FILETIME values.
+-- all time-related outputs are given as Windows FILETIME values.
+-- all angle-related outputs are given in radians.
 function GenerateData(timestamp, latitude, longitude, tzOffset)
 
     -- setup timestamps
     local timestamp, mDate, zDate, ysDate, tmDate = SetupTimestamps(timestamp, tzOffset)
 
     -- retrieve data tables from SunCalc script
-    sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
-    moonTimes = SunCalc.getMoonTimes(zDate, latitude, longitude)
-    sunPosition = SunCalc.getPosition(mDate, latitude, longitude)
-    moonPosition = SunCalc.getMoonPosition(mDate, latitude, longitude)
-    moonIllumination = SunCalc.getMoonIllumination(mDate, latitude, longitude)
-    -- debug logging
-    RmLog('getTimes():')
-    PrintTable(sunTimes)
-    RmLog('getMoonTimes():')
-    PrintTable(moonTimes)
-    RmLog('getPosition():')
-    PrintTable(sunPosition)
-    RmLog('getMoonPosition():')
-    PrintTable(moonPosition)
-    RmLog('getMoonIllumination():')
-    PrintTable(moonIllumination)
+    data.sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
+    data.moonTimes = SunCalc.getMoonTimes(zDate, latitude, longitude)
+    data.sunPosition = SunCalc.getPosition(mDate, latitude, longitude)
+    data.moonPosition = SunCalc.getMoonPosition(mDate, latitude, longitude)
+    data.moonIllumination = SunCalc.getMoonIllumination(mDate, latitude, longitude)
 
     -- fix moonrise / moonset times if necessary
-    if moonTimes.rise ~= nil and (moonTimes.set == nil or moonTimes.set < moonTimes.rise and mDate > moonTimes.set) then
+    if data.moonTimes.rise ~= nil and (data.moonTimes.set == nil or data.moonTimes.set < data.moonTimes.rise and mDate > data.moonTimes.set) then
         -- set moonset to that of the next day
-        moonTimes.set = SunCalc.getMoonTimes(tmDate, latitude, longitude)['set']
-    elseif moonTimes.rise == nil or (moonTimes.set < moonTimes.rise and mDate < moonTimes.set) then
+        data.moonTimes.set = SunCalc.getMoonTimes(tmDate, latitude, longitude)['set']
+    elseif data.moonTimes.rise == nil or (data.moonTimes.set < data.moonTimes.rise and mDate < data.moonTimes.set) then
         -- set moonrise to that of the previous day
-        moonTimes.rise = SunCalc.getMoonTimes(ysDate, latitude, longitude)['rise']
+        data.moonTimes.rise = SunCalc.getMoonTimes(ysDate, latitude, longitude)['rise']
     end
-    -- calculate suntime and moontime in minutes
-    suntime = GetDifference(sunTimes.sunset, sunTimes.sunrise)
-    moontime = GetDifference(moonTimes.set, moonTimes.rise)
 
-    -- translate the data into the formats used by the skin
-    data.sunrise = UnixToFiletime(CorrectTimestamp(sunTimes.sunrise), tzOffset)
-    data.sunset = UnixToFiletime(CorrectTimestamp(sunTimes.sunset), tzOffset)
-    data.moonrise = UnixToFiletime(CorrectTimestamp(moonTimes.rise), tzOffset)
-    data.moonset = UnixToFiletime(CorrectTimestamp(moonTimes.set), tzOffset)
-    data.moonViewAngle = math.deg(moonIllumination.angle - moonPosition.parallacticAngle)
-    data.moonPhase = moonIllumination.phase
-    data.moonPhaseName = GetMoonPhaseName(data.moonPhase)
-    
-    -- calculate sun and moon dial angles
-    data.sunDialAngle = (GetDifference(mDate, sunTimes.sunrise) / suntime) * 180
-    data.moonDialAngle = (GetDifference(mDate, moonTimes.rise) / moontime) * 180
-    -- brute-force reset angle to -1 if things get wacky or if the object is set
-    if data.sunDialAngle > 180 or data.sunDialAngle < 0 then data.sunDialAngle = -1 end
-    if data.moonDialAngle > 180 or data.moonDialAngle < 0 then data.moonDialAngle = -1 end
+    -- convert timestamps back to FILETIME
+    data.sunTimes = UnixToFiletime(data.SunTimes, tzOffset)
+    data.moonTimes = UnixToFiletime(data.moonTimes, tzOffset)
+
+    -- add moon phase name info
+    data.moonIllumination.phaseName = GetMoonPhaseName(data.moonIllumination.phase)
+
     -- debug logging
-    RmLog('data:')
     PrintTable(data)
-    SKIN:Bang('!UpdateMeasureGroup', 'SunCalc')
-    SKIN:Bang('!UpdateMeterGroup', 'SunCalc')
-    SKIN:Bang('!Redraw')
 
 end
+
+-- retrieves data from the data table using inline LUA in the skin
+function GetData(key, value) return data[key] and data[key][value] or '' end
+
+-- ----- Utilities -----
 
 -- converts a Windows FILETIME timestamp into a Unix epoch timestamp, accounting for timezone and DST, then returns several useful timestamps
 function SetupTimestamps(timestamp, tzOffset)
 
     tzOffset = tzOffset or 0
     local localTz = (GetTimeOffset() / 3600)
-    RmLog(localTz .. ' | ' .. tzOffset)
+    RmLog('localTz: ' .. localTz .. ' | tzOffset: ' .. tzOffset)
     tDate = os.date("!*t", timestamp)
     tDate.year = tDate.year - (1970 - 1601)
     timestamp = os.time(tDate) - (os.date('*t')['isdst'] and 3600 or 0)
-    RmLog(timestamp)
+    RmLog('timestamp: ' .. timestamp)
     mDate = tonumber(tostring(timestamp) .. '000')   
     zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000')
     ysDate = zDate - 86400000  
@@ -121,10 +105,22 @@ function SetupTimestamps(timestamp, tzOffset)
 
 end
 
--- retrieves data from the data table using inline LUA in the skin
-function GetData(key) return data[key] or '' end
+-- converts unix epoch timestamps into Windows FILETIME timestamps
+function UnixToFiletime(table, tzOffset)
 
--- ----- Utilities -----
+    for k,timestamp in pairs(table) do
+
+        local tDate = os.date("*t", tostring(timestamp):sub(1,10))
+        tDate.year = tDate.year + (1970 - 1601)
+        tDate.hour = tDate.hour + tzOffset
+        timestamp = os.time(tDate)
+        table[k] = timestamp
+
+    end
+
+    return table
+
+end
 
 moonPhases = {
     { 0.00, 0.03, 'New Moon'        },
@@ -148,21 +144,7 @@ function GetMoonPhaseName(phase)
 
 end
 
-function UnixToFiletime(timestamp, tzOffset)
-
-    local tDate = os.date("*t", timestamp)
-    tDate.year = tDate.year + (1970 - 1601)
-    tDate.hour = tDate.hour + tzOffset
-    timestamp = os.time(tDate)
-    return timestamp
-
-end
-
 function GetTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
-
-function GetDifference(a1, a2) return ((a1 - a2) / 60000) end
-
-function CorrectTimestamp(timestamp) return tostring(timestamp):sub(1,10) end
 
 -- function to make logging messages less cluttered
 function RmLog(message, type)
