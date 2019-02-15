@@ -31,7 +31,7 @@ sb1MaskType=acrylic
 sb1MaskColor=0,0,0
 sb1MaskAlpha=150
 sb1Columns=1
-sb1Alignment=left
+sb1Alignment=right
 sb1Monitor=1
 
 sb2MaskType=acrylic
