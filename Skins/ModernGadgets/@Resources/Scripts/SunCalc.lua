@@ -2,7 +2,7 @@
     ----------------------------------------------------------------------------------------------------
     SUNCALC.LUA
     raiguard
-    v1.0.5
+    v2.0.0
 
     This script is a form of 'SunCalc' by mourner, translated to LUA and adapted for Rainmeter
     The original source code of SunCalc can be found at https://github.com/mourner/suncalc
@@ -12,7 +12,6 @@
     v2.0.0 - 2018-02-14
         - Enabled skin-side access to SunCalc's raw data tables
         - Removed proprietary calculations and data table from the GenerateData() script
-        - 
     v1.0.5 - 2018-12-30
         - Removed code from the Update() function to facilitate invoking the script multiple times
           with different parameters through !CommandMeasure bangs
@@ -32,7 +31,7 @@
     ----------------------------------------------------------------------------------------------------
 ]]--
 
-debug = true -- set to true to enable debug logging
+debug = false -- set to true to enable debug logging
 -- data = { moonIllumination = { phase = 0, phaseName = '---' }, moonPosition = { parallacticAngle = 0, } }
 data = {}
 
