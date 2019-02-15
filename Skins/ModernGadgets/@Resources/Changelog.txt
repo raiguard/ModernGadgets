@@ -448,10 +448,13 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
-v1.5.0-beta.9 - 2019-??-??
+v1.5.0-beta.9 - 2019-02-15
 - Added the ability to drag Audio Meter's volume and song progress sliders
 - Added preliminary support for track info at any size scale (text will not marquee)
 - Added option to Disks Meter to display free disk space, rather than used disk space
 - Redesigned Audio Meter's volume slider and device switcher interfaces
+- Audio Meter's wrench icon will now only appear if the visualizer is enabled
+- Added sun/moon altitude chart on hover of Weather Meter
+- Significantly redesigned the way that Weather Meter's SunCalc script is accessed
 - Fixed CPU Meter disabling HWiNFO readings if the Core 0 Temperature sensor was misconfigured
 - Fixed CPU Meter line graph log error
