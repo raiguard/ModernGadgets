@@ -9,9 +9,11 @@
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
-    v2.0.0 - 2018-02-14
+    v2.0.0 - 2018-02-15
         - Enabled skin-side access to SunCalc's raw data tables
+        - Added timestamp exports
         - Removed proprietary calculations and data table from the GenerateData() script
+        - Updated documentation
     v1.0.5 - 2018-12-30
         - Removed code from the Update() function to facilitate invoking the script multiple times
           with different parameters through !CommandMeasure bangs
@@ -31,7 +33,7 @@
     ----------------------------------------------------------------------------------------------------
 ]]--
 
-debug = false -- set to true to enable debug logging
+debug = true -- set to true to enable debug logging
 data = {}
 
 function Initialize() end
@@ -63,12 +65,16 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
         data.moonTimes.rise = SunCalc.getMoonTimes(ysDate, latitude, longitude)['rise']
     end
 
+    -- PrintTable(data)
+
     -- convert timestamps back to FILETIME
     data.sunTimes = UnixToFiletime(data.sunTimes, tzOffset)
     data.moonTimes = UnixToFiletime(data.moonTimes, tzOffset)
 
     -- add moon phase name info
     data.moonIllumination.phaseName = GetMoonPhaseName(data.moonIllumination.phase)
+
+    data.timestamps = UnixToFiletime({ timestamp = timestamp, zDate = zDate, ysDate = ysDate, tmDate = tmDate }, tzOffset)
 
     -- debug logging
     PrintTable(data)
@@ -94,7 +100,7 @@ function SetupTimestamps(timestamp, tzOffset)
     zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000')
     ysDate = zDate - 86400000  
     tmDate =  zDate + 86400000
-    RmLog('zDate: ' .. zDate)
+    RmLog('mDate: ' .. mDate .. ' zDate: ' .. zDate .. ' ysDate: ' .. ysDate .. ' tmDate: ' .. tmDate)
 
     return timestamp, -- current unix epoch timestamp value
            mDate,     -- 'millisecond date' (timestamp with three extra zeroes)
