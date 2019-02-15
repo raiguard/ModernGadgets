@@ -32,7 +32,6 @@
 ]]--
 
 debug = false -- set to true to enable debug logging
--- data = { moonIllumination = { phase = 0, phaseName = '---' }, moonPosition = { parallacticAngle = 0, } }
 data = {}
 
 function Initialize() end
