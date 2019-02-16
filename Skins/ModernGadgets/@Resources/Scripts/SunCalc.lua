@@ -33,7 +33,7 @@
     ----------------------------------------------------------------------------------------------------
 ]]--
 
-debug = true -- set to true to enable debug logging
+debug = false -- set to true to enable debug logging
 data = {}
 
 function Initialize() end
@@ -79,10 +79,23 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
     -- debug logging
     PrintTable(data)
 
+    SKIN:Bang('!EnableMeasureGroup', 'SunCalc')
+    SKIN:Bang('!UpdateMeasureGroup', 'SunCalc')
+    SKIN:Bang('!UpdateMeterGroup', 'SunCalc')
+    SKIN:Bang('!Redraw')
+
 end
 
 -- retrieves data from the data table using inline LUA in the skin
 function GetData(key, value) return data[key] and data[key][value] or 0 end
+
+-- same as GetData(), but allows one to perform another SunCalc operation
+function GetScData(functionName, key, timestamp, latitude, longitude, tzOffset)
+
+    local timestamp, mDate = SetupTimestamps(timestamp, tzOffset)
+    return SunCalc[functionName](mDate, latitude, longitude, tzOffset)[key]
+
+end
 
 -- ----- Utilities -----
 
