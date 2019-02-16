@@ -1,6 +1,6 @@
 [Variables]
-interfaceEthernet=Qualcomm Atheros AR8152 PCI-E Fast Ethernet Controller (NDIS 6.30)
-interfaceWireless=Realtek RTL8188CE Wireless LAN 802.11n PCI-E NIC
+interfaceEthernet=Intel(R) Ethernet Connection (2) I219-V
+interfaceWireless=NETGEAR A7000 WiFi USB3.0 Adapter
 interfaceOther=
 
 censorExternalIp=0

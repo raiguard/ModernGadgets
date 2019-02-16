@@ -12,18 +12,18 @@ sfCpuFan=1
 
 ; Settings
 showCpuName=1
-showPageFile=1
+showPageFile=0
 showCoreTemps=1
 showCoreVoltages=1
 showCpuTempGraph=1
-showTopProcess=1
-showCpuFan=0
+showTopProcess=0
+showCpuFan=1
 showCpuFanGraph=0
 showCpuClock=1
 showLineGraph=1
 showAvgCpu=0
-showTt=1
-playTtSound=1
+showTt=0
+playTtSound=0
 graphAllCoresMode=0
 
 cpuName=auto

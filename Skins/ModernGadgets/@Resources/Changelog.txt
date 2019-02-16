@@ -458,3 +458,8 @@ v1.0.0-rc.1 - 2016-11-14
 - Initial release
 
 WIP Releases
+
+v1.5.0-beta.10 - 2019-02-??
+- Finished design of sun/moon altitude chart
+- Implemented redesigned SunCalc interfacing into five-day forecast
+- Added sun/moon altitude charts to five-day forecast
