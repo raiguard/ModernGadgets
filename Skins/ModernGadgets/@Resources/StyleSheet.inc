@@ -224,7 +224,8 @@ FontColor=#colorDim#
 ; Strings (headers)
 [StyleStringConfigTitle]
 FontSize=11
-X=#contentMargin#
+FontWeight=600
+X=(#contentMargin# + 2)
 Y=(#contentMargin# - 2)
 
 [StyleStringGadgetHeader]

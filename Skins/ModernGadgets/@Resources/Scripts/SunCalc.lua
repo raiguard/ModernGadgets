@@ -48,6 +48,8 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
 
     -- setup timestamps
     local timestamp, mDate, zDate, ysDate, tmDate = SetupTimestamps(timestamp, tzOffset)
+    RmLog('timestamp: ' .. timestamp)
+    RmLog('mDate: ' .. mDate .. ' zDate: ' .. zDate .. ' ysDate: ' .. ysDate .. ' tmDate: ' .. tmDate)
 
     -- retrieve data tables from SunCalc script
     data.sunTimes = SunCalc.getTimes(mDate, latitude, longitude)
@@ -92,7 +94,7 @@ function GetData(key, value) return data[key] and data[key][value] or 0 end
 -- same as GetData(), but allows one to perform another SunCalc operation
 function GetScData(functionName, key, timestamp, latitude, longitude, tzOffset)
 
-    local timestamp, mDate = SetupTimestamps(timestamp, tzOffset)
+    if timestamp > 0 then timestamp, mDate = SetupTimestamps(timestamp, tzOffset) else return 0 end
     return SunCalc[functionName](mDate, latitude, longitude, tzOffset)[key]
 
 end
@@ -104,16 +106,16 @@ function SetupTimestamps(timestamp, tzOffset)
 
     tzOffset = tzOffset or 0
     local localTz = (GetTimeOffset() / 3600)
-    RmLog('localTz: ' .. localTz .. ' | tzOffset: ' .. tzOffset)
+    -- RmLog('localTz: ' .. localTz .. ' | tzOffset: ' .. tzOffset)
     tDate = os.date("!*t", timestamp)
     tDate.year = tDate.year - (1970 - 1601)
     timestamp = os.time(tDate) - (os.date('*t')['isdst'] and 3600 or 0)
-    RmLog('timestamp: ' .. timestamp)
+    -- RmLog('timestamp: ' .. timestamp)
     mDate = tonumber(tostring(timestamp) .. '000')   
     zDate = tonumber(tostring(os.time{ year = tDate.year, month = tDate.month, day = tDate.day, hour = 0, min = 0, sec = 0 }) .. '000')
     ysDate = zDate - 86400000  
     tmDate =  zDate + 86400000
-    RmLog('mDate: ' .. mDate .. ' zDate: ' .. zDate .. ' ysDate: ' .. ysDate .. ' tmDate: ' .. tmDate)
+    -- RmLog('mDate: ' .. mDate .. ' zDate: ' .. zDate .. ' ysDate: ' .. ysDate .. ' tmDate: ' .. tmDate)
 
     return timestamp, -- current unix epoch timestamp value
            mDate,     -- 'millisecond date' (timestamp with three extra zeroes)
