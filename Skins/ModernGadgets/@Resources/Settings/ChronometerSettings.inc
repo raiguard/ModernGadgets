@@ -14,9 +14,9 @@ customDateFormat=%m.%d.%G
 locale=en-US
 
 ; DEBUGGING VARIABLES
-alarm1Time=19:04
+alarm1Time=12:30
 alarm2Time=18:13
-enableAlarm1=0
+enableAlarm1=1
 enableAlarm2=0
 
 alarm1Sound=C:\Windows\Media\Alarm01.wav
