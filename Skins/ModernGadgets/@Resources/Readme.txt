@@ -1,5 +1,5 @@
 MODERNGADGETS
-v1.5.0-beta.9
+v1.5.0-beta.10
 By raiguard
 
 ----------------------------------------
