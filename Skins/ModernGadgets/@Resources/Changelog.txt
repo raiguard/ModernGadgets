@@ -465,5 +465,6 @@ v1.5.0-beta.10 - 2019-02-??
 - Finished design of sun/moon altitude chart
 - Finished design of five-day forecast
 - Implemented redesigned SunCalc interfacing into five-day forecast
+- Improved color pickers to change colors dynamically (with the exception of global colors)
 - Finished new sidebar setup experience
 - Fixed not being able to have two sidebars on one monitor
