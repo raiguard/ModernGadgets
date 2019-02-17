@@ -6,6 +6,7 @@ showDeviceSwitcher=1
 showVisualizer=1
 ; Media Controller
 showMediaControls=2
+mediaControlsAutoHide=0
 npType=Web
 mediaPlayer=AIMP
 hotkeyPlayPause=0xB3
