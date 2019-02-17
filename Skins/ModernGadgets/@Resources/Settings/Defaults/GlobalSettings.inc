@@ -24,9 +24,10 @@ graphHeight=42
 graphWidth=#contentWidth#
 
 ; Sidebars
-setupSb=1
+setupSb=2
 sbSetupMode=Visual
 
+sb1Enabled=0
 sb1MaskType=acrylic
 sb1MaskColor=0,0,0
 sb1MaskAlpha=150
@@ -34,6 +35,7 @@ sb1Columns=1
 sb1Alignment=left
 sb1Monitor=1
 
+sb2Enabled=0
 sb2MaskType=acrylic
 sb2MaskColor=0,0,0
 sb2MaskAlpha=150

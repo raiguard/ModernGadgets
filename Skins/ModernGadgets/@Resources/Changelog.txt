@@ -147,6 +147,16 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.5.0-beta.10 - 2019-02-17
+- Added option to hide media controls if no song is currently playing
+- Added sun/moon altitude charts to five-day forecast
+- Finished design of sun/moon altitude chart
+- Finished design of five-day forecast
+- Implemented redesigned SunCalc interfacing into five-day forecast
+- Improved color pickers to change colors dynamically (with the exception of global colors)
+- Finished new sidebar setup experience
+- Fixed not being able to have two sidebars on one monitor
+
 v1.5.0-beta.9 - 2019-02-15
 - Added the ability to drag Audio Meter's volume and song progress sliders
 - Added preliminary support for track info at any size scale (text will not marquee)
@@ -458,13 +468,3 @@ v1.0.0-rc.1 - 2016-11-14
 - Initial release
 
 WIP Releases
-
-v1.5.0-beta.10 - 2019-02-??
-- Added option to hide media controls if no song is currently playing
-- Added sun/moon altitude charts to five-day forecast
-- Finished design of sun/moon altitude chart
-- Finished design of five-day forecast
-- Implemented redesigned SunCalc interfacing into five-day forecast
-- Improved color pickers to change colors dynamically (with the exception of global colors)
-- Finished new sidebar setup experience
-- Fixed not being able to have two sidebars on one monitor
