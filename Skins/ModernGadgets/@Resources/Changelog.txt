@@ -460,6 +460,9 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.5.0-beta.10 - 2019-02-??
-- Finished design of sun/moon altitude chart
-- Implemented redesigned SunCalc interfacing into five-day forecast
 - Added sun/moon altitude charts to five-day forecast
+- Finished design of sun/moon altitude chart
+- Finished design of five-day forecast
+- Implemented redesigned SunCalc interfacing into five-day forecast
+- Finished new sidebar setup experience
+- Fixed not being able to have two sidebars on one monitor

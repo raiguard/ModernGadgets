@@ -125,8 +125,9 @@ weatherMeterConfig=ModernGadgets\WeatherMeter
 weatherSettingsPath=#@#Settings\WeatherSettings.inc
 
 setupSkinConfig=ModernGadgets\Settings\Setup
-sb1ControlConfig=ModernGadgets\Settings\Sidebars\Control\1
-sb2ControlConfig=ModernGadgets\Settings\Sidebars\Control\2
+sidebarSetupConfig=ModernGadgets\\Settings\\Sidebars\\Setup
+sb1ControlConfig=ModernGadgets\\Settings\\Sidebars\\Control\\1
+sb2ControlConfig=ModernGadgets\\Settings\\Sidebars\\Control\\2
 
 ; Default Color Pallete
 cp1=107,238,98
@@ -397,6 +398,13 @@ ToolTipText=Close
 [StyleStringSmallTextButton]
 FontColor=#colorAccent#
 Y=8R
+
+[StyleStringTextButton]
+FontColor=#colorAccent#
+FontFace=#fontFaceCn#
+FontSize=9
+FontWeight=600
+StringCase=Upper
 
 [StyleStringArrowButtonLabel]
 FontSize=10
