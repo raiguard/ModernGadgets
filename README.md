@@ -30,7 +30,13 @@ Designed and programmed by Caleb Heuer (raiguard).
 
 Backend code based on "Gadgets" by SilverAzide.
 
-"Roboto" font from Google Fonts, under the Apache License, version 2.0.
+"IBM Plex Sans" font from Google Fonts, under the Apache 2.0 License
+
+"Material Icons" font from Google, under the Apache 2.0 License.
+
+"Elegant Icons" font from Elegant Themes, under GPL and MIT Licenses.
+
+"Google Now Weather Feed Icons" from NCrystal on DeviantArt.
 
 ### Additional Attributions
 SilverAzide - ActiveNet plugin, NetMonitor utility, fixed precision format script
