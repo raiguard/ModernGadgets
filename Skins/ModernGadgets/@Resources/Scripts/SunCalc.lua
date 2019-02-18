@@ -76,6 +76,7 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
     -- add moon phase name info
     data.moonIllumination.phaseName = GetMoonPhaseName(data.moonIllumination.phase)
 
+    -- add timestamp info for use in the skin
     data.timestamps = UnixToFiletime({ timestamp = timestamp, zDate = zDate, ysDate = ysDate, tmDate = tmDate }, tzOffset)
 
     -- debug logging
