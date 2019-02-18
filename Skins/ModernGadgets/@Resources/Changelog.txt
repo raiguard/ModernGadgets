@@ -473,3 +473,4 @@ v1.5.0-rc.1 - 2019-02-??
 - Fixed Network status icon not updating dynamically
 - Fixed severe weather alerts icon not disappearing
 - Various visual fixes across the board
+- Fixed sidebar area formulas not updating if a sidebar's alignment was changed
