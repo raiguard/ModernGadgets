@@ -6,7 +6,7 @@ numDisks = 10
 
 function Initialize()
 
-    extVarsPath = SKIN:GetVariable('extVarsPath')
+    dynamicVarsPath = SKIN:GetVariable('dynamicVarsPath')
 
     hiddenDisks = SKIN:GetVariable('manualHideDisks')
 
@@ -126,7 +126,7 @@ end
 function SetVariable(key, value)
 
     SKIN:Bang('!SetVariable', key, value)
-    SKIN:Bang('!WriteKeyValue', 'Variables', key, value, extVarsPath)
+    SKIN:Bang('!WriteKeyValue', 'Variables', key, value, dynamicVarsPath)
 
 end
 

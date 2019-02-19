@@ -230,7 +230,7 @@ SpeedFanNumber=(#sfCoreTemp# + 0)
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore1Temp MeasureName "MeasureCpuTempSpeedFanCore1"][!UpdateMeter MeterCore1Temp]
 IfCondition2=MeasureCpuTempSpeedFanCore1 > #autoMaxCpuTemp#
-IfTrueAction2=[!SetVariable autoMaxCpuTemp "(max([MeasureCpuTempSpeedFanCore1:], 1))"][!WriteKeyValue Variables autoMaxCpuTemp "(max([MeasureCpuTempSpeedFanCore1:], 1))" "#extVarsPath#"][!UpdateMeasure MeasureCpuTempSpeedFanCore1]
+IfTrueAction2=[!SetVariable autoMaxCpuTemp "(max([MeasureCpuTempSpeedFanCore1:], 1))"][!WriteKeyValue Variables autoMaxCpuTemp "(max([MeasureCpuTempSpeedFanCore1:], 1))" "#dynamicVarsPath#"][!UpdateMeasure MeasureCpuTempSpeedFanCore1]
 MinValue=0
 MaxValue=[#[#maxCpuTempMode]MaxCpuTemp]
 DynamicVariables=1
