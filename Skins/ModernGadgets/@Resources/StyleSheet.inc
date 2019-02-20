@@ -230,7 +230,9 @@ X=(#contentMargin# + 2)
 Y=(#contentMargin# - 2)
 
 [StyleStringGadgetHeader]
-FontSize=10
+FontSize=9
+FontWeight=600
+FontColor=#colorMain#,230
 X=#contentMargin#
 Y=(#contentMargin# - 3)
 
@@ -448,10 +450,9 @@ TransformationMatrix=#transformationMatrix#
 
 [StyleConfigButton]
 ImageName=#imgPath#Wrench.png
-X=(#contentMarginRight# - 10)
-Y=(#contentMargin# + 2)
-W=9
-H=9
+X=(#contentMarginRight# - 9)
+Y=(#contentMargin# + 1)
+H=8
 ImageTint=#colorMain#
 Antialias=1
 Hidden=1
@@ -531,7 +532,6 @@ TransformationMatrix=#transformationMatrix#
 Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
 Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
 Shape3=Combine Shape | XOR Shape2
-
 X=-1r
 Y=-1r
 W=(#contentWidth#)
@@ -539,7 +539,6 @@ H=#graphHeight#
 Group=LineGraph
 Hidden=(#showLineGraph# = 0)
 TransformationMatrix=#transformationMatrix#
-
 
 [StyleLineGraph]
 X=1r
