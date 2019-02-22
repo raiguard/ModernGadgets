@@ -13,7 +13,7 @@ sfCpuFan=1
 ; Settings
 showCpuName=1
 showPageFile=1
-showCoreTemps=2
+showCoreTemps=1
 showCoreVoltages=1
 showCpuTempGraph=1
 showTopProcess=1
