@@ -3,7 +3,7 @@
 ; you change anything in this file, it WILL break things. Proceed at your own risk!
 
 [Variables]
-mgVersion=1.5.0-beta.10
+mgVersion=1.5.0-rc.1
 
 ; Positioning
 bgOffset=5
@@ -81,7 +81,7 @@ fontPath=#@#Fonts\
 scriptPath=#@#Scripts\
 
 extPath=#SETTINGSPATH#ModernGadgets\
-extVarsPath=#extPath#ExtVariables.inc
+dynamicVarsPath=#@#DynamicVars.inc
 
 rainRgbPath=#@#Addons\RainRGB\RainRGB4.exe
 rainFilePath=#@#Addons\RainFile\RainFile.exe

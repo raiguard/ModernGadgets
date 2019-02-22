@@ -25,7 +25,7 @@ graphWidth=#contentWidth#
 
 ; Sidebars
 setupSb=2
-sbSetupMode=Visual
+sbSetupMode=Placement
 
 sb1Enabled=0
 sb1MaskType=acrylic

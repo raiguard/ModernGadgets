@@ -1,9 +1,9 @@
 [Variables]
 ; CPU Meter
-autoMaxCpuTemp=1
+autoMaxCpuTemp=85
 autoMaxCpuFan=1
 ; Network Meter
-externalIp=
+externalIp=64.72.215.82
 
 ; - Disks Meter -
 
