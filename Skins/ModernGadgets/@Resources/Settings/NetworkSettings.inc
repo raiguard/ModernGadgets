@@ -1,6 +1,6 @@
 [Variables]
-interfaceEthernet=
-interfaceWireless=
+interfaceEthernet=Qualcomm Atheros AR8152 PCI-E Fast Ethernet Controller (NDIS 6.30)
+interfaceWireless=Realtek RTL8188CE Wireless LAN 802.11n PCI-E NIC
 interfaceOther=
 
 censorExternalIp=0
@@ -9,7 +9,7 @@ showPing=0
 showNetTotals=1
 showLineGraph=1
 showPeakNetworkUsage=0
-monitoringType=standard
+monitoringType=netMonitor
 
 pingUrl=google.com
 
