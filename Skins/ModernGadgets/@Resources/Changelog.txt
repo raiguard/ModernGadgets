@@ -470,11 +470,12 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.5.0-rc.1 - 2019-02-??
-- Improved LAN connection icons
+- Redesigned LAN connection icons
 - Fixed several issues with CPU Meter program switching
 - Fixed network status icon not updating dynamically
 - Fixed network status icon tooltip not supporting scaling
 - Fixed severe weather alerts icon not disappearing
+- Fixed refresh button behavior in Weather Meter
 - Fixed sidebar area formulas not updating if a sidebar's alignment was changed
 - Fixed update notification sound setting not actually doing anything
 - Fixed various visual inconsistencies and positioning issues across the board
