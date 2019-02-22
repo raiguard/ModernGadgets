@@ -147,6 +147,19 @@ v1.0.0 - 2016-12-04
 
 Development Releases
 
+v1.5.0-rc.1 - 2019-02-22
+- Added "ModernGadgets Welcome" layout to package
+- Redesigned LAN connection icons
+- Removed external variables functionality
+- Fixed several issues with CPU Meter program switching
+- Fixed network status icon not updating dynamically
+- Fixed network status icon tooltip not supporting scaling
+- Fixed severe weather alerts icon not disappearing
+- Fixed refresh button behavior in Weather Meter
+- Fixed sidebar area formulas not updating if a sidebar's alignment was changed
+- Fixed update notification sound setting not actually doing anything
+- Fixed various visual inconsistencies and positioning issues across the board
+
 v1.5.0-beta.10 - 2019-02-17
 - Added option to hide media controls if no song is currently playing
 - Added sun/moon altitude charts to five-day forecast
@@ -468,14 +481,3 @@ v1.0.0-rc.1 - 2016-11-14
 - Initial release
 
 WIP Releases
-
-v1.5.0-rc.1 - 2019-02-??
-- Redesigned LAN connection icons
-- Fixed several issues with CPU Meter program switching
-- Fixed network status icon not updating dynamically
-- Fixed network status icon tooltip not supporting scaling
-- Fixed severe weather alerts icon not disappearing
-- Fixed refresh button behavior in Weather Meter
-- Fixed sidebar area formulas not updating if a sidebar's alignment was changed
-- Fixed update notification sound setting not actually doing anything
-- Fixed various visual inconsistencies and positioning issues across the board
