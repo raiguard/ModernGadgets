@@ -124,6 +124,10 @@ weatherMeterPath=#ROOTCONFIGPATH#WeatherMeter\WeatherMeter.ini
 weatherMeterConfig=ModernGadgets\WeatherMeter
 weatherSettingsPath=#@#Settings\WeatherSettings.inc
 
+batteryMeterPath=#ROOTCONFIGPATH#BatteryMeter\BatteryMeter.ini
+batteryMeterConfig=ModernGadgets\BatteryMeter
+batteryMeterSettingsPath=#@#Settings\BatteryMeterSettings.inc
+
 setupSkinConfig=ModernGadgets\Settings\Setup
 sidebarSetupConfig=ModernGadgets\\Settings\\Sidebars\\Setup
 sb1ControlConfig=ModernGadgets\\Settings\\Sidebars\\Control\\1

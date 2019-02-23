@@ -4,11 +4,7 @@ function Initialize() end
 
 function Update() end
 
-function ParseColor(input)
-
-    print(table.concat(loadstring('return { ' .. input .. ' }')(), ' | '))
-
-end
+function TransformColor(method, input, delta) return table.concat(color[method](loadstring('return { ' .. input .. ' }')(), delta), ',') end
 
 --[[
 #########################################################################
@@ -36,7 +32,7 @@ end
 --]]
 
 -- Color functions
-local color = {}
+color = {}
 
 function color.toRgb(h, s, l, a)
     if s<=0 then return l,l,l,a end
@@ -50,7 +46,7 @@ function color.toRgb(h, s, l, a)
     elseif h < 4 then r,g,b = 0,x,c
     elseif h < 5 then r,g,b = x,0,c
     else              r,g,b = c,0,x
-    end return (r+m)*255,(g+m)*255,(b+m)*255,a
+    end return { (r+m)*255,(g+m)*255,(b+m)*255,a }
 end
 
 function color.toHsl(r, g, b, a)
@@ -113,7 +109,9 @@ for k, v in pairs(color) do
     end
 end
 
-
+function constrain(value, min, max)
+    return math.max(math.min(value, max), min)
+end
 
 -- -- Color palette is a simple container letting you define color.  You can
 -- -- call a color using palette.color() as a shortcut to love.graphics.setColor
@@ -143,7 +141,3 @@ end
 -- -- Exports
 -- leaf.ColorPalette = ColorPalette
 -- leaf.color = color
-
-function constrain(value, min, max)
-    return math.max(math.min(value, max), min)
-end
