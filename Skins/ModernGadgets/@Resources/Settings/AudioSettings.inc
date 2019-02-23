@@ -3,9 +3,9 @@ smoothUpdates=1
 
 colorVisualizer=#colorAccent#,120
 showDeviceSwitcher=1
-showVisualizer=0
+showVisualizer=1
 ; Media Controller
-showMediaControls=0
+showMediaControls=2
 mediaControlsAutoHide=0
 npType=Web
 mediaPlayer=AIMP
