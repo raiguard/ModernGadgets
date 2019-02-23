@@ -12,18 +12,18 @@ sfCpuFan=1
 
 ; Settings
 showCpuName=1
-showPageFile=1
-showCoreTemps=2
+showPageFile=0
+showCoreTemps=1
 showCoreVoltages=1
 showCpuTempGraph=1
-showTopProcess=1
-showCpuFan=0
+showTopProcess=0
+showCpuFan=1
 showCpuFanGraph=0
 showCpuClock=1
 showLineGraph=1
-showAvgCpu=1
-showTt=1
-playTtSound=1
+showAvgCpu=0
+showTt=0
+playTtSound=0
 graphAllCoresMode=0
 
 cpuName=auto
@@ -272,11 +272,11 @@ HWiNFO-CPU0-PackageTemp-EntryId=0x100007e
 ; CPU Core 0 Distance to TjMax [HWiNFO-CPU0-Core0TjMax]
 HWiNFO-CPU0-Core0TjMax-SensorId=0xf0000400
 HWiNFO-CPU0-Core0TjMax-SensorInstance=0x0
-HWiNFO-CPU0-Core0TjMax-EntryId=0x1000002
+HWiNFO-CPU0-Core0TjMax-EntryId=0x1000004
 ; CPU Package Thermal Throttling [HWiNFO-CPU0-PackageTt]
 HWiNFO-CPU0-PackageTt-SensorId=0xf0000400
 HWiNFO-CPU0-PackageTt-SensorInstance=0x0
-HWiNFO-CPU0-PackageTt-EntryId=0x8000006
+HWiNFO-CPU0-PackageTt-EntryId=0x800000c
 
 ; Core 0 Voltage [HWiNFO-CPU0-Core0Vid]
 HWiNFO-CPU0-Core0Vid-SensorId=0xf0000300
@@ -410,7 +410,7 @@ HWiNFO-CPU0-Core31Vid-EntryId=0x200001f
 ; CPU Ring Clock [HWiNFO-CPU0-RingClock]
 HWiNFO-CPU0-RingClock-SensorId=0xf0000300
 HWiNFO-CPU0-RingClock-SensorInstance=0x0
-HWiNFO-CPU0-RingClock-EntryId=0x6000000
+HWiNFO-CPU0-RingClock-EntryId=0x6000005
 
 ;
 ; MOBO

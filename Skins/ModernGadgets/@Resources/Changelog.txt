@@ -483,4 +483,5 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.5.0-rc.2 - 2019-02-??
+- Removed process label font face option
 - Fixed WiFi SSID not showing
