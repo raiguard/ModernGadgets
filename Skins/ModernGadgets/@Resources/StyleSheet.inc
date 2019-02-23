@@ -238,7 +238,7 @@ FontSize=9
 FontWeight=600
 FontColor=#colorMain#,230
 X=#contentMargin#
-Y=(#contentMargin# - 3)
+Y=(#contentMargin# - 2)
 
 [StyleStringConfigSectionHeader]
 FontFace=#fontFaceCn#
@@ -455,7 +455,7 @@ TransformationMatrix=#transformationMatrix#
 [StyleConfigButton]
 ImageName=#imgPath#Wrench.png
 X=(#contentMarginRight# - 9)
-Y=(#contentMargin# + 1)
+Y=(#contentMargin# + 2)
 H=8
 ImageTint=#colorMain#
 Antialias=1

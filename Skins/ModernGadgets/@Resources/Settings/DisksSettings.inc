@@ -62,7 +62,7 @@ HWiNFO-SMART-DiskBTemp-EntryId=0x0
 ; Disk C
 HWiNFO-SMART-DiskCTemp-SensorId=0xf0000100
 HWiNFO-SMART-DiskCTemp-SensorInstance=0x0
-HWiNFO-SMART-DiskCTemp-EntryId=0x1000000
+HWiNFO-SMART-DiskCTemp-EntryId=0x1000001
 ; Disk D
 HWiNFO-SMART-DiskDTemp-SensorId=0xf0000100
 HWiNFO-SMART-DiskDTemp-SensorInstance=0x1
