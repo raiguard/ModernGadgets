@@ -490,6 +490,10 @@ v1.0.0-rc.1 - 2016-11-14
 
 WIP Releases
 
+v1.5.0-rc.3 - 2019-03-??
+- Moved all of CPU Meter's self-setting variables to the dynamic variables file
+- Fixed positioning of Network Meter gadget title when disconnected from both LAN and WAN
+
 v1.5.0 - 2019-03-??
 - Added Audio Meter
 - Added Weather Meter
