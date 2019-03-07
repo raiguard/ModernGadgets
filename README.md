@@ -4,16 +4,16 @@ ModernGadgets is a set of sleek, minimalist, information-dense gadgets that are 
 ModernGadgets is released on the Rainmeter platform under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license. The source code is made available on GitHub under an MIT License.
 
 ## Requirements
-Rainmeter 4.2 or newer: https://www.rainmeter.net
+Rainmeter 4.3 or newer: https://www.rainmeter.net
 
 HWiNFO: https://www.hwinfo.com
 
 .NET Framework 4.5 or newer
 
-Additionally, CPU Meter supports [CoreTemp](https://www.alcpu.com/CoreTemp/) or [SpeedFan](http://www.almico.com/speedfan.php) for CPU core temperatures.
+Alternatively, CPU Meter supports [CoreTemp](https://www.alcpu.com/CoreTemp/) or [SpeedFan](http://www.almico.com/speedfan.php) for CPU core temperatures and some other information.
 
 ## Installation Instructions
-ModernGadgets official releases are packaged using the Rainmeter skin installer. After downloading the .RMSKIN package, make sure you have Rainmeter installed, then simply open the file to install the suite. Make certain that you keep the "load included skins" box checked. Once installed, you will be presented with the gadget manager, from which you can load the gadgets you want.
+ModernGadgets official releases are packaged using the Rainmeter skin installer. After downloading the .RMSKIN package, make sure you have Rainmeter installed, then simply open the file to install the suite. It is recommended that you load the included layout if it is your first time installing. If you are updating from a prior version, you do not need to load the layout.
 
 ## Code of Conduct
 ### Bug Reports
