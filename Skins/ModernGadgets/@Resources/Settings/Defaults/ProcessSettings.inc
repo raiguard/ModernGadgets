@@ -2,7 +2,6 @@
 showAvgUsage=0
 showBars=1
 showLineGraph=1
-processLabelFontFace=IBM Plex Sans Condensed
 
 processes=10
 processMode=1

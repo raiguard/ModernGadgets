@@ -24,7 +24,7 @@ graphHeight=42
 graphWidth=#contentWidth#
 
 ; Sidebars
-setupSb=2
+setupSb=1
 sbSetupMode=Placement
 
 sb1Enabled=0

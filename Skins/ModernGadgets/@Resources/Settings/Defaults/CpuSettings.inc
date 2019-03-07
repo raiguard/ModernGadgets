@@ -30,7 +30,7 @@ cpuName=auto
 
 maxCpuTempMode=auto
 maxCpuFanMode=auto
-customMaxCpuTemp=100
+customMaxCpuTemp=85
 customMaxCpuFan=1600
 
 ; Colors

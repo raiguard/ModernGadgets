@@ -7,7 +7,7 @@ fpfRamDepth=4
 fpfPageDepth=4
 
 ; SpeedFan Configuration
-sfCoreTemp=2
+sfCoreTemp=10
 sfCpuFan=1
 
 ; Settings

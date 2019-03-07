@@ -3,7 +3,7 @@
 ; you change anything in this file, it WILL break things. Proceed at your own risk!
 
 [Variables]
-mgVersion=1.5.0-rc.1
+mgVersion=1.5.0-rc.2
 
 ; Positioning
 bgOffset=5

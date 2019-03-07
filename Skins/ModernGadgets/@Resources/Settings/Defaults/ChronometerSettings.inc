@@ -3,8 +3,8 @@ timeAmPmSize=12
 showSystemUptime=1
 showEventCountdown=1
 
-eventName=19th Birthday
-eventTimestamp=2019-03-02 00:00:00
+eventName=Summer Vacation
+eventTimestamp=2019-05-31 00:00:00
 
 timeFormat=WinLong
 dateFormat=WinLong
