@@ -493,6 +493,7 @@ WIP Releases
 v1.5.0-rc.3 - 2019-03-??
 - Moved all of CPU Meter's self-setting variables to the dynamic variables file
 - Fixed positioning of Network Meter gadget title when disconnected from both LAN and WAN
+- Fixed enabling update notifications not loading the update checker skin if it was unloaded
 
 v1.5.0 - 2019-03-??
 - Added Audio Meter
