@@ -1,9 +1,9 @@
 [Variables]
 showAvgUsage=0
 showBars=1
-showLineGraph=1
+showLineGraph=0
 
-processes=10
+processes=5
 processMode=1
 processBlacklist=_Total|Idle|dwm|csrss|svchost|lsass|System|spoolsv
 
