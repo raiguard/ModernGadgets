@@ -519,7 +519,7 @@ v1.5.0 - 2019-03-??
 - Added sidebars
 - Added "ModernGadgets Welcome" layout to package
 - Separated CPU Meter's core measures and meters from the main file, to only load those that are necessary (drastically improves performance)
-- Converted CPU Meter's config script into an ActionTimer measure
+- Converted CPU Meter's config script into loop measures
 - Rewrote Disks Meter to only display up to 10 disks at once, significantly improving performance
 - Merged Network Meter Pro into Network Meter, eliminating the need to maintain two versions of the gadget
 - Changed default external IP location website
