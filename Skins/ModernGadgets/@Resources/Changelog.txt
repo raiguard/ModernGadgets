@@ -3,6 +3,48 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
+v1.5.0 - 2019-03-18
+- Added Audio Meter
+- Added Weather Meter
+- Added locale customization to Chronometer
+- Added custom event countdown to Chronometer
+- Added alarms to Chronometer
+- Added timer applet to Chronometer
+- Added 'standard' CPU temperature display to CPU Meter
+- Added CPU fan speed graph option to CPU Meter
+- Added setting to individually hide disk temperatures / eject buttons per-disk in Disks Meter
+- Added option to Disks Meter to display free disk space, rather than used disk space
+- Added Network Interface settings to Network Meter
+- Added support for monitoring up to three Network Interfaces at once
+- Added WiFi and LAN support to Network Meter
+- Added fan information toggle to GPU Meter settings
+- Added scaling support to the gadgets
+- Added rounded corners option
+- Added graph backgrounds option
+- Added sidebars
+- Added "ModernGadgets Welcome" layout to package
+- Separated CPU Meter's core measures and meters from the main file, to only load those that are necessary (drastically improves performance)
+- Converted CPU Meter's config script into loop measures
+- Rewrote Disks Meter to only display up to 10 disks at once, significantly improving performance
+- Merged Network Meter Pro into Network Meter, eliminating the need to maintain two versions of the gadget
+- Changed default external IP location website
+- Removed process label font face option
+- Switched default font to IBM Plex Sans
+- Improved color pickers to change colors dynamically (with the exception of global colors)
+- Redesigned welcome screen and update notification (again...)
+- Removed subtitle from gadget manager
+- Reorganized gadget manager links
+- Improved organization of skin directories and config names
+- Fixed several issues with CPU Meter program switching
+- Fixed CPU temperature graph when only using SpeedFan
+- Fixed CPU Meter disabling HWiNFO readings if the Core 0 Temperature sensor was misconfigured
+- Fixed CPU Meter line graph log error
+- Fixed network status icon not updating dynamically
+- Fixed GPU variant settings buttons not working
+- Fixed GPU Meter variants all using the same settings file
+- Fixed rare divide-by-zero error in GPU Meter
+- Fixed various visual inconsistencies and positioning issues across the board
+
 v1.4.1 - 2018-10-14
 - Added safeguards for extraordinarily long changelogs preventing access to the download button
 - Added max CPU temp, CPU fan speed, and GPU temp configurations
@@ -497,45 +539,3 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
-
-v1.5.0 - 2019-03-??
-- Added Audio Meter
-- Added Weather Meter
-- Added locale customization to Chronometer
-- Added custom event countdown to Chronometer
-- Added alarms to Chronometer
-- Added timer applet to Chronometer
-- Added 'standard' CPU temperature display to CPU Meter
-- Added CPU fan speed graph option to CPU Meter
-- Added setting to individually hide disk temperatures / eject buttons per-disk in Disks Meter
-- Added option to Disks Meter to display free disk space, rather than used disk space
-- Added Network Interface settings to Network Meter
-- Added support for monitoring up to three Network Interfaces at once
-- Added WiFi and LAN support to Network Meter
-- Added fan information toggle to GPU Meter settings
-- Added scaling support to the gadgets
-- Added rounded corners option
-- Added graph backgrounds option
-- Added sidebars
-- Added "ModernGadgets Welcome" layout to package
-- Separated CPU Meter's core measures and meters from the main file, to only load those that are necessary (drastically improves performance)
-- Converted CPU Meter's config script into loop measures
-- Rewrote Disks Meter to only display up to 10 disks at once, significantly improving performance
-- Merged Network Meter Pro into Network Meter, eliminating the need to maintain two versions of the gadget
-- Changed default external IP location website
-- Removed process label font face option
-- Switched default font to IBM Plex Sans
-- Improved color pickers to change colors dynamically (with the exception of global colors)
-- Redesigned welcome screen and update notification (again...)
-- Removed subtitle from gadget manager
-- Reorganized gadget manager links
-- Improved organization of skin directories and config names
-- Fixed several issues with CPU Meter program switching
-- Fixed CPU temperature graph when only using SpeedFan
-- Fixed CPU Meter disabling HWiNFO readings if the Core 0 Temperature sensor was misconfigured
-- Fixed CPU Meter line graph log error
-- Fixed network status icon not updating dynamically
-- Fixed GPU variant settings buttons not working
-- Fixed GPU Meter variants all using the same settings file
-- Fixed rare divide-by-zero error in GPU Meter
-- Fixed various visual inconsistencies and positioning issues across the board
