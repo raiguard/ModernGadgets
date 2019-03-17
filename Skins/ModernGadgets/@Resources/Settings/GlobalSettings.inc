@@ -11,7 +11,7 @@ cornerRoundness=3
 notifyUpdates=1
 updateCheckRate=90
 autoBackups=1
-checkForPrereleases=1
+checkForPrereleases=0
 
 updateNotificationSound="C:\Windows\media\notify.wav"
 useUpdateNotificationSound=1
