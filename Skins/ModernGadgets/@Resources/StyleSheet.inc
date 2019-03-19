@@ -465,6 +465,7 @@ ImageName=#imgPath#Wrench.png
 X=(#contentMarginRight# - 9)
 Y=(#contentMargin# + 2)
 H=8
+W=8
 ImageTint=#colorMain#
 Antialias=1
 Hidden=1
