@@ -539,3 +539,8 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
+
+v1.6.0-beta.1 - 2019-03-??
+- Added Battery Meter
+- Added Clipboard Meter
+- Adjusted gadget header style
