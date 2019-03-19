@@ -91,42 +91,50 @@ gadgetManagerPath=#ROOTCONFIGPATH#Settings\GadgetManager\GadgetManager.ini
 
 styleSheetPath=#@#StyleSheet.inc
 
+audioMeterPath=#ROOTCONFIGPATH#AudioMeter\AudioMeter.ini
+audioMeterConfig=ModernGadgets\AudioMeter
+audioSettingsPath=#@#Settings\AudioSettings.inc
+
+batteryMeterPath=#ROOTCONFIGPATH#BatteryMeter\BatteryMeter.ini
+batteryMeterConfig=ModernGadgets\BatteryMeter
+batteryMeterSettingsPath=#@#Settings\BatteryMeterSettings.inc
+
+calendarPath=#ROOTCONFIGPATH#Calendar\Calendar.ini
+calendarConfig=ModernGadgets\Calendar
+calendarSettingsPath=#@#Settings\CalendarSettings.inc
+
 chronometerPath=#ROOTCONFIGPATH#Chronometer\Chronometer.ini
 chronometerConfig=ModernGadgets\Chronometer
 chronometerSettingsPath=#@#Settings\ChronometerSettings.inc
 
+clipboardMeterPath=#ROOTCONFIGPATH#ClipboardMeter\ClipboardMeter.ini
+clipboardMeterConfig=ModernGadgets\ClipboardMeter
+clipboardMeterSettingsPath=#@#Settings\ClipboardMeterSettings.inc
+
 cpuMeterPath=#ROOTCONFIGPATH#CpuMeter\CpuMeter.ini
 cpuMeterConfig=ModernGadgets\CpuMeter
 cpuSettingsPath=#@#Settings\CpuSettings.inc
+
+disksMeterPath=#ROOTCONFIGPATH#DisksMeter\DisksMeter.ini
+disksMeterConfig=ModernGadgets\DisksMeter
+disksSettingsPath=#@#Settings\DisksSettings.inc
+
+gpuMeterPath=#ROOTCONFIGPATH#GpuMeter\GPU0\GpuMeter.ini
+gpuMeterConfig=ModernGadgets\GpuMeter\GPU0
+gpuSettingsPath=#@#Settings\GpuSettings.inc
 
 networkMeterPath=#ROOTCONFIGPATH#Network\NetworkMeter.ini
 networkMeterProPath=#ROOTCONFIGPATH#Network\NetworkMeterPro.ini
 networkMeterConfig=ModernGadgets\NetworkMeter
 networkSettingsPath=#@#Settings\NetworkSettings.inc
 
-gpuMeterPath=#ROOTCONFIGPATH#GpuMeter\GPU0\GpuMeter.ini
-gpuMeterConfig=ModernGadgets\GpuMeter\GPU0
-gpuSettingsPath=#@#Settings\GpuSettings.inc
-
-disksMeterPath=#ROOTCONFIGPATH#DisksMeter\DisksMeter.ini
-disksMeterConfig=ModernGadgets\DisksMeter
-disksSettingsPath=#@#Settings\DisksSettings.inc
-
 processMeterPath=#ROOTCONFIGPATH#ProcessMeter\ProcessMeter.ini
 processMeterConfig=ModernGadgets\ProcessMeter
 processSettingsPath=#@#Settings\ProcessSettings.inc
 
-audioMeterPath=#ROOTCONFIGPATH#AudioMeter\AudioMeter.ini
-audioMeterConfig=ModernGadgets\AudioMeter
-audioSettingsPath=#@#Settings\AudioSettings.inc
-
 weatherMeterPath=#ROOTCONFIGPATH#WeatherMeter\WeatherMeter.ini
 weatherMeterConfig=ModernGadgets\WeatherMeter
 weatherSettingsPath=#@#Settings\WeatherSettings.inc
-
-batteryMeterPath=#ROOTCONFIGPATH#BatteryMeter\BatteryMeter.ini
-batteryMeterConfig=ModernGadgets\BatteryMeter
-batteryMeterSettingsPath=#@#Settings\BatteryMeterSettings.inc
 
 setupSkinConfig=ModernGadgets\Settings\Setup
 sidebarSetupConfig=ModernGadgets\\Settings\\Sidebars\\Setup
