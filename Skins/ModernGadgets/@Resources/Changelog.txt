@@ -541,4 +541,5 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.5.1 - 2019-03-??
+- Fixed 30-character limit of chronometer sound file paths
 - Fixed hover logic of net total refresh buttons
