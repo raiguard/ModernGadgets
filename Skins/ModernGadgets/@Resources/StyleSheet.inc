@@ -123,6 +123,10 @@ gpuMeterPath=#ROOTCONFIGPATH#GpuMeter\GPU0\GpuMeter.ini
 gpuMeterConfig=ModernGadgets\GpuMeter\GPU0
 gpuSettingsPath=#@#Settings\GpuSettings.inc
 
+launcherPath=#ROOTCONFIGPATH#Launcher\Launcher.ini
+launcherConfig=ModernGadgets\Launcher
+launcherSettingsPath=#@#Settings\LauncherSettings.inc
+
 networkMeterPath=#ROOTCONFIGPATH#Network\NetworkMeter.ini
 networkMeterProPath=#ROOTCONFIGPATH#Network\NetworkMeterPro.ini
 networkMeterConfig=ModernGadgets\NetworkMeter
