@@ -9,6 +9,8 @@
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
+    v2.0.1 - 2018-04-01
+        - Fixed faulty math.round function
     v2.0.0 - 2018-02-15
         - Enabled skin-side access to SunCalc's raw data tables
         - Added timestamp exports
@@ -531,12 +533,10 @@ end
 
 -- ---------- NOT PART OF THE ORIGINAL SCRIPT - HAD TO BE ADDED FOR THE SCRIPT TO WORK IN LUA ----------
 
-function math.round(x)
-    if x%2 ~= 0.5 then
-        return math.floor(x+0.5)
-    end
-    return x-0.5
-end
+function math.round(num, numDecimalPlaces)
+    local mult = 10^(numDecimalPlaces or 0)
+    return math.floor(num * mult + 0.5) / mult
+  end
 
 function table.length(T)
     local count = 0
