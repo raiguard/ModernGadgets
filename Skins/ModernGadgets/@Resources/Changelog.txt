@@ -548,3 +548,5 @@ v1.5.1 - 2019-04-??
 - Fixed timer finished sound being un-configurable
 - Fixed hover logic of net total refresh buttons
 - Fixed line graph background colors being tied to the wrong variables
+- Fixed faulty round function in SunCalc script
+- Fixed speedtest button hover logic
