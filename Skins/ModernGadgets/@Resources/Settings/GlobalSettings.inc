@@ -52,6 +52,7 @@ colorSubBg=25,25,25
 
 colorGraphBg=#colorSubBg#
 colorGraphBorder=#colorBorder#
+colorGraphGrid=#colorGraphBorder#
 
 colorMain=230,230,230
 colorDim=175,175,175
