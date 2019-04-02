@@ -548,3 +548,4 @@ v1.5.1 - 2019-04-??
 - Fixed timer finished sound being un-configurable
 - Fixed hover logic of net total refresh buttons
 - Fixed line graph background colors being tied to the wrong variables
+- Fixed issue with certain date formats in weather forecast
