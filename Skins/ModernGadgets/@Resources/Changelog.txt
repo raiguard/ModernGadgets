@@ -541,6 +541,7 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.5.1 - 2019-04-??
+- Added average CPU usage mode to CPU Meter
 - Removed leftover debugging tools from CPU Meter and Disks Meter
 - Fixed Audio Meter play button visual glitch when in replay state
 - Fixed accidental 30-character limit of chronometer sound file paths
