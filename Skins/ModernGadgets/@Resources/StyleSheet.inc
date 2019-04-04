@@ -574,12 +574,6 @@ DynamicVariables=1
 Antialias=1
 TransformationMatrix=#transformationMatrix#
 
-[StyleStringPeakIcon]
-FontFace=ElegantIcons
-FontColor=#colorPeak#
-Text=[\xe0ec]
-Antialias=0
-
 [StyleHorizontalRule]
 SolidColor=#colorBorder#
 X=#contentMargin#
