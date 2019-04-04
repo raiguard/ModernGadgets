@@ -21,7 +21,11 @@ showCpuFan=1
 showCpuFanGraph=0
 showCpuClock=1
 showLineGraph=1
+; -----
+; Naming mixup - first is line graph, second is the main display
 showAvgCpu=0
+showAvgCpuUsage=0
+; -----
 showTt=0
 playTtSound=0
 graphAllCoresMode=0
