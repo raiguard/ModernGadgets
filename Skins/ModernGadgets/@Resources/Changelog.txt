@@ -553,3 +553,4 @@ v1.5.1 - 2019-04-??
 - Fixed issue with certain date formats in weather forecast
 - Fixed faulty round function in SunCalc script
 - Fixed line graph background colors being tied to the wrong variables
+- Fixed background height inconsistencies in CPU Meter and Disks Meter
