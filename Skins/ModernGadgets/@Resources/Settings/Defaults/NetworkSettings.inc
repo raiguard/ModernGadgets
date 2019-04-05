@@ -11,12 +11,10 @@ showLineGraph=1
 showPeakNetworkUsage=0
 monitoringType=standard
 
-pingUrl=google.com
+pingUrl=www.msftncsi.com
 
 colorUpload=107,238,98
 colorDownload=255,246,42
-colorPeak=99,125,217
-
-colorGlobe=137,190,250
+colorPeak=250,158,0
 
 autoAdapterConfig=1

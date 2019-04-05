@@ -17,4 +17,4 @@ colorUpload=107,238,98
 colorDownload=255,246,42
 colorPeak=250,158,0
 
-autoAdapterConfig=0
+autoAdapterConfig=1
