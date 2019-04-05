@@ -3,7 +3,7 @@
 ; you change anything in this file, it WILL break things. Proceed at your own risk!
 
 [Variables]
-mgVersion=1.5.0
+mgVersion=1.5.1-rc.1
 
 ; Positioning
 bgOffset=5
@@ -517,8 +517,8 @@ LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.pn
 TransformationMatrix=#transformationMatrix#
 
 [StyleLineGraphBackground]
-Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
-Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorGraphBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorGraphBg#
 ; Vertical
 Shape3=Rectangle (floor(([&[#CURRENTSECTION]:W] - 2) * 0.1)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
 Shape4=Rectangle (floor(([&[#CURRENTSECTION]:W] - 2) * 0.2)),1,0.5,([&[#CURRENTSECTION]:H] - 2) | Extend VerticalLines
@@ -589,12 +589,6 @@ BarOrientation=Horizontal
 DynamicVariables=1
 Antialias=1
 TransformationMatrix=#transformationMatrix#
-
-[StyleStringPeakIcon]
-FontFace=ElegantIcons
-FontColor=#colorPeak#
-Text=[\xe0ec]
-Antialias=0
 
 [StyleHorizontalRule]
 SolidColor=#colorBorder#
