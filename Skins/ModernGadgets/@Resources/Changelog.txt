@@ -555,3 +555,6 @@ v1.0.0-rc.1 - 2016-11-14
 ----------------------------------------------------------------------------------------------------
 WIP Releases
 
+v1.5.1-rc.2 - 2019-04-??
+- Updated default network peak traffic color
+- Fixed event countdown not working if system uptime was hidden
