@@ -557,4 +557,5 @@ WIP Releases
 
 v1.5.1-rc.2 - 2019-04-??
 - Updated default network peak traffic color
+- Fixed speedtest button being un-clickable
 - Fixed event countdown not working if system uptime was hidden
