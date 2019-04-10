@@ -1,0 +1,10 @@
+FontAwesome Icon Conversion:
+
+1. Open icon page, hover over icon and screenshot it into paint.net
+2. Remove hand and 7x label, use fill tool to fill with white
+3. Increase brightness by 10%
+4. Use GrimColorReaper, set to 2.0x tolerance and 0% opacity
+5. Use HSL adjustment, S to 0, L to 1
+6. Crop to 112x112
+7. Select individual components into a separate file, recolor at 75% hardness, 100% tolerance
+8. Combine, flatten, save.
