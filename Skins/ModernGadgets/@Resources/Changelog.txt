@@ -191,6 +191,12 @@ v1.0.0 - 2016-12-04
 ----------------------------------------------------------------------------------------------------
 Development Releases
 
+v1.5.1-rc.2 - 2019-04-13
+- Updated default network peak traffic color
+- Fixed speedtest button being un-clickable
+- Fixed event countdown not working if system uptime was hidden
+- Fixed sidebars not disappearing when disabled
+
 v1.5.1-rc.1 - 2019-04-04
 - Added average CPU usage mode to CPU Meter
 - Improved iconography in Network Meter
