@@ -35,7 +35,7 @@
     ----------------------------------------------------------------------------------------------------
 ]]--
 
-debug = false -- set to true to enable debug logging
+debug = true -- set to true to enable debug logging
 data = {}
 
 function Initialize() end
@@ -69,8 +69,6 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
         data.moonTimes.rise = SunCalc.getMoonTimes(ysDate, latitude, longitude)['rise']
     end
 
-    -- PrintTable(data)
-
     -- convert timestamps back to FILETIME
     data.sunTimes = UnixToFiletime(data.sunTimes, tzOffset)
     data.moonTimes = UnixToFiletime(data.moonTimes, tzOffset)
@@ -79,10 +77,15 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
     data.moonIllumination.phaseName = GetMoonPhaseName(data.moonIllumination.phase)
 
     -- add timestamp info for use in the skin
-    data.timestamps = UnixToFiletime({ timestamp = timestamp, zDate = zDate, ysDate = ysDate, tmDate = tmDate }, tzOffset)
+    data.timestamps = UnixToFiletime({ timestamp = timestamp, mDate = mDate, zDate = zDate, ysDate = ysDate, tmDate = tmDate }, tzOffset)
+    data.julian_timestamps = {}
+
+    for k,v in pairs(data.timestamps) do
+        data.julian_timestamps[k] = toJulian(v)
+    end
 
     -- debug logging
-    PrintTable(data)
+    RmLog(data)
 
     SKIN:Bang('!EnableMeasureGroup', 'SunCalc')
     SKIN:Bang('!UpdateMeasureGroup', 'SunCalc')
@@ -169,34 +172,30 @@ end
 
 function GetTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
 
--- function to make logging messages less cluttered
-function RmLog(message, type)
+-- shortcut for invoking a !Log bang. also supports logging tables
+function RmLog(message, category)
 
-    if type == nil then type = 'Debug' end
+    if category == nil then category = 'Debug' end
+    if category == 'Debug' and debug == false then return end
+    if printIndent == nil then printIndent = '' end
       
-    if debug == true then
-        SKIN:Bang("!Log", message, type)
-    elseif type ~= 'Debug' then
-        SKIN:Bang("!Log", message, type)
-    end
-      
-end
-
-printIndent = '     '
-
--- prints the entire contents of a table to the Rainmeter log
-function PrintTable(table)
-    for k,v in pairs(table) do
-        if type(v) == 'table' then
-            local pI = printIndent
-            RmLog(printIndent .. tostring(k) .. ':')
-            printIndent = printIndent .. '  '
-            PrintTable(v)
-            printIndent = pI
-        else
-            RmLog(printIndent .. tostring(k) .. ': ' .. tostring(v))
+    if type(message) == 'table' then
+        for k,v in pairs(message) do
+            if type(v) == 'table' then
+                local pI = printIndent
+                RmLog(printIndent .. tostring(k) .. ' = {', category)
+                printIndent = printIndent .. '  '
+                RmLog(v, category)
+                printIndent = pI
+                RmLog(printIndent .. '}', category)
+            else
+                RmLog(printIndent .. tostring(k) .. ' = ' .. tostring(v), category)
+            end
         end
+    else
+        SKIN:Bang("!Log", message, category)
     end
+      
 end
 
 -- ------------------------------------------------------------------------------------------------------------------------
@@ -522,8 +521,8 @@ SunCalc.getMoonTimes = function (date, lat, lng)
 
     result = {}
 
-    if rise then result.rise = hoursLater(t, rise) end
-    if set then result.set = hoursLater(t, set) end
+    if rise then result.rise = hoursLater(t, rise) + (os.date('*t')['isdst'] and 3600000 or 0) end
+    if set then result.set = hoursLater(t, set) + (os.date('*t')['isdst'] and 3600000 or 0) end
 
     if not rise and not set then result[ye > 0 and 'alwaysUp' or 'alwaysDown'] = true end
 
