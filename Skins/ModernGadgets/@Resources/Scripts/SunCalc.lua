@@ -70,10 +70,10 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
     end
 
     -- convert timestamps back to FILETIME
-    data.sunTimes = ConvertTime(data.sunTimes, 'Windows', true, -6)
+    data.sunTimes = ConvertTime(data.sunTimes, 'Windows', true, tzOffset)
     data.moonTimes = ConvertTime(data.moonTimes, 'Windows', true, tzOffset)
-    data.timestamps = ConvertTime({ mDate = mDate, zDate = zDate, ysDate = ysDate, tmDate = tmDate }, 'Windows', true)
-    data.timestamps.filetime = SKIN:GetMeasure('MeasureLocalTime'):GetValue()
+    data.timestamps = ConvertTime({ timestamp = timestamp, mDate = mDate, zDate = zDate, ysDate = ysDate, tmDate = tmDate }, 'Windows', true, tzOffset)
+    -- data.timestamps.timestamp = ConvertTime(timestamp
 
     -- add moon phase name info
     data.moonIllumination.phaseName = GetMoonPhaseName(data.moonIllumination.phase)
@@ -104,14 +104,11 @@ end
 -- ----- Utilities -----
 
 -- converts a Windows FILETIME timestamp into a Unix epoch timestamp, accounting for timezone and DST, then returns several useful timestamps
-function SetupTimestamps(timestamp, tzOffset)
+function SetupTimestamps(timestamp)
 
-    tzOffset = tzOffset or 0
     local localTz = (GetTimeOffset() / 3600)
     -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
-    RmLog(timestamp)
-    timestamp = ConvertTime(timestamp, 'Unix', false)
-    RmLog(timestamp)
+    timestamp = ConvertTime(timestamp, 'Unix', false, localTz * -1)
     tDate = os.date("!*t", timestamp)
     RmLog('tdate = {')
     RmLog(tDate)
