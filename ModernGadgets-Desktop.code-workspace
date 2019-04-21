@@ -4,9 +4,6 @@
 			"path": "."
 		},
 		{
-			"path": "D:\\Settings\\Caleb\\Rainmeter\\Skins\\Gadgets"
-		},
-		{
 			"path": "D:\\Caleb\\Development\\Rainmeter\\Testbench\\Skins\\Concat"
 		},
 		{
@@ -20,6 +17,9 @@
 		},
 		{
 			"path": "D:\\Settings\\Caleb\\Rainmeter\\Skins\\WXDataTutorial"
+		},
+		{
+			"path": "D:\\Caleb\\Development\\Rainmeter\\Testbench\\Skins\\Gadgets"
 		}
 	],
 	"settings": {}
