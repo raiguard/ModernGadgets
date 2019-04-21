@@ -103,7 +103,7 @@ end
 
 -- ----- Utilities -----
 
--- converts a Windows FILETIME timestamp into a Unix epoch timestamp, accounting for timezone and DST, then returns several useful timestamps
+-- sets up and returns several useful timestamps
 function SetupTimestamps(timestamp)
 
     local localTz = (GetTimeOffset() / 3600)
@@ -127,6 +127,7 @@ function SetupTimestamps(timestamp)
 
 end
 
+-- converts between windows and unix epoch timestamps, with an optional timezone offset
 function ConvertTime(n, to, mode, tzOffset)
 
     if tzOffset == nil then tzOffset = 0 end
@@ -171,12 +172,12 @@ end
 
 function GetTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
 
--- shortcut for invoking a !Log bang. also supports logging tables
+-- writes the given string or table to the rainmeter log
 function RmLog(message, category)
 
     if category == nil then category = 'Debug' end
     if category == 'Debug' and debug == false then return end
-    if printIndent == nil then printIndent = '    ' end
+    if printIndent == nil then printIndent = '' end
       
     if type(message) == 'table' then
         for k,v in pairs(message) do
