@@ -2,16 +2,20 @@
     ----------------------------------------------------------------------------------------------------
     SUNCALC.LUA
     raiguard
-    v2.0.0
+    v2.0.2
 
     This script is a form of 'SunCalc' by mourner, translated to LUA and adapted for Rainmeter
     The original source code of SunCalc can be found at https://github.com/mourner/suncalc
     See below to view SunCalc's source code license
     ----------------------------------------------------------------------------------------------------
     CHANGELOG:
-    v2.0.1 - 2018-04-01
+    v2.0.2 - 2019-04-21
+        - Fixed faulty timestamp conversion causing the entire script to be a day off
+        - Consolidated PrintTable() into RmLog()
+        - Fixed some minor typos
+    v2.0.1 - 2019-04-01
         - Fixed faulty math.round function
-    v2.0.0 - 2018-02-15
+    v2.0.0 - 2019-02-15
         - Enabled skin-side access to SunCalc's raw data tables
         - Added timestamp exports
         - Removed proprietary calculations and data table from the GenerateData() script
@@ -173,7 +177,7 @@ end
 function GetTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
 
 -- writes the given string or table to the rainmeter log
-function RmLog(...)
+function RmLog(message, category)
 
     if debug == nil then debug = false end
     if category == nil then category = 'Debug' end
