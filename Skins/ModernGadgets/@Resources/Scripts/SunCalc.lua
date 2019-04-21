@@ -35,7 +35,7 @@
     ----------------------------------------------------------------------------------------------------
 ]]--
 
-debug = true -- set to true to enable debug logging
+debug = false -- set to true to enable debug logging
 data = {}
 
 function Initialize() end
@@ -173,8 +173,9 @@ end
 function GetTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
 
 -- writes the given string or table to the rainmeter log
-function RmLog(message, category)
+function RmLog(...)
 
+    if debug == nil then debug = false end
     if category == nil then category = 'Debug' end
     if category == 'Debug' and debug == false then return end
     if printIndent == nil then printIndent = '' end
