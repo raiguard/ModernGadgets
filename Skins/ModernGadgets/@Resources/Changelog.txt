@@ -563,4 +563,4 @@ WIP Releases
 
 v1.5.1-rc.3 - 2019-04-??
 - Fixed sidebar configuration stopping early
-- Fixed timestamp conversion errors in SunCalc script(moon info was a day behind!)
+- Fixed timestamp conversion errors in SunCalc script (moon info was a day behind!)
