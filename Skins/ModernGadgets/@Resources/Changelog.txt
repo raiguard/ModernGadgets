@@ -567,4 +567,5 @@ WIP Releases
 
 v1.5.1-rc.4 - 2019-04-30
 - Added help icon to average CPU usage mode
+- Fixed page file size not updating
 - Fixed weather forecast buttons being unclickable at non-1.0x scaling
