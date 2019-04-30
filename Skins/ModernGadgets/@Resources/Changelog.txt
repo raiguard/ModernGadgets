@@ -191,6 +191,11 @@ v1.0.0 - 2016-12-04
 ----------------------------------------------------------------------------------------------------
 Development Releases
 
+v1.5.1-rc.4 - 2019-04-31
+- Added help icon to average CPU usage mode
+- Fixed page file size not updating
+- Fixed weather forecast buttons being unclickable at non-1.0x scaling
+
 v1.5.1-rc.3 - 2019-04-25
 - Fixed sidebar configuration stopping early
 - Fixed timestamp conversion errors in SunCalc script (moon info was a day behind!)
@@ -564,8 +569,3 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
-
-v1.5.1-rc.4 - 2019-04-30
-- Added help icon to average CPU usage mode
-- Fixed page file size not updating
-- Fixed weather forecast buttons being unclickable at non-1.0x scaling
