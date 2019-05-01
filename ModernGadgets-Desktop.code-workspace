@@ -10,9 +10,6 @@
 			"path": "D:\\Caleb\\Development\\Rainmeter\\Testbench\\Skins\\ColorPicker"
 		},
 		{
-			"path": "D:\\Caleb\\Development\\Rainmeter\\Utilities\\google-material-design-icons-updated"
-		},
-		{
 			"path": "D:\\Caleb\\Development\\Rainmeter\\Testbench\\Skins\\VectorConverter"
 		},
 		{
@@ -22,5 +19,7 @@
 			"path": "D:\\Caleb\\Development\\Rainmeter\\Testbench\\Skins\\Gadgets"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"svg.preview.background": "transparent"
+	}
 }

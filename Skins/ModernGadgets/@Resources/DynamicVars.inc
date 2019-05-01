@@ -7,7 +7,7 @@ cpuCores=8
 threadsPerCore=2
 includeNum=8
 ; Network Meter
-externalIp=
+externalIp=67.2.53.26
 
 ; - Disks Meter -
 
