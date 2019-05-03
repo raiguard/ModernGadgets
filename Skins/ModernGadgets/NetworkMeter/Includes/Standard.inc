@@ -77,6 +77,36 @@ Formula=MeasureNetInOtherBytesTotal - MeasureNetInOtherBytesSessionTotalBase
 Group=NetInOut | MeasureOther
 DynamicVariables=1
 
+[MeasureNetInBestBytes]
+Measure=NetIn
+Interface=[MeasureBestAdapterName]
+Group=NetInOut | MeasureBest
+DynamicVariables=1
+Disabled=1
+
+[MeasureNetInBestBytesTotal]
+Measure=NetIn
+Interface=[MeasureBestAdapterName]
+Cumulative=1
+Group=NetInOut | MeasureBest
+DynamicVariables=1
+Disabled=1
+
+[MeasureNetInBestBytesSessionTotalBase]
+Measure=Calc
+Formula=MeasureNetInBestBytesTotal
+UpdateDivider=-1
+Group=NetInOut | MeasureBest | NetInOutBytesSessionTotalBase
+DynamicVariables=1
+Disabled=1
+
+[MeasureNetInBestBytesSessionTotal]
+Measure=Calc
+Formula=MeasureNetInBestBytesTotal - MeasureNetInBestBytesSessionTotalBase
+Group=NetInOut | MeasureBest
+DynamicVariables=1
+Disabled=1
+
 ; Network Out (Upload)
 [MeasureNetOutEthernetBytes]
 Measure=NetOut
@@ -156,67 +186,32 @@ Formula=MeasureNetOutOtherBytesTotal - MeasureNetOutOtherBytesSessionTotalBase
 Group=NetInOut | MeasureOther
 DynamicVariables=1
 
-; Calculations
-[MeasureNetInBytes]
-Measure=Calc
-Formula=MeasureNetInEthernetBytes + MeasureNetInWirelessBytes + MeasureNetInOtherBytes
-IfCondition=1
-IfTrueAction=[!SetVariable textNetInBytes [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetInBytes],5,'1k')]]
-OnChangeAction=[!SetVariable textNetInBytes [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetInBytes],5,'1k')]]
+[MeasureNetOutBestBytes]
+Measure=NetOut
+Interface=[MeasureBestAdapterName]
+Group=NetInOut | MeasureBest
 DynamicVariables=1
+Disabled=1
 
-[MeasureNetInBitsCalc]
-Measure=Calc
-Formula=MeasureNetInBytes * 8
-IfCondition=1
-IfTrueAction=[!SetVariable textNetInBits [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetInBitsCalc],5,'1k')]]
-OnChangeAction=[!SetVariable textNetInBits [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetInBitsCalc],5,'1k')]]
+[MeasureNetOutBestBytesTotal]
+Measure=NetOut
+Interface=[MeasureBestAdapterName]
+Cumulative=1
+Group=NetInOut | MeasureBest
 DynamicVariables=1
+Disabled=1
 
-[MeasureNetInBytesSessionTotal]
+[MeasureNetOutBestBytesSessionTotalBase]
 Measure=Calc
-Formula=MeasureNetInEthernetBytesSessionTotal + MeasureNetInWirelessBytesSessionTotal + MeasureNetInOtherBytesSessionTotal
-IfCondition=1
-IfTrueAction=[!SetVariable textNetInSessionTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetInBytesSessionTotal],6,'1k')]]
-OnChangeAction=[!SetVariable textNetInSessionTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetInBytesSessionTotal],6,'1k')]]
+Formula=MeasureNetOutBestBytesTotal
+UpdateDivider=-1
+Group=NetInOut | MeasureBest | NetInOutBytesSessionTotalBase
 DynamicVariables=1
+Disabled=1
 
-[MeasureNetInBytesTotal]
+[MeasureNetOutBestBytesSessionTotal]
 Measure=Calc
-Formula=MeasureNetInEthernetBytesTotal + MeasureNetInWirelessBytesTotal + MeasureNetInOtherBytesTotal
-IfCondition=1
-IfTrueAction=[!SetVariable textNetInTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetInBytesTotal],6,'1k')]]
-OnChangeAction=[!SetVariable textNetInTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetInBytesTotal],6,'1k')]]
+Formula=MeasureNetOutBestBytesTotal - MeasureNetOutBestBytesSessionTotalBase
+Group=NetInOut | MeasureBest
 DynamicVariables=1
-
-[MeasureNetOutBytes]
-Measure=Calc
-Formula=MeasureNetOutEthernetBytes + MeasureNetOutWirelessBytes + MeasureNetOutOtherBytes
-IfCondition=1
-IfTrueAction=[!SetVariable textNetOutBytes [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetOutBytes],5,'1k')]]
-OnChangeAction=[!SetVariable textNetOutBytes [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetOutBytes],5,'1k')]]
-DynamicVariables=1
-
-[MeasureNetOutBitsCalc]
-Measure=Calc
-Formula=MeasureNetOutBytes * 8
-IfCondition=1
-IfTrueAction=[!SetVariable textNetOutBits [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetOutBitsCalc],5,'1k')]]
-OnChangeAction=[!SetVariable textNetOutBits [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetOutBitsCalc],5,'1k')]]
-DynamicVariables=1
-
-[MeasureNetOutBytesSessionTotal]
-Measure=Calc
-Formula=MeasureNetOutEthernetBytesSessionTotal + MeasureNetOutWirelessBytesSessionTotal + MeasureNetOutOtherBytesSessionTotal
-IfCondition=1
-IfTrueAction=[!SetVariable textNetOutSessionTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetOutBytesSessionTotal],6,'1k')]]
-OnChangeAction=[!SetVariable textNetOutSessionTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetOutBytesSessionTotal],6,'1k')]]
-DynamicVariables=1
-
-[MeasureNetOutBytesTotal]
-Measure=Calc
-Formula=MeasureNetOutEthernetBytesTotal + MeasureNetOutWirelessBytesTotal + MeasureNetOutOtherBytesTotal
-IfCondition=1
-IfTrueAction=[!SetVariable textNetOutTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetOutBytesTotal],6,'1k')]]
-OnChangeAction=[!SetVariable textNetOutTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureNetOutBytesTotal],6,'1k')]]
-DynamicVariables=1
+Disabled=1
