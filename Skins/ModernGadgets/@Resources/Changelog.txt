@@ -3,6 +3,26 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
+v1.5.1 - 2019-05-04
+- Added average CPU usage mode to CPU Meter
+- Updated default network peak traffic color
+- Fixed Audio Meter play button visual glitch when in replay state
+- Fixed accidental 30-character limit of Chronometer sound file paths
+- Fixed Chronometer sound file path input boxes destroying backslashes
+- Fixed event countdown not working if system uptime was hidden
+- Fixed timer finished sound being un-configurable
+- Fixed page file size not updating
+- Fixed hover logic of net total refresh buttons
+- Fixed speedtest button hover logic
+- Fixed issue with certain date formats in weather forecast
+- Fixed weather forecast buttons being unclickable at non-1.0x scaling
+- Fixed faulty math.round function in SunCalc script
+- Fixed timestamp conversion errors in SunCalc script (moon info was a day behind!)
+- Fixed line graph background colors being tied to the wrong variables
+- Fixed background height inconsistencies in CPU Meter and Disks Meter
+- Fixed sidebar configuration stopping early
+- Fixed sidebars not disappearing when disabled
+
 v1.5.0 - 2019-03-18
 - Added Audio Meter
 - Added Weather Meter
