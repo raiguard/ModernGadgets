@@ -17,7 +17,7 @@ contentMargin=(#contentMarginAbs# + #bgOffset# - 1)
 contentMarginRight=(#bgWidth# - #contentMarginAbs# + #bgOffset# - 2)
 contentMarginCenter=((#bgWidth# / 2) + #bgOffset#)
 contentWidth=(#bgWidth# - (#contentMarginAbs# * 2))
-columnX=(#contentMarginCenter# + 2)
+dColumnX=(#contentMarginCenter# + 2)
 
 scale=1.0
 transformationMatrix=#scale#;0;0;#scale#;#scale#;#scale#
@@ -260,6 +260,10 @@ FontColor=#colorDim#
 Y=5R
 StringCase=UPPER
 
+[StyleStringArrowIconLabel]
+X=3R
+Y=-4r
+
 ; Settings
 [StyleStringInputBoxLabel]
 FontSize=10
@@ -392,10 +396,19 @@ H=([#CURRENTSECTION#_:H] * #scale#)
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageTint ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
+[StyleMouseRegionShapeButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorMain#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+
 [StyleMouseRegionRefreshButton]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION#_ ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+
+[StyleMouseRegionShapeRefreshButton]
+MouseOverAction=[!SetOption #CURRENTSECTION#_ Shape3 "Combine Shape1 | XOR Shape2 | Scale 0.02,0.02,0,0 | Offset 0,2 | Rotate 15"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Shape3 "Combine Shape1 | XOR Shape2 | Scale 0.02,0.02,0,0 | Offset 0,2 | Rotate 0"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleMouseRegionStringButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
@@ -479,6 +492,20 @@ Group=ConfigButton
 ; LeftMouseUpAction=[!SkinCustomMenu]
 TransformationMatrix=#transformationMatrix#
 
+[StyleConfigButtonNew]
+X=(#contentMarginRight# - [#CURRENTSECTION#:W])
+Y=(#contentMargin# + 2)
+Shape = Path Path1 | StrokeWidth 0| Extend Fill
+Shape2 = Path Path2 | StrokeWidth 0
+Shape3 = Combine Shape1 | XOR Shape2 | Scale 0.018,0.018,0,0
+Path1 = 507.73, 109.1 | CurveTo 487.61, 103.59, 505.49, 100.07, 494.19, 97.01 | LineTo 413.25, 177.95 | LineTo 345.37, 166.64 | LineTo 334.06, 98.76 | LineTo 408.42, 24.4 | CurveTo 402.76, 4.24, 415.04, 17.78, 411.85, 6.5 | CurveTo 266.18, 42.17, 355.38, -7.5, 303.21, 5.15 | CurveTo 232.13, 189.37, 226.54, 81.81, 215.63, 139.27 | LineTo 18.74, 402.76 | CurveTo 18.74, 493.26, -6.25, 427.75, -6.25, 468.27 | CurveTo 109.24, 493.26, 43.73, 518.25, 84.25, 518.25 | LineTo 322.45, 280.05 | CurveTo 469.82, 245.83, 372.57, 296.76, 429.92, 285.73 | CurveTo 507.73, 109.1, 506.89, 208.76, 519.52, 156.51 | ClosePath 1
+Path2 = 64, 472 | CurveTo 40, 448, 50.75, 472, 40, 461.25 | CurveTo 64, 424, 40, 434.74, 50.75, 424 | CurveTo 88, 448, 77.25, 424, 88, 434.74 | CurveTo 64, 472, 88, 461.25, 77.25, 472 | ClosePath 1
+Fill=Fill Color #colorMain#
+DynamicVariables=1
+TransformationMatrix=#transformationMatrix#
+Group=ConfigButton
+Hidden=1
+
 [StyleHelpButton]
 ImageName=#imgPath#help.png
 X=(#contentMarginRight# - 15)
@@ -502,20 +529,17 @@ Antialias=1
 TransformationMatrix=#transformationMatrix#
 
 [StyleRefreshButton]
-ImageName=#imgPath#refresh-up.png
-ImageTint=#colorAccent#
-X=3R
+X=(#contentMarginRight# - 11)
 Y=r
-W=13
-H=13
-DynamicVariables=1
-Antialias=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-LeftMouseDownAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+Shape = Path Path1 | StrokeWidth 0 | Extend Fill
+Shape2 = Path Path2 | StrokeWidth 0
+Shape3 = Combine Shape1 | XOR Shape2 | Scale 0.02,0.02,0,0 | Offset 0,2
+Path1 = 440.65, 12.57 | LineTo 444.65, 95.34 | ArcTo 255.83, 8, 247.16, 247.16, 0, 1, 0 | CurveTo 12.29, 209.82, 134.73, 8, 33.91, 94.92 | ArcTo 24.09, 224, 12, 12, 0, 1, 0 | LineTo 73.14, 224 | ArcTo 84.81, 214.74, 12, 12, 0, 1, 0 | ArcTo 401.81, 157.8, 175.91, 175.91, 0, 0, 0 | LineTo 300.35, 152.94 | ArcTo 287.78, 164.94, 12, 12, 0, 1, 0 | LineTo 287.78, 212.35 | ArcTo 299.78, 224.35, 12, 12, 0, 1, 0 | LineTo 500, 224.35 | ArcTo 512, 212.35, 12, 12, 0, 1, 0 | LineTo 512, 12 | ArcTo 500, 0, 12, 12, 0, 1, 0 | LineTo 452.63, 0 | ArcTo 440.65, 12.57, 12, 12, 0, 1, 0 | ClosePath 1
+Path2 = 255.83, 432 | ArcTo 109.83, 354.2, 175.61, 175.61, 0, 0, 0 | LineTo 211.63, 359.07 | ArcTo 224.2, 347.07, 12, 12, 0, 1, 0 | LineTo 224.2, 299.67 | ArcTo 212.2, 287.67, 12, 12, 0, 1, 0 | LineTo 12, 287.67 | ArcTo 0, 299.67, 12, 12, 0, 1, 0 | LineTo 0, 500 | ArcTo 12, 512, 12, 12, 0, 1, 0 | LineTo 59.35, 512 | ArcTo 71.35, 499.4, 12, 12, 0, 1, 0 | LineTo 67.2, 416.83 | ArcTo 255.83, 504, 247.17, 247.17, 0, 1, 0 | CurveTo 499.38, 302.18, 376.94, 504, 477.76, 417.08 | ArcTo 487.58, 288, 12, 12, 0, 1, 0 | LineTo 438.53, 288 | ArcTo 426.86, 297.26, 12, 12, 0, 1, 0 | ArcTo 255.83, 432, 175.86, 175.86, 0, 0, 0 | ClosePath 1
+Fill=Fill Color #colorAccent#
 TransformationMatrix=#transformationMatrix#
 
+; Line Graph
 [StyleLineGraphBackground]
 Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorGraphBorder#
 Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorGraphBg#
@@ -576,6 +600,19 @@ Y=((#showLineGraph# = 0) ? 0 : 1)R
 Hidden=(#showLineGraph# = 0)
 Group=LineGraph
 TransformationMatrix=#transformationMatrix#
+
+; Icons
+[StyleArrowIcon]
+X=#contentMargin#
+Y=5R
+Shape = Path Path1 | StrokeWidth 0 | Scale 0.027,0.027,1,-157 | Offset 0,0.25 | Extend Extend
+Extend= Rotate 0 | Fill Color #colorAccent#
+Path1 = 177, 159.7 | LineTo 313, 295.7 | CurveTo 313, 329.6, 322.4, 305.1, 322.4, 320.3 | LineTo 290.4, 352.2 | CurveTo 256.5, 352.2, 281, 361.6, 265.8, 361.6 | LineTo 160, 255.9 | LineTo 63.6, 352.3 | CurveTo 29.7, 352.3, 54.2, 361.7, 39, 361.7 | LineTo 7, 329.7 | CurveTo 7, 295.8, -2.4, 320.3, -2.4, 305.1 | LineTo 143, 159.8 | CurveTo 177, 159.7, 152.4, 150.3, 167.6, 150.3 | ClosePath 1
+TransformationMatrix=#transformationMatrix#
+
+[StyleArrowIconInline]
+X=#columnX#
+Y=4r
 
 ; Other
 [StyleBar]
