@@ -684,3 +684,6 @@ Y=6R
 FontSize=8
 Text=Report issues with the new SMV
 LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/issues/103"]
+
+[StyleDynamicVars]
+DynamicVariables=1

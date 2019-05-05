@@ -1,3 +1,4 @@
+
 ; Disk 1
 [MeasureDisk1Type]
 Measure=FreeDiskSpace
@@ -108,6 +109,8 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk1
 Disabled=#hideDisk1#
+
+
 ; Disk 2
 [MeasureDisk2Type]
 Measure=FreeDiskSpace
@@ -218,6 +221,7 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk2
 Disabled=#hideDisk2#
+
 ; Disk 3
 [MeasureDisk3Type]
 Measure=FreeDiskSpace
@@ -328,6 +332,7 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk3
 Disabled=#hideDisk3#
+
 ; Disk 4
 [MeasureDisk4Type]
 Measure=FreeDiskSpace
@@ -438,6 +443,7 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk4
 Disabled=#hideDisk4#
+
 ; Disk 5
 [MeasureDisk5Type]
 Measure=FreeDiskSpace
@@ -548,6 +554,7 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk5
 Disabled=#hideDisk5#
+
 ; Disk 6
 [MeasureDisk6Type]
 Measure=FreeDiskSpace
@@ -658,6 +665,7 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk6
 Disabled=#hideDisk6#
+
 ; Disk 7
 [MeasureDisk7Type]
 Measure=FreeDiskSpace
@@ -768,6 +776,7 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk7
 Disabled=#hideDisk7#
+
 ; Disk 8
 [MeasureDisk8Type]
 Measure=FreeDiskSpace
@@ -878,6 +887,7 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk8
 Disabled=#hideDisk8#
+
 ; Disk 9
 [MeasureDisk9Type]
 Measure=FreeDiskSpace
@@ -988,6 +998,7 @@ Substitute="":"#unnamedDiskLabel#"
 DynamicVariables=1
 Group=Disk9
 Disabled=#hideDisk9#
+
 ; Disk 10
 [MeasureDisk10Type]
 Measure=FreeDiskSpace
