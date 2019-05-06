@@ -400,7 +400,7 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageTint ""][!UpdateMeter #CURRE
 
 [StyleMouseRegionShapeButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorMain#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Fill ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleMouseRegionRefreshButton]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
