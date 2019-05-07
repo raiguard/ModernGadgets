@@ -3,9 +3,13 @@
 -- v1.0.0
 -- By raiguard
 -- --------------------------------------------------------------------------------
+-- Changelog:
+-- v1.0.0 - 2019-05-08
+-- - Initial release
+-- --------------------------------------------------------------------------------
 -- MIT License
 
--- Copyright (c) 2018 Caleb Heuer
+-- Copyright (c) 2019 Caleb Heuer
 
 -- Permission is hereby granted, free of charge, to any person obtaining a copy
 -- of this software and associated documentation files (the "Software"), to deal
@@ -28,25 +32,23 @@
 -- Documentation: https://github.com/raiguard/rainmeter-settings/blob/master/README.md
 
 debug = false
-rainRgbInfo = {}
 
 function Initialize()
 
 	meterUpdateGroup = SELF:GetOption('MeterUpdateGroup', 'Settings')
-	settingsPath = SELF:GetOption('SettingsPath', SKIN:GetVariable('CURRENTPATH'))
-	configPath = SELF:GetOption('ConfigPath', SKIN:GetVariable('CURRENTCONFIGPATH'))
-	toggleOn = SELF:GetOption('ToggleOn')
-	toggleOff = SELF:GetOption('ToggleOff')
-	radioOn = SELF:GetOption('RadioOn')
-	radioOff = SELF:GetOption('RadioOff')
+	settingsPath = SELF:GetOption('SettingsPath', SKIN:GetVariable('CURRENTPATH') .. SKIN:GetVariable('CURRENTFILE'))
+	configPath = SELF:GetOption('ConfigPath', SKIN:GetVariable('CURRENTCONFIG'))
+	assets = loadstring('return ' .. SELF:GetOption('Assets'))()
 	defaultAction = SELF:GetOption('DefaultAction')
-	measureRainRgb=SELF:GetOption('MeasureRainRgb', 'MeasureRainRgb')
+	measureInputText = SELF:GetOption('MeasureInputText', 'MeasureSettingsInputText')
+	colorPickerConfig = SELF:GetOption('ColorPickerConfig')
+	colorPickerPath = SKIN:GetVariable('SKINSPATH') .. colorPickerConfig .. '\\ColorPickerPlus.ini'
 
 end
 
 function Update() end
 
--- oggles the specified variable between the two given states
+-- toggles the specified variable between the two given states
 function Toggle(variable, onState, offState, actionSet, ifLogic, oSettingsPath, oConfigPath)
 
 	local value = SKIN:GetVariable(variable)
@@ -74,7 +76,7 @@ function Set(variable, input, actionSet, ifLogic, oSettingsPath, oConfigPath)
 
 	local lSettingsPath = oSettingsPath or settingsPath
 	local lConfigPath = oConfigPath or configPath
-
+	
 	SetVariable(variable, input, lSettingsPath, lConfigPath)
 	RmLog(variable .. '=' .. input, 'Debug')	
 	UpdateMeters()
@@ -87,6 +89,8 @@ function Pivot(variable, data, direction, actionSet, ifLogic, oSettingsPath, oCo
 
 	local lSettingsPath = oSettingsPath or settingsPath
 	local lConfigPath = oConfigPath or configPath
+
+	data = type(data) == 'string' and loadstring('return ' .. SELF:GetOption(data) or nil)() or data
 
 	local tableLength = table.length(data)
 	local index = table.find(data, SKIN:GetVariable(variable))
@@ -105,49 +109,41 @@ function Pivot(variable, data, direction, actionSet, ifLogic, oSettingsPath, oCo
 
 end
 
-function RainRgb(variable, actionSet, ifLogic, oSettingsPath, oConfigPath)
+-- invokes ColorPickerPlus; after color is selected, the Set() function is used with the given parameters
+function PickColor(variable, actionSet, ifLogic, oSettingsPath, oConfigPath)
 
 	local lSettingsPath = oSettingsPath or settingsPath
 	local lConfigPath = oConfigPath or configPath
 
-	SKIN:Bang('!SetOption', measureRainRgb, 'Parameter', '\"VarName=' .. variable .. '\" \"FileName=' .. lSettingsPath .. '\" \"RefreshConfig=-1\"')
-	SKIN:Bang('!UpdateMeasure', measureRainRgb)
-	SKIN:Bang('!CommandMeasure', measureRainRgb, 'Run')
-
-	rainRgbInfo = { variable, actionSet, ifLogic or 'nil', lSettingsPath, lConfigPath }
-
-end
-
-function FinishRainRgb(rainRgbOutput)
-
-	if rainRgbOutput ~= '' then Set(rainRgbInfo[1], rainRgbOutput, rainRgbInfo[2], rainRgbInfo[3], rainRgbInfo[4], rainRgbInfo[5]) end
+	SKIN:Bang('!WriteKeyValue', 'Variables', 'baseColor', SKIN:GetVariable(variable), colorPickerPath)
+	SKIN:Bang('!ActivateConfig', colorPickerConfig)
+	SKIN:Bang('!SetVariable', 'finishAction', '[!CommandMeasure ' .. SELF:GetName() .. ' \"Set(\'' .. variable .. '\', \'[&MeasureScript:GetColor(\'cur_rgb\')]\', ' .. (actionSet and ('\'' .. actionSet .. '\'') or 'nil') .. ', ' .. (ifLogic and ('\'' .. ifLogic .. '\'') or 'nil') .. ', \'' .. string.gsub(lSettingsPath, '\\', '\\\\') .. '\', \'' .. string.gsub(lConfigPath, '\\', '\\\\') .. '\')\" \"' .. SKIN:GetVariable('CURRENTCONFIG') .. '\"][!DeactivateConfig]', colorPickerConfig)
+	SKIN:Bang('!UpdateMeter', 'MeterConfirmButton', colorPickerConfig)
 
 end
 
-function InputText(variable, meterName, defaultValue, actionSet, ifLogic, oSettingsPath, oConfigPath)
-
-	
-
-end
-
-function Switch(data, actionSet, ifLogic, oSettingsPath, oConfigPath)
+-- invokes a text box; after text is entered, the Set() function is used with the given parameters
+function InputText(data, variable, actionSet, ifLogic, oSettingsPath, oConfigPath)
 
 	local lSettingsPath = oSettingsPath or settingsPath
 	local lConfigPath = oConfigPath or configPath
+
+	data = type(data) == 'string' and loadstring('return ' .. SELF:GetOption(data) or nil)() or data
+	optionsString = '[!SetVariable _inputTextEscape \"$UserInput$\"][!CommandMeasure '.. SELF:GetName() .. ' \"Set(\'' .. variable .. '\', \'[' .. measureInputText .. ']\', ' .. (actionSet and ('\'' .. actionSet .. '\'') or 'nil') .. ', ' .. (ifLogic and ('\'' .. ifLogic .. '\'') or 'nil') .. ', \'' .. string.gsub(lSettingsPath, '\\', '\\\\') .. '\', \'' .. string.gsub(lConfigPath, '\\', '\\\\') .. '\')\"] DefaultValue=\"#*' .. variable .. '*#\" X=\"([' .. data.meterName .. ':X] + ' .. (data.padding[1] or 0) .. ')\" Y=\"([' .. data.meterName .. ':Y] + ' .. (data.padding[2] or 0) .. ')\" W=\"([' .. data.meterName .. ':W] - ' .. (data.padding[1] or 0) + (data.padding[3] or 0) .. ')\" H=\"([' .. data.meterName .. ':H] - ' .. (data.padding[2] or 0) + (data.padding[4] or 0) .. ')\"'
+	data.meterName = nil
+	data.padding = nil
 
 	for k,v in pairs(data) do
-		local cValue = SKIN:GetVariable(k)
-		if type(v) == 'table' then
-			for k1, v1 in pairs(v) do
-				if v1 == cValue then
-					RmLog(k .. ': this is it!')
-				else
-					RmLog(k .. ': this is definitely not it!')
-				end
-			end
-		else
-			v = tostring(v)
-		end
+		optionsString = optionsString .. ' ' .. k .. '=' .. (type(v) == 'string' and '"' or '') .. v .. (type(v) == 'string' and '"' or '')
+	end
+
+	if data and SKIN:GetVariable(variable) then
+		
+		SKIN:Bang('!SetOption', measureInputText, 'Command1', optionsString)
+		SKIN:Bang('!UpdateMeasure', measureInputText)
+		SKIN:Bang('!CommandMeasure', measureInputText, 'Executebatch 1')
+	else
+		RmLog('Data table or variable name is invalid!', 'Error')
 	end
 
 end
@@ -170,22 +166,10 @@ function ActionSet(actionSet, ifLogic, input)
 
 end
 
--- returns the 'toggleOn' or 'toggleOff' parameters depending on the state of the
--- given variable
-function GetIcon(value, onState, offState)
+function GetAsset(type, ref, onState)
 
-	if offState == nil then
-		if onState == nil then
-			if value == 1 then return toggleOn
-				else return toggleOff end
-		else
-			if value == onState then return radioOn
-				else return radioOff end
-		end
-	else
-		if value == onState then return toggleOn
-			else return toggleOff end
-	end
+	local var = SKIN:GetVariable(ref)
+	return (var and assets[type]) and (var == onState and assets[type][1] or assets[type][2]) or RmLog('Variable reference or icon type are invalid!', 'Error')
 
 end
 
@@ -193,26 +177,10 @@ end
 -- value both in the settings skin and the primary skin
 function SetVariable(name, parameter, filePath, configPath)
 
-	-- -- handle any escaped variables
-	-- while true do
-	-- 	local v = string.match(parameter, '%#%*(.*)%*%#')
-		
-
-	-- enact the changes within the skin
 	SKIN:Bang('!SetVariable', name, parameter)
 	if filePath == nil then SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter) 
 		else SKIN:Bang('!WriteKeyValue', 'Variables', name, parameter, filePath) end
 	if configPath ~= nil then SKIN:Bang('!SetVariable', name, parameter, configPath) end
-
-end
-
--- function to make logging messages less complicated
-function RmLog(message, type)
-
-	if type == nil then type = 'Debug' end
-
-	if debug == true then SKIN:Bang("!Log", message, type)
-    elseif type ~= 'Debug' then SKIN:Bang("!Log", message, type) end
 
 end
 
@@ -239,53 +207,32 @@ function table.find(t, value)
 	return false
 end
 
-printIndent = '     '
+-- writes the given value or table to the rainmeter log
+function RmLog(...)
 
--- prints the entire contents of a table to the Rainmeter log
-function PrintTable(table)
-    for k,v in pairs(table) do
-        if type(v) == 'table' then
-            local pI = printIndent
-            RmLog(printIndent .. tostring(k) .. ':')
-            printIndent = printIndent .. '  '
-            PrintTable(v)
-            printIndent = pI
-        else
-            RmLog(printIndent .. tostring(k) .. ': ' .. tostring(v))
+    if debug == nil then debug = true end
+    if printIndent == nil then printIndent = '' end
+      
+    if type(arg[1]) == 'table' then
+        if arg[3] == nil then arg[3] = 'Debug' end
+        if arg[3] == 'Debug' and debug == false then return end
+
+        RmLog(printIndent .. arg[2] .. ' = {')
+        local pI = printIndent
+        printIndent = printIndent .. '    '
+        for k,v in pairs(arg[1]) do
+            if type(v) == 'table' then
+                RmLog(v, k, arg[3])
+            else
+                RmLog(printIndent .. tostring(k) .. ' = ' .. tostring(v), arg[3])
+            end
         end
+        printIndent = pI
+        RmLog(printIndent .. '}', arg[3])
+    else
+        if arg[2] == nil then arg[2] = 'Debug' end
+        if arg[2] == 'Debug' and debug == false then return end
+        SKIN:Bang("!Log", tostring(arg[1]), arg[2])
     end
-end
-
--- --------------------------------------------------------------------------------
--- CUSTOM LUA ACTIONS
---
--- Everything below this point is not usually included with the script, and are
--- functions specifically designed for settings in this suite. If copying this file
--- for use in other suites, do not include this section.
--- --------------------------------------------------------------------------------
-
-function SetCustomCpuName(input)
-
-	local settingsPath = SKIN:GetVariable('cpuSettingsPath')
-	local configPath = SKIN:GetVariable('cpuMeterConfig')
-
-	if input == '' then
-		Set('cpuName', 'auto', 'CustomCpuNameActionAuto')
-	else
-		Set('cpuName', input, 'CustomCpuNameAction')
-	end
-
-end
-
-function SetCustomGpuName(input)
-
-	local settingsPath = SKIN:GetVariable('gpuSettingsPath')
-	local configPath = SKIN:GetVariable('gpuMeterConfig')
-
-	if input == '' then
-		Set('gpuName', 'auto', 'CustomGpuNameActionAuto')
-	else
-		Set('gpuName', input, 'CustomGpuNameAction')
-	end
-
+      
 end
