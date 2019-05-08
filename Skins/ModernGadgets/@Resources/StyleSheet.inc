@@ -424,6 +424,10 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURREN
 MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
+[StyleShapeButtonHover]
+MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
 [StyleMouseRegionCloseButton]
 LeftMouseUpAction=[!DeactivateConfig]
 ToolTipText=Close

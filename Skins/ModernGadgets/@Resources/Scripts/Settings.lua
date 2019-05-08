@@ -2,6 +2,8 @@
 -- DYNAMIC RAINMETER SETTINGS SYSTEM
 -- v1.0.0
 -- By raiguard
+-- 
+-- This file has been modified from the original to add some new functions.
 -- --------------------------------------------------------------------------------
 -- Changelog:
 -- v1.0.0 - 2019-05-08
@@ -236,3 +238,8 @@ function RmLog(...)
     end
       
 end
+
+-- --------------------------------------------------------------------------------
+-- MODIFICATIONS
+
+function GetBaseMeter(name) return name:gsub('MouseRegion', '') end
