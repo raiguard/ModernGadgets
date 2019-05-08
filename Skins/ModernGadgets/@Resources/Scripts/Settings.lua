@@ -242,4 +242,4 @@ end
 -- --------------------------------------------------------------------------------
 -- MODIFICATIONS
 
-function GetBaseMeter(name) return name:gsub('MouseRegion', '') end
+function GetBaseMeter(name, ext) return name:gsub(ext or 'MouseRegion', '') end
