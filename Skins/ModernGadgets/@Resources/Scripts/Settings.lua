@@ -45,6 +45,11 @@ function Initialize()
 	measureInputText = SELF:GetOption('MeasureInputText', 'MeasureSettingsInputText')
 	colorPickerConfig = SELF:GetOption('ColorPickerConfig')
 	colorPickerPath = SKIN:GetVariable('SKINSPATH') .. colorPickerConfig .. '\\ColorPickerPlus.ini'
+	-- TEMPORARY
+	toggleOn = SELF:GetOption('ToggleOn')
+	toggleOff = SELF:GetOption('ToggleOff')
+	radioOn = SELF:GetOption('RadioOn')
+	radioOff = SELF:GetOption('RadioOff')
 
 end
 
@@ -243,3 +248,20 @@ end
 -- MODIFICATIONS
 
 function GetBaseMeter(name, ext) return name:gsub(ext or 'MouseRegion', '') end
+
+function GetIcon(value, onState, offState)
+
+	if offState == nil then
+		if onState == nil then
+			if value == 1 then return toggleOn
+				else return toggleOff end
+		else
+			if value == onState then return radioOn
+				else return radioOff end
+		end
+	else
+		if value == onState then return toggleOn
+			else return toggleOff end
+	end
+
+end
