@@ -239,15 +239,15 @@ FontSize=9
 Group=Settings
 
 [StyleSettingsButtonMouseRegion]
-X=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button:X]
-Y=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button:Y]
-W=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button:W] + [&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label:W] + 2)
-H=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button:H]
+X=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:X]
+Y=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:Y]
+W=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:W] + [&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label:W] + 2)
+H=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:H]
 DynamicVariables=1
 Group=Settings
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button Fill "Fill Color #*colorAccent*#,230"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button Fill "Fill Color #*colorButtonPress*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorButtonPress*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
-MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#,230"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorButtonPress*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorButtonPress*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
+MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
 
 [StyleSettingsButton]
 DynamicVariables=1
@@ -359,6 +359,21 @@ H=3
 [StyleSettingsButtonColorIcon]
 Shape=Rectangle 0,0,12,12,2 | StrokeWidth 0 | Offset 0,1.5 | Extend Fill
 Padding=0,0,3,3
+
+[StyleIconButtonIcon]
+X=r
+Y=6R
+W=16
+H=16
+Fill=Fill Color #colorAccent#
+; SolidColor=0,255,0,150
+TransformationMatrix=#transformationMatrix#
+
+[StyleIconButtonLabel]
+FontSize=9
+FontWeight=600
+X=5R
+Y=r
 
 ; Dummy Meters (to avoid log errors)
 [0Icon]
@@ -900,3 +915,11 @@ LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/issues/103"]
 
 [StyleDynamicVars]
 DynamicVariables=1
+
+; Shapes
+[StyleShapeRmLogo]
+Shape = Path Path1 | StrokeWidth 0 | Extend Fill
+Shape2 = Path Path2 | StrokeWidth 0
+Shape3 = Combine Shape | XOR Shape2 | Scale 0.34,0.33,0,0 | Offset 1.5,-2
+Path1 = 35, 37.722 | CurveTo 19, 52.622, 35, 45.922, 27.8, 52.622 | CurveTo 3, 37.722, 10.2, 52.622, 3, 45.922 | CurveTo 19, 4.622, 3, 29.522, 19, 4.622 | CurveTo 35, 37.722, 19, 4.622, 35, 29.522 | ClosePath 1
+Path2 = 19.127, 35.82 | CurveTo 7.945, 35.793, 10.75, 30.074, 7.945, 35.793 | ArcTo 7.669, 37.026, 2.907, 2.907, 0, 1, 0 | CurveTo 19.223, 47.408, 7.669, 42.773, 12.868, 47.408 | CurveTo 30.777, 37.026, 25.578, 47.408, 30.777, 42.773 | CurveTo 30.681, 35.821, 30.777, 36.655, 30.681, 36.284 | CurveTo 19.127, 35.821, 30.681, 35.821, 27.407, 41.568 | ClosePath 1
