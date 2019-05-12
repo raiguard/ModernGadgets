@@ -8,7 +8,7 @@ showSpeedtestButton=1
 showPing=0
 showNetTotals=1
 showLineGraph=1
-showPeakNetworkUsage=0
+showPeakNetworkUsage=1
 monitoringType=netMonitor
 
 pingUrl=www.msftncsi.com
