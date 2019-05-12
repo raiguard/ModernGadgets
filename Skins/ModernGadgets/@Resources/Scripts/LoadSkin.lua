@@ -1,13 +1,18 @@
 --[[
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 LOADSKIN.LUA
 raiguard
-v3.0.1
+v4.0.0
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 Release Notes:
+v4.0.0 - 2019-05-12
+- Added support for an unlimited number of asset variants
+- Replaced GetIcon() with GetAsset()
+- Fixed that calling the script through inline LUA from a MeterStyle line would
+  crash Rainmeter
 v3.0.1 - 2018-10-28
 - Changed default toggle values back to the #toggleOn# and #toggleOff# variables
 - Fixed script crashing if called through inline LUA
@@ -26,7 +31,7 @@ v1.1.0 - 2017-12-7
 v1.0.0 - 2017-10-2
  - Initial release
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 This script loads / unlaods the specified skin or config, and sets parameters for toggle
 buttons related to those skins.
@@ -46,22 +51,15 @@ the script, that is the next measure you need to create:
 	[MeasureLoadSkinScript]
 	Measure=Script
 	ScriptFile=#@#Scripts\LoadSkin.lua
-	ToggleOn=#@#Images\toggle-on.png
-	ToggleOff=#@#Images\toggle-off.png
+	Assets={ check_icon = { 'check-on', 'check-off' } }
 	ToggleGroup=ToggleButtons
 	MeasureName=MeasureConfigActive
 
-The 'ToggleOn' and 'ToggleOff' parameters are for the toggle buttons. If you are using
-images, these will be the image paths for the buttons' respective on and off states. If
-you are using strings, these will be the 'on' and 'off' strings that will show on the
-buttons. If you do not include these parameters, the script will default to 'Enabled'
-and 'Disabled' respectively.
-
-There are also optional 'RadioOn' and 'RadioOff' options for the script measure. This
-allows you to specify a different set of images or strings for 'radio buttons', usually
-to have buttons that will load different variants of a config. These options are
-optional, and if left unspecified, will be defined as what you set in 'ToggleOn' and
-'ToggleOff' respectively.
+The 'Assets' parameter is a raw LUA table defining what assets to use for the skin buttons.
+The format of the assets table goes { groupname = { 'OnAsset', 'OffAsset' } }. You can
+add as many groups as you want to the parent table. If you do not specify this option, the
+table will default to having a 'state' group with the strings 'On' and 'Off' as their
+respective states.
 
 The 'ToggleGroup' parameter specifies the group that the toggle button meters belong to.
 If you do not include this option, it will default to 'SkinToggles'.
@@ -73,7 +71,7 @@ A toggle button meter should look something like this:
 
 	[MeterToggleSystem]
 	Meter=Image
-	ImageName=[&MeasureLoadSkinScript:GetIcon('illustro\\System')]
+	ImageName=#@#Images\[&MeasureLoadSkinScript:GetAsset('check_icon', 'illustro\\System')].png
 	X=5
 	Y=5
 	W=31
@@ -89,19 +87,18 @@ group specified in the script measure.
 Obviously, if you are using strings as your buttons, the inline LUA will be contained in
 the 'Text' option, rather than 'ImageName'.
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 ]]--
 
 function Initialize()
 
-	assets = loadstring('return ' .. SELF:GetOption('Assets'))()
+	assets = loadstring('return ' .. SELF:GetOption('Assets', '{ state = { \'On\', \'Off\' } }'))()
 	toggleOn = SELF:GetOption('ToggleOn', SKIN:GetVariable('toggleOn'))
 	toggleOff = SELF:GetOption('ToggleOff', SKIN:GetVariable('toggleOff'))
 	radioOn = SELF:GetOption('RadioOn', toggleOn)
 	radioOff = SELF:GetOption('RadioOff', toggleOff)
 	toggleGroup = SELF:GetOption('ToggleGroup', 'SkinToggles')
 	caMeasureName = SELF:GetOption('MeasureName', 'MeasureConfigActive')
-	measureCA = SKIN:GetMeasure(caMeasureName)
 
 end
 
@@ -137,54 +134,26 @@ function ToggleSkin(configName, iniName, toState)
 
 end
 
+-- returns the requested asset based on the config's active status
 function GetAsset(type, configName, iniName)
-
-	local configState, activeIni = GetConfigState(configName)
-	return (configState and assets[type]) and (configState == 1 and (iniName and (activeIni == iniName and assets[type][1] or assets[type][2]) or assets[type][1]) or assets[type][2]) or RmLog('Variable reference or icon type are invalid!', 'Error')
-
-end
-
--- function GetAsset(type, ref, onState)
-
--- 	local var = SKIN:GetVariable(ref)
--- 	return (var and assets[type]) and (var == onState and assets[type][1] or assets[type][2]) or RmLog('Variable reference or icon type are invalid!', 'Error')
-
--- end
-
--- returns the corresponding button state
-function GetIcon(configName, iniName, radio)
 
 	--[[
 		PLEASE NOTE THAT THE DOUBLE BACKSLASHES ARE ALWAYS REQUIRED BECAUSE OF LUA SHENANIGANS
+		type: the asset type to retrieve from the assets table (e.g. 'check_icon')
 		configName: the name of the relevant config (e.g. 'illustro\\Disk')
 		iniName (optional): the name of the relevant INI file (e.g. '1 Disk.ini')
-		radio: if set to true, the function will return the 'radioOn' and 'radioOff' options,
-			   instead of 'toggleOn' and 'toggleOff'
 	]]--
 
-	print('Initialized')
-	
 	local configState, activeIni = GetConfigState(configName)
-	print(configState)
-	-- determine which icon to provide
-	if iniName then
-		print('level 1a')
-		if configState == 1 and activeIni == iniName then print('level 1b'); return radio and radioOn or toggleOn
-		else print('level 1c'); return radio and radioOff or toggleOff end
-	else
-		print('level 2a')
-		if configState == 1 then print('level 2b'); return radio and radioOn or toggleOn
-		else print('level 2c'); return radio and radioOff or toggleOff end
-	end
+	return (configState and assets[type]) and (configState == 1 and (iniName and (activeIni == iniName and assets[type][1] or assets[type][2]) or assets[type][1]) or assets[type][2]) or SKIN:Bang('!Log', 'Variable reference or icon type are invalid!', 'Error')
 
 end
 
 -- retrieves config state and active INI
 function GetConfigState(configName)
 
-	SKIN:Bang('!SetOption', caMeasureName, 'ConfigName', configName)
-	SKIN:Bang('!UpdateMeasure', caMeasureName)
-	return measureCA:GetValue(),	   -- active state of the config (1 or -1)
-		   measureCA:GetStringValue()  -- name of the currently active INI (if inactive, returns -1)
+	local isActive = SKIN:ReplaceVariables('[&' .. caMeasureName .. ':IsActive(' .. configName .. ')]')
+	local activeIni = SKIN:ReplaceVariables('[&' .. caMeasureName .. ':ConfigVariantName(' .. configName .. ')]')
+	return tonumber(isActive), activeIni
 
 end

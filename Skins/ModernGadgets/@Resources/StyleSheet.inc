@@ -360,6 +360,28 @@ H=3
 Shape=Rectangle 0,0,12,12,2 | StrokeWidth 0 | Offset 0,1.5 | Extend Fill
 Padding=0,0,3,3
 
+; Dummy Meters (to avoid log errors)
+[0Icon]
+Meter=Image
+
+[0Label]
+Meter=Image
+
+[0Value]
+Meter=Image
+
+[0LeftIcon]
+Meter=Image
+
+[0LeftMouseRegion]
+Meter=Image
+
+[0RightIcon]
+Meter=Image
+
+[0Background]
+Meter=Image
+
 ; Background
 [StyleBackground]
 Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),([[#CURRENTSECTION]:H] - ((#bgOffset# * 2) * #scale#)),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0) 
