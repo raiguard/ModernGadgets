@@ -94,6 +94,7 @@ the 'Text' option, rather than 'ImageName'.
 
 function Initialize()
 
+	assets = loadstring('return ' .. SELF:GetOption('Assets'))()
 	toggleOn = SELF:GetOption('ToggleOn', SKIN:GetVariable('toggleOn'))
 	toggleOff = SELF:GetOption('ToggleOff', SKIN:GetVariable('toggleOff'))
 	radioOn = SELF:GetOption('RadioOn', toggleOn)
@@ -136,6 +137,20 @@ function ToggleSkin(configName, iniName, toState)
 
 end
 
+function GetAsset(type, configName, iniName)
+
+	local configState, activeIni = GetConfigState(configName)
+	return (configState and assets[type]) and (configState == 1 and (iniName and (activeIni == iniName and assets[type][1] or assets[type][2]) or assets[type][1]) or assets[type][2]) or RmLog('Variable reference or icon type are invalid!', 'Error')
+
+end
+
+-- function GetAsset(type, ref, onState)
+
+-- 	local var = SKIN:GetVariable(ref)
+-- 	return (var and assets[type]) and (var == onState and assets[type][1] or assets[type][2]) or RmLog('Variable reference or icon type are invalid!', 'Error')
+
+-- end
+
 -- returns the corresponding button state
 function GetIcon(configName, iniName, radio)
 
@@ -146,15 +161,20 @@ function GetIcon(configName, iniName, radio)
 		radio: if set to true, the function will return the 'radioOn' and 'radioOff' options,
 			   instead of 'toggleOn' and 'toggleOff'
 	]]--
+
+	print('Initialized')
 	
 	local configState, activeIni = GetConfigState(configName)
+	print(configState)
 	-- determine which icon to provide
 	if iniName then
-		if configState == 1 and activeIni == iniName then return radio and radioOn or toggleOn
-		else return radio and radioOff or toggleOff end
+		print('level 1a')
+		if configState == 1 and activeIni == iniName then print('level 1b'); return radio and radioOn or toggleOn
+		else print('level 1c'); return radio and radioOff or toggleOff end
 	else
-		if configState == 1 then return radio and radioOn or toggleOn
-		else return radio and radioOff or toggleOff end
+		print('level 2a')
+		if configState == 1 then print('level 2b'); return radio and radioOn or toggleOn
+		else print('level 2c'); return radio and radioOff or toggleOff end
 	end
 
 end
