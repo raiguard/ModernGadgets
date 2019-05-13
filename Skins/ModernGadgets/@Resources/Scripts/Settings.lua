@@ -92,7 +92,7 @@ function Set(variable, input, actionSet, ifLogic, oSettingsPath, oConfigPath)
 end
 
 -- changes variable to the next or previous value, based on a provided data table
-function Pivot(variable, data, direction, actionSet, ifLogic, oSettingsPath, oConfigPath)
+function Pivot(data, variable, direction, actionSet, ifLogic, oSettingsPath, oConfigPath)
 
 	local lSettingsPath = oSettingsPath or settingsPath
 	local lConfigPath = oConfigPath or configPath
@@ -248,6 +248,8 @@ end
 -- MODIFICATIONS
 
 function GetBaseMeter(name, ext) return name:gsub(ext or 'MouseRegion', '') end
+
+function GetKey(name, key) return SKIN:GetMeter(name):GetOption(key) end
 
 function GetIcon(value, onState, offState)
 

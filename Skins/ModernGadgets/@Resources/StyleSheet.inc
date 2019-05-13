@@ -66,6 +66,7 @@ colorSnapdragon=0,80,198
 colorNvidia=119,185,0
 
 histogramAlpha=50
+hoverAlpha=200
 
 insetToggleX=(#contentMargin# + 16)
 
@@ -76,6 +77,8 @@ toggleOff=[\x56]
 radioOn=[\x5c]
 radioOff=[\x5b]
 
+settingsAssets={ check_icon = { 'CheckOn', 'CheckOff' }, radio_icon = { 'RadioOn', 'RadioOff' }, toggle_icon = {'ToggleOn','ToggleOff'} }
+
 ; Paths
 imgPath=#@#Assets\Images\
 soundPath=#@#Assets\Sounds\
@@ -85,7 +88,7 @@ scriptPath=#@#Scripts\
 extPath=#SETTINGSPATH#ModernGadgets\
 dynamicVarsPath=#@#DynamicVars.inc
 
-rainRgbPath=#@#Addons\RainRGB\RainRGB4.exe
+colorPickerConfig=ModernGadgets\Settings\ColorPickerPlus
 rainFilePath=#@#Addons\RainFile\RainFile.exe
 
 globalSettingsPath=#@#Settings\GlobalSettings.inc
@@ -174,6 +177,7 @@ cp23=150,150,150
 cp24=237,28,32
 
 colorCloseButton=157,33,33
+colorHelpButton=27,57,131
 
 ; ------------------------------
 ; WINDOW ELEMENTS
@@ -197,14 +201,15 @@ Shape=Rectangle 0,0,13,15 | Fill Color 0,0,0,0
 Shape2=Path Path1 | StrokeWidth 0 | Extend Fill
 Shape3=Path Path2 | StrokeWidth 0
 Shape4=Path Path3 | StrokeWidth 0
-Shape5=Combine Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.025,0.025,0,0
+Shape5=Combine Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.025,0.025,0,0 | Offset 0,0.5
 Path1=402.6, 83.2 | LineTo 492.8, 173.4 | CurveTo 492.8, 187.2, 496.6, 177.2, 496.6, 183.4 | LineTo 274.4, 405.6 | LineTo 181.6, 415.9 | CurveTo 160.1, 394.4, 169.2, 417.3, 158.7, 406.8 | LineTo 170.4, 301.6 | LineTo 388.8, 83.2 | CurveTo 402.6, 83.2, 392.6, 79.4, 398.8, 79.4 | ClosePath 1
 Path2=564.6, 60.3 | LineTo 515.8, 11.5 | CurveTo 460.6, 11.5, 500.6, -3.7, 475.9, -3.7 | LineTo 425.2, 46.9 | CurveTo 425.2, 60.7, 421.4, 50.7, 421.4, 56.9 | LineTo 515.4, 150.9 | CurveTo 529.2, 150.9, 519.2, 154.7, 525.4, 154.7 | LineTo 564.6, 115.5 | CurveTo 564.6, 60.3, 579.8, 100.2, 579.8, 75.5 | ClosePath 1
 Path3=384, 346.2 | LineTo 384, 448 | LineTo 64, 448 | LineTo 64, 128 | LineTo 293.8, 128 | CurveTo 302.3, 124.5, 297, 128, 300, 126.7 | LineTo 342.3, 84.5 | CurveTo 333.8, 64, 349.9, 76.9, 344.5, 64 | LineTo 48, 64 | CurveTo 0, 112, 21.5, 64, 0, 85.5 | LineTo 0, 464 | CurveTo 48, 512, 0, 490.5, 21.5, 512 | LineTo 400, 512 | CurveTo 448, 464, 426.5, 512, 448, 490.5 | LineTo 448, 306.2 | CurveTo 427.5, 297.7, 448, 295.5, 435.1, 290.2 | LineTo 387.5, 337.7 | CurveTo 384, 346.2, 385.3, 340, 384, 343 | ClosePath 1
 Fill=Fill Color #colorMain#
 TransformationMatrix=#transformationMatrix#
+ToolTipText=Edit settings file
 X=-18r
-Y=r
+Y=-1r
 
 [StyleStringSettingsSkinTitle]
 FontSize=10
@@ -215,23 +220,24 @@ Y=#contentMargin#
 Padding=0,-3,0,0
 StringCase=Upper
 
-[StyleStringSettingsSectionHeader]
+[StyleStringSettingsSectionLabel]
 FontSize=10
 FontWeight=500
 FontFace=#fontFaceCn#
 FontColor=#colorDim#
 Stringcase=Upper
+Padding=0,2,0,0
 
 [StyleStringSettingsLabel]
 FontWeight=500
 FontSize=9
 StringCase=Upper
-Y=4R
+Y=2R
 
 ; ------------------------------
 ; SETTINGS BUTTONS
 
-[StyleStringSettingsButtonLabel]
+[StyleSettingsButtonLabel]
 X=R
 Y=r
 FontWeight=500
@@ -245,7 +251,7 @@ W=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:W] + [&[&Meas
 H=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:H]
 DynamicVariables=1
 Group=Settings
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#,230"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #colorAccent#,#hoverAlpha#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
 MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorButtonPress*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorButtonPress*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
 MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
 
@@ -315,18 +321,18 @@ Padding=0,1,0,0
 Shape=Path Path1 | StrokeWidth 0 | Scale 0.025,0.025,0,0 | Offset -11,-176.5 | Rotate 90 | Extend Fill
 Path1=288.662, 352 | LineTo 31.338, 352 | CurveTo 17.196, 317.858, 13.52, 352, 4.597, 330.457 | LineTo 145.858, 189.196 | CurveTo 174.142, 189.196, 153.668, 181.386, 166.332, 181.386 | LineTo 302.804, 317.858 | CurveTo 288.662, 352, 315.404, 330.457, 306.48, 352 | ClosePath 1
 Fill=Fill Color #colorAccent#
-X=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightButton')]Value:XW] + ([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightButton')]Value:X] - [&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightButton')]LeftButton:XW]))
+X=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]Value:XW] + ([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]Value:X] - [&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]LeftIcon:XW]))
 Y=r
 ; SolidColor=255,255,255,50
 DynamicVariables=1
 
 [StyleSettingsButtonPivotLeftMouseRegion]
-X=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button:X]
-Y=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button:Y]
+X=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:X]
+Y=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:Y]
 W=(([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'LeftMouseRegion')]Value:X] + ([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'LeftMouseRegion')]Value:W] / 2)) - [#CURRENTSECTION#:X])
 H=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'LeftMouseRegion')]Value:H]
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button Fill "Fill Color #*colorAccent*#,230"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value][!Redraw]
-MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value][!Redraw]
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #colorAccent#,#hoverAlpha#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value][!Redraw]
+MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value][!Redraw]
 ; SolidColor=255,0,0,100
 
 [StyleSettingsButtonPivotRightMouseRegion]
@@ -334,18 +340,18 @@ X=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightMouseRegion')
 Y=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightMouseRegion')]Value:Y]
 W=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightMouseRegion')]LeftMouseRegion:W] + 4)
 H=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightMouseRegion')]Value:H]
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button Fill "Fill Color #*colorAccent*#,230"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value][!Redraw]
-MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Button][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value][!Redraw]
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #colorAccent#,#hoverAlpha#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value][!Redraw]
+MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value][!Redraw]
 ; SolidColor=0,255,0,100
 
-[StyleStringInputBox]
+[StyleInputBox]
 FontSize=8
 FontColor=#colorInputText#
 X=4r
 Y=3r
 W=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'InputBox')]Background:W] - 6)
 H=16
-Padding=0,0,0,-3
+Padding=0,-1,0,-3
 ClipString=1
 DynamicVariables=1
 Group=Settings
@@ -354,11 +360,11 @@ SolidColor=0,255,0,0
 [StyleInputBoxAdjustor]
 X=r
 Y=R
-H=3
+H=4
 
 [StyleSettingsButtonColorIcon]
 Shape=Rectangle 0,0,12,12,2 | StrokeWidth 0 | Offset 0,1.5 | Extend Fill
-Padding=0,0,3,3
+Padding=0,0,5,3
 
 [StyleIconButtonIcon]
 X=r
@@ -502,13 +508,13 @@ Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),(
 X=#contentMargin#
 Y=3R
 W=#contentWidth#
-H=19
+H=18
 DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 
 [StyleInputBoxBackgroundAdjacent]
 X=5R
-Y=r
+Y=-1r
 W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin#)
 DynamicVariables=1
 
@@ -629,12 +635,12 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Fill ""][!UpdateMeter #CURRENTSEC
 [StyleMouseRegionRefreshButton]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION#_ ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
-LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorAccent#,#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleMouseRegionShapeRefreshButton]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ Shape3 "Combine Shape1 | XOR Shape2 | Scale 0.02,0.02,0,0 | Offset 0,2 | Rotate 15"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Shape3 "Combine Shape1 | XOR Shape2 | Scale 0.02,0.02,0,0 | Offset 0,2 | Rotate 0"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
-LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorAccent#,#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleMouseRegionStringButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
@@ -896,9 +902,9 @@ Group=HwinfoSmvButton
 
 [StyleHwinfoTutorialButton]
 ToolTipText=View HWiNFO Configuration Tutorial
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/HWiNFO-Configuration"]
 MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
-LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/HWiNFO-Configuration"]
 
 [StyleHwinfoRefreshGadgetButton]
 X=-20r
@@ -923,3 +929,57 @@ Shape2 = Path Path2 | StrokeWidth 0
 Shape3 = Combine Shape | XOR Shape2 | Scale 0.34,0.33,0,0 | Offset 1.5,-2
 Path1 = 35, 37.722 | CurveTo 19, 52.622, 35, 45.922, 27.8, 52.622 | CurveTo 3, 37.722, 10.2, 52.622, 3, 45.922 | CurveTo 19, 4.622, 3, 29.522, 19, 4.622 | CurveTo 35, 37.722, 19, 4.622, 35, 29.522 | ClosePath 1
 Path2 = 19.127, 35.82 | CurveTo 7.945, 35.793, 10.75, 30.074, 7.945, 35.793 | ArcTo 7.669, 37.026, 2.907, 2.907, 0, 1, 0 | CurveTo 19.223, 47.408, 7.669, 42.773, 12.868, 47.408 | CurveTo 30.777, 37.026, 25.578, 47.408, 30.777, 42.773 | CurveTo 30.681, 35.821, 30.777, 36.655, 30.681, 36.284 | CurveTo 19.127, 35.821, 30.681, 35.821, 27.407, 41.568 | ClosePath 1
+
+[StyleShapeHwinfoLogo]
+Shape = Path Path1 | StrokeWidth 0 | Extend Fill
+Shape2 = Path Path2 | StrokeWidth 0
+Shape3 = Path Path3 | StrokeWidth 0
+Shape4 = Path Path4 | StrokeWidth 0
+Shape5 = Path Path5 | StrokeWidth 0
+Shape6 = Path Path6 | StrokeWidth 0
+Shape7 = Combine Shape1 | XOR Shape2 | XOR Shape3 | XOR Shape4 | XOR Shape5 | XOR Shape6 | Scale 0.14,0.14,0,0 | Offset 0.775,1
+Path1 = 7.5, 1.9 | CurveTo 2.5, 6, 5.9, 2.9, 3.6, 4.7 | CurveTo 0.5, 50, 0.6, 8.1, 0.5, 9.6 | LineTo 0.5, 91.8 | LineTo 3, 94.5 | CurveTo 51, 100, 8.2, 100.1, 7.7, 100 | CurveTo 99, 94.5, 94.3, 100, 93.8, 100.1 | LineTo 101.5, 91.8 | LineTo 101.5, 8.2 | LineTo 99, 5.5 | CurveTo 50.8, 0, 93.8, -0.1, 94.3, 0 | CurveTo 7.5, 1.9, 13.3, 0, 10.3, 0.1 | ClosePath 1
+Path2 = 35, 29 | LineTo 35, 50 | LineTo 22, 50 | LineTo 22, 8 | LineTo 35, 8 | LineTo 35, 29 | ClosePath 1
+Path3 = 51.9, 20.4 | CurveTo 57, 38.5, 56.1, 22.6, 57, 25.9 | LineTo 57, 50 | LineTo 45, 50 | LineTo 45, 34.5 | CurveTo 47, 19, 45, 19.5, 45.1, 19 | CurveTo 51.9, 20.4, 48.2, 19, 50.3, 19.6 | ClosePath 1
+Path4 = 35, 78.5 | LineTo 35, 94 | LineTo 32.2, 94 | CurveTo 22, 73.5, 24.9, 94, 22, 88.2 | LineTo 22, 63 | LineTo 35, 63 | LineTo 35, 78.5 | ClosePath 1
+Path5 = 57, 74.5 | CurveTo 55.8, 88.5, 57, 81.2, 56.5, 87 | CurveTo 47, 94, 54.5, 91.4, 50.3, 94 | CurveTo 45, 78.5, 45.1, 94, 45, 93.5 | LineTo 45, 63 | LineTo 57, 63 | LineTo 57, 74.5 | ClosePath 1
+Path6 = 79, 75.6 | CurveTo 76.1, 91.1, 79, 88.1, 79, 88.2 | CurveTo 70.1, 94, 74.1, 93, 72.1, 94 | LineTo 67, 94 | LineTo 67, 63 | LineTo 79, 63 | LineTo 79, 75.6 | ClosePath 1
+
+[StyleShapeHelpIcon]
+Shape=Path Path1 | StrokeWidth 0 | Fill Color #colorMain# | Scale 0.0305,0.0305,0,0
+Shape2=Path Path1 | StrokeWidth 0 | Fill Color #colorHelpButton#
+Shape3=Path Path2 | StrokeWidth 0
+Shape4=Path Path3 | StrokeWidth 0
+Shape5=Combine Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.0255,0.0255,0,0 | Offset 9,9
+Path1=256, 8 | CurveTo 8, 256, 119.043, 8, 8, 119.083 | CurveTo 256, 504, 8, 392.997, 119.043, 504 | CurveTo 504, 256, 392.957, 504, 504, 392.997 | CurveTo 256, 8, 504, 119.083, 392.957, 8 | ClosePath 1
+; Info icon
+Path2=256, 118 | CurveTo 298, 160, 279.196, 118, 298, 136.804 | CurveTo 256, 202, 298, 183.196, 279.196, 202 | CurveTo 214, 160, 232.804, 202, 214, 183.196 | CurveTo 256, 118, 214, 136.804, 232.804, 118 | ClosePath 1
+Path3=312, 372 | CurveTo 300, 384, 312, 378.627, 306.627, 384 | LineTo 212, 384 | CurveTo 200, 372, 205.373, 384, 200, 378.627 | LineTo 200, 348 | CurveTo 212, 336, 200, 341.373, 205.373, 336 | LineTo 224, 336 | LineTo 224, 272 | LineTo 212, 272 | CurveTo 200, 260, 205.373, 272, 200, 266.627 | LineTo 200, 236 | CurveTo 212, 224, 200, 229.373, 205.373, 224 | LineTo 276, 224 | CurveTo 288, 236, 282.627, 224, 288, 229.373 | LineTo 288, 336 | LineTo 300, 336 | CurveTo 312, 348, 306.627, 336, 312, 341.373 | LineTo 312, 372 | ClosePath 1
+; Question icon
+Path2 = 262.655, 90 | CurveTo 146.106, 153.758, 208.158, 90, 173.4, 112.957 | CurveTo 148.821, 170.016, 142.57, 159.044, 143.753, 166.173 | LineTo 183.52, 196.326 | CurveTo 200.185, 194.204, 188.725, 200.273, 196.141, 199.334 | CurveTo 257.488, 158.407, 218.049, 171.546, 230.298, 158.407 | CurveTo 303.186, 191.365, 277.917, 158.407, 303.186, 171.555 | CurveTo 270.652, 225.341, 303.186, 206.341, 290.823, 214.032 | CurveTo 216, 296, 247.128, 238.528, 216, 254.941 | LineTo 216, 300 | CurveTo 228, 312, 216, 306.627, 221.373, 312 | LineTo 284, 312 | CurveTo 296, 300, 290.627, 312, 296, 306.627 | LineTo 296, 298.667 | CurveTo 379.186, 192, 296, 270.205, 379.186, 269.02 | CurveTo 262.655, 90, 379.186, 133.998, 319.021, 90 | ClosePath 1
+Path3 = 256, 338 | CurveTo 210, 384, 230.635, 338, 210, 358.635 | CurveTo 256, 430, 210, 409.364, 230.635, 430 | CurveTo 302, 384, 281.365, 430, 302, 409.364 | CurveTo 256, 338, 302, 358.635, 281.365, 338 | ClosePath 1
+X=(#contentMarginRight# - [#CURRENTSECTION#:W])
+Y=r
+TransformationMatrix=#transformationMatrix#
+DynamicVariables=1
+Padding=-7,-7,0,0
+ToolTipIcon=Info
+ToolTipTitle=Title text
+ToolTipText=Body text
+ToolTipWidth=300
+
+[StyleShapeBookIcon]
+Shape = Path Path1 | StrokeWidth 0 | Extend Fill
+Shape2 = Path Path2 | StrokeWidth 0
+Shape3 = Path Path3 | StrokeWidth 0
+Shape4 = Path Path4 | StrokeWidth 0
+Shape5 = Combine Shape1 | XOR Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.03,0.03,0,0 | Offset 1,0
+Path1 = 448, 360 | LineTo 448, 24 | CurveTo 424, 0, 448, 10.7, 437.3, 0 | LineTo 96, 0 | CurveTo 0, 96, 43, 0, 0, 43 | LineTo 0, 416 | CurveTo 96, 512, 0, 469, 43, 512 | LineTo 424, 512 | CurveTo 448, 488, 437.3, 512, 448, 501.3 | LineTo 448, 472 | CurveTo 439.1, 453.3, 448, 464.5, 444.5, 457.7 | CurveTo 439.1, 378.6, 434.9, 437.9, 434.9, 394 | CurveTo 448, 360, 444.5, 374.3, 448, 367.5 | ClosePath 1
+Path2 = 128, 134 | CurveTo 134, 128, 128, 130.7, 130.7, 128 | LineTo 346, 128 | CurveTo 352, 134, 349.3, 128, 352, 130.7 | LineTo 352, 154 | CurveTo 346, 160, 352, 157.3, 349.3, 160 | LineTo 134, 160 | CurveTo 128, 154, 130.7, 160, 128, 157.3 | LineTo 128, 134 | ClosePath 1
+Path3 = 128, 198 | CurveTo 134, 192, 128, 194.7, 130.7, 192 | LineTo 346, 192 | CurveTo 352, 198, 349.3, 192, 352, 194.7 | LineTo 352, 218 | CurveTo 346, 224, 352, 221.3, 349.3, 224 | LineTo 134, 224 | CurveTo 128, 218, 130.7, 224, 128, 221.3 | LineTo 128, 198 | ClosePath 1
+Path4 = 381.4, 448 | LineTo 96, 448 | CurveTo 64, 416, 78.3, 448, 64, 433.7 | CurveTo 96, 384, 64, 398.4, 78.4, 384 | LineTo 381.4, 384 | CurveTo 381.4, 448, 379.5, 401.1, 379.5, 430.9 | ClosePath 1
+X=(#contentMarginRight# - [#CURRENTSECTION#:W])
+Y=3r
+TransformationMatrix=#transformationMatrix#
+Fill=Fill Color #colorAccent#
+DynamicVariables=1
