@@ -251,6 +251,16 @@ function GetBaseMeter(name, ext) return name:gsub(ext or 'MouseRegion', '') end
 
 function GetKey(name, key) return SKIN:GetMeter(name):GetOption(key) end
 
+function GetHover(meter, type, gsub)
+
+	if type == 1 then
+		return SKIN:ReplaceVariables(SKIN:GetMeter(meter):GetOption('HoverColor', '#colorButtonPress#') .. ',#hoverAlpha#')
+	else
+		return SKIN:ReplaceVariables(SKIN:GetMeter(meter):GetOption('HoverColor', '#colorButtonPress#'))
+	end
+
+end
+
 function GetIcon(value, onState, offState)
 
 	if offState == nil then

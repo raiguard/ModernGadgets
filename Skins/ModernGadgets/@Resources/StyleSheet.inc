@@ -185,7 +185,7 @@ colorHelpButton=27,57,131
 [StyleCloseWindowButton]
 X=(#contentMarginRight# - [#CURRENTSECTION#:W])
 Y=#contentMargin#
-Shape=Rectangle 2,2,9,9 | Fill Color #colorMain#
+Shape=Rectangle 2,2,9,9 | Extend Fill
 Shape2=Path Path1 | StrokeWidth 0 | Fill Color #colorCloseButton#
 Shape3=Path Path2 | StrokeWidth 0
 Shape4=Combine Shape2 | XOR Shape3 | Scale 0.025,0.025,0,0 | Offset 0.12,0
@@ -195,6 +195,8 @@ DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 ToolTipText=Close
 LeftMouseUpAction=[!DeactivateConfig]
+Fill=Fill Color #colorMain#
+HoverColor=#colorMain#
 
 [StyleEditButton]
 Shape=Rectangle 0,0,13,15 | Fill Color 0,0,0,0
@@ -206,6 +208,7 @@ Path1=402.6, 83.2 | LineTo 492.8, 173.4 | CurveTo 492.8, 187.2, 496.6, 177.2, 49
 Path2=564.6, 60.3 | LineTo 515.8, 11.5 | CurveTo 460.6, 11.5, 500.6, -3.7, 475.9, -3.7 | LineTo 425.2, 46.9 | CurveTo 425.2, 60.7, 421.4, 50.7, 421.4, 56.9 | LineTo 515.4, 150.9 | CurveTo 529.2, 150.9, 519.2, 154.7, 525.4, 154.7 | LineTo 564.6, 115.5 | CurveTo 564.6, 60.3, 579.8, 100.2, 579.8, 75.5 | ClosePath 1
 Path3=384, 346.2 | LineTo 384, 448 | LineTo 64, 448 | LineTo 64, 128 | LineTo 293.8, 128 | CurveTo 302.3, 124.5, 297, 128, 300, 126.7 | LineTo 342.3, 84.5 | CurveTo 333.8, 64, 349.9, 76.9, 344.5, 64 | LineTo 48, 64 | CurveTo 0, 112, 21.5, 64, 0, 85.5 | LineTo 0, 464 | CurveTo 48, 512, 0, 490.5, 21.5, 512 | LineTo 400, 512 | CurveTo 448, 464, 426.5, 512, 448, 490.5 | LineTo 448, 306.2 | CurveTo 427.5, 297.7, 448, 295.5, 435.1, 290.2 | LineTo 387.5, 337.7 | CurveTo 384, 346.2, 385.3, 340, 384, 343 | ClosePath 1
 Fill=Fill Color #colorMain#
+HoverColor=#colorMain#
 TransformationMatrix=#transformationMatrix#
 ToolTipText=Edit settings file
 X=-18r
@@ -261,7 +264,7 @@ TransformationMatrix=#transformationMatrix#
 Group=Settings
 Fill=Fill Color #colorAccent#
 X=(#contentMargin# + 1)
-Y=3R
+Y=1R
 
 [StyleSettingsButtonInline]
 X=3R
@@ -363,7 +366,7 @@ Y=R
 H=4
 
 [StyleSettingsButtonColorIcon]
-Shape=Rectangle 0,0,12,12,2 | StrokeWidth 0 | Offset 0,1.5 | Extend Fill
+Shape=Rectangle 0,0,12,12,2 | StrokeWidth 0 | Offset 0,3 | Extend Fill
 Padding=0,0,5,3
 
 [StyleIconButtonIcon]
@@ -658,6 +661,11 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURREN
 MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
+[StyleShapeButtonHoverNew]
+MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color [&MeasureSettingsScript:GetHover('#CURRENTSECTION#', 1)]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill "Fill Color [&MeasureSettingsScript:GetHover('#CURRENTSECTION#', 0)]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+DynamicVariables=1
+
 [StyleMouseRegionCloseButton]
 LeftMouseUpAction=[!DeactivateConfig]
 ToolTipText=Close
@@ -774,6 +782,24 @@ Path1 = 440.65, 12.57 | LineTo 444.65, 95.34 | ArcTo 255.83, 8, 247.16, 247.16, 
 Path2 = 255.83, 432 | ArcTo 109.83, 354.2, 175.61, 175.61, 0, 0, 0 | LineTo 211.63, 359.07 | ArcTo 224.2, 347.07, 12, 12, 0, 1, 0 | LineTo 224.2, 299.67 | ArcTo 212.2, 287.67, 12, 12, 0, 1, 0 | LineTo 12, 287.67 | ArcTo 0, 299.67, 12, 12, 0, 1, 0 | LineTo 0, 500 | ArcTo 12, 512, 12, 12, 0, 1, 0 | LineTo 59.35, 512 | ArcTo 71.35, 499.4, 12, 12, 0, 1, 0 | LineTo 67.2, 416.83 | ArcTo 255.83, 504, 247.17, 247.17, 0, 1, 0 | CurveTo 499.38, 302.18, 376.94, 504, 477.76, 417.08 | ArcTo 487.58, 288, 12, 12, 0, 1, 0 | LineTo 438.53, 288 | ArcTo 426.86, 297.26, 12, 12, 0, 1, 0 | ArcTo 255.83, 432, 175.86, 175.86, 0, 0, 0 | ClosePath 1
 Fill=Fill Color #colorAccent#
 TransformationMatrix=#transformationMatrix#
+
+[StyleLargeRefreshButton]
+X=(#contentMarginRight# - 11)
+Y=r
+Shape=Rectangle -1,0,15,15 | StrokeWidth 0 | Fill Color #colorBg#
+Shape2=Path Path1 | StrokeWidth 0 | Extend Fill
+Shape3=Path Path2 | StrokeWidth 0
+Shape4=Combine Shape2 | XOR Shape3 | Scale 0.025,0.025,0,0 | Offset 0,1.5
+Path1=440.65, 12.57 | LineTo 444.65, 95.34 | ArcTo 255.83, 8, 247.16, 247.16, 0, 1, 0 | CurveTo 12.29, 209.82, 134.73, 8, 33.91, 94.92 | ArcTo 24.09, 224, 12, 12, 0, 1, 0 | LineTo 73.14, 224 | ArcTo 84.81, 214.74, 12, 12, 0, 1, 0 | ArcTo 401.81, 157.8, 175.91, 175.91, 0, 0, 0 | LineTo 300.35, 152.94 | ArcTo 287.78, 164.94, 12, 12, 0, 1, 0 | LineTo 287.78, 212.35 | ArcTo 299.78, 224.35, 12, 12, 0, 1, 0 | LineTo 500, 224.35 | ArcTo 512, 212.35, 12, 12, 0, 1, 0 | LineTo 512, 12 | ArcTo 500, 0, 12, 12, 0, 1, 0 | LineTo 452.63, 0 | ArcTo 440.65, 12.57, 12, 12, 0, 1, 0 | ClosePath 1
+Path2=255.83, 432 | ArcTo 109.83, 354.2, 175.61, 175.61, 0, 0, 0 | LineTo 211.63, 359.07 | ArcTo 224.2, 347.07, 12, 12, 0, 1, 0 | LineTo 224.2, 299.67 | ArcTo 212.2, 287.67, 12, 12, 0, 1, 0 | LineTo 12, 287.67 | ArcTo 0, 299.67, 12, 12, 0, 1, 0 | LineTo 0, 500 | ArcTo 12, 512, 12, 12, 0, 1, 0 | LineTo 59.35, 512 | ArcTo 71.35, 499.4, 12, 12, 0, 1, 0 | LineTo 67.2, 416.83 | ArcTo 255.83, 504, 247.17, 247.17, 0, 1, 0 | CurveTo 499.38, 302.18, 376.94, 504, 477.76, 417.08 | ArcTo 487.58, 288, 12, 12, 0, 1, 0 | LineTo 438.53, 288 | ArcTo 426.86, 297.26, 12, 12, 0, 1, 0 | ArcTo 255.83, 432, 175.86, 175.86, 0, 0, 0 | ClosePath 1
+Fill=Fill Color #colorAccent#
+TransformationMatrix=#transformationMatrix#
+DynamicVariables=1
+MouseOverAction=[!SetOption #CURRENTSECTION# Shape4 "Combine Shape2 | XOR Shape3 | Scale 0.025,0.025,0,0 | Offset 0,1.5 | Rotate 15"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# Shape4 "Combine Shape2 | XOR Shape3 | Scale 0.025,0.025,0,0 | Offset 0,1.5 | Rotate 0"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+LeftMouseDownAction=[!SetOption #CURRENTSECTION# Fill "Fill Color #colorAccent#,#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+LeftMouseUpAction=[!SetOption #CURRENTSECTION# Fill "Fill Color #colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Redraw][!Refresh "#currentGadget#"]
+ToolTipText=Apply changes
 
 ; Line Graph
 [StyleLineGraphBackground]
@@ -958,7 +984,7 @@ Path3=312, 372 | CurveTo 300, 384, 312, 378.627, 306.627, 384 | LineTo 212, 384 
 ; Question icon
 Path2 = 262.655, 90 | CurveTo 146.106, 153.758, 208.158, 90, 173.4, 112.957 | CurveTo 148.821, 170.016, 142.57, 159.044, 143.753, 166.173 | LineTo 183.52, 196.326 | CurveTo 200.185, 194.204, 188.725, 200.273, 196.141, 199.334 | CurveTo 257.488, 158.407, 218.049, 171.546, 230.298, 158.407 | CurveTo 303.186, 191.365, 277.917, 158.407, 303.186, 171.555 | CurveTo 270.652, 225.341, 303.186, 206.341, 290.823, 214.032 | CurveTo 216, 296, 247.128, 238.528, 216, 254.941 | LineTo 216, 300 | CurveTo 228, 312, 216, 306.627, 221.373, 312 | LineTo 284, 312 | CurveTo 296, 300, 290.627, 312, 296, 306.627 | LineTo 296, 298.667 | CurveTo 379.186, 192, 296, 270.205, 379.186, 269.02 | CurveTo 262.655, 90, 379.186, 133.998, 319.021, 90 | ClosePath 1
 Path3 = 256, 338 | CurveTo 210, 384, 230.635, 338, 210, 358.635 | CurveTo 256, 430, 210, 409.364, 230.635, 430 | CurveTo 302, 384, 281.365, 430, 302, 409.364 | CurveTo 256, 338, 302, 358.635, 281.365, 338 | ClosePath 1
-X=(#contentMarginRight# - [#CURRENTSECTION#:W])
+X=(#contentMarginRight# - [#CURRENTSECTION#:W] + 1)
 Y=r
 TransformationMatrix=#transformationMatrix#
 DynamicVariables=1
@@ -969,17 +995,18 @@ ToolTipText=Body text
 ToolTipWidth=300
 
 [StyleShapeBookIcon]
-Shape = Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2 = Path Path2 | StrokeWidth 0
-Shape3 = Path Path3 | StrokeWidth 0
-Shape4 = Path Path4 | StrokeWidth 0
-Shape5 = Combine Shape1 | XOR Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.03,0.03,0,0 | Offset 1,0
-Path1 = 448, 360 | LineTo 448, 24 | CurveTo 424, 0, 448, 10.7, 437.3, 0 | LineTo 96, 0 | CurveTo 0, 96, 43, 0, 0, 43 | LineTo 0, 416 | CurveTo 96, 512, 0, 469, 43, 512 | LineTo 424, 512 | CurveTo 448, 488, 437.3, 512, 448, 501.3 | LineTo 448, 472 | CurveTo 439.1, 453.3, 448, 464.5, 444.5, 457.7 | CurveTo 439.1, 378.6, 434.9, 437.9, 434.9, 394 | CurveTo 448, 360, 444.5, 374.3, 448, 367.5 | ClosePath 1
-Path2 = 128, 134 | CurveTo 134, 128, 128, 130.7, 130.7, 128 | LineTo 346, 128 | CurveTo 352, 134, 349.3, 128, 352, 130.7 | LineTo 352, 154 | CurveTo 346, 160, 352, 157.3, 349.3, 160 | LineTo 134, 160 | CurveTo 128, 154, 130.7, 160, 128, 157.3 | LineTo 128, 134 | ClosePath 1
-Path3 = 128, 198 | CurveTo 134, 192, 128, 194.7, 130.7, 192 | LineTo 346, 192 | CurveTo 352, 198, 349.3, 192, 352, 194.7 | LineTo 352, 218 | CurveTo 346, 224, 352, 221.3, 349.3, 224 | LineTo 134, 224 | CurveTo 128, 218, 130.7, 224, 128, 221.3 | LineTo 128, 198 | ClosePath 1
-Path4 = 381.4, 448 | LineTo 96, 448 | CurveTo 64, 416, 78.3, 448, 64, 433.7 | CurveTo 96, 384, 64, 398.4, 78.4, 384 | LineTo 381.4, 384 | CurveTo 381.4, 448, 379.5, 401.1, 379.5, 430.9 | ClosePath 1
+Shape=Path Path1 | StrokeWidth 0 | Extend Fill
+Shape2=Path Path2 | StrokeWidth 0
+Shape3=Path Path3 | StrokeWidth 0
+Shape4=Path Path4 | StrokeWidth 0
+Shape5=Combine Shape1 | XOR Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.028,0.028,0,0 | Offset 1,0.5
+Path1=448, 360 | LineTo 448, 24 | CurveTo 424, 0, 448, 10.7, 437.3, 0 | LineTo 96, 0 | CurveTo 0, 96, 43, 0, 0, 43 | LineTo 0, 416 | CurveTo 96, 512, 0, 469, 43, 512 | LineTo 424, 512 | CurveTo 448, 488, 437.3, 512, 448, 501.3 | LineTo 448, 472 | CurveTo 439.1, 453.3, 448, 464.5, 444.5, 457.7 | CurveTo 439.1, 378.6, 434.9, 437.9, 434.9, 394 | CurveTo 448, 360, 444.5, 374.3, 448, 367.5 | ClosePath 1
+Path2=128, 134 | CurveTo 134, 128, 128, 130.7, 130.7, 128 | LineTo 346, 128 | CurveTo 352, 134, 349.3, 128, 352, 130.7 | LineTo 352, 154 | CurveTo 346, 160, 352, 157.3, 349.3, 160 | LineTo 134, 160 | CurveTo 128, 154, 130.7, 160, 128, 157.3 | LineTo 128, 134 | ClosePath 1
+Path3=128, 198 | CurveTo 134, 192, 128, 194.7, 130.7, 192 | LineTo 346, 192 | CurveTo 352, 198, 349.3, 192, 352, 194.7 | LineTo 352, 218 | CurveTo 346, 224, 352, 221.3, 349.3, 224 | LineTo 134, 224 | CurveTo 128, 218, 130.7, 224, 128, 221.3 | LineTo 128, 198 | ClosePath 1
+Path4=381.4, 448 | LineTo 96, 448 | CurveTo 64, 416, 78.3, 448, 64, 433.7 | CurveTo 96, 384, 64, 398.4, 78.4, 384 | LineTo 381.4, 384 | CurveTo 381.4, 448, 379.5, 401.1, 379.5, 430.9 | ClosePath 1
 X=(#contentMarginRight# - [#CURRENTSECTION#:W])
 Y=3r
 TransformationMatrix=#transformationMatrix#
 Fill=Fill Color #colorAccent#
+HoverColor=#colorAccent#
 DynamicVariables=1
