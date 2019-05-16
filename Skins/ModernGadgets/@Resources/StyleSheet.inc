@@ -254,9 +254,9 @@ W=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:W] + [&[&Meas
 H=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:H]
 DynamicVariables=1
 Group=Settings
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #colorAccent#,#hoverAlpha#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorButtonPress*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorButtonPress*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
-MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color [&MeasureSettingsScript:GetHover('[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon', 1, 'Fill Color ', 'Fill')]"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
+; MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorButtonPress*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorButtonPress*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
+MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color [&MeasureSettingsScript:GetHover('[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon', 0, 'Fill Color ', 'Fill')]"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Label][!Redraw]
 
 [StyleSettingsButton]
 DynamicVariables=1
@@ -366,8 +366,9 @@ Y=R
 H=4
 
 [StyleSettingsButtonColorIcon]
-Shape=Rectangle 0,0,12,12,2 | StrokeWidth 0 | Offset 0,3 | Extend Fill
+Shape=Rectangle 0,0,12,12,2 | StrokeWidth 0 | Offset 0,2 | Extend Fill
 Padding=0,0,5,3
+X=r
 
 [StyleIconButtonIcon]
 X=r
@@ -662,8 +663,8 @@ MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color #colorButtonPress#
 MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
 [StyleShapeButtonHoverNew]
-MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color [&MeasureSettingsScript:GetHover('#CURRENTSECTION#', 1)]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill "Fill Color [&MeasureSettingsScript:GetHover('#CURRENTSECTION#', 0)]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color [&MeasureSettingsScript:GetHover('#CURRENTSECTION#', 1, 'Fill Color ', 'Fill')]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill "Fill Color [&MeasureSettingsScript:GetHover('#CURRENTSECTION#', 0, 'Fill Color ', 'Fill')]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 DynamicVariables=1
 
 [StyleMouseRegionCloseButton]
