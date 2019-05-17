@@ -211,6 +211,24 @@ v1.0.0 - 2016-12-04
 ----------------------------------------------------------------------------------------------------
 Development Releases
 
+v1.6.0-beta.1 - 2019-05-17
+- Added Battery Meter
+- Added Clipboard Meter
+- Added cellular data icon to Network Meter
+- Moved external IP visibility toggle to the Network Meter gadget itself
+- Enhanced Network Meter autoconfig to scan for wireless adapters
+- Network Meter icon will now only show status for the configured adapters, rather than the 'best' adapter
+- Converted the majority of icons in the suite to shape meters
+- Converted the majority of icons in the suite to FontAwesome icons
+- Adjusted gadget header style
+- Adjusted button hover aesthetics
+- Adjusted thermal throttling warning interface
+- Optimized default thermal throttling sound
+- Redesigned gadget manager & ModernGadgets logo
+- Began redesign of gadget settings skins (only CPU Meter settings for now)
+- Updated PayPal donation link
+- Fixed update notification and welcome interfaces going screwy if the scale was set to anything but 1.0
+
 v1.5.1-rc.4 - 2019-04-31
 - Added help icon to average CPU usage mode
 - Fixed page file size not updating
@@ -589,19 +607,3 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
-
-v1.6.0-beta.1 - 2019-05-??
-- Added Battery Meter
-- Added Clipboard Meter
-- Added cellular data icon to Network Meter
-- Network Meter icon will now only show status for the configured adapters, rather than the 'best' adapter
-- Enhanced Network Meter autoconfig to scan for wireless adapters
-- Converted the majority of icons in the suite to shape meters
-- Converted the majority of icons in the suite to FontAwesome icons
-- Adjusted gadget header style
-- Adjusted button hover aesthetics
-- Adjusted thermal throttling warning interface
-- Optimized default thermal throttling sound
-- Redesigned gadget manager & ModernGadgets logo
-- Began redesign of gadget settings skins (only CPU Meter settings for now)
-- Updated PayPal donation link
