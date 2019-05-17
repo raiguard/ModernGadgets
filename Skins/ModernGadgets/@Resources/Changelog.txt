@@ -590,7 +590,15 @@ v1.0.0-rc.1 - 2016-11-14
 ----------------------------------------------------------------------------------------------------
 WIP Releases
 
-v1.6.0-beta.1 - 2019-03-??
+v1.6.0-beta.1 - 2019-05-??
 - Added Battery Meter
 - Added Clipboard Meter
+- Converted the majority of icons in the suite to shape meters
+- Converted the majority of icons in the suite to FontAwesome icons
 - Adjusted gadget header style
+- Adjusted button hover aesthetics
+- Adjusted thermal throttling warning interface
+- Optimized default thermal throttling sound
+- Redesigned gadget manager & ModernGadgets logo
+- Began redesign of gadget settings skins (only CPU Meter settings for now)
+- Updated PayPal donation link
