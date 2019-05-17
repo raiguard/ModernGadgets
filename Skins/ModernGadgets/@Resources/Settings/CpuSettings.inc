@@ -272,7 +272,7 @@ HWiNFO-CPU0-Core31Temp-EntryId=0x100001f
 ; CPU Package Temperature [HWiNFO-CPU0-PackageTemp]
 HWiNFO-CPU0-PackageTemp-SensorId=0xf0000400
 HWiNFO-CPU0-PackageTemp-SensorInstance=0x0
-HWiNFO-CPU0-PackageTemp-EntryId=0x10000fe
+HWiNFO-CPU0-PackageTemp-EntryId=0x100007e
 ; CPU Core 0 Distance to TjMax [HWiNFO-CPU0-Core0TjMax]
 HWiNFO-CPU0-Core0TjMax-SensorId=0xf0000400
 HWiNFO-CPU0-Core0TjMax-SensorInstance=0x0
