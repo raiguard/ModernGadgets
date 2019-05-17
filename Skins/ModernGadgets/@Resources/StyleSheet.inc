@@ -653,7 +653,7 @@ LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorAccent#
 
 [StyleMouseRegionStringButtonHover]
 DynamicVariables=1
-MouseOverAction=[!Log "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 1, '', 'FontColor')]"][!SetOption #CURRENTSECTION#_ FontColor "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 1, '', 'FontColor')]"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseOverAction=[!SetOption #CURRENTSECTION#_ FontColor "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 1, '', 'FontColor')]"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ FontColor "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 0, '', 'FontColor')]"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleImgButtonHover]
