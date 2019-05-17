@@ -9,6 +9,10 @@ textMemoryTotal=""
 Measure=Script
 ScriptFile=#scriptPath#FixedPrecisionFormat.lua
 
+[MeasureSettingsScript]
+Measure=Script
+ScriptFile=#scriptPath#Settings.lua
+
 [MeasureHwinfoDetect]
 Measure=Plugin
 Plugin=HWiNFO
@@ -505,7 +509,7 @@ Hidden=1
 
 [MeterConfigButton]
 Meter=Image
-MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHover
+MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHoverNew
 LeftMouseUpAction=[!SkinCustomMenu]
 Group=ConfigButton
 Hidden=1

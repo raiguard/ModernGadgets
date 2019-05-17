@@ -629,12 +629,17 @@ W=([#CURRENTSECTION#_:W] * #scale#)
 H=([#CURRENTSECTION#_:H] * #scale#)
 
 [StyleMouseRegionImgButtonHover]
-MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageTint ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageAlpha "#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageAlpha ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleMouseRegionShapeButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Fill ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+
+[StyleMouseRegionShapeButtonHoverNew]
+MouseOverAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color [&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 1, 'Fill Color ', 'Fill')]"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color [&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 0, 'Fill Color ', 'Fill')]"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+DynamicVariables=1
 
 [StyleMouseRegionRefreshButton]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageName "#imgPath#refresh-over.png"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
@@ -647,8 +652,9 @@ MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Shape3 "Combine Shape1 | XOR Shap
 LeftMouseDownAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorAccent#,#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleMouseRegionStringButtonHover]
-MouseOverAction=[!SetOption #CURRENTSECTION#_ FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION#_ FontColor ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+DynamicVariables=1
+MouseOverAction=[!Log "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 1, '', 'FontColor')]"][!SetOption #CURRENTSECTION#_ FontColor "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 1, '', 'FontColor')]"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION#_ FontColor "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#_', 0, '', 'FontColor')]"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleImgButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]

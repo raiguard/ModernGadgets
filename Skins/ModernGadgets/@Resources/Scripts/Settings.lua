@@ -45,11 +45,12 @@ function Initialize()
 	measureInputText = SELF:GetOption('MeasureInputText', 'MeasureSettingsInputText')
 	colorPickerConfig = SELF:GetOption('ColorPickerConfig')
 	colorPickerPath = SKIN:GetVariable('SKINSPATH') .. colorPickerConfig .. '\\ColorPickerPlus.ini'
-	-- TEMPORARY
+	-- LEGACY
 	toggleOn = SELF:GetOption('ToggleOn')
 	toggleOff = SELF:GetOption('ToggleOff')
 	radioOn = SELF:GetOption('RadioOn')
 	radioOff = SELF:GetOption('RadioOff')
+	measureRainRgb = SELF:GetOption('MeasureRainRgb', 'MeasureSettingsRainRgb')
 
 end
 
@@ -123,9 +124,8 @@ function PickColor(variable, actionSet, ifLogic, oSettingsPath, oConfigPath)
 	local lConfigPath = oConfigPath or configPath
 
 	SKIN:Bang('!WriteKeyValue', 'Variables', 'baseColor', SKIN:GetVariable(variable), colorPickerPath)
+	SKIN:Bang('!WriteKeyValue', 'Variables', 'finishAction', '[!CommandMeasure ' .. SELF:GetName() .. ' \"Set(\'' .. variable .. '\', \'[&MeasureScript:GetColor(\'cur_rgb\')]\', ' .. (actionSet and ('\'' .. actionSet .. '\'') or 'nil') .. ', ' .. (ifLogic and ('\'' .. ifLogic .. '\'') or 'nil') .. ', \'' .. string.gsub(lSettingsPath, '\\', '\\\\') .. '\', \'' .. string.gsub(lConfigPath, '\\', '\\\\') .. '\')\" \"' .. SKIN:GetVariable('CURRENTCONFIG') .. '\"][!DeactivateConfig]', colorPickerPath)
 	SKIN:Bang('!ActivateConfig', colorPickerConfig)
-	SKIN:Bang('!SetVariable', 'finishAction', '[!CommandMeasure ' .. SELF:GetName() .. ' \"Set(\'' .. variable .. '\', \'[&MeasureScript:GetColor(\'cur_rgb\')]\', ' .. (actionSet and ('\'' .. actionSet .. '\'') or 'nil') .. ', ' .. (ifLogic and ('\'' .. ifLogic .. '\'') or 'nil') .. ', \'' .. string.gsub(lSettingsPath, '\\', '\\\\') .. '\', \'' .. string.gsub(lConfigPath, '\\', '\\\\') .. '\')\" \"' .. SKIN:GetVariable('CURRENTCONFIG') .. '\"][!DeactivateConfig]', colorPickerConfig)
-	SKIN:Bang('!UpdateMeter', 'MeterConfirmButton', colorPickerConfig)
 
 end
 
@@ -261,6 +261,9 @@ function GetHover(meter, type, gsub, key)
 
 end
 
+-- ------------------------------
+-- LEGACY SUPPORT
+
 function GetIcon(value, onState, offState)
 
 	if offState == nil then
@@ -275,5 +278,24 @@ function GetIcon(value, onState, offState)
 		if value == onState then return toggleOn
 			else return toggleOff end
 	end
+
+end
+
+function RainRgb(variable, actionSet, ifLogic, oSettingsPath, oConfigPath)
+
+	local lSettingsPath = oSettingsPath or settingsPath
+	local lConfigPath = oConfigPath or configPath
+
+	SKIN:Bang('!SetOption', measureRainRgb, 'Parameter', '\"VarName=' .. variable .. '\" \"FileName=' .. lSettingsPath .. '\" \"RefreshConfig=-1\"')
+	SKIN:Bang('!UpdateMeasure', measureRainRgb)
+	SKIN:Bang('!CommandMeasure', measureRainRgb, 'Run')
+
+	rainRgbInfo = { variable, actionSet, ifLogic or 'nil', lSettingsPath, lConfigPath }
+
+end
+
+function FinishRainRgb(rainRgbOutput)
+
+	if rainRgbOutput ~= '' then Set(rainRgbInfo[1], rainRgbOutput, rainRgbInfo[2], rainRgbInfo[3], rainRgbInfo[4], rainRgbInfo[5]) end
 
 end
