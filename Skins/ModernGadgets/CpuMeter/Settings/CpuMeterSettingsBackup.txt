@@ -1,0 +1,1056 @@
+[Rainmeter]
+Group=ModernGadgets | MgImportRefresh
+MiddleMouseDownAction=[!Refresh]
+AccurateText=1
+
+[Metadata]
+Name=CPU Config
+Author=raiguard
+Information=Configuration for CPU Meter.
+License=Creative Commons Attribution-NonCommercial-ShareAlike 3.0
+Version=1.5.1
+
+; ========= Variables and Styles =========
+
+[Variables]
+@includeStyleSheet=#@#StyleSheet.inc
+@includeGlobalSettings=#@#Settings\GlobalSettings.inc
+@includeCpuSettings=#@#Settings\CpuSettings.inc
+
+scale=1
+bgWidth=247
+bgHeight=498
+contentMarginAbs=4
+
+rainFileCommand=["[#rainFilePath]" "File" "Variables" "ttSoundPath" "[#cpuSettingsPath]" "[#@]Assets\Sounds\"]
+extProgram=1
+coreTempSource=Hwinfo
+
+; ----- Defaults -----
+
+dColorRam=107,198,250
+dColorPage=255,204,0
+dColorCpuFan=150,150,150
+dColorAvgCpu=237,28,32
+dColorCore1=107,238,98
+dColorCore2=255,246,42
+dColorCore3=250,158,0
+dColorCore4=236,28,70
+dColorCore5=199,36,199
+dColorCore6=145,70,232
+dColorCore7=42,112,250
+dColorCore8=43,224,224
+dColorCore9=121,182,62
+dColorCore10=204,255,0
+dColorCore11=250,205,22
+dColorCore12=191,100,55
+dColorCore13=201,41,56
+dColorCore14=179,0,91
+dColorCore15=153,84,166
+dColorCore16=99,125,217
+dColorCore17=43,224,152
+dColorCore18=227,242,10
+dColorTt=255,120,147
+dColorCpuTemp=200,0,0
+dTtHistogramAlpha=50
+
+; ==================================================
+;  MEASURES
+; ==================================================
+
+[MeasureSettingsScript]
+Measure=Script
+ScriptFile=#scriptPath#Settings.lua
+SettingsPath=#cpuSettingsPath#
+ConfigPath=#cpuMeterConfig#
+ToggleOn=#toggleOn#
+ToggleOff=#toggleOff#
+RadioOn=#radioOn#
+RadioOff=#radioOff#
+MeasureRainRgb=MeasureSettingsRainRgb
+DefaultAction=[!Update "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+RefreshGadgetAction=[!Refresh "#cpuMeterConfig#"]
+CpuNameAction=[!SetOptionGroup CpuName Disabled "(#showCpuName# = 0)" "#cpuMeterConfig#"][!SetOption MeterCpuDisplayName Hidden "(#showCpuName# = 0)" "#cpuMeterConfig#"][!SetOption MeterCpuDisplayName Y "((#showCpuName# = 0) ? 0 : #rowSpacing#)R" "#cpuMeterConfig#"][!UpdateMeterGroup CpuName "#cpuMeterConfig#"][!UpdateMeter MeterCpuDisplayName "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+PageFileAction=[!SetOptionGroup CpuPage Disabled "(#showPageFile# = 0)" "#cpuMeterConfig#"][!SetOptionGroup CpuPage Hidden "(#showPageFile# = 0)" "#cpuMeterConfig#"][!SetOption PageLabelString Y "((#showPageFile# = 0) ? -#barTextOffset# : #rowSpacing#)R" "#cpuMeterConfig#"][!UpdateMeasureGroup CpuPage "#cpuMeterConfig#"][!UpdateMeterGroup CpuPage "#cpuMeterConfig#"][!UpdateMeterGroup LineGraph "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CoreTempsAction0=[!EnableMeasure MeasureConfigCoreTemps "#cpuMeterConfig#"][!CommandMeasure MeasureConfigCoreTemps "Reset" "#cpuMeterConfig#"][!UpdateMeasure MeasureConfigCoreTemps "#cpuMeterConfig#"][!HideMeterGroup CpuTemp "#cpuMeterConfig#"][!UpdateMeterGroup CpuTemp "#cpuMeterConfig#"][!UpdateMeterGroup CoreTemps "#cpuMeterConfig#"][!UpdateMeterGroup CoreVoltages "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CoreTempsAction1=[!EnableMeasure MeasureConfigCoreTemps "#cpuMeterConfig#"][!CommandMeasure MeasureConfigCoreTemps "Reset" "#cpuMeterConfig#"][!UpdateMeasure MeasureConfigCoreTemps "#cpuMeterConfig#"][!HideMeterGroup CpuTemp "#cpuMeterConfig#"][!UpdateMeterGroup CpuTemp "#cpuMeterConfig#"][!UpdateMeterGroup CoreTemps "#cpuMeterConfig#"][!UpdateMeterGroup CoreVoltages "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CoreTempsAction2=[!EnableMeasure MeasureConfigCoreTemps "#cpuMeterConfig#"][!CommandMeasure MeasureConfigCoreTemps "Reset" "#cpuMeterConfig#"][!UpdateMeasure MeasureConfigCoreTemps "#cpuMeterConfig#"][!ShowMeterGroup CpuTemp "#cpuMeterConfig#"][!UpdateMeterGroup CpuTemp "#cpuMeterConfig#"][!UpdateMeterGroup CoreTemps "#cpuMeterConfig#"][!UpdateMeterGroup CoreVoltages "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CoreVoltagesAction0=[!CommandMeasure MeasureCpuConfigScript "ToggleVoltages(#threadCount#, false)" "#cpuMeterConfig#"][!UpdateMeterGroup CoreVoltages "#cpuMeterConfig#"][!UpdateMeterGroup CoreTemps "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CoreVoltagesAction1=[!CommandMeasure MeasureCpuConfigScript "ToggleVoltages(#threadCount#, true)" "#cpuMeterConfig#"][!UpdateMeterGroup CoreVoltages "#cpuMeterConfig#"][!UpdateMeterGroup CoreTemps "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+TopProcessAction=[!SetOption MeasureTopProcess Disabled "(#showTopProcess# = 0)" "#cpuMeterConfig#"][!SetOptionGroup TopProcess Hidden "(#showTopProcess# = 0)" "#cpuMeterConfig#"][!SetOption TopProcessLabelString Y "((#showTopProcess# = 0) ? 0 : #rowSpacing#)R" "#cpuMeterConfig#"][!UpdateMeasureGroup TopProcess "#cpuMeterConfig#"][!UpdateMeterGroup TopProcess "#cpuMeterConfig#"][!UpdateMeterGroup LineGraph "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CpuFanAction=[!UpdateMeasureGroup CpuFan "#cpuMeterConfig#"][!UpdateMeterGroup CpuFan "#cpuMeterConfig#"][!UpdateMeterGroup LineGraph "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CpuClockAction=[!SetOption MeasureCpuClock Disabled "(#showCpuClock# = 0)" "#cpuMeterConfig#"][!SetOptionGroup CpuClock Hidden "(#showCpuClock# = 0)" "#cpuMeterConfig#"][!SetOption CpuClockLabelString Y "((#showCpuClock# = 0) ? 0 : #rowSpacing#)R" "#cpuMeterConfig#"][!UpdateMeasureGroup CpuClock "#cpuMeterConfig#"][!UpdateMeterGroup CpuClock "#cpuMeterConfig#"][!UpdateMeterGroup LineGraph "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+LineGraphAction=[!SetOptionGroup LineGraph Hidden "(#showLineGraph# = 0)" "#cpuMeterConfig#"][!UpdateMeterGroup LineGraph "#cpuMeterConfig#"][!UpdateMeter MeterTtWarning "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"][!UpdateMeasureGroup ButtonMeasures]
+AvgCpuAction=[!UpdateMeter MeterLineGraph "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CpuTempGraphAction=[!UpdateMeter MeterLineGraph "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+TtAction=[PlayStop "#cpuMeterConfig#"][!SetOption MeterTtWarning Hidden "(#showTt# = 0)" "#cpuMeterConfig#"][!SetOptionGroup Tt Disabled "(#showTt# = 0)" "#cpuMeterConfig#"][!UpdateMeasureGroup Tt "#cpuMeterConfig#"][!UpdateMeter MeterTtWarning "#cpuMeterConfig#"][!UpdateMeterGroup LineGraph "#cpuMeterConfig#"][!UpdateMeterGroup Background "#cpuMeterConfig#][!Redraw "#cpuMeterConfig#"][!UpdateMeasureGroup ButtonMeasures]
+TtSoundAction=[!UpdateMeasureGroup Tt "#cpuMeterConfig#"]
+CustomCpuNameActionAuto=[!SetOption MeterCpuDisplayName Text "%1" "#cpuMeterConfig#"][!UpdateMeter MeterCpuDisplayName "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+CustomCpuNameAction=[!SetOption MeterCpuDisplayName Text "#cpuName#" "#cpuMeterConfig#"][!UpdateMeter MeterCpuDisplayName "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+GraphAllCoresModeAction=[!UpdateMeter MeterLineGraph "#cpuMeterConfig#"][!Redraw "#cpuMeterConfig#"]
+
+[MeasureSettingsRainRgb]
+Measure=Plugin
+Plugin=RunCommand
+Program=#@#Addons\RainRGB\RainRgb4RunCommand.exe
+OutputType=ANSI
+FinishAction=[!CommandMeasure MeasureSettingsScript "FinishRainRgb('[MeasureSettingsRainRgb]')"]
+
+; ----- Program Detection -----
+
+[MeasureHwinfoDetect]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core0Temp-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core0Temp-EntryId#
+HWiNFOLogHandler=2
+HWiNFOType=CurrentValue
+
+[MeasureCoreTempDetect]
+Measure=Plugin
+Plugin=CoreTemp
+CoreTempType=Temperature
+CoreTempIndex=0
+
+[MeasureSpeedFanDetect]
+Measure=Plugin
+Plugin=SpeedFanPlugin
+SpeedFanType=Temperature
+SpeedFanNumber=#sfCoreTemp# + 0
+
+; Sets measures and meters depending on the active state of each external program
+[MeasureCalcExtProgramSources]
+Measure=Calc
+Formula=((MeasureHwinfoDetect = -9000) ? 0 : 1) + ((MeasureCoreTempDetect = 0) ? 0 : 2) + ((MeasureSpeedFanDetect = 0) ? 0 : 4)
+; No program
+IfCondition=(MeasureCalcExtProgramSources = 0)
+IfTrueAction=[!SetVariable extProgram 0][!WriteKeyValue Variables extProgram 0][!DisableMouseActionGroup * ProgramSwitching][!SetOptionGroup ProgramSwitching FontColor "#colorDisabled#"][!UpdateMeterGroup ProgramSwitching][!Redraw]
+;IfTrueAction=[!SetVariable extProgram 0][!WriteKeyValue Variables extProgram 0][!UpdateMeasureGroup ProgramSwitching][!UpdateMeterGroup ProgramSwitching][!Redraw]
+; HWiNFO only
+IfCondition2=((MeasureCalcExtProgramSources = 1) || (MeasureCalcExtProgramSources = 3) || (MeasureCalcExtProgramSources = 5) || (MeasureCalcExtProgramSources = 7))
+IfTrueAction2=[!SetVariable extProgram 1][!WriteKeyValue Variables extProgram 1][!SetVariable coreTempSource Hwinfo][!WriteKeyValue Variables coreTempSource Hwinfo]
+IfCondition3=((MeasureCalcExtProgramSources = 1) || (MeasureCalcExtProgramSources = 3) || (MeasureCalcExtProgramSources = 5) || (MeasureCalcExtProgramSources = 7))
+IfTrueAction3=[!DisableMouseActionGroup * ProgramSwitching][!EnableMouseActionGroup * Hwinfo][!SetOptionGroup ProgramSwitching FontColor "#colorDisabled#"][!SetOptionGroup Hwinfo FontColor ""][!UpdateMeterGroup ProgramSwitching][!Redraw]
+; CoreTemp only
+IfCondition4=(MeasureCalcExtProgramSources = 2) && (#extProgram# <> 2)
+IfTrueAction4=[!SetVariable extProgram 2][!WriteKeyValue Variables extProgram 2][!SetVariable coreTempSource CoreTemp][!WriteKeyValue Variables coreTempSource CoreTemp]
+IfCondition5=(MeasureCalcExtProgramSources = 2)
+IfTrueAction5=[!DisableMouseActionGroup * ProgramSwitching][!EnableMouseActionGroup * CoreTemp][!SetOptionGroup ProgramSwitching FontColor "#colorDisabled#"][!SetOptionGroup CoreTemp FontColor ""][!UpdateMeterGroup ProgramSwitching][!Redraw]
+; SpeedFan only
+IfCondition6=(MeasureCalcExtProgramSources = 4) && (#extProgram# <> 4)
+IfTrueAction6=[!SetVariable extProgram 4][!WriteKeyValue Variables extProgram 4][!SetVariable coreTempSource SpeedFan][!WriteKeyValue Variables coreTempSource SpeedFan]
+IfCondition7=(MeasureCalcExtProgramSources = 4)
+IfTrueAction7=[!DisableMouseActionGroup * ProgramSwitching][!EnableMouseActionGroup * SpeedFan][!SetOptionGroup ProgramSwitching FontColor "#colorDisabled#"][!SetOptionGroup SpeedFan FontColor ""][!UpdateMeterGroup ProgramSwitching][!Redraw]
+; CoreTemp + SpeedFan
+IfCondition8=(MeasureCalcExtProgramSources = 6) && (#extProgram# <> 6)
+IfTrueAction8=[!SetVariable extProgram 6][!WriteKeyValue Variables extProgram 6][!SetVariable coreTempSource CoreTemp][!WriteKeyValue Variables coreTempSource CoreTemp]
+IfCondition9=(MeasureCalcExtProgramSources = 6)
+IfTrueAction9=[!DisableMouseActionGroup * ProgramSwitching][!EnableMouseActionGroup * CoreTempSpeedFan][!SetOptionGroup ProgramSwitching FontColor "#colorDisabled#"][!SetOptionGroup CoreTempSpeedFan FontColor ""][!UpdateMeterGroup ProgramSwitching][!Redraw]
+DynamicVariables=1
+
+[MeasureOpenHwinfoSmv]
+Measure=Plugin
+Plugin=RunCommand
+Parameter=HWiNFOSharedMemoryViewer.exe /rmskin="#cpuSettingsPath#"
+StartInFolder=#@#Addons\HWiNFO
+
+[MeasureCustomCpuName]
+Measure=String
+String="#cpuName#"
+Substitute="auto":"Auto detect"
+DynamicVariables=1
+OnUpdateAction=[!UpdateMeter CustomCpuNameInputBox][!Redraw]
+
+[MeasureInputText]
+Measure=Plugin
+Plugin=InputText
+SolidColor=#colorInputBg#
+FontColor=#colorInputText#
+FontSize=10
+FontFace=Roboto
+UpdateDivider=-1
+FocusDismiss=1
+InputLimit=30
+Antialias=1
+DynamicVariables=1
+Command1=[!CommandMeasure MeasureSettingsScript "SetCustomCpuName('$UserInput$')"][!UpdateMeasure MeasureCustomCpuName] DefaultValue="Leave blank to set auto detect" X=[CustomCpuNameInputBox:X] Y=[CustomCpuNameInputBox:Y] W=[CustomCpuNameInputBox:W] H=[CustomCpuNameInputBox:H]
+Command2=[!CommandMeasure MeasureSettingsScript "Set('sfCoreTemp', '$UserInput$')"] DefaultValue="#sfCoreTemp#" X=[MeterSpeedFanCoreTempsRefInputBox:X] Y=[MeterSpeedFanCoreTempsRefInputBox:Y] W=[MeterSpeedFanCoreTempsRefInputBox:W] H=[MeterSpeedFanCoreTempsRefInputBox:H]
+Command3=[!CommandMeasure MeasureSettingsScript "Set('sfCpuFan', '$UserInput$')"] DefaultValue="#sfCpuFan#" X=[MeterSpeedFanCpuFanRefInputBox:X] Y=[MeterSpeedFanCpuFanRefInputBox:Y] W=[MeterSpeedFanCpuFanRefInputBox:W] H=[MeterSpeedFanCpuFanRefInputBox:H]
+Command4=[!CommandMeasure MeasureSettingsScript "Set('customMaxCpuTemp', '$UserInput$')"] DefaultValue="#customMaxCpuTemp#" X=[MeterCustomMaximumCpuTempOverrideInputBox:X] Y=[MeterCustomMaximumCpuTempOverrideInputBox:Y] W=[MeterCustomMaximumCpuTempOverrideInputBox:W] H=[MeterCustomMaximumCpuTempOverrideInputBox:H]
+Command5=[!CommandMeasure MeasureSettingsScript "Set('customMaxCpuFan', '$UserInput$')"] DefaultValue="#customMaxCpuFan#" X=[MeterCustomMaximumCpuFanOverrideInputBox:X] Y=[MeterCustomMaximumCpuFanOverrideInputBox:Y] W=[MeterCustomMaximumCpuFanOverrideInputBox:W] H=[MeterCustomMaximumCpuFanOverrideInputBox:H]
+
+[MeasureTtSound]
+Measure=Calc
+Formula=#showTt#
+IfCondition=MeasureTtSound = 0
+IfTrueAction=[!SetOptionGroup TtSound FontColor "#colorDisabled#"][!DisableMouseActionGroup * TtSound][!UpdateMeterGroup TtSound][!Redraw]
+IfFalseAction=[!SetOptionGroup TtSound FontColor ""][!EnableMouseActionGroup * TtSound][!UpdateMeterGroup TtSound][!Redraw]
+DynamicVariables=1
+Group=ButtonMeasures
+Disabled=(#extProgram# <> 1)
+
+[MeasureGraphSub]
+Measure=Calc
+Formula=#showLineGraph#
+IfCondition=MeasureGraphSub = 0
+IfTrueAction=[!DisableMouseActionGroup * GraphSub][!SetOptionGroup GraphSub FontColor "#colorDisabled#"][!UpdateMeterGroup GraphSub][!Redraw]
+IfFalseAction=[!EnableMouseActionGroup * GraphSub][!SetOptionGroup GraphSub FontColor ""][!UpdateMeterGroup GraphSub][!Redraw]
+DynamicVariables=1
+Group=ButtonMeasures
+
+[MeasureCpuTempGraph]
+Measure=Calc
+Formula=#showLineGraph# = 1
+IfCondition=(MeasureCpuTempGraph = 0)
+IfTrueAction=[!DisableMouseActionGroup * CpuTempGraph][!SetOptionGroup CpuTempGraph FontColor "#colorDisabled#"][!UpdateMeterGroup CpuTempGraph][!Redraw]
+IfFalseAction=[!EnableMouseActionGroup * CpuTempGraph][!SetOptionGroup CpuTempGraph FontColor ""][!UpdateMeterGroup CpuTempGraph][!Redraw]
+DynamicVariables=1
+Group=ButtonMeasures
+Disabled=(#extProgram# = 0)
+
+; ==================================================
+;  METERS
+; ==================================================
+
+[Background]
+Meter=Shape
+MeterStyle=StyleBackground
+
+[TitleString]
+Meter=String
+MeterStyle=StyleString | StyleStringConfigTitle
+Text=CPU Meter Settings
+
+[OpenConfigFileButton]
+Meter=String
+MeterStyle=StyleOpenConfigFileButton
+MouseOverAction=[!SetOption OpenConfigFileButton FontColor "#colorButtonPress#"][!UpdateMeter OpenConfigFileButton][!Redraw]
+MouseLeaveAction=[!SetOption OpenConfigFileButton FontColor ""][!UpdateMeter OpenConfigFileButton][!Redraw]
+LeftMouseUpAction=["#@#Settings\CpuSettings.inc"]
+
+[CloseButton]
+Meter=Image
+MeterStyle=StyleCloseButton
+
+; ----- Toggles -----
+
+; Cpu Name
+[CpuNameButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showCpuName])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showCpuName', '1', '0', 'CpuNameAction')"]
+
+[CpuNameLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=CPU Name
+
+; Page File
+[PageFileButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showPageFile])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showPageFile', '1', '0', 'PageFileAction')"]
+DynamicVariables=1
+
+[PageFileLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Page File
+
+; CPU Temperature
+[MeterCpuTempLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBoxLabel
+Text=CPU Temperature:
+Group=ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuTempOffButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showCoreTemps], 0)]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('showCoreTemps', '0', 'CoreTempsAction', true)"]
+Group=Settings | ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuTempOffButtonLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Off
+Group=ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuTempStandardButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleRadioButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showCoreTemps], 2)]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('showCoreTemps', '2', 'CoreTempsAction', true)"]
+Group=Settings | ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuTempStandardButtonLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Standard
+Group=ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuTempPerCoreButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleRadioButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showCoreTemps], 1)]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('showCoreTemps', '1', 'CoreTempsAction', true)"]
+Group=Settings | ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuTempPerCoreButtonLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Per-Core
+Group=ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan
+
+; Core Voltages
+[CoreVoltagesButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showCoreVoltages])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showCoreVoltages', '1', '0', 'CoreVoltagesAction', true)"]
+Group=Settings | ProgramSwitching | Hwinfo
+
+[CoreVoltagesLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Core Voltages
+Group=ProgramSwitching | Hwinfo
+
+; Top Process
+[TopProcessButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showTopProcess])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showTopProcess', '1', '0', 'TopProcessAction')"]
+Group=Settings
+
+[TopProcessLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Top Process
+
+;; Fan Speed
+;[CpuFanButton]
+;Meter=String
+;MeterStyle=StyleToggleButton | StyleStringButtonHover
+;Text=[&MeasureSettingsScript:GetIcon([#showCpuFan])]
+;LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showCpuFan', '1', '0', 'CpuFanAction')"]
+;DynamicVariables=1
+;Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+;[CpuFanLabelString]
+;Meter=String
+;MeterStyle=StyleString | StyleStringToggleLabel
+;Text=Fan Speed
+;Group=ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+; Fan Speed
+[MeterCpuFanLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBoxLabel
+Text=Fan Speed:
+Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuFanOffButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon('[#showCpuFan]', '0')]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('showCpuFan', '0', 'CpuFanAction')"]
+Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuFanOffLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Off
+Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuFanStandardButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleRadioButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon('[#showCpuFan]', '1')]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('showCpuFan', '1', 'CpuFanAction')"]
+Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuFanStandardLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Standard
+Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuFanDynamicButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleRadioButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon('[#showCpuFan]', '2')]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('showCpuFan', '2', 'CpuFanAction')"]
+Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+[MeterCpuFanDynamicLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Dynamic
+Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan
+
+; CPU Clock
+[CpuClockButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showCpuClock])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showCpuClock', '1', '0', 'CpuClockAction')"]
+
+[CpuClockLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=CPU Clock Speed
+
+; Line Graph
+[LineGraphButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showLineGraph])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showLineGraph', '1', '0', 'LineGraphAction')"]
+
+[LineGraphLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Line Graph
+
+; Average CPU usage graph
+[AvgCpuGraphButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+X=-3r
+Text=[&MeasureSettingsScript:GetIcon([#showAvgCpu])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showAvgCpu', '1', '0', 'AvgCpuAction')"]
+Group=Settings | AvgLineGraph | GraphSub
+
+[AvgCpuGraphLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Average CPU Usage Graph
+Group=AvgLineGraph | GraphSub
+
+; CPU Temperature Graph
+[CpuTempGraphButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+X=[AvgCpuGraphButton:X]
+Text=[&MeasureSettingsScript:GetIcon([#showCpuTempGraph])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showCpuTempGraph', '1', '0', 'CpuTempGraphAction')"]
+Group=Settings | ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan | CpuTempGraph
+
+[CpuTempGraphLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=CPU Temperature Graph
+Group=ProgramSwitching | Hwinfo | CoreTemp | SpeedFan | CoreTempSpeedFan | CpuTempGraph
+
+; CPU Fan Speed Graph
+[MeterCpuFanGraphButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+X=[AvgCpuGraphButton:X]
+Text=[&MeasureSettingsScript:GetIcon([#showCpuFanGraph])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showCpuFanGraph', '1', '0', 'CpuTempGraphAction')"]
+Group=Settings | ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan | CpuTempGraph
+
+[MeterCpuFanGraphButtonLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=CPU Fan Speed Graph
+Group=ProgramSwitching | Hwinfo | SpeedFan | CoreTempSpeedFan | CpuTempGraph
+
+; All Cores Mode
+[MeterGraphAllCoresModeButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+X=[AvgCpuGraphButton:X]
+Text=[&MeasureSettingsScript:GetIcon([#graphAllCoresMode])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('graphAllCoresMode', '1', '0', 'GraphAllCoresModeAction')"]
+Group=Settings | GraphAllCoresMode | GraphSub
+
+[MeterGraphAllCoresModeButtonLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Show All Cores
+Group=GraphAllCoresMode | GraphSub
+
+[MeterGraphAllCoresModeHelpButton]
+Meter=Image
+MeterStyle=StyleHelpButton
+ToolTipTitle=Show All Cores in Line Graph
+ToolTipText=By default, the line graph will only show the first 16 cores. This is due both to color originality (any threads beyond 16 will begin repeating the first 16 colors), and due to the fact that at such a small scale, it can become very difficult to see what is going on if you have so many individual lines. If you still wish to see all of your threads in the line graph, enable this option.
+
+; Thermal Throttling Detection
+[TtDetectionButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon([#showTt])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showTt', '1', '0', 'TtAction')"]
+DynamicVariables=1
+Group=Settings | ProgramSwitching | Hwinfo | Tt
+
+[TtDetectionLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Thermal Throttling Detection
+Group=ProgramSwitching | Hwinfo | Tt
+
+; Play Tt Warning Sound
+[TtSoundButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+X=-3r
+Text=[&MeasureSettingsScript:GetIcon([#playTtSound])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('playTtSound', '1', '0', 'TtSoundAction')"]
+DynamicVariables=1
+Group=Settings | ProgramSwitching | Hwinfo | Tt | TtSound
+
+[TtSoundLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Play Warning Sound
+Group=ProgramSwitching | Hwinfo | Tt | TtSound
+
+[TtSoundFileButton]
+Meter=String
+MeterStyle=StyleString
+FontFace=ElegantIcons
+FontSize=10
+X=10R
+Y=1r
+Text=[\xe05c]
+ToolTipText=Choose audio file
+LeftMouseUpAction=[#rainFileCommand]
+Group=ProgramSwitching | Hwinfo | Tt | TtSound
+
+; Average CPU Usage mode
+[MeterAvgCpuUsageModeButton]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Y=7R
+Text=[&MeasureSettingsScript:GetIcon([#showAvgCpuUsage])]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Toggle('showAvgCpuUsage', '1', '0', 'RefreshGadgetAction')"]
+
+[MeterAvgCpuUsageModeButtonLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Average CPU Usage Mode
+
+[MeterAvgCpuUsageModeHelpButton]
+Meter=Image
+MeterStyle=StyleHelpButton
+ToolTipTitle=Average CPU Usage Mode
+ToolTipText=This option axes the individual thread usage display in favor of displaying the overall average CPU usage. Temperature and voltage settings will act as if this line was a normal thread.
+
+; Custom CPU Name
+[CustomCpuNameLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBoxLabel
+Y=5R
+Text=Custom CPU Name
+
+[CustomCpuNameHelp]
+Meter=Image
+MeterStyle=StyleHelpButton
+X=(#contentMarginRight# - 14)
+Y=1r
+ToolTipIcon=Info
+ToolTipTitle="Custom CPU Display Name"
+ToolTipText=Overrides the automatically detected CPU name. Useful if the auto detected name extends past the boundaries of the gadget, or if you just want to change it.
+
+[CustomCpuNameInputBoxBackground]
+Meter=Shape
+MeterStyle=StyleInputBoxBackground
+
+[CustomCpuNameInputBox]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBox
+Text=[MeasureCustomCpuName]
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 1"]
+
+; ----- Custom Maximums -----
+
+[MeterCustomMaximumsSectionHeader]
+Meter=String
+MeterStyle=StyleString | StyleStringConfigSectionHeader
+Y=12R
+Text=Temperature and Fan Maximums
+
+[MeterCustomMaximumsSectionHelpButton]
+Meter=Image
+MeterStyle=StyleHelpButton
+Y=1r
+ToolTipTitle=Temperature and Fan Maximums
+ToolTipText=CPU Meter will attempt to automatically calculate the maximum CPU temperature and fan speed, for use in the line graph and dynamic fan display's bar chart, respectively. However, this may not work correctly right away, and in the case of the fan speed, requires the fan to actually run at is maximum in order for it to update the value.#CRLF##CRLF#If you wish, use the controls below to override the auto-detection and input the maximum values yourself. Please remember that if you use Fahrenheit temperatures, you will need to adjust the max CPU temp value accordingly!
+
+; Cpu Temperature
+[MeterCustomMaximumCpuTempLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBoxLabel
+Text=CPU Temperature:
+
+[MeterCustomMaximumCpuTempAutoToggle]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon('[#maxCpuTempMode]', 'auto')]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('maxCpuTempMode', 'auto')"]
+
+[MeterCustomMaximumCpuTempAutoToggleLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Auto
+
+[MeterCustomMaximumCpuTempOverrideToggle]
+Meter=String
+MeterStyle=StyleToggleButton | StyleRadioButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon('[#maxCpuTempMode]', 'custom')]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('maxCpuTempMode', 'custom')"]
+
+[MeterCustomMaximumCpuTempOverrideToggleLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Override: 
+
+[MeterCustomMaximumCpuTempOverrideInputBoxBackground]
+Meter=Shape
+MeterStyle=StyleInputBoxBackground | StyleInputBoxBackgroundAdjacent
+W=40
+
+[MeterCustomMaximumCpuTempOverrideInputBox]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBox
+Text=#customMaxCpuTemp#
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 4"]
+
+[MeterCustomMaximumCpuTempOverrideInputBoxSuffix]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+FontColor=#colorDim#
+X=6R
+Y=-1r
+Text=#deg##tempUnits#
+
+; Cpu Fan Speed
+[MeterCustomMaximumCpuFanLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBoxLabel
+Text=CPU Fan Speed:
+
+[MeterCustomMaximumCpuFanAutoToggle]
+Meter=String
+MeterStyle=StyleToggleButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon('[#maxCpuFanMode]', 'auto')]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('maxCpuFanMode', 'auto')"]
+
+[MeterCustomMaximumCpuFanAutoToggleLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Auto
+
+[MeterCustomMaximumCpuFanOverrideToggle]
+Meter=String
+MeterStyle=StyleToggleButton | StyleRadioButton | StyleStringButtonHover
+Text=[&MeasureSettingsScript:GetIcon('[#maxCpuFanMode]', 'custom')]
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('maxCpuFanMode', 'custom')"]
+
+[MeterCustomMaximumCpuFanOverrideToggleLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+Text=Override: 
+
+[MeterCustomMaximumCpuFanOverrideInputBoxBackground]
+Meter=Shape
+MeterStyle=StyleInputBoxBackground | StyleInputBoxBackgroundAdjacent
+W=40
+
+[MeterCustomMaximumCpuFanOverrideInputBox]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBox
+Text=#customMaxCpuFan#
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 5"]
+
+[MeterCustomMaximumCpuFanOverrideInputBoxSuffix]
+Meter=String
+MeterStyle=StyleString | StyleStringToggleLabel
+FontColor=#colorDim#
+X=6R
+Y=-1r
+Text=RPM
+
+; ----- HWiNFO Configuration -----
+
+[HwinfoTitle]
+Meter=String
+MeterStyle=StyleString | StyleStringConfigSectionHeader
+Y=12R
+Text=HWiNFO CONFIGURATION
+
+[HwinfoTutorialButton]
+Meter=Image
+MeterStyle=StyleTutorialButton | StyleHwinfoTutorialButton | StyleImgButtonHover
+
+[HwinfoRefreshGadgetButton]
+Meter=Image
+MeterStyle=StyleRefreshButton | StyleHwinfoRefreshGadgetButton
+LeftMouseUpAction=[!SetOption #CURRENTSECTION# ImageName "#imgPath#refresh-up.png"][!SetOption #CURRENTSECTION# ImageTint "#colorAccent#"][!UpdateMeter #CURRENTSECTION#][!Refresh "#cpuMeterConfig#"][!Redraw]
+
+[HwinfoSmvButtonIcon]
+Meter=Image
+MeterStyle=StyleHwinfoSmvButtonIcon
+
+[HwinfoSmvButtonString]
+Meter=String
+MeterStyle=StyleString | StyleStringHwinfoSmvButton
+
+[HwinfoSmvButtonRegion]
+Meter=Image
+MeterStyle=StyleHwinfoSmvButtonRegion
+
+[HwinfoIssuesLink]
+Meter=String
+MeterStyle=StyleString | StyleStringParagraph | StyleStringSmallTextButton | StyleStringHwinfoIssuesLink | StyleStringButtonHover
+
+; ----- SpeedFan Configuration -----
+
+[MeterSpeedFanTitle]
+Meter=String
+MeterStyle=StyleString | StyleStringConfigSectionHeader
+Y=12R
+Text=SPEEDFAN CONFIGURATION
+
+[MeterSpeedFanHelp]
+Meter=Image
+MeterStyle=StyleTutorialButton | StyleImgButtonHover
+ToolTipText=View SpeedFan Configuration Tutorial
+LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/SpeedFan-Configuration"]
+
+[MeterSpeedFanCoreTempsRefInputBoxLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBoxLabel
+Text=Core Temperatures:
+
+[MeterSpeedFanCoreTempsRefInputBoxBackground]
+Meter=Shape
+MeterStyle=StyleInputBoxBackground | StyleInputBoxBackgroundAdjacent
+W=30
+
+[MeterSpeedFanCoreTempsRefInputBox]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBox
+Text=#sfCoreTemp#
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 2"]
+
+[MeterSpeedFanCpuFanRefInputBoxLabel]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBoxLabel
+Y=6R
+Text=CPU Fan Speed:
+
+[MeterSpeedFanCpuFanRefInputBoxBackground]
+Meter=Shape
+MeterStyle=StyleInputBoxBackground | StyleInputBoxBackgroundAdjacent
+W=30
+
+[MeterSpeedFanCpuFanRefInputBox]
+Meter=String
+MeterStyle=StyleString | StyleStringInputBox
+Text=#sfCpuFan#
+LeftMouseUpAction=[!CommandMeasure MeasureInputText "Executebatch 3"]
+
+; ----- Color customization -----
+
+[ColorsTitle]
+Meter=String
+MeterStyle=StyleString | StyleStringConfigSectionHeader
+Y=10R
+Text=COLOR CUSTOMIZATION
+
+[ColorsHelp]
+Meter=Image
+MeterStyle=StyleHelpButton
+ToolTipTitle="Color Customization"
+ToolTipText=Left-click on a color to edit it using RainRGB. Right-click on a color to reset it to its default value. Once you are finished, click the 'apply color changes' button.
+
+[ColorRamPicker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorRam#
+X=(#contentMargin# + 2)
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorRam')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorRam', '#dColorRam#')"]
+ToolTipText=#colorRam#
+
+[ColorRamLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=RAM
+
+[ColorPagePicker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorPage#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorPage')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorPage', '#dColorPage#')"]
+ToolTipText=#colorPage#
+
+[ColorPageLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Page
+
+[ColorCpuTempPicker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCpuTemp#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCpuTemp')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCpuTemp', '#dColorCpuTemp#')"]
+ToolTipText=#colorCpuTemp#
+
+[ColorCpuTempLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Temp.
+
+[ColorFanPicker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCpuFan#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCpuFan')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCpuFan', '#dColorCpuFan#')"]
+ToolTipText=#colorCpuFan#
+
+[ColorFanLabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Fan
+
+[ColorCore1Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore1#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore1')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore1', '#dColorCore1#')"]
+ToolTipText=#colorCore1#
+
+[ColorCore1LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 1
+
+[ColorCore2Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore2#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore2')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore2', '#dColorCore2#')"]
+ToolTipText=#colorCore2#
+
+[ColorCore2LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 2
+
+[ColorCore3Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore3#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore3')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore3', '#dColorCore3#')"]
+ToolTipText=#colorCore3#
+
+[ColorCore3LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 3
+
+[ColorCore4Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore4#
+X=20R
+Y=[ColorRamPicker:Y]
+DynamicVariables=1
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore4')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore4', '#dColorCore4#')"]
+ToolTipText=#colorCore4#
+
+[ColorCore4LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 4
+
+[ColorCore5Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore5#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore5')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore5', '#dColorCore5#')"]
+ToolTipText=#colorCore5#
+
+[ColorCore5LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 5
+
+[ColorCore6Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore6#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore6')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore6', '#dColorCore6#')"]
+ToolTipText=#colorCore6#
+
+[ColorCore6LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 6
+
+[ColorCore7Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore7#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore7')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore7', '#dColorCore7#')"]
+ToolTipText=#colorCore7#
+
+[ColorCore7LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 7
+
+[ColorCore8Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore8#
+
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore8')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore8', '#dColorCore8#')"]
+ToolTipText=#colorCore8#
+
+[ColorCore8LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 8
+
+[ColorCore9Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore9#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore9')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore9', '#dColorCore9#')"]
+ToolTipText=#colorCore9#
+
+[ColorCore9LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 9
+
+[ColorCore10Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore10#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore10')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore10', '#dColorCore10#')"]
+ToolTipText=#colorCore10#
+
+[ColorCore10LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 10
+
+[ColorCore11Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore11#
+X=20R
+Y=[ColorRamPicker:Y]
+DynamicVariables=1
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore11')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore11', '#dColorCore11#')"]
+ToolTipText=#colorCore11#
+
+[ColorCore11LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 11
+
+[ColorCore12Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore12#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore12')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore12', '#dColorCore12#')"]
+ToolTipText=#colorCore12#
+
+[ColorCore12LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 12
+
+[ColorCore13Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore13#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore13')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore13', '#dColorCore13#')"]
+ToolTipText=#colorCore13#
+
+[ColorCore13LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 13
+
+[ColorCore14Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore14#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore14')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore14', '#dColorCore14#')"]
+ToolTipText=#colorCore14#
+
+[ColorCore14LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 14
+
+[ColorCore15Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore15#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore15')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore15', '#dColorCore15#')"]
+ToolTipText=#colorCore15#
+
+[ColorCore15LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 15
+
+[ColorCore16Picker]
+Meter=Shape
+MeterStyle=StyleColorPicker
+MeterSpecific=Fill Color #colorCore16#
+LeftMouseUpAction=[!CommandMeasure MeasureSettingsScript "RainRgb('colorCore16')"]
+RightMouseUpAction=[!CommandMeasure MeasureSettingsScript "Set('colorCore16', '#dColorCore16#')"]
+ToolTipText=#colorCore16#
+
+[ColorCore16LabelString]
+Meter=String
+MeterStyle=StyleString | StyleStringColorPickerLabel
+Text=Core 16
+
+[ColorNote]
+Meter=String
+MeterStyle=StyleString | StyleStringInfoParagraph
+Y=24R
+Text=For any threads above 16, the core colors will begin repeating. You can change this by editing the config file manually using the button at the top of this skin.
+
+; ----- Other things -----
+
+[MeterBackgroundHeight]
+Meter=Image
+MeterStyle=StyleBackgroundHeight
