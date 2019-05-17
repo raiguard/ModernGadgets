@@ -593,6 +593,9 @@ WIP Releases
 v1.6.0-beta.1 - 2019-05-??
 - Added Battery Meter
 - Added Clipboard Meter
+- Added cellular data icon to Network Meter
+- Network Meter icon will now only show status for the configured adapters, rather than the 'best' adapter
+- Enhanced Network Meter autoconfig to scan for wireless adapters
 - Converted the majority of icons in the suite to shape meters
 - Converted the majority of icons in the suite to FontAwesome icons
 - Adjusted gadget header style
