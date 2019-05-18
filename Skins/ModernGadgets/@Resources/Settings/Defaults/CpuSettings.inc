@@ -272,7 +272,7 @@ HWiNFO-CPU0-Core31Temp-EntryId=0x100001f
 ; CPU Package Temperature [HWiNFO-CPU0-PackageTemp]
 HWiNFO-CPU0-PackageTemp-SensorId=0xf0000400
 HWiNFO-CPU0-PackageTemp-SensorInstance=0x0
-HWiNFO-CPU0-PackageTemp-EntryId=0x100007e
+HWiNFO-CPU0-PackageTemp-EntryId=0x10000fe
 ; CPU Core 0 Distance to TjMax [HWiNFO-CPU0-Core0TjMax]
 HWiNFO-CPU0-Core0TjMax-SensorId=0xf0000400
 HWiNFO-CPU0-Core0TjMax-SensorInstance=0x0
@@ -414,7 +414,7 @@ HWiNFO-CPU0-Core31Vid-EntryId=0x200001f
 ; CPU Ring Clock [HWiNFO-CPU0-RingClock]
 HWiNFO-CPU0-RingClock-SensorId=0xf0000300
 HWiNFO-CPU0-RingClock-SensorInstance=0x0
-HWiNFO-CPU0-RingClock-EntryId=0x6000005
+HWiNFO-CPU0-RingClock-EntryId=0x6000000
 
 ;
 ; MOBO
