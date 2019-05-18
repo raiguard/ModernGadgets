@@ -607,3 +607,7 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
+
+v1.6.0-beta.2 - 2019-05-18
+- Added Clipboard plugin to package
+- Re-implemented program detection and sub-setting dimming in CPU Meter settings
