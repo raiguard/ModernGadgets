@@ -34,6 +34,7 @@ labelOffset=53
 fontFace=IBM Plex Sans
 fontFaceCn=IBM Plex Sans Condensed
 fontSize=8
+inputBoxFontSize=8
 
 ; Colors
 colorBorder=50,50,50
@@ -272,7 +273,7 @@ X=(#contentMargin# + 1)
 Y=1R
 
 [StyleSettingsButtonInline]
-X=3R
+X=5R
 Y=r
 
 [StyleSettingsButtonCheckOn]
@@ -339,7 +340,7 @@ X=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:X]
 Y=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon:Y]
 W=(([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'LeftMouseRegion')]Value:X] + ([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'LeftMouseRegion')]Value:W] / 2)) - [#CURRENTSECTION#:X])
 H=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'LeftMouseRegion')]Value:H]
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #colorAccent#,#hoverAlpha#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value][!Redraw]
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#,#*hoverAlpha*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value FontColor "#*colorMain*#,#*hoverAlpha*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value][!Redraw]
 MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','LeftMouseRegion')]Value][!Redraw]
 ; SolidColor=255,0,0,100
 
@@ -348,12 +349,12 @@ X=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightMouseRegion')
 Y=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightMouseRegion')]Value:Y]
 W=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightMouseRegion')]LeftMouseRegion:W] + 4)
 H=[&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightMouseRegion')]Value:H]
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #colorAccent#,#hoverAlpha#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value FontColor "#*colorMain*#,230"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value][!Redraw]
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#,#*hoverAlpha*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value FontColor "#*colorMain*#,#*hoverAlpha*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value][!Redraw]
 MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','RightMouseRegion')]Value][!Redraw]
 ; SolidColor=0,255,0,100
 
 [StyleInputBox]
-FontSize=8
+FontSize=#inputBoxFontSize#
 FontColor=#colorInputText#
 X=4r
 Y=3r
@@ -364,6 +365,8 @@ ClipString=1
 DynamicVariables=1
 Group=Settings
 SolidColor=0,255,0,0
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','InputBox')]Background Fill "Fill Color #*colorSubBg*#,#*hoverAlpha*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','InputBox')]Background][!Redraw]
+MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','InputBox')]Background Fill ""][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','InputBox')]Background][!Redraw]
 
 [StyleInputBoxAdjustor]
 X=r
@@ -513,7 +516,8 @@ Y=3R
 
 [StyleInputBoxBackground]
 Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBorder#
-Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorSubBg#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Extend Fill
+Fill=Fill Color #colorSubBg#
 X=#contentMargin#
 Y=3R
 W=#contentWidth#
