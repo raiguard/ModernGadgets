@@ -216,6 +216,7 @@ v1.6.0-beta.2 - 2019-05-18
 - Added hover effect to input boxes
 - Re-implemented program detection and sub-setting dimming in CPU Meter settings skin
 - Refactored Audio Meter settings skin
+- Updated default layout
 - Fixed local media controls being completely broken
 
 v1.6.0-beta.1 - 2019-05-17
