@@ -611,6 +611,6 @@ WIP Releases
 v1.6.0-beta.2 - 2019-05-18
 - Added Clipboard plugin to package (fixes Clipboard Meter not working)
 - Added hover effect to input boxes
-- Re-implemented program detection and sub-setting dimming in CPU Meter settings
+- Re-implemented program detection and sub-setting dimming in CPU Meter settings skin
 - Refactored Audio Meter settings skin
 - Fixed local media controls being completely broken
