@@ -620,3 +620,5 @@ v1.6.0-beta.3 - 2019-05-19
 - Added the ACTUAL clipboard plugin to the package, fixing Clipboard Meter
 - Removed Weather Meter debugging tools
 - Refactored Timer, Stopwatch, and Chronometer Settings interfaces
+- Finished up CPU Meter settings interface
+- Fixed custom CPU name actionset / logic behavior
