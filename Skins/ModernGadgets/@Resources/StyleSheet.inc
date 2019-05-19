@@ -231,12 +231,14 @@ FontFace=#fontFaceCn#
 FontColor=#colorDim#
 Stringcase=Upper
 Padding=0,2,0,0
+X=(#contentMargin# + 1)
 
 [StyleStringSettingsLabel]
 FontWeight=500
 FontSize=9
 StringCase=Upper
-Y=2R
+X=(#contentMargin# + 1)
+Y=3R
 
 [StyleColorConfigHelpIcon]
 Padding=-7,-4,0,0
@@ -367,6 +369,13 @@ Group=Settings
 SolidColor=0,255,0,0
 MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','InputBox')]Background Fill "Fill Color #*colorSubBg*#,#*hoverAlpha*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','InputBox')]Background][!Redraw]
 MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','InputBox')]Background Fill ""][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#','InputBox')]Background][!Redraw]
+
+[StyleInputBoxSuffix]
+FontColor=#colorDim#
+FontSize=#inputBoxFontSize#
+X=5R
+Y=r
+Padding=0,-1,0,-3
 
 [StyleInputBoxAdjustor]
 X=r
@@ -1010,12 +1019,22 @@ ToolTipTitle=Title text
 ToolTipText=Body text
 ToolTipWidth=300
 
+[StyleShapeHelpIconInputBox]
+Padding=-7,-10,0,-3
+
+[StyleShapeHelpIconInputBoxLabel]
+Padding=-7,-7,0,-1
+
+[StyleShapeHelpIconSectionLabel]
+Padding=-7,-4,0,0
+
 [StyleShapeBookIcon]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Path Path3 | StrokeWidth 0
-Shape4=Path Path4 | StrokeWidth 0
-Shape5=Combine Shape1 | XOR Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.028,0.028,0,0 | Offset 1,0.5
+Shape=Rectangle 0,0,14,15 | StrokeWidth 0 | Fill Color #colorBg#
+Shape2=Path Path1 | StrokeWidth 0 | Extend Fill
+Shape3=Path Path2 | StrokeWidth 0
+Shape4=Path Path3 | StrokeWidth 0
+Shape5=Path Path4 | StrokeWidth 0
+Shape6=Combine Shape2 | XOR Shape3 | XOR Shape4 | XOR Shape5 | Scale 0.028,0.028,0,0 | Offset 1,0.5
 Path1=448, 360 | LineTo 448, 24 | CurveTo 424, 0, 448, 10.7, 437.3, 0 | LineTo 96, 0 | CurveTo 0, 96, 43, 0, 0, 43 | LineTo 0, 416 | CurveTo 96, 512, 0, 469, 43, 512 | LineTo 424, 512 | CurveTo 448, 488, 437.3, 512, 448, 501.3 | LineTo 448, 472 | CurveTo 439.1, 453.3, 448, 464.5, 444.5, 457.7 | CurveTo 439.1, 378.6, 434.9, 437.9, 434.9, 394 | CurveTo 448, 360, 444.5, 374.3, 448, 367.5 | ClosePath 1
 Path2=128, 134 | CurveTo 134, 128, 128, 130.7, 130.7, 128 | LineTo 346, 128 | CurveTo 352, 134, 349.3, 128, 352, 130.7 | LineTo 352, 154 | CurveTo 346, 160, 352, 157.3, 349.3, 160 | LineTo 134, 160 | CurveTo 128, 154, 130.7, 160, 128, 157.3 | LineTo 128, 134 | ClosePath 1
 Path3=128, 198 | CurveTo 134, 192, 128, 194.7, 130.7, 192 | LineTo 346, 192 | CurveTo 352, 198, 349.3, 192, 352, 194.7 | LineTo 352, 218 | CurveTo 346, 224, 352, 221.3, 349.3, 224 | LineTo 134, 224 | CurveTo 128, 218, 130.7, 224, 128, 221.3 | LineTo 128, 198 | ClosePath 1
@@ -1026,3 +1045,6 @@ TransformationMatrix=#transformationMatrix#
 Fill=Fill Color #colorAccent#
 HoverColor=#colorAccent#
 DynamicVariables=1
+
+[StyleShapeBookIconAdjacent]
+X=-20r
