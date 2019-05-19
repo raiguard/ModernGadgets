@@ -375,7 +375,7 @@ FontColor=#colorDim#
 FontSize=#inputBoxFontSize#
 X=5R
 Y=r
-Padding=0,-1,0,-3
+Padding=0,-1,0,-1
 
 [StyleInputBoxAdjustor]
 X=r
