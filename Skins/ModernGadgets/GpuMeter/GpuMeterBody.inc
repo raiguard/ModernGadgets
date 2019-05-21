@@ -47,8 +47,8 @@ IfMatchAction3=[!SetOption MeterGpuIcon Fill "Fill Color #colorIntel#"][!UpdateM
 [MeasureCustomGpuName]
 Measure=String
 String=#gpuName#
-IfMatch=auto
-IfNotMatchAction=[!SetOption MeterGpuName Text "#*gpuName*#"][!UpdateMeter MeterGpuName]
+Substitute="auto":"[MeasureGpuName]"
+DynamicVariables=1
 
 [MeasureGpuClockSpeed]
 Measure=Plugin
@@ -251,7 +251,7 @@ DynamicVariables=1
 [MeterGpuName]
 Meter=String
 MeterStyle=StyleString | StyleStringCenterAlign
-MeasureName=MeasureGpuName
+MeasureName=MeasureCustomGpuName
 Y=((#showGpuName# = 1) ? #rowSpacing# : 0)R
 W=(#contentWidth# - 4)
 ClipString=1

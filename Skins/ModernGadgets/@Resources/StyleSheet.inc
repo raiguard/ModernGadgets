@@ -200,7 +200,7 @@ Fill=Fill Color #colorMain#
 HoverColor=#colorMain#
 
 [StyleEditButton]
-Shape=Rectangle 0,0,13,15 | Fill Color 0,0,0,0
+Shape=Rectangle 0,0,13,15 | Fill Color #colorBg#
 Shape2=Path Path1 | StrokeWidth 0 | Extend Fill
 Shape3=Path Path2 | StrokeWidth 0
 Shape4=Path Path3 | StrokeWidth 0
@@ -209,7 +209,6 @@ Path1=402.6, 83.2 | LineTo 492.8, 173.4 | CurveTo 492.8, 187.2, 496.6, 177.2, 49
 Path2=564.6, 60.3 | LineTo 515.8, 11.5 | CurveTo 460.6, 11.5, 500.6, -3.7, 475.9, -3.7 | LineTo 425.2, 46.9 | CurveTo 425.2, 60.7, 421.4, 50.7, 421.4, 56.9 | LineTo 515.4, 150.9 | CurveTo 529.2, 150.9, 519.2, 154.7, 525.4, 154.7 | LineTo 564.6, 115.5 | CurveTo 564.6, 60.3, 579.8, 100.2, 579.8, 75.5 | ClosePath 1
 Path3=384, 346.2 | LineTo 384, 448 | LineTo 64, 448 | LineTo 64, 128 | LineTo 293.8, 128 | CurveTo 302.3, 124.5, 297, 128, 300, 126.7 | LineTo 342.3, 84.5 | CurveTo 333.8, 64, 349.9, 76.9, 344.5, 64 | LineTo 48, 64 | CurveTo 0, 112, 21.5, 64, 0, 85.5 | LineTo 0, 464 | CurveTo 48, 512, 0, 490.5, 21.5, 512 | LineTo 400, 512 | CurveTo 448, 464, 426.5, 512, 448, 490.5 | LineTo 448, 306.2 | CurveTo 427.5, 297.7, 448, 295.5, 435.1, 290.2 | LineTo 387.5, 337.7 | CurveTo 384, 346.2, 385.3, 340, 384, 343 | ClosePath 1
 Fill=Fill Color #colorMain#
-HoverColor=#colorMain#
 TransformationMatrix=#transformationMatrix#
 ToolTipText=Edit settings file
 X=-18r
@@ -1048,3 +1047,16 @@ DynamicVariables=1
 
 [StyleShapeBookIconAdjacent]
 X=-20r
+
+[StyleShapeEditIcon]
+Shape=Rectangle 0,0,13,15 | Fill Color #colorBg#
+Shape2=Path Path1 | StrokeWidth 0 | Extend Fill
+Shape3=Path Path2 | StrokeWidth 0
+Shape4=Path Path3 | StrokeWidth 0
+Shape5=Combine Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.025,0.025,0,0 | Offset 0,0.5
+Path1=402.6, 83.2 | LineTo 492.8, 173.4 | CurveTo 492.8, 187.2, 496.6, 177.2, 496.6, 183.4 | LineTo 274.4, 405.6 | LineTo 181.6, 415.9 | CurveTo 160.1, 394.4, 169.2, 417.3, 158.7, 406.8 | LineTo 170.4, 301.6 | LineTo 388.8, 83.2 | CurveTo 402.6, 83.2, 392.6, 79.4, 398.8, 79.4 | ClosePath 1
+Path2=564.6, 60.3 | LineTo 515.8, 11.5 | CurveTo 460.6, 11.5, 500.6, -3.7, 475.9, -3.7 | LineTo 425.2, 46.9 | CurveTo 425.2, 60.7, 421.4, 50.7, 421.4, 56.9 | LineTo 515.4, 150.9 | CurveTo 529.2, 150.9, 519.2, 154.7, 525.4, 154.7 | LineTo 564.6, 115.5 | CurveTo 564.6, 60.3, 579.8, 100.2, 579.8, 75.5 | ClosePath 1
+Path3=384, 346.2 | LineTo 384, 448 | LineTo 64, 448 | LineTo 64, 128 | LineTo 293.8, 128 | CurveTo 302.3, 124.5, 297, 128, 300, 126.7 | LineTo 342.3, 84.5 | CurveTo 333.8, 64, 349.9, 76.9, 344.5, 64 | LineTo 48, 64 | CurveTo 0, 112, 21.5, 64, 0, 85.5 | LineTo 0, 464 | CurveTo 48, 512, 0, 490.5, 21.5, 512 | LineTo 400, 512 | CurveTo 448, 464, 426.5, 512, 448, 490.5 | LineTo 448, 306.2 | CurveTo 427.5, 297.7, 448, 295.5, 435.1, 290.2 | LineTo 387.5, 337.7 | CurveTo 384, 346.2, 385.3, 340, 384, 343 | ClosePath 1
+Fill=Fill Color #colorAccent#
+TransformationMatrix=#transformationMatrix#
+ToolTipText=Edit settings file
