@@ -47,7 +47,8 @@ IfMatchAction3=[!SetOption MeterGpuIcon Fill "Fill Color #colorIntel#"][!UpdateM
 [MeasureCustomGpuName]
 Measure=String
 String=#gpuName#
-Substitute="auto":"[MeasureGpuName]"
+Substitute="^auto$":"[MeasureGpuName]"
+RegExpSubstitute=1
 DynamicVariables=1
 
 [MeasureGpuClockSpeed]
