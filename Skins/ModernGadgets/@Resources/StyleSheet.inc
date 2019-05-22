@@ -317,7 +317,7 @@ X=10R
 Y=-1r
 ; SolidColor=255,255,255,50
 
-[StyleStringSettingsButtonPivotValue]
+[StyleSettingsButtonPivotValue]
 FontSize=9
 StringCase=Upper
 StringAlign=Center
@@ -331,7 +331,7 @@ Padding=0,1,0,0
 Shape=Path Path1 | StrokeWidth 0 | Scale 0.025,0.025,0,0 | Offset -11,-176.5 | Rotate 90 | Extend Fill
 Path1=288.662, 352 | LineTo 31.338, 352 | CurveTo 17.196, 317.858, 13.52, 352, 4.597, 330.457 | LineTo 145.858, 189.196 | CurveTo 174.142, 189.196, 153.668, 181.386, 166.332, 181.386 | LineTo 302.804, 317.858 | CurveTo 288.662, 352, 315.404, 330.457, 306.48, 352 | ClosePath 1
 Fill=Fill Color #colorAccent#
-X=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]Value:XW] + ([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]Value:X] - [&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]LeftIcon:XW]))
+X=([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]Value:XW] - ceil([&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]Value:W] / 2) - [&[&MeasureSettingsScript:GetBaseMeter('#CURRENTSECTION#', 'RightIcon')]LeftIcon:XW])r
 Y=r
 ; SolidColor=255,255,255,50
 DynamicVariables=1
