@@ -1,5 +1,5 @@
 MODERNGADGETS
-v1.6.0-beta.3
+v1.6.0-beta.4
 By raiguard
 
 ----------------------------------------
