@@ -678,8 +678,9 @@ MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!Up
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
 [StyleStringButtonHover]
-MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#', 1, '', 'FontColor')]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor "[&MeasureSettingsScript:GetHover('#CURRENTSECTION#', 0, '', 'FontColor')]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+DynamicVariables=1
 
 [StyleShapeButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
