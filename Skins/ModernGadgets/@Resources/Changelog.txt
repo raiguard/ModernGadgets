@@ -624,6 +624,6 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.6.0-beta.4 - 2019-05-??
-- Updated play/pause button hover aesthetics to new style
-- Refactored Disks Meter and GPU Meter settings Interfaces
+- Updated Audio Meter play/pause button hover aesthetics to new style
+- Refactored Disks Meter, GPU Meter, and Network Meter settings interfaces
 - Fixed Disks Meter background being one pixel too tall
