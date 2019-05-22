@@ -625,5 +625,7 @@ WIP Releases
 
 v1.6.0-beta.4 - 2019-05-??
 - Updated Audio Meter play/pause button hover aesthetics to new style
+- Brightened default visualizer color a tad
+- Switched to ipapi.co for location by IP address
 - Refactored Disks Meter, GPU Meter, and Network Meter settings interfaces
 - Fixed Disks Meter background being one pixel too tall
