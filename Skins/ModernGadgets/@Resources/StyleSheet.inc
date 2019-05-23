@@ -1043,7 +1043,6 @@ X=(#contentMarginRight# - [#CURRENTSECTION#:W])
 Y=3r
 TransformationMatrix=#transformationMatrix#
 Fill=Fill Color #colorAccent#
-HoverColor=#colorAccent#
 DynamicVariables=1
 
 [StyleShapeBookIconAdjacent]
@@ -1061,3 +1060,19 @@ Path3=384, 346.2 | LineTo 384, 448 | LineTo 64, 448 | LineTo 64, 128 | LineTo 29
 Fill=Fill Color #colorAccent#
 TransformationMatrix=#transformationMatrix#
 ToolTipText=Edit settings file
+
+[StyleShapeSearchIcon]
+Shape=Rectangle 0,0,16,16 | StrokeWidth 0 | Fill Color #colorBg#
+Shape2=Path Path1 | StrokeWidth 0 | Extend Fill
+Shape3=Path Path2 | StrokeWidth 0
+Shape4=Path Path3 | StrokeWidth 0
+Shape5=Path Path4 | StrokeWidth 0
+Shape6=Combine Shape2 | XOR Shape3 | XOR Shape4 | XOR Shape5 | Scale 0.03,0.03,0,0
+Path1=505.04, 442.66 | LineTo 405.33, 342.97 | CurveTo 388.33, 335.97, 400.83, 338.47, 394.73, 335.97 | LineTo 372.03, 335.97 | CurveTo 416.03, 207.98, 399.63, 300.67, 416.03, 256.28 | CurveTo 208.02, 0, 416.03, 93.09, 322.92, 0 | CurveTo 0, 207.98, 93.12, 0, 0, 93.09 | CurveTo 208.02, 415.96, 0, 322.87, 93.11, 415.96 | CurveTo 336.03, 371.96, 256.32, 415.96, 300.73, 399.56 | LineTo 336.03, 388.26 | CurveTo 343.03, 405.26, 336.03, 394.66, 338.53, 400.76 | LineTo 442.74, 504.95 | CurveTo 476.64, 504.95, 452.14, 514.35, 467.34, 514.35 | LineTo 504.94, 476.65 | CurveTo 505.04, 442.66, 514.34, 467.25, 514.34, 452.06 | ClosePath 1
+Path2=208.02, 351.96 | CurveTo 64.02, 207.98, 128.48, 351.96, 64.02, 287.62 | CurveTo 208.02, 64, 64.02, 128.45, 128.37, 64 | CurveTo 352.02, 207.98, 287.56, 64, 352.02, 128.34 | CurveTo 208.02, 351.96, 352.02, 287.51, 287.67, 351.96 | ClosePath 1
+Path3=208.04, 112 | CurveTo 134.2, 185.83, 167.26, 112, 134.2, 145.05 | CurveTo 200.95, 300.69, 134.2, 218.79, 182.46, 278.88 | ArcTo 215.13, 300.69, 9.24, 9.24, 0, 1, 0 | CurveTo 281.88, 185.83, 233.62, 278.88, 281.88, 218.8 | CurveTo 208.04, 112, 281.88, 145.05, 248.82, 112 | ClosePath 1
+Path4=208.04, 208 | CurveTo 184.04, 184, 194.78, 208, 184.04, 197.25 | CurveTo 208.04, 160, 184.04, 170.74, 194.79, 160 | CurveTo 232.04, 184, 221.29, 160, 232.04, 170.74 | CurveTo 208.04, 208, 232.04, 197.25, 221.29, 208 | ClosePath 1
+Fill=Fill Color #colorAccent#
+X=(#contentMarginRight# - [#CURRENTSECTION#:W])
+Y=-2r
+TransformationMatrix=#transformationMatrix#
