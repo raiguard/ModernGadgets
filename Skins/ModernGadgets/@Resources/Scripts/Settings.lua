@@ -194,6 +194,7 @@ end
 -- updates the toggle buttons, radio buttons, and input boxes
 function UpdateMeters()
 
+	SKIN:Bang('!UpdateMeasureGroup', meterUpdateGroup)
 	SKIN:Bang('!UpdateMeterGroup', meterUpdateGroup)
 	SKIN:Bang('!Redraw')
 

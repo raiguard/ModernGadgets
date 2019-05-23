@@ -1048,6 +1048,10 @@ DynamicVariables=1
 [StyleShapeBookIconAdjacent]
 X=-20r
 
+[StyleShapeBookIconSettingsButton]
+Y=1r
+Padding=0,0,0,1
+
 [StyleShapeEditIcon]
 Shape=Rectangle 0,0,13,15 | Fill Color #colorBg#
 Shape2=Path Path1 | StrokeWidth 0 | Extend Fill
