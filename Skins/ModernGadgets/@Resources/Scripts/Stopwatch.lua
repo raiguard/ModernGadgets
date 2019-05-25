@@ -112,14 +112,14 @@ function round(x)
 end
 
 -- function to make logging messages less cluttered
-	function RmLog(message, type)
+function RmLog(message, type)
 
-		if type == nil then type = 'Debug' end
-		  
-		if debug == true then
-			SKIN:Bang("!Log", message, type)
-		elseif type ~= 'Debug' then
-			SKIN:Bang("!Log", message, type)
-		end
-		  
+	if type == nil then type = 'Debug' end
+		
+	if debug == true then
+		SKIN:Bang("!Log", message, type)
+	elseif type ~= 'Debug' then
+		SKIN:Bang("!Log", message, type)
 	end
+		
+end
