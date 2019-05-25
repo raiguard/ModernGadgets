@@ -45,12 +45,6 @@ function Initialize()
 	measureInputText = SELF:GetOption('MeasureInputText', 'MeasureSettingsInputText')
 	colorPickerConfig = SELF:GetOption('ColorPickerConfig')
 	colorPickerPath = SKIN:GetVariable('SKINSPATH') .. colorPickerConfig .. '\\ColorPickerPlus.ini'
-	-- LEGACY
-	toggleOn = SELF:GetOption('ToggleOn')
-	toggleOff = SELF:GetOption('ToggleOff')
-	radioOn = SELF:GetOption('RadioOn')
-	radioOff = SELF:GetOption('RadioOff')
-	measureRainRgb = SELF:GetOption('MeasureRainRgb', 'MeasureSettingsRainRgb')
 
 end
 
@@ -253,42 +247,3 @@ function GetBaseMeter(name, ext) return name:gsub(ext, '') end
 function GetKey(name, key) return SKIN:GetMeter(name):GetOption(key) end
 
 function Gsub(string, pattern, replacement) return string:gsub(pattern, replacement or '') end
-
--- ------------------------------
--- LEGACY SUPPORT
-
-function GetIcon(value, onState, offState)
-
-	if offState == nil then
-		if onState == nil then
-			if value == 1 then return toggleOn
-				else return toggleOff end
-		else
-			if value == onState then return radioOn
-				else return radioOff end
-		end
-	else
-		if value == onState then return toggleOn
-			else return toggleOff end
-	end
-
-end
-
-function RainRgb(variable, actionSet, ifLogic, oSettingsPath, oConfigPath)
-
-	local lSettingsPath = oSettingsPath or settingsPath
-	local lConfigPath = oConfigPath or configPath
-
-	SKIN:Bang('!SetOption', measureRainRgb, 'Parameter', '\"VarName=' .. variable .. '\" \"FileName=' .. lSettingsPath .. '\" \"RefreshConfig=-1\"')
-	SKIN:Bang('!UpdateMeasure', measureRainRgb)
-	SKIN:Bang('!CommandMeasure', measureRainRgb, 'Run')
-
-	rainRgbInfo = { variable, actionSet, ifLogic or 'nil', lSettingsPath, lConfigPath }
-
-end
-
-function FinishRainRgb(rainRgbOutput)
-
-	if rainRgbOutput ~= '' then Set(rainRgbInfo[1], rainRgbOutput, rainRgbInfo[2], rainRgbInfo[3], rainRgbInfo[4], rainRgbInfo[5]) end
-
-end
