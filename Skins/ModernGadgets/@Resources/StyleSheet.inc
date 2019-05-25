@@ -242,7 +242,7 @@ Y=3R
 [StyleColorConfigHelpIcon]
 Padding=-7,-4,0,0
 ToolTipTitle=Color Customization
-ToolTipText=Left-click a color to edit it with ColorPickerPlus. Right-click to reset a color to its default value. All color options are in RGB format.#CRLF##CRLF#For threads beyond 16, the colors will begin repeating. You can change this by editing the settings file manually via the button at the top of this skin.
+ToolTipText=Left-click a color to edit it with ColorPickerPlus. Right-click to reset a color to its default value. All color options are in RGB format.
 
 ; ------------------------------
 ; SETTINGS BUTTONS
