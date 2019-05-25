@@ -241,7 +241,7 @@ TransformationMatrix=#transformationMatrix#
 
 [MeterGadgetTitle]
 Meter=String
-MeterStyle=StyleString | StyleStringGadgetHeader
+MeterStyle=StyleString | StyleStringGadgetLabel
 X=4R
 Text=GPU Meter
 DynamicVariables=1
@@ -490,7 +490,7 @@ Hidden=1
 [MeterNoHwinfoWarning]
 Meter=String
 MeterStyle=StyleString | StyleStringCenterAlign
-FontColor=#colorButtonPress#
+FontColor=#colorError#
 Y=10
 Text=HWINFO NOT DETECTED
 Group=NoHwinfo
@@ -499,8 +499,6 @@ Hidden=1
 [MeterNoHwinfoInfo]
 Meter=String
 MeterStyle=StyleString | StyleStringParagraph
-FontFace=Roboto
-FontSize=8
 Text=GPU Meter relies on HWiNFO to function. Please make sure you have configured HWiNFO as per the setup tutorial. Once HWiNFO is running properly, this gadget will automatically refresh.
 Group=NoHwinfo
 Hidden=1

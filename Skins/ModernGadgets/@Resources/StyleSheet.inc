@@ -34,6 +34,7 @@ labelOffset=53
 fontFace=IBM Plex Sans
 fontFaceCn=IBM Plex Sans Condensed
 fontSize=8
+fontWeight=400
 inputBoxFontSize=8
 
 ; Colors
@@ -55,7 +56,7 @@ colorGlobe=137,190,250
 
 colorBarBg=#colorBorder#
 
-colorButtonPress=255,50,50
+colorError=200,53,53
 
 colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#
@@ -73,10 +74,6 @@ insetToggleX=(#contentMargin# + 16)
 
 ; Character reference variables
 deg=[\176]
-toggleOn=[\x5a]
-toggleOff=[\x56]
-radioOn=[\x5c]
-radioOff=[\x5b]
 
 settingsAssets={ check_icon = { 'CheckOn', 'CheckOff' }, radio_icon = { 'RadioOn', 'RadioOff' }, toggle_icon = {'ToggleOn','ToggleOff'} }
 
@@ -181,7 +178,7 @@ colorCloseButton=157,33,33
 colorHelpButton=27,57,131
 
 ; ------------------------------
-; WINDOW ELEMENTS
+; SETTINGS WINDOW ELEMENTS
 
 [StyleCloseWindowButton]
 X=(#contentMarginRight# - [#CURRENTSECTION#:W])
@@ -243,6 +240,61 @@ Y=3R
 Padding=-7,-4,0,0
 ToolTipTitle=Color Customization
 ToolTipText=Left-click a color to edit it with ColorPickerPlus. Right-click to reset a color to its default value. All color options are in RGB format.
+
+[StyleInputBoxBackground]
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Extend Fill
+Fill=Fill Color #colorSubBg#
+X=#contentMargin#
+Y=3R
+W=#contentWidth#
+H=18
+DynamicVariables=1
+TransformationMatrix=#transformationMatrix#
+
+[StyleInputBoxBackgroundAdjacent]
+X=5R
+Y=-1r
+W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin#)
+DynamicVariables=1
+
+[StyleInputBoxBackgroundAdjacentRightMargin]
+W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin# - 21)
+
+[StyleInputBoxBackgroundAdjacentRightAlign]
+X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1
+Y=r
+DynamicVariables=1
+
+[StyleInputBoxBackgroundAdjacentRightAlignMargin]
+X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1 - 21
+
+[StyleInputBox]
+FontSize=#inputBoxFontSize#
+FontColor=#colorInputText#
+X=4r
+Y=3r
+W=([&[&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]', 'InputBox')]Background:W] - 6)
+H=16
+Padding=0,-1,0,-3
+ClipString=1
+DynamicVariables=1
+Group=Settings
+SolidColor=0,255,0,0
+MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','InputBox')]Background Fill "Fill Color #*colorSubBg*#,#*hoverAlpha*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','InputBox')]Background][!Redraw]
+MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','InputBox')]Background Fill ""][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','InputBox')]Background][!Redraw]
+
+[StyleInputBoxSuffix]
+FontColor=#colorDim#
+FontSize=#inputBoxFontSize#
+X=5R
+Y=r
+Padding=0,-1,0,-1
+
+[StyleInputBoxAdjustor]
+X=r
+Y=R
+H=4
 
 ; ------------------------------
 ; SETTINGS BUTTONS
@@ -353,33 +405,6 @@ MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTI
 MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','MouseRegion')]Icon Fill "Fill Color #*colorAccent*#"][!SetOption [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','RightMouseRegion')]Value FontColor "#*colorMain*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','MouseRegion')]Icon][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','RightMouseRegion')]Value][!Redraw]
 ; SolidColor=0,255,0,100
 
-[StyleInputBox]
-FontSize=#inputBoxFontSize#
-FontColor=#colorInputText#
-X=4r
-Y=3r
-W=([&[&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]', 'InputBox')]Background:W] - 6)
-H=16
-Padding=0,-1,0,-3
-ClipString=1
-DynamicVariables=1
-Group=Settings
-SolidColor=0,255,0,0
-MouseOverAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','InputBox')]Background Fill "Fill Color #*colorSubBg*#,#*hoverAlpha*#"][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','InputBox')]Background][!Redraw]
-MouseLeaveAction=[!SetOption [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','InputBox')]Background Fill ""][!UpdateMeter [&MeasureSettingsScript:GetBaseMeter('[#CURRENTSECTION]','InputBox')]Background][!Redraw]
-
-[StyleInputBoxSuffix]
-FontColor=#colorDim#
-FontSize=#inputBoxFontSize#
-X=5R
-Y=r
-Padding=0,-1,0,-1
-
-[StyleInputBoxAdjustor]
-X=r
-Y=R
-H=4
-
 [StyleSettingsButtonColorIcon]
 Shape=Rectangle 0,0,12,12,2 | StrokeWidth 0 | Offset 0,2 | Extend Fill
 Padding=0,0,5,3
@@ -426,7 +451,9 @@ Meter=Image
 [0Background]
 Meter=Image
 
-; Background
+; ------------------------------
+; BACKGROUND
+
 [StyleBackground]
 Shape=Rectangle (#bgOffset# * #scale#),(#bgOffset# * #scale#),(#bgWidth# * #scale#),([[#CURRENTSECTION]:H] - ((#bgOffset# * 2) * #scale#)),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBgBorder#,((#showBgBorder# = 1) ? 255 : 0) 
 Shape2=Rectangle ((#bgOffset# + #showBgBorder#) * #scale#),((#bgOffset# + #showBgBorder#) * #scale#),((#bgWidth# - (#showBgBorder# * 2)) * #scale#),([[#CURRENTSECTION]:H] - (((#bgOffset# * 2) + (#showBgBorder# * 2)) * #scale#)),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBg#
@@ -454,11 +481,14 @@ Shape3=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#cornerRound
 DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 
-; Strings (general)
+; ------------------------------
+; STRINGS (GENERAL)
+
 [StyleString]
 FontColor=#colorMain#
 FontSize=#fontSize#
 FontFace=#fontFace#
+FontWeight=#fontWeight#
 X=#contentMargin#
 Y=#rowSpacing#R
 Antialias=1
@@ -480,166 +510,25 @@ Y=r
 FontColor=#colorDim#
 
 [StyleStringParagraph]
-FontSize=10
 X=(#contentMargin# + 2)
 Y=5R
 W=(#contentWidth# - 6)
 ClipString=2
 
-[StyleStringInfoParagraph]
-X=(#contentMargin# + 2)
-Y=5R
-W=(#contentWidth# - 6)
-ClipString=2
-FontColor=#colorDim#
-
-; Strings (headers)
-[StyleStringConfigTitle]
-FontSize=11
-FontWeight=600
-X=(#contentMargin# + 2)
-Y=(#contentMargin# - 2)
-
-[StyleStringGadgetHeader]
+[StyleStringGadgetLabel]
 FontSize=9
 FontWeight=600
-FontColor=#colorMain#,230
+FontColor=#colorMain#
 X=#contentMargin#
 Y=(#contentMargin# - 2)
-
-[StyleStringConfigSectionHeader]
-FontFace=#fontFaceCn#
-FontSize=10
-FontWeight=600
-FontColor=#colorDim#
-Y=5R
-StringCase=UPPER
 
 [StyleStringArrowIconLabel]
 X=3R
 Y=-4r
 
-; Settings
-[StyleStringInputBoxLabel]
-FontSize=10
-X=(#contentMargin# + 2)
-Y=3R
+; ------------------------------
+; BUTTON HOVER LOGIC
 
-[StyleInputBoxBackground]
-Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],(#cornerRoundness# * #scale#) | StrokeWidth 0 | Fill Color #colorBorder#
-Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),(#cornerRoundness# * #scale#) | StrokeWidth 0 | Extend Fill
-Fill=Fill Color #colorSubBg#
-X=#contentMargin#
-Y=3R
-W=#contentWidth#
-H=18
-DynamicVariables=1
-TransformationMatrix=#transformationMatrix#
-
-[StyleInputBoxBackgroundAdjacent]
-X=5R
-Y=-1r
-W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin#)
-DynamicVariables=1
-
-[StyleInputBoxBackgroundAdjacentRightMargin]
-W=(#contentWidth# - [&[#CURRENTSECTION]:X] + #contentMargin# - 21)
-
-[StyleInputBoxBackgroundAdjacentRightAlign]
-X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1
-Y=r
-DynamicVariables=1
-
-[StyleInputBoxBackgroundAdjacentRightAlignHelpButton]
-X=#contentMarginRight# - [[#CURRENTSECTION]:W] + 1 - 21
-
-[StyleStringInputBox]
-FontSize=10
-FontFace=Roboto
-FontColor=#colorInputText#
-X=3r
-Y=2r
-W=([&[#CURRENTSECTION]Background:W] - 6)
-H=16
-Padding=0,-1,0,0
-ClipString=1
-DynamicVariables=1
-Group=Settings
-
-[StyleStringToggleLabel]
-FontColor=#colorMain#
-FontSize=10
-X=3R
-Y=-2r
-
-[StyleToggleButton]
-FontFace=ElegantIcons
-FontColor=#colorAccent#
-FontSize=12
-X=#contentMargin#
-Y=4R
-DynamicVariables=1
-Group=Settings
-Antialias=1
-TransformationMatrix=#transformationMatrix#
-
-[StyleRadioButton]
-X=5R
-Y=2r
-
-[StyleStringPivotLabel]
-FontSize=10
-X=(#contentMargin# + 2)
-Y=3R
-
-[StylePivotLeftButton]
-FontFace=ElegantIcons
-FontSize=12
-FontColor=#colorAccent#
-X=10R
-Y=3r
-Text=[\x0044]
-DynamicVariables=1
-Group=Settings
-Antialias=1
-
-[StyleStringPivotValue]
-FontSize=9
-FontColor=#colorDim#
-FontFace=#fontFaceCn#
-FontWeight=600
-StringAlign=CENTER
-StringCase=UPPER
-X=(([#CURRENTSECTION#:W] / 2))R
-Y=-1r
-DynamicVariables=1
-Group=Settings
-
-[StylePivotRightButton]
-FontFace=ElegantIcons
-FontSize=12
-FontColor=#colorAccent#
-Y=1r
-Text=[\x0045]
-DynamicVariables=1
-Group=Settings
-Antialias=1
-
-[StyleStringColorPickerLabel]
-FontSize=10
-X=3R
-Y=-2r
-
-[StyleColorPicker]
-Shape=Rectangle 0,0,15,15,#cornerRoundness# | Fill Color #colorBorder# | StrokeWidth 0
-Shape2=Rectangle 1,1,13,13,#cornerRoundness# | StrokeWidth 0 | Extend MeterSpecific
-X=-18r
-Y=3R
-Group=Settings
-DynamicVariables=1
-TransformationMatrix=#transformationMatrix#
-
-; Buttons
 [StyleMouseRegion]
 SolidColor=255,255,255,0
 DynamicVariables=1
@@ -651,10 +540,6 @@ H=([#CURRENTSECTION#_:H] * #scale#)
 [StyleMouseRegionImgButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageAlpha "#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageAlpha ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
-
-; [StyleMouseRegionShapeButtonHover]
-; MouseOverAction=[!SetOption #CURRENTSECTION#_ Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
-; MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Fill ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
 [StyleMouseRegionShapeButtonHoverNew]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ Fill "[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]_','Fill')],#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
@@ -680,10 +565,6 @@ MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "[&MeasureSettingsScript:
 MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor "[&MeasureSettingsScript:Gsub('[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]','FontColor')]', ',#hoverAlpha#')]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 DynamicVariables=1
 
-; [StyleShapeButtonHover]
-; MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color #colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-; MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
-
 [StyleShapeButtonHoverNew]
 MouseOverAction=[!SetOption #CURRENTSECTION# Fill "[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]','Fill')],#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill "[&MeasureSettingsScript:Gsub('[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]','Fill')]', ',#hoverAlpha#')]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
@@ -693,71 +574,12 @@ DynamicVariables=1
 LeftMouseUpAction=[!DeactivateConfig]
 ToolTipText=Close
 
-[StyleStringSmallTextButton]
-FontColor=#colorAccent#
-Y=8R
-
 [StyleStringTextButton]
 FontColor=#colorAccent#
 FontFace=#fontFaceCn#
 FontSize=9
 FontWeight=600
 StringCase=Upper
-
-[StyleStringArrowButtonLabel]
-FontSize=10
-StringAlign=Right
-X=(#contentMarginRight# - 17)
-Y=R
-
-[StyleArrowButton]
-ImageName=#imgPath#arrow-right.png
-ImageTint=#colorAccent#
-X=r
-Y=2r
-W=17
-H=17
-Antialias=0
-TransformationMatrix=#transformationMatrix#
-
-[StyleCloseButton]
-ImageName=#imgPath#close-new.png
-X=(#contentMarginRight# - 14)
-Y=(#contentMargin#)
-W=14
-H=14
-Antialias=0
-ToolTipText=Close
-; MouseOverAction=[!SetOption CloseButton ImageTint "#colorButtonPress#"][!UpdateMeter CloseButton][!Redraw]
-LeftMouseUpAction=[!DeactivateConfig]
-TransformationMatrix=#transformationMatrix#
-
-[StyleOpenConfigFileButton]
-FontColor=#colorMain#
-FontSize=10
-FontFace=ElegantIcons
-Antialias=1
-StringAlign=Right
-X=(#contentMarginRight# - 18)
-Y=(#contentMargin# - 1)
-Text=[\x6c]
-ToolTipText=Open configuration file to access more advanced settings
-TransformationMatrix=#transformationMatrix#
-
-[StyleConfigButton]
-ImageName=#imgPath#Wrench.png
-X=(#contentMarginRight# - 9)
-Y=(#contentMargin# + 2)
-H=8
-W=8
-ImageTint=#colorMain#
-Antialias=1
-Hidden=1
-Group=ConfigButton
-; MouseOverAction=[!SetOption #CURRENTSECTION# ImageTint "#colorButtonPress#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
-; MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageTint ""][!UpdateMeter #CURRENTSECTION#][!Redraw]
-; LeftMouseUpAction=[!SkinCustomMenu]
-TransformationMatrix=#transformationMatrix#
 
 [StyleConfigButtonNew]
 X=(#contentMarginRight# - [#CURRENTSECTION#:W])
@@ -772,28 +594,6 @@ DynamicVariables=1
 TransformationMatrix=#transformationMatrix#
 Group=ConfigButton
 Hidden=1
-
-[StyleHelpButton]
-ImageName=#imgPath#help.png
-X=(#contentMarginRight# - 15)
-Y=3r
-W=14
-H=14
-Antialias=0
-ToolTipIcon=Info
-ToolTipWidth=300
-TransformationMatrix=#transformationMatrix#
-
-[StyleTutorialButton]
-ImageName=#imgPath#book.png
-Greyscale=1
-ImageTint=#colorAccent#
-X=(#contentMarginRight# - 15)
-Y=1r
-W=15
-H=15
-Antialias=1
-TransformationMatrix=#transformationMatrix#
 
 [StyleRefreshButton]
 X=(#contentMarginRight# - 11)
@@ -928,7 +728,7 @@ Y=[HwinfoSmvButtonIcon:Y]
 W=([HwinfoSmvButtonIcon:X] + ([HwinfoSmvButtonString:X] + [HwinfoSmvButtonString:W]) - 12)
 H=21
 DynamicVariables=1
-MouseOverAction=[!SetOption HwinfoSmvButtonIcon ImageTint "#colorButtonPress#"][!SetOption HwinfoSmvButtonString FontColor "#colorButtonPress#"][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
+MouseOverAction=[!SetOption HwinfoSmvButtonIcon ImageTint "#colorError#"][!SetOption HwinfoSmvButtonString FontColor "#colorError#"][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoSmvButtonIcon ImageTint ""][!SetOption HwinfoSmvButtonString FontColor ""][!UpdateMeterGroup HwinfoSmvButton][!Redraw]
 LeftMouseUpAction=[!CommandMeasure MeasureOpenHwinfoSmv "Run"]
 Group=HwinfoSmvButton
@@ -952,7 +752,7 @@ Group=HwinfoSmvButton
 [StyleHwinfoTutorialButton]
 ToolTipText=View HWiNFO Configuration Tutorial
 LeftMouseUpAction=["https://github.com/raiguard/ModernGadgets/wiki/HWiNFO-Configuration"]
-MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorButtonPress#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
+MouseOverAction=[!SetOption HwinfoTutorialButton ImageTint "#colorError#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 MouseLeaveAction=[!SetOption HwinfoTutorialButton ImageTint "#colorAccent#"][!UpdateMeter HwinfoTutorialButton][!Redraw]
 
 [StyleHwinfoRefreshGadgetButton]
