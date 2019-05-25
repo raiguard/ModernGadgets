@@ -61,7 +61,7 @@ colorDisabled=120,120,120,200
 
 colorBarBg=#colorBorder#
 
-colorButtonPress=200,50,50
+colorError=200,50,50
 
 colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#
