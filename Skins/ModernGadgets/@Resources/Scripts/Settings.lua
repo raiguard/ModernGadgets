@@ -248,17 +248,13 @@ end
 -- --------------------------------------------------------------------------------
 -- MODIFICATIONS
 
-function GetBaseMeter(name, ext) return name:gsub(ext or 'MouseRegion', '') end
+function GetBaseMeter(name, ext) return name:gsub(ext, '') end
 
 function GetKey(name, key) return SKIN:GetMeter(name):GetOption(key) end
 
-function GetHover(meter, type, gsub, key)
+function Gsub(string, pattern, replacement)
 
-	if type == 1 then
-		return SKIN:ReplaceVariables(SKIN:GetMeter(meter):GetOption(key or 'HoverColor', '#colorButtonPress#') .. ',#hoverAlpha#'):gsub(gsub or '', '')
-	else
-		return SKIN:ReplaceVariables(SKIN:GetMeter(meter):GetOption(key or 'HoverColor', '#colorButtonPress#')):gsub(',' .. SKIN:GetVariable('hoverAlpha'), ''):gsub(gsub or '', '')
-	end
+	return string:gsub(pattern, replacement or '')
 
 end
 
