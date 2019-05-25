@@ -10,3 +10,4 @@ batteryLifetimeFormat=%#H hr %M min remaining
 
 showChargeInfo=1
 autoFailover=0
+chargeUnits=Watts
