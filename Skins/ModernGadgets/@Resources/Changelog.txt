@@ -635,4 +635,5 @@ v1.6.0-beta.5 - 2019-05-24
 - Relocated Process Meter mode swap button to main gadget
 - Refactored Process Meter, Weather Meter, Global, and Sidebar settings interfaces
 - Refactored Welcome interface
-- Cleaned up obselete MeterStyles
+- Cleaned up obselete MeterStyles & organized StyleSheet
+- Switched to a slightly bolder version of IBM Plex Sans to improve readability
