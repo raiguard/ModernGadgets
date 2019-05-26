@@ -10,4 +10,6 @@ batteryLifetimeFormat=%#H hr %M min remaining
 
 showChargeInfo=1
 autoFailover=0
-chargeUnits=Watts
+chargeUnits=Amps
+playCriticalWarningSound=1
+batteryCriticalWarningSound=C:\Windows\Media\ringout.wav
