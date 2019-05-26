@@ -630,7 +630,10 @@ v1.0.0-rc.1 - 2016-11-14
 ----------------------------------------------------------------------------------------------------
 WIP Releases
 
-v1.6.0-beta.5 - 2019-05-24
+v1.6.0-beta.5 - 2019-05-26
+- Added option to Battery Meter to display charge units in Amps
+- Added battery critical warning to Battery Meter
+- Added option to show/hide the detailed charge info in Battery Meter
 - Added logic to adjust X position of core temps if Fahrenheit temperatures are enabled
 - Added process mode label to Process Meter
 - Relocated Process Meter mode swap button to main gadget
