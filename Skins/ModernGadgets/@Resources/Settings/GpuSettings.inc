@@ -48,7 +48,7 @@ HWiNFO-GPU0-MemoryUsage-EntryId=0x7000008
 ; Memory Allocated [HWiNFO-GPU0-MemoryAlloc]
 HWiNFO-GPU0-MemoryAlloc-SensorId=#HWiNFO-GPU0-Clock-SensorId#
 HWiNFO-GPU0-MemoryAlloc-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
-HWiNFO-GPU0-MemoryAlloc-EntryId=0x800003c
+HWiNFO-GPU0-MemoryAlloc-EntryId=0x80000fc
 ; Fan Speed [HWiNFO-GPU0-FanSpeed]
 HWiNFO-GPU0-FanSpeed-SensorId=#HWiNFO-GPU0-Clock-SensorId#
 HWiNFO-GPU0-FanSpeed-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
@@ -95,7 +95,7 @@ HWiNFO-GPU1-MemoryUsage-EntryId=0x7000008
 ; Memory Allocated [HWiNFO-GPU1-MemoryAlloc]
 HWiNFO-GPU1-MemoryAlloc-SensorId=#HWiNFO-GPU1-Clock-SensorId#
 HWiNFO-GPU1-MemoryAlloc-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
-HWiNFO-GPU1-MemoryAlloc-EntryId=0x800003c
+HWiNFO-GPU1-MemoryAlloc-EntryId=0x80000fc
 ; Fan Speed [HWiNFO-GPU1-FanSpeed]
 HWiNFO-GPU1-FanSpeed-SensorId=#HWiNFO-GPU1-Clock-SensorId#
 HWiNFO-GPU1-FanSpeed-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
@@ -142,7 +142,7 @@ HWiNFO-GPU2-MemoryUsage-EntryId=0x7000008
 ; Memory Allocated [HWiNFO-GPU2-MemoryAlloc]
 HWiNFO-GPU2-MemoryAlloc-SensorId=#HWiNFO-GPU2-Clock-SensorId#
 HWiNFO-GPU2-MemoryAlloc-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
-HWiNFO-GPU2-MemoryAlloc-EntryId=0x800003c
+HWiNFO-GPU2-MemoryAlloc-EntryId=0x80000fc
 ; Fan Speed [HWiNFO-GPU2-FanSpeed]
 HWiNFO-GPU2-FanSpeed-SensorId=#HWiNFO-GPU2-Clock-SensorId#
 HWiNFO-GPU2-FanSpeed-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
@@ -189,7 +189,7 @@ HWiNFO-GPU3-MemoryUsage-EntryId=0x7000008
 ; Memory Allocated [HWiNFO-GPU3-MemoryAlloc]
 HWiNFO-GPU3-MemoryAlloc-SensorId=#HWiNFO-GPU3-Clock-SensorId#
 HWiNFO-GPU3-MemoryAlloc-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
-HWiNFO-GPU3-MemoryAlloc-EntryId=0x800003c
+HWiNFO-GPU3-MemoryAlloc-EntryId=0x80000fc
 ; Fan Speed [HWiNFO-GPU3-FanSpeed]
 HWiNFO-GPU3-FanSpeed-SensorId=#HWiNFO-GPU3-Clock-SensorId#
 HWiNFO-GPU3-FanSpeed-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#

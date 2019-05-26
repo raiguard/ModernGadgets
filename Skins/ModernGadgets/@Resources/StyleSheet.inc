@@ -47,7 +47,7 @@ colorGraphBg=#colorSubBg#
 colorGraphBorder=#colorBorder#
 colorGraphGrid=#colorGraphBorder#
 
-colorMain=230,230,230
+colorMain=220,220,220
 colorDim=150,150,150
 colorAccent=137,190,250
 colorDisabled=120,120,120,200
@@ -410,8 +410,6 @@ X=1r
 Y=1r
 W=(#contentWidth# - 2)
 H=(#graphHeight# - 2)
-; HorizontalLines=#lineGraphHr#
-; HorizontalLineColor=#colorBorder#
 Group=LineGraph
 Antialias=#lineGraphAa#
 DynamicVariables=1
@@ -775,7 +773,6 @@ Y=1r
 Padding=0,0,0,1
 
 [StyleShapeBookIconSectionLabel]
-; X=5R
 Y=1r
 
 [StyleShapeEditIcon]
