@@ -211,6 +211,19 @@ v1.0.0 - 2016-12-04
 ----------------------------------------------------------------------------------------------------
 Development Releases
 
+v1.6.0-beta.5 - 2019-05-26
+- Added option to Battery Meter to display charge units in Amps
+- Added battery critical warning to Battery Meter
+- Added option to show/hide the detailed charge info in Battery Meter
+- Added logic to adjust X position of core temps if Fahrenheit temperatures are enabled
+- Added process mode label to Process Meter
+- Relocated Process Meter mode swap button to main gadget
+- Refactored Process Meter, Weather Meter, Global, and Sidebar settings interfaces
+- Refactored Welcome interface
+- Cleaned up obselete MeterStyles & organized StyleSheet
+- Switched to a slightly bolder version of IBM Plex Sans to improve readability
+- Fixed Network Meter upload session total incorrectly displaying download stats when reading the "best" adapter
+
 v1.6.0-beta.4 - 2019-05-22
 - Updated Audio Meter play/pause button hover aesthetics to new style
 - Brightened default visualizer color a tad
@@ -629,16 +642,3 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
-
-v1.6.0-beta.5 - 2019-05-26
-- Added option to Battery Meter to display charge units in Amps
-- Added battery critical warning to Battery Meter
-- Added option to show/hide the detailed charge info in Battery Meter
-- Added logic to adjust X position of core temps if Fahrenheit temperatures are enabled
-- Added process mode label to Process Meter
-- Relocated Process Meter mode swap button to main gadget
-- Refactored Process Meter, Weather Meter, Global, and Sidebar settings interfaces
-- Refactored Welcome interface
-- Cleaned up obselete MeterStyles & organized StyleSheet
-- Switched to a slightly bolder version of IBM Plex Sans to improve readability
-- Fixed Network Meter upload session total incorrectly displaying download stats when reading the "best" adapter
