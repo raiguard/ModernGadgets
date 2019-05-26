@@ -638,3 +638,4 @@ v1.6.0-beta.5 - 2019-05-24
 - Refactored Welcome interface
 - Cleaned up obselete MeterStyles & organized StyleSheet
 - Switched to a slightly bolder version of IBM Plex Sans to improve readability
+- Fixed Network Meter upload session total incorrectly displaying download stats when reading the "best" adapter
