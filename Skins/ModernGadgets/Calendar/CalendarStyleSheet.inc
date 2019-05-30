@@ -125,6 +125,10 @@ FontWeight=#FontWtBold#
 
 ;========== METERS ==========
 ;These are not required.
+[MeasureSettingsScript]
+Measure=Script
+ScriptFile=#scriptPath#Settings.lua
+
 [MeterGadgetLabel]
 Meter=String
 MeterStyle=StyleString | StyleStringGadgetLabel
