@@ -1,9 +1,0 @@
-For each monitor:
-
-Set the work area to
-    LEFT: ((IF sb1Alignment = 0 THEN [#sb1Columns] ELSEIF sb2Alignment = 0 THEN [#sb2Columns] ELSE 0) * (#tScale# * (#gadgetBgWidth# + (#bgOffset# * 2))))
-          
-    TOP: 0
-    RIGHT: ((IF sb1Alignment = 1 THEN [#sb1Columns] ELSEIF sb2Alignment = 1 THEN [#sb2Columns] ELSE 0) * (#tScale# * (#gadgetBgWidth# + (#bgOffset# * 2))))
-    BOTTOM: #SCREENAREAHEIGHT#
-          
