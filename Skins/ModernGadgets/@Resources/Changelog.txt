@@ -642,3 +642,9 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
+
+v1.6.0-beta.6 - 2019-05-??
+- Added Calendar
+- Added logic to dynamically adjust the width of Audio Meter's device switcher button
+- Further cleaned up StyleSheet
+- Removed unused / obselete fonts and unit tests
