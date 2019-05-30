@@ -242,8 +242,6 @@ end
 -- --------------------------------------------------------------------------------
 -- MODIFICATIONS
 
-function GetBaseMeter(name, ext) return name:gsub(ext, '') end
-
 function GetKey(name, key) return SKIN:GetMeter(name):GetOption(key) end
 
 function Gsub(string, pattern, replacement) return string:gsub(pattern, replacement or '') end
