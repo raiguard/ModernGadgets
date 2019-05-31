@@ -651,3 +651,7 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
+
+v1.6.0-beta.7 - 2019-06-??
+- Re-added separate average CPU usage color to CPU Meter
+- Updated twitter and subreddit links
