@@ -211,6 +211,15 @@ v1.0.0 - 2016-12-04
 ----------------------------------------------------------------------------------------------------
 Development Releases
 
+v1.6.0-beta.6 - 2019-05-31
+- Added Calendar
+- Added logic to dynamically adjust the width of Audio Meter's device switcher button
+- Updated ColorPickerPlus to v1.1.0
+- Implemented workaround for color variable references being destroyed for buttons that need them
+- Further cleaned up StyleSheet
+- Removed unused / obselete fonts and unit tests
+- Fixed settings skins flickering when refreshed
+
 v1.6.0-beta.5 - 2019-05-26
 - Added option to Battery Meter to display charge units in Amps
 - Added battery critical warning to Battery Meter
@@ -642,12 +651,3 @@ v1.0.0-rc.1 - 2016-11-14
 
 ----------------------------------------------------------------------------------------------------
 WIP Releases
-
-v1.6.0-beta.6 - 2019-05-31
-- Added Calendar
-- Added logic to dynamically adjust the width of Audio Meter's device switcher button
-- Updated ColorPickerPlus to v1.1.0
-- Implemented workaround for color variable references being destroyed for buttons that need them
-- Further cleaned up StyleSheet
-- Removed unused / obselete fonts and unit tests
-- Fixed settings skins flickering when refreshed
