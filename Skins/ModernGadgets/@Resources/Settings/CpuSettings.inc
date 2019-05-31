@@ -40,6 +40,7 @@ customMaxCpuFan=1600
 ; Colors
 colorRam=107,198,250
 colorPage=255,204,0
+colorAvgCpu=107,238,98
 colorCpuTemp=200,0,0
 colorCpuFan=150,150,150
 ttHistogramAlpha=70
