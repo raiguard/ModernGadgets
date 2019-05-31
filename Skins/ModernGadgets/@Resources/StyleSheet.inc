@@ -592,7 +592,7 @@ Group=Settings
 MouseOverAction=[!SetOption [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon Fill "[&MeasureSettingsScript:GetKey('[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon','Fill')],#hoverAlpha#"][!SetOption [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label FontColor "[&MeasureSettingsScript:GetKey('[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label','FontColor')],#hoverAlpha#"][!UpdateMeter [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon][!UpdateMeter [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label][!Redraw]
 MouseLeaveAction=[!SetOption [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon Fill "[&MeasureSettingsScript:Gsub('[&MeasureSettingsScript:GetKey('[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon','Fill')]', ',#hoverAlpha#')]"][!SetOption [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label FontColor "[&MeasureSettingsScript:Gsub('[&MeasureSettingsScript:GetKey('[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label','FontColor')]', ',#hoverAlpha#')]"][!UpdateMeter [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon][!UpdateMeter [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label][!Redraw]
 
-[StyleSettingButtonMouseRegionPreserve]
+[StyleSettingsButtonMouseRegionPreserve]
 X=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:X]
 Y=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:Y]
 W=([&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:W] + [&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label:W] + 2)
