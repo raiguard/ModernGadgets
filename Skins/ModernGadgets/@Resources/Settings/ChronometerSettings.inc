@@ -3,8 +3,8 @@ timeAmPmSize=12
 showSystemUptime=1
 showEventCountdown=1
 
-eventName=Summer Vacation
-eventTimestamp=2019-05-31 00:00:00
+eventName=developer leaves
+eventTimestamp=2019-09-18 10:00:00
 
 timeFormat=WinLong
 dateFormat=WinLong
