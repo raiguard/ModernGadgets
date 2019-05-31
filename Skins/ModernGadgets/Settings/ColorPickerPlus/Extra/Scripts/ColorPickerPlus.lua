@@ -60,8 +60,9 @@ function SetRGB(...)
     colors.cur_hex = RGBtoHEX(colors.cur_r, colors.cur_g, colors.cur_b)
 
     SetScrubbers()
-    SKIN:Bang('!UpdateMeterGroup', 'ColorMeters')
-    SKIN:Bang('!Redraw')
+    SKIN:Bang('!Update')
+    -- SKIN:Bang('!UpdateMeterGroup', 'ColorMeters')
+    -- SKIN:Bang('!Redraw')
 
 end
 
@@ -81,8 +82,9 @@ function SetHSB(...)
     colors.cur_hex = RGBtoHEX(colors.cur_r, colors.cur_g, colors.cur_b)
 
     SetScrubbers()
-    SKIN:Bang('!UpdateMeterGroup', 'ColorMeters')
-    SKIN:Bang('!Redraw')
+    SKIN:Bang('!Update')
+    -- SKIN:Bang('!UpdateMeterGroup', 'ColorMeters')
+    -- SKIN:Bang('!Redraw')
 
 end
 
