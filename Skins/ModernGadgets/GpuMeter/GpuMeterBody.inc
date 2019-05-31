@@ -508,7 +508,7 @@ Hidden=1
 
 [MeterConfigButton]
 Meter=Image
-MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHoverNew
+MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHover
 LeftMouseUpAction=[!SkinCustomMenu]
 Group=ConfigButton
 Hidden=1

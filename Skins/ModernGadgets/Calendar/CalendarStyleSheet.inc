@@ -180,7 +180,7 @@ Hidden=1
 
 [MeterControlBack]
 Meter=Image
-MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHoverNew
+MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHover
 LeftMouseUpAction=[!CommandMeasure "Lua" "Move(-1)"][!Update]
 ToolTipText=Previous month
 Group=Controls | ConfigButton
@@ -188,7 +188,7 @@ Hidden=1
 
 [MeterControlHome]
 Meter=Image
-MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHoverNew
+MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHover
 LeftMouseUpAction=[!CommandMeasure "Lua" "Move()"][!Update]
 ToolTipText=Back to current time
 Group=Controls | ConfigButton
@@ -196,7 +196,7 @@ Hidden=1
 
 [MeterControlForward]
 Meter=Image
-MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHoverNew
+MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHover
 LeftMouseUpAction=[!CommandMeasure "Lua" "Move(1)"][!Update]
 ToolTipText=Next month
 Group=Controls | ConfigButton
@@ -204,7 +204,7 @@ Hidden=1
 
 [MeterConfigButton]
 Meter=Image
-MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHoverNew
+MeterStyle=StyleMouseRegion | StyleMouseRegionShapeButtonHover
 LeftMouseUpAction=[!SkinCustomMenu]
 Group=Controls | ConfigButton
 Hidden=1

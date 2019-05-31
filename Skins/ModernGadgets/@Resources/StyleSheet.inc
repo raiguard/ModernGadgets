@@ -268,7 +268,7 @@ H=([#CURRENTSECTION#_:H] * #scale#)
 MouseOverAction=[!SetOption #CURRENTSECTION#_ ImageAlpha "#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ ImageAlpha ""][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 
-[StyleMouseRegionShapeButtonHoverNew]
+[StyleMouseRegionShapeButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION#_ Fill "[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]_','Fill')],#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION#_ Fill "[&MeasureSettingsScript:Gsub('[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]_','Fill')]', ',#hoverAlpha#')]"][!UpdateMeter #CURRENTSECTION#_][!Redraw]
 DynamicVariables=1
@@ -292,7 +292,7 @@ MouseOverAction=[!SetOption #CURRENTSECTION# FontColor "[&MeasureSettingsScript:
 MouseLeaveAction=[!SetOption #CURRENTSECTION# FontColor "[&MeasureSettingsScript:Gsub('[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]','FontColor')]', ',#hoverAlpha#')]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 DynamicVariables=1
 
-[StyleShapeButtonHoverNew]
+[StyleShapeButtonHover]
 MouseOverAction=[!SetOption #CURRENTSECTION# Fill "[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]','Fill')],#hoverAlpha#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill "[&MeasureSettingsScript:Gsub('[&MeasureSettingsScript:GetKey('[#CURRENTSECTION]','Fill')]', ',#hoverAlpha#')]"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 DynamicVariables=1
