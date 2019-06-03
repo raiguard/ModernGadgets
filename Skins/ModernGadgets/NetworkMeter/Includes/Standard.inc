@@ -21,7 +21,7 @@ DynamicVariables=1
 
 [MeasureNetInEthernetBytesSessionTotal]
 Measure=Calc
-Formula=MeasureNetInEthernetBytesTotal - MeasureNetInEthernetBytesSessionTotalBase
+Formula=max(0, MeasureNetInEthernetBytesTotal - MeasureNetInEthernetBytesSessionTotalBase)
 Group=NetInOut | MeasureEthernet
 DynamicVariables=1
 
@@ -47,7 +47,7 @@ DynamicVariables=1
 
 [MeasureNetInWirelessBytesSessionTotal]
 Measure=Calc
-Formula=MeasureNetInWirelessBytesTotal - MeasureNetInWirelessBytesSessionTotalBase
+Formula=max(0, MeasureNetInWirelessBytesTotal - MeasureNetInWirelessBytesSessionTotalBase)
 Group=NetInOut | MeasureWireless
 DynamicVariables=1
 
@@ -73,7 +73,7 @@ DynamicVariables=1
 
 [MeasureNetInOtherBytesSessionTotal]
 Measure=Calc
-Formula=MeasureNetInOtherBytesTotal - MeasureNetInOtherBytesSessionTotalBase
+Formula=max(0, MeasureNetInOtherBytesTotal - MeasureNetInOtherBytesSessionTotalBase)
 Group=NetInOut | MeasureOther
 DynamicVariables=1
 
@@ -102,7 +102,7 @@ Disabled=1
 
 [MeasureNetInBestBytesSessionTotal]
 Measure=Calc
-Formula=MeasureNetInBestBytesTotal - MeasureNetInBestBytesSessionTotalBase
+Formula=max(0, MeasureNetInBestBytesTotal - MeasureNetInBestBytesSessionTotalBase)
 Group=NetInOut | MeasureBest
 DynamicVariables=1
 Disabled=1
