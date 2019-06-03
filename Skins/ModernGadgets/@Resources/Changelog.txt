@@ -653,6 +653,9 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.6.0-beta.7 - 2019-06-??
+- Added tooltip visibility toggle to Clipboard Meter
+- Redesigned Clipboard Meter interface
 - Re-added separate average CPU usage color to CPU Meter
 - Updated twitter and subreddit links
 - Fixed input box padding
+- Fixed Network Meter session totals going negative when not using NetMonitor (hopefully)
