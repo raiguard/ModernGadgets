@@ -659,3 +659,4 @@ v1.6.0-beta.7 - 2019-06-??
 - Updated twitter and subreddit links
 - Fixed input box padding
 - Fixed Network Meter session totals going negative when not using NetMonitor (hopefully)
+- Fixed scale setting not taking effect whatsoever!
