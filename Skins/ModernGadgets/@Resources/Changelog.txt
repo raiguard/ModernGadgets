@@ -655,6 +655,7 @@ WIP Releases
 v1.6.0-beta.7 - 2019-06-??
 - Added tooltip visibility toggle to Clipboard Meter
 - Added event countdown format help icon to Chronometer settings
+- Added auto-update of external IP when WAN state changes
 - Redesigned Clipboard Meter interface
 - Re-added separate average CPU usage color to CPU Meter
 - Updated twitter and subreddit links
