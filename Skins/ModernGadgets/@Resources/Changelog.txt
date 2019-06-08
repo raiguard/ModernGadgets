@@ -663,4 +663,5 @@ v1.6.0-beta.7 - 2019-06-??
 - Fixed input box padding
 - Fixed Network Meter session totals going negative when not using NetMonitor (hopefully)
 - Fixed hover logic of network total reset buttons (again)
+- Fixed hi/low temps in Weather Meter not working
 - Fixed scale setting not taking effect whatsoever!
