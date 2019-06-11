@@ -24,17 +24,3 @@ timeFormat=WinShort
 dateFormat=WinShort
 customTimeFormat=%#I:%M %p
 customDateFormat=%m/%d/%y
-
-colorUvLow=47,149,35
-colorUvModerate=245,229,55
-colorUvHigh=247,90,26
-colorUvVeryHigh=214,0,27
-colorUvExtreme=109,69,198
-
-colorSkyDialBg=#colorDim#
-colorSkyDialSun=250,222,110
-colorSkyDialMoon=180,180,180
-
-colorMoon=#colorMain#
-colorMoonBg=#colorDisabled#,60
-colorMoonBorder=#colorBorder#
