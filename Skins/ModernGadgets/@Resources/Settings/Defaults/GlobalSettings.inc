@@ -57,11 +57,11 @@ colorGraphGrid=#colorGraphBorder#
 colorMain=220,220,220
 colorDim=175,175,175
 colorAccent=137,190,250
-colorDisabled=120,120,120,200
+colorDisabled=100,100,100
 
 colorBarBg=#colorBorder#
 
-colorButtonPress=200,53,53
+colorError=200,53,53
 
 colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#
