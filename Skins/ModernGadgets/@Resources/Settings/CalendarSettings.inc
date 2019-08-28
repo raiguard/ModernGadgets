@@ -1,11 +1,4 @@
 [Variables]
-;Name of the Style Sheet
-Style=
-
-;Custom text for Weekday labels. Uses the following format: Sun|Mon|Tue|Wed|Thu|Fri|Sat
-; Note: this value has been moved to CalendarVariables.inc; do not uncomment here
-;DayLabels=
-
 ;Set to 1 to hide week 6 if not included in the current month
 HideLastWeek=0
 
@@ -18,10 +11,6 @@ LabelText=
 
 ;Set to 1 to add a leading zero to any number below 10.
 LeadingZeroes=0
-
-;Custom text for Month labels. Uses the following format: Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec
-; Note: this value has been moved to CalendarVariables.inc; do not uncomment here
-;MonthLabels=Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec
 
 ;Set to 1 to have the week start on Monday
 StartOnMonday=0
@@ -36,10 +25,6 @@ NextFormat=
 ;Show the Moon Phases as events
 ShowMoonPhases=1
 
-;Color to use for the Moon Phases Events
-; Note: this value has been moved to CalendarVariables.inc; do not uncomment here
-;MoonColor=
-
 ;Set to 0 to hide all calendar events including the Moon Phases
 ShowEvents=1
 
@@ -47,28 +32,20 @@ ShowEvents=1
 
 ; day color
 ColorInfoText1=#colorMain#
-
 ; moon phase color
 ColorInfoText2=#colorDim#,230
-
 ; month/year and current day color
 ColorFontTitle=#colorMain#
-
 ; control arrow buttons
 ColorFontSubtitle=#colorDim#
-
 ; weekday label color
 PaletteColor1=#colorAccent#,180
-
 ; holiday color
 PaletteColor2=#colorAccent#
-
 ; current day highlight/background color
 PaletteColor3=#colorAccent#
-
 ; control home button
 PaletteColor4=236,28,70
-
 ; required
 FontName=#fontFace#
 FontSize1=#fontSize#
