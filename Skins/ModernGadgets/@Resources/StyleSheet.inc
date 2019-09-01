@@ -406,8 +406,8 @@ Hidden=(#showLineGraph# = 0)
 TransformationMatrix=#transformationMatrix#
 
 [StyleLineGraphBackgroundOverlay]
-Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorBorder#
-Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorSubBg#
+Shape=Rectangle 0,0,[&[#CURRENTSECTION]:W],[&[#CURRENTSECTION]:H],#cornerRoundness# | StrokeWidth 0 | Fill Color #colorGraphBorder#
+Shape2=Rectangle 1,1,([&[#CURRENTSECTION]:W] - 2),([&[#CURRENTSECTION]:H] - 2),#cornerRoundness# | StrokeWidth 0 | Fill Color #colorGraphBg#
 Shape3=Combine Shape | XOR Shape2
 X=-1r
 Y=-1r

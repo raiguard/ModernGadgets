@@ -3,6 +3,12 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
+v1.6.1 - 2019-9-2
+- Added The Weather Channel watermark to the bottom of the forecast skin
+- Fixed NowPlaying progress bar not moving
+- Fixed graph overlay color being tied to the incorrect variable
+- Fixed view license button not having button hover aesthetics
+
 v1.6.0 - 2019-8-28
 - Added Battery Meter
 - Added Calendar
