@@ -9,6 +9,7 @@ v1.6.1 - 2019-9-2
 - Fixed graph overlay color being tied to the incorrect variable
 - Fixed view license button not having button hover aesthetics
 - Fixed non-hyperthreaded core temps for CoreTemp and SpeedFan
+- Fixed isolated thunderstorms condition not having an icon
 
 v1.6.0 - 2019-8-28
 - Added Battery Meter
