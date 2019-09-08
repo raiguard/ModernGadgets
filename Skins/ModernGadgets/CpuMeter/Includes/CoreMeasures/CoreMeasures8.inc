@@ -49,7 +49,7 @@ HWiNFOSensorInstance=#HWiNFO-CPU0-Core0Temp-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core0Temp-EntryId#
 HWiNFOType=CurrentValue
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore1Temp MeasureName "MeasureCpuTempHwinfoCore1"][!UpdateMeter MeterCore1Temp]
+IfTrueAction=[!SetOption MeterCore1Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore1Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching | CpuTempHwinfo
 Disabled=(((#showCoreTemps# = 0) && (#showCpuTempGraph# = 0)) || (#cpuCores# / #threadsPerCore# < 1)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
@@ -61,7 +61,7 @@ HWiNFOSensorInstance=#HWiNFO-CPU0-Core1Temp-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core1Temp-EntryId#
 HWiNFOType=CurrentValue
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore2Temp MeasureName "MeasureCpuTempHwinfoCore2"][!UpdateMeter MeterCore2Temp]
+IfTrueAction=[!SetOption MeterCore2Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore2Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 2)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
@@ -73,7 +73,7 @@ HWiNFOSensorInstance=#HWiNFO-CPU0-Core2Temp-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core2Temp-EntryId#
 HWiNFOType=CurrentValue
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore3Temp MeasureName "MeasureCpuTempHwinfoCore3"][!UpdateMeter MeterCore3Temp]
+IfTrueAction=[!SetOption MeterCore3Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore3Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 3)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
@@ -85,7 +85,7 @@ HWiNFOSensorInstance=#HWiNFO-CPU0-Core3Temp-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core3Temp-EntryId#
 HWiNFOType=CurrentValue
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore4Temp MeasureName "MeasureCpuTempHwinfoCore4"][!UpdateMeter MeterCore4Temp]
+IfTrueAction=[!SetOption MeterCore4Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore4Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 4)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
@@ -97,7 +97,7 @@ HWiNFOSensorInstance=#HWiNFO-CPU0-Core4Temp-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core4Temp-EntryId#
 HWiNFOType=CurrentValue
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore5Temp MeasureName "MeasureCpuTempHwinfoCore5"][!UpdateMeter MeterCore5Temp]
+IfTrueAction=[!SetOption MeterCore5Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore5Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 5)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
@@ -109,7 +109,7 @@ HWiNFOSensorInstance=#HWiNFO-CPU0-Core5Temp-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core5Temp-EntryId#
 HWiNFOType=CurrentValue
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore6Temp MeasureName "MeasureCpuTempHwinfoCore6"][!UpdateMeter MeterCore6Temp]
+IfTrueAction=[!SetOption MeterCore6Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore6Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 6)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
@@ -121,7 +121,7 @@ HWiNFOSensorInstance=#HWiNFO-CPU0-Core6Temp-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core6Temp-EntryId#
 HWiNFOType=CurrentValue
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore7Temp MeasureName "MeasureCpuTempHwinfoCore7"][!UpdateMeter MeterCore7Temp]
+IfTrueAction=[!SetOption MeterCore7Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore7Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 7)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
@@ -133,7 +133,7 @@ HWiNFOSensorInstance=#HWiNFO-CPU0-Core7Temp-SensorInstance#
 HWiNFOEntryId=#HWiNFO-CPU0-Core7Temp-EntryId#
 HWiNFOType=CurrentValue
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore8Temp MeasureName "MeasureCpuTempHwinfoCore8"][!UpdateMeter MeterCore8Temp]
+IfTrueAction=[!SetOption MeterCore8Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore8Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 8)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
@@ -144,7 +144,7 @@ Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=0
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore1Temp MeasureName "MeasureCpuTempCoreTempCore1"][!UpdateMeter MeterCore1Temp]
+IfTrueAction=[!SetOption MeterCore1Temp MeasureName2 "#CURRENTSECTION#"][!UpdateMeter MeterCore1Temp]
 MinValue=0
 MaxValue=[#[#maxCpuTempMode]MaxCpuTemp]
 DynamicVariables=1
@@ -157,7 +157,7 @@ Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=1
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore2Temp MeasureName "MeasureCpuTempCoreTempCore2"][!UpdateMeter MeterCore2Temp]
+IfTrueAction=[!SetOption MeterCore2Temp MeasureName2 "#CURRENTSECTION#"][!UpdateMeter MeterCore2Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 2)) || ((#extProgram# <> 2) && (#extProgram# <> 6))
 
@@ -167,7 +167,7 @@ Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=2
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore3Temp MeasureName "MeasureCpuTempCoreTempCore3"][!UpdateMeter MeterCore3Temp]
+IfTrueAction=[!SetOption MeterCore3Temp MeasureName2 "#CURRENTSECTION#"][!UpdateMeter MeterCore3Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 3)) || ((#extProgram# <> 2) && (#extProgram# <> 6))
 
@@ -177,7 +177,7 @@ Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=3
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore4Temp MeasureName "MeasureCpuTempCoreTempCore4"][!UpdateMeter MeterCore4Temp]
+IfTrueAction=[!SetOption MeterCore4Temp MeasureName2 "#CURRENTSECTION#"][!UpdateMeter MeterCore4Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 4)) || ((#extProgram# <> 2) && (#extProgram# <> 6))
 
@@ -187,7 +187,7 @@ Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=4
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore5Temp MeasureName "MeasureCpuTempCoreTempCore5"][!UpdateMeter MeterCore5Temp]
+IfTrueAction=[!SetOption MeterCore5Temp MeasureName2 "#CURRENTSECTION#"][!UpdateMeter MeterCore5Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 5)) || ((#extProgram# <> 2) && (#extProgram# <> 6))
 
@@ -197,7 +197,7 @@ Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=5
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore6Temp MeasureName "MeasureCpuTempCoreTempCore6"][!UpdateMeter MeterCore6Temp]
+IfTrueAction=[!SetOption MeterCore6Temp MeasureName2 "#CURRENTSECTION#"][!UpdateMeter MeterCore6Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 6)) || ((#extProgram# <> 2) && (#extProgram# <> 6))
 
@@ -207,7 +207,7 @@ Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=6
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore7Temp MeasureName "MeasureCpuTempCoreTempCore7"][!UpdateMeter MeterCore7Temp]
+IfTrueAction=[!SetOption MeterCore7Temp MeasureName2 "#CURRENTSECTION#"][!UpdateMeter MeterCore7Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 7)) || ((#extProgram# <> 2) && (#extProgram# <> 6))
 
@@ -217,7 +217,7 @@ Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=7
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore8Temp MeasureName "MeasureCpuTempCoreTempCore8"][!UpdateMeter MeterCore8Temp]
+IfTrueAction=[!SetOption MeterCore8Temp MeasureName2 "#CURRENTSECTION#"][!UpdateMeter MeterCore8Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 8)) || ((#extProgram# <> 2) && (#extProgram# <> 6))
 
@@ -228,7 +228,7 @@ Plugin=SpeedFanPlugin
 SpeedFanType=Temperature
 SpeedFanNumber=(#sfCoreTemp# + 0)
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore1Temp MeasureName "MeasureCpuTempSpeedFanCore1"][!UpdateMeter MeterCore1Temp]
+IfTrueAction=[!SetOption MeterCore1Temp MeasureName3 "#CURRENTSECTION#"][!UpdateMeter MeterCore1Temp]
 IfCondition2=MeasureCpuTempSpeedFanCore1 > #autoMaxCpuTemp#
 IfTrueAction2=[!SetVariable autoMaxCpuTemp "(max([MeasureCpuTempSpeedFanCore1:], 1))"][!WriteKeyValue Variables autoMaxCpuTemp "(max([MeasureCpuTempSpeedFanCore1:], 1))" "#dynamicVarsPath#"][!UpdateMeasure MeasureCpuTempSpeedFanCore1]
 MinValue=0
@@ -243,7 +243,7 @@ Plugin=SpeedFanPlugin
 SpeedFanType=Temperature
 SpeedFanNumber=(#sfCoreTemp# + 1)
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore2Temp MeasureName "MeasureCpuTempSpeedFanCore2"][!UpdateMeter MeterCore2Temp]
+IfTrueAction=[!SetOption MeterCore2Temp MeasureName3 "#CURRENTSECTION#"][!UpdateMeter MeterCore2Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 2)) || (#extProgram# <> 4)
 
@@ -253,7 +253,7 @@ Plugin=SpeedFanPlugin
 SpeedFanType=Temperature
 SpeedFanNumber=(#sfCoreTemp# + 2)
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore3Temp MeasureName "MeasureCpuTempSpeedFanCore3"][!UpdateMeter MeterCore3Temp]
+IfTrueAction=[!SetOption MeterCore3Temp MeasureName3 "#CURRENTSECTION#"][!UpdateMeter MeterCore3Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 3)) || (#extProgram# <> 4)
 
@@ -263,7 +263,7 @@ Plugin=SpeedFanPlugin
 SpeedFanType=Temperature
 SpeedFanNumber=(#sfCoreTemp# + 3)
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore4Temp MeasureName "MeasureCpuTempSpeedFanCore4"][!UpdateMeter MeterCore4Temp]
+IfTrueAction=[!SetOption MeterCore4Temp MeasureName3 "#CURRENTSECTION#"][!UpdateMeter MeterCore4Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 4)) || (#extProgram# <> 4)
 
@@ -273,7 +273,7 @@ Plugin=SpeedFanPlugin
 SpeedFanType=Temperature
 SpeedFanNumber=(#sfCoreTemp# + 4)
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore5Temp MeasureName "MeasureCpuTempSpeedFanCore5"][!UpdateMeter MeterCore5Temp]
+IfTrueAction=[!SetOption MeterCore5Temp MeasureName3 "#CURRENTSECTION#"][!UpdateMeter MeterCore5Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 5)) || (#extProgram# <> 4)
 
@@ -283,7 +283,7 @@ Plugin=SpeedFanPlugin
 SpeedFanType=Temperature
 SpeedFanNumber=(#sfCoreTemp# + 5)
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore6Temp MeasureName "MeasureCpuTempSpeedFanCore6"][!UpdateMeter MeterCore6Temp]
+IfTrueAction=[!SetOption MeterCore6Temp MeasureName3 "#CURRENTSECTION#"][!UpdateMeter MeterCore6Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 6)) || (#extProgram# <> 4)
 
@@ -293,7 +293,7 @@ Plugin=SpeedFanPlugin
 SpeedFanType=Temperature
 SpeedFanNumber=(#sfCoreTemp# + 6)
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore7Temp MeasureName "MeasureCpuTempSpeedFanCore7"][!UpdateMeter MeterCore7Temp]
+IfTrueAction=[!SetOption MeterCore7Temp MeasureName3 "#CURRENTSECTION#"][!UpdateMeter MeterCore7Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 7)) || (#extProgram# <> 4)
 
@@ -303,7 +303,7 @@ Plugin=SpeedFanPlugin
 SpeedFanType=Temperature
 SpeedFanNumber=(#sfCoreTemp# + 7)
 IfCondition=MeasureCpuThreadsPerCore = 1
-IfTrueAction=[!SetOption MeterCore8Temp MeasureName "MeasureCpuTempSpeedFanCore8"][!UpdateMeter MeterCore8Temp]
+IfTrueAction=[!SetOption MeterCore8Temp MeasureName3 "#CURRENTSECTION#"][!UpdateMeter MeterCore8Temp]
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 8)) || (#extProgram# <> 4)
 
