@@ -10,6 +10,7 @@ v1.6.1 - 2019-9-11
 - Fixed view license button not having button hover aesthetics
 - Fixed non-hyperthreaded core temps for CoreTemp and SpeedFan
 - Fixed isolated thunderstorms condition not having an icon
+- Fixed hover regions and scaling of welcome skin
 
 v1.6.0 - 2019-8-28
 - Added Battery Meter
