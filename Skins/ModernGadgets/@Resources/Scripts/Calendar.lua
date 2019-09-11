@@ -7,7 +7,7 @@
 --         - enhanced code to use localized strings for months and days
 --   4.1.1 - removed localization code; Lua in Rainmeter does not support localization
 -- Modifications by TGonZo:
---   1.6.0 - revised to add support for TransformationMatrix (scaling)
+--   1.6.1 - revised to add support for TransformationMatrix (scaling)
 
 function Initialize()
 	Settings.Color = 'FontColor'

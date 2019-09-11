@@ -3,7 +3,7 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
-v1.6.1 - 2019-9-2
+v1.6.1 - 2019-9-11
 - Added The Weather Channel watermark to the bottom of the forecast skin
 - Fixed media progress bar not moving
 - Fixed graph overlay color being tied to the incorrect variable
