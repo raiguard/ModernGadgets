@@ -1,4 +1,4 @@
-![](Wiki/devpreview.png)
+![](Wiki/preview.png)
 ModernGadgets is a set of sleek, minimalist, information-dense gadgets that are designed to fit right into your modern desktop. It is inspired by the AddGadgets.com system monitoring gadgets and is heavily based on [SilverAzide's Gadget Replicas](https://www.deviantart.com/silverazide/art/Gadgets-4-1-1-522574269).
 
 ModernGadgets is released on the Rainmeter platform under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license. The source code is made available on GitHub under an MIT License.
