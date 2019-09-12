@@ -3,6 +3,10 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
+v1.6.2 - 2019-9-??
+- Updated Readme with new attributions
+- Fixed Weather Meter throwing an error when no severe weather alert exists
+
 v1.6.1 - 2019-9-11
 - Added The Weather Channel watermark to the bottom of the forecast skin
 - Fixed media progress bar not moving
