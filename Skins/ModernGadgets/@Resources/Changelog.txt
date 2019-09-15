@@ -6,6 +6,7 @@ Official Releases
 v1.6.2 - 2019-9-16
 - Updated Readme with new attributions
 - Removed several leftover debugging actions
+- Fixed moon icon spots orientation when not showing realistic moon angle
 - Fixed Weather Meter throwing an error when no severe weather alert exists
 
 v1.6.1 - 2019-9-11
