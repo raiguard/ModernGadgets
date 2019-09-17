@@ -37,12 +37,14 @@ HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-Clock-SensorInstance]
 HWiNFOType=SensorNameCustom
 Substitute="GPU \[#\d\]: ":"",":":"","":"_____"
 RegExpSubstitute=1
-IfMatch="NVIDIA"
-IfMatchAction=[!SetOption MeterGpuIcon Fill "Fill Color #colorNvidia#"][!UpdateMeter MeterGpuIcon]
-IfMatch2="AMD"
+IfMatch=(?i)(.*Intel.*)
+IfMatchAction=[!SetOption MeterGpuIcon Fill "Fill Color #colorIntel#"][!UpdateMeter MeterGpuIcon]
+IfMatch2=(?i)(.*AMD.*)
 IfMatchAction2=[!SetOption MeterGpuIcon Fill "Fill Color #colorAMD#"][!UpdateMeter MeterGpuIcon]
-IfMatch3="Intel"
-IfMatchAction3=[!SetOption MeterGpuIcon Fill "Fill Color #colorIntel#"][!UpdateMeter MeterGpuIcon]
+IfMatch3=(?i)(.*Snapdragon.*)
+IfMatchAction3=[!SetOption MeterGpuIcon Fill "Fill Color #colorSnapdragon#"][!UpdateMeter MeterGpuIcon]
+IfMatch4=(?i)(.*Nvidia.*)
+IfMatchAction4=[!SetOption MeterGpuIcon Fill "Fill Color #colorNvidia#"][!UpdateMeter MeterGpuIcon]
 
 [MeasureCustomGpuName]
 Measure=String

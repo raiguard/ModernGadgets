@@ -3,7 +3,8 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
-v1.6.2 - 2019-9-16
+v1.6.2 - 2019-9-18
+- Added support for Snapdragon GPUs (just in case)
 - Updated Readme with new attributions
 - Removed several leftover debugging actions
 - Fixed moon icon spots orientation when not showing realistic moon angle
