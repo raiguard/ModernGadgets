@@ -1,5 +1,5 @@
 MODERNGADGETS
-v1.6.1
+v1.6.2
 By raiguard
 
 ----------------------------------------
@@ -35,6 +35,6 @@ mourner - SunCalc script
 CONTACT
 
 Email: iamanaiofficial@gmail.com
-Twitter: @_raiguard
+Twitter: @raiguard_
 Reddit: /u/raiguard
 Discord: Raiguard#7402
