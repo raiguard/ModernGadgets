@@ -51,7 +51,6 @@ function Update() end
 -- all time-related outputs are given as Windows FILETIME values.
 -- all angle-related outputs are given in radians.
 function GenerateData(timestamp, latitude, longitude, tzOffset)
-
   -- setup timestamps
   local timestamp, mDate, zDate, ysDate, tmDate = SetupTimestamps(timestamp, tzOffset)
   -- RmLog('timestamp: ' .. timestamp)
@@ -91,7 +90,6 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
   SKIN:Bang('!UpdateMeasureGroup', 'SunCalc')
   SKIN:Bang('!UpdateMeterGroup', 'SunCalc')
   SKIN:Bang('!Redraw')
-
 end
 
 -- retrieves data from the data table using inline LUA in the skin
@@ -99,17 +97,14 @@ function GetData(key, value) return data[key] and data[key][value] or 0 end
 
 -- same as GetData(), but allows one to perform another SunCalc operation
 function GetScData(functionName, key, timestamp, latitude, longitude, tzOffset)
-
   if timestamp > 0 then timestamp, mDate = SetupTimestamps(timestamp, tzOffset) else return 0 end
   return SunCalc[functionName](mDate, latitude, longitude, tzOffset)[key]
-
 end
 
 -- ----- Utilities -----
 
 -- sets up and returns several useful timestamps
 function SetupTimestamps(timestamp)
-
   local localTz = (GetTimeOffset() / 3600)
   -- convert Windows timestamp (0 = 1/1/1601) to Unix/Lua timestamp (0 = 1/1/1970)
   timestamp = ConvertTime(timestamp, 'Unix', false, localTz * -1)
@@ -122,37 +117,30 @@ function SetupTimestamps(timestamp)
   ysDate = zDate - 86400000
   tmDate =  zDate + 86400000
   -- RmLog('mDate: ' .. mDate .. ' zDate: ' .. zDate .. ' ysDate: ' .. ysDate .. ' tmDate: ' .. tmDate)
-
   return timestamp, -- current unix epoch timestamp value
-       mDate,     -- 'millisecond date' (timestamp with three extra zeroes)
-       zDate,     -- timestamp at current day, 0:00:00 (12:00 AM)
-       ysDate,    -- timestamp at yesterday, 0:00:00 (12:00 AM)
-       tmDate     -- timestamp at tomorrow, 0:00:00 (12:00 AM)
-
+         mDate,     -- 'millisecond date' (timestamp with three extra zeroes)
+         zDate,     -- timestamp at current day, 0:00:00 (12:00 AM)
+         ysDate,    -- timestamp at yesterday, 0:00:00 (12:00 AM)
+         tmDate     -- timestamp at tomorrow, 0:00:00 (12:00 AM)
 end
 
 -- converts between windows and unix epoch timestamps, with an optional timezone offset
 function ConvertTime(n, to, mode, tzOffset)
-
   if tzOffset == nil then tzOffset = 0 end
-
   local Formats = {
     Unix    = -1,
     Windows = 1
   }
-
   if type(n) == 'table' then
     for k,t in pairs(n) do
       n[k] = ConvertTime(t, to, mode, tzOffset)
     end
     return n
   end
-
   return Formats[to] and (mode and tonumber(tostring(n):sub(1,10)) or n) + (11644473600 * Formats[to]) + (tzOffset * 3600) or nil
-
 end
 
-moonPhases = {
+local moonPhases = {
   { 0.00, 0.03, 'New Moon'        },
   { 0.03, 0.23, 'Waxing Crescent' },
   { 0.23, 0.27, 'First Quarter'   },
@@ -165,25 +153,21 @@ moonPhases = {
 }
 
 function GetMoonPhaseName(phase)
-
   for i,v in pairs(moonPhases) do
     if phase >= v[1] and phase < v[2] then return v[3] end
   end
 
   return 'WTF?'
-
 end
 
 function GetTimeOffset() return (os.time() - os.time(os.date('!*t')) + (os.date('*t')['isdst'] and 3600 or 0)) end
 
 -- writes the given string or table to the rainmeter log
 function RmLog(message, category)
-
   if debug == nil then debug = false end
   if category == nil then category = 'Debug' end
   if category == 'Debug' and debug == false then return end
   if printIndent == nil then printIndent = '' end
-
   if type(message) == 'table' then
     for k,v in pairs(message) do
       if type(v) == 'table' then
@@ -200,7 +184,6 @@ function RmLog(message, category)
   else
     SKIN:Bang("!Log", message, category)
   end
-
 end
 
 -- ------------------------------------------------------------------------------------------------------------------------
@@ -289,7 +272,6 @@ end
 function solarMeanAnomaly(d)  return rad * (357.5291 + 0.98560028 * d)  end
 
 function eclipticLongitude(M)
-
   local C = rad * (1.9148 * sin(M) + 0.02 * sin(2 * M) + 0.0003 * sin(3 * M)) -- equation of center
   local P = rad * 102.9372 -- perihelion of the Earth
 
@@ -297,15 +279,12 @@ function eclipticLongitude(M)
 end
 
 function sunCoords(d)
-
   M = solarMeanAnomaly(d)
   L = eclipticLongitude(M)
-
   return {
     dec = declination(L, 0),
     ra = rightAscension(L, 0)
   }
-
 end
 
 SunCalc = {}
@@ -313,7 +292,6 @@ SunCalc = {}
 -- calculates sun position for a given date and latitude/longitude
 
 SunCalc.getPosition = function (date, lat, lng)
-
   lw  = rad * -lng
   phi = rad * lat
   d   = toDays(date)
@@ -324,9 +302,7 @@ SunCalc.getPosition = function (date, lat, lng)
     azimuth = azimuth(H, phi, c.dec),
     altitude = altitude(H, phi, c.dec)
   }
-
 end
-
 
 -- sun times configuration (angle, morning name, evening name)
 
@@ -361,18 +337,15 @@ function hourAngle(h, phi, d)  return acos((sin(h) - sin(phi) * sin(d)) / (cos(p
 
 -- returns set time for the given sun altitude
 function getSetJ(h, lw, phi, dec, n, M, L)
-
   w = hourAngle(h, phi, dec)
   a = approxTransit(w, lw, n)
   return solarTransitJ(a, M, L)
-
 end
 
 
 -- calculates sun times for a given date and latitude/longitude
 
 SunCalc.getTimes = function (date, lat, lng)
-
   lw = rad * -lng
   phi = rad * lat
 
@@ -405,14 +378,12 @@ SunCalc.getTimes = function (date, lat, lng)
   end
 
   return result
-
 end
 
 
 -- moon calculations, based on http://aa.quae.nl/en/reken/hemelpositie.html formulas
 
 function moonCoords(d) -- geocentric ecliptic coordinates of the moon
-
   L = rad * (218.316 + 13.176396 * d) -- ecliptic longitude
   M = rad * (134.963 + 13.064993 * d) -- mean anomaly
   F = rad * (93.272 + 13.229350 * d)  -- mean distance
@@ -426,11 +397,9 @@ function moonCoords(d) -- geocentric ecliptic coordinates of the moon
     dec = declination(l, b),
     dist = dt
   }
-
 end
 
 SunCalc.getMoonPosition = function (date, lat, lng)
-
   lw  = rad * -lng
   phi = rad * lat
   d   = toDays(date)
@@ -449,7 +418,6 @@ SunCalc.getMoonPosition = function (date, lat, lng)
     distance = c.dist,
     parallacticAngle = pa
   }
-
 end
 
 
@@ -458,7 +426,6 @@ end
 -- Chapter 48 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
 
 SunCalc.getMoonIllumination = function (date)
-
   d = toDays(date)
   s = sunCoords(d)
   m = moonCoords(d)
@@ -474,7 +441,6 @@ SunCalc.getMoonIllumination = function (date)
     phase = 0.5 + 0.5 * inc * (angle < 0 and -1 or 1) / math.pi,
     angle = angle
   }
-
 end
 
 
@@ -485,7 +451,6 @@ end
 -- calculations for moon rise/set times are based on http://www.stargazing.net/kepler/moonrise.html article
 
 SunCalc.getMoonTimes = function (date, lat, lng)
-
   t = date
   hc = 0.133 * rad
   h0 = SunCalc.getMoonPosition(t, lat, lng).altitude - hc
@@ -534,7 +499,6 @@ SunCalc.getMoonTimes = function (date, lat, lng)
   if not rise and not set then result[ye > 0 and 'alwaysUp' or 'alwaysDown'] = true end
 
   return result
-
 end
 
 -- ---------- NOT PART OF THE ORIGINAL SCRIPT - HAD TO BE ADDED FOR THE SCRIPT TO WORK IN LUA ----------
