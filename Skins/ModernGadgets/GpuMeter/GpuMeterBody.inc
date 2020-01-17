@@ -128,7 +128,7 @@ Formula=MeasureVramUsedCalc * 100 / max(MeasureVramUsage,1)
 IfCondition=(#useManualMaxVram# = 0)
 IfTrueAction=[!SetVariable textMemoryTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureVramTotal],1,'1k')]]
 IfCondition2=(#useManualMaxVram# = 1)
-IfTrueAction2=[!SetVariable textMemoryTotal [&MeasureFixedPrecisionFormatScript:FormatNumber('[#maxVram]000000',1,'1k')]]
+IfTrueAction2=[!SetVariable textMemoryTotal [&MeasureFixedPrecisionFormatScript:FormatNumber('[#maxVram]000000',1,'2k')]]
 IfConditionMode=1
 DynamicVariables=1
 Group=Memory
@@ -204,6 +204,14 @@ HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-CoreVoltage-SensorInstance]
 HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-CoreVoltage-EntryId]
 HWiNFOType=CurrentValue
 Disabled=(#showCoreVoltage# = 0)
+
+[MeasureCalcCompactVramLabel]
+Measure=Calc
+Formula=[MeterGpuMemoryUsageLabel:W] + [MeterGpuMemoryUsageFraction:W] + [MeterGpuMemoryUsage:W] + 10
+IfCondition=#CURRENTSECTION# > #contentWidth#
+IfTrueAction=[!SetOptionGroup MemoryUsageLabels FontFace "#*fontFaceCn*#"][!UpdateMeterGroup MemoryUsageLabels][!Redraw]
+IfFalseAction=[!SetOptionGroup MemoryUsageLabels FontFace "#*fontFace*#"][!UpdateMeterGroup MemoryUsageLabels][!Redraw]
+DynamicVariables=1
 
 ; ==================================================
 ;  METERS
@@ -320,14 +328,14 @@ Hidden=(#showMemoryClock# = 0)
 Meter=String
 MeterStyle=StyleString
 Text=VRAM:
-Group=GpuVram
+Group=GpuVram | MemoryUsageLabels
 
 [MeterGpuMemoryUsageFraction]
 Meter=String
 MeterStyle=StyleString | StyleStringInfo
 Text=#textMemoryUsed#B / #textMemoryTotal#B
 DynamicVariables=1
-Group=GpuVram
+Group=GpuVram | MemoryUsageLabels
 
 [MeterGpuMemoryUsage]
 Meter=String
@@ -335,7 +343,7 @@ MeterStyle=StyleString | StyleStringRightAlign
 MeasureName=MeasureVramUsage
 MeasureName2=MeasureVramUsageAlt
 Text=%1%
-Group=GpuVram
+Group=GpuVram | MemoryUsageLabels
 DynamicVariables=1
 
 [MeterGpuMemoryUsageBar]
