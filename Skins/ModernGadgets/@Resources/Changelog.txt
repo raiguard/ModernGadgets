@@ -710,7 +710,10 @@ v1.0.0-rc.1 - 2016-11-14
 WIP Releases
 
 v1.6.3 - 2019-12-25
+- Rewrote Weather Meter to use the Dark Sky API
 - Improved LUA styling
+- Improved error catching for the external IP address, to prevent window clipping
+- Improved VRAM display to compact itself if it becomes too wide
+- Fixed maximum VRAM override not scaling properly
 - Fixed Network Meter session total stat arrows would not hide themselves correctly when disabled
-- Fixed incorrect reference to hazy weather icon
 - Fixed duplicate HWiNFO refresh button meters
