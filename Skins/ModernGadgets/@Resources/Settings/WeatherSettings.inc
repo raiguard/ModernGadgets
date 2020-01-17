@@ -10,6 +10,8 @@ lon=-111.892619
 location=Saratoga Springs, UT
 ; units: one of "si", "ca", "uk2", "us", or "auto"
 units=auto
+; language
+language=en
 
 showHumidity=1
 showUv=1
