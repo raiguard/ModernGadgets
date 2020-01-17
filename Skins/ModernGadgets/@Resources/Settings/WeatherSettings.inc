@@ -1,11 +1,13 @@
 [Variables]
-; Dark Sky API key - keep this a secret!
+; dark sky api key - keep this a secret!
 apiKey=
 ; coordinates
 lat=40.316339
 lon=-111.892619
 ; lat=40.7127281
 ; lon=-74.0060152
+; location name
+location=Saratoga Springs, UT
 
 weatherUpdateRate=5
 
