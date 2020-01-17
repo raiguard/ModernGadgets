@@ -8,8 +8,8 @@ lon=-111.892619
 ; lon=-74.0060152
 ; location name
 location=Saratoga Springs, UT
-
-weatherUpdateRate=5
+; units: one of "si", "ca", "uk2", "us", or "auto"
+units=auto
 
 showHumidity=1
 showUv=1
