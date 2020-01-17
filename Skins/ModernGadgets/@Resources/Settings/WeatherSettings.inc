@@ -1,21 +1,20 @@
 [Variables]
-; LocationCode can be obtained at http://wxdata.weather.com/wxdata/search/search?where=YourCityName
-locationCode=USUT0281
-; UnitOfMeasure can be "f" (Fahrenheit / Imperial) or "m" (Celsius / Metric)
-unitOfMeasure=f
-; Locale (language) to use in the feed.
-; https://msdn.microsoft.com/en-us/goglobal/bb896001.aspx
-; Note that Weather.com uses "_" underline instead of "-" dash in the codes.
-locale=en_US
+; Dark Sky API key - keep this a secret!
+apiKey=
+; coordinates
+lat=40.316339
+lon=-111.892619
+; lat=40.7127281
+; lon=-74.0060152
 
-weatherUpdateRate=10
+weatherUpdateRate=5
 
 showHumidity=1
 showUv=1
 showUvChart=1
-showAtmPressure=0
+showAtmPressure=1
 showVisibility=1
-showDewpoint=0
+showDewpoint=1
 showWindInfo=1
 showSunMoonInfo=1
 showMoonAngle=1
