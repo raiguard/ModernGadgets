@@ -2,12 +2,10 @@
 ; dark sky api key - keep this a secret!
 apiKey=
 ; coordinates
-lat=40.316339
-lon=-111.892619
-; lat=40.7127281
-; lon=-74.0060152
+lat=40.3491173
+lon=-111.9046567
 ; location name
-location=Saratoga Springs, UT
+location=Saratoga Springs
 ; units: one of "si", "ca", "uk2", "us", or "auto"
 units=auto
 ; language
