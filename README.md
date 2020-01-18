@@ -32,11 +32,9 @@ Backend code based on "Gadgets" by SilverAzide.
 
 "IBM Plex Sans" font from Google Fonts, under the Apache 2.0 License
 
-"Material Icons" font from Google, under the Apache 2.0 License.
+"Font Awesome" icons from FortAwesome, under the Font Awesome Free license
 
-"Elegant Icons" font from Elegant Themes, under GPL and MIT Licenses.
-
-"Google Now Weather Feed Icons" from NCrystal on DeviantArt.
+Weather information is powered by [Dark Sky](https://darksky.net/poweredby)
 
 ### Additional Attributions
 SilverAzide - ActiveNet plugin, NetMonitor utility, fixed precision format script
