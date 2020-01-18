@@ -14,14 +14,12 @@ language=en
 showHumidity=1
 showUv=1
 showUvChart=1
-showAtmPressure=1
+showAtmPressure=0
 showVisibility=1
-showDewpoint=1
+showDewpoint=0
 showWindInfo=1
 showSunMoonInfo=1
 showMoonAngle=1
 
 timeFormat=WinShort
-dateFormat=WinShort
 customTimeFormat=%#I:%M %p
-customDateFormat=%m/%d/%y
