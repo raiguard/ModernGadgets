@@ -3,6 +3,16 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
+v1.6.3 - 2020-1-18
+- Rewrote Weather Meter to use the Dark Sky API
+- Removed Weather forecast (it will return in v1.7)
+- Improved LUA styling
+- Improved error catching for the external IP address, to prevent window clipping
+- Improved VRAM display to compact itself if it becomes too wide
+- Fixed maximum VRAM override not scaling properly
+- Fixed Network Meter session total stat arrows would not hide themselves correctly when disabled
+- Fixed duplicate HWiNFO refresh button meters
+
 v1.6.2 - 2019-9-18
 - Added support for Snapdragon GPUs (just in case)
 - Updated Readme with new attributions
@@ -705,15 +715,3 @@ v1.0.0-rc.2 - 2016-11-18
 
 v1.0.0-rc.1 - 2016-11-14
 - Initial release
-
-----------------------------------------------------------------------------------------------------
-WIP Releases
-
-v1.6.3 - 2019-12-25
-- Rewrote Weather Meter to use the Dark Sky API
-- Improved LUA styling
-- Improved error catching for the external IP address, to prevent window clipping
-- Improved VRAM display to compact itself if it becomes too wide
-- Fixed maximum VRAM override not scaling properly
-- Fixed Network Meter session total stat arrows would not hide themselves correctly when disabled
-- Fixed duplicate HWiNFO refresh button meters
