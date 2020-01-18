@@ -9,7 +9,7 @@ location=Saratoga Springs
 ; units: one of "si", "ca", "uk2", "us", or "auto"
 units=auto
 ; language
-language=en-US
+language=en
 
 showHumidity=1
 showUv=1
