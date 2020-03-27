@@ -171,6 +171,8 @@ sidebarSetupConfig=ModernGadgets\\Settings\\Sidebars\\Setup
 sb1ControlConfig=ModernGadgets\\Settings\\Sidebars\\Control\\1
 sb2ControlConfig=ModernGadgets\\Settings\\Sidebars\\Control\\2
 
+@includeIcons=#@#Icons.inc
+
 ; ------------------------------
 ; BACKGROUND
 
@@ -576,7 +578,7 @@ ToolTipText=Apply changes
 ; SETTINGS BUTTONS
 
 [StyleSettingsButtonLabel]
-X=R
+X=2R
 Y=r
 FontWeight=500
 FontSize=9
