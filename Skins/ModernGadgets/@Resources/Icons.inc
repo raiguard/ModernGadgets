@@ -272,16 +272,16 @@ Path2=10, 4 | LineTo 14, 4 | LineTo 14, 7 | LineTo 10, 7 | LineTo 10, 4
 Path3=5, 17 | LineTo 9, 17 | LineTo 9, 20 | LineTo 5, 20 | LineTo 5, 17
 Path4=15, 17 | LineTo 19, 17 | LineTo 19, 20 | LineTo 15, 20 | LineTo 15, 17 | ClosePath 1
 
-[StyleIconPause]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
-Path1=14, 19 | LineTo 18, 19 | LineTo 18, 5 | LineTo 14, 5
-Path2=6, 19 | LineTo 10, 19 | LineTo 10, 5 | LineTo 6, 5 | LineTo 6, 19 | ClosePath 1
+; [StyleIconPause]
+; Shape=Path Path1 | StrokeWidth 0 | Extend Fill
+; Shape2=Path Path2 | StrokeWidth 0
+; Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
+; Path1=14, 19 | LineTo 18, 19 | LineTo 18, 5 | LineTo 14, 5
+; Path2=6, 19 | LineTo 10, 19 | LineTo 10, 5 | LineTo 6, 5 | LineTo 6, 19 | ClosePath 1
 
-[StyleIconPlay]
-Shape=Path Path1 | StrokeWidth 0 | #iconSmallTransform# | Extend Fill
-Path1=8, 5.14 | LineTo 8, 19.14 | LineTo 19, 12.14 | LineTo 8, 5.14 | ClosePath 1
+; [StyleIconPlay]
+; Shape=Path Path1 | StrokeWidth 0 | #iconSmallTransform# | Extend Fill
+; Path1=8, 5.14 | LineTo 8, 19.14 | LineTo 19, 12.14 | LineTo 8, 5.14 | ClosePath 1
 
 [StyleIconRadioButtonActive]
 Shape=Path Path1 | StrokeWidth 0 | Extend Fill
@@ -306,55 +306,48 @@ Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
 Path1=12, 18 | ArcTo 6, 12, 6, 6, 0, 0, 0 | CurveTo 6.7, 9.2, 6, 11, 6.25, 10.03 | LineTo 5.24, 7.74 | CurveTo 4, 12, 4.46, 8.97, 4, 10.43 | ArcTo 12, 20, 8, 8, 0, 1, 0 | LineTo 12, 23 | LineTo 16, 19 | LineTo 12, 15
 Path2=12, 4 | LineTo 12, 1 | LineTo 8, 5 | LineTo 12, 9 | LineTo 12, 6 | ArcTo 18, 12, 6, 6, 0, 0, 0 | CurveTo 17.3, 14.8, 18, 13, 17.75, 13.97 | LineTo 18.76, 16.26 | CurveTo 20, 12, 19.54, 15.03, 20, 13.57 | ArcTo 12, 4, 8, 8, 0, 1, 0 | ClosePath 1
 
-[StyleIconRepeat]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
-Path1=17, 17 | LineTo 7, 17 | LineTo 7, 14 | LineTo 3, 18 | LineTo 7, 22 | LineTo 7, 19 | LineTo 19, 19 | LineTo 19, 13 | LineTo 17, 13
-Path2=7, 7 | LineTo 17, 7 | LineTo 17, 10 | LineTo 21, 6 | LineTo 17, 2 | LineTo 17, 5 | LineTo 5, 5 | LineTo 5, 11 | LineTo 7, 11 | LineTo 7, 7 | ClosePath 1
+; [StyleIconRepeat]
+; Shape=Path Path1 | StrokeWidth 0 | Extend Fill
+; Shape2=Path Path2 | StrokeWidth 0
+; Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
+; Path1=17, 17 | LineTo 7, 17 | LineTo 7, 14 | LineTo 3, 18 | LineTo 7, 22 | LineTo 7, 19 | LineTo 19, 19 | LineTo 19, 13 | LineTo 17, 13
+; Path2=7, 7 | LineTo 17, 7 | LineTo 17, 10 | LineTo 21, 6 | LineTo 17, 2 | LineTo 17, 5 | LineTo 5, 5 | LineTo 5, 11 | LineTo 7, 11 | LineTo 7, 7 | ClosePath 1
+
+; [StyleIconRepeatOnce]
+; Shape=Path Path1 | StrokeWidth 0 | Extend Fill
+; Shape2=Path Path2 | StrokeWidth 0
+; Shape3=Path Path3 | StrokeWidth 0
+; Shape4=Combine Shape1 | XOR Shape2 | XOR Shape3 | #iconSmallTransform#
+; Path1=13, 15 | LineTo 13, 9 | LineTo 12, 9 | LineTo 10, 10 | LineTo 10, 11 | LineTo 11.5, 11 | LineTo 11.5, 15
+; Path2=17, 17 | LineTo 7, 17 | LineTo 7, 14 | LineTo 3, 18 | LineTo 7, 22 | LineTo 7, 19 | LineTo 19, 19 | LineTo 19, 13 | LineTo 17, 13
+; Path3=7, 7 | LineTo 17, 7 | LineTo 17, 10 | LineTo 21, 6 | LineTo 17, 2 | LineTo 17, 5 | LineTo 5, 5 | LineTo 5, 11 | LineTo 7, 11 | LineTo 7, 7 | ClosePath 1
 
 [StyleIconReset]
 Shape=Path Path1 | StrokeWidth 0 | #iconSmallTransform# | Extend Fill
 Path1=17.65, 6.35 | CurveTo 12, 4, 16.2, 4.9, 14.21, 4 | ArcTo 4, 12, 8, 8, 0, 1, 0 | ArcTo 12, 20, 8, 8, 0, 1, 0 | CurveTo 19.73, 14, 15.73, 20, 18.84, 17.45 | LineTo 17.65, 14 | CurveTo 12, 18, 16.83, 16.33, 14.61, 18 | ArcTo 6, 12, 6, 6, 0, 0, 0 | ArcTo 12, 6, 6, 6, 0, 0, 0 | CurveTo 16.22, 7.78, 13.66, 6, 15.14, 6.69 | LineTo 13, 11 | LineTo 20, 11 | LineTo 20, 4 | LineTo 17.65, 6.35 | ClosePath 1
 
-[StyleIconRepeatOnce]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Path Path3 | StrokeWidth 0
-Shape4=Combine Shape1 | XOR Shape2 | XOR Shape3 | #iconSmallTransform#
-Path1=13, 15 | LineTo 13, 9 | LineTo 12, 9 | LineTo 10, 10 | LineTo 10, 11 | LineTo 11.5, 11 | LineTo 11.5, 15
-Path2=17, 17 | LineTo 7, 17 | LineTo 7, 14 | LineTo 3, 18 | LineTo 7, 22 | LineTo 7, 19 | LineTo 19, 19 | LineTo 19, 13 | LineTo 17, 13
-Path3=7, 7 | LineTo 17, 7 | LineTo 17, 10 | LineTo 21, 6 | LineTo 17, 2 | LineTo 17, 5 | LineTo 5, 5 | LineTo 5, 11 | LineTo 7, 11 | LineTo 7, 7 | ClosePath 1
+; [StyleIconShuffle]
+; Shape=Path Path1 | StrokeWidth 0 | Extend Fill
+; Shape2=Path Path2 | StrokeWidth 0
+; Shape3=Path Path3 | StrokeWidth 0
+; Shape4=Combine Shape1 | XOR Shape2 | XOR Shape3 | #iconSmallTransform#
+; Path1=14.83, 13.41 | LineTo 13.42, 14.82 | LineTo 16.55, 17.95 | LineTo 14.5, 20 | LineTo 20, 20 | LineTo 20, 14.5 | LineTo 17.96, 16.54 | LineTo 14.83, 13.41
+; Path2=14.5, 4 | LineTo 16.54, 6.04 | LineTo 4, 18.59 | LineTo 5.41, 20 | LineTo 17.96, 7.46 | LineTo 20, 9.5 | LineTo 20, 4
+; Path3=10.59, 9.17 | LineTo 5.41, 4 | LineTo 4, 5.41 | LineTo 9.17, 10.58 | LineTo 10.59, 9.17 | ClosePath 1
 
-[StyleIconShuffle]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Path Path3 | StrokeWidth 0
-Shape4=Combine Shape1 | XOR Shape2 | XOR Shape3 | #iconSmallTransform#
-Path1=14.83, 13.41 | LineTo 13.42, 14.82 | LineTo 16.55, 17.95 | LineTo 14.5, 20 | LineTo 20, 20 | LineTo 20, 14.5 | LineTo 17.96, 16.54 | LineTo 14.83, 13.41
-Path2=14.5, 4 | LineTo 16.54, 6.04 | LineTo 4, 18.59 | LineTo 5.41, 20 | LineTo 17.96, 7.46 | LineTo 20, 9.5 | LineTo 20, 4
-Path3=10.59, 9.17 | LineTo 5.41, 4 | LineTo 4, 5.41 | LineTo 9.17, 10.58 | LineTo 10.59, 9.17 | ClosePath 1
+; [StyleIconSkipNext]
+; Shape=Path Path1 | StrokeWidth 0 | Extend Fill
+; Shape2=Path Path2 | StrokeWidth 0
+; Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
+; Path1=16, 18 | LineTo 18, 18 | LineTo 18, 6 | LineTo 16, 6
+; Path2=6, 18 | LineTo 14.5, 12 | LineTo 6, 6 | LineTo 6, 18 | ClosePath 1
 
-[StyleIconShuffleAlt]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | Scale #iconSmallTransform#
-Path1=17, 3 | LineTo 22.25, 7.5 | LineTo 17, 12 | LineTo 22.25, 16.5 | LineTo 17, 21 | LineTo 17, 18 | LineTo 14.26, 18 | LineTo 11.44, 15.18 | LineTo 13.56, 13.06 | LineTo 15.5, 15 | LineTo 17, 15 | LineTo 17, 12 | LineTo 17, 9 | LineTo 15.5, 9 | LineTo 6.5, 18 | LineTo 2, 18 | LineTo 2, 15 | LineTo 5.26, 15 | LineTo 14.26, 6 | LineTo 17, 6 | LineTo 17, 3
-Path2=2, 6 | LineTo 6.5, 6 | LineTo 9.32, 8.82 | LineTo 7.2, 10.94 | LineTo 5.26, 9 | LineTo 2, 9 | LineTo 2, 6 | ClosePath 1
-
-[StyleIconSkipNext]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
-Path1=16, 18 | LineTo 18, 18 | LineTo 18, 6 | LineTo 16, 6
-Path2=6, 18 | LineTo 14.5, 12 | LineTo 6, 6 | LineTo 6, 18 | ClosePath 1
-
-[StyleIconSkipPrevious]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
-Path1=6, 18 | LineTo 6, 6 | LineTo 8, 6 | LineTo 8, 18 | LineTo 6, 18
-Path2=9.5, 12 | LineTo 18, 6 | LineTo 18, 18 | LineTo 9.5, 12 | ClosePath 1
+; [StyleIconSkipPrevious]
+; Shape=Path Path1 | StrokeWidth 0 | Extend Fill
+; Shape2=Path Path2 | StrokeWidth 0
+; Shape3=Combine Shape1 | XOR Shape2 | #iconSmallTransform#
+; Path1=6, 18 | LineTo 6, 6 | LineTo 8, 6 | LineTo 8, 18 | LineTo 6, 18
+; Path2=9.5, 12 | LineTo 18, 6 | LineTo 18, 18 | LineTo 9.5, 12 | ClosePath 1
 
 [StyleIconSource]
 Shape=Path Path1 | StrokeWidth 0 | Extend Fill
@@ -368,7 +361,6 @@ Path2=6, 5 | ArcTo 5, 6, 1, 1, 0, 1, 0 | ArcTo 6, 7, 1, 1, 0, 1, 0 | ArcTo 7, 6,
 Path3=6, 17 | ArcTo 5, 18, 1, 1, 0, 1, 0 | ArcTo 6, 19, 1, 1, 0, 1, 0 | ArcTo 7, 18, 1, 1, 0, 1, 0 | ArcTo 6, 17, 1, 1, 0, 1, 0
 Path4=21, 18 | ArcTo 18, 21, 3, 3, 0, 0, 0 | ArcTo 15, 18, 3, 3, 0, 0, 0 | CurveTo 17, 15.17, 15, 16.69, 15.83, 15.58 | LineTo 17, 7 | LineTo 15, 7 | LineTo 15, 10.25 | LineTo 10.75, 6 | LineTo 15, 1.75 | LineTo 15, 5 | LineTo 17, 5 | ArcTo 19, 7, 2, 2, 0, 0, 0 | LineTo 19, 15.17 | CurveTo 21, 18, 20.17, 15.58, 21, 16.69
 Path5=18, 17 | ArcTo 17, 18, 1, 1, 0, 1, 0 | ArcTo 18, 19, 1, 1, 0, 1, 0 | ArcTo 19, 18, 1, 1, 0, 1, 0 | ArcTo 18, 17, 1, 1, 0, 1, 0 | ClosePath 1
-
 
 [StyleIconStopwatch]
 Shape=Path Path1 | StrokeWidth 0 | Extend Fill
@@ -408,14 +400,14 @@ Path1=12, 3 | LineTo 1, 9 | LineTo 5, 11.18 | LineTo 5, 17.18 | LineTo 12, 21 | 
 Path2=18.82, 9 | LineTo 12, 12.72 | LineTo 5.18, 9 | LineTo 12, 5.28 | LineTo 18.82, 9
 Path3=17, 16 | LineTo 12, 18.72 | LineTo 7, 16 | LineTo 7, 12.27 | LineTo 12, 15 | LineTo 17, 12.27 | LineTo 17, 16 | ClosePath 1
 
-[StyleIconVolume]
-Shape=Path Path1 | StrokeWidth 0 | Extend Fill
-Shape2=Path Path2 | StrokeWidth 0
-Shape3=Path Path3 | StrokeWidth 0
-Shape4=Combine Shape1 | XOR Shape2 | XOR Shape3 | #iconLargeTransform#
-Path1=14, 3.23 | LineTo 14, 5.29 | CurveTo 19, 12, 16.89, 6.15, 19, 8.83 | CurveTo 14, 18.7, 19, 15.17, 16.89, 17.84 | LineTo 14, 20.77 | CurveTo 21, 12, 18, 19.86, 21, 16.28 | CurveTo 14, 3.23, 21, 7.72, 18, 4.14
-Path2=16.5, 12 | CurveTo 14, 7.97, 16.5, 10.23, 15.5, 8.71 | LineTo 14, 16 | CurveTo 16.5, 12, 15.5, 15.29, 16.5, 13.76
-Path3=3, 9 | LineTo 3, 15 | LineTo 7, 15 | LineTo 12, 20 | LineTo 12, 4 | LineTo 7, 9 | LineTo 3, 9 | ClosePath 1
+; [StyleIconVolume]
+; Shape=Path Path1 | StrokeWidth 0 | Extend Fill
+; Shape2=Path Path2 | StrokeWidth 0
+; Shape3=Path Path3 | StrokeWidth 0
+; Shape4=Combine Shape1 | XOR Shape2 | XOR Shape3 | #iconLargeTransform#
+; Path1=14, 3.23 | LineTo 14, 5.29 | CurveTo 19, 12, 16.89, 6.15, 19, 8.83 | CurveTo 14, 18.7, 19, 15.17, 16.89, 17.84 | LineTo 14, 20.77 | CurveTo 21, 12, 18, 19.86, 21, 16.28 | CurveTo 14, 3.23, 21, 7.72, 18, 4.14
+; Path2=16.5, 12 | CurveTo 14, 7.97, 16.5, 10.23, 15.5, 8.71 | LineTo 14, 16 | CurveTo 16.5, 12, 15.5, 15.29, 16.5, 13.76
+; Path3=3, 9 | LineTo 3, 15 | LineTo 7, 15 | LineTo 12, 20 | LineTo 12, 4 | LineTo 7, 9 | LineTo 3, 9 | ClosePath 1
 
 [StyleIconWifi]
 Shape=Path Path1 | StrokeWidth 0 | Extend Fill
