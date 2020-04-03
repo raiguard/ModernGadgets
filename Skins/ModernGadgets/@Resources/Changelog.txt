@@ -3,6 +3,12 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
+v1.7.0 - ?????????
+- Rewrote Weather Meter to scrape the weather.com website
+- Iconography cleanup
+- New weather icons
+- Absolutely all icons are now shape meters
+
 v1.6.3 - 2020-1-18
 - Rewrote Weather Meter to use the Dark Sky API
 - Removed Weather forecast (it will return in v1.7)

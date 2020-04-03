@@ -441,15 +441,35 @@ TransformationMatrix=#transformationMatrix#
 ; SETTINGS WINDOW ELEMENTS
 
 [StyleCloseWindowButton]
-X=(#contentMarginRight# - [#CURRENTSECTION#:W] + 1)
-Y=(#contentMargin# - 2)
+X=(#contentMarginRight# - [#CURRENTSECTION#:W])
+Y=#contentMargin#
+Shape=Rectangle 2,2,9,9 | Extend Fill
+Shape2=Path Path1 | StrokeWidth 0 | Fill Color #colorCloseButton#
+Shape3=Path Path2 | StrokeWidth 0
+Shape4=Combine Shape2 | XOR Shape3 | Scale 0.025,0.025,0,0 | Offset 0.12,0
+Path1=464, 32 | LineTo 48, 32 | CurveTo 0, 80, 21.5, 32, 0, 53.5 | LineTo 0, 432 | CurveTo 48, 480, 0, 458.5, 21.5, 480 | LineTo 464, 480 | CurveTo 512, 432, 490.5, 480, 512, 458.5 | LineTo 512, 80 | CurveTo 464, 32, 512, 53.5, 490.5, 32 | ClosePath 1
+Path2=380.4, 322.5 | CurveTo 380.4, 339.9, 385.2, 327.3, 385.2, 335.1 | LineTo 339.9, 380.4 | CurveTo 322.5, 380.4, 335.1, 385.2, 327.3, 385.2 | LineTo 256, 313.3 | LineTo 189.5, 380.4 | CurveTo 172.1, 380.4, 184.7, 385.2, 176.9, 385.2 | LineTo 131.6, 339.9 | CurveTo 131.6, 322.5, 126.8, 335.1, 126.8, 327.3 | LineTo 198.7, 256 | LineTo 131.6, 189.5 | CurveTo 131.6, 172.1, 126.8, 184.7, 126.8, 176.9 | LineTo 172.1, 131.6 | CurveTo 189.5, 131.6, 176.9, 126.8, 184.7, 126.8 | LineTo 256, 198.7 | LineTo 322.5, 131.6 | CurveTo 339.9, 131.6, 327.3, 126.8, 335.1, 126.8 | LineTo 380.4, 172.1 | CurveTo 380.4, 189.5, 385.2, 176.9, 385.2, 184.7 | LineTo 313.3, 256 | LineTo 380.4, 322.5 | ClosePath 1
+DynamicVariables=1
+TransformationMatrix=#transformationMatrix#
 ToolTipText=Close
 LeftMouseUpAction=[!DeactivateConfig]
+Fill=Fill Color #colorMain#
+HoverColor=#colorMain#
 
-[StyleEditSettingsFileButton]
+[StyleEditButton]
+Shape=Rectangle 0,0,13,15 | Fill Color #colorBg#
+Shape2=Path Path1 | StrokeWidth 0 | Extend Fill
+Shape3=Path Path2 | StrokeWidth 0
+Shape4=Path Path3 | StrokeWidth 0
+Shape5=Combine Shape2 | XOR Shape3 | XOR Shape4 | Scale 0.025,0.025,0,0 | Offset 0,0.5
+Path1=402.6, 83.2 | LineTo 492.8, 173.4 | CurveTo 492.8, 187.2, 496.6, 177.2, 496.6, 183.4 | LineTo 274.4, 405.6 | LineTo 181.6, 415.9 | CurveTo 160.1, 394.4, 169.2, 417.3, 158.7, 406.8 | LineTo 170.4, 301.6 | LineTo 388.8, 83.2 | CurveTo 402.6, 83.2, 392.6, 79.4, 398.8, 79.4 | ClosePath 1
+Path2=564.6, 60.3 | LineTo 515.8, 11.5 | CurveTo 460.6, 11.5, 500.6, -3.7, 475.9, -3.7 | LineTo 425.2, 46.9 | CurveTo 425.2, 60.7, 421.4, 50.7, 421.4, 56.9 | LineTo 515.4, 150.9 | CurveTo 529.2, 150.9, 519.2, 154.7, 525.4, 154.7 | LineTo 564.6, 115.5 | CurveTo 564.6, 60.3, 579.8, 100.2, 579.8, 75.5 | ClosePath 1
+Path3=384, 346.2 | LineTo 384, 448 | LineTo 64, 448 | LineTo 64, 128 | LineTo 293.8, 128 | CurveTo 302.3, 124.5, 297, 128, 300, 126.7 | LineTo 342.3, 84.5 | CurveTo 333.8, 64, 349.9, 76.9, 344.5, 64 | LineTo 48, 64 | CurveTo 0, 112, 21.5, 64, 0, 85.5 | LineTo 0, 464 | CurveTo 48, 512, 0, 490.5, 21.5, 512 | LineTo 400, 512 | CurveTo 448, 464, 426.5, 512, 448, 490.5 | LineTo 448, 306.2 | CurveTo 427.5, 297.7, 448, 295.5, 435.1, 290.2 | LineTo 387.5, 337.7 | CurveTo 384, 346.2, 385.3, 340, 384, 343 | ClosePath 1
+Fill=Fill Color #colorMain#
+TransformationMatrix=#transformationMatrix#
 ToolTipText=Edit settings file
-X=-17r
-Y=r
+X=-18r
+Y=-1r
 
 [StyleStringSettingsSkinTitle]
 FontSize=10
@@ -558,7 +578,7 @@ ToolTipText=Apply changes
 ; SETTINGS BUTTONS
 
 [StyleSettingsButtonLabel]
-X=4R
+X=R
 Y=r
 FontWeight=500
 FontSize=9
@@ -567,7 +587,7 @@ Group=Settings
 [StyleSettingsButtonMouseRegion]
 X=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:X]
 Y=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:Y]
-W=([&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:W] + [&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label:W] + 2)
+W=([&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:W] + [&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label:W] + 6)
 H=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:H]
 DynamicVariables=1
 Group=Settings
@@ -577,7 +597,7 @@ MouseLeaveAction=[!SetOption [&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','M
 [StyleSettingsButtonMouseRegionPreserve]
 X=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:X]
 Y=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:Y]
-W=([&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:W] + [&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label:W] + 2)
+W=([&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:W] + [&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Label:W] + 6)
 H=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:H]
 DynamicVariables=1
 Group=Settings
@@ -599,34 +619,46 @@ Y=r
 [StyleSettingsButtonCheckOn]
 Shape=Path Path1 | StrokeWidth 0 | Extend Fill
 Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | Scale 0.025,0.025,0,0 | Offset 0,1.5
-Path1=400, 480 | LineTo 48, 480 | CurveTo 0, 432, 21.49, 480, 0, 458.51 | LineTo 0, 80 | CurveTo 48, 32, 0, 53.49, 21.49, 32 | LineTo 400, 32 | CurveTo 448, 80, 426.51, 32, 448, 53.49 | LineTo 448, 432 | CurveTo 400, 480, 448, 458.51, 426.51, 480 | ClosePath 1
-Path2=195.314, 381.941 | LineTo 379.314, 197.941 | CurveTo 379.314, 175.314, 385.562, 191.693, 385.562, 181.562 | LineTo 356.687, 152.687 | CurveTo 334.059, 152.687, 350.439, 146.439, 340.308, 146.438 | LineTo 184, 302.745 | LineTo 113.941, 232.686 | CurveTo 91.313, 232.686, 107.693, 226.438, 97.562, 226.438 | LineTo 68.686, 255.313 | CurveTo 68.686, 277.94, 62.438, 261.561, 62.438, 271.692 | LineTo 172.686, 381.94 | CurveTo 195.314, 381.941, 178.935, 388.19, 189.065, 388.19 | ClosePath 1
-Padding=0,0,3,3
+Shape3=Path Path3 | StrokeWidth 0
+Shape4=Combine Shape1 | XOR Shape2 | XOR Shape3 | Scale 0.0275,0.0275,0,0 | Offset 0,1
+Path1=400, 32 | LineTo 48, 32 | CurveTo 0, 80, 21.49, 32, 0, 53.49 | LineTo 0, 432 | CurveTo 48, 480, 0, 458.51, 21.49, 480 | LineTo 400, 480 | CurveTo 448, 432, 426.51, 480, 448, 458.51 | LineTo 448, 80 | CurveTo 400, 32, 448, 53.49, 426.51, 32 | ClosePath 1
+Path2=400, 432 | LineTo 48, 432 | LineTo 48, 80 | LineTo 400, 80 | LineTo 400, 432 | ClosePath 1
+Path3=364.136, 190.276 | LineTo 191.547, 361.48 | CurveTo 174.577, 361.412, 186.842, 366.147, 179.244, 366.117 | LineTo 83.796, 269.896 | CurveTo 83.865, 252.925, 79.129, 265.191, 79.159, 257.593 | LineTo 106.584, 230.389 | CurveTo 123.554, 230.458, 111.289, 225.722, 118.887, 225.752 | LineTo 183.346, 290.735 | LineTo 324.698, 150.519 | CurveTo 341.668, 150.587, 329.403, 145.852, 337.001, 145.882 | LineTo 364.204, 173.305 | CurveTo 364.136, 190.276, 368.871, 178.011, 368.841, 185.609 | ClosePath 1
+Padding=0,0,4,3
 
 [StyleSettingsButtonCheckOff]
 Shape=Path Path1 | StrokeWidth 0 | Extend Fill
 Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | Scale 0.025,0.025,0,0 | Offset 0,1.5
+Shape3=Combine Shape1 | XOR Shape2 | Scale 0.0275,0.0275,0,0 | Offset 0,1
 Path1=400, 32 | LineTo 48, 32 | CurveTo 0, 80, 21.5, 32, 0, 53.5 | LineTo 0, 432 | CurveTo 48, 480, 0, 458.5, 21.5, 480 | LineTo 400, 480 | CurveTo 448, 432, 426.5, 480, 448, 458.5 | LineTo 448, 80 | CurveTo 400, 32, 448, 53.5, 426.5, 32 | ClosePath 1
 Path2=394, 432 | LineTo 54, 432 | CurveTo 48, 426, 50.7, 432, 48, 429.3 | LineTo 48, 86 | CurveTo 54, 80, 48, 82.7, 50.7, 80 | LineTo 394, 80 | CurveTo 400, 86, 397.3, 80, 400, 82.7 | LineTo 400, 426 | CurveTo 394, 432, 400, 429.3, 397.3, 432 | ClosePath 1
-Padding=0,0,3,3
+Padding=0,0,4,3
 
 [StyleSettingsButtonRadioOn]
 Shape=Path Path1 | StrokeWidth 0 | Extend Fill
 Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | Scale 0.025,0.025,0,0 | Offset -1,1.5
-Path1=256, 8 | CurveTo 8, 256, 119.033, 8, 8, 119.033 | CurveTo 256, 504, 8, 392.967, 119.033, 504 | CurveTo 504, 256, 392.967, 504, 504, 392.967 | CurveTo 256, 8, 504, 119.033, 392.967, 8 | ClosePath 1
-Path2=336, 256 | CurveTo 256, 336, 336, 300.112, 300.112, 336 | CurveTo 176, 256, 211.888, 336, 176, 300.112 | CurveTo 256, 176, 176, 211.888, 211.888, 176 | CurveTo 336, 256, 300.112, 176, 336, 211.888 | ClosePath 1
+Shape3=Path Path3 | StrokeWidth 0
+Shape4=Combine Shape1 | XOR Shape2 | XOR Shape3 | Scale 0.0275,0.0275,0,0 | Offset 0,1
+Path1=256, 56 | CurveTo 456, 256, 366.532, 56, 456, 145.451 | CurveTo 256, 456, 456, 366.532, 366.549, 456 | CurveTo 56, 256, 145.468, 456, 56, 366.549 | CurveTo 256, 56, 56, 145.468, 145.451, 56
+Path2=256, 8 | CurveTo 8, 256, 119.033, 8, 8, 119.033 | CurveTo 256, 504, 8, 392.967, 119.033, 504 | CurveTo 504, 256, 392.967, 504, 504, 392.967 | CurveTo 256, 8, 504, 119.033, 392.967, 8 | ClosePath 1
+Path3=256, 176 | CurveTo 176, 256, 211.817, 176, 176, 211.817 | CurveTo 256, 336, 176, 300.183, 211.817, 336 | CurveTo 336, 256, 300.183, 336, 336, 300.183 | CurveTo 256, 176, 336, 211.817, 300.183, 176 | ClosePath 1\
 Padding=0,0,4,3
 
 [StyleSettingsButtonRadioOff]
 Shape=Path Path1 | StrokeWidth 0 | Extend Fill
 Shape2=Path Path2 | StrokeWidth 0
-Shape3=Combine Shape1 | XOR Shape2 | Scale 0.025,0.025,0,0 | Offset -1,1.5
+Shape3=Combine Shape1 | XOR Shape2 | Scale 0.0275,0.0275,0,0 | Offset 0,1
 Path1=256, 8 | CurveTo 8, 256, 119, 8, 8, 119 | CurveTo 256, 504, 8, 393, 119, 504 | CurveTo 504, 256, 393, 504, 504, 393 | CurveTo 256, 8, 504, 119, 393, 8 | ClosePath 1
 Path2=256, 456 | CurveTo 56, 256, 145.5, 456, 56, 366.5 | CurveTo 256, 56, 56, 145.5, 145.5, 56 | CurveTo 456, 256, 366.5, 56, 456, 145.5 | CurveTo 256, 456, 456, 366.5, 366.5, 456 | ClosePath 1\
 Padding=0,0,4,3
+
+[StyleSettingsButtonPivotLeft]
+Shape=Path Path1 | StrokeWidth 0 | Scale 0.025,0.025,0,0 | Offset -11,-176.4 | Rotate -90 | Extend Fill
+Path1=288.662, 352 | LineTo 31.338, 352 | CurveTo 17.196, 317.858, 13.52, 352, 4.597, 330.457 | LineTo 145.858, 189.196 | CurveTo 174.142, 189.196, 153.668, 181.386, 166.332, 181.386 | LineTo 302.804, 317.858 | CurveTo 288.662, 352, 315.404, 330.457, 306.48, 352 | ClosePath 1
+Fill=Fill Color #colorAccent#
+X=10R
+Y=-1r
+; SolidColor=255,255,255,50
 
 [StyleSettingsButtonPivotValue]
 FontSize=9
@@ -639,8 +671,13 @@ Group=Settings
 Padding=0,1,0,0
 
 [StyleSettingsButtonPivotRight]
+Shape=Path Path1 | StrokeWidth 0 | Scale 0.025,0.025,0,0 | Offset -11,-176.5 | Rotate 90 | Extend Fill
+Path1=288.662, 352 | LineTo 31.338, 352 | CurveTo 17.196, 317.858, 13.52, 352, 4.597, 330.457 | LineTo 145.858, 189.196 | CurveTo 174.142, 189.196, 153.668, 181.386, 166.332, 181.386 | LineTo 302.804, 317.858 | CurveTo 288.662, 352, 315.404, 330.457, 306.48, 352 | ClosePath 1
+Fill=Fill Color #colorAccent#
 X=([&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]', 'RightIcon')]Value:XW] - ceil([&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]', 'RightIcon')]Value:W] / 2) - [&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]', 'RightIcon')]LeftIcon:XW])r
 Y=r
+; SolidColor=255,255,255,50
+DynamicVariables=1
 
 [StyleSettingsButtonPivotLeftMouseRegion]
 X=[&[&MeasureSettingsScript:Gsub('[#CURRENTSECTION]','MouseRegion')]Icon:X]
@@ -778,6 +815,7 @@ Path3=384, 346.2 | LineTo 384, 448 | LineTo 64, 448 | LineTo 64, 128 | LineTo 29
 Fill=Fill Color #colorAccent#
 TransformationMatrix=#transformationMatrix#
 ToolTipText=Edit settings file
+Padding=0,0,2,0
 
 [StyleShapeSearchIcon]
 Shape=Rectangle 0,0,16,16 | StrokeWidth 0 | Fill Color #colorBg#
