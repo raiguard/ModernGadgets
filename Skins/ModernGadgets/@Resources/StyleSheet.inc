@@ -59,7 +59,7 @@ colorInputBorder=#colorBorder#
 colorInputText=#colorDim#
 
 colorIntel=0,125,198
-colorAMD=0,149,107
+colorAMD=221,1,48
 colorSnapdragon=0,80,198
 colorNvidia=119,185,0
 

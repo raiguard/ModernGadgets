@@ -4,6 +4,7 @@ MODERNGADGETS CHANGELOG
 Official Releases
 
 v1.7.0 - ?????????
+- Changed AMD color from dark teal to red
 - Rewrote Weather Meter to scrape the weather.com website
 - Iconography cleanup
 - New weather icons
