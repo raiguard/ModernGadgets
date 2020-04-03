@@ -86,10 +86,7 @@ function GenerateData(timestamp, latitude, longitude, tzOffset)
   RmLog(data)
   RmLog('}')
 
-  SKIN:Bang('!EnableMeasureGroup', 'SunCalc')
-  SKIN:Bang('!UpdateMeasureGroup', 'SunCalc')
-  SKIN:Bang('!UpdateMeterGroup', 'SunCalc')
-  SKIN:Bang('!Redraw')
+  SKIN:Bang(SELF:GetOption('FinishAction'))
 end
 
 -- retrieves data from the data table using inline LUA in the skin
