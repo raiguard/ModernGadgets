@@ -1,5 +1,5 @@
 [Variables]
-ttSoundPath=#@#Assets\Sounds\alarmalerteffect.wav
+ttSoundPath=#@#Sounds\alarmalerteffect.wav
 threadCount=8
 
 ; Fixed precision format
