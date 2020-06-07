@@ -1,0 +1,17 @@
+{
+  "abbreviation": "MDT",
+  "client_ip": "67.2.18.230",
+  "datetime": "2020-06-07T15:51:28.887714-06:00",
+  "day_of_week": 0,
+  "day_of_year": 159,
+  "dst_from": "2020-03-08T09:00:00+00:00",
+  "dst_offset": 3600,
+  "dst_until": "2020-11-01T08:00:00+00:00",
+  "dst": true,
+  "raw_offset": -25200,
+  "timezone": "America/Denver",
+  "unixtime": 1591566688,
+  "utc_datetime": "2020-06-07T21:51:28.887714+00:00",
+  "utc_offset": "-06:00",
+  "week_number": 23
+}

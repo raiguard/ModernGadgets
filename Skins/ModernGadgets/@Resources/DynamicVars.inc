@@ -3,17 +3,17 @@
 autoMaxCpuTemp=1
 autoMaxCpuFan=1
 extProgram=1
-cpuCores=8
+cpuCores=12
 threadsPerCore=2
-includeNum=8
+includeNum=16
 ; Network Meter
-externalIp=
+externalIp=67.2.48.157
 
 ; - Disks Meter -
 
 ; Disk ID from index
 d1=C
-d2=
+d2=D
 d3=
 d4=
 d5=
@@ -24,7 +24,7 @@ d9=
 d10=
 ; Disk exists
 hideDisk1=0
-hideDisk2=1
+hideDisk2=0
 hideDisk3=1
 hideDisk4=1
 hideDisk5=1
@@ -37,7 +37,7 @@ hideDisk10=1
 diskAIndex=0
 diskBIndex=0
 diskCIndex=1
-diskDIndex=0
+diskDIndex=2
 diskEIndex=0
 diskFIndex=0
 diskGIndex=0
