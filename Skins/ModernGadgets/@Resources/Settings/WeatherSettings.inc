@@ -2,12 +2,12 @@
 ; coordinates
 lat=40.3491173
 lon=-111.9046567
-; API key
-apiKey=
-; units: one of "M", "S", or "I"
-units=I
+; weather.com location code
+locationCode=#lat#,#lon#
+; units: one of "si", "ca", "uk2", "us", or "auto"
+units=auto
 ; language
-language=en
+language=en-US
 
 showHumidity=1
 showUv=1
