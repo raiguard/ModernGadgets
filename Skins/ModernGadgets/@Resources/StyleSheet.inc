@@ -133,10 +133,6 @@ chronometerPath=#ROOTCONFIGPATH#Chronometer\Chronometer.ini
 chronometerConfig=ModernGadgets\Chronometer
 chronometerSettingsPath=#@#Settings\ChronometerSettings.inc
 
-clipboardMeterPath=#ROOTCONFIGPATH#ClipboardMeter\ClipboardMeter.ini
-clipboardMeterConfig=ModernGadgets\ClipboardMeter
-clipboardMeterSettingsPath=#@#Settings\ClipboardMeterSettings.inc
-
 cpuMeterPath=#ROOTCONFIGPATH#CpuMeter\CpuMeter.ini
 cpuMeterConfig=ModernGadgets\CpuMeter
 cpuSettingsPath=#@#Settings\CpuSettings.inc
