@@ -1,6 +1,5 @@
 ; ModernGadget StyleSheet
-; WARNING: DO NOT CHANGE ANY OF THESE VALUES. Customizable options are kept in GlobalSettings.inc. If
-; you change anything in this file, it WILL break things. Proceed at your own risk!
+; WARNING: changing values in this file could have unintended consequences. Proceed at your own risk!
 
 [Variables]
 mgVersion=1.7.0

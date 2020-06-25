@@ -58,5 +58,3 @@ colorError=200,53,53
 colorInputBg=#colorSubBg#
 colorInputBorder=#colorBorder#
 colorInputText=#colorDim#
-
-colorIntel=0,125,198
