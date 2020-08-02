@@ -1,4 +1,3 @@
-
 ; Disk 1
 [MeasureDisk1Type]
 Measure=FreeDiskSpace
@@ -82,7 +81,7 @@ Drive=#d1#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk1
+Group=Disk1 | DiskSpace
 Disabled=#hideDisk1#
 
 [MeasureDisk1SpaceTotal]
@@ -91,13 +90,14 @@ Drive=#d1#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk1 | DiskSpace
 Disabled=#hideDisk1#
 
 [MeasureDisk1SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk1SpaceUsed / max(1, MeasureDisk1SpaceTotal))
 DynamicVariables=1
-Group=Disk1
+Group=Disk1 | DiskSpace
 Disabled=#hideDisk1#
 
 [MeasureDisk1Name]
@@ -110,8 +110,7 @@ DynamicVariables=1
 Group=Disk1
 Disabled=#hideDisk1#
 
-
-; Disk 2
+; Disk 1
 [MeasureDisk2Type]
 Measure=FreeDiskSpace
 Drive=#d2#:
@@ -194,7 +193,7 @@ Drive=#d2#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk2
+Group=Disk2 | DiskSpace
 Disabled=#hideDisk2#
 
 [MeasureDisk2SpaceTotal]
@@ -203,13 +202,14 @@ Drive=#d2#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk2 | DiskSpace
 Disabled=#hideDisk2#
 
 [MeasureDisk2SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk2SpaceUsed / max(1, MeasureDisk2SpaceTotal))
 DynamicVariables=1
-Group=Disk2
+Group=Disk2 | DiskSpace
 Disabled=#hideDisk2#
 
 [MeasureDisk2Name]
@@ -222,7 +222,7 @@ DynamicVariables=1
 Group=Disk2
 Disabled=#hideDisk2#
 
-; Disk 3
+; Disk 1
 [MeasureDisk3Type]
 Measure=FreeDiskSpace
 Drive=#d3#:
@@ -305,7 +305,7 @@ Drive=#d3#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk3
+Group=Disk3 | DiskSpace
 Disabled=#hideDisk3#
 
 [MeasureDisk3SpaceTotal]
@@ -314,13 +314,14 @@ Drive=#d3#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk3 | DiskSpace
 Disabled=#hideDisk3#
 
 [MeasureDisk3SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk3SpaceUsed / max(1, MeasureDisk3SpaceTotal))
 DynamicVariables=1
-Group=Disk3
+Group=Disk3 | DiskSpace
 Disabled=#hideDisk3#
 
 [MeasureDisk3Name]
@@ -333,7 +334,7 @@ DynamicVariables=1
 Group=Disk3
 Disabled=#hideDisk3#
 
-; Disk 4
+; Disk 1
 [MeasureDisk4Type]
 Measure=FreeDiskSpace
 Drive=#d4#:
@@ -416,7 +417,7 @@ Drive=#d4#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk4
+Group=Disk4 | DiskSpace
 Disabled=#hideDisk4#
 
 [MeasureDisk4SpaceTotal]
@@ -425,13 +426,14 @@ Drive=#d4#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk4 | DiskSpace
 Disabled=#hideDisk4#
 
 [MeasureDisk4SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk4SpaceUsed / max(1, MeasureDisk4SpaceTotal))
 DynamicVariables=1
-Group=Disk4
+Group=Disk4 | DiskSpace
 Disabled=#hideDisk4#
 
 [MeasureDisk4Name]
@@ -444,7 +446,7 @@ DynamicVariables=1
 Group=Disk4
 Disabled=#hideDisk4#
 
-; Disk 5
+; Disk 1
 [MeasureDisk5Type]
 Measure=FreeDiskSpace
 Drive=#d5#:
@@ -527,7 +529,7 @@ Drive=#d5#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk5
+Group=Disk5 | DiskSpace
 Disabled=#hideDisk5#
 
 [MeasureDisk5SpaceTotal]
@@ -536,13 +538,14 @@ Drive=#d5#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk5 | DiskSpace
 Disabled=#hideDisk5#
 
 [MeasureDisk5SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk5SpaceUsed / max(1, MeasureDisk5SpaceTotal))
 DynamicVariables=1
-Group=Disk5
+Group=Disk5 | DiskSpace
 Disabled=#hideDisk5#
 
 [MeasureDisk5Name]
@@ -555,7 +558,7 @@ DynamicVariables=1
 Group=Disk5
 Disabled=#hideDisk5#
 
-; Disk 6
+; Disk 1
 [MeasureDisk6Type]
 Measure=FreeDiskSpace
 Drive=#d6#:
@@ -638,7 +641,7 @@ Drive=#d6#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk6
+Group=Disk6 | DiskSpace
 Disabled=#hideDisk6#
 
 [MeasureDisk6SpaceTotal]
@@ -647,13 +650,14 @@ Drive=#d6#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk6 | DiskSpace
 Disabled=#hideDisk6#
 
 [MeasureDisk6SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk6SpaceUsed / max(1, MeasureDisk6SpaceTotal))
 DynamicVariables=1
-Group=Disk6
+Group=Disk6 | DiskSpace
 Disabled=#hideDisk6#
 
 [MeasureDisk6Name]
@@ -666,7 +670,7 @@ DynamicVariables=1
 Group=Disk6
 Disabled=#hideDisk6#
 
-; Disk 7
+; Disk 1
 [MeasureDisk7Type]
 Measure=FreeDiskSpace
 Drive=#d7#:
@@ -749,7 +753,7 @@ Drive=#d7#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk7
+Group=Disk7 | DiskSpace
 Disabled=#hideDisk7#
 
 [MeasureDisk7SpaceTotal]
@@ -758,13 +762,14 @@ Drive=#d7#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk7 | DiskSpace
 Disabled=#hideDisk7#
 
 [MeasureDisk7SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk7SpaceUsed / max(1, MeasureDisk7SpaceTotal))
 DynamicVariables=1
-Group=Disk7
+Group=Disk7 | DiskSpace
 Disabled=#hideDisk7#
 
 [MeasureDisk7Name]
@@ -777,7 +782,7 @@ DynamicVariables=1
 Group=Disk7
 Disabled=#hideDisk7#
 
-; Disk 8
+; Disk 1
 [MeasureDisk8Type]
 Measure=FreeDiskSpace
 Drive=#d8#:
@@ -860,7 +865,7 @@ Drive=#d8#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk8
+Group=Disk8 | DiskSpace
 Disabled=#hideDisk8#
 
 [MeasureDisk8SpaceTotal]
@@ -869,13 +874,14 @@ Drive=#d8#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk8 | DiskSpace
 Disabled=#hideDisk8#
 
 [MeasureDisk8SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk8SpaceUsed / max(1, MeasureDisk8SpaceTotal))
 DynamicVariables=1
-Group=Disk8
+Group=Disk8 | DiskSpace
 Disabled=#hideDisk8#
 
 [MeasureDisk8Name]
@@ -888,7 +894,7 @@ DynamicVariables=1
 Group=Disk8
 Disabled=#hideDisk8#
 
-; Disk 9
+; Disk 1
 [MeasureDisk9Type]
 Measure=FreeDiskSpace
 Drive=#d9#:
@@ -971,7 +977,7 @@ Drive=#d9#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk9
+Group=Disk9 | DiskSpace
 Disabled=#hideDisk9#
 
 [MeasureDisk9SpaceTotal]
@@ -980,13 +986,14 @@ Drive=#d9#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk9 | DiskSpace
 Disabled=#hideDisk9#
 
 [MeasureDisk9SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk9SpaceUsed / max(1, MeasureDisk9SpaceTotal))
 DynamicVariables=1
-Group=Disk9
+Group=Disk9 | DiskSpace
 Disabled=#hideDisk9#
 
 [MeasureDisk9Name]
@@ -999,7 +1006,7 @@ DynamicVariables=1
 Group=Disk9
 Disabled=#hideDisk9#
 
-; Disk 10
+; Disk 1
 [MeasureDisk10Type]
 Measure=FreeDiskSpace
 Drive=#d10#:
@@ -1082,7 +1089,7 @@ Drive=#d10#:
 InvertMeasure=#invertDiskSpace#
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-Group=Disk10
+Group=Disk10 | DiskSpace
 Disabled=#hideDisk10#
 
 [MeasureDisk10SpaceTotal]
@@ -1091,13 +1098,14 @@ Drive=#d10#:
 Total=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
+Group=Disk10 | DiskSpace
 Disabled=#hideDisk10#
 
 [MeasureDisk10SpaceUsage]
 Measure=Calc
 Formula=(MeasureDisk10SpaceUsed / max(1, MeasureDisk10SpaceTotal))
 DynamicVariables=1
-Group=Disk10
+Group=Disk10 | DiskSpace
 Disabled=#hideDisk10#
 
 [MeasureDisk10Name]

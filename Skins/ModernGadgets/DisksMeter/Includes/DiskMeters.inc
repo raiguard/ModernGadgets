@@ -64,7 +64,7 @@ Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk1
+Group=Disk1 | DiskSpace
 Hidden=#hideDisk1#
 
 [MeterDisk1SpaceUsageString]
@@ -73,7 +73,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk1SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk1
+Group=Disk1 | DiskSpace
 Hidden=#hideDisk1#
 
 [MeterDisk1SpaceUsageBar]
@@ -81,10 +81,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk1SpaceUsage
 BarColor=#colorDisk1#
-Group=Disk1
+Group=Disk1 | DiskSpace
 Hidden=#hideDisk1#
 
-; Disk 2
+; Disk 1
 [MeterDisk2NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -150,7 +150,7 @@ Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk2
+Group=Disk2 | DiskSpace
 Hidden=#hideDisk2#
 
 [MeterDisk2SpaceUsageString]
@@ -159,7 +159,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk2SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk2
+Group=Disk2 | DiskSpace
 Hidden=#hideDisk2#
 
 [MeterDisk2SpaceUsageBar]
@@ -167,10 +167,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk2SpaceUsage
 BarColor=#colorDisk2#
-Group=Disk2
+Group=Disk2 | DiskSpace
 Hidden=#hideDisk2#
 
-; Disk 3
+; Disk 1
 [MeterDisk3NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -236,7 +236,7 @@ Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk3
+Group=Disk3 | DiskSpace
 Hidden=#hideDisk3#
 
 [MeterDisk3SpaceUsageString]
@@ -245,7 +245,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk3SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk3
+Group=Disk3 | DiskSpace
 Hidden=#hideDisk3#
 
 [MeterDisk3SpaceUsageBar]
@@ -253,10 +253,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk3SpaceUsage
 BarColor=#colorDisk3#
-Group=Disk3
+Group=Disk3 | DiskSpace
 Hidden=#hideDisk3#
 
-; Disk 4
+; Disk 1
 [MeterDisk4NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -322,7 +322,7 @@ Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk4
+Group=Disk4 | DiskSpace
 Hidden=#hideDisk4#
 
 [MeterDisk4SpaceUsageString]
@@ -331,7 +331,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk4SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk4
+Group=Disk4 | DiskSpace
 Hidden=#hideDisk4#
 
 [MeterDisk4SpaceUsageBar]
@@ -339,10 +339,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk4SpaceUsage
 BarColor=#colorDisk4#
-Group=Disk4
+Group=Disk4 | DiskSpace
 Hidden=#hideDisk4#
 
-; Disk 5
+; Disk 1
 [MeterDisk5NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -408,7 +408,7 @@ Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk5
+Group=Disk5 | DiskSpace
 Hidden=#hideDisk5#
 
 [MeterDisk5SpaceUsageString]
@@ -417,7 +417,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk5SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk5
+Group=Disk5 | DiskSpace
 Hidden=#hideDisk5#
 
 [MeterDisk5SpaceUsageBar]
@@ -425,10 +425,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk5SpaceUsage
 BarColor=#colorDisk5#
-Group=Disk5
+Group=Disk5 | DiskSpace
 Hidden=#hideDisk5#
 
-; Disk 6
+; Disk 1
 [MeterDisk6NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -494,7 +494,7 @@ Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk6
+Group=Disk6 | DiskSpace
 Hidden=#hideDisk6#
 
 [MeterDisk6SpaceUsageString]
@@ -503,7 +503,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk6SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk6
+Group=Disk6 | DiskSpace
 Hidden=#hideDisk6#
 
 [MeterDisk6SpaceUsageBar]
@@ -511,10 +511,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk6SpaceUsage
 BarColor=#colorDisk6#
-Group=Disk6
+Group=Disk6 | DiskSpace
 Hidden=#hideDisk6#
 
-; Disk 7
+; Disk 1
 [MeterDisk7NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -580,7 +580,7 @@ Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk7
+Group=Disk7 | DiskSpace
 Hidden=#hideDisk7#
 
 [MeterDisk7SpaceUsageString]
@@ -589,7 +589,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk7SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk7
+Group=Disk7 | DiskSpace
 Hidden=#hideDisk7#
 
 [MeterDisk7SpaceUsageBar]
@@ -597,10 +597,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk7SpaceUsage
 BarColor=#colorDisk7#
-Group=Disk7
+Group=Disk7 | DiskSpace
 Hidden=#hideDisk7#
 
-; Disk 8
+; Disk 1
 [MeterDisk8NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -666,7 +666,7 @@ Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk8
+Group=Disk8 | DiskSpace
 Hidden=#hideDisk8#
 
 [MeterDisk8SpaceUsageString]
@@ -675,7 +675,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk8SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk8
+Group=Disk8 | DiskSpace
 Hidden=#hideDisk8#
 
 [MeterDisk8SpaceUsageBar]
@@ -683,10 +683,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk8SpaceUsage
 BarColor=#colorDisk8#
-Group=Disk8
+Group=Disk8 | DiskSpace
 Hidden=#hideDisk8#
 
-; Disk 9
+; Disk 1
 [MeterDisk9NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -752,7 +752,7 @@ Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk9
+Group=Disk9 | DiskSpace
 Hidden=#hideDisk9#
 
 [MeterDisk9SpaceUsageString]
@@ -761,7 +761,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk9SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk9
+Group=Disk9 | DiskSpace
 Hidden=#hideDisk9#
 
 [MeterDisk9SpaceUsageBar]
@@ -769,10 +769,10 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk9SpaceUsage
 BarColor=#colorDisk9#
-Group=Disk9
+Group=Disk9 | DiskSpace
 Hidden=#hideDisk9#
 
-; Disk 10
+; Disk 1
 [MeterDisk10NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -838,7 +838,7 @@ Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0)
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
 Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
-Group=Disk10
+Group=Disk10 | DiskSpace
 Hidden=#hideDisk10#
 
 [MeterDisk10SpaceUsageString]
@@ -847,7 +847,7 @@ MeterStyle=StyleString | StyleStringRightAlign | StyleDynamicVars
 MeasureName=MeasureDisk10SpaceUsage
 Percentual=1
 Text=%1%
-Group=Disk10
+Group=Disk10 | DiskSpace
 Hidden=#hideDisk10#
 
 [MeterDisk10SpaceUsageBar]
@@ -855,5 +855,5 @@ Meter=Bar
 MeterStyle=StyleBar
 MeasureName=MeasureDisk10SpaceUsage
 BarColor=#colorDisk10#
-Group=Disk10
+Group=Disk10 | DiskSpace
 Hidden=#hideDisk10#
