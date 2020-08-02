@@ -152,23 +152,67 @@ IfCondition=1
 IfTrueAction=[!SetOption MeterGpuMemoryUsageBar MeasureName "MeasureVramUsageAltBar"]
 
 ; ------------------------------
-; FAN
+; FANS
 
-[MeasureGpuFanSpeed]
+; ----- Fan 1 -----
+
+[MeasureGpuFan1Speed]
 Measure=Plugin
 Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanSpeed-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed-EntryId]
+HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed1-SensorId]
+HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanSpeed1-SensorInstance]
+HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed1-EntryId]
 HWiNFOType=CurrentValue
 Disabled=#useMoboFanSensor#
 
-[MeasureGpuFanUsage]
+[MeasureGpuFan1Usage]
 Measure=Plugin
 Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanUsage-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanUsage-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanUsage-EntryId]
+HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanUsage1-SensorId]
+HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanUsage1-SensorInstance]
+HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanUsage1-EntryId]
+HWiNFOType=CurrentValue
+MinValue=0
+MaxValue=100
+
+; ----- Fan 2 -----
+
+[MeasureGpuFan2Speed]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed2-SensorId]
+HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanSpeed2-SensorInstance]
+HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed2-EntryId]
+HWiNFOType=CurrentValue
+Disabled=#useMoboFanSensor#
+
+[MeasureGpuFan2Usage]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanUsage2-SensorId]
+HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanUsage2-SensorInstance]
+HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanUsage2-EntryId]
+HWiNFOType=CurrentValue
+MinValue=0
+MaxValue=100
+
+; ----- Fan 3 -----
+
+[MeasureGpuFan3Speed]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed3-SensorId]
+HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanSpeed3-SensorInstance]
+HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed3-EntryId]
+HWiNFOType=CurrentValue
+Disabled=#useMoboFanSensor#
+
+[MeasureGpuFan3Usage]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanUsage3-SensorId]
+HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanUsage3-SensorInstance]
+HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanUsage3-EntryId]
 HWiNFOType=CurrentValue
 MinValue=0
 MaxValue=100
@@ -212,6 +256,10 @@ IfCondition=#CURRENTSECTION# > #contentWidth#
 IfTrueAction=[!SetOptionGroup MemoryUsageLabels FontFace "#*fontFaceCn*#"][!UpdateMeterGroup MemoryUsageLabels][!Redraw]
 IfFalseAction=[!SetOptionGroup MemoryUsageLabels FontFace "#*fontFace*#"][!UpdateMeterGroup MemoryUsageLabels][!Redraw]
 DynamicVariables=1
+
+[MeasureCalcGpuFanGraph]
+Measure=Calc
+Formula=((#showFan1Info# * MeasureGpuFan1Usage) + (#showFan2Info# * MeasureGpuFan2Usage) + (#showFan3Info# * MeasureGpuFan3Usage)) / (#showFan1Info# + #showFan2Info# + #showFan3Info#)
 
 ; ==================================================
 ;  METERS
@@ -347,40 +395,112 @@ DynamicVariables=1
 Group=GpuVram
 
 ; ------------------------------
-; FAN
+; FANS
 
-[MeterGpuFanUsageLabel]
+; ----- Fan 1 -----
+
+[MeterGpuFan1UsageLabel]
 Meter=String
 MeterStyle=StyleString
-Y=((#showFanInfo# = 1) ? #rowSpacing# : -#barTextOffset#)R
-Text=Fan:
-Group=GpuFan
-Hidden=(#showFanInfo# = 0)
+Y=((#showFan1Info# = 1) ? #rowSpacing# : -#barTextOffset#)R
+Text=Fan 1:
+Group=GpuFan1
+Hidden=(#showFan1Info# = 0)
 
-[MeterGpuFanUsageSpeed]
+[MeterGpuFan1UsageSpeed]
 Meter=String
 MeterStyle=StyleString | StyleStringInfo
-MeasureName=MeasureGpuFanSpeed
+MeasureName=MeasureGpuFan1Speed
 Text=%1 RPM
-Group=GpuFan
-Hidden=(#showFanInfo# = 0)
+Group=GpuFan1
+Hidden=(#showFan1Info# = 0)
 
-[MeterGpuFanUsage]
+[MeterGpuFan1Usage]
 Meter=String
 MeterStyle=StyleString | StyleStringRightAlign
-MeasureName=MeasureGpuFanUsage
+MeasureName=MeasureGpuFan1Usage
 Text=%1%
-Group=GpuFan
-Hidden=(#showFanInfo# = 0)
+Group=GpuFan1
+Hidden=(#showFan1Info# = 0)
 
-[MeterGpuFanUsageBar]
+[MeterGpuFan1UsageBar]
 Meter=Bar
 MeterStyle=StyleBar
-MeasureName=MeasureGpuFanUsage
+MeasureName=MeasureGpuFan1Usage
 BarColor=#colorFanUsage#
 DynamicVariables=1
-Group=GpuFan
-Hidden=(#showFanInfo# = 0)
+Group=GpuFan1
+Hidden=(#showFan1Info# = 0)
+
+; ----- Fan 2 -----
+
+[MeterGpuFan2UsageLabel]
+Meter=String
+MeterStyle=StyleString
+Y=((#showFan2Info# = 1) ? #rowSpacing# : -#barTextOffset#)R
+Text=Fan 2:
+Group=GpuFan2
+Hidden=(#showFan2Info# = 0)
+
+[MeterGpuFan2UsageSpeed]
+Meter=String
+MeterStyle=StyleString | StyleStringInfo
+MeasureName=MeasureGpuFan2Speed
+Text=%1 RPM
+Group=GpuFan2
+Hidden=(#showFan2Info# = 0)
+
+[MeterGpuFan2Usage]
+Meter=String
+MeterStyle=StyleString | StyleStringRightAlign
+MeasureName=MeasureGpuFan2Usage
+Text=%1%
+Group=GpuFan2
+Hidden=(#showFan2Info# = 0)
+
+[MeterGpuFan2UsageBar]
+Meter=Bar
+MeterStyle=StyleBar
+MeasureName=MeasureGpuFan2Usage
+BarColor=#colorFanUsage#
+DynamicVariables=1
+Group=GpuFan2
+Hidden=(#showFan2Info# = 0)
+
+; ----- Fan 3 -----
+
+[MeterGpuFan3UsageLabel]
+Meter=String
+MeterStyle=StyleString
+Y=((#showFan3Info# = 1) ? #rowSpacing# : -#barTextOffset#)R
+Text=Fan 3:
+Group=GpuFan3
+Hidden=(#showFan3Info# = 0)
+
+[MeterGpuFan3UsageSpeed]
+Meter=String
+MeterStyle=StyleString | StyleStringInfo
+MeasureName=MeasureGpuFan3Speed
+Text=%1 RPM
+Group=GpuFan3
+Hidden=(#showFan3Info# = 0)
+
+[MeterGpuFan3Usage]
+Meter=String
+MeterStyle=StyleString | StyleStringRightAlign
+MeasureName=MeasureGpuFan3Usage
+Text=%1%
+Group=GpuFan3
+Hidden=(#showFan3Info# = 0)
+
+[MeterGpuFan3UsageBar]
+Meter=Bar
+MeterStyle=StyleBar
+MeasureName=MeasureGpuFan3Usage
+BarColor=#colorFanUsage#
+DynamicVariables=1
+Group=GpuFan3
+Hidden=(#showFan3Info# = 0)
 
 ; ------------------------------
 ; MISC
@@ -457,7 +577,7 @@ Meter=Line
 MeterStyle=StyleLineGraph
 LineCount=5
 MeasureName=MeasureMemoryControllerLoad
-MeasureName2=MeasureGpuFanUsage
+MeasureName2=MeasureCalcGpuFanGraph
 MeasureName3=MeasureVramUsage
 MeasureName4=MeasureGpuUsage
 MeasureName5=MeasureGpuTemperature

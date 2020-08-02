@@ -1,7 +1,9 @@
 [Variables]
 showGpuName=1
 showMemoryClock=1
-showFanInfo=1
+showFan1Info=1
+showFan2Info=1
+showFan3Info=1
 showMemoryController=1
 showVideoClock=1
 showCoreVoltage=1
@@ -22,9 +24,9 @@ colorTempGraph=200,0,0
 
 ; ===== HWiNFO =====
 
-; 
+;
 ; GPU 0
-; 
+;
 ; GPU Clock [HWiNFO-GPU0-Clock]
 HWiNFO-GPU0-Clock-SensorId=0xe0002000
 HWiNFO-GPU0-Clock-SensorInstance=0x0
@@ -49,14 +51,30 @@ HWiNFO-GPU0-MemoryUsage-EntryId=0x7000008
 HWiNFO-GPU0-MemoryAlloc-SensorId=#HWiNFO-GPU0-Clock-SensorId#
 HWiNFO-GPU0-MemoryAlloc-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
 HWiNFO-GPU0-MemoryAlloc-EntryId=0x80000fc
-; Fan Speed [HWiNFO-GPU0-FanSpeed]
-HWiNFO-GPU0-FanSpeed-SensorId=#HWiNFO-GPU0-Clock-SensorId#
-HWiNFO-GPU0-FanSpeed-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
-HWiNFO-GPU0-FanSpeed-EntryId=0x3000000
-; Fan Usage [HWiNFO-GPU0-FanUsage]
-HWiNFO-GPU0-FanUsage-SensorId=#HWiNFO-GPU0-Clock-SensorId#
-HWiNFO-GPU0-FanUsage-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
-HWiNFO-GPU0-FanUsage-EntryId=0x8000000
+; Fan 1 Speed [HWiNFO-GPU0-FanSpeed]
+HWiNFO-GPU0-FanSpeed1-SensorId=0xe0002000
+HWiNFO-GPU0-FanSpeed1-SensorInstance=0x0
+HWiNFO-GPU0-FanSpeed1-EntryId=0x3000000
+; Fan 1 Usage [HWiNFO-GPU0-FanUsage]
+HWiNFO-GPU0-FanUsage1-SensorId=#HWiNFO-GPU0-Clock-SensorId#
+HWiNFO-GPU0-FanUsage1-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
+HWiNFO-GPU0-FanUsage1-EntryId=0x8000000
+; Fan 2 Speed [HWiNFO-GPU0-FanSpeed]
+HWiNFO-GPU0-FanSpeed2-SensorId=0xe0002000
+HWiNFO-GPU0-FanSpeed2-SensorInstance=0x0
+HWiNFO-GPU0-FanSpeed2-EntryId=0x3000001
+; Fan 2 Usage [HWiNFO-GPU0-FanUsage]
+HWiNFO-GPU0-FanUsage2-SensorId=#HWiNFO-GPU0-Clock-SensorId#
+HWiNFO-GPU0-FanUsage2-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
+HWiNFO-GPU0-FanUsage2-EntryId=0x8000000
+; Fan 3 Speed [HWiNFO-GPU0-FanSpeed]
+HWiNFO-GPU0-FanSpeed3-SensorId=#HWiNFO-GPU0-Clock-SensorId#
+HWiNFO-GPU0-FanSpeed3-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
+HWiNFO-GPU0-FanSpeed3-EntryId=0x3000000
+; Fan 3 Usage [HWiNFO-GPU0-FanUsage]
+HWiNFO-GPU0-FanUsage3-SensorId=#HWiNFO-GPU0-Clock-SensorId#
+HWiNFO-GPU0-FanUsage3-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
+HWiNFO-GPU0-FanUsage3-EntryId=0x8000000
 ; Video Clock Frequency [HWiNFO-GPU0-VideoClock]
 HWiNFO-GPU0-VideoClock-SensorId=#HWiNFO-GPU0-Clock-SensorId#
 HWiNFO-GPU0-VideoClock-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
@@ -69,9 +87,9 @@ HWiNFO-GPU0-MemController-EntryId=0x7000001
 HWiNFO-GPU0-CoreVoltage-SensorId=#HWiNFO-GPU0-Clock-SensorId#
 HWiNFO-GPU0-CoreVoltage-SensorInstance=#HWiNFO-GPU0-Clock-SensorInstance#
 HWiNFO-GPU0-CoreVoltage-EntryId=0x2000000
-; 
+;
 ; GPU 1
-; 
+;
 ; GPU Clock [HWiNFO-GPU1-Clock]
 HWiNFO-GPU1-Clock-SensorId=0xe0002000
 HWiNFO-GPU1-Clock-SensorInstance=0x0
@@ -96,14 +114,30 @@ HWiNFO-GPU1-MemoryUsage-EntryId=0x7000008
 HWiNFO-GPU1-MemoryAlloc-SensorId=#HWiNFO-GPU1-Clock-SensorId#
 HWiNFO-GPU1-MemoryAlloc-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
 HWiNFO-GPU1-MemoryAlloc-EntryId=0x80000fc
-; Fan Speed [HWiNFO-GPU1-FanSpeed]
-HWiNFO-GPU1-FanSpeed-SensorId=#HWiNFO-GPU1-Clock-SensorId#
-HWiNFO-GPU1-FanSpeed-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
-HWiNFO-GPU1-FanSpeed-EntryId=0x3000000
-; Fan Usage [HWiNFO-GPU1-FanUsage]
-HWiNFO-GPU1-FanUsage-SensorId=#HWiNFO-GPU1-Clock-SensorId#
-HWiNFO-GPU1-FanUsage-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
-HWiNFO-GPU1-FanUsage-EntryId=0x8000000
+; Fan 1 Speed [HWiNFO-GPU1-FanSpeed]
+HWiNFO-GPU1-FanSpeed1-SensorId=#HWiNFO-GPU1-Clock-SensorId#
+HWiNFO-GPU1-FanSpeed1-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
+HWiNFO-GPU1-FanSpeed1-EntryId=0x3000000
+; Fan 1 Usage [HWiNFO-GPU1-FanUsage]
+HWiNFO-GPU1-FanUsage1-SensorId=#HWiNFO-GPU1-Clock-SensorId#
+HWiNFO-GPU1-FanUsage1-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
+HWiNFO-GPU1-FanUsage1-EntryId=0x8000000
+; Fan 2 Speed [HWiNFO-GPU1-FanSpeed]
+HWiNFO-GPU1-FanSpeed2-SensorId=#HWiNFO-GPU1-Clock-SensorId#
+HWiNFO-GPU1-FanSpeed2-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
+HWiNFO-GPU1-FanSpeed2-EntryId=0x3000000
+; Fan 2 Usage [HWiNFO-GPU1-FanUsage]
+HWiNFO-GPU1-FanUsage2-SensorId=#HWiNFO-GPU1-Clock-SensorId#
+HWiNFO-GPU1-FanUsage2-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
+HWiNFO-GPU1-FanUsage2-EntryId=0x8000000
+; Fan 3 Speed [HWiNFO-GPU1-FanSpeed]
+HWiNFO-GPU1-FanSpeed3-SensorId=#HWiNFO-GPU1-Clock-SensorId#
+HWiNFO-GPU1-FanSpeed3-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
+HWiNFO-GPU1-FanSpeed3-EntryId=0x3000000
+; Fan 3 Usage [HWiNFO-GPU1-FanUsage]
+HWiNFO-GPU1-FanUsage3-SensorId=#HWiNFO-GPU1-Clock-SensorId#
+HWiNFO-GPU1-FanUsage3-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
+HWiNFO-GPU1-FanUsage3-EntryId=0x8000000
 ; Video Clock Frequency [HWiNFO-GPU1-VideoClock]
 HWiNFO-GPU1-VideoClock-SensorId=#HWiNFO-GPU1-Clock-SensorId#
 HWiNFO-GPU1-VideoClock-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
@@ -116,9 +150,9 @@ HWiNFO-GPU1-MemController-EntryId=0x7000001
 HWiNFO-GPU1-CoreVoltage-SensorId=#HWiNFO-GPU1-Clock-SensorId#
 HWiNFO-GPU1-CoreVoltage-SensorInstance=#HWiNFO-GPU1-Clock-SensorInstance#
 HWiNFO-GPU1-CoreVoltage-EntryId=0x2000000
-; 
+;
 ; GPU 2
-; 
+;
 ; GPU Clock [HWiNFO-GPU2-Clock]
 HWiNFO-GPU2-Clock-SensorId=0xe0002000
 HWiNFO-GPU2-Clock-SensorInstance=0x0
@@ -143,14 +177,30 @@ HWiNFO-GPU2-MemoryUsage-EntryId=0x7000008
 HWiNFO-GPU2-MemoryAlloc-SensorId=#HWiNFO-GPU2-Clock-SensorId#
 HWiNFO-GPU2-MemoryAlloc-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
 HWiNFO-GPU2-MemoryAlloc-EntryId=0x80000fc
-; Fan Speed [HWiNFO-GPU2-FanSpeed]
-HWiNFO-GPU2-FanSpeed-SensorId=#HWiNFO-GPU2-Clock-SensorId#
-HWiNFO-GPU2-FanSpeed-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
-HWiNFO-GPU2-FanSpeed-EntryId=0x3000000
-; Fan Usage [HWiNFO-GPU2-FanUsage]
-HWiNFO-GPU2-FanUsage-SensorId=#HWiNFO-GPU2-Clock-SensorId#
-HWiNFO-GPU2-FanUsage-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
-HWiNFO-GPU2-FanUsage-EntryId=0x8000000
+; Fan 1 Speed [HWiNFO-GPU2-FanSpeed]
+HWiNFO-GPU2-FanSpeed1-SensorId=#HWiNFO-GPU2-Clock-SensorId#
+HWiNFO-GPU2-FanSpeed1-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
+HWiNFO-GPU2-FanSpeed1-EntryId=0x3000000
+; Fan 1 Usage [HWiNFO-GPU2-FanUsage]
+HWiNFO-GPU2-FanUsage1-SensorId=#HWiNFO-GPU2-Clock-SensorId#
+HWiNFO-GPU2-FanUsage1-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
+HWiNFO-GPU2-FanUsage1-EntryId=0x8000000
+; Fan 2 Speed [HWiNFO-GPU2-FanSpeed]
+HWiNFO-GPU2-FanSpeed2-SensorId=#HWiNFO-GPU2-Clock-SensorId#
+HWiNFO-GPU2-FanSpeed2-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
+HWiNFO-GPU2-FanSpeed2-EntryId=0x3000000
+; Fan 2 Usage [HWiNFO-GPU2-FanUsage]
+HWiNFO-GPU2-FanUsage2-SensorId=#HWiNFO-GPU2-Clock-SensorId#
+HWiNFO-GPU2-FanUsage2-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
+HWiNFO-GPU2-FanUsage2-EntryId=0x8000000
+; Fan 3 Speed [HWiNFO-GPU2-FanSpeed]
+HWiNFO-GPU2-FanSpeed3-SensorId=#HWiNFO-GPU2-Clock-SensorId#
+HWiNFO-GPU2-FanSpeed3-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
+HWiNFO-GPU2-FanSpeed3-EntryId=0x3000000
+; Fan 3 Usage [HWiNFO-GPU2-FanUsage]
+HWiNFO-GPU2-FanUsage3-SensorId=#HWiNFO-GPU2-Clock-SensorId#
+HWiNFO-GPU2-FanUsage3-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
+HWiNFO-GPU2-FanUsage3-EntryId=0x8000000
 ; Video Clock Frequency [HWiNFO-GPU2-VideoClock]
 HWiNFO-GPU2-VideoClock-SensorId=#HWiNFO-GPU2-Clock-SensorId#
 HWiNFO-GPU2-VideoClock-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
@@ -163,9 +213,9 @@ HWiNFO-GPU2-MemController-EntryId=0x7000001
 HWiNFO-GPU2-CoreVoltage-SensorId=#HWiNFO-GPU2-Clock-SensorId#
 HWiNFO-GPU2-CoreVoltage-SensorInstance=#HWiNFO-GPU2-Clock-SensorInstance#
 HWiNFO-GPU2-CoreVoltage-EntryId=0x2000000
-; 
+;
 ; GPU 3
-; 
+;
 ; GPU Clock [HWiNFO-GPU3-Clock]
 HWiNFO-GPU3-Clock-SensorId=0xe0002000
 HWiNFO-GPU3-Clock-SensorInstance=0x0
@@ -190,14 +240,30 @@ HWiNFO-GPU3-MemoryUsage-EntryId=0x7000008
 HWiNFO-GPU3-MemoryAlloc-SensorId=#HWiNFO-GPU3-Clock-SensorId#
 HWiNFO-GPU3-MemoryAlloc-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
 HWiNFO-GPU3-MemoryAlloc-EntryId=0x80000fc
-; Fan Speed [HWiNFO-GPU3-FanSpeed]
-HWiNFO-GPU3-FanSpeed-SensorId=#HWiNFO-GPU3-Clock-SensorId#
-HWiNFO-GPU3-FanSpeed-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
-HWiNFO-GPU3-FanSpeed-EntryId=0x3000000
-; Fan Usage [HWiNFO-GPU3-FanUsage]
-HWiNFO-GPU3-FanUsage-SensorId=#HWiNFO-GPU3-Clock-SensorId#
-HWiNFO-GPU3-FanUsage-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
-HWiNFO-GPU3-FanUsage-EntryId=0x8000000
+; Fan 1 Speed [HWiNFO-GPU3-FanSpeed]
+HWiNFO-GPU3-FanSpeed1-SensorId=#HWiNFO-GPU3-Clock-SensorId#
+HWiNFO-GPU3-FanSpeed1-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
+HWiNFO-GPU3-FanSpeed1-EntryId=0x3000000
+; Fan 1 Usage [HWiNFO-GPU3-FanUsage]
+HWiNFO-GPU3-FanUsage1-SensorId=#HWiNFO-GPU3-Clock-SensorId#
+HWiNFO-GPU3-FanUsage1-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
+HWiNFO-GPU3-FanUsage1-EntryId=0x8000000
+; Fan 2 Speed [HWiNFO-GPU3-FanSpeed]
+HWiNFO-GPU3-FanSpeed2-SensorId=#HWiNFO-GPU3-Clock-SensorId#
+HWiNFO-GPU3-FanSpeed2-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
+HWiNFO-GPU3-FanSpeed2-EntryId=0x3000000
+; Fan 2 Usage [HWiNFO-GPU3-FanUsage]
+HWiNFO-GPU3-FanUsage2-SensorId=#HWiNFO-GPU3-Clock-SensorId#
+HWiNFO-GPU3-FanUsage2-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
+HWiNFO-GPU3-FanUsage2-EntryId=0x8000000
+; Fan 3 Speed [HWiNFO-GPU3-FanSpeed]
+HWiNFO-GPU3-FanSpeed3-SensorId=#HWiNFO-GPU3-Clock-SensorId#
+HWiNFO-GPU3-FanSpeed3-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
+HWiNFO-GPU3-FanSpeed3-EntryId=0x3000000
+; Fan 3 Usage [HWiNFO-GPU3-FanUsage]
+HWiNFO-GPU3-FanUsage3-SensorId=#HWiNFO-GPU3-Clock-SensorId#
+HWiNFO-GPU3-FanUsage3-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
+HWiNFO-GPU3-FanUsage3-EntryId=0x8000000
 ; Video Clock Frequency [HWiNFO-GPU3-VideoClock]
 HWiNFO-GPU3-VideoClock-SensorId=#HWiNFO-GPU3-Clock-SensorId#
 HWiNFO-GPU3-VideoClock-SensorInstance=#HWiNFO-GPU3-Clock-SensorInstance#
@@ -218,8 +284,12 @@ HWiNFO-GPU0-CoreLoad=GPU Core Load (%)
 HWiNFO-GPU0-MemoryClock=GPU Memory Clock Frequency (MHz)
 HWiNFO-GPU0-MemoryUsage=GPU Memory Usage (%)
 HWiNFO-GPU0-MemoryAlloc=GPU Memory Allocated (MB)
-HWiNFO-GPU0-FanSpeed=GPU Fan Speed (RPM)
-HWiNFO-GPU0-FanUsage=GPU Fan Usage (%)
+HWiNFO-GPU0-FanSpeed1=GPU Fan 1 Speed (RPM)
+HWiNFO-GPU0-FanUsage1=GPU Fan 1 Usage (%)
+HWiNFO-GPU0-FanSpeed2=GPU Fan 2 Speed (RPM)
+HWiNFO-GPU0-FanUsage2=GPU Fan 2 Usage (%)
+HWiNFO-GPU0-FanSpeed3=GPU Fan 3 Speed (RPM)
+HWiNFO-GPU0-FanUsage3=GPU Fan 3 Usage (%)
 HWiNFO-GPU0-VideoClock=Video Clock Frequency (MHz)
 HWiNFO-GPU0-MemController=Memory Controller Usage (%)
 HWiNFO-GPU0-CoreVoltage=GPU Core Voltage (volts)
@@ -231,8 +301,12 @@ HWiNFO-GPU1-CoreLoad=GPU Core Load (%)
 HWiNFO-GPU1-MemoryClock=GPU Memory Clock Frequency (MHz)
 HWiNFO-GPU1-MemoryUsage=GPU Memory Usage (%)
 HWiNFO-GPU1-MemoryAlloc=GPU Memory Allocated (MB)
-HWiNFO-GPU1-FanSpeed=GPU Fan Speed (RPM)
-HWiNFO-GPU1-FanUsage=GPU Fan Usage (%)
+HWiNFO-GPU1-FanSpeed1=GPU Fan 1 Speed (RPM)
+HWiNFO-GPU1-FanUsage1=GPU Fan 1 Usage (%)
+HWiNFO-GPU1-FanSpeed2=GPU Fan 2 Speed (RPM)
+HWiNFO-GPU1-FanUsage2=GPU Fan 2 Usage (%)
+HWiNFO-GPU1-FanSpeed3=GPU Fan 3 Speed (RPM)
+HWiNFO-GPU1-FanUsage3=GPU Fan 3 Usage (%)
 HWiNFO-GPU1-VideoClock=Video Clock Frequency (MHz)
 HWiNFO-GPU1-MemController=Memory Controller Usage (%)
 HWiNFO-GPU1-CoreVoltage=GPU Core Voltage (volts)
@@ -244,8 +318,12 @@ HWiNFO-GPU2-CoreLoad=GPU Core Load (%)
 HWiNFO-GPU2-MemoryClock=GPU Memory Clock Frequency (MHz)
 HWiNFO-GPU2-MemoryUsage=GPU Memory Usage (%)
 HWiNFO-GPU2-MemoryAlloc=GPU Memory Allocated (MB)
-HWiNFO-GPU2-FanSpeed=GPU Fan Speed (RPM)
-HWiNFO-GPU2-FanUsage=GPU Fan Usage (%)
+HWiNFO-GPU2-FanSpeed1=GPU Fan 1 Speed (RPM)
+HWiNFO-GPU2-FanUsage1=GPU Fan 1 Usage (%)
+HWiNFO-GPU2-FanSpeed2=GPU Fan 2 Speed (RPM)
+HWiNFO-GPU2-FanUsage2=GPU Fan 2 Usage (%)
+HWiNFO-GPU2-FanSpeed3=GPU Fan 3 Speed (RPM)
+HWiNFO-GPU2-FanUsage3=GPU Fan 3 Usage (%)
 HWiNFO-GPU2-VideoClock=Video Clock Frequency (MHz)
 HWiNFO-GPU2-MemController=Memory Controller Usage (%)
 HWiNFO-GPU2-CoreVoltage=GPU Core Voltage (volts)
@@ -257,8 +335,12 @@ HWiNFO-GPU3-CoreLoad=GPU Core Load (%)
 HWiNFO-GPU3-MemoryClock=GPU Memory Clock Frequency (MHz)
 HWiNFO-GPU3-MemoryUsage=GPU Memory Usage (%)
 HWiNFO-GPU3-MemoryAlloc=GPU Memory Allocated (MB)
-HWiNFO-GPU3-FanSpeed=GPU Fan Speed (RPM)
-HWiNFO-GPU3-FanUsage=GPU Fan Usage (%)
+HWiNFO-GPU3-FanSpeed1=GPU Fan 1 Speed (RPM)
+HWiNFO-GPU3-FanUsage1=GPU Fan 1 Usage (%)
+HWiNFO-GPU3-FanSpeed2=GPU Fan 2 Speed (RPM)
+HWiNFO-GPU3-FanUsage2=GPU Fan 2 Usage (%)
+HWiNFO-GPU3-FanSpeed3=GPU Fan 3 Speed (RPM)
+HWiNFO-GPU3-FanUsage3=GPU Fan 3 Usage (%)
 HWiNFO-GPU3-VideoClock=Video Clock Frequency (MHz)
 HWiNFO-GPU3-MemController=Memory Controller Usage (%)
 HWiNFO-GPU3-CoreVoltage=GPU Core Voltage (volts)
