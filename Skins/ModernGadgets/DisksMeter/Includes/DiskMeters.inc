@@ -84,7 +84,7 @@ BarColor=#colorDisk1#
 Group=Disk1 | DiskSpace
 Hidden=#hideDisk1#
 
-; Disk 1
+; Disk 2
 [MeterDisk2NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -170,7 +170,7 @@ BarColor=#colorDisk2#
 Group=Disk2 | DiskSpace
 Hidden=#hideDisk2#
 
-; Disk 1
+; Disk 3
 [MeterDisk3NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -256,7 +256,7 @@ BarColor=#colorDisk3#
 Group=Disk3 | DiskSpace
 Hidden=#hideDisk3#
 
-; Disk 1
+; Disk 4
 [MeterDisk4NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -342,7 +342,7 @@ BarColor=#colorDisk4#
 Group=Disk4 | DiskSpace
 Hidden=#hideDisk4#
 
-; Disk 1
+; Disk 5
 [MeterDisk5NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -428,7 +428,7 @@ BarColor=#colorDisk5#
 Group=Disk5 | DiskSpace
 Hidden=#hideDisk5#
 
-; Disk 1
+; Disk 6
 [MeterDisk6NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -514,7 +514,7 @@ BarColor=#colorDisk6#
 Group=Disk6 | DiskSpace
 Hidden=#hideDisk6#
 
-; Disk 1
+; Disk 7
 [MeterDisk7NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -600,7 +600,7 @@ BarColor=#colorDisk7#
 Group=Disk7 | DiskSpace
 Hidden=#hideDisk7#
 
-; Disk 1
+; Disk 8
 [MeterDisk8NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -686,7 +686,7 @@ BarColor=#colorDisk8#
 Group=Disk8 | DiskSpace
 Hidden=#hideDisk8#
 
-; Disk 1
+; Disk 9
 [MeterDisk9NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName
@@ -772,7 +772,7 @@ BarColor=#colorDisk9#
 Group=Disk9 | DiskSpace
 Hidden=#hideDisk9#
 
-; Disk 1
+; Disk 10
 [MeterDisk10NameString_]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskName

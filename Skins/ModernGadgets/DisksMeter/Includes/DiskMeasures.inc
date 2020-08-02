@@ -110,7 +110,7 @@ DynamicVariables=1
 Group=Disk1
 Disabled=#hideDisk1#
 
-; Disk 1
+; Disk 2
 [MeasureDisk2Type]
 Measure=FreeDiskSpace
 Drive=#d2#:
@@ -222,7 +222,7 @@ DynamicVariables=1
 Group=Disk2
 Disabled=#hideDisk2#
 
-; Disk 1
+; Disk 3
 [MeasureDisk3Type]
 Measure=FreeDiskSpace
 Drive=#d3#:
@@ -334,7 +334,7 @@ DynamicVariables=1
 Group=Disk3
 Disabled=#hideDisk3#
 
-; Disk 1
+; Disk 4
 [MeasureDisk4Type]
 Measure=FreeDiskSpace
 Drive=#d4#:
@@ -446,7 +446,7 @@ DynamicVariables=1
 Group=Disk4
 Disabled=#hideDisk4#
 
-; Disk 1
+; Disk 5
 [MeasureDisk5Type]
 Measure=FreeDiskSpace
 Drive=#d5#:
@@ -558,7 +558,7 @@ DynamicVariables=1
 Group=Disk5
 Disabled=#hideDisk5#
 
-; Disk 1
+; Disk 6
 [MeasureDisk6Type]
 Measure=FreeDiskSpace
 Drive=#d6#:
@@ -670,7 +670,7 @@ DynamicVariables=1
 Group=Disk6
 Disabled=#hideDisk6#
 
-; Disk 1
+; Disk 7
 [MeasureDisk7Type]
 Measure=FreeDiskSpace
 Drive=#d7#:
@@ -782,7 +782,7 @@ DynamicVariables=1
 Group=Disk7
 Disabled=#hideDisk7#
 
-; Disk 1
+; Disk 8
 [MeasureDisk8Type]
 Measure=FreeDiskSpace
 Drive=#d8#:
@@ -894,7 +894,7 @@ DynamicVariables=1
 Group=Disk8
 Disabled=#hideDisk8#
 
-; Disk 1
+; Disk 9
 [MeasureDisk9Type]
 Measure=FreeDiskSpace
 Drive=#d9#:
@@ -1006,7 +1006,7 @@ DynamicVariables=1
 Group=Disk9
 Disabled=#hideDisk9#
 
-; Disk 1
+; Disk 10
 [MeasureDisk10Type]
 Measure=FreeDiskSpace
 Drive=#d10#:
