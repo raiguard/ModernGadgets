@@ -12,6 +12,8 @@ v1.7.0 - ?????????
 - Removed Clipboard Meter and Release Statistics Meter
 - Removed automatic update checks - click the link in global settings to check for updates
 - Fixed CPU temperature radio buttons not updating when clicked
+- Fixed broken external IP update logic - it now updates every 10 minutes and on gadget refresh
+- Fixed external IP string displaying whatever HTML came in - it now shows "ERROR" if something went wrong
 
 v1.6.3 - 2020-1-18
 - Rewrote Weather Meter to use the Dark Sky API
