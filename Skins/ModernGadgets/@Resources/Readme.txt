@@ -9,7 +9,7 @@ ModernGadgets is a set of sleek, minimalist, information-dense desktop gadgets t
 into your modern desktop. It is inspired by the AddGadgets.com system monitoring gadgets and is heavily based
 on SilverAzide's Gadget Replicas.
 
-This skin suite requires Rainmeter 4.3 or newer, as well as .NET Framework v4.5 or newer.
+This skin suite requires Rainmeter 4.4 or newer, as well as .NET Framework v4.5 or newer.
 
 ----------------------------------------
 LICENSE AND CREDITS
@@ -22,7 +22,8 @@ Backend code based on "Gadgets" by SilverAzide.
 
 "IBM Plex Sans" font from Google Fonts, under the Apache 2.0 License
 "Font Awesome" icons from FortAwesome, under the Font Awesome Free license
-Weather information is powered by Dark Sky: https://darksky.net/poweredby
+Weather icons by Erik Flowers: https://erikflowers.github.io/weather-icons/
+Weather information is powered by The Weather Channel: https://weather.com/
 
 Additional Attributions:
 SilverAzide - ActiveNet plugin, NetMonitor utility, fixed precision format script
@@ -34,7 +35,6 @@ mourner - SunCalc script
 ----------------------------------------
 CONTACT
 
-Email: iamanaiofficial@gmail.com
 Twitter: @raiguard_
 Reddit: /u/raiguard
 Discord: Raiguard#7402

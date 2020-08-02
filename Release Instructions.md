@@ -1,18 +1,21 @@
 ## ModernGadgets Release Instructions
-Thanks for being willing to maintain the gadgets, SilverAzide! Herein is what you need to do if you're going to make a new release.
+
+Herein is what you need to do if you're going to make a new release.
 
 The most important thing: **DO NOT COMMIT ANY AUTOMATIC CHANGES MADE TO THE DYNAMIC VARIABLES FILE!!!** The file should be in the state it was in when you first cloned the repository. The only time you should commit changes to it is when you intentionally make a change.
 
 Additionally, make sure the gadget settings remain as they were when you first installed. Undo any changes made to the settings before making a release (or just don't commit them in the first place, which is what I do.)
 
 ### GitHub Commits and such
+
 You said you're not familiar with GitHub, so I'll give a quick rundown. I added you as a collaborator in the repository so you don't need to commit to your own fork anymore. Go ahead and clone `raiguard/ModernGadgets` to your PC and work from there.
 
 You also mentioned that you use version control at work, so I probably don't need to explain committing and such. I use VSCode, which has a built-in Git/GitHub extension that makes things slightly easier. I use the GUI to commit changes and compare diffs.
 
-Once you commit something, just run `git push` in the terminal (or use the GUI if you want) to push the changes to GitHub. By default, it pushes to the `master` branch, and this is where you will actually commit everything. In case you're not on the master branch, use `git checkout master` to switch to it. 
+Once you commit something, just run `git push` in the terminal (or use the GUI if you want) to push the changes to GitHub. By default, it pushes to the `master` branch, and this is where you will actually commit everything. In case you're not on the master branch, use `git checkout master` to switch to it.
 
 ### Making a Release
+
 If you need to make a release, first make sure the above warnings have been heeded. Delete/undo any changes made to the settings files and the DynamicVars file.
 
 Second, navigate to `ModernGadgets\Settings\UnitTests\ReleasePrep.ini`. Load the skin and click on it. This will cause the defaults to be copied from the current settings' states. This is why you need to undo any unintentional changes to the settings first.
@@ -26,6 +29,7 @@ Go ahead and click `Next`. Go to the `Advanced` tab, and select `Wiki\mglogo.bmp
 After this, you should be good to go! Create the package and test it to be sure everything works. Properly.
 
 ### Uploading a Release to GitHub
+
 Once you have the .RMSKIN ready, and all of the appropriate commits have been pushed to GitHub, go ahead and switch to the devrelease branch with `git checkout devrelease`. Run `git merge master`, then `git push`. If you don't touch the release branch except for at this time, everything should work properly.
 
 If you're doing a full release, do the same for the release branch. Run `git checkout release`, then `git merge master`, and finally `git push`. Then make certain you switch back to master with `git checkout master` before any other changes are made.
