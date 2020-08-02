@@ -1,13 +1,16 @@
 [Variables]
+; - INCLUDED -
 ; coordinates
-lat=40.3491173
-lon=-111.9046567
-; weather.com location code
-locationCode=#lat#,#lon#
-; units: one of "si", "ca", "uk2", "us", or "auto"
-units=auto
+latitude=40.329180
+longitude=-111.916917
+; units: one of "e" (imperial), "m" (metric) or "h" (hybrid - celsius with miles, U.K.)
+units=e
 ; language
 language=en-US
+; update rate
+updateRate=600
+
+; - OURS -
 
 showHumidity=1
 showUv=1
