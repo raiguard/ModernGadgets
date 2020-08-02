@@ -9,7 +9,6 @@ v1.7.0 - ?????????
 - Rewrote Weather Meter to scrape the weather.com website
 - Iconography cleanup
 - New weather icons
-- Absolutely all icons are now shape meters
 - Removed Clipboard Meter and Release Statistics Meter
 - Removed automatic update checks - click the link in global settings to check for updates
 - Fixed CPU temperature radio buttons not updating when clicked
