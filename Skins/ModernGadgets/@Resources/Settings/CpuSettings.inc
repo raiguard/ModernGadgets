@@ -1,5 +1,5 @@
 [Variables]
-ttSoundPath=#@#Sounds\alarmalerteffect.wav
+ttSoundPath=C:\Windows\Media\ringout.wav
 threadCount=8
 
 ; Fixed precision format
@@ -138,9 +138,9 @@ dTtHistogramAlpha=50
 
 ; ===== HWiNFO =====
 
-; 
+;
 ; CPU 0
-; 
+;
 ; Core 0 Temperature [HWiNFO-CPU0-Core0Temp]
 HWiNFO-CPU0-Core0Temp-SensorId=0xf0000400
 HWiNFO-CPU0-Core0Temp-SensorInstance=0x0
