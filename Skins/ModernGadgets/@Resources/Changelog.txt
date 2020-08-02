@@ -11,6 +11,7 @@ v1.7.0 - ?????????
 - Absolutely all icons are now shape meters
 - Removed Clipboard Meter and Release Statistics Meter
 - Removed automatic update checks - click the link in global settings to check for updates
+- Fixed CPU temperature radio buttons not updating when clicked
 
 v1.6.3 - 2020-1-18
 - Rewrote Weather Meter to use the Dark Sky API
