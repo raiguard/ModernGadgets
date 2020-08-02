@@ -12,6 +12,7 @@ showPeakNetworkUsage=1
 monitoringType=standard
 
 pingUrl=www.msftncsi.com
+pingUpdateRate=30
 
 colorUpload=107,238,98
 colorDownload=255,246,42
