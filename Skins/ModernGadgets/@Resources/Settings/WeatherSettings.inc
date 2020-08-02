@@ -1,8 +1,8 @@
 [Variables]
 ; - INCLUDED -
 ; coordinates
-latitude=40.329180
-longitude=-111.916917
+latitude=40.349117
+longitude=-111.904656
 ; units: one of "e" (imperial), "m" (metric) or "h" (hybrid - celsius with miles, U.K.)
 units=e
 ; language

@@ -22,7 +22,7 @@ DecodeCharacterReference=1
 LogSubstringErrors=0
 RegExp=(?siU)^(.*)$
 StringIndex=1
-FinishAction=[!EnableMeasureGroup Parents]
+FinishAction=[!EnableMeasureGroup Parents][!Update]
 ;Debug=2
 ;Debug2File=#@#EntireSite.txt
 

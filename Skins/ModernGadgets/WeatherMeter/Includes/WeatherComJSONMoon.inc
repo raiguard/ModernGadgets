@@ -38,7 +38,7 @@ Measure=WebParser
 URL=[@MoonDay1Parent]
 StringIndex=1
 RegExpSubstitute=1
-Substitute=#CommonSubstitute#
+Substitute=#CommonSubstitute#,"":"-----"
 
 [@MoonDay1PhaseIcon]
 Measure=WebParser
