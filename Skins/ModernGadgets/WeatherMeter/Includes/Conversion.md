@@ -18,3 +18,9 @@
 3. Change TimeFormat variable to `[&Measure[#timeFormat]TimeFormat]`
 4. Add a `,"":"-----"` to `Substitute` in `@MoonDay1PhaseName`
 5. Add `; Edited by raiguard for ModernGadgets - see Conversion.md` below last edited date at top
+
+## WeatherComJSONAlerts
+
+1. Copy contents of WeatherComJSONAlerts.inc
+2. Remove all but the first alert
+3. Add `; Edited by raiguard for ModernGadgets - see Conversion.md` below last edited date at top
