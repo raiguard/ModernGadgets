@@ -1,10 +1,10 @@
 [Variables]
 timeAmPmSize=12
 showSystemUptime=1
-showEventCountdown=1
+showEventCountdown=0
 
-eventName=developer leaves
-eventTimestamp=2019-09-18 10:00:00
+eventName=the new year
+eventTimestamp=2021-01-01 00:00:00
 
 timeFormat=WinLong
 dateFormat=WinLong
