@@ -4,6 +4,7 @@ MODERNGADGETS CHANGELOG
 Official Releases
 
 v1.7.0 - ?????????
+- Changed CPU Meter HWiNFO clock speed to use per-core measurements - the displayed values is the max of all the cores
 - Hovering your mouse over Disks Meter will show the opposite disk space measurement (used / free)
 - Changed AMD color from dark teal to red
 - Rewrote Weather Meter to scrape the weather.com website

@@ -302,6 +302,87 @@ IfTrueAction=[!SetOption MeterCore32Temp MeasureName3 "#CURRENTSECTION#"][!Updat
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 32)) || (#extProgram# <> 4)
 
+; Core Clocks
+[MeasureCpuClockCore25]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core24Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core24Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core24Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 25)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore26]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core25Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core25Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core25Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 26)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore27]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core26Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core26Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core26Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 27)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore28]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core27Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core27Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core27Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 28)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore29]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core28Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core28Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core28Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 29)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore30]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core29Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core29Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core29Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 30)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore31]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core30Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core30Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core30Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 31)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore32]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core31Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core31Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core31Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 32)) || (#extProgram# <> 1)
+
 ; Core Voltages
 [MeasureCpuVoltageCore25]
 Measure=Plugin

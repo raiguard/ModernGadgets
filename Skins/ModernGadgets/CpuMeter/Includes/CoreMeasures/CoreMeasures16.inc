@@ -302,6 +302,87 @@ IfTrueAction=[!SetOption MeterCore16Temp MeasureName3 "#CURRENTSECTION#"][!Updat
 Group=CoreTemps | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 16)) || (#extProgram# <> 4)
 
+; Core Clocks
+[MeasureCpuClockCore9]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core8Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core8Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core8Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 9)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore10]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core9Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core9Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core9Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 10)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore11]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core10Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core10Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core10Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 11)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore12]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core11Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core11Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core11Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 12)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore13]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core12Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core12Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core12Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 13)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore14]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core13Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core13Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core13Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 14)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore15]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core14Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core14Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core14Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 15)) || (#extProgram# <> 1)
+
+[MeasureCpuClockCore16]
+Measure=Plugin
+Plugin=HWiNFO
+HWiNFOSensorId=#HWiNFO-CPU0-Core15Clock-SensorId#
+HWiNFOSensorInstance=#HWiNFO-CPU0-Core15Clock-SensorInstance#
+HWiNFOEntryId=#HWiNFO-CPU0-Core15Clock-EntryId#
+HWiNFOType=CurrentValue
+Group=CoreClocks | ProgramSwitching
+Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 16)) || (#extProgram# <> 1)
+
 ; Core Voltages
 [MeasureCpuVoltageCore9]
 Measure=Plugin

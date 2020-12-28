@@ -283,6 +283,135 @@ HWiNFO-CPU0-PackageTt-SensorId=0xf0000400
 HWiNFO-CPU0-PackageTt-SensorInstance=0x0
 HWiNFO-CPU0-PackageTt-EntryId=0x800000c
 
+; Core 0 Clock [HWiNFO-CPU0-Core0Clock]
+HWiNFO-CPU0-Core0Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core0Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core0Clock-EntryId=0x6000000
+; Core 1 Clock [HWiNFO-CPU0-Core1Clock]
+HWiNFO-CPU0-Core1Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core1Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core1Clock-EntryId=0x6000001
+; Core 2 Clock [HWiNFO-CPU0-Core2Clock]
+HWiNFO-CPU0-Core2Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core2Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core2Clock-EntryId=0x6000002
+; Core 3 Clock [HWiNFO-CPU0-Core3Clock]
+HWiNFO-CPU0-Core3Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core3Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core3Clock-EntryId=0x6000003
+; Core 4 Clock [HWiNFO-CPU0-Core4Clock]
+HWiNFO-CPU0-Core4Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core4Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core4Clock-EntryId=0x6000004
+; Core 5 Clock [HWiNFO-CPU0-Core5Clock]
+HWiNFO-CPU0-Core5Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core5Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core5Clock-EntryId=0x6000005
+; Core 6 Clock [HWiNFO-CPU0-Core6Clock]
+HWiNFO-CPU0-Core6Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core6Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core6Clock-EntryId=0x6000006
+; Core 7 Clock [HWiNFO-CPU0-Core7Clock]
+HWiNFO-CPU0-Core7Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core7Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core7Clock-EntryId=0x6000007
+; Core 8 Clock [HWiNFO-CPU0-Core8Clock]
+HWiNFO-CPU0-Core8Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core8Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core8Clock-EntryId=0x6000008
+; Core 9 Clock [HWiNFO-CPU0-Core9Clock]
+HWiNFO-CPU0-Core9Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core9Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core9Clock-EntryId=0x6000009
+; Core 10 Clock [HWiNFO-CPU0-Core10Clock]
+HWiNFO-CPU0-Core10Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core10Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core10Clock-EntryId=0x600000a
+; Core 11 Clock [HWiNFO-CPU0-Core11Clock]
+HWiNFO-CPU0-Core11Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core11Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core11Clock-EntryId=0x600000b
+; Core 12 Clock [HWiNFO-CPU0-Core12Clock]
+HWiNFO-CPU0-Core12Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core12Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core12Clock-EntryId=0x600000c
+; Core 13 Clock [HWiNFO-CPU0-Core13Clock]
+HWiNFO-CPU0-Core13Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core13Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core13Clock-EntryId=0x600000d
+; Core 14 Clock [HWiNFO-CPU0-Core14Clock]
+HWiNFO-CPU0-Core14Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core14Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core14Clock-EntryId=0x600000e
+; Core 15 Clock [HWiNFO-CPU0-Core15Clock]
+HWiNFO-CPU0-Core15Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core15Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core15Clock-EntryId=0x600000f
+; Core 16 Clock [HWiNFO-CPU0-Core16Clock]
+HWiNFO-CPU0-Core16Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core16Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core16Clock-EntryId=0x6000010
+; Core 17 Clock [HWiNFO-CPU0-Core17Clock]
+HWiNFO-CPU0-Core17Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core17Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core17Clock-EntryId=0x6000011
+; Core 18 Clock [HWiNFO-CPU0-Core18Clock]
+HWiNFO-CPU0-Core18Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core18Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core18Clock-EntryId=0x6000012
+; Core 19 Clock [HWiNFO-CPU0-Core19Clock]
+HWiNFO-CPU0-Core19Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core19Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core19Clock-EntryId=0x6000013
+; Core 20 Clock [HWiNFO-CPU0-Core20Clock]
+HWiNFO-CPU0-Core20Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core20Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core20Clock-EntryId=0x6000014
+; Core 21 Clock [HWiNFO-CPU0-Core21Clock]
+HWiNFO-CPU0-Core21Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core21Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core21Clock-EntryId=0x6000015
+; Core 22 Clock [HWiNFO-CPU0-Core22Clock]
+HWiNFO-CPU0-Core22Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core22Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core22Clock-EntryId=0x6000016
+; Core 23 Clock [HWiNFO-CPU0-Core23Clock]
+HWiNFO-CPU0-Core23Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core23Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core23Clock-EntryId=0x6000017
+; Core 24 Clock [HWiNFO-CPU0-Core24Clock]
+HWiNFO-CPU0-Core24Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core24Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core24Clock-EntryId=0x6000018
+; Core 25 Clock [HWiNFO-CPU0-Core25Clock]
+HWiNFO-CPU0-Core25Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core25Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core25Clock-EntryId=0x6000019
+; Core 26 Clock [HWiNFO-CPU0-Core26Clock]
+HWiNFO-CPU0-Core26Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core26Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core26Clock-EntryId=0x600001a
+; Core 27 Clock [HWiNFO-CPU0-Core27Clock]
+HWiNFO-CPU0-Core27Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core27Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core27Clock-EntryId=0x600001b
+; Core 28 Clock [HWiNFO-CPU0-Core28Clock]
+HWiNFO-CPU0-Core28Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core28Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core28Clock-EntryId=0x600001c
+; Core 29 Clock [HWiNFO-CPU0-Core29Clock]
+HWiNFO-CPU0-Core29Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core29Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core29Clock-EntryId=0x600001d
+; Core 30 Clock [HWiNFO-CPU0-Core30Clock]
+HWiNFO-CPU0-Core30Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core30Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core30Clock-EntryId=0x600001e
+; Core 31 Clock [HWiNFO-CPU0-Core31Clock]
+HWiNFO-CPU0-Core31Clock-SensorId=0xf0000300
+HWiNFO-CPU0-Core31Clock-SensorInstance=0x0
+HWiNFO-CPU0-Core31Clock-EntryId=0x600001f
+
 ; Core 0 Voltage [HWiNFO-CPU0-Core0Vid]
 HWiNFO-CPU0-Core0Vid-SensorId=0xf0000300
 HWiNFO-CPU0-Core0Vid-SensorInstance=0x0
@@ -412,11 +541,6 @@ HWiNFO-CPU0-Core31Vid-SensorId=#HWiNFO-CPU0-Core0Vid-SensorId#
 HWiNFO-CPU0-Core31Vid-SensorInstance=#HWiNFO-CPU0-Core0Vid-SensorInstance#
 HWiNFO-CPU0-Core31Vid-EntryId=0x200001f
 
-; CPU Ring Clock [HWiNFO-CPU0-RingClock]
-HWiNFO-CPU0-RingClock-SensorId=0xf0000300
-HWiNFO-CPU0-RingClock-SensorInstance=0x0
-HWiNFO-CPU0-RingClock-EntryId=0x6000000
-
 ;
 ; MOBO
 ;
@@ -426,11 +550,45 @@ HWiNFO-MOBO-CPUFan-SensorInstance=0x0
 HWiNFO-MOBO-CPUFan-EntryId=0x3000001
 
 [HWiNFO-Config-General]
-HWiNFO-CPU0-RingClock=Ring/LLC Clock (MHz)
 HWiNFO-CPU0-PackageTemp=CPU Package Temperature (degrees)
 HWINFO-CPU0-PackageTt=CPU Package Thermal Throttling (yes/no)
 HWiNFO-CPU0-Core0TjMax=Core 0 Distance to TjMax (degrees)
 HWiNFO-MOBO-CPUFan=CPU Fan (Motherboard Sensor) (RPM)
+
+
+[HWiNFO-Config-Core Clocks]
+HWiNFO-CPU0-Core0Clock=Core 0 Clock (MHz)
+HWiNFO-CPU0-Core1Clock=Core 1 Clock (MHz)
+HWiNFO-CPU0-Core2Clock=Core 2 Clock (MHz)
+HWiNFO-CPU0-Core3Clock=Core 3 Clock (MHz)
+HWiNFO-CPU0-Core4Clock=Core 4 Clock (MHz)
+HWiNFO-CPU0-Core5Clock=Core 5 Clock (MHz)
+HWiNFO-CPU0-Core6Clock=Core 6 Clock (MHz)
+HWiNFO-CPU0-Core7Clock=Core 7 Clock (MHz)
+HWiNFO-CPU0-Core8Clock=Core 8 Clock (MHz)
+HWiNFO-CPU0-Core9Clock=Core 9 Clock (MHz)
+HWiNFO-CPU0-Core10Clock=Core 10 Clock (MHz)
+HWiNFO-CPU0-Core11Clock=Core 11 Clock (MHz)
+HWiNFO-CPU0-Core12Clock=Core 12 Clock (MHz)
+HWiNFO-CPU0-Core13Clock=Core 13 Clock (MHz)
+HWiNFO-CPU0-Core14Clock=Core 14 Clock (MHz)
+HWiNFO-CPU0-Core15Clock=Core 15 Clock (MHz)
+HWiNFO-CPU0-Core16Clock=Core 16 Clock (MHz)
+HWiNFO-CPU0-Core17Clock=Core 17 Clock (MHz)
+HWiNFO-CPU0-Core18Clock=Core 18 Clock (MHz)
+HWiNFO-CPU0-Core19Clock=Core 19 Clock (MHz)
+HWiNFO-CPU0-Core20Clock=Core 20 Clock (MHz)
+HWiNFO-CPU0-Core21Clock=Core 21 Clock (MHz)
+HWiNFO-CPU0-Core22Clock=Core 22 Clock (MHz)
+HWiNFO-CPU0-Core23Clock=Core 23 Clock (MHz)
+HWiNFO-CPU0-Core24Clock=Core 24 Clock (MHz)
+HWiNFO-CPU0-Core25Clock=Core 25 Clock (MHz)
+HWiNFO-CPU0-Core26Clock=Core 26 Clock (MHz)
+HWiNFO-CPU0-Core27Clock=Core 27 Clock (MHz)
+HWiNFO-CPU0-Core28Clock=Core 28 Clock (MHz)
+HWiNFO-CPU0-Core29Clock=Core 29 Clock (MHz)
+HWiNFO-CPU0-Core30Clock=Core 30 Clock (MHz)
+HWiNFO-CPU0-Core31Clock=Core 31 Clock (MHz)
 
 [HWiNFO-Config-Core Temperatures]
 HWiNFO-CPU0-Core0Temp=Core 0 Temperature (degrees)
