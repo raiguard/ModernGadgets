@@ -113,6 +113,7 @@ rainFilePath=#@#Addons\RainFile\RainFile.exe
 
 globalSettingsPath=#@#Settings\GlobalSettings.inc
 gadgetManagerPath=#ROOTCONFIGPATH#Settings\GadgetManager\GadgetManager.ini
+chameleonConfig=ModernGadgets\Settings\Chameleon
 
 styleSheetPath=#@#StyleSheet.inc
 
