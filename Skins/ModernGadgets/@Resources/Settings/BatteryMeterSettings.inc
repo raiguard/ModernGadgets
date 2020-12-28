@@ -13,3 +13,4 @@ autoFailover=0
 chargeUnits=Watts
 playCriticalWarningSound=1
 batteryCriticalWarningSound=C:\Windows\Media\ringout.wav
+batteryWarningLevel=2
