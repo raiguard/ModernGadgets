@@ -4,6 +4,7 @@ MODERNGADGETS CHANGELOG
 Official Releases
 
 v1.7.0 - ?????????
+- Added Chameleon auto-coloring (unsupported!)
 - Added battery warning level setting to Battery Meter
 - Changed CPU Meter HWiNFO clock speed to use per-core measurements - the displayed value is the max of all the cores
 - Hovering your mouse over Disks Meter will show the opposite disk space measurement (used / free)
