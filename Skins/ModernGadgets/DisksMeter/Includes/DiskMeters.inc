@@ -41,7 +41,7 @@ Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk1#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk1 | Disk1ReadWrite | DiskReadWrite
 Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0)
 
@@ -56,14 +56,14 @@ Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk1#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk1 | Disk1ReadWrite | DiskReadWrite
 Hidden=(#hideDisk1# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk1SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk1SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk1 | DiskSpace
 Hidden=#hideDisk1#
 
@@ -127,7 +127,7 @@ Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk2#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk2 | Disk2ReadWrite | DiskReadWrite
 Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0)
 
@@ -142,14 +142,14 @@ Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk2#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk2 | Disk2ReadWrite | DiskReadWrite
 Hidden=(#hideDisk2# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk2SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk2SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk2 | DiskSpace
 Hidden=#hideDisk2#
 
@@ -213,7 +213,7 @@ Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk3#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk3 | Disk3ReadWrite | DiskReadWrite
 Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0)
 
@@ -228,14 +228,14 @@ Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk3#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk3 | Disk3ReadWrite | DiskReadWrite
 Hidden=(#hideDisk3# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk3SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk3SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk3 | DiskSpace
 Hidden=#hideDisk3#
 
@@ -299,7 +299,7 @@ Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk4#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk4 | Disk4ReadWrite | DiskReadWrite
 Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0)
 
@@ -314,14 +314,14 @@ Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk4#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk4 | Disk4ReadWrite | DiskReadWrite
 Hidden=(#hideDisk4# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk4SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk4SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk4 | DiskSpace
 Hidden=#hideDisk4#
 
@@ -385,7 +385,7 @@ Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk5#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk5 | Disk5ReadWrite | DiskReadWrite
 Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0)
 
@@ -400,14 +400,14 @@ Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk5#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk5 | Disk5ReadWrite | DiskReadWrite
 Hidden=(#hideDisk5# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk5SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk5SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk5 | DiskSpace
 Hidden=#hideDisk5#
 
@@ -471,7 +471,7 @@ Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk6#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk6 | Disk6ReadWrite | DiskReadWrite
 Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0)
 
@@ -486,14 +486,14 @@ Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk6#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk6 | Disk6ReadWrite | DiskReadWrite
 Hidden=(#hideDisk6# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk6SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk6SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk6 | DiskSpace
 Hidden=#hideDisk6#
 
@@ -557,7 +557,7 @@ Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk7#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk7 | Disk7ReadWrite | DiskReadWrite
 Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0)
 
@@ -572,14 +572,14 @@ Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk7#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk7 | Disk7ReadWrite | DiskReadWrite
 Hidden=(#hideDisk7# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk7SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk7SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk7 | DiskSpace
 Hidden=#hideDisk7#
 
@@ -643,7 +643,7 @@ Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk8#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk8 | Disk8ReadWrite | DiskReadWrite
 Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0)
 
@@ -658,14 +658,14 @@ Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk8#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk8 | Disk8ReadWrite | DiskReadWrite
 Hidden=(#hideDisk8# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk8SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk8SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk8 | DiskSpace
 Hidden=#hideDisk8#
 
@@ -729,7 +729,7 @@ Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk9#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk9 | Disk9ReadWrite | DiskReadWrite
 Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0)
 
@@ -744,14 +744,14 @@ Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLett
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk9#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk9 | Disk9ReadWrite | DiskReadWrite
 Hidden=(#hideDisk9# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk9SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk9SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk9 | DiskSpace
 Hidden=#hideDisk9#
 
@@ -815,7 +815,7 @@ Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLet
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringWrite
 InlineSetting=Color | #colorDisk10#
-Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10Write:],[#fpfWriteDepth],'1k')"]B/s
+Text=#diskWritePrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10Write:],[#fpfWriteDepth],'1k')]B/s
 Group=Disk10 | Disk10ReadWrite | DiskReadWrite
 Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0)
 
@@ -830,14 +830,14 @@ Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0) || (#showDiskReadWriteLet
 Meter=String
 MeterStyle=StyleString | StyleStringArrowIconLabel | StyleStringRead
 InlineSetting=Color | #colorDisk10#
-Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10Read:],[#fpfReadDepth],'1k')"]B/s
+Text=#diskReadPrefix#[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10Read:],[#fpfReadDepth],'1k')]B/s
 Group=Disk10 | Disk10ReadWrite | DiskReadWrite
 Hidden=(#hideDisk10# = 1) || (#showDiskReadWrite# = 0)
 
 [MeterDisk10SpaceString]
 Meter=String
 MeterStyle=StyleString | StyleStringDiskSpace
-Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10SpaceUsed:],[#fpfSpaceUsedDepth],'1k')"]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10SpaceTotal:],[#fpfSpaceTotalDepth],'1k')"]B
+Text=[&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10SpaceUsed:],[#fpfSpaceUsedDepth],'1k')]B / [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureDisk10SpaceTotal:],[#fpfSpaceTotalDepth],'1k')]B
 Group=Disk10 | DiskSpace
 Hidden=#hideDisk10#
 
