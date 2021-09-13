@@ -7,6 +7,10 @@ v1.8.0 - ????
   Features:
     - Updated to HWiNFO 7.0
       - The settings format has changed, so all users will need to reconfigure their HWiNFO IDs
+  Changes:
+    - Sidebars have been removed
+      - Use a standalone tool, such as MaxMax, to prevent your gadgets from being covered
+      - This was done due to the presence of many unfixable issues with the sidebar implementation
   Bugfixes:
     - Fixed an error with a missing image when Disks Meter had more than ten disks
     - Fixed that GPU Meter variants 2 and 3 would use the settings for variant 1
