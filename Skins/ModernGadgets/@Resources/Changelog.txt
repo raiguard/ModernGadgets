@@ -18,6 +18,7 @@ v1.8.0 - ????
     - Fixed that the GPU Meter VRAM labels would bounce between compact and regular fonts in some cases (#245)
     - Fixed that Weather Meter would be cut off on the bottom when the scale was not 1.0 (#238)
     - Fixed the CPU clock speed displaying as zero when first enabled (#233)
+    - Fixed the sky dial sun/moon visibility behavior
 
 v1.7.0 - 2021-1-29
 - Added Chameleon auto-coloring (unsupported!)
