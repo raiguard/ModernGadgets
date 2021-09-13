@@ -12,12 +12,12 @@ v1.8.0 - ????
       - Use a standalone tool, such as MaxMax, to prevent your gadgets from being covered
       - This was done due to the presence of many unfixable issues with the sidebar implementation
   Bugfixes:
-    - Fixed an error related to audio meter mouse regions
-    - Fixed an error with a missing image when Disks Meter had more than ten disks
-    - Fixed that GPU Meter variants 2 and 3 would use the settings for variant 1
-    - Fixed that the GPU Meter VRAM labels would bounce between compact and regular fonts in some cases
+    - Fixed an error related to audio meter mouse regions (#229)
+    - Fixed an error with a missing image when Disks Meter had more than ten disks (#244)
+    - Fixed that GPU Meter variants 2 and 3 would use the settings for variant 1 (#246)
+    - Fixed that the GPU Meter VRAM labels would bounce between compact and regular fonts in some cases (#245)
     - Fixed that Weather Meter would be cut off on the bottom when the scale was not 1.0 (#238)
-    - Fixed the CPU clock speed displaying as zero when first enabled
+    - Fixed the CPU clock speed displaying as zero when first enabled (#233)
 
 v1.7.0 - 2021-1-29
 - Added Chameleon auto-coloring (unsupported!)
