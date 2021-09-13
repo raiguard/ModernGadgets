@@ -13,30 +13,26 @@ ScriptFile=#scriptPath#FixedPrecisionFormat.lua
 Measure=Script
 ScriptFile=#scriptPath#Settings.lua
 
-[MeasureHwinfoDetect]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-Clock-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-Clock-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-Clock-EntryId]
-HWiNFOType=CurrentValue
-HWiNFOLogHandler=2
-IfCondition=(MeasureHwinfoDetect = -9000)
+[MeasureIsHwinfo32Running]
+Measure=Process
+ProcessName=HWiNFO32.exe
+
+[MeasureIsHwinfo64Running]
+Measure=Process
+ProcessName=HWiNFO64.exe
+IfCondition=(MeasureIsHwinfo32Running = -1) && (MeasureIsHwinfo64Running = -1)
 IfTrueAction=[!ShowMeterGroup NoHwinfo][!Redraw]
-IfCondition2=(MeasureHwinfoDetect <> -9000)
-IfTrueAction2=[!HideMeterGroup NoHwinfo][!Redraw]
 
 ; ------------------------------
 ; GENERAL
 
 [MeasureGpuName]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-Clock-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-Clock-SensorInstance]
-HWiNFOType=SensorNameCustom
-Substitute="GPU \[#\d\]: ":"",":":"","":"_____"
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=Sensor[#HWiNFO-GPU[#gpuIndex]-Clock]
 RegExpSubstitute=1
+Substitute="^0$":"","^(.*]: )":"","(:.*)$":"","\(R\)":"","®":"","\(TM\)":"","\(tm\)":"","™":"","NVIDIA ":"","ATI/AMD ":"","AMD ":"","Intel ":"","Qualcomm ":""," GPU":""
 IfMatch=(?i)(.*Intel.*)
 IfMatchAction=[!SetOption MeterGpuIcon Fill "Fill Color #colorIntel#"][!UpdateMeter MeterGpuIcon]
 IfMatch2=(?i)(.*AMD.*)
@@ -54,30 +50,24 @@ RegExpSubstitute=1
 DynamicVariables=1
 
 [MeasureGpuClockSpeed]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-Clock-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-Clock-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-Clock-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-Clock]
 
 [MeasureGpuTemperature]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTHKEY_CURRENT_USER\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-Temp]
 MinValue=0
 MaxValue=#maxGpuTemp#
 
 [MeasureGpuUsage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-CoreLoad-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-CoreLoad-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-CoreLoad-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-CoreLoad]
 MinValue=0
 MaxValue=100
 
@@ -85,22 +75,18 @@ MaxValue=100
 ; VRAM
 
 [MeasureMemoryClockSpeed]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-MemoryClock-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-MemoryClock-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-MemoryClock-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-MemoryClock]
 Disabled=(#showMemoryClock# = 0)
 Group=MemoryClock
 
 [MeasureVramUsed]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-MemoryAlloc-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-MemoryAlloc-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-MemoryAlloc-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-MemoryAlloc]
 Group=Memory
 
 [MeasureVramUsedCalc]
@@ -112,12 +98,10 @@ OnChangeAction=[!SetVariable textMemoryUsed [&MeasureFixedPrecisionFormatScript:
 Group=Memory
 
 [MeasureVramUsage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-MemoryUsage-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-MemoryUsage-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-MemoryUsage-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-MemoryUsage]
 MinValue=0
 MaxValue=100
 Group=Memory
@@ -157,63 +141,51 @@ IfTrueAction=[!SetOption MeterGpuMemoryUsageBar MeasureName "MeasureVramUsageAlt
 ; ----- Fan 1 -----
 
 [MeasureGpuFan1Speed]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed1-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanSpeed1-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed1-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanSpeed1]
 Disabled=#useMoboFanSensor#
 
 [MeasureGpuFan1Usage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanUsage1-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanUsage1-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanUsage1-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanUsage1]
 MinValue=0
 MaxValue=100
 
 ; ----- Fan 2 -----
 
 [MeasureGpuFan2Speed]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed2-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanSpeed2-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed2-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanSpeed2]
 Disabled=#useMoboFanSensor#
 
 [MeasureGpuFan2Usage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanUsage2-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanUsage2-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanUsage2-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanUsage2]
 MinValue=0
 MaxValue=100
 
 ; ----- Fan 3 -----
 
 [MeasureGpuFan3Speed]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed3-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanSpeed3-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanSpeed3-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanSpeed3]
 Disabled=#useMoboFanSensor#
 
 [MeasureGpuFan3Usage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-FanUsage3-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-FanUsage3-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-FanUsage3-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanUsage3]
 MinValue=0
 MaxValue=100
 
@@ -221,32 +193,26 @@ MaxValue=100
 ; MISC
 
 [MeasureVideoClock]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-VideoClock-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-VideoClock-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-VideoClock-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-VideoClock]
 Disabled=(#showVideoClock# = 0)
 
 [MeasureMemoryControllerLoad]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-MemController-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-MemController-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-MemController-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-MemController]
 MinValue=0
 MaxValue=100
 Disabled=(#showMemoryController# = 0)
 
 [MeasureCoreVoltage]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-GPU[#gpuIndex]-CoreVoltage-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-GPU[#gpuIndex]-CoreVoltage-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-GPU[#gpuIndex]-CoreVoltage-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTW\HW\VSB
+RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-CoreVoltage]
 Disabled=(#showCoreVoltage# = 0)
 
 [MeasureCalcCompactVramLabel]
@@ -620,7 +586,7 @@ Hidden=1
 [MeterNoHwinfoInfo]
 Meter=String
 MeterStyle=StyleString | StyleStringParagraph
-Text=GPU Meter relies on HWiNFO to function. Please make sure you have configured HWiNFO as per the setup tutorial. Once HWiNFO is running properly, this gadget will automatically refresh.
+Text=GPU Meter relies on HWiNFO to function. Please make sure you have configured HWiNFO as per the setup tutorial. Once HWiNFO is running, refresh this skin.
 Group=NoHwinfo
 Hidden=1
 

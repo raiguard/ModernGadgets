@@ -45,96 +45,80 @@ Disabled=(#cpuCores# < 24)
 ; Core Temperatures
 ; __ HWiNFO
 [MeasureCpuTempHwinfoCore17]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core16Temp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core16Temp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core16Temp-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core16Temp#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore17Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore17Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 17)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuTempHwinfoCore18]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core17Temp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core17Temp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core17Temp-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core17Temp#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore18Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore18Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 18)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuTempHwinfoCore19]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core18Temp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core18Temp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core18Temp-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core18Temp#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore19Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore19Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 19)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuTempHwinfoCore20]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core19Temp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core19Temp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core19Temp-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core19Temp#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore20Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore20Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 20)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuTempHwinfoCore21]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core20Temp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core20Temp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core20Temp-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core20Temp#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore21Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore21Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 21)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuTempHwinfoCore22]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core21Temp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core21Temp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core21Temp-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core21Temp#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore22Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore22Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 22)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuTempHwinfoCore23]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core22Temp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core22Temp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core22Temp-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core22Temp#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore23Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore23Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
 Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 23)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuTempHwinfoCore24]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core23Temp-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core23Temp-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core23Temp-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core23Temp#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore24Temp MeasureName "#CURRENTSECTION#"][!UpdateMeter MeterCore24Temp]
 Group=CoreTemps | HWiNFO | ProgramSwitching
@@ -304,177 +288,145 @@ Disabled=((#showCoreTemps# <> 1) || (#cpuCores# / #threadsPerCore# < 24)) || (#e
 
 ; Core Clocks
 [MeasureCpuClockCore17]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core16Clock-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core16Clock-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core16Clock-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core16Clock#
 Group=CoreClocks | ProgramSwitching
 Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 17)) || (#extProgram# <> 1)
 
 [MeasureCpuClockCore18]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core17Clock-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core17Clock-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core17Clock-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core17Clock#
 Group=CoreClocks | ProgramSwitching
 Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 18)) || (#extProgram# <> 1)
 
 [MeasureCpuClockCore19]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core18Clock-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core18Clock-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core18Clock-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core18Clock#
 Group=CoreClocks | ProgramSwitching
 Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 19)) || (#extProgram# <> 1)
 
 [MeasureCpuClockCore20]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core19Clock-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core19Clock-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core19Clock-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core19Clock#
 Group=CoreClocks | ProgramSwitching
 Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 20)) || (#extProgram# <> 1)
 
 [MeasureCpuClockCore21]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core20Clock-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core20Clock-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core20Clock-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core20Clock#
 Group=CoreClocks | ProgramSwitching
 Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 21)) || (#extProgram# <> 1)
 
 [MeasureCpuClockCore22]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core21Clock-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core21Clock-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core21Clock-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core21Clock#
 Group=CoreClocks | ProgramSwitching
 Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 22)) || (#extProgram# <> 1)
 
 [MeasureCpuClockCore23]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core22Clock-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core22Clock-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core22Clock-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core22Clock#
 Group=CoreClocks | ProgramSwitching
 Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 23)) || (#extProgram# <> 1)
 
 [MeasureCpuClockCore24]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core23Clock-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core23Clock-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core23Clock-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core23Clock#
 Group=CoreClocks | ProgramSwitching
 Disabled=((#showCpuClock# = 0) || (#cpuCores# / #threadsPerCore# < 24)) || (#extProgram# <> 1)
 
 ; Core Voltages
 [MeasureCpuVoltageCore17]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core16Vid-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core16Vid-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core16Vid-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core16Vid#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore17Voltage MeasureName "MeasureCpuVoltageCore17"][!UpdateMeter MeterCore17Voltage]
 Group=CoreVoltages | ProgramSwitching
 Disabled=((#showCoreVoltages# = 0) || (#cpuCores# / #threadsPerCore# < 17)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuVoltageCore18]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core17Vid-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core17Vid-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core17Vid-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core17Vid#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore18Voltage MeasureName "MeasureCpuVoltageCore18"][!UpdateMeter MeterCore18Voltage]
 Group=CoreVoltages | ProgramSwitching
 Disabled=((#showCoreVoltages# = 0) || (#cpuCores# / #threadsPerCore# < 18)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuVoltageCore19]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core18Vid-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core18Vid-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core18Vid-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core18Vid#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore19Voltage MeasureName "MeasureCpuVoltageCore19"][!UpdateMeter MeterCore19Voltage]
 Group=CoreVoltages | ProgramSwitching
 Disabled=((#showCoreVoltages# = 0) || (#cpuCores# / #threadsPerCore# < 19)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuVoltageCore20]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core19Vid-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core19Vid-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core19Vid-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core19Vid#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore20Voltage MeasureName "MeasureCpuVoltageCore20"][!UpdateMeter MeterCore20Voltage]
 Group=CoreVoltages | ProgramSwitching
 Disabled=((#showCoreVoltages# = 0) || (#cpuCores# / #threadsPerCore# < 20)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuVoltageCore21]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core20Vid-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core20Vid-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core20Vid-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core20Vid#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore21Voltage MeasureName "MeasureCpuVoltageCore21"][!UpdateMeter MeterCore21Voltage]
 Group=CoreVoltages | ProgramSwitching
 Disabled=((#showCoreVoltages# = 0) || (#cpuCores# / #threadsPerCore# < 21)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuVoltageCore22]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core21Vid-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core21Vid-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core21Vid-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core21Vid#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore22Voltage MeasureName "MeasureCpuVoltageCore22"][!UpdateMeter MeterCore22Voltage]
 Group=CoreVoltages | ProgramSwitching
 Disabled=((#showCoreVoltages# = 0) || (#cpuCores# / #threadsPerCore# < 22)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuVoltageCore23]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core22Vid-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core22Vid-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core22Vid-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core22Vid#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore23Voltage MeasureName "MeasureCpuVoltageCore23"][!UpdateMeter MeterCore23Voltage]
 Group=CoreVoltages | ProgramSwitching
 Disabled=((#showCoreVoltages# = 0) || (#cpuCores# / #threadsPerCore# < 23)) || (#extProgram# = 0) || (#extProgram# = 2) || (#extProgram# = 4) || (#extProgram# = 6)
 
 [MeasureCpuVoltageCore24]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=#HWiNFO-CPU0-Core23Vid-SensorId#
-HWiNFOSensorInstance=#HWiNFO-CPU0-Core23Vid-SensorInstance#
-HWiNFOEntryId=#HWiNFO-CPU0-Core23Vid-EntryId#
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw#HWiNFO-CPU0-Core23Vid#
 IfCondition=MeasureCpuThreadsPerCore = 1
 IfTrueAction=[!SetOption MeterCore24Voltage MeasureName "MeasureCpuVoltageCore24"][!UpdateMeter MeterCore24Voltage]
 Group=CoreVoltages | ProgramSwitching
