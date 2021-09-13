@@ -1,0 +1,30 @@
+name: RMSKIN Packager
+
+on:
+  push:
+  pull_request:
+  release:
+    types: [published]
+
+jobs:
+  Build_n_Release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout this Repo
+        uses: actions/checkout@v2
+
+      # Runs a rmskin packager action
+      - name: Run Build action
+        id: builder
+        uses: 2bndy5/rmskin-action@v1.1.6
+
+      # Upload the asset (using the output from the `builder` step)
+      - name: Upload Release Asset
+        if: github.event_name == 'release'
+        uses: csexton/release-asset-action@master
+        with:
+          file: "${{ steps.builder.outputs.arc_name }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
