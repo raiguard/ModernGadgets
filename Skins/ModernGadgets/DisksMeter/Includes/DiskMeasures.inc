@@ -6,15 +6,6 @@ Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
-[MeasureDisk1Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d1#:
-Group=Disk1 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk1# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
-
 [MeasureDisk1Temp]
 Measure=Plugin
 Plugin=HWiNFO
@@ -117,15 +108,6 @@ Drive=#d2#:
 Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-
-[MeasureDisk2Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d2#:
-Group=Disk2 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk2# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
 
 [MeasureDisk2Temp]
 Measure=Plugin
@@ -230,15 +212,6 @@ Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
-[MeasureDisk3Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d3#:
-Group=Disk3 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk3# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
-
 [MeasureDisk3Temp]
 Measure=Plugin
 Plugin=HWiNFO
@@ -341,15 +314,6 @@ Drive=#d4#:
 Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-
-[MeasureDisk4Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d4#:
-Group=Disk4 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk4# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
 
 [MeasureDisk4Temp]
 Measure=Plugin
@@ -454,15 +418,6 @@ Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
-[MeasureDisk5Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d5#:
-Group=Disk5 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk5# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
-
 [MeasureDisk5Temp]
 Measure=Plugin
 Plugin=HWiNFO
@@ -565,15 +520,6 @@ Drive=#d6#:
 Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-
-[MeasureDisk6Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d6#:
-Group=Disk6 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk6# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
 
 [MeasureDisk6Temp]
 Measure=Plugin
@@ -678,15 +624,6 @@ Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
-[MeasureDisk7Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d7#:
-Group=Disk7 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk7# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
-
 [MeasureDisk7Temp]
 Measure=Plugin
 Plugin=HWiNFO
@@ -789,15 +726,6 @@ Drive=#d8#:
 Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-
-[MeasureDisk8Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d8#:
-Group=Disk8 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk8# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
 
 [MeasureDisk8Temp]
 Measure=Plugin
@@ -902,15 +830,6 @@ Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
-[MeasureDisk9Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d9#:
-Group=Disk9 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk9# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
-
 [MeasureDisk9Temp]
 Measure=Plugin
 Plugin=HWiNFO
@@ -1013,15 +932,6 @@ Drive=#d10#:
 Type=1
 IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
-
-[MeasureDisk10Eject]
-Measure=Plugin
-Plugin=RunCommand
-StartInFolder=#@#Addons\Sync
-Parameter=sync -e #d10#:
-Group=Disk10 | EjectButtons
-DynamicVariables=1
-Disabled=(#hideDisk10# = 1) || (#showEjectButtons# = 0) || (#userIsAdmin# = 0)
 
 [MeasureDisk10Temp]
 Measure=Plugin
