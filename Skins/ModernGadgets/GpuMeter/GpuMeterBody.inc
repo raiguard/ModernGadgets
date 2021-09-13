@@ -128,7 +128,7 @@ Formula=MeasureVramUsedCalc * 100 / max(MeasureVramUsage,1)
 IfCondition=(#useManualMaxVram# = 0)
 IfTrueAction=[!SetVariable textMemoryTotal [&MeasureFixedPrecisionFormatScript:FormatNumber([&MeasureVramTotal],1,'1k')]]
 IfCondition2=(#useManualMaxVram# = 1)
-IfTrueAction2=[!SetVariable textMemoryTotal [&MeasureFixedPrecisionFormatScript:FormatNumber('[#maxVram]000000',1,'2k')]]
+IfTrueAction2=[!SetVariable textMemoryTotal [&MeasureFixedPrecisionFormatScript:FormatNumber('#maxVram#000000',1,'2k')]]
 IfConditionMode=1
 DynamicVariables=1
 Group=Memory
