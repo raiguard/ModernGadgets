@@ -3,9 +3,10 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
-v1.7.1 - ??????????
+v1.7.1 - ????
   Bugfixes:
     - Fixed an error with a missing image when Disks Meter had more than ten disks
+    - Fixed that GPU Meter variants 2 and 3 would use the settings for variant 1
 
 v1.7.0 - 2021-1-29
 - Added Chameleon auto-coloring (unsupported!)
