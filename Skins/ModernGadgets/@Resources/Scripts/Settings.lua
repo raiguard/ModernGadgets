@@ -254,7 +254,7 @@ function ParseHWiNFORegOutput(sMeasureName)
     -- no sensor entries; output error message
     output = 'HWiNFO Sensor Entry Index List\n\n'
       .. 'ERROR:  HWiNFO is not configured or is not running.\n'
-      .. '        https://github.com/SilverAzide/Gadgets/wiki/HOW-TO-Configure-HWiNFO#how-to-configure-hwinfo\n'
+      .. '        https://github.com/raiguard/ModernGadgets/wiki/HWiNFO-Configuration\n'
   else
     -- create document header/footer
     output = 'HWiNFO Sensor Entry Index List\n\n'
