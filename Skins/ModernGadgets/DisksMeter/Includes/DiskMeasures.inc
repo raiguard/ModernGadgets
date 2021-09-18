@@ -7,12 +7,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk1Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d1]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d1]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d1]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d1]-Temp]
 DynamicVariables=1
 Group=Disk1 | DiskTemps
 Disabled=(#hideDisk1# = 1) || (#showDiskTemps# = 0)
@@ -110,12 +108,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk2Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d2]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d2]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d2]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d2]-Temp]
 DynamicVariables=1
 Group=Disk2 | DiskTemps
 Disabled=(#hideDisk2# = 1) || (#showDiskTemps# = 0)
@@ -213,12 +209,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk3Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d3]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d3]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d3]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d3]-Temp]
 DynamicVariables=1
 Group=Disk3 | DiskTemps
 Disabled=(#hideDisk3# = 1) || (#showDiskTemps# = 0)
@@ -316,12 +310,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk4Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d4]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d4]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d4]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d4]-Temp]
 DynamicVariables=1
 Group=Disk4 | DiskTemps
 Disabled=(#hideDisk4# = 1) || (#showDiskTemps# = 0)
@@ -419,12 +411,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk5Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d5]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d5]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d5]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d5]-Temp]
 DynamicVariables=1
 Group=Disk5 | DiskTemps
 Disabled=(#hideDisk5# = 1) || (#showDiskTemps# = 0)
@@ -522,12 +512,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk6Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d6]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d6]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d6]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d6]-Temp]
 DynamicVariables=1
 Group=Disk6 | DiskTemps
 Disabled=(#hideDisk6# = 1) || (#showDiskTemps# = 0)
@@ -625,12 +613,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk7Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d7]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d7]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d7]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d7]-Temp]
 DynamicVariables=1
 Group=Disk7 | DiskTemps
 Disabled=(#hideDisk7# = 1) || (#showDiskTemps# = 0)
@@ -728,12 +714,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk8Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d8]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d8]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d8]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d8]-Temp]
 DynamicVariables=1
 Group=Disk8 | DiskTemps
 Disabled=(#hideDisk8# = 1) || (#showDiskTemps# = 0)
@@ -831,12 +815,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk9Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d9]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d9]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d9]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d9]-Temp]
 DynamicVariables=1
 Group=Disk9 | DiskTemps
 Disabled=(#hideDisk9# = 1) || (#showDiskTemps# = 0)
@@ -934,12 +916,10 @@ IgnoreRemovable=#ignoreRemovable#
 DynamicVariables=1
 
 [MeasureDisk10Temp]
-Measure=Plugin
-Plugin=HWiNFO
-HWiNFOSensorId=[#HWiNFO-SMART-Disk[#d10]Temp-SensorId]
-HWiNFOSensorInstance=[#HWiNFO-SMART-Disk[#d10]Temp-SensorInstance]
-HWiNFOEntryId=[#HWiNFO-SMART-Disk[#d10]Temp-EntryId]
-HWiNFOType=CurrentValue
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw[#HWiNFO-Disk[#d10]-Temp]
 DynamicVariables=1
 Group=Disk10 | DiskTemps
 Disabled=(#hideDisk10# = 1) || (#showDiskTemps# = 0)
