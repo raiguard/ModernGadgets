@@ -3,7 +3,7 @@ ModernGadgets is a set of sleek, minimalist, information-dense gadgets that are 
 
 ModernGadgets is released on the Rainmeter platform under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license. The source code is made available on GitHub under an MIT License.
 
-## PROJECT STATUS
+## Project Status
 
 This project is complete, and is in maintenance mode. I will still answer issues and fix outstanding bugs, but do not expect any new features.
 
