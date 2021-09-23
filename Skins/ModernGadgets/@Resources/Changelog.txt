@@ -3,7 +3,7 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
-v1.8.0 - ????
+v1.8.0 - 2021-9-23
   Features:
     - Updated to HWiNFO 7.0
       - The settings format has changed, so all users will need to reconfigure their HWiNFO IDs
