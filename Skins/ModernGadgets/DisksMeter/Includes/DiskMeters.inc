@@ -19,7 +19,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk1Temp
 Group=Disk1 | DiskTemps | DiskElements
-Hidden=(#hideDisk1# = 1) || ([MeasureDisk1Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d1]Element] = 0)
+Hidden=(#hideDisk1# = 1) || ([MeasureDisk1Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d1]Element] = 0)
 
 [MeterDisk1RWTimeString]
 Meter=String
@@ -105,7 +105,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk2Temp
 Group=Disk2 | DiskTemps | DiskElements
-Hidden=(#hideDisk2# = 1) || ([MeasureDisk2Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d2]Element] = 0)
+Hidden=(#hideDisk2# = 1) || ([MeasureDisk2Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d2]Element] = 0)
 
 [MeterDisk2RWTimeString]
 Meter=String
@@ -191,7 +191,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk3Temp
 Group=Disk3 | DiskTemps | DiskElements
-Hidden=(#hideDisk3# = 1) || ([MeasureDisk3Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d3]Element] = 0)
+Hidden=(#hideDisk3# = 1) || ([MeasureDisk3Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d3]Element] = 0)
 
 [MeterDisk3RWTimeString]
 Meter=String
@@ -277,7 +277,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk4Temp
 Group=Disk4 | DiskTemps | DiskElements
-Hidden=(#hideDisk4# = 1) || ([MeasureDisk4Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d4]Element] = 0)
+Hidden=(#hideDisk4# = 1) || ([MeasureDisk4Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d4]Element] = 0)
 
 [MeterDisk4RWTimeString]
 Meter=String
@@ -363,7 +363,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk5Temp
 Group=Disk5 | DiskTemps | DiskElements
-Hidden=(#hideDisk5# = 1) || ([MeasureDisk5Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d5]Element] = 0)
+Hidden=(#hideDisk5# = 1) || ([MeasureDisk5Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d5]Element] = 0)
 
 [MeterDisk5RWTimeString]
 Meter=String
@@ -449,7 +449,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk6Temp
 Group=Disk6 | DiskTemps | DiskElements
-Hidden=(#hideDisk6# = 1) || ([MeasureDisk6Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d6]Element] = 0)
+Hidden=(#hideDisk6# = 1) || ([MeasureDisk6Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d6]Element] = 0)
 
 [MeterDisk6RWTimeString]
 Meter=String
@@ -535,7 +535,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk7Temp
 Group=Disk7 | DiskTemps | DiskElements
-Hidden=(#hideDisk7# = 1) || ([MeasureDisk7Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d7]Element] = 0)
+Hidden=(#hideDisk7# = 1) || ([MeasureDisk7Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d7]Element] = 0)
 
 [MeterDisk7RWTimeString]
 Meter=String
@@ -621,7 +621,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk8Temp
 Group=Disk8 | DiskTemps | DiskElements
-Hidden=(#hideDisk8# = 1) || ([MeasureDisk8Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d8]Element] = 0)
+Hidden=(#hideDisk8# = 1) || ([MeasureDisk8Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d8]Element] = 0)
 
 [MeterDisk8RWTimeString]
 Meter=String
@@ -707,7 +707,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk9Temp
 Group=Disk9 | DiskTemps | DiskElements
-Hidden=(#hideDisk9# = 1) || ([MeasureDisk9Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d9]Element] = 0)
+Hidden=(#hideDisk9# = 1) || ([MeasureDisk9Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d9]Element] = 0)
 
 [MeterDisk9RWTimeString]
 Meter=String
@@ -793,7 +793,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringRightAlign | StyleStringDiskTemp
 MeasureName=MeasureDisk10Temp
 Group=Disk10 | DiskTemps | DiskElements
-Hidden=(#hideDisk10# = 1) || ([MeasureDisk10Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] = -9000) || ([#showDisk[#d10]Element] = 0)
+Hidden=(#hideDisk10# = 1) || ([MeasureDisk10Type:] <> 4) || (#showDiskTemps# = 0) || ([MeasureHwinfoDetect:] <> 0) || ([#showDisk[#d10]Element] = 0)
 
 [MeterDisk10RWTimeString]
 Meter=String
