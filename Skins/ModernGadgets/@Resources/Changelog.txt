@@ -12,10 +12,13 @@ v1.8.0 - 2021-9-23
       - Use a standalone tool, such as MaxMax, to prevent your gadgets from being covered
       - This was done due to the presence of many unfixable issues with the sidebar implementation
     - Updated to ActiveNet 3.0
+    - Removed HWiNFO plugin
   Bugfixes:
     - Fixed an error related to audio meter mouse regions (#229)
     - Fixed an error with a missing image when Disks Meter had more than ten disks (#244)
+    - Fixed Disks Meter eject buttons not working most of the time
     - Fixed that GPU Meter variants 2 and 3 would use the settings for variant 1 (#246)
+    - Fixed that the Disks Meter eject buttons wouldn't work most of the time (#230)
     - Fixed that the GPU Meter VRAM labels would bounce between compact and regular fonts in some cases (#245)
     - Fixed that Weather Meter would be cut off on the bottom when the scale was not 1.0 (#238)
     - Fixed the CPU clock speed displaying as zero when first enabled (#233)
