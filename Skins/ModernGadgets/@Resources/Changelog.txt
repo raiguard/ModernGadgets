@@ -4,7 +4,8 @@ MODERNGADGETS CHANGELOG
 Official Releases
 
 v1.8.1 - ?????
-
+  Bugfixes:
+    - Fixed several broken readouts in GPU Meter
 
 v1.8.0 - 2021-9-23
   Features:
