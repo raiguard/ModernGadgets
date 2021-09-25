@@ -2,7 +2,7 @@
 ; WARNING: changing values in this file could have unintended consequences. Proceed at your own risk!
 
 [Variables]
-mgVersion=1.8.1
+mgVersion=1.8.2
 
 ; POSITIONING
 bgOffset=5
