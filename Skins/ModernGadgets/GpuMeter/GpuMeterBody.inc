@@ -66,7 +66,7 @@ MaxValue=#maxGpuTemp#
 [MeasureGpuUsage]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-CoreLoad]
 MinValue=0
 MaxValue=100
@@ -77,7 +77,7 @@ MaxValue=100
 [MeasureMemoryClockSpeed]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-MemoryClock]
 Disabled=(#showMemoryClock# = 0)
 Group=MemoryClock
@@ -85,7 +85,7 @@ Group=MemoryClock
 [MeasureVramUsed]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-MemoryAlloc]
 Group=Memory
 
@@ -100,7 +100,7 @@ Group=Memory
 [MeasureVramUsage]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-MemoryUsage]
 MinValue=0
 MaxValue=100
@@ -143,14 +143,14 @@ IfTrueAction=[!SetOption MeterGpuMemoryUsageBar MeasureName "MeasureVramUsageAlt
 [MeasureGpuFan1Speed]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanSpeed1]
 Disabled=#useMoboFanSensor#
 
 [MeasureGpuFan1Usage]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanUsage1]
 MinValue=0
 MaxValue=100
@@ -160,14 +160,14 @@ MaxValue=100
 [MeasureGpuFan2Speed]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanSpeed2]
 Disabled=#useMoboFanSensor#
 
 [MeasureGpuFan2Usage]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanUsage2]
 MinValue=0
 MaxValue=100
@@ -177,14 +177,14 @@ MaxValue=100
 [MeasureGpuFan3Speed]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanSpeed3]
 Disabled=#useMoboFanSensor#
 
 [MeasureGpuFan3Usage]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-FanUsage3]
 MinValue=0
 MaxValue=100
@@ -195,14 +195,14 @@ MaxValue=100
 [MeasureVideoClock]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-VideoClock]
 Disabled=(#showVideoClock# = 0)
 
 [MeasureMemoryControllerLoad]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-MemController]
 MinValue=0
 MaxValue=100
@@ -211,7 +211,7 @@ Disabled=(#showMemoryController# = 0)
 [MeasureCoreVoltage]
 Measure=Registry
 RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\HWINFO64\VSB
+RegKey=SOFTWARE\HWiNFO64\VSB
 RegValue=ValueRaw[#HWiNFO-GPU[#gpuIndex]-CoreVoltage]
 Disabled=(#showCoreVoltage# = 0)
 
@@ -579,7 +579,7 @@ Meter=String
 MeterStyle=StyleString | StyleStringCenterAlign
 FontColor=#colorError#
 Y=10
-Text=HWINFO NOT DETECTED
+Text=HWiNFO NOT DETECTED
 Group=NoHwinfo
 Hidden=1
 
