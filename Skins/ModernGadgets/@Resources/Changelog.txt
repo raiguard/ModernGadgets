@@ -3,6 +3,10 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
+v1.8.2 - ??????????
+  Fixed:
+    - [Weather Meter] Updated Weather.com API key
+
 v1.8.1 - 2021-9-25
   Bugfixes:
     - Fixed several broken readouts in GPU Meter

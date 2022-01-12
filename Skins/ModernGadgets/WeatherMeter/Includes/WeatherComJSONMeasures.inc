@@ -7,7 +7,7 @@
 ; ==================================================================================================
 
 [Variables]
-APIKey=d522aa97197fd864d36b418f39ebb323
+APIKey=21d8a80b3d6b444998a80b3d6b1449d3
 
 CommonSubstitute='"':"","^null$":"","\\u002F":"/","\\u005C":"\","\\u003C":"<","\\u003E":">"
 URLSite=https://api.weather.com/v3/aggcommon/v3-wx-observations-current;v3-wx-forecast-daily-15day;v3alertsHeadlines;v3-location-point?format=json&geocode=#Latitude#,#Longitude#&units=#Units#&language=#Language#&apiKey=#APIKey#
