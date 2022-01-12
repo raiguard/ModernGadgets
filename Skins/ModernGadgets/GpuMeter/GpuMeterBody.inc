@@ -41,6 +41,8 @@ IfMatch3=(?i)(.*Snapdragon.*)
 IfMatchAction3=[!SetOption MeterGpuIcon Fill "Fill Color #colorSnapdragon#"][!UpdateMeter MeterGpuIcon]
 IfMatch4=(?i)(.*Nvidia.*)
 IfMatchAction4=[!SetOption MeterGpuIcon Fill "Fill Color #colorNvidia#"][!UpdateMeter MeterGpuIcon]
+IfMatch5=(?i)(.*GeForce*.)
+IfMatchAction5=[!SetOption MeterGpuIcon Fill "Fill Color #colorNvidia#"][!UpdateMeter MeterGpuIcon]
 
 [MeasureCustomGpuName]
 Measure=String
