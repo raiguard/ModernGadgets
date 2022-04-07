@@ -5,8 +5,8 @@ Official Releases
 
 v1.8.2 - ??????????
   Fixed:
-    - [GPU Meter] NVIDIA was not being auto-detected in all cases
-    - [Weather Meter] Updated Weather.com API key
+    - [GPU Meter] NVIDIA was not being auto-detected in all cases (#273)
+    - [Weather Meter] Updated Weather.com API key (#274)
 
 v1.8.1 - 2021-9-25
   Bugfixes:
