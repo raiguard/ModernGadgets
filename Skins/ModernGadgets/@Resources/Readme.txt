@@ -1,5 +1,5 @@
 MODERNGADGETS
-Version 1.8.2
+Version 1.8.3
 
 ModernGadgets is a set of sleek, minimalist, information-dense gadgets that are designed to fit right into your modern
 desktop. It is inspired by the AddGadgets.com system monitoring gadgets and is heavily based on

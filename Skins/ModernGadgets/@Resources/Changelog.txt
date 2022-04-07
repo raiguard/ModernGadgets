@@ -3,7 +3,9 @@ MODERNGADGETS CHANGELOG
 ----------------------------------------------------------------------------------------------------
 Official Releases
 
-v1.8.2 - ??????????
+v1.8.3 - UNRELEASED
+
+v1.8.2 - 2022-4-7
   Fixed:
     - [GPU Meter] NVIDIA was not being auto-detected in all cases (#273)
     - [Weather Meter] Updated Weather.com API key (#274)
