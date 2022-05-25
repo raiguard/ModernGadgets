@@ -1,3 +1,5 @@
+# NOTICE: this project has come to a close. [Here](https://github.com/SilverAzide/Gadgets) is an actively maintained project that this suite was based on.
+
 ![](Wiki/preview.png)
 ModernGadgets is a set of sleek, minimalist, information-dense gadgets that are designed to fit right into your modern desktop. It is inspired by the AddGadgets.com system monitoring gadgets and is heavily based on [SilverAzide's Gadget Replicas](https://forum.rainmeter.net/viewtopic.php?f=130&t=20699).
 
